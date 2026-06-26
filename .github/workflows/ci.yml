@@ -12,11 +12,40 @@ permissions:
 
 jobs:
   validate:
+    name: Validate GoalOS Signoff Pro
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 20
-      - run: npm ci
-      - run: npm run check
+          registry-url: https://registry.npmjs.org/
+          cache: npm
+
+      - name: Refuse private/internal package registries
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm config set registry https://registry.npmjs.org/
+          if grep -R -n -E "applied-caas|internal\.api\.openai\.org|artifactory|npm-public" package-lock.json .npmrc 2>/dev/null; then
+            echo "::error::Private/internal package registry reference found. Run the Repair npm lockfile workflow."
+            exit 1
+          fi
+
+      - name: Install dependencies
+        run: npm ci --registry=https://registry.npmjs.org/ --no-audit
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Test
+        run: npm run test
+
+      - name: Build
+        run: npm run build
