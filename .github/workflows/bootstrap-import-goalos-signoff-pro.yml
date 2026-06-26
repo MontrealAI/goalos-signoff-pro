@@ -2,6 +2,10 @@ name: Bootstrap import GoalOS Signoff Pro package
 
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - 'GoalOS-Signoff-Pro-v1.1-MontrealAI-GitHub-Repository-v1.0.2.zip'
+      - '.github/workflows/bootstrap-import-goalos-signoff-pro.yml'
 
 permissions:
   contents: write
@@ -38,17 +42,18 @@ jobs:
 
           rm -rf __goalos_import
           mkdir __goalos_import
+
           python3 - <<'PY'
-import pathlib, zipfile
-zip_path = pathlib.Path("GoalOS-Signoff-Pro-v1.1-MontrealAI-GitHub-Repository-v1.0.2.zip")
-target = pathlib.Path("__goalos_import").resolve()
-with zipfile.ZipFile(zip_path) as archive:
-    for member in archive.infolist():
-        out = (target / member.filename).resolve()
-        if out != target and not str(out).startswith(str(target) + "/"):
-            raise SystemExit(f"Unsafe ZIP path refused: {member.filename}")
-    archive.extractall(target)
-PY
+          import pathlib, zipfile
+          zip_path = pathlib.Path("GoalOS-Signoff-Pro-v1.1-MontrealAI-GitHub-Repository-v1.0.2.zip")
+          target = pathlib.Path("__goalos_import").resolve()
+          with zipfile.ZipFile(zip_path) as archive:
+              for member in archive.infolist():
+                  out = (target / member.filename).resolve()
+                  if not str(out).startswith(str(target) + "/") and out != target:
+                      raise SystemExit(f"Unsafe ZIP path refused: {member.filename}")
+              archive.extractall(target)
+          PY
 
           ROOT_DIR="$(find __goalos_import -mindepth 1 -maxdepth 1 -type d | head -n 1)"
           if [ -z "$ROOT_DIR" ] || [ ! -d "$ROOT_DIR" ]; then
@@ -56,26 +61,24 @@ PY
             exit 1
           fi
 
-          shopt -s dotglob nullglob
-          for item in "$ROOT_DIR"/*; do
-            name="$(basename "$item")"
-            case "$name" in
-              .git|node_modules|.next) continue ;;
-            esac
-            rm -rf "$name"
-            cp -R "$item" "$name"
-          done
+          rsync -a --delete \
+            --exclude='.git' \
+            --exclude='node_modules' \
+            --exclude='.next' \
+            --exclude='dist' \
+            --exclude='__goalos_import' \
+            --exclude="$ZIP" \
+            "$ROOT_DIR"/ ./
 
           rm -rf __goalos_import
           rm -f "$ZIP"
-          rm -f .github/workflows/bootstrap-import-package.yml
           rm -f .github/workflows/bootstrap-import-goalos-signoff-pro.yml
 
-          if git diff --quiet --staged && git diff --quiet; then
+          git add -A
+          if git diff --cached --quiet; then
             echo "No changes to commit."
             exit 0
           fi
 
-          git add -A
           git commit -m "Initial GoalOS Signoff Pro repository"
           git push origin HEAD:main
