@@ -1,0 +1,61 @@
+name: Repair npm lockfile
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  repair-npm-lock:
+    name: Normalize npm lockfile to public npm registry
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: https://registry.npmjs.org/
+
+      - name: Regenerate package-lock.json from public npm registry
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "Using npm registry:"
+          npm config set registry https://registry.npmjs.org/
+          npm config get registry
+
+          echo "Removing local install artifacts and old lockfile..."
+          rm -rf node_modules package-lock.json
+
+          echo "Regenerating package-lock.json without running package lifecycle scripts..."
+          npm install --package-lock-only --ignore-scripts --registry=https://registry.npmjs.org/ --no-audit
+
+          echo "Refusing private/internal registry references..."
+          if grep -R -n -E "applied-caas|internal\.api\.openai\.org|artifactory|npm-public" package-lock.json .npmrc 2>/dev/null; then
+            echo "::error::Private/internal package registry reference remains. Do not commit this lockfile."
+            exit 1
+          fi
+
+          echo "Verifying clean install from the new lockfile..."
+          npm ci --ignore-scripts --registry=https://registry.npmjs.org/ --no-audit
+
+      - name: Commit normalized lockfile
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- package-lock.json; then
+            echo "package-lock.json is already normalized. No commit needed."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add package-lock.json
+          git commit -m "Normalize npm lockfile for public registry"
+          git push
