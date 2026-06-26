@@ -1,71 +1,67 @@
-name: Deploy sovereign apex production site
+name: Deploy ASI Apex institutional production site
 
 on:
   push:
     branches: [main]
     paths:
-      - '.github/workflows/pages.yml'
-      - 'scripts/build-sovereign-apex-pages.mjs'
-      - 'README.md'
-      - 'docs/**'
-      - 'config/**'
-      - 'schemas/**'
-      - 'contracts/**'
+      - "scripts/build-asi-apex-institutional-pages.mjs"
+      - ".github/workflows/pages.yml"
+      - "README.md"
+      - "docs/**"
+      - "contracts/**"
+      - "schemas/**"
+      - "config/**"
+      - "package.json"
   workflow_dispatch:
+
+concurrency:
+  group: github-pages-asi-apex-${{ github.ref }}
+  cancel-in-progress: true
 
 permissions:
   contents: read
 
-concurrency:
-  group: sovereign-apex-pages-${{ github.ref }}
-  cancel-in-progress: true
-
 jobs:
   build:
-    name: Build and verify sovereign apex site
+    name: Build and verify ASI Apex static site
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
-        with:
-          persist-credentials: false
-
-      - name: Configure Pages
-        uses: actions/configure-pages@v5
-
-      - name: Build curated static website
-        shell: bash
-        run: node scripts/build-sovereign-apex-pages.mjs
-
-      - name: Refuse private material in public Pages artifact
+      - name: Build ASI Apex institutional website
         shell: bash
         run: |
           set -euo pipefail
-          test -d site
-          if find site -type d \( -name .git -o -name node_modules -o -name .next \) | grep -q .; then
-            echo "Forbidden build/cache directory in Pages artifact." >&2
-            exit 1
-          fi
-          if find site -type f \( -name '.env' -o -name '.env.*' -o -name '*private*key*' -o -name '*.pem' \) | grep -q .; then
-            echo "Forbidden private-material filename in Pages artifact." >&2
-            exit 1
-          fi
-          if grep -RInE 'BEGIN (RSA |EC |OPENSSH |)PRIVATE KEY|SUPABASE_SERVICE_ROLE|STRIPE_SECRET|sk_live_|ghp_[A-Za-z0-9_]+|MNEMONIC|SEED_PHRASE|PRIVATE_KEY' site; then
-            echo "Secret-like material found in Pages artifact." >&2
-            exit 1
-          fi
+          node scripts/build-asi-apex-institutional-pages.mjs
+      - name: Verify public Pages artifact boundary
+        shell: bash
+        run: |
+          set -euo pipefail
           test -f site/index.html
+          test -f site/assets/asi-apex.css
+          test -f site/assets/asi-apex.js
           test -f site/production-manifest.json
-          test -f site/assets/sovereign-apex.css
-          test -f site/assets/sovereign-apex.js
-
-      - name: Upload Pages artifact
+          if find site -type f \( -name '.env*' -o -name 'package-lock.json' -o -name '*.pem' -o -name '*.key' -o -name '*.p12' -o -name '*.pfx' \) | grep -q .; then
+            echo "Refusing to publish sensitive or build-only files in site artifact."
+            exit 1
+          fi
+          if find site -path '*/node_modules/*' -o -path '*/.git/*' -o -path '*/.next/*' | grep -q .; then
+            echo "Refusing to publish dependency/cache/runtime directories."
+            exit 1
+          fi
+          if grep -R -I -n -E '(BEGIN[[:space:]]+(RSA |EC |OPENSSH |)PRIVATE KEY|SUPABASE_SERVICE_ROLE|STRIPE_SECRET|sk_live_|sk_test_|MNEMONIC|SEED_PHRASE|PRIVATE_KEY=|API_SECRET|RPC_URL=)' site; then
+            echo "Refusing to publish credential-like text in site artifact."
+            exit 1
+          fi
+          node -e "const fs=require('fs'); const m=JSON.parse(fs.readFileSync('site/production-manifest.json','utf8')); if(!m.siteHash||!m.files||m.files.length<10) throw new Error('manifest incomplete'); console.log('ASI Apex manifest verified',m.siteHash,m.files.length)"
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: site
-
   deploy:
-    name: Deploy to https://montrealai.github.io/goalos-signoff-pro/
+    name: Deploy ASI Apex site to GitHub Pages
     needs: build
     runs-on: ubuntu-latest
     permissions:
@@ -75,6 +71,6 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Deploy sovereign apex site to GitHub Pages
+      - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
