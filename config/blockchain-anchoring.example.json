@@ -1,0 +1,24 @@
+{
+  "mode": "sepolia-first",
+  "customerDefault": "walletless",
+  "privacyRule": "only hashes and public verification metadata go on-chain",
+  "networks": {
+    "sepolia": {
+      "enabled": true,
+      "chainId": 11155111,
+      "contractAddress": "0x0000000000000000000000000000000000000000",
+      "signerPolicy": "testnet-relayer-or-safe",
+      "gasSponsorship": true
+    },
+    "ethereum-mainnet": {
+      "enabled": false,
+      "chainId": 1,
+      "contractAddress": "0x0000000000000000000000000000000000000000",
+      "signerPolicy": "multisig-or-kms-only",
+      "requiresIndependentRevalidation": true,
+      "requiresSourceIdentity": true,
+      "requiresExternalAudit": true,
+      "requiresProductionActivation": true
+    }
+  }
+}

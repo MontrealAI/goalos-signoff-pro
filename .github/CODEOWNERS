@@ -1,0 +1,31 @@
+# GoalOS Signoff Pro CODEOWNERS
+# MontrealAI-owned repository profile.
+# This file is active. Confirm @MontrealAI has write access before requiring CODEOWNER review.
+
+* @MontrealAI
+
+# Security-sensitive repository control plane
+.github/ @MontrealAI
+.github/workflows/ @MontrealAI
+.github/CODEOWNERS @MontrealAI
+
+# Application and data
+src/ @MontrealAI
+supabase/ @MontrealAI
+services/ @MontrealAI
+schemas/ @MontrealAI
+
+# Receipt signing, verification, and blockchain anchoring
+src/lib/receipt* @MontrealAI
+TOOLS/ @MontrealAI
+blockchain/ @MontrealAI
+contracts/ @MontrealAI
+config/blockchain-anchoring.example.json @MontrealAI
+
+# Product and launch boundaries
+docs/*BOUNDARY* @MontrealAI
+docs/*MAINNET* @MontrealAI
+docs/*AGIALPHA* @MontrealAI
+GOVERNANCE.md @MontrealAI
+SECURITY.md @MontrealAI
+MAINTAINERS.md @MontrealAI

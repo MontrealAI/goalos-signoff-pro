@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "compiler": "0.8.28+commit.7893614a.Emscripten.clang",
+  "sourceSha256": "0x016a411f1422686dc720515bb87643b4ad57419daff247e7ae16b220747f3bd2",
+  "bytecodeBytes": 6566,
+  "deployedBytecodeBytes": 6068
+}

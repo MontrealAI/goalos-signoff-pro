@@ -1,0 +1,11 @@
+{
+  "name": "goalos-signoff-anchor-relayer",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "description": "Optional sponsored relayer that anchors accepted GoalOS receipts after SaaS approval.",
+  "engines": { "node": ">=20.19.0" },
+  "scripts": { "dry-run": "ANCHOR_DRY_RUN=1 node src/relayer.mjs", "run": "node src/relayer.mjs", "test": "node --test src/relayer.test.mjs" },
+  "dependencies": { "@supabase/supabase-js": "2.108.2", "ethers": "6.17.0" }
+}

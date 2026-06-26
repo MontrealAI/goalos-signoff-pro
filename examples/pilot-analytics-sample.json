@@ -1,0 +1,18 @@
+{
+  "events": [
+    {
+      "metadata": {
+        "template": "ai_research"
+      },
+      "name": "signoff_created",
+      "occurredAt": "2026-06-25T00:00:00Z"
+    },
+    {
+      "metadata": {
+        "verifiedReceipt": false
+      },
+      "name": "receipt_issued",
+      "occurredAt": "2026-06-25T01:00:00Z"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "1.0",
+  "product": "GoalOS Signoff Hybrid Production",
+  "mainstreamSaasLaunch": true,
+  "sepoliaAnchoringAllowed": true,
+  "mainnetAnchoringAllowed": false,
+  "customerWalletRequired": false,
+  "agialphaRequired": false,
+  "escrowEnabled": false,
+  "userFundsAuthorized": false,
+  "mainnetPrerequisites": [
+    "independent live revalidation PASS",
+    "source identity reproducibility PASS",
+    "external audit and remediation review",
+    "production activation certificate",
+    "multisig or KMS relayer policy",
+    "incident-response drill"
+  ]
+}

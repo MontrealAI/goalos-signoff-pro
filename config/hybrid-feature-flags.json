@@ -1,0 +1,24 @@
+{
+  "schemaVersion": "1.0",
+  "product": "GoalOS Signoff Hybrid",
+  "defaultMode": "mainstream-saas",
+  "features": {
+    "standardSignedReceipts": "enabled",
+    "optionalOnchainAnchoring": "operator-controlled",
+    "customerWalletRequired": false,
+    "agialphaRequiredFromCustomer": false,
+    "agialphaProtocolFee": "disabled-by-default",
+    "escrow": "disabled",
+    "bondedReview": "future-gated",
+    "goalos48ContractSettlement": "future-gated"
+  },
+  "productionBoundaries": [
+    "Do not enable escrow before independent audit and explicit user-fund authorization.",
+    "Do not require AGIALPHA from mainstream customers.",
+    "Use Sepolia or private test deployments before any Mainnet anchor deployment.",
+    "If relayer mode is enabled, use a low-balance dedicated signer or managed KMS key, never a treasury wallet."
+  ],
+  "mainnetAnchoringEnabled": false,
+  "agialphaRequired": false,
+  "escrowEnabled": false
+}

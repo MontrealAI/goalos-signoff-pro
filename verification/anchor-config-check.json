@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "mode": "disabled",
+  "mainnet": false,
+  "anchorContractConfigured": false,
+  "relayerConfigured": false
+}

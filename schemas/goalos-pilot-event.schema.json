@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "metadata": {
+      "type": "object"
+    },
+    "name": {
+      "enum": [
+        "signoff_created",
+        "builder_invited",
+        "evidence_uploaded",
+        "submission_created",
+        "review_recorded",
+        "decision_recorded",
+        "receipt_issued",
+        "anchor_requested"
+      ]
+    },
+    "occurredAt": {
+      "type": "string"
+    },
+    "projectId": {
+      "type": "string"
+    },
+    "userId": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "name",
+    "occurredAt"
+  ],
+  "title": "GoalOS pilot event",
+  "type": "object"
+}

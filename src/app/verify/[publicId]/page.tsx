@@ -1,0 +1,25 @@
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { CheckCircle2, Download, ShieldAlert, ShieldCheck } from "lucide-react";
+import { loadVisibleReceipt } from "@/lib/receipt/public";
+import { sha256Prefixed } from "@/lib/crypto";
+import { StatusBadge } from "@/components/ui/status-badge";
+export const metadata: Metadata = { title: "Verify Mission Receipt", robots: { index: false, follow: false } };
+export const dynamic = "force-dynamic";
+export default async function VerifyReceiptPage({ params }: { params: Promise<{ publicId: string }> }) {
+  const { publicId } = await params;
+  const envelope = await loadVisibleReceipt(publicId);
+  if (!envelope) notFound();
+  const receipt = envelope.record.canonical_json;
+  const valid = envelope.valid;
+  return <main className="page"><div className="narrow stack">
+    <div className={valid ? "receipt-hero" : "card"}><div className="row between"><div className="receipt-mark">{valid ? <ShieldCheck size={30} /> : <ShieldAlert size={30} />}</div><span className={`status ${valid ? "pass" : "fail"}`}>{!envelope.verified ? "verification failed" : envelope.revokedAt ? "authentic but revoked" : "signature verified"}</span></div><h1 style={{ fontSize: 44, marginTop: 20 }}>{receipt.mission.title}</h1><p>{!envelope.verified ? "Do not rely on this receipt. Its signature could not be verified." : envelope.revokedAt ? "The signature is authentic, but the issuer permanently revoked this receipt. Do not treat it as a current approval." : "This receipt matches its digitally signed canonical record and has not been revoked."}</p><div className="metric-row"><div className="metric"><strong>{receipt.acceptanceCriteria.length}</strong><span>criteria</span></div><div className="metric"><strong>{receipt.artifacts.length}</strong><span>artifacts</span></div><div className="metric"><strong>{receipt.finalDecision.decision}</strong><span>decision</span></div></div></div>
+    {envelope.revokedAt && <div className="notice error"><strong>Receipt revoked {new Date(envelope.revokedAt).toLocaleString()}.</strong><br />{envelope.revocationReason || "No reason was recorded."}</div>}
+    <div className="card"><div className="row between"><div><h2 style={{ fontSize: 28 }}>Final client decision</h2><p className="muted small">Recorded {new Date(receipt.finalDecision.decidedAt).toLocaleString()}</p></div><StatusBadge status={receipt.finalDecision.decision} /></div><p>{receipt.finalDecision.comment}</p></div>
+    <div className="card"><h2 style={{ fontSize: 28 }}>Acceptance record</h2><div className="criteria-list" style={{ marginTop: 16 }}>{receipt.acceptanceCriteria.map((criterion, index) => <div className="criteria-item" key={criterion.id}><div className="row between"><strong>{index + 1}. {criterion.title}</strong><StatusBadge status={criterion.responseStatus} /></div><p>{criterion.response}</p>{criterion.evidenceArtifactHashes.length > 0 && <div className="hash">Evidence hashes: {criterion.evidenceArtifactHashes.join(", ")}</div>}</div>)}</div></div>
+    <div className="card"><h2 style={{ fontSize: 28 }}>Evidence fingerprints</h2><div className="artifact-list" style={{ marginTop: 16 }}>{receipt.artifacts.map((artifact) => <div className="artifact-item" key={artifact.id}><div className="row between"><strong>{artifact.filename}</strong><span className="status pass"><CheckCircle2 size={12} /> recorded</span></div>{artifact.description && <p className="small muted">{artifact.description}</p>}<div className="hash">SHA-256 {artifact.sha256}</div></div>)}</div></div>
+    <div className="card"><h2 style={{ fontSize: 28 }}>Mechanical checks</h2><p className="muted small">These establish package completeness and integrity signals. They do not certify every external factual claim.</p><div className="check-list">{receipt.checks.map((check) => <div className="check-item" key={check.code}><div className="row between"><strong>{check.label}</strong><StatusBadge status={check.status} /></div><div className="small muted">{check.detail}</div></div>)}</div></div>
+    <div className="card stack"><h2 style={{ fontSize: 28 }}>Cryptographic record</h2><div><strong>Receipt ID</strong><div className="hash">{receipt.publicId}</div></div><div><strong>Canonical receipt SHA-256</strong><div className="hash">{envelope.record.canonical_sha256}</div></div><div><strong>Proof-bundle hash</strong><div className="hash">{receipt.protocolReady.proofBundleHash}</div></div><div><strong>Signing key fingerprint</strong><div className="hash">{envelope.publicKeyPem ? sha256Prefixed(envelope.publicKeyPem) : "Public key unavailable"}</div></div><div className="row wrap"><a className="button" href={`/api/receipts/${receipt.publicId}/pdf`}><Download size={16} /> Download PDF</a><a className="button secondary" href={`/api/receipts/${receipt.publicId}/json`}><Download size={16} /> Download JSON</a></div></div>
+    <div className="notice">Phase 1 receipt: no wallet, AGIALPHA, Ethereum transaction, or escrow was used. The receipt is signed by the GoalOS Signoff service.</div>
+  </div></main>;
+}

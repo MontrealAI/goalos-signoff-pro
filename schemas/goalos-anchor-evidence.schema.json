@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "GoalOS Signoff anchor evidence",
+  "type": "object",
+  "required": ["schemaVersion", "product", "network", "receipt", "boundary", "generatedAt"],
+  "properties": {
+    "schemaVersion": {"const": "1.0"},
+    "product": {"const": "GoalOS Signoff Hybrid"},
+    "network": {
+      "type": "object",
+      "required": ["chainId", "name", "blockExplorerBaseUrl", "anchorContractAddress"],
+      "properties": {
+        "chainId": {"type": "integer", "minimum": 1},
+        "name": {"type": "string"},
+        "blockExplorerBaseUrl": {"type": "string"},
+        "anchorContractAddress": {"type": "string"}
+      }
+    },
+    "receipt": {
+      "type": "object",
+      "required": ["publicId", "receiptHash", "evidenceRoot", "briefHash", "decisionHash", "receiptURI", "evidenceURI"],
+      "properties": {
+        "publicId": {"type": "string", "minLength": 1},
+        "receiptHash": {"type": "string", "pattern": "^0x[0-9a-f]{64}$"},
+        "evidenceRoot": {"type": "string", "pattern": "^0x[0-9a-f]{64}$"},
+        "briefHash": {"type": "string", "pattern": "^0x[0-9a-f]{64}$"},
+        "decisionHash": {"type": "string", "pattern": "^0x[0-9a-f]{64}$"},
+        "receiptURI": {"type": "string", "minLength": 1},
+        "evidenceURI": {"type": "string", "minLength": 1}
+      }
+    },
+    "participants": {"type": "object"},
+    "transaction": {"type": "object"},
+    "boundary": {
+      "type": "object",
+      "required": ["userPaidGas", "userProvidedWallet", "customerFundsCustodied", "escrowEnabled", "agialphaRequiredFromCustomer"],
+      "properties": {
+        "userPaidGas": {"const": false},
+        "userProvidedWallet": {"const": false},
+        "customerFundsCustodied": {"const": false},
+        "escrowEnabled": {"const": false},
+        "agialphaRequiredFromCustomer": {"const": false}
+      }
+    },
+    "generatedAt": {"type": "string"}
+  },
+  "additionalProperties": true
+}

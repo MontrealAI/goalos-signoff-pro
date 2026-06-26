@@ -1,0 +1,14 @@
+{
+  "name": "GoalOS Signoff Hybrid Production",
+  "version": "1.0.0",
+  "classification": "production-grade hybrid private-beta package",
+  "customerDefault": "mainstream SaaS signed receipt",
+  "optionalTrustLayer": "IPFS plus Ethereum receipt anchoring",
+  "walletRequiredByDefault": false,
+  "agialphaRequiredByDefault": false,
+  "escrowEnabled": false,
+  "mainnetSettlementEnabled": false,
+  "anchorContract": "contracts/GoalOSSignoffAnchorV1.sol",
+  "sourceHash": "0x016a411f1422686dc720515bb87643b4ad57419daff247e7ae16b220747f3bd2",
+  "releaseBoundary": "Launch Basic first; enable Verified on Sepolia; Mainnet anchoring only after review; AGIALPHA bonds and escrow only after separate GoalOS protocol gates."
+}

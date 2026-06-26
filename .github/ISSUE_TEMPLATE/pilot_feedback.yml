@@ -1,0 +1,40 @@
+name: Pilot feedback
+description: Record feedback from a private-beta user.
+title: "Pilot feedback: "
+labels: [pilot-feedback]
+body:
+  - type: input
+    id: role
+    attributes:
+      label: User role
+      placeholder: Client, builder, reviewer, or admin
+    validations:
+      required: true
+  - type: textarea
+    id: what-worked
+    attributes:
+      label: What worked?
+    validations:
+      required: true
+  - type: textarea
+    id: confusing
+    attributes:
+      label: What was confusing?
+    validations:
+      required: true
+  - type: dropdown
+    id: reuse
+    attributes:
+      label: Would they use it again?
+      options:
+        - Yes
+        - Maybe
+        - No
+        - Unknown
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: Do not include private customer evidence or secrets.

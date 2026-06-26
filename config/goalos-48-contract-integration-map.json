@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0",
+  "status": "roadmap_disabled_by_default",
+  "principle": "Mainstream SaaS workflow first; hashes become compatible with the 48-contract GoalOS protocol later.",
+  "mappings": [
+    { "signoffObject": "briefHash", "futureGoalOSContractFamily": "AEPGoalOSCommitRegistry" },
+    { "signoffObject": "evidenceRoot", "futureGoalOSContractFamily": "AEPEvidenceDocketRegistry / AEPProofBundleRegistry" },
+    { "signoffObject": "reviewDecision", "futureGoalOSContractFamily": "AEPAttestationRegistry / AEPEvalRegistry" },
+    { "signoffObject": "receiptHash", "futureGoalOSContractFamily": "ProofCardRegistry / ProofCredentialRegistry / AEPChronicleRegistry" },
+    { "signoffObject": "challenge", "futureGoalOSContractFamily": "AEPFalsificationRegistry / AEPSlashingCourt / DisputeRegistry" }
+  ],
+  "agialphaUsesAfterReadiness": ["reviewer bond", "builder bond", "challenge stake", "protocol credential fee", "optional settlement rail"],
+  "disabledUntil": ["contract remediation", "independent audit", "production activation", "user-fund authorization for settlement"]
+}

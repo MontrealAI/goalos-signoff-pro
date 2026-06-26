@@ -1,0 +1,13 @@
+{
+  "title": "AI market intelligence report",
+  "summary": "Produce a decision-ready competitive analysis for a new enterprise AI product.",
+  "deadline": "",
+  "receipt_visibility": "private",
+  "criteria": [
+    { "title": "Analyze at least five direct competitors", "description": "Each competitor receives a substantive comparison.", "required": true, "position": 0 },
+    { "title": "Use sources published within 12 months", "description": "Older sources are identified and justified.", "required": true, "position": 1 },
+    { "title": "Include a current pricing comparison", "description": "Unknown private pricing is clearly labeled.", "required": true, "position": 2 },
+    { "title": "Provide three actionable recommendations", "description": "Each recommendation includes rationale and next action.", "required": true, "position": 3 },
+    { "title": "Disclose uncertainty and limitations", "description": "Missing evidence and competing interpretations are visible.", "required": true, "position": 4 }
+  ]
+}

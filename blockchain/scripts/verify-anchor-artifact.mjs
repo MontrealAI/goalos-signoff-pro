@@ -1,0 +1,11 @@
+import fs from 'node:fs';
+import path from 'node:path';
+const root = path.resolve(import.meta.dirname, '..', '..');
+const p = path.join(root, 'artifacts/contracts/GoalOSSignoffAnchorV1.json');
+if (!fs.existsSync(p)) throw new Error('Run npm --prefix blockchain run compile first');
+const artifact = JSON.parse(fs.readFileSync(p, 'utf8'));
+const required = ['abi','bytecode','deployedBytecode','sourceSha256','metadataHash'];
+const missing = required.filter(k => !artifact[k]);
+if (missing.length) throw new Error('Missing artifact fields: ' + missing.join(', '));
+if (!artifact.bytecode.startsWith('0x') || artifact.bytecode.length < 1000) throw new Error('Invalid bytecode');
+console.log(JSON.stringify({ status: 'PASS', contractName: artifact.contractName, sourceSha256: artifact.sourceSha256 }, null, 2));

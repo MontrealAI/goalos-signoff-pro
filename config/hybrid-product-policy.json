@@ -1,0 +1,40 @@
+{
+  "schema": "goalos.signoff.hybrid.policy.v1",
+  "defaultMode": "basic-saas",
+  "web3Modes": [
+    "disabled",
+    "sepolia",
+    "mainnet-anchor-only"
+  ],
+  "mainnetDefault": "disabled",
+  "agialphaDefault": "disabled",
+  "escrowDefault": "disabled",
+  "userFundsAuthorized": "NO",
+  "privacyBoundary": "private evidence stays off-chain; chain stores hashes only",
+  "allowedBeforeAudit": [
+    "saas-signoff",
+    "signed-receipt",
+    "receipt-verification",
+    "sepolia-anchor"
+  ],
+  "blockedBeforeAudit": [
+    "mainnet-escrow",
+    "public-agialpha-bonds",
+    "proof-to-payment",
+    "mandatory-wallet-onboarding"
+  ],
+  "requiredForMainnetAnchor": [
+    "source-verified-anchor-contract",
+    "privacy-review",
+    "relayer-gas-caps",
+    "monitoring",
+    "incident-response-runbook",
+    "human-change-review"
+  ],
+  "requiredForAgialphaSecurity": [
+    "protocol-readiness-gates",
+    "independent-audit",
+    "production-activation",
+    "user-risk-disclosures"
+  ]
+}

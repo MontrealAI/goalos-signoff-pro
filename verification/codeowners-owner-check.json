@@ -1,0 +1,8 @@
+{
+  "schema": "goalos.signoff.codeowners_owner_check.v1",
+  "status": "CONFIGURED_MONTREALAI",
+  "repositoryOwner": "@MontrealAI",
+  "checkedAt": "2026-06-26T02:03:52.627Z",
+  "failures": [],
+  "warnings": []
+}

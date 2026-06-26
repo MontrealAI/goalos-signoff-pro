@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "properties": {
+    "items": {
+      "items": {
+        "properties": {
+          "criterionId": {
+            "type": "string"
+          },
+          "description": {
+            "minLength": 3,
+            "type": "string"
+          },
+          "severity": {
+            "enum": [
+              "minor",
+              "normal",
+              "major",
+              "blocker"
+            ]
+          },
+          "suggestedFix": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "description",
+          "severity"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "projectId": {
+      "type": "string"
+    },
+    "requestedBy": {
+      "type": "string"
+    },
+    "submissionId": {
+      "type": "string"
+    },
+    "summary": {
+      "minLength": 3,
+      "type": "string"
+    }
+  },
+  "required": [
+    "projectId",
+    "submissionId",
+    "requestedBy",
+    "summary",
+    "items"
+  ],
+  "title": "GoalOS Signoff change request",
+  "type": "object"
+}

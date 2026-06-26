@@ -1,0 +1,29 @@
+{
+  "schema": "goalos.signoff.github_repository_package.v1",
+  "name": "GoalOS Signoff Pro v1.1 MontrealAI GitHub Repository Package",
+  "version": "1.0.2",
+  "createdAt": "2026-06-26T02:03:52.407225+00:00",
+  "repositoryOwner": "@MontrealAI",
+  "intendedRepositoryFullName": "MontrealAI/goalos-signoff-pro",
+  "intendedRepositoryName": "goalos-signoff-pro",
+  "status": "private-beta repository-ready for MontrealAI-owned repository",
+  "sourcePackages": [
+    "GoalOS-Signoff-Pro-v1.1.0-FINAL.zip",
+    "GoalOS-Signoff-Pro-v1.1-Elite-Documentation-Series-v1.1.0.zip"
+  ],
+  "activeCodeowners": "@MontrealAI",
+  "requiredNextStep": "create private MontrealAI/goalos-signoff-pro repository, upload package, confirm CI green, then protect main",
+  "boundaries": [
+    "No escrow",
+    "No custody",
+    "No AGIALPHA staking",
+    "No Mainnet settlement",
+    "No legal/audit approval claim"
+  ],
+  "keyGuides": [
+    "GITHUB_REPOSITORY_START_HERE.html",
+    "docs/repository/GITHUB_UPLOAD_GUIDE.md",
+    "docs/repository/REPOSITORY_SETTINGS_CHECKLIST.md",
+    "docs/repository/SECRETS_AND_ENVIRONMENT_GUIDE.md"
+  ]
+}

@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GoalOS Signoff Pro — MontrealAI Repository Start Here</title>
+  <style>
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;margin:0;background:#08111f;color:#eef6ff;line-height:1.55}.wrap{max-width:980px;margin:auto;padding:42px 22px}.card{background:#101c31;border:1px solid #2d4266;border-radius:24px;padding:26px;margin:18px 0;box-shadow:0 14px 40px rgba(0,0,0,.28)}h1{font-size:clamp(2rem,5vw,4rem);line-height:1.02;margin:0 0 12px}h2{margin-top:0;color:#9fd3ff}.pill{display:inline-block;background:#123e2b;color:#b9ffd8;border:1px solid #2db36f;border-radius:999px;padding:8px 14px;font-weight:700}.steps{counter-reset:s}.step{counter-increment:s;border-left:4px solid #6db7ff;padding:10px 0 10px 16px;margin:16px 0;background:rgba(255,255,255,.035);border-radius:8px}.step:before{content:counter(s);display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:#6db7ff;color:#071121;font-weight:800;margin-right:10px}code{background:#091426;border:1px solid #314665;border-radius:8px;padding:2px 6px}a{color:#8bd5ff}.warn{background:#24170b;border-color:#8a5c1d}.ok{background:#0e281d;border-color:#2fa866}ul{padding-left:1.2rem}li{margin:.35rem 0}
+  </style>
+</head>
+<body><main class="wrap">
+  <span class="pill">MontrealAI-owned edition</span>
+  <h1>GoalOS Signoff Pro v1.1</h1>
+  <p>Use this package when the new repository is owned by <strong>MontrealAI</strong>, for example <code>MontrealAI/goalos-signoff-pro</code>. It is preconfigured with active <code>@MontrealAI</code> CODEOWNERS rules.</p>
+  <section class="card ok"><h2>Best first move</h2><p>Create the repository under <code>MontrealAI</code>, upload this package, wait for CI to pass, then protect <code>main</code>.</p></section>
+  <section class="card"><h2>Click-by-click setup</h2><div class="steps">
+    <div class="step">Create a new GitHub repository owned by <code>MontrealAI</code>.</div>
+    <div class="step">Use GitHub Desktop or Git to upload every file from this package.</div>
+    <div class="step">Confirm <code>.github/CODEOWNERS</code> contains active <code>@MontrealAI</code> rules.</div>
+    <div class="step">Open the <strong>Actions</strong> tab and wait for CI to pass.</div>
+    <div class="step">Go to <strong>Settings → Rules → Rulesets</strong> or branch protection and protect <code>main</code>.</div>
+    <div class="step">Require pull requests, required checks, and CODEOWNER review.</div>
+    <div class="step">Only after protections are active, add Supabase, deployment, Stripe, or optional verification secrets.</div>
+  </div></section>
+  <section class="card warn"><h2>Never commit these</h2><ul><li><code>.env</code>, <code>.env.local</code>, or <code>.env.production</code></li><li>Supabase service-role keys</li><li>Stripe live secret keys</li><li>Wallet private keys, seed phrases, or mnemonics</li><li>Mainnet deployer keys</li><li><code>node_modules/</code> or <code>.next/</code></li></ul></section>
+  <section class="card"><h2>Useful files</h2><p><a href="GITHUB_REPOSITORY_START_HERE.html">General START HERE</a> · <a href="docs/repository/GITHUB_UPLOAD_GUIDE.md">GitHub upload guide</a> · <a href="docs/repository/REPOSITORY_SETTINGS_CHECKLIST.md">Repository settings checklist</a> · <a href="MONTREALAI_REPOSITORY_PACKAGE_VALIDATION.md">Validation report</a></p></section>
+  <section class="card"><h2>Boundary</h2><p>This package is for a private-beta product repository. It is not Mainnet settlement approval, AGIALPHA staking launch, escrow authorization, external audit, legal approval, or user-fund authorization.</p></section>
+</main></body></html>

@@ -1,0 +1,9 @@
+{
+  "name": "GoalOS Signoff",
+  "short_name": "Signoff",
+  "description": "Human-authorized acceptance for AI-assisted work.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f7f6f1",
+  "theme_color": "#123d30"
+}

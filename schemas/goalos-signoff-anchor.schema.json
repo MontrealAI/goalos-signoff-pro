@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "GoalOS Signoff Blockchain Anchor",
+  "type": "object",
+  "required": ["schemaVersion", "product", "receiptHash", "evidenceRoot", "decisionHash", "network", "chainId", "contractAddress", "status"],
+  "properties": {
+    "schemaVersion": {"const": "1.0"},
+    "product": {"const": "GoalOS Signoff Hybrid"},
+    "receiptHash": {"type": "string", "pattern": "^0x[0-9a-fA-F]{64}$"},
+    "evidenceRoot": {"type": "string", "pattern": "^0x[0-9a-fA-F]{64}$"},
+    "decisionHash": {"type": "string", "pattern": "^0x[0-9a-fA-F]{64}$"},
+    "receiptURI": {"type": "string"},
+    "network": {"enum": ["sepolia", "ethereum-mainnet"]},
+    "chainId": {"type": "integer"},
+    "contractAddress": {"type": "string", "pattern": "^0x[0-9a-fA-F]{40}$"},
+    "anchorId": {"type": ["string", "integer", "null"]},
+    "transactionHash": {"type": ["string", "null"], "pattern": "^0x[0-9a-fA-F]{64}$"},
+    "blockNumber": {"type": ["integer", "null"]},
+    "blockHash": {"type": ["string", "null"], "pattern": "^0x[0-9a-fA-F]{64}$"},
+    "status": {"enum": ["queued", "submitted", "confirmed", "failed", "revoked"]}
+  },
+  "additionalProperties": true
+}

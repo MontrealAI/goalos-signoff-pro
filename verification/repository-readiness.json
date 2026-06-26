@@ -1,0 +1,7 @@
+{
+  "schema": "goalos.signoff.repository_readiness.v1",
+  "status": "PASS",
+  "checkedAt": "2026-06-26T02:03:52.745Z",
+  "requiredPaths": 18,
+  "failures": []
+}

@@ -1,0 +1,25 @@
+{
+  "name": "goalos-signoff-blockchain-anchor-tools",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Compiler and deployment tools for GoalOS Signoff hash-only anchor contract.",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "compile": "node scripts/compile-anchor.mjs",
+    "package:verify": "node scripts/compile-anchor.mjs --dry-run",
+    "test": "node --test test/anchor.test.mjs",
+    "deploy:sepolia": "node scripts/deploy-anchor.mjs sepolia",
+    "verify:artifact": "node scripts/verify-anchor-artifact.mjs"
+  },
+  "devDependencies": {
+    "solc": "0.8.28",
+    "ganache": "7.9.2"
+  },
+  "dependencies": {
+    "ethers": "6.17.0"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "criteria": [
+    "Required scope is fully covered",
+    "Claims are linked to supporting sources",
+    "Sources meet freshness requirements",
+    "Recommendations are actionable",
+    "Uncertainty and disagreements are disclosed"
+  ],
+  "product": "GoalOS Signoff Pro",
+  "receipt": {
+    "mode": "signed-private-beta",
+    "optionalAnchor": "sepolia-disabled-by-default"
+  },
+  "status": "accepted",
+  "summary": "A sample client accepts a competitor report after five evidence criteria are complete.",
+  "template": "ai_research",
+  "title": "AI Research & Strategy Signoff \u2014 demo project",
+  "version": "1.1.0"
+}

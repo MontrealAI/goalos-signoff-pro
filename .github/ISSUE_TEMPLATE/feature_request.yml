@@ -1,0 +1,38 @@
+name: Feature request
+description: Suggest an improvement.
+title: "Feature: "
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: User problem
+      description: What user problem does this solve?
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed solution
+    validations:
+      required: true
+  - type: dropdown
+    id: customer
+    attributes:
+      label: Primary user
+      options:
+        - Client
+        - Builder
+        - Reviewer
+        - Admin
+        - Customer success
+        - Developer
+    validations:
+      required: true
+  - type: checkboxes
+    id: boundary
+    attributes:
+      label: Boundary
+      options:
+        - label: This does not require escrow, custody, AGIALPHA staking, or Mainnet settlement.
+          required: true

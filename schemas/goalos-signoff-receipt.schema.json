@@ -1,0 +1,146 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://goalos.example/schemas/goalos-signoff-receipt.schema.json",
+  "title": "GoalOS Signoff Mission Receipt v1",
+  "type": "object",
+  "required": ["schema", "receiptId", "publicId", "issuedAt", "mission", "participants", "acceptanceCriteria", "submission", "artifacts", "checks", "reviews", "finalDecision", "protocolReady"],
+  "properties": {
+    "schema": { "const": "goalos.signoff.receipt.v1" },
+    "receiptId": { "$ref": "#/$defs/uuid" },
+    "publicId": { "type": "string", "pattern": "^gs_[A-Za-z0-9_-]{20,}$" },
+    "issuedAt": { "$ref": "#/$defs/dateTime" },
+    "mission": {
+      "type": "object",
+      "required": ["projectId", "title", "summary", "briefVersion", "deadline", "commitmentHash"],
+      "properties": {
+        "projectId": { "$ref": "#/$defs/uuid" },
+        "title": { "type": "string", "minLength": 3, "maxLength": 160 },
+        "summary": { "type": "string", "minLength": 10, "maxLength": 5000 },
+        "briefVersion": { "type": "integer", "minimum": 1 },
+        "deadline": { "oneOf": [{ "$ref": "#/$defs/dateTime" }, { "type": "null" }] },
+        "commitmentHash": { "$ref": "#/$defs/hash" }
+      },
+      "additionalProperties": false
+    },
+    "participants": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["role", "displayName", "subjectHash"],
+        "properties": {
+          "role": { "enum": ["client", "builder", "reviewer", "observer"] },
+          "displayName": { "type": "string", "minLength": 1 },
+          "subjectHash": { "$ref": "#/$defs/hash" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "acceptanceCriteria": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 20,
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "description", "required", "responseStatus", "response", "evidenceArtifactHashes"],
+        "properties": {
+          "id": { "$ref": "#/$defs/uuid" },
+          "title": { "type": "string", "minLength": 3 },
+          "description": { "type": "string" },
+          "required": { "type": "boolean" },
+          "responseStatus": { "enum": ["met", "partial", "not_met", "not_applicable"] },
+          "response": { "type": "string" },
+          "evidenceArtifactHashes": { "type": "array", "items": { "$ref": "#/$defs/sha256" } }
+        },
+        "additionalProperties": false
+      }
+    },
+    "submission": {
+      "type": "object",
+      "required": ["id", "version", "summary", "limitations", "aiUseNotes", "submittedAt", "evidenceDocketHash"],
+      "properties": {
+        "id": { "$ref": "#/$defs/uuid" },
+        "version": { "type": "integer", "minimum": 1 },
+        "summary": { "type": "string" },
+        "limitations": { "type": "string" },
+        "aiUseNotes": { "type": "string" },
+        "submittedAt": { "$ref": "#/$defs/dateTime" },
+        "evidenceDocketHash": { "$ref": "#/$defs/hash" }
+      },
+      "additionalProperties": false
+    },
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "filename", "mimeType", "sizeBytes", "sha256", "description"],
+        "properties": {
+          "id": { "$ref": "#/$defs/uuid" },
+          "filename": { "type": "string", "minLength": 1 },
+          "mimeType": { "type": "string", "minLength": 1 },
+          "sizeBytes": { "type": "integer", "minimum": 1, "maximum": 26214400 },
+          "sha256": { "$ref": "#/$defs/sha256" },
+          "description": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "checks": { "type": "array", "items": { "$ref": "#/$defs/check" } },
+    "reviews": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["recommendation", "notes", "reviewerSubjectHash", "createdAt"],
+        "properties": {
+          "recommendation": { "enum": ["accept", "changes_requested", "reject"] },
+          "notes": { "type": "string" },
+          "reviewerSubjectHash": { "$ref": "#/$defs/hash" },
+          "createdAt": { "$ref": "#/$defs/dateTime" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "finalDecision": {
+      "type": "object",
+      "required": ["decision", "comment", "decidedAt", "deciderSubjectHash", "decisionHash"],
+      "properties": {
+        "decision": { "enum": ["accepted", "changes_requested", "rejected"] },
+        "comment": { "type": "string" },
+        "decidedAt": { "$ref": "#/$defs/dateTime" },
+        "deciderSubjectHash": { "$ref": "#/$defs/hash" },
+        "decisionHash": { "$ref": "#/$defs/hash" }
+      },
+      "additionalProperties": false
+    },
+    "protocolReady": {
+      "type": "object",
+      "required": ["claimBoundaryHash", "riskLedgerHash", "proofBundleHash", "onchainAnchored", "chainId", "transactionHash"],
+      "properties": {
+        "claimBoundaryHash": { "$ref": "#/$defs/hash" },
+        "riskLedgerHash": { "$ref": "#/$defs/hash" },
+        "proofBundleHash": { "$ref": "#/$defs/hash" },
+        "onchainAnchored": { "const": false },
+        "chainId": { "type": "null" },
+        "transactionHash": { "type": "null" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "uuid": { "type": "string", "format": "uuid" },
+    "dateTime": { "type": "string", "format": "date-time" },
+    "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "hash": { "type": "string", "pattern": "^0x[a-f0-9]{64}$" },
+    "check": {
+      "type": "object",
+      "required": ["code", "label", "status", "detail"],
+      "properties": {
+        "code": { "type": "string", "minLength": 1 },
+        "label": { "type": "string", "minLength": 1 },
+        "status": { "enum": ["pass", "warning", "fail"] },
+        "detail": { "type": "string" }
+      },
+      "additionalProperties": false
+    }
+  }
+}

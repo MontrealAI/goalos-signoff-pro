@@ -1,0 +1,5 @@
+import Link from "next/link";
+
+export default function InvoicesPage() {
+  return <main className="page"><div className="container"><div className="page-head"><div><span className="eyebrow">Pilot-ready monetization</span><h1>Connect acceptance to payment without holding funds.</h1><p>Use Signoff receipts to support invoices, Stripe checkout, and independent review orders. Escrow remains disabled until later protocol gates pass.</p></div><Link className="button" href="/pricing">View pricing</Link></div><div className="grid-3"><article className="card"><h3>Manual invoice mode</h3><p className="muted small">Attach Mission Receipts to invoices. This is the safest first revenue model.</p></article><article className="card"><h3>Stripe checkout hooks</h3><p className="muted small">Pro and Team plan hooks are included but optional.</p></article><article className="card"><h3>Independent review add-on</h3><p className="muted small">Sell a $99–$299 review package before introducing escrow.</p></article></div></div></main>;
+}

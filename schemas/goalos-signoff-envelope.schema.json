@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://goalos.example/schemas/goalos-signoff-envelope.schema.json",
+  "title": "GoalOS Signoff downloadable receipt envelope v1",
+  "type": "object",
+  "required": ["schema", "verified", "valid", "revokedAt", "revocationReason", "canonicalSha256", "signature", "algorithm", "publicKeyId", "publicKeyPem", "receipt"],
+  "properties": {
+    "schema": { "const": "goalos.signoff.envelope.v1" },
+    "verified": { "type": "boolean" },
+    "valid": { "type": "boolean" },
+    "revokedAt": { "oneOf": [{ "type": "string", "format": "date-time" }, { "type": "null" }] },
+    "revocationReason": { "oneOf": [{ "type": "string" }, { "type": "null" }] },
+    "canonicalSha256": { "type": "string", "pattern": "^0x[a-f0-9]{64}$" },
+    "signature": { "type": "string", "minLength": 32 },
+    "algorithm": { "const": "Ed25519" },
+    "publicKeyId": { "type": "string", "minLength": 1 },
+    "publicKeyPem": { "type": "string", "pattern": "^-----BEGIN PUBLIC KEY-----" },
+    "receipt": { "$ref": "goalos-signoff-receipt.schema.json" }
+  },
+  "additionalProperties": false
+}

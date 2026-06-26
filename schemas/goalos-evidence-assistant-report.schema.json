@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "items": {
+      "items": {
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "detail": {
+            "type": "string"
+          },
+          "severity": {
+            "enum": [
+              "good",
+              "attention",
+              "blocker"
+            ]
+          },
+          "suggestedAction": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "code",
+          "severity",
+          "title",
+          "detail",
+          "suggestedAction"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "readinessScore": {
+      "maximum": 100,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "status": {
+      "enum": [
+        "ready_for_review",
+        "needs_attention",
+        "blocked"
+      ]
+    }
+  },
+  "required": [
+    "readinessScore",
+    "status",
+    "items"
+  ],
+  "title": "GoalOS evidence assistant report",
+  "type": "object"
+}

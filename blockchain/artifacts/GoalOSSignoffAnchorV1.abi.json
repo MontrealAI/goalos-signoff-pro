@@ -1,0 +1,698 @@
+[
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "initialOwner",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "initialServiceSigner",
+        "type": "address"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "salt_",
+        "type": "bytes32"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "inputs": [],
+    "name": "GoalOSAlreadyAnchored",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "GoalOSAlreadyRevoked",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "GoalOSBadSignature",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "GoalOSNativeFundsRejected",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "GoalOSNotAnchored",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "GoalOSNotOwner",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "GoalOSPaused",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "GoalOSRegistrarNotAllowed",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "GoalOSSignerNotAllowed",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "GoalOSUriTooLong",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "GoalOSZeroAddress",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "GoalOSZeroHash",
+    "type": "error"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "previousOwner",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "pendingOwner",
+        "type": "address"
+      }
+    ],
+    "name": "OwnershipTransferStarted",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "previousOwner",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+      }
+    ],
+    "name": "OwnershipTransferred",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "bool",
+        "name": "paused",
+        "type": "bool"
+      }
+    ],
+    "name": "Paused",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "bool",
+        "name": "paused",
+        "type": "bool"
+      }
+    ],
+    "name": "PausedUpdated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "receiptHash",
+        "type": "bytes32"
+      },
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "publicIdHash",
+        "type": "bytes32"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "serviceSigner",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "receiptCid",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "evidenceCid",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint64",
+        "name": "acceptedAt",
+        "type": "uint64"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "anchoredBy",
+        "type": "address"
+      }
+    ],
+    "name": "ReceiptAnchored",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "receiptHash",
+        "type": "bytes32"
+      },
+      {
+        "indexed": true,
+        "internalType": "bytes32",
+        "name": "reasonHash",
+        "type": "bytes32"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "serviceSigner",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint64",
+        "name": "revokedAt",
+        "type": "uint64"
+      }
+    ],
+    "name": "ReceiptRevoked",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "registrar",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "bool",
+        "name": "allowed",
+        "type": "bool"
+      }
+    ],
+    "name": "RegistrarAllowed",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "signer",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "bool",
+        "name": "allowed",
+        "type": "bool"
+      }
+    ],
+    "name": "ServiceSignerUpdated",
+    "type": "event"
+  },
+  {
+    "stateMutability": "payable",
+    "type": "fallback"
+  },
+  {
+    "inputs": [],
+    "name": "acceptOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "receiptHash",
+        "type": "bytes32"
+      }
+    ],
+    "name": "anchorOf",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "bytes32",
+            "name": "publicIdHash",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "receiptHash",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "receiptCidHash",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "evidenceRoot",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "address",
+            "name": "serviceSigner",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "anchoredBy",
+            "type": "address"
+          },
+          {
+            "internalType": "uint64",
+            "name": "acceptedAt",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "anchoredAt",
+            "type": "uint64"
+          },
+          {
+            "internalType": "uint64",
+            "name": "revokedAt",
+            "type": "uint64"
+          },
+          {
+            "internalType": "string",
+            "name": "receiptCid",
+            "type": "string"
+          },
+          {
+            "internalType": "string",
+            "name": "evidenceCid",
+            "type": "string"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "revocationReasonHash",
+            "type": "bytes32"
+          }
+        ],
+        "internalType": "struct GoalOSSignoffAnchorV1.AnchorRecord",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "receiptHash",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "publicIdHash",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "evidenceRoot",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "receiptCidHash",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "evidenceCidHash",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "uint64",
+        "name": "acceptedAt",
+        "type": "uint64"
+      }
+    ],
+    "name": "anchorPayloadHash",
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "receiptHash",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "publicIdHash",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "evidenceRoot",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "string",
+        "name": "receiptCid",
+        "type": "string"
+      },
+      {
+        "internalType": "string",
+        "name": "evidenceCid",
+        "type": "string"
+      },
+      {
+        "internalType": "uint64",
+        "name": "acceptedAt",
+        "type": "uint64"
+      },
+      {
+        "internalType": "bytes",
+        "name": "signature",
+        "type": "bytes"
+      }
+    ],
+    "name": "anchorReceipt",
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "anchorId",
+        "type": "bytes32"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "deployedChainId",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "deploymentSalt",
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "receiptHash",
+        "type": "bytes32"
+      }
+    ],
+    "name": "isAnchored",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "owner",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "paused",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "pendingOwner",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "name": "registrarAllowed",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "receiptHash",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "reasonHash",
+        "type": "bytes32"
+      }
+    ],
+    "name": "revocationPayloadHash",
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "receiptHash",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "reasonHash",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "bytes",
+        "name": "signature",
+        "type": "bytes"
+      }
+    ],
+    "name": "revokeReceipt",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "name": "serviceSigner",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bool",
+        "name": "paused_",
+        "type": "bool"
+      }
+    ],
+    "name": "setPaused",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "registrar",
+        "type": "address"
+      },
+      {
+        "internalType": "bool",
+        "name": "allowed",
+        "type": "bool"
+      }
+    ],
+    "name": "setRegistrarAllowed",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "signer",
+        "type": "address"
+      },
+      {
+        "internalType": "bool",
+        "name": "allowed",
+        "type": "bool"
+      }
+    ],
+    "name": "setServiceSigner",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "totalAnchors",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+      }
+    ],
+    "name": "transferOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "stateMutability": "payable",
+    "type": "receive"
+  }
+]

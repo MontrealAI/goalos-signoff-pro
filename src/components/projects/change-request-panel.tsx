@@ -1,0 +1,6 @@
+import { MessageSquareMore } from "lucide-react";
+
+export function ChangeRequestPanel({ status }: { status: string }) {
+  const active = status === "changes_requested";
+  return <div className="card"><div className="row"><span className="icon-box" style={{ margin: 0 }}><MessageSquareMore size={19} /></span><div><h2 style={{ fontSize: 28 }}>Change-request workflow</h2><p className="muted small" style={{ margin: 0 }}>Use requested changes to create a clear revision loop before final acceptance.</p></div></div><div className="grid-3" style={{ marginTop: 16 }}><div className="step"><div className="step-number">01 · REQUEST</div><h3>Reviewer names gaps</h3><p className="muted small">Unresolved criteria, missing evidence, or limitations are written as changes.</p></div><div className="step"><div className="step-number">02 · REVISE</div><h3>Builder submits v2</h3><p className="muted small">Each revision preserves the prior version and its evidence.</p></div><div className="step"><div className="step-number">03 · ACCEPT</div><h3>Client accepts one version</h3><p className="muted small">The receipt binds the exact accepted submission.</p></div></div>{active && <div className="notice warning" style={{ marginTop: 14 }}>This project is waiting for a revised submission.</div>}</div>;
+}
