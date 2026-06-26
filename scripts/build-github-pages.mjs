@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { mkdirSync, rmSync, writeFileSync, existsSync, readFileSync, readdirSync, statSync, copyFileSync } from "node:fs";
+import { mkdirSync, rmSync, writeFileSync, existsSync, readFileSync, readdirSync, statSync } from "node:fs";
 import { join, dirname, relative } from "node:path";
 import { createHash } from "node:crypto";
 
@@ -20,7 +20,7 @@ function readMaybe(path, fallback = "") {
   try { return readFileSync(join(root, path), "utf8"); } catch { return fallback; }
 }
 
-function listDocs(dir = "docs", max = 80) {
+function listDocs(dir = "docs", max = 36) {
   const full = join(root, dir);
   const rows = [];
   function walk(current) {
@@ -51,6 +51,11 @@ const docs = listDocs();
 const runId = process.env.GITHUB_RUN_ID || "local";
 const commit = process.env.GITHUB_SHA || "local";
 const generatedAt = new Date().toISOString();
+
+const docLinks = docs.map((d) => {
+  const url = `${repoUrl}/blob/main/${d}`;
+  return `<li><a href="${esc(url)}">${esc(d)}</a></li>`;
+}).join("\n");
 
 const html = `<!doctype html>
 <html lang="en">
@@ -122,9 +127,8 @@ const html = `<!doctype html>
 
   <section class="card docs">
     <h2>Documentation highlights</h2>
-    <ul>
-      ${docs.slice(0, 36).map((d) => `<li><a href="${esc(d)}">${esc(d)}</a></li>`).join("\n")}
-    </ul>
+    <p class="muted">These links open the source documentation in GitHub rather than copying internal documentation into the public Pages artifact.</p>
+    <ul>${docLinks}</ul>
   </section>
 
   <section class="card">
@@ -144,7 +148,7 @@ const manifest = {
   generatedAt,
   commit,
   runId,
-  artifactPolicy: "static-public-no-secrets",
+  artifactPolicy: "static-public-front-door-no-copied-internal-docs",
   boundaries: {
     userFundsAuthorized: false,
     agialphaRequired: false,
@@ -155,16 +159,9 @@ const manifest = {
   sourceFiles: []
 };
 
-for (const rel of ["README.md", "package.json", ".github/CODEOWNERS"].concat(docs.slice(0, 80))) {
+for (const rel of ["README.md", "package.json", ".github/CODEOWNERS"].concat(docs)) {
   const full = join(root, rel);
-  if (existsSync(full) && statSync(full).isFile()) {
-    manifest.sourceFiles.push({ path: rel, sha256: sha256File(full) });
-    if (rel.startsWith("docs/")) {
-      const target = join(out, rel);
-      mkdirSync(dirname(target), { recursive: true });
-      copyFileSync(full, target);
-    }
-  }
+  if (existsSync(full) && statSync(full).isFile()) manifest.sourceFiles.push({ path: rel, sha256: sha256File(full) });
 }
 
 write("production-manifest.json", JSON.stringify(manifest, null, 2) + "\n");
