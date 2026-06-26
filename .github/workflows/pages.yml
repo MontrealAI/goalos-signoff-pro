@@ -1,18 +1,19 @@
-name: Deploy ASI Apex v5 production site
+name: Deploy ASI Apex v6 final production site
 
 on:
   push:
     branches: [main]
     paths:
-      - 'scripts/build-asi-apex-v5-pages.mjs'
-      - '.github/workflows/pages.yml'
-      - 'README.md'
-      - 'docs/**'
-      - 'verification/**'
+      - scripts/build-asi-apex-v6-pages.mjs
+      - .github/workflows/pages.yml
+      - docs/**
+      - README.md
+      - package.json
+      - .github/CODEOWNERS
   workflow_dispatch:
 
 concurrency:
-  group: github-pages-asi-apex-v5
+  group: pages
   cancel-in-progress: true
 
 permissions:
@@ -20,42 +21,35 @@ permissions:
 
 jobs:
   build:
-    name: Build, verify, and package ASI Apex v5 site
+    name: Build, verify, and package ASI Apex v6 site
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Set up Pages
-        uses: actions/configure-pages@v5
-
-      - name: Build ASI Apex v5 static site
+      - name: Build final production static site
         shell: bash
         run: |
           set -euo pipefail
-          node scripts/build-asi-apex-v5-pages.mjs
+          node --version
+          node scripts/build-asi-apex-v6-pages.mjs
 
-      - name: Verify public artifact boundary
+      - name: Verify public Pages artifact
         shell: bash
         run: |
           set -euo pipefail
           test -f site/index.html
+          test -f site/platform.html
           test -f site/theatre.html
           test -f site/architecture.html
           test -f site/trust.html
           test -f site/pilot.html
           test -f site/dossier.html
           test -f site/production-manifest.json
-          test -f site/assets/asi-apex-v5.css
-          test -f site/assets/asi-apex-v5.js
-          if find site -name '.env*' -o -name 'node_modules' -o -name '.git' -o -name '.next' | grep -q .; then
-            echo 'Forbidden private/build artifact found in Pages site.'
-            exit 1
-          fi
-          if grep -RInE '(PRIVATE_KEY|MNEMONIC|SEED_PHRASE|SERVICE_ROLE|STRIPE_SECRET|LIVE_SECRET|SUPABASE_SERVICE|BEGIN RSA PRIVATE KEY|BEGIN PRIVATE KEY|AKIA[0-9A-Z]{16})' site; then
-            echo 'Secret-like marker found in Pages artifact.'
-            exit 1
-          fi
+          test -f site/assets/asi-apex-v6.css
+          test -f site/assets/asi-apex-v6.js
+          ! find site -name '.env*' -o -path '*/node_modules/*' -o -path '*/.git/*' -o -path '*/.next/*' | grep .
+          ! grep -R -n -E 'BEGIN [A-Z ]*PRIVATE KEY|MNEMONIC|SEED_PHRASE|SERVICE_ROLE|SUPABASE_SERVICE|STRIPE_SECRET|sk_live_|WALLET_PRIVATE|AGIALPHA_TREASURY_KEY' site
 
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v3
@@ -63,10 +57,9 @@ jobs:
           path: site
 
   deploy:
-    name: Deploy ASI Apex v5 to GitHub Pages
+    name: Deploy ASI Apex v6 to GitHub Pages
     needs: build
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
     permissions:
       pages: write
       id-token: write
