@@ -1,11 +1,11 @@
 name: Bootstrap import GoalOS Signoff Pro package
 
 on:
-  workflow_dispatch:
   push:
     paths:
       - 'GoalOS-Signoff-Pro-v1.1-MontrealAI-GitHub-Repository-v1.0.2.zip'
       - '.github/workflows/bootstrap-import-goalos-signoff-pro.yml'
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -23,7 +23,7 @@ jobs:
           set -euo pipefail
           git clone "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" repo
 
-      - name: Import package and commit source files
+      - name: Import package and commit source files, excluding workflow files
         shell: bash
         run: |
           set -euo pipefail
@@ -40,45 +40,45 @@ jobs:
           echo "Package checksum in repository:"
           sha256sum "$ZIP"
 
-          rm -rf __goalos_import
-          mkdir __goalos_import
+          rm -rf __goalos_import __goalos_package
+          mkdir -p __goalos_import __goalos_package
+          unzip -q "$ZIP" -d __goalos_import
 
           python3 - <<'PY'
-          import pathlib, zipfile
-          zip_path = pathlib.Path("GoalOS-Signoff-Pro-v1.1-MontrealAI-GitHub-Repository-v1.0.2.zip")
-          target = pathlib.Path("__goalos_import").resolve()
-          with zipfile.ZipFile(zip_path) as archive:
-              for member in archive.infolist():
-                  out = (target / member.filename).resolve()
-                  if not str(out).startswith(str(target) + "/") and out != target:
-                      raise SystemExit(f"Unsafe ZIP path refused: {member.filename}")
-              archive.extractall(target)
+          import pathlib, shutil, sys
+          extracted = pathlib.Path('__goalos_import').resolve()
+          candidates = [p for p in extracted.rglob('package.json') if p.is_file()]
+          if not candidates:
+              raise SystemExit('Could not find package.json inside ZIP.')
+          roots = sorted({p.parent for p in candidates}, key=lambda p: len(p.parts))
+          source = roots[0]
+          target = pathlib.Path('__goalos_package').resolve()
+          if target.exists():
+              shutil.rmtree(target)
+          shutil.copytree(source, target)
+          workflows = target / '.github' / 'workflows'
+          if workflows.exists():
+              shutil.rmtree(workflows)
+          # The GitHub App token cannot create/update workflow files. These must be added manually by a human later.
           PY
 
-          ROOT_DIR="$(find __goalos_import -mindepth 1 -maxdepth 1 -type d | head -n 1)"
-          if [ -z "$ROOT_DIR" ] || [ ! -d "$ROOT_DIR" ]; then
-            echo "Could not find package root directory inside ZIP."
-            exit 1
-          fi
+          rsync -a --exclude='.git/' --exclude='__goalos_import/' --exclude='__goalos_package/' --exclude="$ZIP" __goalos_package/ ./
+          rm -rf __goalos_import __goalos_package "$ZIP"
 
-          rsync -a --delete \
-            --exclude='.git' \
-            --exclude='node_modules' \
-            --exclude='.next' \
-            --exclude='dist' \
-            --exclude='__goalos_import' \
-            --exclude="$ZIP" \
-            "$ROOT_DIR"/ ./
+          cat > NEXT_STEP_WORKFLOWS.md <<'EOF'
+          # Next step: add workflows manually
 
-          rm -rf __goalos_import
-          rm -f "$ZIP"
-          rm -f .github/workflows/bootstrap-import-goalos-signoff-pro.yml
+          The repository package was imported successfully, excluding `.github/workflows/**`.
+
+          GitHub blocks GitHub Actions' own bot token from creating or updating workflow files unless that token has the special `workflows` permission. This is why the earlier import failed.
+
+          Add CI workflows manually through the GitHub web UI or GitHub Desktop after this import commit succeeds.
+          EOF
 
           git add -A
           if git diff --cached --quiet; then
-            echo "No changes to commit."
+            echo "No source changes to commit."
             exit 0
           fi
-
-          git commit -m "Initial GoalOS Signoff Pro repository"
+          git commit -m "Initial GoalOS Signoff Pro repository source import"
           git push origin HEAD:main
