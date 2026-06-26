@@ -1,0 +1,74 @@
+name: Deploy production GitHub Pages site
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "README.md"
+      - "docs/**"
+      - "public/**"
+      - "scripts/build-github-pages.mjs"
+      - ".github/workflows/pages.yml"
+      - "package.json"
+      - "src/app/page.tsx"
+      - "src/app/pricing/page.tsx"
+      - "src/app/pilot/page.tsx"
+      - "src/app/pro/page.tsx"
+      - "contracts/**"
+      - "schemas/**"
+      - "verification/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: goalos-signoff-pro-pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build static GitHub Pages artifact
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Pages
+        uses: actions/configure-pages@v5
+
+      - name: Build static production site
+        run: node scripts/build-github-pages.mjs
+
+      - name: Refuse secrets in Pages artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -d site
+          if find site -type f \( -name ".env" -o -name ".env.*" -o -name "*service-role*" -o -name "*private-key*" \) | grep .; then
+            echo "::error::Secret-like file found in site artifact."
+            exit 1
+          fi
+          if grep -R -n -E "(SUPABASE_SERVICE_ROLE|STRIPE_SECRET|PRIVATE_KEY|MNEMONIC|SEED_PHRASE|ETHERSCAN_API_KEY|MAINNET_RPC|BEGIN[[:space:]]+(RSA|OPENSSH|PRIVATE))" site; then
+            echo "::error::Secret-like text found in site artifact."
+            exit 1
+          fi
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    name: Deploy to https://montrealai.github.io/goalos-signoff-pro/
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
