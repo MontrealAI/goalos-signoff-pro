@@ -1,0 +1,53 @@
+name: Repair blockchain npm lockfile
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  repair-blockchain-lock:
+    name: Normalize blockchain/package-lock.json to public npm registry
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: https://registry.npmjs.org/
+
+      - name: Regenerate blockchain/package-lock.json from public npm registry
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd blockchain
+          npm config set registry https://registry.npmjs.org/
+          rm -rf node_modules package-lock.json
+          npm install --package-lock-only --ignore-scripts --registry=https://registry.npmjs.org/ --no-audit
+          if grep -R -n -E "applied-caas|internal\.api\.openai\.org|artifactory|npm-public" package-lock.json 2>/dev/null; then
+            echo "::error::Private/internal registry reference remains in blockchain/package-lock.json."
+            exit 1
+          fi
+          npm ci --ignore-scripts --registry=https://registry.npmjs.org/ --no-audit
+          npm run package:verify
+          npm run test
+
+      - name: Commit normalized blockchain lockfile
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- blockchain/package-lock.json; then
+            echo "blockchain/package-lock.json is already normalized. No commit needed."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add blockchain/package-lock.json
+          git commit -m "Normalize blockchain npm lockfile for public registry"
+          git push
