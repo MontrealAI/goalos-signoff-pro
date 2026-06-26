@@ -1,22 +1,20 @@
-name: Deploy production GitHub Pages site
+name: Deploy elite institutional GitHub Pages site
 
 on:
   push:
     branches: [main]
     paths:
       - "README.md"
+      - "CHANGELOG.md"
       - "docs/**"
       - "public/**"
-      - "scripts/build-github-pages.mjs"
-      - ".github/workflows/pages.yml"
-      - "package.json"
-      - "src/app/page.tsx"
-      - "src/app/pricing/page.tsx"
-      - "src/app/pilot/page.tsx"
-      - "src/app/pro/page.tsx"
+      - "src/**"
       - "contracts/**"
       - "schemas/**"
       - "verification/**"
+      - "package.json"
+      - "scripts/build-institutional-pages.mjs"
+      - ".github/workflows/pages.yml"
   workflow_dispatch:
 
 permissions:
@@ -25,33 +23,66 @@ permissions:
   id-token: write
 
 concurrency:
-  group: goalos-signoff-pro-pages
+  group: goalos-signoff-pro-institutional-pages
   cancel-in-progress: true
+
+env:
+  EXPECTED_REPOSITORY: MontrealAI/goalos-signoff-pro
+  PRODUCTION_URL: https://montrealai.github.io/goalos-signoff-pro/
 
 jobs:
   build:
-    name: Build static GitHub Pages artifact
+    name: Build and verify institutional Pages artifact
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
 
+      - name: Verify production repository boundary
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "${GITHUB_REPOSITORY}" = "${EXPECTED_REPOSITORY}"
+
       - name: Set up Pages
         uses: actions/configure-pages@v5
 
-      - name: Build static production site
-        run: node scripts/build-github-pages.mjs
+      - name: Build elite institutional site
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --version
+          node scripts/build-institutional-pages.mjs
 
-      - name: Refuse secrets in Pages artifact
+      - name: Verify generated site quality gate
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f site/index.html
+          test -f site/platform.html
+          test -f site/trust.html
+          test -f site/pilot.html
+          test -f site/production-manifest.json
+          test -f site/sitemap.xml
+          test -f site/robots.txt
+          node -e "const fs=require('fs'); const m=JSON.parse(fs.readFileSync('site/production-manifest.json','utf8')); if(m.productionUrl!==process.env.PRODUCTION_URL) throw new Error('productionUrl mismatch'); if(m.repository!==process.env.EXPECTED_REPOSITORY) throw new Error('repository mismatch'); if(!Array.isArray(m.generatedFiles)||m.generatedFiles.length<8) throw new Error('manifest missing generated files');"
+          for page in site/index.html site/platform.html site/trust.html site/pilot.html site/docs.html; do
+            grep -q '<meta name="viewport"' "$page"
+            grep -q '<meta property="og:title"' "$page"
+            grep -q '<main id="main"' "$page"
+            grep -q 'GoalOS Signoff Pro' "$page"
+          done
+
+      - name: Refuse secrets or private operational material in Pages artifact
         shell: bash
         run: |
           set -euo pipefail
           test -d site
-          if find site -type f \( -name ".env" -o -name ".env.*" -o -name "*service-role*" -o -name "*private-key*" \) | grep .; then
+          if find site -type f \( -name ".env" -o -name ".env.*" -o -name "*service-role*" -o -name "*private-key*" -o -name "*secret*" \) | grep .; then
             echo "::error::Secret-like file found in site artifact."
             exit 1
           fi
-          if grep -R -n -E "(SUPABASE_SERVICE_ROLE|STRIPE_SECRET|PRIVATE_KEY|MNEMONIC|SEED_PHRASE|ETHERSCAN_API_KEY|MAINNET_RPC|BEGIN[[:space:]]+(RSA|OPENSSH|PRIVATE))" site; then
+          if grep -R -n -E "(SUPABASE_SERVICE_ROLE|STRIPE_SECRET|PRIVATE_KEY|MNEMONIC|SEED_PHRASE|ETHERSCAN_API_KEY|MAINNET_RPC|BEGIN[[:space:]]+(RSA|OPENSSH|PRIVATE)|sk_live_|xoxb-)" site; then
             echo "::error::Secret-like text found in site artifact."
             exit 1
           fi
