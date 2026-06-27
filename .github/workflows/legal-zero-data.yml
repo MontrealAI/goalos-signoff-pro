@@ -1,4 +1,4 @@
-name: Website quality gate
+name: Legal zero-data posture gate
 
 on:
   pull_request:
@@ -9,8 +9,8 @@ permissions:
   contents: read
 
 jobs:
-  quality:
-    name: Build and verify public site quality
+  legal:
+    name: Build and verify legal zero-data posture
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -21,10 +21,8 @@ jobs:
       - run: node scripts/build-sovereign-machine-economy-pages.mjs
       - run: node scripts/build-user-activation-pages.mjs
       - run: node scripts/build-legal-zero-data-pages.mjs
-      - run: node scripts/verify-sovereign-machine-economy.mjs
-      - run: node scripts/verify-website-quality.mjs
       - run: node scripts/verify-legal-zero-data-posture.mjs
       - uses: actions/upload-artifact@v4
         with:
-          name: goalos-signoff-pro-site-preview
+          name: goalos-zero-data-legal-site-preview
           path: site

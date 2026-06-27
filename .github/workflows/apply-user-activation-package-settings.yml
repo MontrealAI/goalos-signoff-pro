@@ -1,0 +1,31 @@
+name: Apply User Activation package settings
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  package-json:
+    name: Add demo and website scripts to package.json
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: node scripts/ensure-user-activation-package-json.mjs
+      - name: Commit package.json update
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet package.json; then
+            echo "package.json already contains User Activation scripts"
+          else
+            git add package.json
+            git commit -m "Add User Activation package scripts"
+            git push
+          fi

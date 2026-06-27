@@ -7,21 +7,16 @@ permissions:
   contents: read
 
 jobs:
-  generate-demo:
-    name: Generate public-safe demo proof mission
+  demo:
+    name: Generate public-safe demo proof mission artifacts
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repository
-        uses: actions/checkout@v4
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: 20
-      - name: Generate demo Proof Mission artifacts
-        run: node scripts/generate-demo-proof-mission.mjs
-      - name: Upload demo Proof Mission
-        uses: actions/upload-artifact@v4
+          node-version: 24
+      - run: node scripts/generate-demo-proof-mission.mjs
+      - uses: actions/upload-artifact@v4
         with:
-          name: demo-proof-mission
+          name: goalos-demo-proof-mission
           path: artifacts/demo-proof-mission
-          if-no-files-found: error

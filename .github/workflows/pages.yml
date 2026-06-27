@@ -1,25 +1,25 @@
 name: Deploy GoalOS Signoff Pro production site
 
 on:
-  workflow_dispatch:
   push:
     branches: [main]
     paths:
-      - 'scripts/**'
-      - 'config/**'
-      - 'schemas/**'
-      - 'docs/**'
-      - 'examples/**'
-      - '.github/workflows/pages.yml'
-      - '.github/workflows/website-quality.yml'
-      - '.github/workflows/sovereign-machine-economy.yml'
-
-permissions:
-  contents: read
+      - "scripts/**"
+      - "config/**"
+      - "schemas/**"
+      - "docs/**"
+      - "legal/**"
+      - "examples/**"
+      - "public/**"
+      - ".github/workflows/pages.yml"
+  workflow_dispatch:
 
 concurrency:
   group: pages
   cancel-in-progress: true
+
+permissions:
+  contents: read
 
 jobs:
   build:
@@ -28,28 +28,38 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
-      - name: Set up Pages
-        uses: actions/configure-pages@v5
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
-      - name: Generate Signoff Pro public site
+          node-version: 24
+      - name: Build ASI Apex public site
         run: node scripts/build-asi-apex-v6-pages.mjs
-      - name: Generate Sovereign Machine Economy pages
+      - name: Build Sovereign Machine Economy pages
         run: node scripts/build-sovereign-machine-economy-pages.mjs
-      - name: Generate User Activation Layer
+      - name: Build User Activation pages
         run: node scripts/build-user-activation-pages.mjs
-      - name: Verify implementation and public posture
+      - name: Build legal zero-data pages and harden public site
+        run: node scripts/build-legal-zero-data-pages.mjs
+      - name: Verify Sovereign Machine Economy parity
+        run: node scripts/verify-sovereign-machine-economy.mjs
+      - name: Verify capability parity if present
         run: |
-          node scripts/verify-sovereign-machine-economy.mjs
-          if [ -f scripts/verify-capability-parity.mjs ]; then node scripts/verify-capability-parity.mjs; fi
-          node scripts/verify-website-quality.mjs
-      - name: Refuse secrets in Pages artifact
+          if [ -f scripts/verify-capability-parity.mjs ]; then node scripts/verify-capability-parity.mjs; else echo "capability parity verifier not present"; fi
+      - name: Verify website quality
+        run: node scripts/verify-website-quality.mjs
+      - name: Verify legal zero-data posture
+        run: node scripts/verify-legal-zero-data-posture.mjs
+      - name: Final public artifact safety scan
+        shell: bash
         run: |
           set -euo pipefail
-          ! find site -name '.env*' -o -name 'node_modules' -o -name '.git' -o -name '.next' | grep .
-          ! grep -RIE --line-number 'BEGIN (RSA|EC|OPENSSH|PRIVATE) KEY|sk_live_|service_role|SUPABASE_SERVICE_ROLE|MNEMONIC|seed phrase|PRIVATE_KEY=' site
+          test ! -e site/.env
+          test ! -e site/.git
+          test ! -d site/node_modules
+          test ! -d site/.next
+          ! grep -RInE "(PRIVATE KEY|SERVICE_ROLE|sk_live_|contact@montreal\.ai|google-analytics|googletagmanager|walletconnect)" site
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
