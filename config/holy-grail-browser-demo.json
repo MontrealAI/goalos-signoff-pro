@@ -1,5 +1,5 @@
 {
-  "version": "6.0.0-final-production",
+  "version": "7.0.0-quality-gate-repair",
   "baseUrl": "https://montrealai.github.io/goalos-signoff-pro/",
   "contactEmail": "info@quebec.ai",
   "externalToken": {
@@ -65,5 +65,6 @@
       "risk": "Medium",
       "claim": "The milestone can be judged through claims, evidence, risk, and receipt state rather than raw narrative."
     }
-  ]
+  ],
+  "qualityGateRepair": "Removes legacy claim-boundary phrase artifacts and keeps all generated public pages zero-input and claim-safe."
 }
