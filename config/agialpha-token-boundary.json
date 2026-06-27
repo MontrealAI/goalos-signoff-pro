@@ -1,0 +1,40 @@
+{
+  "version": "1.1.0",
+  "tokenName": "AGI ALPHA AGENT",
+  "tokenSymbol": "AGIALPHA",
+  "network": "Ethereum Mainnet",
+  "chainId": 1,
+  "contractAddress": "0xA61a3B3a130a9c20768EEBF97E21515A6046a1fA",
+  "etherscanUrl": "https://etherscan.io/token/0xA61a3B3a130a9c20768EEBF97E21515A6046a1fA",
+  "contact": "info@quebec.ai",
+  "safeStatement": "$AGIALPHA exists at 0xA61a3B3a130a9c20768EEBF97E21515A6046a1fA on Ethereum Mainnet. It is not sold, issued, brokered, custodied, distributed, redeemed, staked, or made available by GoalOS, MontrealAI, or QuebecAI. Any interaction with AGIALPHA occurs independently through third-party or on-chain market participants where lawful and available. GoalOS Signoff Pro does not provide investment, financial, trading, tax, custody, brokerage, or legal advice.",
+  "requiredBoundaryClaims": [
+    "not sold, issued, brokered, custodied, distributed, redeemed, staked, or made available by GoalOS, MontrealAI, or QuebecAI",
+    "Any interaction with AGIALPHA occurs independently through third-party or on-chain market participants where lawful and available",
+    "GoalOS Signoff Pro does not provide investment, financial, trading, tax, custody, brokerage, or legal advice"
+  ],
+  "forbiddenPositiveClaims": [
+    "buy AGIALPHA from GoalOS",
+    "buy AGIALPHA from MontrealAI",
+    "buy AGIALPHA from QuebecAI",
+    "purchase AGIALPHA from GoalOS",
+    "purchase AGIALPHA from MontrealAI",
+    "purchase AGIALPHA from QuebecAI",
+    "AGIALPHA available from GoalOS",
+    "AGIALPHA available from MontrealAI",
+    "AGIALPHA available from QuebecAI",
+    "GoalOS sells AGIALPHA",
+    "MontrealAI sells AGIALPHA",
+    "QuebecAI sells AGIALPHA",
+    "guaranteed return",
+    "profit guarantee",
+    "price support",
+    "dividend rights",
+    "equity rights",
+    "ownership in MontrealAI",
+    "ownership in QuebecAI",
+    "staking is live on the public site",
+    "escrow is live on the public site",
+    "mainnet settlement is live on the public site"
+  ]
+}
