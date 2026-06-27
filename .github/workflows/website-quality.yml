@@ -7,9 +7,9 @@ on:
   push:
     branches: [main]
     paths:
-      - 'scripts/**'
-      - 'config/**'
-      - '.github/workflows/website-quality.yml'
+      - "scripts/**"
+      - "config/**"
+      - ".github/workflows/website-quality.yml"
 
 permissions:
   contents: read
@@ -19,40 +19,50 @@ jobs:
     name: Verify generated public site quality
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
-      - uses: actions/setup-node@v6
+      - name: Check out repository
+        uses: actions/checkout@v7
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
         with:
-          node-version: '24'
-          package-manager-cache: false
+          node-version: 24
       - name: Build site preview
         shell: bash
         run: |
           set -euo pipefail
-          rm -rf site
           mkdir -p site
-          if [ -f scripts/build-asi-apex-v6-pages.mjs ]; then node scripts/build-asi-apex-v6-pages.mjs; fi
-          if [ -f scripts/build-sovereign-machine-economy-pages.mjs ]; then node scripts/build-sovereign-machine-economy-pages.mjs; fi
-          if [ -f scripts/build-user-activation-pages.mjs ]; then node scripts/build-user-activation-pages.mjs; fi
-          if [ -f scripts/build-legal-zero-data-pages.mjs ]; then node scripts/build-legal-zero-data-pages.mjs; fi
-          if [ -f scripts/build-agialpha-token-boundary-pages.mjs ]; then node scripts/build-agialpha-token-boundary-pages.mjs; fi
-          if [ -f scripts/build-user-delight-pages.mjs ]; then node scripts/build-user-delight-pages.mjs; fi
-          if [ -f scripts/build-holy-grail-browser-demo.mjs ]; then node scripts/build-holy-grail-browser-demo.mjs; fi
-          if [ -f scripts/build-multi-agent-coordination-demo.mjs ]; then node scripts/build-multi-agent-coordination-demo.mjs; fi
-          node scripts/finalize-public-site-boundaries.mjs
+          for script in \
+            scripts/build-asi-apex-v6-pages.mjs \
+            scripts/build-sovereign-machine-economy-pages.mjs \
+            scripts/build-user-activation-pages.mjs \
+            scripts/build-legal-zero-data-pages.mjs \
+            scripts/build-agialpha-token-boundary-pages.mjs \
+            scripts/build-user-delight-pages.mjs \
+            scripts/build-holy-grail-browser-demo.mjs \
+            scripts/build-multi-agent-coordination-demo.mjs \
+            scripts/build-browser-beta-experience.mjs
+          do
+            if [ -f "$script" ]; then node "$script"; fi
+          done
+          if [ -f scripts/finalize-public-site-boundaries.mjs ]; then node scripts/finalize-public-site-boundaries.mjs; fi
+          node scripts/finalize-browser-beta-production.mjs
       - name: Run quality gates
         shell: bash
         run: |
           set -euo pipefail
-          if [ -f scripts/verify-website-quality.mjs ]; then node scripts/verify-website-quality.mjs; fi
-          if [ -f scripts/verify-legal-zero-data-posture.mjs ]; then node scripts/verify-legal-zero-data-posture.mjs; fi
-          if [ -f scripts/verify-agialpha-token-boundary.mjs ]; then node scripts/verify-agialpha-token-boundary.mjs; fi
-          if [ -f scripts/verify-public-artifact-safety.mjs ]; then node scripts/verify-public-artifact-safety.mjs; fi
-          if [ -f scripts/verify-user-delight-autopilot.mjs ]; then node scripts/verify-user-delight-autopilot.mjs; fi
-          if [ -f scripts/verify-holy-grail-browser-demo.mjs ]; then node scripts/verify-holy-grail-browser-demo.mjs; fi
-          if [ -f scripts/verify-multi-agent-coordination-demo.mjs ]; then node scripts/verify-multi-agent-coordination-demo.mjs; fi
-      - name: Upload preview artifact
+          for script in \
+            scripts/verify-website-quality.mjs \
+            scripts/verify-legal-zero-data-posture.mjs \
+            scripts/verify-agialpha-token-boundary.mjs \
+            scripts/verify-public-artifact-safety.mjs \
+            scripts/verify-user-delight-autopilot.mjs \
+            scripts/verify-holy-grail-browser-demo.mjs \
+            scripts/verify-multi-agent-coordination-demo.mjs
+          do
+            if [ -f "$script" ]; then node "$script"; fi
+          done
+          node scripts/verify-browser-beta-production.mjs
+      - name: Upload site preview
         uses: actions/upload-artifact@v7
         with:
           name: goalos-public-site-preview
           path: site
-          retention-days: 7
