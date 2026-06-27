@@ -1,25 +1,25 @@
 # Demo Lab User Guide
 
-## Goal
+The Demo Lab is a browser-local way to understand GoalOS Signoff Pro without sending any data.
 
-The Demo Lab lets a visitor understand GoalOS Signoff Pro in under one minute.
-
-## User path
+## What to do
 
 1. Open `demo-lab.html`.
-2. Click **Launch proof cycle**.
-3. Watch the proof gates progress from Commission to Receipt.
-4. Open the Evidence Docket Lab.
-5. Run the sample Receipt Verifier.
-6. Request access only with a public-safe business summary.
+2. Click **Launch demo mission**.
+3. Watch the six gates advance: Commission, Submit, Map, Review, Accept, Receipt.
+4. Open the sample Evidence Docket.
+5. Verify the demo Mission Receipt.
 
-## Demo behavior
+## What the demo does not do
 
-The browser-local proof cycle starts at 0 and reaches 100. The steps animate:
+It does not ask you to sign in, upload files, connect a wallet, make a payment, accept cookies, or send personal data.
 
-```text
-Commission → Submit → Map → Review → Accept → Receipt
-```
+## What the demo teaches
 
-The demo does not send data anywhere. It does not use forms or external services.
+GoalOS Signoff Pro turns AI-delivered work into:
 
+- a mission contract;
+- an evidence map;
+- a reviewer state;
+- a human-authorized decision;
+- a replayable Mission Receipt.

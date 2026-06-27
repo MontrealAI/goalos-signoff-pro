@@ -1,24 +1,23 @@
 # Autonomous Demo Runbook
 
-## Purpose
+This repository includes a GitHub Action that generates a public-safe demo Proof Mission bundle.
 
-This runbook explains how a nontechnical user can generate a demo Proof Mission from GitHub Actions.
+## Run it
 
-## Steps
+```text
+Actions → User Delight Demo Autopilot → Run workflow
+```
 
-1. Open the repository.
-2. Click **Actions**.
-3. Click **User Delight Demo Autopilot**.
-4. Click **Run workflow**.
-5. Choose a scenario.
-6. Click **Run workflow** again.
-7. Wait for a green check.
-8. Open the workflow run.
-9. Download the generated artifact.
+Choose a scenario:
 
-## What the artifact contains
+- AI research report
+- Automation delivery
+- Grant milestone
+- Vendor review
 
-The workflow generates a public-safe proof package:
+## Download the artifact
+
+After the run completes, download the artifact bundle. It contains:
 
 ```text
 mission-contract.json
@@ -33,15 +32,4 @@ public-report.html
 README.md
 ```
 
-## Good result
-
-A good result has:
-
-```text
-Workflow status: green
-Artifact present: yes
-Receipt hash: present
-Docket hash: present
-Public-safe notice: present
-```
-
+The artifact is public-safe and contains no user data.
