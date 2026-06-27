@@ -1,0 +1,43 @@
+name: AGIALPHA external token boundary gate
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'config/agialpha-token-boundary.json'
+      - 'scripts/build-agialpha-token-boundary-pages.mjs'
+      - 'scripts/verify-agialpha-token-boundary.mjs'
+      - 'docs/AGIALPHA_EXTERNAL_TOKEN_BOUNDARY.md'
+      - '.github/workflows/agialpha-token-boundary.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'config/agialpha-token-boundary.json'
+      - 'scripts/build-agialpha-token-boundary-pages.mjs'
+      - 'scripts/verify-agialpha-token-boundary.mjs'
+      - 'docs/AGIALPHA_EXTERNAL_TOKEN_BOUNDARY.md'
+      - '.github/workflows/agialpha-token-boundary.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  verify-agialpha-boundary:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Build current public site layers if available
+        run: |
+          set -euo pipefail
+          mkdir -p site
+          if [ -f scripts/build-asi-apex-v6-pages.mjs ]; then node scripts/build-asi-apex-v6-pages.mjs; fi
+          if [ -f scripts/build-sovereign-machine-economy-pages.mjs ]; then node scripts/build-sovereign-machine-economy-pages.mjs; fi
+          if [ -f scripts/build-user-activation-pages.mjs ]; then node scripts/build-user-activation-pages.mjs; fi
+          if [ -f scripts/build-legal-zero-data-pages.mjs ]; then node scripts/build-legal-zero-data-pages.mjs; fi
+      - name: Build AGIALPHA token boundary pages
+        run: node scripts/build-agialpha-token-boundary-pages.mjs
+      - name: Verify AGIALPHA external token posture
+        run: node scripts/verify-agialpha-token-boundary.mjs
