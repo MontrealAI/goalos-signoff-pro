@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://montrealai.github.io/goalos-signoff-pro/schemas/sovereign-machine-economy.schema.json",
+  "title": "GoalOS Sovereign Machine Economy source schema",
+  "type": "object",
+  "required": ["version", "product", "repository", "productionUrl", "pilotEmail", "doctrine", "modules", "previousIterationMapping", "publicPages", "hardNoClaims"],
+  "properties": {
+    "version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "product": { "type": "string", "minLength": 10 },
+    "repository": { "type": "string", "const": "MontrealAI/goalos-signoff-pro" },
+    "productionUrl": { "type": "string", "format": "uri" },
+    "pilotEmail": { "type": "string", "const": "info@quebec.ai" },
+    "doctrine": {
+      "type": "object",
+      "required": ["headline", "subheadline", "shortThesis", "tagline", "primaryCta", "secondaryCta"],
+      "additionalProperties": { "type": "string" }
+    },
+    "boundariesAsArchitecture": { "type": "object" },
+    "modules": {
+      "type": "array",
+      "minItems": 6,
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "short", "description", "publicObject"],
+        "properties": {
+          "id": { "type": "string" },
+          "title": { "type": "string" },
+          "short": { "type": "string" },
+          "description": { "type": "string" },
+          "publicObject": { "type": "string" }
+        }
+      }
+    },
+    "previousIterationMapping": { "type": "array", "minItems": 3 },
+    "publicPages": { "type": "array", "minItems": 5 },
+    "hardNoClaims": { "type": "array", "minItems": 1, "items": { "type": "string" } }
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "$schema": "../schemas/sovereign-machine-economy.schema.json",
+  "version": "1.0.0",
+  "product": "GoalOS AGIALPHA Ascension — Sovereign Machine Economy",
+  "repository": "MontrealAI/goalos-signoff-pro",
+  "productionUrl": "https://montrealai.github.io/goalos-signoff-pro/",
+  "pilotEmail": "info@quebec.ai",
+  "doctrine": {
+    "headline": "The proof-bearing economy for AI work.",
+    "subheadline": "From mission to evidence, from evidence to acceptance, from acceptance to reusable capability.",
+    "shortThesis": "GoalOS turns AI work into governed institutional capacity: aims become commitments, work becomes proof, proof becomes acceptance, and accepted capability becomes reusable memory.",
+    "tagline": "Aim. Act. Prove. Evolve.",
+    "primaryCta": "Enter the proof economy",
+    "secondaryCta": "Inspect the constitution"
+  },
+  "boundariesAsArchitecture": {
+    "humanAuthority": "Human acceptance is represented as a visible terminal gate in the interface.",
+    "publicPrivateProof": "Public pages show proof commitments, evidence hashes, receipts, and replay paths; private intelligence remains out of public artifacts.",
+    "capabilityPropagation": "Capabilities advance only through evidence, evaluation, scope, rollback, and review gates.",
+    "settlementPosture": "Settlement is represented as an architectural rail and future gated module, not as an automatic action on the public site."
+  },
+  "modules": [
+    {
+      "id": "commit",
+      "title": "Mission Commitments",
+      "short": "Intent becomes a signed institutional object.",
+      "description": "Each mission begins as a commitment with success criteria, constraints, risk class, evaluator requirements, data boundary, and rollback obligation.",
+      "publicObject": "GoalOSCommit"
+    },
+    {
+      "id": "run",
+      "title": "Bounded Run Fabric",
+      "short": "Agents execute inside a constrained work corridor.",
+      "description": "The run fabric resolves agents, tools, context, policies, budgets, and approval rules before work begins.",
+      "publicObject": "RunCommitment"
+    },
+    {
+      "id": "proof",
+      "title": "Evidence Dockets",
+      "short": "Outputs become inspectable proof rooms.",
+      "description": "Claims, sources, baselines, proof packets, verifier notes, risk ledgers, cost ledgers, replay paths, and claim boundaries become one reviewable package.",
+      "publicObject": "EvidenceDocket"
+    },
+    {
+      "id": "validate",
+      "title": "Verifier Mesh",
+      "short": "Evidence is checked before acceptance.",
+      "description": "Validators inspect claim support, contradictions, assumptions, source freshness, replayability, risk, and unsupported action claims.",
+      "publicObject": "EvalAttestation"
+    },
+    {
+      "id": "accept",
+      "title": "Human Acceptance Gate",
+      "short": "Authority remains explicit and reviewable.",
+      "description": "A reviewer or client decision admits, rejects, requests changes, or escalates a mission package.",
+      "publicObject": "SelectionCertificate"
+    },
+    {
+      "id": "evolve",
+      "title": "Reusable Capability Chronicle",
+      "short": "Accepted work becomes institutional memory.",
+      "description": "Accepted mission outcomes become durable records that can influence future work only through governed scope and replayable evidence.",
+      "publicObject": "EvolutionLedgerEntry"
+    }
+  ],
+  "previousIterationMapping": [
+    {
+      "source": "META-AGENTIC α-AGI",
+      "reimplementedAs": "Evidence-state orchestration layer",
+      "description": "Mission decomposition, verifier routing, decision-state formation, and capability packaging."
+    },
+    {
+      "source": "AGI Alpha Node v0",
+      "reimplementedAs": "Bounded run and replay corridor",
+      "description": "Runtime identity, trace roots, output hashes, validator gates, and replay paths represented as proof objects."
+    },
+    {
+      "source": "AGI Jobs v0 / v2",
+      "reimplementedAs": "Proof-to-acceptance work economy",
+      "description": "Jobs become commitments, submissions become evidence dockets, review becomes selection, and receipts become durable institutional records."
+    }
+  ],
+  "publicPages": [
+    {
+      "file": "sovereign-machine-economy.html",
+      "title": "Sovereign Machine Economy",
+      "nav": "Sovereign Economy",
+      "purpose": "Flagship synthesis page."
+    },
+    {
+      "file": "proof-os.html",
+      "title": "Proof OS",
+      "nav": "Proof OS",
+      "purpose": "Mission-to-decision product page."
+    },
+    {
+      "file": "machine-economy.html",
+      "title": "Machine Economy",
+      "nav": "Machine Economy",
+      "purpose": "Agents, jobs, validators, memory, markets, and governance page."
+    },
+    {
+      "file": "constitution.html",
+      "title": "AEP-001 Constitution",
+      "nav": "Constitution",
+      "purpose": "Proof-of-Evolution object model and gates."
+    },
+    {
+      "file": "proof-missions.html",
+      "title": "Proof Missions",
+      "nav": "Proof Missions",
+      "purpose": "Founding proof mission offer and pilot CTA."
+    }
+  ],
+  "hardNoClaims": [
+    "achieved AGI",
+    "achieved ASI",
+    "superintelligence achieved",
+    "guaranteed return",
+    "user funds authorized",
+    "Mainnet settlement is live",
+    "AGIALPHA staking is live",
+    "autonomous acceptance",
+    "legal advice",
+    "financial advice"
+  ]
+}
