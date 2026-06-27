@@ -1,0 +1,64 @@
+name: User delight demo and preview
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/build-user-delight-pages.mjs'
+      - 'scripts/verify-user-delight-layer.mjs'
+      - 'scripts/generate-delight-demo-proof-mission.mjs'
+      - 'config/user-delight-layer.json'
+      - '.github/workflows/user-delight.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  build-delight-preview:
+    name: Build browser-local demos and preview site
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Build current public site layers when available
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p site
+          for script in \
+            scripts/build-asi-apex-v6-pages.mjs \
+            scripts/build-sovereign-machine-economy-pages.mjs \
+            scripts/build-user-activation-pages.mjs \
+            scripts/build-legal-zero-data-pages.mjs \
+            scripts/build-agialpha-token-boundary-pages.mjs; do
+            if [ -f "$script" ]; then
+              echo "Running $script"
+              node "$script"
+            fi
+          done
+      - name: Build User Delight Layer
+        run: node scripts/build-user-delight-pages.mjs
+      - name: Verify User Delight Layer
+        run: node scripts/verify-user-delight-layer.mjs
+      - name: Generate autonomous demo Proof Mission
+        run: node scripts/generate-delight-demo-proof-mission.mjs
+      - name: Upload preview site
+        uses: actions/upload-artifact@v4
+        with:
+          name: goalos-user-delight-preview-site
+          path: site
+      - name: Upload demo Proof Mission package
+        uses: actions/upload-artifact@v4
+        with:
+          name: goalos-demo-proof-mission
+          path: artifacts/demo-proof-mission
+      - name: Upload verification reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: goalos-user-delight-verification
+          path: verification

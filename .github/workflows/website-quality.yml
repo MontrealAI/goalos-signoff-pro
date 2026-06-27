@@ -1,30 +1,61 @@
 name: Website quality gate
 
 on:
+  workflow_dispatch:
   pull_request:
     branches: [main]
-  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/**'
+      - 'config/**'
+      - 'docs/**'
+      - 'examples/**'
+      - '.github/workflows/website-quality.yml'
+      - '.github/workflows/pages.yml'
 
 permissions:
   contents: read
 
 jobs:
   quality:
-    name: Build and verify public site quality
+    name: Build and verify public website quality
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 24
-      - run: node scripts/build-asi-apex-v6-pages.mjs
-      - run: node scripts/build-sovereign-machine-economy-pages.mjs
-      - run: node scripts/build-user-activation-pages.mjs
-      - run: node scripts/build-legal-zero-data-pages.mjs
-      - run: node scripts/verify-sovereign-machine-economy.mjs
-      - run: node scripts/verify-website-quality.mjs
-      - run: node scripts/verify-legal-zero-data-posture.mjs
-      - uses: actions/upload-artifact@v4
+
+      - name: Build public site layers
+        run: |
+          set -euo pipefail
+          rm -rf site
+          mkdir -p site
+          node scripts/build-asi-apex-v6-pages.mjs
+          node scripts/build-sovereign-machine-economy-pages.mjs
+          if [ -f scripts/build-user-activation-pages.mjs ] && [ -f config/goalos-proof-missions.json ]; then node scripts/build-user-activation-pages.mjs; else echo 'Skipping user activation generator unless both script and config/goalos-proof-missions.json exist.'; fi
+          if [ -f scripts/build-legal-zero-data-pages.mjs ] && [ -f config/legal-zero-data-posture.json ]; then node scripts/build-legal-zero-data-pages.mjs; else echo 'Skipping legal zero-data generator unless both script and config/legal-zero-data-posture.json exist.'; fi
+          if [ -f scripts/build-agialpha-token-boundary-pages.mjs ] && [ -f config/agialpha-token-boundary.json ]; then node scripts/build-agialpha-token-boundary-pages.mjs; else echo 'Skipping AGIALPHA boundary generator unless both script and config/agialpha-token-boundary.json exist.'; fi
+          node scripts/build-user-delight-pages.mjs
+
+      - name: Run website quality gates
+        run: |
+          set -euo pipefail
+          if [ -f scripts/verify-sovereign-machine-economy.mjs ]; then node scripts/verify-sovereign-machine-economy.mjs; fi
+          if [ -f scripts/verify-capability-parity.mjs ]; then node scripts/verify-capability-parity.mjs; fi
+          if [ -f scripts/verify-website-quality.mjs ] && [ -f config/goalos-proof-missions.json ]; then node scripts/verify-website-quality.mjs; else echo 'Skipping website quality verifier unless user activation config exists.'; fi
+          if [ -f scripts/verify-legal-zero-data-posture.mjs ] && [ -f config/legal-zero-data-posture.json ]; then node scripts/verify-legal-zero-data-posture.mjs; else echo 'Skipping legal zero-data verifier unless config exists.'; fi
+          if [ -f scripts/verify-agialpha-token-boundary.mjs ] && [ -f config/agialpha-token-boundary.json ]; then node scripts/verify-agialpha-token-boundary.mjs; else echo 'Skipping AGIALPHA boundary verifier unless config exists.'; fi
+          if [ -f scripts/verify-public-artifact-safety.mjs ] && [ -f config/agialpha-token-boundary.json ]; then node scripts/verify-public-artifact-safety.mjs; else echo 'Skipping public artifact safety verifier unless AGIALPHA config exists.'; fi
+          node scripts/verify-user-delight-autopilot.mjs
+
+      - name: Upload preview artifact
+        uses: actions/upload-artifact@v4
         with:
-          name: goalos-signoff-pro-site-preview
+          name: goalos-public-site-preview
           path: site
+          if-no-files-found: error

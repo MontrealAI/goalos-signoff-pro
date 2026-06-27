@@ -1,0 +1,64 @@
+name: Delight demo lab gate
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'config/goalos-delight-demo-lab.json'
+      - 'scripts/build-delight-demo-lab-pages.mjs'
+      - 'scripts/verify-delight-demo-lab.mjs'
+      - '.github/workflows/delight-demo-lab.yml'
+      - '.github/workflows/pages.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'config/goalos-delight-demo-lab.json'
+      - 'scripts/build-delight-demo-lab-pages.mjs'
+      - 'scripts/verify-delight-demo-lab.mjs'
+      - '.github/workflows/delight-demo-lab.yml'
+      - '.github/workflows/pages.yml'
+
+permissions:
+  contents: read
+
+env:
+  NODE_VERSION: '24'
+
+jobs:
+  verify-delight-demo-lab:
+    name: Verify autonomous user demo layer
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - name: Build base public site layers if available
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p site
+          for script in \
+            scripts/build-asi-apex-v6-pages.mjs \
+            scripts/build-sovereign-machine-economy-pages.mjs \
+            scripts/build-user-activation-pages.mjs \
+            scripts/build-legal-zero-data-pages.mjs \
+            scripts/build-agialpha-token-boundary-pages.mjs
+          do
+            if [ -f "$script" ]; then
+              node "$script"
+            fi
+          done
+      - name: Build delight demo lab
+        run: node scripts/build-delight-demo-lab-pages.mjs
+      - name: Verify delight demo lab
+        run: node scripts/verify-delight-demo-lab.mjs
+      - name: Upload preview artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: goalos-delight-demo-lab-preview
+          path: site
+          if-no-files-found: error
