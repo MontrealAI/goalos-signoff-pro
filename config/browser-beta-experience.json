@@ -1,0 +1,26 @@
+{
+  "name": "GoalOS Signoff Pro Browser Beta Experience",
+  "version": "8.0.0-final-production",
+  "publicUrl": "https://montrealai.github.io/goalos-signoff-pro/",
+  "posture": {
+    "openToAnyone": true,
+    "browserLocal": true,
+    "emailRequired": false,
+    "forms": false,
+    "uploads": false,
+    "wallets": false,
+    "payments": false,
+    "cookies": false,
+    "analytics": false,
+    "personalData": false,
+    "confidentialData": false
+  },
+  "primaryPages": [
+    "browser-beta.html",
+    "demo-lab.html",
+    "proof-run-001.html",
+    "multi-agent-sovereign-institution.html",
+    "evidence-docket-demo.html",
+    "verify.html"
+  ]
+}
