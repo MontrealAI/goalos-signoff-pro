@@ -4,10 +4,10 @@ on:
   workflow_dispatch:
     inputs:
       scenario:
-        description: "Choose a public-safe demo Proof Mission"
+        description: Choose a public-safe demo scenario
         required: true
-        default: "ai-research-report"
         type: choice
+        default: ai-research-report
         options:
           - ai-research-report
           - automation-delivery
@@ -18,28 +18,20 @@ permissions:
   contents: read
 
 jobs:
-  generate-demo:
-    name: Generate public-safe demo Proof Mission
+  demo:
+    name: Generate downloadable demo Proof Mission
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repository
-        uses: actions/checkout@v4
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: 24
-
-      - name: Generate demo Proof Mission artifacts
+          node-version: 20
+      - name: Generate demo artifact bundle
         env:
-          SCENARIO: ${{ inputs.scenario }}
-        run: |
-          set -euo pipefail
-          node scripts/generate-user-delight-demo.mjs --scenario=${SCENARIO}
-
-      - name: Upload demo Proof Mission bundle
+          GOALOS_DEMO_SCENARIO: ${{ inputs.scenario }}
+        run: node scripts/generate-user-delight-demo.mjs
+      - name: Upload demo bundle
         uses: actions/upload-artifact@v4
         with:
           name: goalos-demo-proof-mission-${{ inputs.scenario }}
-          path: artifacts/user-delight-demo/${{ inputs.scenario }}
-          if-no-files-found: error
+          path: artifacts/user-delight-demo
