@@ -1,0 +1,27 @@
+{
+  "schema": "goalos.demo.multiAgentEvidenceDocket.v1",
+  "manifestHash": "a723e85b19cac7e47a8fbaec200afb92a99b54473bf0cb2eb92e796bcba86f8f",
+  "claimsMatrix": [
+    {
+      "claim": "Coordination objective is verified work, not swarm size.",
+      "evidence": "coordination-objective.json",
+      "verdict": "supported in demo"
+    },
+    {
+      "claim": "Role contracts reduce coordination waste.",
+      "evidence": "role-graph.json",
+      "verdict": "supported in demo"
+    },
+    {
+      "claim": "Validators terminate the workflow.",
+      "evidence": "validator-report.json",
+      "verdict": "supported in demo"
+    },
+    {
+      "claim": "No value moved and no user data requested.",
+      "evidence": "risk-ledger.json",
+      "verdict": "supported in demo"
+    }
+  ],
+  "publicPrivateBoundary": "public-safe synthetic demo only; no private traces, customer data, wallet, or upload path"
+}

@@ -1,0 +1,131 @@
+{
+  "bundleType": "multi-agent-sovereign-institution-demo",
+  "generatedAt": "2026-06-27T21:34:09.711Z",
+  "publicSafe": true,
+  "noUserData": true,
+  "noValueMoved": true,
+  "mission": {
+    "objective": "Demonstrate proof-governed coordination of a large multi-agent system using a browser-local synthetic scenario.",
+    "successCriteria": [
+      "Role graph formed",
+      "Evidence docket emitted",
+      "Validator gate passes",
+      "Chronicle memory records reusable capability",
+      "No user data requested"
+    ],
+    "riskClass": "public-demo-low-risk"
+  },
+  "constellation": [
+    {
+      "id": "coordinator",
+      "name": "Coordinator",
+      "role": "selects constellation, budget, access graph, and stopping rule"
+    },
+    {
+      "id": "planner",
+      "name": "Planner",
+      "role": "turns the objective into subgoals and acceptance criteria"
+    },
+    {
+      "id": "researcher",
+      "name": "Researcher",
+      "role": "maps public-safe evidence and source provenance"
+    },
+    {
+      "id": "builder",
+      "name": "Builder",
+      "role": "produces the bounded work artifact"
+    },
+    {
+      "id": "validator",
+      "name": "Validator",
+      "role": "checks evidence, baselines, replay, and proof integrity"
+    },
+    {
+      "id": "risk",
+      "name": "Risk Sentinel",
+      "role": "blocks unsafe propagation and unresolved claim debt"
+    },
+    {
+      "id": "chronicle",
+      "name": "Chronicle",
+      "role": "preserves accepted experience and capability lineage"
+    },
+    {
+      "id": "human",
+      "name": "Human Authority",
+      "role": "final acceptance gate and escalation boundary"
+    }
+  ],
+  "coordinationTrace": [
+    {
+      "step": 1,
+      "stage": "Mission",
+      "evidence": "mission-proof-root-e6b85bfbf550"
+    },
+    {
+      "step": 2,
+      "stage": "Constellation",
+      "evidence": "constellation-proof-root-da48ad09eb2b"
+    },
+    {
+      "step": 3,
+      "stage": "Work",
+      "evidence": "work-proof-root-104ab9213e28"
+    },
+    {
+      "step": 4,
+      "stage": "Proof",
+      "evidence": "proof-proof-root-7fbb3ccf9640"
+    },
+    {
+      "step": 5,
+      "stage": "Validate",
+      "evidence": "validate-proof-root-40611abbdda2"
+    },
+    {
+      "step": 6,
+      "stage": "Chronicle",
+      "evidence": "chronicle-proof-root-619aad1b467a"
+    },
+    {
+      "step": 7,
+      "stage": "Capability",
+      "evidence": "capability-proof-root-5faf58a69db5"
+    }
+  ],
+  "evidenceDocket": {
+    "manifest": "public-safe synthetic demo",
+    "claimsMatrix": [
+      {
+        "claim": "Coordinator selects bounded roles",
+        "evidence": "role-contract-table",
+        "status": "demonstrated"
+      },
+      {
+        "claim": "Validation controls propagation",
+        "evidence": "validator-gate-trace",
+        "status": "demonstrated"
+      },
+      {
+        "claim": "No value moved",
+        "evidence": "demo-receipt-no-value-moved",
+        "status": "demonstrated"
+      }
+    ],
+    "riskLedger": [
+      "no external action",
+      "no input fields",
+      "no upload surface",
+      "no wallet path",
+      "no live settlement"
+    ]
+  },
+  "receipt": {
+    "id": "MACD-001-DEMO-RECEIPT",
+    "decision": "demo coordination cycle accepted as public-safe synthetic illustration",
+    "noValueMoved": true,
+    "humanGate": "required for real missions",
+    "hash": "7698beff3c09c9fd0d642337056fb191d67405a7e5e11bd926aacb46a3ac80bd"
+  }
+}

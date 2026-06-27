@@ -1,0 +1,17 @@
+{
+  "schema": "goalos.demo.multiAgentMissionContract.v1",
+  "generatedAt": "2026-06-27T21:34:34.450Z",
+  "publicSafe": true,
+  "noUserData": true,
+  "objective": "Demonstrate how a large multi-agent system coordinates toward optimal effect by becoming a proof-governed institution.",
+  "acceptanceGates": [
+    "mission bounded",
+    "role contracts assigned",
+    "proof packets emitted",
+    "validation passed",
+    "Chronicle memory written",
+    "no value moved"
+  ],
+  "humanAuthority": "required for real missions",
+  "contact": "info@quebec.ai"
+}

@@ -1,0 +1,29 @@
+{
+  "coordinator": [
+    "planner",
+    "researcher",
+    "builder",
+    "validator",
+    "risk-sentinel",
+    "chronicle",
+    "human-authority"
+  ],
+  "planner": [
+    "researcher",
+    "builder"
+  ],
+  "builder": [
+    "validator",
+    "risk-sentinel"
+  ],
+  "validator": [
+    "chronicle",
+    "human-authority"
+  ],
+  "risk-sentinel": [
+    "human-authority"
+  ],
+  "chronicle": [
+    "coordinator"
+  ]
+}

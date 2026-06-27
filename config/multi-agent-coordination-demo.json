@@ -1,0 +1,60 @@
+{
+  "version": "1.0.0-final-production",
+  "product": "GoalOS Signoff Pro",
+  "module": "Multi-Agent Sovereign Institution Browser Demo",
+  "productionUrl": "https://montrealai.github.io/goalos-signoff-pro/",
+  "contactEmail": "info@quebec.ai",
+  "thesis": "Large multi-agent systems coordinate to optimal effect when they become proof-governed sovereign institutions.",
+  "claimBoundary": {
+    "publicDemo": true,
+    "browserLocal": true,
+    "noUserData": true,
+    "noInputs": true,
+    "noUploads": true,
+    "noWallet": true,
+    "noCookies": true,
+    "noAnalytics": true,
+    "noPayments": true,
+    "noValueMoved": true,
+    "notAchievedAGI": true,
+    "notAchievedASI": true,
+    "notLiveSettlement": true
+  },
+  "coordinationLaw": {
+    "plainLanguage": "Optimal effect means more verified work, lower risk, lower coordination waste, and reusable memory — not more agents for its own sake.",
+    "equation": "maximize verified value minus compute cost, safety risk, coordination overhead, and unknown externality"
+  },
+  "stages": [
+    {"id":"mission","label":"Mission", "description":"The objective is bounded into a mission contract with scope, risk, and acceptance gates."},
+    {"id":"constellation","label":"Constellation", "description":"The coordinator activates only the agents needed for the mission."},
+    {"id":"work","label":"Work", "description":"Agents execute bounded roles under tool, cost, and authority constraints."},
+    {"id":"proof","label":"Proof", "description":"Every claim becomes a proof packet, trace root, or evidence object."},
+    {"id":"validate","label":"Validate", "description":"Verifier agents, risk sentinels, and human authority gates accept, reject, or escalate."},
+    {"id":"chronicle","label":"Chronicle", "description":"Accepted proof becomes institutional memory and routing experience."},
+    {"id":"capability","label":"Capability", "description":"Reusable capability is admitted only if evidence survives the gate."}
+  ],
+  "agents": [
+    {"id":"coordinator","name":"Coordinator", "role":"selects constellation, budget, access graph, and stopping rule"},
+    {"id":"planner","name":"Planner", "role":"turns the objective into subgoals and acceptance criteria"},
+    {"id":"researcher","name":"Researcher", "role":"maps public-safe evidence and source provenance"},
+    {"id":"builder","name":"Builder", "role":"produces the bounded work artifact"},
+    {"id":"validator","name":"Validator", "role":"checks evidence, baselines, replay, and proof integrity"},
+    {"id":"risk","name":"Risk Sentinel", "role":"blocks unsafe propagation and unresolved claim debt"},
+    {"id":"chronicle","name":"Chronicle", "role":"preserves accepted experience and capability lineage"},
+    {"id":"human","name":"Human Authority", "role":"final acceptance gate and escalation boundary"}
+  ],
+  "scenarios": [
+    {"id":"research", "label":"AI research brief", "difficulty":64, "risk":22, "baseline":"single analyst report"},
+    {"id":"automation", "label":"Automation delivery", "difficulty":72, "risk":28, "baseline":"ad-hoc handoff"},
+    {"id":"grant", "label":"Grant milestone review", "difficulty":58, "risk":18, "baseline":"unstructured review"},
+    {"id":"defensive", "label":"Defensive readiness package", "difficulty":81, "risk":37, "baseline":"manual security checklist"}
+  ],
+  "outcomes": {
+    "verifiedWork": "+23%",
+    "coordinationWaste": "-31%",
+    "falseAcceptance": "0",
+    "replayReady": "YES",
+    "humanGate": "REQUIRED",
+    "valueMoved": "0"
+  }
+}

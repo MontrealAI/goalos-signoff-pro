@@ -1,0 +1,16 @@
+{
+  "noForms": true,
+  "noInputs": true,
+  "noUploads": true,
+  "noWallet": true,
+  "noCookies": true,
+  "noAnalytics": true,
+  "noPayment": true,
+  "noValueMoved": true,
+  "unsupportedClaimsBlocked": [
+    "achieved AGI",
+    "achieved ASI",
+    "guaranteed return",
+    "live settlement"
+  ]
+}

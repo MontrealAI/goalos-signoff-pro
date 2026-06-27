@@ -1,0 +1,46 @@
+{
+  "generatedAt": "2026-06-27T21:34:09.711Z",
+  "generator": "scripts/build-multi-agent-coordination-demo.mjs",
+  "version": "1.0.0-final-production",
+  "thesis": "Large multi-agent systems coordinate to optimal effect when they become proof-governed sovereign institutions.",
+  "contactEmail": "info@quebec.ai",
+  "pages": [
+    "multi-agent-sovereign-institution.html",
+    "coordination-theatre.html",
+    "proof-governed-swarm.html",
+    "agent-constellation-lab.html"
+  ],
+  "noUserData": true,
+  "noInputs": true,
+  "noUploads": true,
+  "noWallet": true,
+  "noCookies": true,
+  "noAnalytics": true,
+  "noValueMoved": true,
+  "claimBoundary": {
+    "publicDemo": true,
+    "browserLocal": true,
+    "noUserData": true,
+    "noInputs": true,
+    "noUploads": true,
+    "noWallet": true,
+    "noCookies": true,
+    "noAnalytics": true,
+    "noPayments": true,
+    "noValueMoved": true,
+    "notAchievedAGI": true,
+    "notAchievedASI": true,
+    "notLiveSettlement": true
+  },
+  "siteHash": "f2a8b3e7e2201a9f82ae59295576791bd82d4c56ba249f5109688dd2210c286d",
+  "fileHashes": {
+    "multi-agent-sovereign-institution.html": "8320309ddfb0704a60e29e135ac7a7ffbfa8ce224ede893179a9e78a4917e081",
+    "coordination-theatre.html": "8d8438d642a2b663a6b29d82386ddb49c29e58e21c9e59899b72d1fadd7c891e",
+    "proof-governed-swarm.html": "3d891c0c0c8d9a8ce3f3aec46b3ca82950818048df3092c71a0bc63bc3eab87b",
+    "agent-constellation-lab.html": "e856dc0e9274f721e750c4805d6d87e6a96059672385c4260b12c71d536e311f",
+    "assets/multi-agent-institution.css": "4f64be423f425b5ac41cd897460cee4bca1e8647c93f7c247260a1e578dae49e",
+    "assets/multi-agent-institution.js": "da825239062fbaa1b2966bc697668e11cc027345cda92f28c429533077ac7124",
+    "coordination-manifest.json": "05e3bbbe125203bc24d0fb37d766616da470d99ad41c6d94a909c33cb02eb634",
+    "multi-agent-demo-bundle.json": "512bbd2ea580d6f44016194f8ab21a97e03850f1bab7ca103794fac68630912d"
+  }
+}

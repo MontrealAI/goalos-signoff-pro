@@ -1,0 +1,12 @@
+{
+  "verdict": "accepted as browser-local synthetic demonstration",
+  "checked": [
+    "schema",
+    "role graph",
+    "proof trace",
+    "risk ledger",
+    "no-user-data posture"
+  ],
+  "falseAcceptance": 0,
+  "criticalSafetyIncidents": 0
+}
