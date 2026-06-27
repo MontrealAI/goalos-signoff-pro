@@ -1,26 +1,25 @@
-# START HERE — GoalOS Signoff Pro v1.1.0
+# GoalOS Signoff Pro — Start Here
 
-This is the best first commercial product package: a normal SaaS workflow for mainstream customers, plus optional verified receipts for trust-sensitive users.
+GoalOS Signoff Pro turns one AI-delivered work package into an acceptance-ready proof package: mission brief, evidence, verifier report, risk ledger, decision state, and signed Mission Receipt.
 
-## The simple launch path
+Live website: https://montrealai.github.io/goalos-signoff-pro/
 
-1. Create a new GitHub repository.
-2. Upload this package.
-3. Create a Supabase project.
-4. Run `SUPABASE_SETUP.sql` in Supabase SQL Editor.
-5. Generate receipt keys with `npm run setup:keys`.
-6. Add secrets to your host.
-7. Deploy the Next.js app.
-8. Run one internal Signoff.
-9. Invite 5 pilot users.
-10. Enable Sepolia verified receipts only after 10 signed receipts work without issues.
+Contact: info@quebec.ai
 
-## Do not enable yet
+## What to do first
 
-- AGIALPHA requirements.
-- Escrow.
-- Mainnet anchoring.
-- Public user funds.
-- Automated acceptance decisions.
+1. Open the production website.
+2. Visit `/start.html` for the normal-user path.
+3. Visit `/proof-mission.html` to request a 48-hour Proof Mission.
+4. Visit `/evidence-docket-demo.html` to inspect a sample proof room.
+5. Visit `/verify.html` to test the demo Mission Receipt verifier.
 
-The software prepares evidence; humans decide acceptance.
+## Repository operators
+
+Run these GitHub Actions from the Actions tab:
+
+- Website quality gate
+- Generate demo Proof Mission
+- Deploy GoalOS Signoff Pro production site
+
+The public website is generated from source and quality-gated before deployment.

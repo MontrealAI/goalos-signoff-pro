@@ -1,0 +1,73 @@
+{
+  "manifest": {
+    "id": "defensive-cybersecurity-readiness",
+    "title": "Defensive cybersecurity readiness review",
+    "input": "Repo-owned defensive findings, controls, audit notes, patch proposal.",
+    "decisionToSupport": "Review, patch, defer, or require external review.",
+    "acceptanceCriteria": [
+      "criteria mapped to evidence",
+      "risk disclosed",
+      "reviewer decision preserved"
+    ],
+    "contact": "info@quebec.ai"
+  },
+  "claims": {
+    "claims": [
+      {
+        "id": "C1",
+        "claim": "Defensive cybersecurity readiness review",
+        "evidence": [
+          "E1",
+          "E2"
+        ],
+        "status": "demo-supported"
+      },
+      {
+        "id": "C2",
+        "claim": "Decision is ready for review.",
+        "evidence": [
+          "verifier-report.json",
+          "risk-ledger.json"
+        ],
+        "status": "requires-human-decision"
+      }
+    ]
+  },
+  "riskLedger": {
+    "risks": [
+      {
+        "id": "R1",
+        "risk": "Demo artifact; real mission requires real evidence.",
+        "mitigation": "Use only as example structure."
+      }
+    ]
+  },
+  "verifierReport": {
+    "verdict": "demo-ready-for-human-review",
+    "checks": [
+      "criteria",
+      "evidence mapping",
+      "risk disclosure",
+      "receipt path"
+    ]
+  },
+  "decisionState": {
+    "state": "DEMO_READY_FOR_REVIEW",
+    "allowedDecisions": [
+      "ACCEPT",
+      "REQUEST_CHANGES",
+      "REJECT",
+      "ESCALATE"
+    ]
+  },
+  "missionReceipt": {
+    "publicId": "GS-DEMO-DEFENSIVE-CYBERSECURITY-READINESS",
+    "title": "Defensive cybersecurity readiness review",
+    "decision": "DEMO_READY_FOR_REVIEW",
+    "hashes": {
+      "missionContract": "sha256:demo",
+      "claimsMatrix": "sha256:demo",
+      "evidenceDocket": "sha256:demo"
+    }
+  }
+}

@@ -1,8 +1,9 @@
 {
-  "recommendation": "ready-for-human-review",
+  "verdict": "demo-ready-for-human-review",
   "checks": [
-    "required sections present",
-    "claims mapped",
-    "risk ledger present"
+    "criteria",
+    "evidence mapping",
+    "risk disclosure",
+    "receipt path"
   ]
 }

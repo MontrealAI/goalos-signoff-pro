@@ -1,0 +1,12 @@
+{
+  "id": "procurement-review",
+  "title": "Procurement or vendor review",
+  "input": "Proposal, security notes, pricing, references, pilot results.",
+  "decisionToSupport": "Approve, negotiate, reject, or require more proof.",
+  "acceptanceCriteria": [
+    "criteria mapped to evidence",
+    "risk disclosed",
+    "reviewer decision preserved"
+  ],
+  "contact": "info@quebec.ai"
+}

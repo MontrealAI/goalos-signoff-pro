@@ -1,11 +1,12 @@
 {
-  "objective": "Produce an acceptance record for Market Entry.",
-  "decisionToSupport": "Should the client accept the delivered report?",
-  "successCriteria": [
-    "coverage complete",
-    "evidence mapped",
-    "limitations disclosed",
-    "reviewer decision recorded"
+  "id": "market-entry",
+  "title": "Market-entry proof mission",
+  "input": "Market thesis, customer signals, competitor sources, assumptions.",
+  "decisionToSupport": "Commit, test further, pause, or pivot.",
+  "acceptanceCriteria": [
+    "criteria mapped to evidence",
+    "risk disclosed",
+    "reviewer decision preserved"
   ],
-  "riskClass": "commercial-review"
+  "contact": "info@quebec.ai"
 }

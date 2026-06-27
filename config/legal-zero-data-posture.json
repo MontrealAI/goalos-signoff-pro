@@ -1,0 +1,44 @@
+{
+  "version": "3.0.0-zero-data-legal-shield",
+  "contactEmail": "info@quebec.ai",
+  "publicWebsite": "https://montrealai.github.io/goalos-signoff-pro/",
+  "effectiveDate": "2026-06-27",
+  "posture": "public-site-zero-user-data-by-design",
+  "noUserDataPrinciples": [
+    "The public GitHub Pages website has no account system, no upload form, no contact form, no analytics, no cookies, no wallet connection, and no payment collection.",
+    "Visitors must not submit personal data, confidential data, regulated data, credentials, private keys, health data, payment data, government IDs, minors' data, customer files, or third-party data through the public website.",
+    "Proof Mission requests must use only a non-sensitive business summary unless and until a separate written engagement and data-handling agreement exists.",
+    "The submitting party is responsible for rights, permissions, legal basis, redaction, accuracy, confidentiality, and compliance for any material it elects to provide outside the public site.",
+    "Public demos, receipts, and dockets are synthetic/public-safe and must not contain real customer or personal data."
+  ],
+  "blockedPublicClaims": [
+    "we collect user data",
+    "upload your personal data",
+    "send confidential files",
+    "send health data",
+    "send payment data",
+    "investment opportunity",
+    "guaranteed returns",
+    "profit expectation",
+    "token sale",
+    "securities offering",
+    "financial advice",
+    "legal advice",
+    "medical advice",
+    "production escrow is live",
+    "mainnet settlement is live",
+    "AGIALPHA staking is live"
+  ],
+  "permittedContact": "Email may be used only for non-sensitive business inquiries and public-safe Proof Mission summaries.",
+  "publicSiteProhibitions": [
+    "forms",
+    "file uploads",
+    "tracking scripts",
+    "analytics pixels",
+    "cookies",
+    "wallet connect",
+    "payments",
+    "personal-data requests",
+    "sensitive-data requests"
+  ]
+}

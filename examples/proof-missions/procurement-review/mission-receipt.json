@@ -1,0 +1,10 @@
+{
+  "publicId": "GS-DEMO-PROCUREMENT-REVIEW",
+  "title": "Procurement or vendor review",
+  "decision": "DEMO_READY_FOR_REVIEW",
+  "hashes": {
+    "missionContract": "sha256:demo",
+    "claimsMatrix": "sha256:demo",
+    "evidenceDocket": "sha256:demo"
+  }
+}

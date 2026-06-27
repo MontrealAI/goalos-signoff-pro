@@ -1,4 +1,9 @@
 {
-  "decision": "ready-for-human-review",
-  "humanAuthority": "required"
+  "state": "DEMO_READY_FOR_REVIEW",
+  "allowedDecisions": [
+    "ACCEPT",
+    "REQUEST_CHANGES",
+    "REJECT",
+    "ESCALATE"
+  ]
 }

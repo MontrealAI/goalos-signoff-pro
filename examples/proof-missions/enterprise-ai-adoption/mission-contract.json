@@ -1,0 +1,12 @@
+{
+  "id": "enterprise-ai-adoption",
+  "title": "Enterprise AI adoption decision",
+  "input": "Pilot results, stakeholder objectives, constraints, vendor material.",
+  "decisionToSupport": "Proceed, revise, defer, or reject with rationale.",
+  "acceptanceCriteria": [
+    "criteria mapped to evidence",
+    "risk disclosed",
+    "reviewer decision preserved"
+  ],
+  "contact": "info@quebec.ai"
+}

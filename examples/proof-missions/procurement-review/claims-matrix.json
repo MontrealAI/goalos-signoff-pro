@@ -1,0 +1,22 @@
+{
+  "claims": [
+    {
+      "id": "C1",
+      "claim": "Procurement or vendor review",
+      "evidence": [
+        "E1",
+        "E2"
+      ],
+      "status": "demo-supported"
+    },
+    {
+      "id": "C2",
+      "claim": "Decision is ready for review.",
+      "evidence": [
+        "verifier-report.json",
+        "risk-ledger.json"
+      ],
+      "status": "requires-human-decision"
+    }
+  ]
+}

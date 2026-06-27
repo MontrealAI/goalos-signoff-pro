@@ -1,24 +1,18 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
-const OUT=path.join(process.cwd(),'artifacts/demo-proof-mission');
-fs.mkdirSync(OUT,{recursive:true});
-const now=new Date().toISOString();
-function hash(o){return 'sha256:'+crypto.createHash('sha256').update(JSON.stringify(o)).digest('hex');}
-const missionContract={id:'pm-ai-research-report-demo',title:'AI Research Report Acceptance',decisionToSupport:'Should the client accept this AI-assisted competitive analysis as delivered?',successCriteria:['Five competitors covered','Source list attached','Pricing comparison present','Limitations disclosed','Recommendation traceable to evidence'],failureCriteria:['Missing competitor coverage','Unmapped claims','Unsupported pricing claims','No human decision recorded'],riskClass:'commercial-review',reviewRequirement:'human acceptance required',contact:'info@quebec.ai',createdAt:now};
-const claimsMatrix={missionId:missionContract.id,claims:[{claim:'Five competitors are covered',evidence:['report-sections-2-6','source-table'],status:'supported'},{claim:'Pricing comparison is ready for decision',evidence:['pricing-table','dated-source-links'],status:'requires-freshness-review'},{claim:'Recommendation follows from evidence',evidence:['decision-matrix','risk-ledger'],status:'supported-with-caveats'}]};
-const riskLedger={missionId:missionContract.id,risks:[{risk:'Source freshness',severity:'medium',mitigation:'Reviewer checks dated links before acceptance'},{risk:'AI-generated synthesis may omit competitor nuance',severity:'medium',mitigation:'Preserve limitations and request changes if needed'},{risk:'Decision may be reused outside scope',severity:'low',mitigation:'Receipt states accepted version and decision context'}]};
-const verifierReport={missionId:missionContract.id,checks:[{check:'required sections present',status:'pass'},{check:'claims mapped to evidence',status:'pass'},{check:'pricing freshness',status:'review'},{check:'limitations disclosed',status:'pass'}],recommendation:'ready-for-human-review'};
-const decisionState={missionId:missionContract.id,decision:'REQUEST_CHANGES_READY_FOR_REVIEW',reviewer:'demo reviewer',rationale:'Core evidence is mapped; pricing freshness should be confirmed before acceptance.'};
-const receipt={publicId:'GS-DEMO-RESEARCH-001',missionId:missionContract.id,issuedAt:now,decision:decisionState.decision,hashes:{missionContract:hash(missionContract),claimsMatrix:hash(claimsMatrix),riskLedger:hash(riskLedger),verifierReport:hash(verifierReport),decisionState:hash(decisionState)}};
-const files={
- 'mission-contract.json':missionContract,
- 'claims-matrix.json':claimsMatrix,
- 'risk-ledger.json':riskLedger,
- 'verifier-report.json':verifierReport,
- 'decision-state.json':decisionState,
- 'mission-receipt.json':receipt,
- 'README.md':`# Demo Proof Mission\n\nThis public-safe demo shows how a single AI-assisted deliverable becomes a mission contract, claims matrix, risk ledger, verifier report, decision state, and Mission Receipt. Contact: info@quebec.ai\n`
-};
-for(const [name,obj] of Object.entries(files)){ fs.writeFileSync(path.join(OUT,name), typeof obj==='string'?obj:JSON.stringify(obj,null,2)+'\n'); }
+const ROOT = process.cwd();
+const OUT = path.join(ROOT, 'artifacts/demo-proof-mission');
+fs.rmSync(OUT,{recursive:true,force:true}); fs.mkdirSync(OUT,{recursive:true});
+function sha(obj){return 'sha256:'+crypto.createHash('sha256').update(JSON.stringify(obj,null,2)).digest('hex');}
+const mission = {id:'proof-mission-demo-001',title:'AI Research Report Acceptance',decisionToSupport:'Should the client accept the AI-assisted market research report?',acceptanceCriteria:['Five competitors covered','Sources dated within twelve months','Pricing comparison attached','Risks and uncertainties disclosed','Final recommendation stated'],reviewer:'Designated human reviewer',contact:'info@quebec.ai'};
+const claims = {claims:[{id:'C1',claim:'The report covers five competitors.',evidence:['E1'],status:'supported'},{id:'C2',claim:'Pricing comparison is current.',evidence:['E2'],status:'needs-human-confirmation'},{id:'C3',claim:'Risks are disclosed.',evidence:['E3'],status:'supported'}]};
+const risk = {risks:[{id:'R1',risk:'Some price sources may change quickly.',mitigation:'Date-stamp source checks and request reviewer confirmation.'},{id:'R2',risk:'Recommendation depends on assumptions about target segment.',mitigation:'Surface assumptions in decision deck.'}]};
+const verifier = {verdict:'ready-for-human-review',checks:['claim support','source freshness','contradiction scan','acceptance criteria completeness','risk disclosure'],openItems:['Reviewer should confirm pricing recency.']};
+const decision = {state:'REQUEST_CHANGES_READY_FOR_REVIEW',allowedDecisions:['ACCEPT','REQUEST_CHANGES','REJECT','ESCALATE'],rationale:'Most criteria are supported; pricing recency requires reviewer confirmation.'};
+const receipt = {publicId:'GS-DEMO-RESEARCH-001',title:mission.title,issuer:'GoalOS Signoff Pro Demo',issuedAt:new Date().toISOString(),decision:decision.state,hashes:{missionContract:sha(mission),claimsMatrix:sha(claims),riskLedger:sha(risk),verifierReport:sha(verifier),decisionState:sha(decision)}};
+const files = {'mission-contract.json':mission,'claims-matrix.json':claims,'risk-ledger.json':risk,'verifier-report.json':verifier,'decision-state.json':decision,'mission-receipt.json':receipt,'evidence-docket.json':{manifest:mission,claims,risk,verifier,decision,receipt,replayPath:['Open mission contract','Inspect claims matrix','Review evidence hashes','Read risk ledger','Verify receipt']}};
+for (const [name,obj] of Object.entries(files)) fs.writeFileSync(path.join(OUT,name), JSON.stringify(obj,null,2));
+fs.writeFileSync(path.join(OUT,'README.md'), `# Demo Proof Mission\n\nThis public-safe demo package shows the GoalOS Signoff Pro proof mission shape.\n\nFiles:\n${Object.keys(files).map(f=>`- ${f}`).join('\n')}\n\nContact: info@quebec.ai\n`);
+fs.writeFileSync(path.join(OUT,'public-report.html'), `<!doctype html><html><head><meta charset="utf-8"><title>Demo Proof Mission</title></head><body><h1>Demo Proof Mission</h1><p>Decision state: ${decision.state}</p><p>Receipt: ${receipt.publicId}</p></body></html>`);
 console.log('Demo Proof Mission generated at artifacts/demo-proof-mission');

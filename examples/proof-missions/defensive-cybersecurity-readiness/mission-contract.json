@@ -1,0 +1,12 @@
+{
+  "id": "defensive-cybersecurity-readiness",
+  "title": "Defensive cybersecurity readiness review",
+  "input": "Repo-owned defensive findings, controls, audit notes, patch proposal.",
+  "decisionToSupport": "Review, patch, defer, or require external review.",
+  "acceptanceCriteria": [
+    "criteria mapped to evidence",
+    "risk disclosed",
+    "reviewer decision preserved"
+  ],
+  "contact": "info@quebec.ai"
+}

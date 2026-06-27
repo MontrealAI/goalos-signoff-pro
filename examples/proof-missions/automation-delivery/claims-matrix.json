@@ -1,7 +1,22 @@
-[
-  {
-    "claim": "The work package satisfies the coverage requirement.",
-    "evidence": "report sections and source table",
-    "status": "supported"
-  }
-]
+{
+  "claims": [
+    {
+      "id": "C1",
+      "claim": "AI automation delivery review",
+      "evidence": [
+        "E1",
+        "E2"
+      ],
+      "status": "demo-supported"
+    },
+    {
+      "id": "C2",
+      "claim": "Decision is ready for review.",
+      "evidence": [
+        "verifier-report.json",
+        "risk-ledger.json"
+      ],
+      "status": "requires-human-decision"
+    }
+  ]
+}

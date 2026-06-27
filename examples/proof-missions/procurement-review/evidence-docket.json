@@ -1,0 +1,73 @@
+{
+  "manifest": {
+    "id": "procurement-review",
+    "title": "Procurement or vendor review",
+    "input": "Proposal, security notes, pricing, references, pilot results.",
+    "decisionToSupport": "Approve, negotiate, reject, or require more proof.",
+    "acceptanceCriteria": [
+      "criteria mapped to evidence",
+      "risk disclosed",
+      "reviewer decision preserved"
+    ],
+    "contact": "info@quebec.ai"
+  },
+  "claims": {
+    "claims": [
+      {
+        "id": "C1",
+        "claim": "Procurement or vendor review",
+        "evidence": [
+          "E1",
+          "E2"
+        ],
+        "status": "demo-supported"
+      },
+      {
+        "id": "C2",
+        "claim": "Decision is ready for review.",
+        "evidence": [
+          "verifier-report.json",
+          "risk-ledger.json"
+        ],
+        "status": "requires-human-decision"
+      }
+    ]
+  },
+  "riskLedger": {
+    "risks": [
+      {
+        "id": "R1",
+        "risk": "Demo artifact; real mission requires real evidence.",
+        "mitigation": "Use only as example structure."
+      }
+    ]
+  },
+  "verifierReport": {
+    "verdict": "demo-ready-for-human-review",
+    "checks": [
+      "criteria",
+      "evidence mapping",
+      "risk disclosure",
+      "receipt path"
+    ]
+  },
+  "decisionState": {
+    "state": "DEMO_READY_FOR_REVIEW",
+    "allowedDecisions": [
+      "ACCEPT",
+      "REQUEST_CHANGES",
+      "REJECT",
+      "ESCALATE"
+    ]
+  },
+  "missionReceipt": {
+    "publicId": "GS-DEMO-PROCUREMENT-REVIEW",
+    "title": "Procurement or vendor review",
+    "decision": "DEMO_READY_FOR_REVIEW",
+    "hashes": {
+      "missionContract": "sha256:demo",
+      "claimsMatrix": "sha256:demo",
+      "evidenceDocket": "sha256:demo"
+    }
+  }
+}

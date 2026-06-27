@@ -1,0 +1,10 @@
+{
+  "publicId": "GS-DEMO-DEFENSIVE-CYBERSECURITY-READINESS",
+  "title": "Defensive cybersecurity readiness review",
+  "decision": "DEMO_READY_FOR_REVIEW",
+  "hashes": {
+    "missionContract": "sha256:demo",
+    "claimsMatrix": "sha256:demo",
+    "evidenceDocket": "sha256:demo"
+  }
+}

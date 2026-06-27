@@ -1,11 +1,12 @@
 {
-  "objective": "Produce an acceptance record for Grant Milestone.",
-  "decisionToSupport": "Should the client accept the delivered report?",
-  "successCriteria": [
-    "coverage complete",
-    "evidence mapped",
-    "limitations disclosed",
-    "reviewer decision recorded"
+  "id": "grant-milestone",
+  "title": "Grant / milestone verification",
+  "input": "Milestone deliverable, outputs, links, screenshots, evaluation notes.",
+  "decisionToSupport": "Approve, request changes, or escalate.",
+  "acceptanceCriteria": [
+    "criteria mapped to evidence",
+    "risk disclosed",
+    "reviewer decision preserved"
   ],
-  "riskClass": "commercial-review"
+  "contact": "info@quebec.ai"
 }

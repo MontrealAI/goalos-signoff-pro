@@ -1,11 +1,12 @@
 {
-  "objective": "Produce an acceptance record for AI Research Report.",
-  "decisionToSupport": "Should the client accept the delivered report?",
-  "successCriteria": [
-    "coverage complete",
-    "evidence mapped",
-    "limitations disclosed",
-    "reviewer decision recorded"
+  "id": "ai-research-report",
+  "title": "AI research report acceptance",
+  "input": "AI-assisted market, policy, or strategy report.",
+  "decisionToSupport": "Accept, request changes, reject, or escalate.",
+  "acceptanceCriteria": [
+    "criteria mapped to evidence",
+    "risk disclosed",
+    "reviewer decision preserved"
   ],
-  "riskClass": "commercial-review"
+  "contact": "info@quebec.ai"
 }

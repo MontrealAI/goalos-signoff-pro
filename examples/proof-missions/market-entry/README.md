@@ -1,3 +1,11 @@
-# Market Entry Proof Mission
+# Market-entry proof mission
 
-A public-safe example showing how market entry becomes an Evidence Docket and Mission Receipt.
+**Input:** Market thesis, customer signals, competitor sources, assumptions.
+
+**Process:** Validate demand signals, contradictions, timing, and risk.
+
+**Output:** Claims matrix, source provenance, decision state, action graph.
+
+**Decision:** Commit, test further, pause, or pivot.
+
+Contact: info@quebec.ai

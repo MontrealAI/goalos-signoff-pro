@@ -1,7 +1,9 @@
-[
-  {
-    "risk": "source freshness",
-    "severity": "medium",
-    "mitigation": "review dates before acceptance"
-  }
-]
+{
+  "risks": [
+    {
+      "id": "R1",
+      "risk": "Demo artifact; real mission requires real evidence.",
+      "mitigation": "Use only as example structure."
+    }
+  ]
+}

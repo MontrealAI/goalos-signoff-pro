@@ -1,5 +1,10 @@
 {
-  "publicId": "GS-DEMO-001",
-  "status": "demo",
-  "contact": "info@quebec.ai"
+  "publicId": "GS-DEMO-AI-RESEARCH-REPORT",
+  "title": "AI research report acceptance",
+  "decision": "DEMO_READY_FOR_REVIEW",
+  "hashes": {
+    "missionContract": "sha256:demo",
+    "claimsMatrix": "sha256:demo",
+    "evidenceDocket": "sha256:demo"
+  }
 }
