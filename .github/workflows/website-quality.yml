@@ -7,11 +7,9 @@ on:
   push:
     branches: [main]
     paths:
-      - 'scripts/**'
-      - 'config/**'
-      - 'docs/**'
-      - '.github/workflows/website-quality.yml'
-      - '.github/workflows/holy-grail-browser-demo.yml'
+      - "scripts/**"
+      - "config/**"
+      - ".github/workflows/website-quality.yml"
 
 permissions:
   contents: read
@@ -25,27 +23,28 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: 24
+          package-manager-cache: false
       - name: Build site preview
         run: |
           set -euo pipefail
-          node scripts/build-asi-apex-v6-pages.mjs
+          rm -rf site
+          mkdir -p site
+          if [ -f scripts/build-asi-apex-v6-pages.mjs ]; then node scripts/build-asi-apex-v6-pages.mjs; fi
           if [ -f scripts/build-sovereign-machine-economy-pages.mjs ]; then node scripts/build-sovereign-machine-economy-pages.mjs; fi
-          if [ -f scripts/build-user-activation-pages.mjs ] && [ -f config/goalos-proof-missions.json ]; then node scripts/build-user-activation-pages.mjs; fi
+          if [ -f scripts/build-user-activation-pages.mjs ]; then node scripts/build-user-activation-pages.mjs; fi
           if [ -f scripts/build-legal-zero-data-pages.mjs ]; then node scripts/build-legal-zero-data-pages.mjs; fi
-          if [ -f scripts/build-agialpha-token-boundary-pages.mjs ] && [ -f config/agialpha-token-boundary.json ]; then node scripts/build-agialpha-token-boundary-pages.mjs; fi
+          if [ -f scripts/build-agialpha-token-boundary-pages.mjs ]; then node scripts/build-agialpha-token-boundary-pages.mjs; fi
           if [ -f scripts/build-user-delight-pages.mjs ]; then node scripts/build-user-delight-pages.mjs; fi
           node scripts/build-holy-grail-browser-demo.mjs
+          node scripts/finalize-public-site-boundaries.mjs
       - name: Run quality gates
         run: |
           set -euo pipefail
           if [ -f scripts/verify-website-quality.mjs ]; then node scripts/verify-website-quality.mjs; fi
-          if [ -f scripts/verify-legal-zero-data-posture.mjs ]; then node scripts/verify-legal-zero-data-posture.mjs; fi
-          if [ -f scripts/verify-agialpha-token-boundary.mjs ]; then node scripts/verify-agialpha-token-boundary.mjs; fi
-          if [ -f scripts/verify-public-artifact-safety.mjs ]; then node scripts/verify-public-artifact-safety.mjs; fi
           if [ -f scripts/verify-user-delight-autopilot.mjs ]; then node scripts/verify-user-delight-autopilot.mjs; fi
           node scripts/verify-holy-grail-browser-demo.mjs
+          if [ -f scripts/verify-public-artifact-safety.mjs ]; then node scripts/verify-public-artifact-safety.mjs; fi
       - uses: actions/upload-artifact@v7
-        if: always()
         with:
           name: goalos-site-preview
           path: site

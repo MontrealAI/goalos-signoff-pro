@@ -5,15 +5,17 @@ on:
   push:
     branches: [main]
     paths:
-      - 'scripts/**'
-      - 'config/**'
-      - '.github/workflows/pages.yml'
-      - '.github/workflows/website-quality.yml'
-      - '.github/workflows/holy-grail-browser-demo.yml'
-      - 'docs/**'
+      - "scripts/**"
+      - "config/**"
+      - ".github/workflows/pages.yml"
+      - "docs/**"
+      - "src/**"
+      - "public/**"
 
 permissions:
   contents: read
+  pages: write
+  id-token: write
 
 concurrency:
   group: goalos-pages
@@ -25,29 +27,32 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      - uses: actions/configure-pages@v6
       - uses: actions/setup-node@v6
         with:
           node-version: 24
-      - name: Build public site
+          package-manager-cache: false
+      - name: Build public site layers
         run: |
           set -euo pipefail
-          node scripts/build-asi-apex-v6-pages.mjs
+          rm -rf site
+          mkdir -p site
+          if [ -f scripts/build-asi-apex-v6-pages.mjs ]; then node scripts/build-asi-apex-v6-pages.mjs; fi
           if [ -f scripts/build-sovereign-machine-economy-pages.mjs ]; then node scripts/build-sovereign-machine-economy-pages.mjs; fi
-          if [ -f scripts/build-user-activation-pages.mjs ] && [ -f config/goalos-proof-missions.json ]; then node scripts/build-user-activation-pages.mjs; fi
+          if [ -f scripts/build-user-activation-pages.mjs ]; then node scripts/build-user-activation-pages.mjs; fi
           if [ -f scripts/build-legal-zero-data-pages.mjs ]; then node scripts/build-legal-zero-data-pages.mjs; fi
-          if [ -f scripts/build-agialpha-token-boundary-pages.mjs ] && [ -f config/agialpha-token-boundary.json ]; then node scripts/build-agialpha-token-boundary-pages.mjs; fi
+          if [ -f scripts/build-agialpha-token-boundary-pages.mjs ]; then node scripts/build-agialpha-token-boundary-pages.mjs; fi
           if [ -f scripts/build-user-delight-pages.mjs ]; then node scripts/build-user-delight-pages.mjs; fi
           node scripts/build-holy-grail-browser-demo.mjs
-      - name: Verify gates
+          node scripts/finalize-public-site-boundaries.mjs
+      - name: Verify public gates
         run: |
           set -euo pipefail
           if [ -f scripts/verify-sovereign-machine-economy.mjs ]; then node scripts/verify-sovereign-machine-economy.mjs; fi
           if [ -f scripts/verify-capability-parity.mjs ]; then node scripts/verify-capability-parity.mjs; fi
-          if [ -f scripts/verify-website-quality.mjs ]; then node scripts/verify-website-quality.mjs; fi
           if [ -f scripts/verify-legal-zero-data-posture.mjs ]; then node scripts/verify-legal-zero-data-posture.mjs; fi
           if [ -f scripts/verify-agialpha-token-boundary.mjs ]; then node scripts/verify-agialpha-token-boundary.mjs; fi
           if [ -f scripts/verify-public-artifact-safety.mjs ]; then node scripts/verify-public-artifact-safety.mjs; fi
+          if [ -f scripts/verify-website-quality.mjs ]; then node scripts/verify-website-quality.mjs; fi
           if [ -f scripts/verify-user-delight-autopilot.mjs ]; then node scripts/verify-user-delight-autopilot.mjs; fi
           node scripts/verify-holy-grail-browser-demo.mjs
       - uses: actions/upload-pages-artifact@v5
@@ -57,9 +62,6 @@ jobs:
     name: Deploy to GitHub Pages
     needs: build
     runs-on: ubuntu-latest
-    permissions:
-      pages: write
-      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
