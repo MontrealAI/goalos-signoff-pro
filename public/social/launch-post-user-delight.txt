@@ -1,0 +1,9 @@
+GoalOS Signoff Pro is now more than an institutional proof surface.
+
+It is a user-facing acceptance layer people can try:
+
+Start → Proof Mission → Evidence Docket → Verifier → Mission Receipt.
+
+Run the browser-local demo. Inspect the docket. Verify the receipt.
+
+https://montrealai.github.io/goalos-signoff-pro/start.html

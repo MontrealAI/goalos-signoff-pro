@@ -1,0 +1,7 @@
+GoalOS Signoff Pro now has a public demo lab.
+
+Run a proof mission. Inspect an Evidence Docket. Verify a Mission Receipt. No account, no upload, no wallet, no tracking.
+
+AI work becomes institutional when acceptance is explicit.
+
+https://montrealai.github.io/goalos-signoff-pro/demo-lab.html

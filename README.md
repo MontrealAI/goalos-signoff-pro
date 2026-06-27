@@ -1,13 +1,20 @@
-# GoalOS Signoff Pro — User Activation Layer Complete v2
+# GoalOS Signoff Pro — User Delight & Autonomous Demos v3
 
-This package implements all requested user-facing website and repository additions for `MontrealAI/goalos-signoff-pro`.
+A production-ready public demo layer for `MontrealAI/goalos-signoff-pro`.
 
-It adds the public pages, repository docs, proof mission examples, demo proof mission generator, website quality gate, production Pages workflow, social assets, package.json helper, and operator guides needed to make the website usable, understandable, attractive, and shareable.
+This package makes the site more usable and delightful while preserving the zero-data, claim-bounded public posture.
 
-Contact email used everywhere: `info@quebec.ai`.
+## Includes
 
+- Browser-local demo lab
+- Sample Evidence Docket explorer
+- Mission Receipt verifier
+- User Start page
+- Autonomous GitHub Actions demo generator
+- Public-safe sample mission config
+- Quality gate
+- Replacement Pages workflow that integrates with existing site layers
 
-## Zero-Data Legal Shield
+## Contact
 
-This package adds a legal/privacy hardening layer: no-user-data public pages, privacy/terms/data policy pages, investment boundary pages, and GitHub Actions that block forms, uploads, analytics, cookies, wallet connects, payment widgets, disallowed emails, secret-like public artifacts, and unsupported investment/escrow/staking claims.
-
+`info@quebec.ai`

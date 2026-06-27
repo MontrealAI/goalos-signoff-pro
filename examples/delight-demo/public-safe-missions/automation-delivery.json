@@ -1,0 +1,7 @@
+{
+  "id": "automation-delivery",
+  "demo": true,
+  "publicSafeSample": true,
+  "howToRun": "Actions -> Generate Delight Demo Proof Mission -> Run workflow -> scenario=automation-delivery",
+  "output": "GitHub artifact containing mission contract, evidence docket, verifier report, risk ledger, decision state, and mission receipt."
+}

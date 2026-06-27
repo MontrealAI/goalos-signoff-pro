@@ -1,0 +1,68 @@
+{
+  "version": "3.0.0-final",
+  "product": "GoalOS Signoff Pro",
+  "contactEmail": "info@quebec.ai",
+  "publicSite": "https://montrealai.github.io/goalos-signoff-pro/",
+  "posture": {
+    "publicDemoMode": true,
+    "browserLocalOnly": true,
+    "requiresSignIn": false,
+    "requiresWallet": false,
+    "collectsUserData": false,
+    "usesForms": false,
+    "usesCookies": false,
+    "usesAnalytics": false,
+    "usesExternalScripts": false
+  },
+  "demoScenarios": [
+    {
+      "id": "ai-research-report",
+      "title": "AI research report acceptance",
+      "audience": "AI consultants, agencies, enterprise analysts",
+      "objective": "Decide whether an AI-assisted research report is ready for client acceptance.",
+      "input": "A public-safe summary of a research deliverable and its evidence categories.",
+      "criteria": ["Scope covered", "Sources mapped", "Claims supported", "Limitations visible", "Reviewer decision recorded", "Receipt replayable"],
+      "outputs": ["Evidence Docket", "Verifier report", "Risk ledger", "Mission Receipt", "Executive summary"],
+      "decision": "Accepted for demo"
+    },
+    {
+      "id": "automation-delivery",
+      "title": "Automation delivery review",
+      "audience": "AI automation teams and operations leaders",
+      "objective": "Confirm that an automation milestone has evidence, rollback notes, and human approval.",
+      "input": "A public-safe milestone description, acceptance checklist, and proof categories.",
+      "criteria": ["Workflow described", "Tests summarized", "Risk boundary visible", "Rollback path stated", "Approver identified", "Receipt sealed"],
+      "outputs": ["Acceptance matrix", "Risk ledger", "Action graph", "Mission Receipt", "Replay notes"],
+      "decision": "Ready for review"
+    },
+    {
+      "id": "grant-milestone",
+      "title": "Grant milestone verification",
+      "audience": "Grant programs, DAOs, foundations, public-good funders",
+      "objective": "Evaluate whether a milestone package is review-ready before funds or recognition decisions.",
+      "input": "Public-safe milestone summary, deliverable list, and proof pointers.",
+      "criteria": ["Milestone bounded", "Deliverables listed", "Evidence references mapped", "Open risks disclosed", "Reviewer judgment preserved", "Decision state recorded"],
+      "outputs": ["Milestone docket", "Claims matrix", "Verifier memo", "Receipt", "Public-safe summary"],
+      "decision": "Review-ready"
+    },
+    {
+      "id": "vendor-review",
+      "title": "AI vendor proof mission",
+      "audience": "Procurement, strategy, enterprise AI leaders",
+      "objective": "Compare vendor claims against evidence categories before procurement decisions.",
+      "input": "Public-safe vendor claim list and evidence categories.",
+      "criteria": ["Claims separated", "Evidence completeness checked", "Contradictions surfaced", "Risks categorized", "Decision path explicit", "Receipt available"],
+      "outputs": ["Claims matrix", "Evidence Docket", "Contradiction register", "Risk ledger", "Decision brief"],
+      "decision": "Escalate with evidence"
+    }
+  ],
+  "requiredPublicPages": [
+    "demo-lab.html",
+    "proof-mission-builder.html",
+    "demo-gallery.html",
+    "evidence-docket-lab.html",
+    "receipt-verifier-demo.html",
+    "autonomous-demo.html",
+    "user-delight-manifest.json"
+  ]
+}

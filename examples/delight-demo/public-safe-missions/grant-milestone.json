@@ -1,0 +1,7 @@
+{
+  "id": "grant-milestone",
+  "demo": true,
+  "publicSafeSample": true,
+  "howToRun": "Actions -> Generate Delight Demo Proof Mission -> Run workflow -> scenario=grant-milestone",
+  "output": "GitHub artifact containing mission contract, evidence docket, verifier report, risk ledger, decision state, and mission receipt."
+}

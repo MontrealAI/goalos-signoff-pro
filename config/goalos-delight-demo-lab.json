@@ -1,0 +1,139 @@
+{
+  "version": "3.0.0",
+  "product": "GoalOS Signoff Pro",
+  "publicUrl": "https://montrealai.github.io/goalos-signoff-pro/",
+  "contactEmail": "info@quebec.ai",
+  "zeroDataPosture": {
+    "forms": false,
+    "uploads": false,
+    "accounts": false,
+    "analytics": false,
+    "cookies": false,
+    "wallets": false,
+    "payments": false,
+    "externalCalls": false,
+    "mode": "browser-local public-safe samples only"
+  },
+  "demos": [
+    {
+      "id": "ai-research-report",
+      "title": "AI research report acceptance",
+      "shortTitle": "Research Report",
+      "audience": "Consultants, agencies, research teams",
+      "decision": "Can this AI-assisted research report be accepted for client review?",
+      "objective": "Evaluate a public-safe AI research deliverable against evidence, freshness, limitation, and decision-readiness criteria.",
+      "riskClass": "medium",
+      "criteria": [
+        "Mission brief is explicit",
+        "Major claims are mapped to evidence",
+        "Sources are dated and separated from assumptions",
+        "Limitations and unknowns are visible",
+        "Final recommendation is tied to the evidence docket"
+      ],
+      "deliverables": ["Evidence Docket", "Verifier Report", "Risk Ledger", "Mission Receipt", "Executive Brief"],
+      "sampleEvidence": [
+        { "id": "E-001", "label": "Public source register", "hash": "sha256:7fb1b5e7-demo-research-source-register" },
+        { "id": "E-002", "label": "Claims matrix", "hash": "sha256:22ca0c20-demo-claims-matrix" },
+        { "id": "E-003", "label": "Limitations note", "hash": "sha256:8a2f1b53-demo-limitations" }
+      ],
+      "outcome": "Ready for human acceptance",
+      "score": 94
+    },
+    {
+      "id": "automation-delivery",
+      "title": "AI automation delivery review",
+      "shortTitle": "Automation Delivery",
+      "audience": "AI implementation teams and enterprise pilots",
+      "decision": "Did the automation delivery meet its acceptance criteria?",
+      "objective": "Package a workflow automation handoff into criteria, tests, screenshots, limitations, and an acceptance receipt.",
+      "riskClass": "medium-high",
+      "criteria": [
+        "Workflow objective and scope are bounded",
+        "Test evidence is attached to every core function",
+        "Known failure modes are documented",
+        "Rollback and manual fallback are clear",
+        "Client reviewer remains the final acceptance authority"
+      ],
+      "deliverables": ["Test Ledger", "Evidence Docket", "Risk Ledger", "Action Graph", "Mission Receipt"],
+      "sampleEvidence": [
+        { "id": "E-101", "label": "Acceptance test ledger", "hash": "sha256:6b01dd9a-demo-test-ledger" },
+        { "id": "E-102", "label": "Rollback note", "hash": "sha256:c9f80a11-demo-rollback-note" },
+        { "id": "E-103", "label": "Reviewer checklist", "hash": "sha256:93adfab0-demo-reviewer-checklist" }
+      ],
+      "outcome": "Changes requested before acceptance",
+      "score": 81
+    },
+    {
+      "id": "procurement-review",
+      "title": "Procurement / vendor review",
+      "shortTitle": "Vendor Review",
+      "audience": "Operators, procurement teams, founders",
+      "decision": "Should this AI vendor deliverable move forward?",
+      "objective": "Convert a vendor evaluation into a source-bound, risk-visible decision package.",
+      "riskClass": "medium",
+      "criteria": [
+        "Vendor claims are separated from buyer assumptions",
+        "Pricing, implementation, and risk evidence are visible",
+        "Contradictions and gaps are preserved",
+        "Decision options are clear",
+        "Reviewer can accept, reject, or request more evidence"
+      ],
+      "deliverables": ["Claims Matrix", "Verifier Report", "Risk Ledger", "Decision State", "Mission Receipt"],
+      "sampleEvidence": [
+        { "id": "E-201", "label": "Vendor claim register", "hash": "sha256:d2f5bd04-demo-vendor-claims" },
+        { "id": "E-202", "label": "Risk comparison", "hash": "sha256:ab29d1cc-demo-risk-comparison" },
+        { "id": "E-203", "label": "Decision options", "hash": "sha256:f30bd8a1-demo-decision-options" }
+      ],
+      "outcome": "Ready for executive decision",
+      "score": 89
+    },
+    {
+      "id": "grant-milestone",
+      "title": "Grant / milestone verification",
+      "shortTitle": "Milestone Verification",
+      "audience": "Grant programs, DAOs, research sponsors",
+      "decision": "Did the milestone produce the promised evidence?",
+      "objective": "Turn a milestone claim into an inspectable evidence package with a reviewer-ready decision state.",
+      "riskClass": "medium",
+      "criteria": [
+        "Milestone scope matches the original brief",
+        "Artifacts are named and fingerprinted",
+        "Reviewer notes are preserved",
+        "Unmet criteria are visible",
+        "Receipt links the accepted version to the evidence docket"
+      ],
+      "deliverables": ["Milestone Manifest", "Evidence Docket", "Verifier Report", "Receipt", "Chronicle Entry"],
+      "sampleEvidence": [
+        { "id": "E-301", "label": "Milestone manifest", "hash": "sha256:a301d0f0-demo-milestone-manifest" },
+        { "id": "E-302", "label": "Artifact fingerprint list", "hash": "sha256:b663c812-demo-artifact-list" },
+        { "id": "E-303", "label": "Reviewer note", "hash": "sha256:43af0201-demo-review-note" }
+      ],
+      "outcome": "Accepted with limitations preserved",
+      "score": 92
+    },
+    {
+      "id": "defensive-readiness",
+      "title": "Defensive cybersecurity readiness review",
+      "shortTitle": "Defensive Readiness",
+      "audience": "Security-conscious teams and repo owners",
+      "decision": "Is the defensive readiness package reviewable without unsafe action?",
+      "objective": "Demonstrate a public-safe defensive review package that records findings without secrets, external scans, exploits, or automerge.",
+      "riskClass": "high-sensitivity",
+      "criteria": [
+        "Repo-owned scope only",
+        "No raw secrets or sensitive targets appear",
+        "No exploit execution or malware generation is present",
+        "Findings are reviewable by a human",
+        "Remediation remains human-governed"
+      ],
+      "deliverables": ["Safety Ledger", "Findings Matrix", "Evidence Docket", "Human Review Record", "Mission Receipt"],
+      "sampleEvidence": [
+        { "id": "E-401", "label": "Safety invariant ledger", "hash": "sha256:bbca9941-demo-safety-ledger" },
+        { "id": "E-402", "label": "Redacted findings matrix", "hash": "sha256:118ac9da-demo-redacted-findings" },
+        { "id": "E-403", "label": "Human review checklist", "hash": "sha256:9ff80fc4-demo-human-review" }
+      ],
+      "outcome": "Ready for human-governed remediation review",
+      "score": 86
+    }
+  ]
+}
