@@ -20,18 +20,18 @@ jobs:
     name: Verify generated public site quality
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v6
         with:
-          node-version: 20
+          node-version: 24
       - name: Build site preview
         run: |
           set -euo pipefail
           node scripts/build-asi-apex-v6-pages.mjs
           if [ -f scripts/build-sovereign-machine-economy-pages.mjs ]; then node scripts/build-sovereign-machine-economy-pages.mjs; fi
-          if [ -f scripts/build-user-activation-pages.mjs ]; then node scripts/build-user-activation-pages.mjs; fi
+          if [ -f scripts/build-user-activation-pages.mjs ] && [ -f config/goalos-proof-missions.json ]; then node scripts/build-user-activation-pages.mjs; fi
           if [ -f scripts/build-legal-zero-data-pages.mjs ]; then node scripts/build-legal-zero-data-pages.mjs; fi
-          if [ -f scripts/build-agialpha-token-boundary-pages.mjs ]; then node scripts/build-agialpha-token-boundary-pages.mjs; fi
+          if [ -f scripts/build-agialpha-token-boundary-pages.mjs ] && [ -f config/agialpha-token-boundary.json ]; then node scripts/build-agialpha-token-boundary-pages.mjs; fi
           node scripts/build-user-delight-pages.mjs
       - name: Run quality gates
         run: |
@@ -41,7 +41,8 @@ jobs:
           if [ -f scripts/verify-agialpha-token-boundary.mjs ]; then node scripts/verify-agialpha-token-boundary.mjs; fi
           if [ -f scripts/verify-public-artifact-safety.mjs ]; then node scripts/verify-public-artifact-safety.mjs; fi
           node scripts/verify-user-delight-autopilot.mjs
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
+        if: always()
         with:
           name: goalos-site-preview
           path: site
