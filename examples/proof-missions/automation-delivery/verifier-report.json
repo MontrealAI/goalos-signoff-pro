@@ -1,0 +1,8 @@
+{
+  "recommendation": "ready-for-human-review",
+  "checks": [
+    "required sections present",
+    "claims mapped",
+    "risk ledger present"
+  ]
+}

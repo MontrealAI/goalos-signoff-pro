@@ -1,0 +1,11 @@
+{
+  "objective": "Produce an acceptance record for Grant Milestone.",
+  "decisionToSupport": "Should the client accept the delivered report?",
+  "successCriteria": [
+    "coverage complete",
+    "evidence mapped",
+    "limitations disclosed",
+    "reviewer decision recorded"
+  ],
+  "riskClass": "commercial-review"
+}

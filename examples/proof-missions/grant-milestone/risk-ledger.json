@@ -1,0 +1,7 @@
+[
+  {
+    "risk": "source freshness",
+    "severity": "medium",
+    "mitigation": "review dates before acceptance"
+  }
+]

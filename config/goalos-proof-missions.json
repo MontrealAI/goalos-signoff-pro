@@ -1,0 +1,69 @@
+{
+  "version": "1.0.0",
+  "contactEmail": "info@quebec.ai",
+  "product": "GoalOS Signoff Pro",
+  "offer": "48-hour Proof Mission",
+  "canonicalUrl": "https://montrealai.github.io/goalos-signoff-pro/",
+  "promise": "Move one consequential AI-delivered work package from output to evidence, review, decision, and signed receipt.",
+  "deliverables": [
+    "Mission Contract",
+    "Evidence Docket",
+    "Claims Matrix",
+    "Source Provenance",
+    "Verifier Report",
+    "Risk Ledger",
+    "Executive Brief",
+    "Decision Deck",
+    "Action Graph",
+    "Mission Receipt",
+    "Chronicle Entry",
+    "Capability Package"
+  ],
+  "exampleMissions": [
+    {
+      "id": "ai-research-report",
+      "title": "AI research report acceptance",
+      "input": "A client-ready AI research report and source list",
+      "output": "Decision-ready docket with claim-to-evidence map, source freshness, reviewer questions, and receipt"
+    },
+    {
+      "id": "automation-delivery",
+      "title": "AI automation delivery review",
+      "input": "Workflow automation, tests, logs, screenshots",
+      "output": "Acceptance criteria mapping, test evidence, limitations, rollback notes, and receipt"
+    },
+    {
+      "id": "market-entry",
+      "title": "Market-entry proof mission",
+      "input": "Target market hypothesis, sources, competitor notes",
+      "output": "Evidence-backed option set, risk ledger, decision deck, and next-action graph"
+    },
+    {
+      "id": "grant-milestone",
+      "title": "Grant or milestone verification",
+      "input": "Milestone deliverables and progress evidence",
+      "output": "Milestone acceptance record with evidence, reviewer notes, and signed receipt"
+    },
+    {
+      "id": "vendor-review",
+      "title": "Vendor / procurement review",
+      "input": "Vendor proposal, claims, demos, security notes",
+      "output": "Claims matrix, proof gaps, risk ledger, and accept/request-changes/reject decision"
+    },
+    {
+      "id": "cyber-readiness",
+      "title": "Defensive cybersecurity readiness review",
+      "input": "Repo-owned defensive evidence and remediation proposal",
+      "output": "Safe review packet, no-secret evidence summary, issue list, and human-gated remediation path"
+    }
+  ],
+  "qualityGates": [
+    "clear user path",
+    "sample docket",
+    "receipt verifier",
+    "mailto info@quebec.ai",
+    "no blank pages",
+    "implementation map",
+    "no unsupported settlement/staking/autonomy claims"
+  ]
+}
