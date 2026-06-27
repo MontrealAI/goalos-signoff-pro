@@ -1,5 +1,6 @@
 {
-  "packageId": "CAP-HG-PR001",
-  "capability": "Browser-local proof loop explanation and demo",
-  "reuseBoundary": "Educational and public-site demonstration only."
+  "id": "CAP-HG-001",
+  "name": "Proof-gated work-machine narrative and demo",
+  "initiation": "AI work needs evidence-backed acceptance",
+  "termination": "review-ready receipt exists"
 }

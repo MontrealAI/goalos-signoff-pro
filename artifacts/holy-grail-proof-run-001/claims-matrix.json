@@ -1,0 +1,26 @@
+[
+  {
+    "scenario": "ai-research",
+    "claim": "The report supports Q2 market-entry planning within stated uncertainty bounds.",
+    "evidence": "evidence://ai-research/demo",
+    "status": "demo-supported"
+  },
+  {
+    "scenario": "automation",
+    "claim": "The automation has mapped outputs, rollback notes, and reviewer-ready acceptance criteria.",
+    "evidence": "evidence://automation/demo",
+    "status": "demo-supported"
+  },
+  {
+    "scenario": "vendor",
+    "claim": "The vendor package has supportable claims, surfaced risks, and a reusable decision record.",
+    "evidence": "evidence://vendor/demo",
+    "status": "demo-supported"
+  },
+  {
+    "scenario": "grant",
+    "claim": "The milestone can be judged through claims, evidence, risk, and receipt state rather than raw narrative.",
+    "evidence": "evidence://grant/demo",
+    "status": "demo-supported"
+  }
+]

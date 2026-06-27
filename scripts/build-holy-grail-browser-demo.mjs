@@ -1,203 +1,146 @@
+#!/usr/bin/env node
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 
 const root = process.cwd();
 const siteDir = path.join(root, 'site');
-const assetDir = path.join(siteDir, 'assets');
-const configPath = path.join(root, 'config', 'holy-grail-browser-demo.json');
-const config = JSON.parse(fs.readFileSync(configPath, 'utf8'));
-fs.mkdirSync(assetDir, { recursive: true });
+const cfgPath = path.join(root, 'config/holy-grail-browser-demo.json');
+const cfg = fs.existsSync(cfgPath) ? JSON.parse(fs.readFileSync(cfgPath, 'utf8')) : {};
+const version = '6.0.0-final-production';
+const baseUrl = cfg.baseUrl || 'https://montrealai.github.io/goalos-signoff-pro/';
+const basePath = new URL(baseUrl).pathname.endsWith('/') ? new URL(baseUrl).pathname : new URL(baseUrl).pathname + '/';
+const contactEmail = cfg.contactEmail || 'info@quebec.ai';
+const stages = cfg.loop || ['Mission','Work','Proof','Validation','Verified Experience','Chronicle','Reusable Capability','Settlement Signal','Reinvestment','Harder Mission'];
+const scenarios = cfg.scenarios || [];
+fs.mkdirSync(siteDir, { recursive: true });
+function out(rel, html){ const p=path.join(siteDir, rel); fs.mkdirSync(path.dirname(p), {recursive:true}); fs.writeFileSync(p, html); }
+function esc(v){ return String(v ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+function hash(v){ return crypto.createHash('sha256').update(v).digest('hex'); }
 
-const noDataRail = 'No forms · no uploads · no cookies · no analytics · no wallets · no payments · no personal or confidential data.';
-const titleSuffix = 'GoalOS Signoff Pro';
-
-const esc = (value) => String(value).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-const sha256 = (s) => crypto.createHash('sha256').update(s).digest('hex');
-
-function write(file, contents) {
-  fs.mkdirSync(path.dirname(file), { recursive: true });
-  fs.writeFileSync(file, contents);
-}
-
-function page({ title, active, eyebrow, headline, lead, body, ctas = '', visual = '', sections = '' }) {
-  const nav = [
-    ['Institution', 'index.html'], ['Start', 'start.html'], ['Demo Lab', 'demo-lab.html'],
-    ['Holy Grail', 'holy-grail.html'], ['Proof Machine', 'proof-gated-work-machine.html'],
-    ['Proof Run 001', 'proof-run-001.html'], ['Evidence Docket', 'evidence-docket-demo.html'],
-    ['$AGIALPHA', 'agialpha.html'], ['Data posture', 'no-user-data.html']
-  ];
-  return `<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>${esc(title)} · ${titleSuffix}</title>
-  <meta name="description" content="A browser-local, no-user-data proof-gated work demo for GoalOS Signoff Pro.">
-  <link rel="stylesheet" href="assets/holy-grail-browser.css">
-</head>
-<body data-page="${esc(active)}">
-  <canvas id="hgField" aria-hidden="true"></canvas>
-  <div class="hg-aurora" aria-hidden="true"></div>
-  <header class="hg-topbar">
-    <a class="hg-brand" href="index.html" aria-label="GoalOS Signoff Pro home"><span class="hg-mark">G</span><span><b>GoalOS Signoff Pro</b><small>Proof-gated work machine</small></span></a>
-    <nav class="hg-nav" aria-label="Primary navigation">${nav.map(([label, href]) => `<a class="${active === href ? 'active' : ''}" href="${href}">${label}</a>`).join('')}</nav>
-    <a class="hg-cta" href="proof-run-001.html">Run proof loop</a>
-  </header>
-  <main>
-    <section class="hg-hero">
-      <div class="hg-copy">
-        <p class="hg-eyebrow">${esc(eyebrow)}</p>
-        <h1>${headline}</h1>
-        <p class="hg-lead">${lead}</p>
-        ${body ? `<p class="hg-bodycopy">${body}</p>` : ''}
-        ${ctas}
-      </div>
-      ${visual}
-    </section>
-    ${sections}
-    <section class="hg-section two hg-proof-standard"><div><p class="hg-eyebrow">What this makes felt</p><h2>Proof-gated open-ended work, not ungoverned autonomy.</h2><p>The demo is designed to make the core idea intuitive: raw output is abundant; proof-bearing experience is scarce. A mission does not earn influence by sounding impressive. It earns influence only when evidence, validation, replay, risk, and human authority agree.</p></div><div class="hg-question-card"><h3>What the browser shows</h3><ol><li>A mission begins as an explicit commitment.</li><li>Work becomes useful only when it emits evidence.</li><li>Proof becomes memory only after validation.</li><li>Reusable capability inherits only accepted experience.</li><li>Economic consequence is represented as a gated signal; this public demo moves zero value.</li><li>The next step is Proof Run 001 with an inspectable Evidence Docket.</li></ol></div></section>
-    <section class="hg-section"><p class="hg-eyebrow">Object model</p><h2>From answer to institution-grade record.</h2><div class="hg-cards six"><article><b>GoalOSCommit</b><p>Declares the mission, authority, constraints, success criteria, risk class, and claim boundary.</p></article><article><b>RunCommitment</b><p>Records the bounded execution corridor: tools, context, policy root, budget, and permitted actions.</p></article><article><b>ProofPacket</b><p>Captures trace roots, output hashes, policy decisions, cost, latency, errors, signatures, and evidence pointers.</p></article><article><b>EvalAttestation</b><p>Separates persuasion from acceptance by requiring evaluator state and a signed verdict.</p></article><article><b>Evidence Docket</b><p>Shows the claim, baseline, proof packets, risk ledger, public/private boundary, and replay path.</p></article><article><b>Evolution Gate</b><p>Only validated, scoped, rollbackable work can influence future capability. The demo makes that gate visible.</p></article></div></section>
-  </main>
-  <div class="hg-site-rule"><strong>Public demo rule</strong><span>${noDataRail}</span></div>
-  <footer class="hg-footer"><b>GoalOS Signoff Pro</b><span>Proof-gated open-ended work · Evidence Dockets · Mission Receipts · Reusable capability</span><a href="mailto:${config.contact}?subject=GoalOS%20Proof%20Mission%20Inquiry">${config.contact}</a></footer>
-  <script src="assets/holy-grail-browser.js"></script>
-</body>
-</html>`;
-}
-
-const loopCards = config.loop.map((s, i) => `<button class="hg-step" data-step="${i}" type="button"><span>${String(i + 1).padStart(2, '0')}</span><b>${esc(s.label)}</b><small>${esc(s.caption)}</small></button>`).join('');
-const questions = config.questions.map((q) => `<li>${esc(q)}</li>`).join('');
-const artifacts = config.demoArtifacts.map((a) => `<span>${esc(a)}</span>`).join('');
-
-const consoleVisual = `<aside class="hg-console" aria-label="Browser-local proof console">
-  <div class="hg-console-head"><span>Proof-gated work console</span><b>Browser local</b></div>
-  <div class="hg-orbit-wrap"><div class="hg-core"><span>PROOF</span><b>0%</b><small>ready</small></div><div class="hg-ring r1"></div><div class="hg-ring r2"></div><div class="hg-ring r3"></div></div>
-  <div class="hg-console-grid">${loopCards}</div>
-  <div class="hg-mini-ledger"><span>Claim support</span><b>gated</b><span>Replay path</span><b>sealed</b><span>Value moved</span><b>0</b></div>
-</aside>`;
-
-const ctasMain = `<div class="hg-actions"><a class="primary" href="proof-run-001.html">Run the browser proof loop</a><a href="evidence-docket-demo.html">Inspect sample docket</a><a href="proof-gated-work-machine.html">See the work machine</a></div>`;
-
-write(path.join(siteDir, 'holy-grail.html'), page({
-  title: 'Holy Grail Candidate', active: 'holy-grail.html', eyebrow: 'Proof-gated open-ended work',
-  headline: `A <em>Holy Grail candidate</em> for governed autonomous work.`,
-  lead: `Not because it is merely computationally expressive. The rare layer is proof-gated work that can become verified experience, reusable capability, institutional memory, and a harder next mission.`,
-  body: `The browser demo shows proof-gated open-ended work without asking for data: mission, work, proof, validation, chronicle, capability, settlement signal, reinvestment, harder mission.`,
-  ctas: ctasMain,
-  visual: consoleVisual,
-  sections: `<section class="hg-section two"><div><p class="hg-eyebrow">The precise claim</p><h2>Not infinite output. A governed compounding loop.</h2><p>Raw generation creates text. GoalOS turns bounded work into a record that can be inspected, challenged, remembered, and reused. The page is claim-bounded: it presents a candidate architecture and a browser-local simulation, not an achievement claim.</p></div><div class="hg-question-card"><h3>The ten questions every mission must answer</h3><ol>${questions}</ol></div></section>
-  <section class="hg-loop"><p class="hg-eyebrow">Mission → harder mission</p><h2>Only verified experience can influence the next cycle.</h2><div class="hg-loop-grid">${config.loop.map((s, i) => `<article><span>${String(i+1).padStart(2,'0')}</span><b>${esc(s.label)}</b><p>${esc(s.caption)}</p></article>`).join('')}</div></section>`
-}));
-
-write(path.join(siteDir, 'proof-gated-work-machine.html'), page({
-  title: 'Proof-Gated Work Machine', active: 'proof-gated-work-machine.html', eyebrow: 'Universal work, gated by evidence',
-  headline: `Computation becomes institution only when it can <em>prove</em>.`,
-  lead: `A normal agent platform tries a task. GoalOS converts an objective into a proof-carrying work record: what was attempted, what happened, what passed, what failed, what can be reused.`,
-  body: `The public browser version is deliberately no-input and no-wallet. It demonstrates the state machine, not a live settlement system.`,
-  ctas: `<div class="hg-actions"><a class="primary" href="proof-run-001.html">Launch Proof Run 001 demo</a><a href="holy-grail.html">Read the thesis</a></div>`,
-  visual: consoleVisual,
-  sections: `<section class="hg-section"><p class="hg-eyebrow">Proof machine components</p><h2>Computation + proof + governance + memory + economic consequence.</h2><div class="hg-cards six"><article><b>Mission</b><p>Bounded objective, success criteria, risk class, authority, and done condition.</p></article><article><b>Evidence Docket</b><p>Claims matrix, proof packets, verifier report, risk ledger, replay path, and claim boundary.</p></article><article><b>Validation</b><p>Unsupported claims are rejected. Score is advisory; gates are mandatory.</p></article><article><b>Chronicle</b><p>Accepted work becomes durable institutional memory rather than ephemeral output.</p></article><article><b>Capability package</b><p>Reusable patterns become future mission capacity under explicit boundaries.</p></article><article><b>Settlement signal</b><p>Where a separate protocol context enables it, proof can become economically consequential. This public demo moves no value.</p></article></div></section>
-  <section class="hg-section two"><div class="hg-equation"><span>Output × Proof × Validation × Reuse</span><b>→ trusted work</b></div><div><p class="hg-eyebrow">Operating rule</p><h2>No proof, no evolution.</h2><p>The demo treats every state transition as a gate. Missing evidence sends the run backward; accepted proof creates a reusable event.</p></div></section>`
-}));
-
-write(path.join(siteDir, 'proof-run-001.html'), page({
-  title: 'Proof Run 001 Browser Demo', active: 'proof-run-001.html', eyebrow: 'Browser-local proof run',
-  headline: `Run Proof Run 001 <em>without sending anything</em>.`,
-  lead: `Click once. The browser advances a sample mission through proof, validation, chronicle, capability, and a simulated settlement signal.`,
-  body: `Everything is generated locally from a public-safe example. No input boxes. No upload. No account. No wallet.`,
-  ctas: `<div class="hg-actions"><button class="primary" id="hgRun" type="button">Launch proof loop</button><button id="hgReset" type="button">Reset</button><button id="hgDownload" type="button">Download demo docket</button></div>`,
-  visual: consoleVisual,
-  sections: `<section class="hg-section two proof-stage"><div><p class="hg-eyebrow">Live local trace</p><h2 id="hgStageTitle">System ready.</h2><p id="hgStageText">Awaiting mission. The sample run will produce a mission contract, Evidence Docket, verifier report, risk ledger, Chronicle entry, capability package, and settlement signal.</p><div class="hg-terminal" id="hgTerminal"><p>Ready. Browser-local simulation loaded.</p></div></div><div class="hg-artifacts"><h3>Artifacts created by the run</h3>${artifacts}</div></section>`
-}));
-
-write(path.join(siteDir, 'compounding-loop.html'), page({
-  title: 'Compounding Loop', active: 'compounding-loop.html', eyebrow: 'Verified experience compounds',
-  headline: `From one accepted mission to a harder future mission.`,
-  lead: `The prize is not a single report. It is a loop where accepted proof becomes memory, memory becomes reusable capability, and reusable capability raises the level of the next mission.`,
-  ctas: `<div class="hg-actions"><a class="primary" href="proof-run-001.html">Run the loop</a><a href="holy-grail.html">Read the thesis</a></div>`,
-  visual: consoleVisual,
-  sections: `<section class="hg-loop"><p class="hg-eyebrow">Compounding chain</p><h2>Mission → Work → Proof → Validation → Verified Experience → Chronicle → Capability → Settlement Signal → Reinvestment → Harder Mission</h2><div class="hg-loop-grid">${config.loop.map((s, i) => `<article><span>${String(i+1).padStart(2,'0')}</span><b>${esc(s.label)}</b><p>${esc(s.caption)}</p></article>`).join('')}</div></section>`
-}));
-
-const css = `:root{--bg:#03070b;--panel:rgba(10,22,27,.76);--line:rgba(143,255,223,.28);--mint:#75ffd6;--cyan:#69dfff;--gold:#ffe88e;--cream:#f4efe4;--muted:#b6c5c8;--violet:#9b85ff;--danger:#ff8bb9}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 72% 18%,rgba(75,255,215,.16),transparent 28%),radial-gradient(circle at 18% 70%,rgba(151,123,255,.14),transparent 30%),linear-gradient(135deg,#020509,#061018 55%,#03070b);color:var(--cream);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;min-height:100vh;overflow-x:hidden}#hgField{position:fixed;inset:0;width:100%;height:100%;z-index:-3;opacity:.68}.hg-aurora{position:fixed;inset:-20%;z-index:-2;background:conic-gradient(from 120deg at 65% 35%,transparent,rgba(84,255,214,.12),transparent,rgba(117,140,255,.16),transparent,rgba(255,232,142,.08),transparent);filter:blur(70px);animation:drift 16s ease-in-out infinite alternate}.hg-topbar{position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:24px;justify-content:center;min-height:78px;padding:14px 5vw;background:rgba(2,7,11,.78);backdrop-filter:blur(18px);border-bottom:1px solid rgba(143,255,223,.18)}.hg-brand{position:absolute;left:5vw;text-decoration:none;color:var(--cream);display:flex;align-items:center;gap:12px}.hg-mark{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;background:radial-gradient(circle,var(--mint),#183b45 55%,#081116);box-shadow:0 0 34px rgba(117,255,214,.5);font-weight:900;color:#001}.hg-brand b{display:block;text-transform:uppercase;letter-spacing:.18em;font-size:12px}.hg-brand small{display:block;text-transform:uppercase;letter-spacing:.24em;font-size:10px;color:var(--muted)}.hg-nav{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}.hg-nav a,.hg-cta{color:var(--cream);text-decoration:none;font-size:13px;font-weight:800;padding:11px 14px;border-radius:999px}.hg-nav a.active,.hg-nav a:hover{background:rgba(255,255,255,.1);box-shadow:inset 0 0 0 1px rgba(255,255,255,.14)}.hg-cta{position:absolute;right:5vw;background:linear-gradient(90deg,#eaff9e,#65f6ff);color:#02100d}main{position:relative}.hg-hero{display:grid;grid-template-columns:minmax(0,1.02fr) minmax(360px,.98fr);gap:48px;align-items:center;min-height:calc(100vh - 78px);max-width:1240px;margin:0 auto;padding:90px 30px 70px}.hg-copy{min-width:0}.hg-eyebrow{color:var(--mint);text-transform:uppercase;letter-spacing:.34em;font-weight:900;font-size:12px;margin:0 0 22px;display:flex;gap:12px;align-items:center}.hg-eyebrow:before{content:"";width:34px;height:2px;background:linear-gradient(90deg,transparent,var(--mint))}h1{font-size:clamp(56px,8vw,112px);line-height:.87;letter-spacing:-.085em;margin:0 0 26px;max-width:920px}h1 em{font-family:Georgia,serif;font-weight:500;font-style:italic;background:linear-gradient(90deg,#fff3a1,#76ffd6,#75c8ff,#a48dff);-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:-.06em}.hg-lead{font-size:clamp(20px,2.15vw,31px);line-height:1.28;font-weight:800;color:#e9f7f4;max-width:760px}.hg-bodycopy{font-size:17px;line-height:1.65;color:var(--muted);max-width:720px}.hg-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}.hg-actions a,.hg-actions button{appearance:none;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.08);color:var(--cream);border-radius:999px;padding:15px 20px;font-weight:900;text-decoration:none;cursor:pointer;box-shadow:0 12px 36px rgba(0,0,0,.22)}.hg-actions .primary,.hg-actions button.primary{background:linear-gradient(100deg,#fff59b,#71ffd7,#67dfff);color:#03110f;border:0}.hg-console{position:relative;min-height:560px;border:1px solid rgba(136,255,225,.28);border-radius:36px;background:linear-gradient(145deg,rgba(21,38,42,.82),rgba(5,10,16,.84));box-shadow:0 44px 120px rgba(0,0,0,.55),inset 0 0 90px rgba(117,255,214,.08);padding:28px;overflow:hidden}.hg-console:before{content:"";position:absolute;inset:-1px;border-radius:36px;background:linear-gradient(130deg,rgba(255,232,142,.35),rgba(117,255,214,.08),rgba(105,223,255,.25));z-index:-1}.hg-console-head{display:flex;justify-content:space-between;text-transform:uppercase;letter-spacing:.25em;font-size:12px;color:var(--mint);font-weight:900}.hg-orbit-wrap{position:absolute;right:-90px;top:90px;width:470px;height:470px;display:grid;place-items:center}.hg-core{position:relative;z-index:3;width:168px;height:168px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle,#fffbb0 0 8%,#72ffd6 9% 42%,#10242f 70%);box-shadow:0 0 60px rgba(117,255,214,.8),0 0 140px rgba(105,223,255,.35);color:#02110f;text-align:center}.hg-core span{font-size:12px;letter-spacing:.25em;font-weight:900}.hg-core b{font-size:44px}.hg-core small{text-transform:uppercase;letter-spacing:.22em;font-size:10px}.hg-ring{position:absolute;border-radius:50%;border:1px solid rgba(117,255,214,.3);animation:spin 16s linear infinite}.r1{width:240px;height:240px}.r2{width:340px;height:340px;border-color:rgba(255,232,142,.25);animation-duration:22s}.r3{width:440px;height:440px;border-color:rgba(105,223,255,.18);animation-duration:30s}.hg-console-grid{position:relative;z-index:4;display:grid;gap:14px;max-width:300px;margin-top:28px}.hg-step{border:1px solid rgba(117,255,214,.32);background:rgba(255,255,255,.065);border-radius:18px;padding:14px 16px;text-align:left;color:var(--cream);display:grid;grid-template-columns:34px 1fr;gap:2px 12px;cursor:pointer}.hg-step span{grid-row:1/3;color:var(--gold);font-weight:900}.hg-step b{font-size:18px}.hg-step small{color:var(--muted)}.hg-step.active{background:linear-gradient(90deg,rgba(117,255,214,.22),rgba(105,223,255,.08));box-shadow:0 0 28px rgba(117,255,214,.25)}.hg-mini-ledger{position:absolute;right:26px;bottom:28px;left:340px;display:grid;grid-template-columns:1fr auto;gap:8px 18px;border:1px solid rgba(255,232,142,.25);border-radius:22px;padding:18px;background:rgba(0,0,0,.32);font-size:12px;text-transform:uppercase;letter-spacing:.16em}.hg-mini-ledger b{color:var(--gold)}.hg-section{max-width:1180px;margin:0 auto;padding:80px 30px}.hg-section.two{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center}.hg-section h2,.hg-loop h2{font-size:clamp(42px,5.5vw,78px);line-height:.92;letter-spacing:-.06em;margin:0 0 20px}.hg-section p{color:var(--muted);font-size:18px;line-height:1.68}.hg-question-card,.hg-equation,.proof-stage>div,.hg-artifacts{border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.065);border-radius:28px;padding:28px;box-shadow:inset 0 0 60px rgba(117,255,214,.04)}.hg-question-card ol{display:grid;gap:12px;margin:0;padding-left:24px}.hg-question-card li{font-size:18px;font-weight:800}.hg-loop{max-width:1240px;margin:0 auto;padding:90px 30px}.hg-loop-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}.hg-loop-grid article,.hg-cards article{border:1px solid rgba(143,255,223,.2);background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.035));border-radius:22px;padding:22px;min-height:160px}.hg-loop-grid span{color:var(--gold);font-weight:900}.hg-loop-grid b,.hg-cards b{display:block;font-size:20px;margin:12px 0}.hg-loop-grid p,.hg-cards p{color:var(--muted);line-height:1.5}.hg-cards.six{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.hg-equation span{display:block;font-size:38px;font-weight:900;letter-spacing:-.05em;background:linear-gradient(90deg,#fff3a1,#76ffd6,#7ccfff);-webkit-background-clip:text;color:transparent}.hg-equation b{display:block;font-size:20px;margin-top:14px}.hg-terminal{background:#03070b;border:1px solid rgba(117,255,214,.18);border-radius:18px;padding:18px;min-height:190px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:#caffef;box-shadow:inset 0 0 36px rgba(0,0,0,.5);overflow:auto}.hg-terminal p{margin:0 0 8px;color:#caffef;font-size:14px}.hg-artifacts{display:grid;gap:10px}.hg-artifacts span{display:block;border:1px solid rgba(117,255,214,.18);border-radius:14px;padding:12px;background:rgba(0,0,0,.24);font-family:ui-monospace,monospace;color:#f4f2df}.hg-site-rule{position:sticky;bottom:0;z-index:9;width:max-content;max-width:calc(100% - 24px);margin:0 auto 12px;border:1px solid rgba(117,255,214,.28);background:rgba(3,7,11,.78);backdrop-filter:blur(16px);border-radius:999px;padding:10px 14px;display:flex;gap:12px;align-items:center;font-size:12px}.hg-site-rule strong{color:var(--gold)}.hg-footer{border-top:1px solid rgba(143,255,223,.15);background:rgba(2,6,10,.92);padding:30px 5vw;display:flex;gap:18px;justify-content:space-between;align-items:center;flex-wrap:wrap}.hg-footer span{color:var(--muted)}.hg-footer a{color:var(--mint)}@keyframes spin{to{transform:rotate(360deg)}}@keyframes drift{to{transform:translate3d(3%,4%,0) rotate(7deg)}}@media(max-width:980px){.hg-hero,.hg-section.two{grid-template-columns:1fr}.hg-console{min-height:620px}.hg-mini-ledger{position:relative;left:auto;right:auto;bottom:auto;margin-top:24px}.hg-orbit-wrap{right:-150px;top:160px}.hg-loop-grid,.hg-cards.six{grid-template-columns:1fr 1fr}.hg-brand,.hg-cta{position:static}.hg-topbar{justify-content:flex-start;flex-wrap:wrap}.hg-nav{order:3;width:100%}}@media(max-width:620px){h1{font-size:52px}.hg-loop-grid,.hg-cards.six{grid-template-columns:1fr}.hg-hero{padding:50px 18px}.hg-section,.hg-loop{padding:56px 18px}.hg-console{padding:20px}.hg-orbit-wrap{opacity:.45}.hg-site-rule{border-radius:18px;display:block}.hg-footer{display:block}}
-`;
-write(path.join(assetDir, 'holy-grail-browser.css'), css);
-
-const js = `(function(){
-const canvas=document.getElementById('hgField');
-if(canvas){const ctx=canvas.getContext('2d');let w,h,pts=[];function resize(){w=canvas.width=innerWidth*devicePixelRatio;h=canvas.height=innerHeight*devicePixelRatio;pts=Array.from({length:Math.min(90,Math.floor(innerWidth/18))},()=>({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-.5)*.22*devicePixelRatio,vy:(Math.random()-.5)*.22*devicePixelRatio,r:(Math.random()*1.8+0.8)*devicePixelRatio,c:Math.random()>.72?'#ffe88e':Math.random()>.5?'#75ffd6':'#8bb7ff'}));}resize();addEventListener('resize',resize,{passive:true});(function draw(){ctx.clearRect(0,0,w,h);for(const p of pts){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>w)p.vx*=-1;if(p.y<0||p.y>h)p.vy*=-1;ctx.beginPath();ctx.fillStyle=p.c;ctx.globalAlpha=.75;ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fill()}for(let i=0;i<pts.length;i++){for(let j=i+1;j<pts.length;j++){const a=pts[i],b=pts[j],dx=a.x-b.x,dy=a.y-b.y,d=Math.hypot(dx,dy);if(d<150*devicePixelRatio){ctx.globalAlpha=(1-d/(150*devicePixelRatio))*.18;ctx.strokeStyle='#75ffd6';ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke()}}}ctx.globalAlpha=1;requestAnimationFrame(draw)})()}
-const steps=[...document.querySelectorAll('.hg-step')];
-const core=document.querySelector('.hg-core b');
-const coreSmall=document.querySelector('.hg-core small');
-const run=document.getElementById('hgRun');const reset=document.getElementById('hgReset');const dl=document.getElementById('hgDownload');const title=document.getElementById('hgStageTitle');const text=document.getElementById('hgStageText');const term=document.getElementById('hgTerminal');
-const stages=[
-['Mission committed','A bounded AI-delivered work package is converted into a mission contract.'],
-['Work executed','The sample work packet runs through a scoped proof envelope.'],
-['Evidence docket formed','Claims, evidence, hashes, risks, and replay path are packaged.'],
-['Validation gate cleared','Unsupported claims are rejected; supported claims proceed.'],
-['Verified experience recorded','Accepted proof becomes a reusable experience event.'],
-['Chronicle updated','The institution remembers what was proven.'],
-['Capability packaged','The reusable pattern becomes future mission capacity.'],
-['Settlement signal prepared','A proof-backed economic signal is prepared; the public demo moves no value.'],
-['Reinvestment simulated','Accepted capability is routed toward a harder future mission.'],
-['Harder mission ready','Only verified experience influences the next cycle.']
-];
-let timer=null;function setStep(i){steps.forEach((s,k)=>s.classList.toggle('active',k<=i));if(core)core.textContent=Math.round(((i+1)/stages.length)*100)+'%';if(coreSmall)coreSmall.textContent=i>=stages.length-1?'ready':'running';if(title)title.textContent=stages[i][0]+'.';if(text)text.textContent=stages[i][1];if(term){const p=document.createElement('p');p.textContent='• '+stages[i][0]+' — '+stages[i][1];term.appendChild(p);term.scrollTop=term.scrollHeight}}
-function launch(){clearInterval(timer);if(term)term.innerHTML='<p>Proof Run 001 initialized. Browser-local execution only.</p>';let i=0;setStep(0);timer=setInterval(()=>{i++;if(i>=stages.length){clearInterval(timer);return}setStep(i)},720)}
-function clear(){clearInterval(timer);steps.forEach(s=>s.classList.remove('active'));if(core)core.textContent='0%';if(coreSmall)coreSmall.textContent='ready';if(title)title.textContent='System ready.';if(text)text.textContent='Awaiting mission. The sample run will produce a mission contract, Evidence Docket, verifier report, risk ledger, Chronicle entry, capability package, and settlement signal.';if(term)term.innerHTML='<p>Ready. Browser-local simulation loaded.</p>'}
-function download(){const demo={type:'GoalOSBrowserLocalProofRun001',createdAt:new Date().toISOString(),publicDemo:true,noUserData:true,valueMoved:0,contact:'info@quebec.ai',claimBoundary:'Holy Grail candidate, not achievement claim.',loop:stages.map((s,i)=>({step:i+1,title:s[0],status:'demo_pass',note:s[1]})),artifacts:['mission-contract.json','evidence-docket.json','verifier-report.json','risk-ledger.json','chronicle-entry.json','capability-package.json','settlement-signal.json']};const blob=new Blob([JSON.stringify(demo,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='goalos-proof-run-001-browser-demo.json';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),5000)}
-if(run)run.addEventListener('click',launch);if(reset)reset.addEventListener('click',clear);if(dl)dl.addEventListener('click',download);steps.forEach((s,i)=>s.addEventListener('click',()=>setStep(i)));})();`;
-write(path.join(assetDir, 'holy-grail-browser.js'), js);
-
-// public-safe demo artifact for direct links and artifact safety checks
 const demoBundle = {
-  type: 'GoalOSHolyGrailBrowserDemo',
-  version: config.version,
+  id: 'HG-PR001-DEMO',
+  product: 'GoalOS Signoff Pro',
+  title: 'Holy Grail candidate browser proof run',
+  posture: 'public-safe, local-only, zero-user-data demo',
   generatedAt: new Date().toISOString(),
-  noUserData: true,
-  browserLocal: true,
-  valueMoved: 0,
-  tokenBoundary: config.token.publicBoundary,
-  claimBoundary: config.claimBoundary.primary,
-  nextProof: config.claimBoundary.nextProof,
-  loop: config.loop,
-  sampleArtifacts: config.demoArtifacts
+  loop: stages,
+  missionContract: {
+    objective: 'Turn one AI-delivered work package into a proof-backed acceptance record.',
+    successCriteria: ['mission stated', 'claims mapped', 'evidence docket assembled', 'review state produced', 'receipt sealed'],
+    failureCriteria: ['unsupported claim', 'unmapped evidence', 'review state missing', 'unsafe external action'],
+    dataBoundary: 'No user data. Public-safe synthetic demo only.',
+    humanFrontier: 'Human or designated reviewer remains the final acceptance authority.'
+  },
+  evidenceDocket: {
+    manifest: 'Demo docket for browser-local proof-to-acceptance run.',
+    claimsMatrix: [
+      { claim: 'GoalOS converts output into evidence-backed decision state.', status: 'supported by demo flow' },
+      { claim: 'Accepted work can become reusable capability.', status: 'represented as capability package' },
+      { claim: 'Settlement is a readiness signal only in this public demo.', status: 'no value moved' }
+    ],
+    proofPackets: stages.map((stage, i) => ({ stage, hash: hash(stage + ':' + i).slice(0, 16), state: 'demo-ready' })),
+    riskLedger: ['No uploads', 'No sign-in', 'No wallet', 'No cookies', 'No analytics', 'No value moved'],
+    replayPath: 'Open proof-run-001.html and run the built-in browser-local proof loop.'
+  },
+  verifierReport: {
+    verdict: 'review-ready demo',
+    checks: ['mission exists', 'proof packets exist', 'evidence docket exists', 'receipt exists', 'public boundary preserved'],
+    limitations: ['synthetic demo', 'not an external audit', 'not a live settlement event']
+  },
+  chronicleEntry: {
+    event: 'Proof run reached review-ready demo state.',
+    reusableCapability: 'Proof-to-acceptance mission template',
+    nextMission: 'Run a real public-safe Proof Mission with an inspectable Evidence Docket.'
+  },
+  receipt: {
+    receiptId: 'MR-HG-PR001-DEMO',
+    issuer: 'GoalOS Signoff Pro browser demo',
+    decisionState: 'review-ready',
+    digest: hash('MR-HG-PR001-DEMO:review-ready').slice(0, 32),
+    noValueMoved: true
+  }
 };
-write(path.join(siteDir, 'holy-grail-demo-bundle.json'), JSON.stringify(demoBundle, null, 2));
 
-const manifest = {
-  generatedAt: new Date().toISOString(),
-  generator: 'scripts/build-holy-grail-browser-demo.mjs',
-  version: config.version,
-  pages: ['holy-grail.html','proof-gated-work-machine.html','proof-run-001.html','compounding-loop.html'],
-  noUserData: true,
-  browserLocal: true,
-  valueMoved: 0,
-  siteHash: sha256(JSON.stringify(demoBundle))
-};
-write(path.join(siteDir, 'holy-grail-browser-manifest.json'), JSON.stringify(manifest, null, 2));
+const css = String.raw`
+:root{--bg:#03070b;--panel:#0b1519;--panel2:#111f22;--ink:#fff8ed;--muted:#b5c6ca;--line:rgba(116,255,218,.28);--mint:#72ffd8;--cyan:#63e8ff;--gold:#ffe27c;--violet:#a991ff;--rose:#ff79ad;--max:1180px;--r:28px;--shadow:0 34px 100px rgba(0,0,0,.44),0 0 90px rgba(114,255,216,.14)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 76% 22%,rgba(92,241,213,.20),transparent 31%),radial-gradient(circle at 12% 88%,rgba(161,130,255,.16),transparent 29%),linear-gradient(135deg,#010407,#061314 55%,#05060d);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;overflow-x:hidden}.hg-canvas{position:fixed;inset:0;z-index:-3;opacity:.82}.hg-grid{position:fixed;inset:0;z-index:-2;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:76px 76px;mask-image:linear-gradient(to bottom,#000,rgba(0,0,0,.2));pointer-events:none}.hg-aurora{position:fixed;inset:-20%;z-index:-1;background:conic-gradient(from 140deg at 72% 44%,transparent 0 12%,rgba(114,255,216,.18) 18%,rgba(99,232,255,.15) 27%,rgba(169,145,255,.13) 39%,transparent 50%);filter:blur(58px);animation:aurora 18s ease-in-out infinite alternate;pointer-events:none}@keyframes aurora{from{transform:translate3d(-2%,1%,0) rotate(-2deg) scale(1)}to{transform:translate3d(3%,-1%,0) rotate(3deg) scale(1.06)}}
+.hg-nav{position:sticky;top:0;z-index:20;background:rgba(2,7,9,.78);backdrop-filter:blur(22px);border-bottom:1px solid rgba(255,255,255,.09)}.hg-nav-inner{max-width:1320px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:16px 28px}.hg-brand{display:flex;gap:12px;align-items:center;color:var(--ink);text-decoration:none}.hg-mark{width:34px;height:34px;border-radius:12px;background:radial-gradient(circle at 45% 45%,var(--mint),#174b62 56%,#071315);box-shadow:0 0 28px rgba(114,255,216,.46),inset 0 0 0 1px rgba(255,255,255,.24)}.hg-brand b{display:block;font-size:12px;letter-spacing:.19em;text-transform:uppercase}.hg-brand span{display:block;font-size:10px;color:var(--muted);letter-spacing:.24em;text-transform:uppercase;margin-top:2px}.hg-links{display:flex;gap:7px;align-items:center;flex-wrap:wrap;justify-content:flex-end}.hg-links a{color:var(--ink);text-decoration:none;font-weight:900;font-size:12px;padding:11px 13px;border-radius:999px}.hg-links a:hover,.hg-links a.hg-on{background:rgba(255,255,255,.1)}.hg-pill{background:linear-gradient(135deg,#f5ff9d,#65f0ff)!important;color:#06110f!important;box-shadow:0 0 30px rgba(114,255,216,.22)}.hg-wrap{max-width:var(--max);margin:0 auto;padding:0 28px}.hg-hero{min-height:calc(100vh - 68px);display:grid;grid-template-columns:minmax(0,1fr) minmax(360px,560px);gap:56px;align-items:center;padding:88px 0 72px}.hg-k{display:flex;align-items:center;gap:12px;color:var(--mint);font-size:12px;font-weight:1000;letter-spacing:.29em;text-transform:uppercase}.hg-k:before{content:"";width:42px;height:2px;background:var(--mint);box-shadow:0 0 20px var(--mint)}.hg-title{font-size:clamp(62px,8.8vw,124px);line-height:.82;letter-spacing:-.08em;margin:22px 0 25px;font-weight:1000}.hg-title em{font-family:Georgia,serif;font-style:italic;font-weight:500;background:linear-gradient(115deg,#fff39b,#78ffdd,#79ddff,#a991ff);-webkit-background-clip:text;background-clip:text;color:transparent}.hg-lede{font-size:clamp(19px,2.35vw,28px);line-height:1.28;max-width:720px;font-weight:760;color:#ecfbfa}.hg-copy{font-size:17px;line-height:1.72;color:var(--muted);max-width:700px}.hg-actions{display:flex;gap:13px;flex-wrap:wrap;align-items:center;margin-top:22px}.hg-btn{appearance:none;border:0;border-radius:999px;padding:15px 21px;background:linear-gradient(135deg,#f7ffa8,#68f2ff);color:#031012;text-decoration:none;font-weight:1000;box-shadow:0 18px 50px rgba(105,231,255,.16);cursor:pointer}.hg-btn.secondary{background:rgba(255,255,255,.09);color:var(--ink);border:1px solid rgba(255,255,255,.18);box-shadow:none}.hg-btn:hover{transform:translateY(-1px)}.hg-safe{display:flex;gap:8px;flex-wrap:wrap;margin-top:26px}.hg-safe span{font-size:11px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:#ccfff3;border:1px solid rgba(114,255,216,.24);background:rgba(0,0,0,.25);border-radius:999px;padding:9px 11px}.hg-console{position:relative;border:1px solid rgba(150,255,226,.34);border-radius:38px;background:linear-gradient(145deg,rgba(255,255,255,.10),rgba(255,255,255,.035));box-shadow:var(--shadow);padding:28px;min-height:525px;overflow:hidden}.hg-console:before{content:"";position:absolute;inset:-2px;background:radial-gradient(circle at 74% 36%,rgba(114,255,216,.25),transparent 36%),linear-gradient(90deg,transparent,rgba(255,226,122,.11),transparent);pointer-events:none}.hg-console-inner{position:relative;z-index:1}.hg-head{display:flex;justify-content:space-between;align-items:center;color:var(--mint);font-size:12px;font-weight:1000;letter-spacing:.22em;text-transform:uppercase}.hg-core{height:250px;margin:28px 0;border-radius:30px;border:1px solid rgba(255,255,255,.13);background:radial-gradient(circle at 50% 50%,rgba(114,255,216,.45),rgba(99,232,255,.12) 25%,rgba(0,0,0,.12) 26%,rgba(0,0,0,.36) 51%,transparent 70%);position:relative;display:grid;place-items:center;overflow:hidden}.hg-ring{position:absolute;border:1px solid rgba(114,255,216,.30);border-radius:50%;animation:spin 18s linear infinite}.hg-r1{width:112px;height:112px}.hg-r2{width:194px;height:194px;animation-duration:28s}.hg-r3{width:315px;height:315px;animation-duration:42s;border-color:rgba(255,226,122,.26)}@keyframes spin{to{transform:rotate(360deg)}}.hg-logo{width:92px;height:92px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle,#fff7a8,#72ffd8 40%,#132b33 75%);color:#06100e;font-size:34px;font-weight:1000;letter-spacing:.02em;box-shadow:0 0 76px rgba(114,255,216,.56)}.hg-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.hg-metric{border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:15px;background:rgba(0,0,0,.25)}.hg-metric b{font-size:27px;color:var(--gold)}.hg-metric span{display:block;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.17em;font-weight:900;margin-top:7px}.hg-section{padding:82px 0}.hg-alt{border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08);background:linear-gradient(180deg,rgba(255,255,255,.025),rgba(255,255,255,.008))}.hg-h2{font-size:clamp(46px,6.2vw,88px);letter-spacing:-.07em;line-height:.9;margin:0 0 18px}.hg-h2 em{font-family:Georgia,serif;font-style:italic;font-weight:500;background:linear-gradient(115deg,#fff39b,#78ffdd,#79ddff,#a991ff);-webkit-background-clip:text;color:transparent}.hg-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}.hg-card{border:1px solid rgba(255,255,255,.13);border-radius:27px;background:rgba(255,255,255,.055);padding:24px;box-shadow:0 20px 70px rgba(0,0,0,.2)}.hg-card h3{font-size:23px;margin:0 0 10px}.hg-card p{color:var(--muted);line-height:1.58}.hg-flow{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}.hg-flow button,.hg-chip{border:1px solid rgba(114,255,216,.36);background:rgba(0,0,0,.24);color:var(--ink);border-radius:16px;padding:13px 14px;font-weight:900;cursor:pointer}.hg-flow button.active{background:linear-gradient(135deg,#efff9d,#72ffd8);color:#04100f}.hg-demo{display:grid;grid-template-columns:380px 1fr;gap:20px;margin-top:28px}.hg-panel{border:1px solid rgba(255,255,255,.13);border-radius:28px;background:rgba(255,255,255,.055);padding:24px;box-shadow:0 22px 70px rgba(0,0,0,.18)}.hg-stage-list{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.hg-stage{border:1px solid rgba(114,255,216,.2);border-radius:18px;padding:14px;display:grid;grid-template-columns:34px 1fr;gap:12px;align-items:center;background:rgba(0,0,0,.2)}.hg-stage strong{color:var(--gold)}.hg-stage.done{border-color:rgba(114,255,216,.85);box-shadow:inset 0 0 22px rgba(114,255,216,.08)}.hg-stage.current{background:linear-gradient(135deg,rgba(114,255,216,.18),rgba(99,232,255,.06));border-color:var(--mint)}.hg-log{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono",monospace;min-height:240px;background:rgba(0,0,0,.44);border:1px solid rgba(114,255,216,.18);border-radius:22px;padding:18px;color:#c9ffee;white-space:pre-wrap;line-height:1.65}.hg-tabs{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}.hg-tabs button{border:1px solid rgba(255,255,255,.13);border-radius:14px;background:rgba(255,255,255,.06);color:var(--ink);font-weight:900;padding:11px 12px;cursor:pointer}.hg-tabs button.active{background:rgba(114,255,216,.18);border-color:var(--mint)}.hg-docket{min-height:300px}.hg-docket h3{margin-top:0}.hg-mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#dcfff6}.hg-home-rail{max-width:var(--max);margin:64px auto;padding:30px;border:1px solid rgba(114,255,216,.25);border-radius:32px;background:linear-gradient(135deg,rgba(114,255,216,.13),rgba(255,255,255,.035));box-shadow:var(--shadow)}.hg-home-rail h2{font-size:clamp(38px,5vw,70px);line-height:.92;letter-spacing:-.06em;margin:10px 0}.hg-footer{border-top:1px solid rgba(255,255,255,.1);padding:30px 28px;color:var(--muted);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}a{color:inherit}.hg-mini{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:20px}.hg-mini .hg-card{padding:18px}.hg-progress{height:12px;background:rgba(255,255,255,.09);border-radius:999px;overflow:hidden}.hg-progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--mint),var(--cyan));box-shadow:0 0 24px rgba(114,255,216,.5);transition:width .35s ease}.hg-status{font-size:46px;font-weight:1000;letter-spacing:-.04em}.hg-small{font-size:12px;color:var(--muted);letter-spacing:.13em;text-transform:uppercase;font-weight:900}@media(max-width:980px){.hg-hero,.hg-demo{grid-template-columns:1fr}.hg-title{font-size:clamp(56px,16vw,98px)}.hg-cards{grid-template-columns:1fr}.hg-stage-list,.hg-mini,.hg-metrics{grid-template-columns:1fr}.hg-nav-inner{align-items:flex-start;flex-direction:column}.hg-links{justify-content:flex-start}.hg-console{min-height:420px}}@media(max-width:560px){.hg-wrap{padding:0 18px}.hg-hero{padding-top:48px}.hg-title,.hg-h2{letter-spacing:-.055em}.hg-links a{font-size:11px;padding:9px}.hg-console{padding:18px;border-radius:28px}.hg-core{height:210px}}
+`;
+out('assets/holy-grail-v6.css', css);
 
-// Homepage insertion: keep above footer/legal rails, never below them.
-const indexPath = path.join(siteDir, 'index.html');
-if (fs.existsSync(indexPath)) {
-  let html = fs.readFileSync(indexPath, 'utf8');
-  html = html.replace(/<!-- GOALOS_HOLY_GRAIL_BROWSER_START -->[\s\S]*?<!-- GOALOS_HOLY_GRAIL_BROWSER_END -->/g, '');
-  const block = `
-<!-- GOALOS_HOLY_GRAIL_BROWSER_START -->
-<section class="hg-home-rail" style="max-width:1120px;margin:72px auto 42px;padding:0 24px;position:relative;z-index:2">
-  <div style="border:1px solid rgba(143,255,223,.22);background:linear-gradient(135deg,rgba(117,255,214,.12),rgba(255,255,255,.04));border-radius:32px;padding:32px;box-shadow:0 28px 80px rgba(0,0,0,.35)">
-    <p style="margin:0 0 12px;color:#75ffd6;text-transform:uppercase;letter-spacing:.28em;font-size:12px;font-weight:900">Browser-local proof machine</p>
-    <h2 style="margin:0 0 12px;color:#f4efe4;font-size:clamp(34px,5vw,66px);line-height:.92;letter-spacing:-.06em">Run the Holy Grail candidate demo.</h2>
-    <p style="margin:0 0 22px;color:#c6d4d7;font-size:18px;line-height:1.55;max-width:840px">A proof-gated open-ended work loop: Mission → Work → Proof → Validation → Chronicle → Reusable Capability → Settlement Signal → Harder Mission. It runs entirely in your browser and asks for nothing.</p>
-    <div style="display:flex;gap:12px;flex-wrap:wrap"><a href="holy-grail.html" style="text-decoration:none;border-radius:999px;padding:14px 18px;background:linear-gradient(90deg,#fff59b,#71ffd7,#67dfff);color:#03110f;font-weight:900">Open the flagship demo</a><a href="proof-run-001.html" style="text-decoration:none;border-radius:999px;padding:14px 18px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);color:#f4efe4;font-weight:900">Launch Proof Run 001</a><a href="proof-gated-work-machine.html" style="text-decoration:none;border-radius:999px;padding:14px 18px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);color:#f4efe4;font-weight:900">See the work machine</a></div>
-  </div>
-</section>
-<!-- GOALOS_HOLY_GRAIL_BROWSER_END -->`;
-  const footerIndex = html.search(/<footer\b|<div class="[^\"]*(site-rule|legal|footer|boundary)[^\"]*"/i);
-  if (footerIndex >= 0) html = html.slice(0, footerIndex) + block + '\n' + html.slice(footerIndex);
-  else html = html.replace(/<\/main>/i, block + '\n</main>');
-  write(indexPath, html);
+const js = String.raw`
+(()=>{
+  const stages = window.GOALOS_HG_STAGES || [];
+  const scenarios = window.GOALOS_HG_SCENARIOS || [];
+  const bundle = window.GOALOS_HG_BUNDLE || {};
+  let current = 0, scenario = scenarios[0] || {}, timer = null;
+  const $ = s => document.querySelector(s);
+  const $$ = s => Array.from(document.querySelectorAll(s));
+  const log = msg => { const el=$('#hg-log'); if(el) el.textContent += '\n· ' + msg; };
+  function setScenario(id){ scenario = scenarios.find(s=>s.id===id) || scenarios[0] || {}; $$('.hg-scenario').forEach(b=>b.classList.toggle('active', b.dataset.scenario===scenario.id)); const c=$('#hg-scenario-copy'); if(c) c.textContent = scenario.objective || ''; const cap=$('#hg-capability'); if(cap) cap.textContent = scenario.capability || 'Proof-to-acceptance template'; reset(false); }
+  function render(){ $$('.hg-stage').forEach((el,i)=>{ el.classList.toggle('done', i < current); el.classList.toggle('current', i === current && current < stages.length); }); const score = Math.round((current / Math.max(1, stages.length)) * 100); const s=$('#hg-score'); if(s) s.textContent=String(score); const p=$('#hg-progress'); if(p) p.style.width=score+'%'; }
+  function reset(clear=true){ clearInterval(timer); timer=null; current=0; const el=$('#hg-log'); if(el) el.textContent='System ready. No sign-in, no input, no upload, no wallet.'; render(); }
+  function launch(){ reset(); log('Mission contract committed: '+(scenario.name || 'Proof mission')); timer=setInterval(()=>{ if(current>=stages.length){ clearInterval(timer); timer=null; log('Terminal disposition: review-ready Evidence Docket and Mission Receipt generated.'); render(); return; } const stage=stages[current]; log(stage+' gate passed.'); current++; render(); }, 560); }
+  function renderDocket(tab='manifest'){ const data={
+    manifest:['Mission: '+(scenario.name||'Browser proof run'),'Boundary: public-safe synthetic demo','Data: none requested or collected','Human frontier: final acceptance remains human'],
+    claims:['Claim 1: AI output must become evidence before acceptance.','Claim 2: accepted proof can become reusable capability.','Claim 3: unsupported claims do not propagate.','Claim 4: no value moves in the public browser demo.'],
+    proof: stages.map((x,i)=>('ProofPacket '+String(i+1).padStart(2,'0')+': '+x+' · hash '+String((bundle.evidenceDocket?.proofPackets?.[i]?.hash)||'demo'))),
+    validation:['Mission exists','Claims matrix exists','Evidence Docket exists','Risk ledger exists','Receipt exists','Reviewer decision remains explicit'],
+    chronicle:['Chronicle entry: proof run reached review-ready state','Reusable capability: '+(scenario.capability||'Proof mission template'),'Next harder mission: public-safe Proof Run 001 with external review'],
+    settlement:['Settlement signal: readiness only','No funds moved','No wallet connected','AGIALPHA reference remains external and independent']
+  }; const el=$('#hg-docket'); if(el){ el.innerHTML='<h3>'+tab.replace(/^./,m=>m.toUpperCase())+'</h3><ul>'+ (data[tab]||[]).map(x=>'<li>'+x+'</li>').join('') + '</ul>'; } $$('.hg-tab').forEach(b=>b.classList.toggle('active', b.dataset.tab===tab)); }
+  function downloadBundle(){ const payload = JSON.stringify({ ...bundle, selectedScenario: scenario, browserGeneratedAt: new Date().toISOString() }, null, 2); const blob = new Blob([payload], {type:'application/json'}); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href=url; a.download='goalos-holy-grail-proof-run-001-demo.json'; document.body.appendChild(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(url), 1000); }
+  $$('.hg-scenario').forEach(b=>b.addEventListener('click',()=>setScenario(b.dataset.scenario)));
+  $$('.hg-tab').forEach(b=>b.addEventListener('click',()=>renderDocket(b.dataset.tab)));
+  $('#hg-launch')?.addEventListener('click', launch); $('#hg-reset')?.addEventListener('click',()=>reset()); $('#hg-download')?.addEventListener('click', downloadBundle);
+  setScenario(scenario.id); renderDocket('manifest');
+  const canvas=document.querySelector('.hg-canvas'); if(canvas){ const ctx=canvas.getContext('2d'); let pts=[]; function resize(){ canvas.width=innerWidth*devicePixelRatio; canvas.height=innerHeight*devicePixelRatio; pts=Array.from({length:90},()=>({x:Math.random()*canvas.width,y:Math.random()*canvas.height,vx:(Math.random()-.5)*.35*devicePixelRatio,vy:(Math.random()-.5)*.35*devicePixelRatio,r:(Math.random()*1.6+0.6)*devicePixelRatio,c:Math.random()>.55?'#72ffd8':(Math.random()>.5?'#ffe27c':'#a991ff')})); } function tick(){ ctx.clearRect(0,0,canvas.width,canvas.height); for(const p of pts){ p.x+=p.vx; p.y+=p.vy; if(p.x<0||p.x>canvas.width)p.vx*=-1; if(p.y<0||p.y>canvas.height)p.vy*=-1; ctx.beginPath(); ctx.fillStyle=p.c; ctx.globalAlpha=.78; ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fill(); } for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){ const a=pts[i],b=pts[j]; const d=Math.hypot(a.x-b.x,a.y-b.y); if(d<145*devicePixelRatio){ ctx.globalAlpha=(1-d/(145*devicePixelRatio))*.22; ctx.strokeStyle='#72ffd8'; ctx.lineWidth=.65*devicePixelRatio; ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke(); } } ctx.globalAlpha=1; requestAnimationFrame(tick); } addEventListener('resize',resize); resize(); tick(); }
+})();
+`;
+out('assets/holy-grail-v6.js', js);
+
+function nav(active){
+  const links = [
+    ['index.html','Institution'], ['start.html','Start'], ['demo-lab.html','Demo lab'], ['holy-grail.html','Proof engine'], ['proof-run-001.html','Proof Run 001'], ['evidence-docket-demo.html','Docket'], ['verify.html','Verifier'], ['agialpha.html','$AGIALPHA']
+  ];
+  return `<nav class="hg-nav"><div class="hg-nav-inner"><a class="hg-brand" href="${basePath}index.html"><span class="hg-mark"></span><span><b>GoalOS Signoff Pro</b><span>Proof-to-acceptance institution</span></span></a><div class="hg-links">${links.map(([href,label])=>`<a class="${href===active?'hg-on':''}" href="${basePath}${href}">${label}</a>`).join('')}<a class="hg-pill" href="mailto:${contactEmail}?subject=GoalOS%20Proof%20Mission%20Access">Private beta</a></div></div></nav>`;
 }
+function shell(title, active, body){
+  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${esc(title)} · GoalOS Signoff Pro</title><meta name="description" content="Browser-local proof-to-acceptance demo for GoalOS Signoff Pro."><link rel="stylesheet" href="${basePath}assets/holy-grail-v6.css"></head><body><canvas class="hg-canvas" aria-hidden="true"></canvas><div class="hg-grid"></div><div class="hg-aurora"></div>${nav(active)}<main>${body}</main><footer class="hg-footer"><b>GoalOS Signoff Pro</b><span>Browser-local demo · no sign-in · no input · no upload · no wallet · no cookies · no analytics.</span><span>${contactEmail}</span></footer><script>window.GOALOS_HG_STAGES=${JSON.stringify(stages)};window.GOALOS_HG_SCENARIOS=${JSON.stringify(scenarios)};window.GOALOS_HG_BUNDLE=${JSON.stringify(demoBundle)};</script><script src="${basePath}assets/holy-grail-v6.js"></script></body></html>`;
+}
+const scenarioButtons = scenarios.map((s,i)=>`<button class="hg-scenario ${i===0?'active':''}" type="button" data-scenario="${esc(s.id)}">${esc(s.name)}</button>`).join('');
+const stageList = stages.map((s,i)=>`<div class="hg-stage"><strong>${String(i+1).padStart(2,'0')}</strong><div><b>${esc(s)}</b><br><span>${i===0?'Mission contract':i===1?'Bounded work':i===2?'Evidence packet':i===3?'Verifier gate':i===4?'Accepted signal':i===5?'Memory record':i===6?'Capability package':i===7?'Readiness only':i===8?'Capacity allocation': 'Next frontier'}</span></div></div>`).join('');
+const cards = scenarios.map(s=>`<article class="hg-card"><h3>${esc(s.name)}</h3><p>${esc(s.objective)}</p><p><b>Reusable capability:</b> ${esc(s.capability)}</p></article>`).join('');
+const safeRow = `<div class="hg-safe"><span>No sign-in</span><span>No input</span><span>No upload</span><span>No wallet</span><span>No cookies</span><span>No analytics</span><span>No value moved</span></div>`;
+const heroConsole = `<aside class="hg-console"><div class="hg-console-inner"><div class="hg-head"><span>Proof machine</span><span>Review mode</span></div><div class="hg-core"><i class="hg-ring hg-r1"></i><i class="hg-ring hg-r2"></i><i class="hg-ring hg-r3"></i><div class="hg-logo">α</div></div><div class="hg-metrics"><div class="hg-metric"><b>0</b><span>funds moved</span></div><div class="hg-metric"><b>10</b><span>loop stages</span></div><div class="hg-metric"><b>1</b><span>human frontier</span></div></div></div></aside>`;
+const coreDemo = `<section class="hg-section" id="run"><div class="hg-wrap"><div class="hg-k">Browser-local proof cycle</div><h2 class="hg-h2">Run the loop. <em>No data required.</em></h2><p class="hg-copy">Choose a public-safe scenario. Launch the proof cycle. Watch a mission become proof, proof become review-ready experience, and experience become reusable capability.</p><div class="hg-flow">${scenarioButtons}</div><div class="hg-demo"><div class="hg-panel"><h3>Mission control</h3><p id="hg-scenario-copy" class="hg-copy"></p><div class="hg-actions"><button id="hg-launch" class="hg-btn" type="button">Launch proof loop</button><button id="hg-reset" class="hg-btn secondary" type="button">Reset</button><button id="hg-download" class="hg-btn secondary" type="button">Download demo docket</button></div><pre id="hg-log" class="hg-log">System ready.</pre></div><div class="hg-panel"><div class="hg-head"><span>Review readiness</span><span><b id="hg-score">0</b>%</span></div><div class="hg-progress"><i id="hg-progress"></i></div><div class="hg-stage-list" style="margin-top:16px">${stageList}</div></div></div></div></section>`;
+const docket = `<section class="hg-section hg-alt"><div class="hg-wrap"><div class="hg-k">Evidence Docket</div><h2 class="hg-h2">This is what <em>proof</em> looks like.</h2><p class="hg-copy">The public demo is synthetic and browser-local. It shows the shape of proof: manifest, claims, evidence packets, validator checks, Chronicle memory, and settlement readiness with no value movement.</p><div class="hg-tabs"><button class="hg-tab active" type="button" data-tab="manifest">Manifest</button><button class="hg-tab" type="button" data-tab="claims">Claims</button><button class="hg-tab" type="button" data-tab="proof">Proof</button><button class="hg-tab" type="button" data-tab="validation">Validation</button><button class="hg-tab" type="button" data-tab="chronicle">Chronicle</button><button class="hg-tab" type="button" data-tab="settlement">Settlement rail</button></div><div id="hg-docket" class="hg-panel hg-docket"></div></div></section>`;
+const home = `<section class="hg-wrap hg-hero"><div><div class="hg-k">Proof-gated open-ended work</div><h1 class="hg-title">Holy Grail <em>candidate.</em></h1><p class="hg-lede">Not because computation is expressive. Because autonomous work can be gated by proof, converted into verified experience, preserved as memory, and reused only after review.</p><p class="hg-copy">Raw output is abundant. Verifiable institutional signal is scarce. GoalOS turns the scarce part into a browser-visible loop: mission → work → proof → validation → Chronicle → reusable capability.</p><div class="hg-actions"><a class="hg-btn" href="#run">Run the proof loop</a><a class="hg-btn secondary" href="${basePath}proof-run-001.html">Open Proof Run 001</a></div>${safeRow}</div>${heroConsole}</section><section class="hg-section hg-alt"><div class="hg-wrap"><div class="hg-k">The exact prize</div><h2 class="hg-h2">A proof-gated <em>universal work machine.</em></h2><div class="hg-cards"><article class="hg-card"><h3>It coordinates work.</h3><p>Objectives become bounded missions, not vague prompts. Each run has success criteria, failure criteria, and review state.</p></article><article class="hg-card"><h3>It rejects unsupported claims.</h3><p>Claims must map to evidence. Unsupported assertions remain visible as unproven rather than silently becoming institutional default.</p></article><article class="hg-card"><h3>It compounds carefully.</h3><p>Accepted proof becomes Chronicle memory and reusable capability. The next mission inherits only what survived the gates.</p></article></div></div></section>${coreDemo}${docket}<section class="hg-section"><div class="hg-wrap"><div class="hg-k">Capability memory</div><h2 class="hg-h2">Accepted proof becomes <em>usable capacity.</em></h2><div class="hg-cards">${cards}</div><div class="hg-panel" style="margin-top:20px"><h3>Current selected capability</h3><p id="hg-capability" class="hg-lede"></p><p class="hg-copy">That is the product difference: the output does not just end the task; it becomes a reusable proof-backed pattern for future work.</p></div></div></section>`;
+out('holy-grail.html', shell('Holy Grail Candidate', 'holy-grail.html', home));
+out('proof-gated-work-machine.html', shell('Proof-Gated Work Machine', 'holy-grail.html', home));
+out('proof-run-001.html', shell('Proof Run 001', 'proof-run-001.html', `<section class="hg-wrap hg-hero"><div><div class="hg-k">Proof Run 001</div><h1 class="hg-title">Now we <em>prove it.</em></h1><p class="hg-lede">A self-contained browser run that demonstrates the proof-to-acceptance loop without asking the visitor for anything.</p><p class="hg-copy">This is the public-safe version of the first proof run: synthetic mission, synthetic docket, real product logic, no data capture.</p><div class="hg-actions"><a class="hg-btn" href="#run">Launch Proof Run 001</a><a class="hg-btn secondary" href="${basePath}holy-grail-demo-bundle.json">Open demo bundle</a></div>${safeRow}</div>${heroConsole}</section>${coreDemo}${docket}`));
+out('compounding-loop.html', shell('Compounding Loop', 'compounding-loop.html', `<section class="hg-wrap hg-hero"><div><div class="hg-k">Compounding loop</div><h1 class="hg-title">Verified experience <em>compounds.</em></h1><p class="hg-lede">Mission → work → proof → validation → verified experience → Chronicle → reusable capability → settlement signal → reinvestment → harder mission.</p><p class="hg-copy">The page makes the mechanism visible: accepted work becomes memory; memory becomes capability; capability changes what future missions can attempt.</p>${safeRow}</div>${heroConsole}</section><section class="hg-section hg-alt"><div class="hg-wrap"><h2 class="hg-h2">The loop.</h2><div class="hg-cards">${stages.map((s,i)=>`<article class="hg-card"><h3>${String(i+1).padStart(2,'0')} ${esc(s)}</h3><p>${i===0?'Bound the objective.':i===1?'Attempt the work under constraints.':i===2?'Emit proof packets.':i===3?'Check claims, risk, and evidence.':i===4?'Record what passed.':i===5?'Write institutional memory.':i===6?'Package reusable capability.':i===7?'Mark readiness; no value moved in public demo.':i===8?'Allocate attention to future work.':'Raise the bar for the next mission.'}</p></article>`).join('')}</div></div></section>${coreDemo}${docket}`));
+out('holy-grail-demo-bundle.json', JSON.stringify(demoBundle, null, 2));
+out('holy-grail-browser-manifest.json', JSON.stringify({ version, generatedAt:new Date().toISOString(), pages:['holy-grail.html','proof-run-001.html','proof-gated-work-machine.html','compounding-loop.html'], noUserData:true, noInputs:true, noForms:true, noUploads:true, noWallet:true, contactEmail, siteHash:hash(JSON.stringify(demoBundle)) }, null, 2));
 
-console.log(`GoalOS Holy Grail Browser Demo generated ${manifest.pages.length} pages at ${siteDir}`);
+function injectHome(){
+  const p = path.join(siteDir, 'index.html');
+  if(!fs.existsSync(p)) return;
+  let html = fs.readFileSync(p, 'utf8');
+  html = html.replace(/<section[^>]*id=["']goalos-holy-grail-rail["'][\s\S]*?<\/section>/i, '');
+  if(!html.includes('holy-grail-v6.css')) html = html.replace('</head>', `<link rel="stylesheet" href="${basePath}assets/holy-grail-v6.css"></head>`);
+  if(!html.includes('holy-grail-v6.js')) html = html.replace('</body>', `<script src="${basePath}assets/holy-grail-v6.js"></script></body>`);
+  const rail = `<section class="hg-home-rail" id="goalos-holy-grail-rail"><div class="hg-k">Proof-gated open-ended work</div><h2>A Holy Grail candidate. Now we prove it.</h2><p>Run the browser-local loop: mission → work → proof → validation → verified experience → Chronicle → reusable capability → settlement signal → harder mission. No sign-in, no input, no upload, no wallet.</p><div class="hg-actions"><a class="hg-btn" href="${basePath}holy-grail.html">Run the proof loop</a><a class="hg-btn secondary" href="${basePath}proof-run-001.html">Open Proof Run 001</a><a class="hg-btn secondary" href="${basePath}evidence-docket-demo.html">Inspect the Evidence Docket</a></div><div class="hg-safe"><span>Browser-local</span><span>No input</span><span>No upload</span><span>No wallet</span><span>No value moved</span></div></section>`;
+  const idxFooter = html.search(/<footer\b/i);
+  const idxLegal = html.search(/privacy|terms|no user data|no-user-data|legal/i);
+  let insertAt = -1;
+  const mainEnd = html.search(/<\/main>/i);
+  if(mainEnd >= 0) insertAt = mainEnd;
+  else if(idxFooter >= 0) insertAt = idxFooter;
+  if(insertAt >= 0) html = html.slice(0, insertAt) + rail + html.slice(insertAt);
+  else html += rail;
+  fs.writeFileSync(p, html);
+}
+injectHome();
+console.log(`GoalOS Holy Grail Browser Demo v6 generated ${['holy-grail.html','proof-run-001.html','proof-gated-work-machine.html','compounding-loop.html'].length} pages`);

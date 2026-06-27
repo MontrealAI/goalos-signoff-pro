@@ -1,10 +1,15 @@
 {
-  "verdict": "demo_pass",
-  "unsupportedClaimsRejected": true,
-  "observations": [
-    "No user input required.",
-    "No wallet connection.",
-    "No value moved.",
-    "Proof stages complete."
+  "verdict": "review-ready demo",
+  "checks": [
+    "mission exists",
+    "claims matrix exists",
+    "proof packets exist",
+    "risk ledger exists",
+    "receipt exists"
+  ],
+  "limitations": [
+    "synthetic demo",
+    "not external audit",
+    "not live settlement"
   ]
 }

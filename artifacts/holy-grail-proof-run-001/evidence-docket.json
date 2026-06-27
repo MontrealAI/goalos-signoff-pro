@@ -1,18 +1,98 @@
 {
-  "docketId": "ED-HG-PR001",
-  "missionId": "HG-PR001-DEMO",
-  "publicPrivateBoundary": "Public-safe synthetic example only.",
-  "claims": [
+  "id": "ED-HG-PR001-DEMO",
+  "manifest": {
+    "id": "HG-PR001-DEMO",
+    "objective": "Public-safe proof-gated work-machine demo",
+    "dataBoundary": "synthetic demo only; no user data",
+    "loop": [
+      "Mission",
+      "Work",
+      "Proof",
+      "Validation",
+      "Verified Experience",
+      "Chronicle",
+      "Reusable Capability",
+      "Settlement Signal",
+      "Reinvestment",
+      "Harder Mission"
+    ],
+    "contact": "info@quebec.ai"
+  },
+  "claimsMatrix": [
     {
-      "claim": "GoalOS can represent work as gated proof states.",
-      "support": "Browser-local deterministic demo artifacts.",
-      "status": "supported_for_demo"
+      "scenario": "ai-research",
+      "claim": "The report supports Q2 market-entry planning within stated uncertainty bounds.",
+      "evidence": "evidence://ai-research/demo",
+      "status": "demo-supported"
     },
     {
-      "claim": "The public demo moves value.",
-      "support": "None.",
-      "status": "rejected"
+      "scenario": "automation",
+      "claim": "The automation has mapped outputs, rollback notes, and reviewer-ready acceptance criteria.",
+      "evidence": "evidence://automation/demo",
+      "status": "demo-supported"
+    },
+    {
+      "scenario": "vendor",
+      "claim": "The vendor package has supportable claims, surfaced risks, and a reusable decision record.",
+      "evidence": "evidence://vendor/demo",
+      "status": "demo-supported"
+    },
+    {
+      "scenario": "grant",
+      "claim": "The milestone can be judged through claims, evidence, risk, and receipt state rather than raw narrative.",
+      "evidence": "evidence://grant/demo",
+      "status": "demo-supported"
     }
+  ],
+  "proofPackets": [
+    {
+      "stage": "Mission",
+      "digest": "8705eddd8ac316b4"
+    },
+    {
+      "stage": "Work",
+      "digest": "e1787930b6adb00b"
+    },
+    {
+      "stage": "Proof",
+      "digest": "50b78d927e45a0f7"
+    },
+    {
+      "stage": "Validation",
+      "digest": "dd562a57692d6541"
+    },
+    {
+      "stage": "Verified Experience",
+      "digest": "b343d3764ff15c98"
+    },
+    {
+      "stage": "Chronicle",
+      "digest": "db00eb1cc21b275b"
+    },
+    {
+      "stage": "Reusable Capability",
+      "digest": "cc05ed0d021101f0"
+    },
+    {
+      "stage": "Settlement Signal",
+      "digest": "9519a625ab9f158b"
+    },
+    {
+      "stage": "Reinvestment",
+      "digest": "1d22378dc9f73633"
+    },
+    {
+      "stage": "Harder Mission",
+      "digest": "5c65b1060a9262eb"
+    }
+  ],
+  "riskLedger": [
+    "no uploads",
+    "no sign-in",
+    "no wallet",
+    "no cookies",
+    "no analytics",
+    "no value moved"
   ],
   "replayPath": "Open proof-run-001.html and click Launch proof loop."
 }

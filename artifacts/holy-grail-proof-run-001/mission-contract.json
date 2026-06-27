@@ -1,10 +1,18 @@
 {
-  "missionId": "HG-PR001-DEMO",
-  "title": "Proof-gated open-ended work demo",
-  "createdAt": "2026-06-27T20:50:26.991Z",
-  "publicSafe": true,
-  "noUserData": true,
-  "objective": "Demonstrate the GoalOS loop from mission to harder mission using a synthetic public-safe example.",
-  "doneCondition": "Evidence Docket, verifier report, risk ledger, Chronicle entry, capability package, and settlement signal exist.",
-  "valueMoved": 0
+  "id": "HG-PR001-DEMO",
+  "objective": "Public-safe proof-gated work-machine demo",
+  "dataBoundary": "synthetic demo only; no user data",
+  "loop": [
+    "Mission",
+    "Work",
+    "Proof",
+    "Validation",
+    "Verified Experience",
+    "Chronicle",
+    "Reusable Capability",
+    "Settlement Signal",
+    "Reinvestment",
+    "Harder Mission"
+  ],
+  "contact": "info@quebec.ai"
 }

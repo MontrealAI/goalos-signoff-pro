@@ -1,52 +1,69 @@
 {
-  "version": "1.0.0",
-  "product": "GoalOS Signoff Pro",
-  "module": "Holy Grail Candidate Browser Demo",
-  "contact": "info@quebec.ai",
-  "publicSite": "https://montrealai.github.io/goalos-signoff-pro/",
-  "token": {
-    "symbol": "$AGIALPHA",
-    "chain": "Ethereum Mainnet",
+  "version": "6.0.0-final-production",
+  "baseUrl": "https://montrealai.github.io/goalos-signoff-pro/",
+  "contactEmail": "info@quebec.ai",
+  "externalToken": {
+    "symbol": "AGIALPHA",
     "address": "0xA61a3B3a130a9c20768EEBF97E21515A6046a1fA",
-    "publicBoundary": "External token reference only. Not sold, issued, brokered, custodied, distributed, redeemed, staked, or made available by GoalOS, MontrealAI, or QuebecAI."
+    "network": "Ethereum Mainnet",
+    "publicBoundary": "external-reference-only"
   },
-  "claimBoundary": {
-    "primary": "GoalOS is presented as a Holy Grail candidate for proof-gated open-ended work, not as proof that AGI, ASI, superintelligence, guaranteed returns, live settlement, or autonomous production authority has been achieved.",
-    "publicDemo": "Browser-local simulation only: no forms, no uploads, no cookies, no analytics, no wallet connection, no payments, no user data, and no value moved.",
-    "nextProof": "Proof Run 001: publish a public-safe Evidence Docket that people can inspect and replay."
+  "publicSafety": {
+    "browserLocal": true,
+    "noForms": true,
+    "noInputs": true,
+    "noUploads": true,
+    "noWallet": true,
+    "noCookies": true,
+    "noAnalytics": true,
+    "noPayments": true,
+    "noUserData": true,
+    "noValueMoved": true
   },
   "loop": [
-    { "id": "mission", "label": "Mission", "caption": "A bounded objective is declared." },
-    { "id": "work", "label": "Work", "caption": "Agents/tools execute inside a scoped mission envelope." },
-    { "id": "proof", "label": "Proof", "caption": "Artifacts, hashes, gates, costs, risks, and claims are packaged." },
-    { "id": "validation", "label": "Validation", "caption": "Unsupported claims are rejected; evidence earns acceptance." },
-    { "id": "experience", "label": "Verified Experience", "caption": "Accepted work becomes a reusable event, not a one-off answer." },
-    { "id": "chronicle", "label": "Chronicle", "caption": "The institution remembers what was proven." },
-    { "id": "capability", "label": "Reusable Capability", "caption": "Accepted patterns become future mission capacity." },
-    { "id": "settlement", "label": "Settlement Signal", "caption": "Proof can become economically consequential in gated protocol contexts." },
-    { "id": "reinvestment", "label": "Reinvestment", "caption": "Accepted capability funds harder future missions." },
-    { "id": "harder", "label": "Harder Mission", "caption": "The next objective inherits only verified experience." }
+    "Mission",
+    "Work",
+    "Proof",
+    "Validation",
+    "Verified Experience",
+    "Chronicle",
+    "Reusable Capability",
+    "Settlement Signal",
+    "Reinvestment",
+    "Harder Mission"
   ],
-  "questions": [
-    "What was attempted?",
-    "What happened?",
-    "What proof exists?",
-    "What can be replayed?",
-    "What passed validation?",
-    "What failed?",
-    "What risk remains?",
-    "What can be trusted?",
-    "What can be reused?",
-    "What can become economically consequential?"
-  ],
-  "demoArtifacts": [
-    "mission-contract.json",
-    "evidence-docket.json",
-    "verifier-report.json",
-    "risk-ledger.json",
-    "chronicle-entry.json",
-    "capability-package.json",
-    "settlement-signal.json",
-    "proof-run-001-readme.md"
+  "scenarios": [
+    {
+      "id": "ai-research",
+      "name": "AI research acceptance",
+      "objective": "Decide whether an AI-generated market-analysis report is ready for client acceptance.",
+      "capability": "Evidence-to-acceptance briefing pattern",
+      "risk": "Medium",
+      "claim": "The report supports Q2 market-entry planning within stated uncertainty bounds."
+    },
+    {
+      "id": "automation",
+      "name": "Automation delivery review",
+      "objective": "Evaluate whether an automation handoff has enough evidence for operational acceptance.",
+      "capability": "Automation handoff acceptance checklist",
+      "risk": "Medium",
+      "claim": "The automation has mapped outputs, rollback notes, and reviewer-ready acceptance criteria."
+    },
+    {
+      "id": "vendor",
+      "name": "Vendor proof mission",
+      "objective": "Inspect an AI vendor deliverable and turn the decision into an evidence-backed record.",
+      "capability": "Vendor evidence-docket template",
+      "risk": "High",
+      "claim": "The vendor package has supportable claims, surfaced risks, and a reusable decision record."
+    },
+    {
+      "id": "grant",
+      "name": "Grant milestone verification",
+      "objective": "Assess whether a milestone report deserves acceptance, revision, or escalation.",
+      "capability": "Milestone verification template",
+      "risk": "Medium",
+      "claim": "The milestone can be judged through claims, evidence, risk, and receipt state rather than raw narrative."
+    }
   ]
 }
