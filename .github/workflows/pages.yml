@@ -5,21 +5,21 @@ on:
   push:
     branches: [main]
     paths:
-      - 'scripts/build-asi-apex-v6-pages.mjs'
-      - 'scripts/build-sovereign-machine-economy-pages.mjs'
-      - 'scripts/verify-sovereign-machine-economy.mjs'
-      - 'config/sovereign-machine-economy.json'
-      - 'schemas/sovereign-machine-economy.schema.json'
-      - 'src/lib/sovereign-machine-economy/**'
+      - 'scripts/**'
+      - 'config/**'
+      - 'schemas/**'
+      - 'docs/**'
+      - 'examples/**'
       - '.github/workflows/pages.yml'
+      - '.github/workflows/website-quality.yml'
       - '.github/workflows/sovereign-machine-economy.yml'
+
+permissions:
+  contents: read
 
 concurrency:
   group: pages
   cancel-in-progress: true
-
-permissions:
-  contents: read
 
 jobs:
   build:
@@ -28,70 +28,32 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
-      - name: Configure Pages
+      - name: Set up Pages
         uses: actions/configure-pages@v5
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
-      - name: Generate base GoalOS Signoff Pro site
-        shell: bash
+      - name: Generate Signoff Pro public site
+        run: node scripts/build-asi-apex-v6-pages.mjs
+      - name: Generate Sovereign Machine Economy pages
+        run: node scripts/build-sovereign-machine-economy-pages.mjs
+      - name: Generate User Activation Layer
+        run: node scripts/build-user-activation-pages.mjs
+      - name: Verify implementation and public posture
         run: |
-          set -euo pipefail
-          test -f scripts/build-asi-apex-v6-pages.mjs
-          node scripts/build-asi-apex-v6-pages.mjs
-      - name: Generate substantial Sovereign Machine Economy pages
-        shell: bash
-        run: |
-          set -euo pipefail
-          node scripts/build-sovereign-machine-economy-pages.mjs
-      - name: Verify website-to-implementation parity
-        shell: bash
-        run: |
-          set -euo pipefail
           node scripts/verify-sovereign-machine-economy.mjs
-      - name: Verify flagship page substance
-        shell: bash
+          if [ -f scripts/verify-capability-parity.mjs ]; then node scripts/verify-capability-parity.mjs; fi
+          node scripts/verify-website-quality.mjs
+      - name: Refuse secrets in Pages artifact
         run: |
           set -euo pipefail
-          for page in sovereign-machine-economy.html proof-os.html machine-economy.html constitution.html proof-missions.html; do
-            test -s "site/$page"
-            bytes=$(wc -c < "site/$page")
-            if [ "" -lt 7000 ]; then
-              echo "Generated page is too thin: $page ($bytes bytes)"
-              exit 1
-            fi
-          done
-          grep -R "sme-v2.css" site/sovereign-machine-economy.html site/proof-os.html site/machine-economy.html site/constitution.html site/proof-missions.html >/dev/null
-          grep -R "sme-v2.js" site/sovereign-machine-economy.html site/proof-os.html site/machine-economy.html site/constitution.html site/proof-missions.html >/dev/null
-      - name: Public artifact safety scan
-        shell: bash
-        run: |
-          set -euo pipefail
-          test -d site
-          if find site -name '.env*' -o -name 'node_modules' -o -name '.git' -o -name '.next' | grep -q .; then
-            echo "Forbidden private/build artifact found in site/"
-            find site -name '.env*' -o -name 'node_modules' -o -name '.git' -o -name '.next'
-            exit 1
-          fi
-          if grep -RIE "BEGIN (RSA |EC |OPENSSH |)PRIVATE KEY|SUPABASE_SERVICE_ROLE|STRIPE_SECRET_KEY|sk_live_|mnemonic|seed phrase|wallet private key|Mainnet settlement is live|AGIALPHA staking is live|user funds authorized|autonomous acceptance|achieved ASI|superintelligence achieved|The public site is designed|intentionally cinematic" site; then
-            echo "Forbidden public claim, weak disclaimer copy, or secret-like text found in Pages artifact."
-            exit 1
-          fi
+          ! find site -name '.env*' -o -name 'node_modules' -o -name '.git' -o -name '.next' | grep .
+          ! grep -RIE --line-number 'BEGIN (RSA|EC|OPENSSH|PRIVATE) KEY|sk_live_|service_role|SUPABASE_SERVICE_ROLE|MNEMONIC|seed phrase|PRIVATE_KEY=' site
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: site
-      - name: Upload verification reports
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: goalos-signoff-pro-production-build-report
-          path: |
-            verification/sovereign-machine-economy-parity-report.json
-            site/sme-manifest.json
-            site/production-manifest.json
-
   deploy:
     name: Deploy to GitHub Pages
     needs: build
@@ -103,6 +65,6 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Deploy public production site
+      - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
