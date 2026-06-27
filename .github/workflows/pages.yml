@@ -1,16 +1,17 @@
-name: Deploy ASI Apex v6.1 production site
+name: Deploy GoalOS Signoff Pro production site
 
 on:
+  workflow_dispatch:
   push:
     branches: [main]
     paths:
-      - scripts/build-asi-apex-v6-pages.mjs
-      - .github/workflows/pages.yml
-      - docs/**
-      - README.md
-      - package.json
-      - .github/CODEOWNERS
-  workflow_dispatch:
+      - 'scripts/build-asi-apex-v6-pages.mjs'
+      - 'scripts/build-sovereign-machine-economy-pages.mjs'
+      - 'scripts/verify-sovereign-machine-economy.mjs'
+      - 'config/sovereign-machine-economy.json'
+      - 'schemas/sovereign-machine-economy.schema.json'
+      - 'src/lib/sovereign-machine-economy/**'
+      - '.github/workflows/pages.yml'
 
 concurrency:
   group: pages
@@ -21,43 +22,57 @@ permissions:
 
 jobs:
   build:
-    name: Build, verify, and package ASI Apex v6.1 site
+    name: Build and verify public production site
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
-
-      - name: Build final production static site
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Generate base GoalOS Signoff Pro site
         shell: bash
         run: |
           set -euo pipefail
-          node --version
+          if [ ! -f scripts/build-asi-apex-v6-pages.mjs ]; then
+            echo "Missing scripts/build-asi-apex-v6-pages.mjs. Install the v6/v6.1 website generator first."
+            exit 1
+          fi
           node scripts/build-asi-apex-v6-pages.mjs
-
-      - name: Verify public Pages artifact
+      - name: Add Sovereign Machine Economy pages
+        run: node scripts/build-sovereign-machine-economy-pages.mjs
+      - name: Verify website-to-implementation parity
+        run: node scripts/verify-sovereign-machine-economy.mjs
+      - name: Public artifact safety scan
         shell: bash
         run: |
           set -euo pipefail
-          test -f site/index.html
-          test -f site/platform.html
-          test -f site/theatre.html
-          test -f site/architecture.html
-          test -f site/trust.html
-          test -f site/pilot.html
-          test -f site/dossier.html
-          test -f site/production-manifest.json
-          test -f site/assets/asi-apex-v6.css
-          test -f site/assets/asi-apex-v6.js
-          ! find site -name '.env*' -o -path '*/node_modules/*' -o -path '*/.git/*' -o -path '*/.next/*' | grep .
-          ! grep -R -n -E 'BEGIN [A-Z ]*PRIVATE KEY|MNEMONIC|SEED_PHRASE|SERVICE_ROLE|SUPABASE_SERVICE|STRIPE_SECRET|sk_live_|WALLET_PRIVATE|AGIALPHA_TREASURY_KEY' site
-
-      - name: Upload GitHub Pages artifact
+          test -d site
+          if find site -name '.env*' -o -name 'node_modules' -o -name '.git' -o -name '.next' | grep -q .; then
+            echo "Forbidden private/build artifact found in site/"
+            find site -name '.env*' -o -name 'node_modules' -o -name '.git' -o -name '.next'
+            exit 1
+          fi
+          if grep -RIE "BEGIN (RSA |EC |OPENSSH |)PRIVATE KEY|SUPABASE_SERVICE_ROLE|STRIPE_SECRET_KEY|sk_live_|mnemonic|seed phrase|wallet private key|Mainnet settlement is live|AGIALPHA staking is live|user funds authorized|autonomous acceptance" site; then
+            echo "Forbidden public claim or secret-like text found in Pages artifact."
+            exit 1
+          fi
+      - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: site
+      - name: Upload verification report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sovereign-machine-economy-build-report
+          path: verification/sovereign-machine-economy-parity-report.json
 
   deploy:
-    name: Deploy ASI Apex v6.1 to GitHub Pages
+    name: Deploy to GitHub Pages
     needs: build
     runs-on: ubuntu-latest
     permissions:
@@ -67,6 +82,6 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Deploy to GitHub Pages
+      - name: Deploy public production site
         id: deployment
         uses: actions/deploy-pages@v4

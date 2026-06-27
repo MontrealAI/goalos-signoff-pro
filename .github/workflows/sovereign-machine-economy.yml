@@ -1,0 +1,45 @@
+name: Sovereign Machine Economy parity gate
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'config/sovereign-machine-economy.json'
+      - 'schemas/sovereign-machine-economy.schema.json'
+      - 'scripts/build-sovereign-machine-economy-pages.mjs'
+      - 'scripts/verify-sovereign-machine-economy.mjs'
+      - 'src/lib/sovereign-machine-economy/**'
+      - '.github/workflows/sovereign-machine-economy.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'config/sovereign-machine-economy.json'
+      - 'schemas/sovereign-machine-economy.schema.json'
+      - 'scripts/build-sovereign-machine-economy-pages.mjs'
+      - 'scripts/verify-sovereign-machine-economy.mjs'
+      - 'src/lib/sovereign-machine-economy/**'
+      - '.github/workflows/sovereign-machine-economy.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    name: Verify implementation and public posture
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Verify Sovereign Machine Economy parity
+        run: node scripts/verify-sovereign-machine-economy.mjs
+      - name: Upload parity report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sovereign-machine-economy-parity-report
+          path: verification/sovereign-machine-economy-parity-report.json
