@@ -4,42 +4,47 @@ on:
   workflow_dispatch:
     inputs:
       scenario:
-        description: "Public-safe demo scenario"
-        required: true
-        default: "research"
+        description: 'Demo scenario'
         type: choice
+        default: enterprise-ai-acceptance
         options:
-          - research
-          - automation
-          - grant
-          - defensive
+          - enterprise-ai-acceptance
+          - research-dossier-review
+          - vendor-proof-mission
+      agent_scale:
+        description: 'Synthetic agent constellation size'
+        type: choice
+        default: '24'
+        options:
+          - '12'
+          - '24'
+          - '48'
 
 permissions:
   contents: read
 
 jobs:
   generate:
-    name: Generate browser-safe multi-agent demo artifact
+    name: Generate browser-local multi-agent demo artifacts
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v6
         with:
-          node-version: 20
-          cache: ""
-      - name: Generate demo bundle
+          node-version: '24'
+      - name: Build and verify browser demo
+        env:
+          GOALOS_SCENARIO: ${{ inputs.scenario }}
+          GOALOS_AGENT_SCALE: ${{ inputs.agent_scale }}
         run: |
           set -euo pipefail
-          node scripts/generate-multi-agent-coordination-demo-bundle.mjs
-      - name: Build and verify site demo
-        run: |
-          set -euo pipefail
-          rm -rf site
-          mkdir -p site
-          if [ -f scripts/build-asi-apex-v6-pages.mjs ]; then node scripts/build-asi-apex-v6-pages.mjs; fi
+          rm -rf site artifacts
           node scripts/build-multi-agent-coordination-demo.mjs
           node scripts/verify-multi-agent-coordination-demo.mjs
-      - uses: actions/upload-artifact@v4
+          node scripts/generate-multi-agent-coordination-demo-bundle.mjs "$GOALOS_SCENARIO" "$GOALOS_AGENT_SCALE"
+      - name: Upload demo artifact bundle
+        uses: actions/upload-artifact@v7
         with:
-          name: goalos-multi-agent-coordination-demo-${{ github.event.inputs.scenario }}
-          path: artifacts/multi-agent-coordination-demo
+          name: goalos-multi-agent-sovereign-institution-demo-${{ inputs.scenario }}-${{ inputs.agent_scale }}
+          path: artifacts/multi-agent-sovereign-institution-demo
+          retention-days: 30
