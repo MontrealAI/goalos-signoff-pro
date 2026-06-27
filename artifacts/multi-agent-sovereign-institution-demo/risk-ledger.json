@@ -1,0 +1,7 @@
+{
+  "falseAcceptanceRisk": "bounded by validator mesh and human authority",
+  "privacyRisk": "reduced by zero-input public demo",
+  "settlementRisk": "none in this public demo; no value moved",
+  "unsupportedClaimRisk": "blocked by claim-boundary verifiers",
+  "rollback": "demo can reset without state persistence"
+}

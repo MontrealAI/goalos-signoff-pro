@@ -1,0 +1,65 @@
+[
+  {
+    "id": "ARCH",
+    "label": "Architect",
+    "duty": "Mission decomposition and role contract design",
+    "quorumWeight": 1,
+    "hash": "84aca23d706fbe8216f3a1637db9bb6fdd2dae66a0b9af1d2e1fd343b77e9fbc"
+  },
+  {
+    "id": "PLAN",
+    "label": "Planner",
+    "duty": "Work graph, budget, and stopping rule",
+    "quorumWeight": 1,
+    "hash": "520460139554de471de9e9fa83c23e8f9ba86560508b379a7626a68a3da5c301"
+  },
+  {
+    "id": "RET",
+    "label": "Retriever",
+    "duty": "Source mapping and provenance boundary",
+    "quorumWeight": 1,
+    "hash": "159c2d32870d19c089d8ae5468c28b454b76782bcb0f1abd01bcf83f699a6b1d"
+  },
+  {
+    "id": "EXEC",
+    "label": "Executor",
+    "duty": "Bounded work with scoped authority",
+    "quorumWeight": 1,
+    "hash": "d9eb4c729cb11ce6e0e49fe299ec72f3aabd821b4c617c6aba7c4a431ee25f70"
+  },
+  {
+    "id": "SIM",
+    "label": "Simulator",
+    "duty": "Counterfactual checks and cost-risk projection",
+    "quorumWeight": 1,
+    "hash": "83c82829b2606c84e2696c45e685c90071f4161d241a902f9292e70eb1db6f2e"
+  },
+  {
+    "id": "VAL",
+    "label": "Validator",
+    "duty": "Evidence, tests, and acceptance gate",
+    "quorumWeight": 2,
+    "hash": "e8c9a5e96373aff4e8bb0584a87a4cb4c7fb61bc511badd28256673f8e5d0c41"
+  },
+  {
+    "id": "RED",
+    "label": "Red Team",
+    "duty": "Contradiction and failure search",
+    "quorumWeight": 2,
+    "hash": "c94b1c259edfe8d4da96ee8d1b870147ca5fda5de104e09074fa016e6a485427"
+  },
+  {
+    "id": "GOV",
+    "label": "Governor",
+    "duty": "Human authority and claim boundary",
+    "quorumWeight": 2,
+    "hash": "4603f34496f007cc6e8819a91ab6e5e12824cf8c92c3d3ea4ab814b6ea2365cc"
+  },
+  {
+    "id": "CHR",
+    "label": "Chronicle",
+    "duty": "Replayable memory and capability lineage",
+    "quorumWeight": 2,
+    "hash": "726d19bedd6a2e861537990a4ec758be500cfe1e991f273c7873682c46d724e1"
+  }
+]

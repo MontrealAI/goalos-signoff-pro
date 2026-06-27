@@ -1,0 +1,18 @@
+{
+  "id": "MASI-ENTERPRISE-AI-ACCEPTANCE-24",
+  "scenario": "enterprise-ai-acceptance",
+  "agentScale": 24,
+  "createdAt": "2026-06-27T21:51:08.071Z",
+  "posture": "public-safe synthetic artifact; no user data; no value moved",
+  "objective": "Coordinate a large multi-agent constellation into a proof-governed institution for one bounded AI-work acceptance mission.",
+  "successCriteria": [
+    "Role graph created",
+    "Access graph scoped",
+    "Proof packets emitted",
+    "Validator mesh passes",
+    "Risk ledger sealed",
+    "Human authority remains final"
+  ],
+  "dataBoundary": "synthetic public-safe sample only",
+  "contact": "info@quebec.ai"
+}

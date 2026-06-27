@@ -1,0 +1,55 @@
+{
+  "manifestHash": "23c6cacad65f9fa8da97797fde8edae9751895065e3da25e34450077c195e8d2",
+  "claimsMatrix": [
+    {
+      "claim": "The system can represent a large multi-agent coordination cycle.",
+      "status": "supported by synthetic demo artifact"
+    },
+    {
+      "claim": "The demo moves no value and collects no user data.",
+      "status": "supported by public-site posture"
+    },
+    {
+      "claim": "Only proof-gated results become reusable memory.",
+      "status": "represented in the Chronicle and capability package"
+    }
+  ],
+  "proofPackets": [
+    {
+      "name": "mission",
+      "packetHash": "1a1a0889c47ff264c856a35b4d6845c022f415519b9a6745e77bd4f22e67cd67",
+      "syntheticVerdict": "pass"
+    },
+    {
+      "name": "role-graph",
+      "packetHash": "4300835f3162f1956f083f1d849596a1932baf00d8a040540bdb920247ae2d5b",
+      "syntheticVerdict": "pass"
+    },
+    {
+      "name": "bounded-work",
+      "packetHash": "7c8defb7f8ddd1e989f3ce89430d2414ec008d3621fe7edbdd9ee67eff84821a",
+      "syntheticVerdict": "pass"
+    },
+    {
+      "name": "validator-report",
+      "packetHash": "e909b5affa81bed3b1f9d2cb536c23878f526557da4f6514376235543286a7cc",
+      "syntheticVerdict": "pass"
+    },
+    {
+      "name": "risk-ledger",
+      "packetHash": "4d451e209abf8b13409a86e90c06d7507875e47f68829624f70b3777233fa49a",
+      "syntheticVerdict": "pass"
+    },
+    {
+      "name": "chronicle",
+      "packetHash": "d733fb3936b1ec4996b4e5cc65d539dcf11a5b345046093aab5b1bf67894c84a",
+      "syntheticVerdict": "pass"
+    },
+    {
+      "name": "capability-package",
+      "packetHash": "3858d120edfc1ed7cace573d9815160179c92a995ac900b2fe281ebe7b188769",
+      "syntheticVerdict": "pass"
+    }
+  ],
+  "publicPrivateBoundary": "public synthetic proof only; no private traces, user documents, credentials, uploads, or wallets"
+}

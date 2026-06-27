@@ -1,131 +1,116 @@
 {
-  "bundleType": "multi-agent-sovereign-institution-demo",
-  "generatedAt": "2026-06-27T21:34:09.711Z",
-  "publicSafe": true,
+  "version": "2.0.0-final-production",
+  "type": "public-safe synthetic demo bundle",
   "noUserData": true,
   "noValueMoved": true,
-  "mission": {
-    "objective": "Demonstrate proof-governed coordination of a large multi-agent system using a browser-local synthetic scenario.",
-    "successCriteria": [
-      "Role graph formed",
-      "Evidence docket emitted",
-      "Validator gate passes",
-      "Chronicle memory records reusable capability",
-      "No user data requested"
-    ],
-    "riskClass": "public-demo-low-risk"
+  "missionContract": {
+    "objective": "Coordinate a large multi-agent system into a proof-governed acceptance decision.",
+    "authority": "human final gate",
+    "dataBoundary": "public-safe synthetic demo only"
   },
-  "constellation": [
+  "roleGraph": [
     {
       "id": "coordinator",
-      "name": "Coordinator",
-      "role": "selects constellation, budget, access graph, and stopping rule"
+      "role": "routes work, budgets effort, stops waste",
+      "contract": "scope-bound, evidence-emitting, validator-aware"
     },
     {
       "id": "planner",
-      "name": "Planner",
-      "role": "turns the objective into subgoals and acceptance criteria"
+      "role": "turns objective into role contracts",
+      "contract": "scope-bound, evidence-emitting, validator-aware"
     },
     {
       "id": "researcher",
-      "name": "Researcher",
-      "role": "maps public-safe evidence and source provenance"
+      "role": "maps public-safe support and uncertainty",
+      "contract": "scope-bound, evidence-emitting, validator-aware"
     },
     {
       "id": "builder",
-      "name": "Builder",
-      "role": "produces the bounded work artifact"
+      "role": "packages the deliverable and proof packet",
+      "contract": "scope-bound, evidence-emitting, validator-aware"
+    },
+    {
+      "id": "critic",
+      "role": "finds failure modes and contradictions",
+      "contract": "scope-bound, evidence-emitting, validator-aware"
     },
     {
       "id": "validator",
-      "name": "Validator",
-      "role": "checks evidence, baselines, replay, and proof integrity"
+      "role": "checks proof, baseline, and replay path",
+      "contract": "scope-bound, evidence-emitting, validator-aware"
     },
     {
-      "id": "risk",
-      "name": "Risk Sentinel",
-      "role": "blocks unsafe propagation and unresolved claim debt"
+      "id": "sentinel",
+      "role": "preserves boundary and human authority",
+      "contract": "scope-bound, evidence-emitting, validator-aware"
     },
     {
       "id": "chronicle",
-      "name": "Chronicle",
-      "role": "preserves accepted experience and capability lineage"
-    },
-    {
-      "id": "human",
-      "name": "Human Authority",
-      "role": "final acceptance gate and escalation boundary"
+      "role": "records accepted experience for future work",
+      "contract": "scope-bound, evidence-emitting, validator-aware"
     }
   ],
-  "coordinationTrace": [
+  "proofPackets": [
     {
-      "step": 1,
-      "stage": "Mission",
-      "evidence": "mission-proof-root-e6b85bfbf550"
+      "index": 1,
+      "stage": "mission",
+      "hash": "e364ce17d2a2454c",
+      "status": "synthetic-pass"
     },
     {
-      "step": 2,
-      "stage": "Constellation",
-      "evidence": "constellation-proof-root-da48ad09eb2b"
+      "index": 2,
+      "stage": "constellation",
+      "hash": "dc4ae04b25075848",
+      "status": "synthetic-pass"
     },
     {
-      "step": 3,
-      "stage": "Work",
-      "evidence": "work-proof-root-104ab9213e28"
+      "index": 3,
+      "stage": "work",
+      "hash": "6534cd44a4e6eb15",
+      "status": "synthetic-pass"
     },
     {
-      "step": 4,
-      "stage": "Proof",
-      "evidence": "proof-proof-root-7fbb3ccf9640"
+      "index": 4,
+      "stage": "proof",
+      "hash": "f34d83c38dc7c562",
+      "status": "synthetic-pass"
     },
     {
-      "step": 5,
-      "stage": "Validate",
-      "evidence": "validate-proof-root-40611abbdda2"
+      "index": 5,
+      "stage": "validation",
+      "hash": "fa4ef3d1c2526aef",
+      "status": "synthetic-pass"
     },
     {
-      "step": 6,
-      "stage": "Chronicle",
-      "evidence": "chronicle-proof-root-619aad1b467a"
+      "index": 6,
+      "stage": "chronicle",
+      "hash": "34c0fc7e8efbe910",
+      "status": "synthetic-pass"
     },
     {
-      "step": 7,
-      "stage": "Capability",
-      "evidence": "capability-proof-root-5faf58a69db5"
+      "index": 7,
+      "stage": "capability",
+      "hash": "ff576590cdd95479",
+      "status": "synthetic-pass"
     }
   ],
-  "evidenceDocket": {
-    "manifest": "public-safe synthetic demo",
-    "claimsMatrix": [
-      {
-        "claim": "Coordinator selects bounded roles",
-        "evidence": "role-contract-table",
-        "status": "demonstrated"
-      },
-      {
-        "claim": "Validation controls propagation",
-        "evidence": "validator-gate-trace",
-        "status": "demonstrated"
-      },
-      {
-        "claim": "No value moved",
-        "evidence": "demo-receipt-no-value-moved",
-        "status": "demonstrated"
-      }
-    ],
-    "riskLedger": [
-      "no external action",
-      "no input fields",
-      "no upload surface",
-      "no wallet path",
-      "no live settlement"
-    ]
+  "validatorReport": {
+    "verdict": "accepted for demo replay",
+    "falseAcceptance": 0,
+    "unsupportedClaims": 0,
+    "humanGate": "required"
   },
-  "receipt": {
-    "id": "MACD-001-DEMO-RECEIPT",
-    "decision": "demo coordination cycle accepted as public-safe synthetic illustration",
-    "noValueMoved": true,
-    "humanGate": "required for real missions",
-    "hash": "7698beff3c09c9fd0d642337056fb191d67405a7e5e11bd926aacb46a3ac80bd"
+  "riskLedger": {
+    "externalActions": 0,
+    "uploads": 0,
+    "forms": 0,
+    "wallet_connection_count": 0,
+    "cookies": 0,
+    "analytics": 0,
+    "valueMoved": 0
+  },
+  "chronicleEntry": {
+    "acceptedExperience": "proof-governed coordination pattern",
+    "reusableCapability": "role-contract and validator-gated work template"
   }
 }

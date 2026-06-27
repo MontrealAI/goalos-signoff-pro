@@ -1,0 +1,13 @@
+{
+  "verdict": "review-ready",
+  "proofValid": true,
+  "evalPass": true,
+  "riskBounded": true,
+  "rollbackReady": true,
+  "humanAuthorityRequired": true,
+  "noAutomaticAcceptance": true,
+  "notes": [
+    "Score is advisory; gates are mandatory.",
+    "No user data, no value movement, no live settlement."
+  ]
+}

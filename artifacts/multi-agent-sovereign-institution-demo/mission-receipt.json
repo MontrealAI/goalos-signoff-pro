@@ -1,0 +1,10 @@
+{
+  "receiptId": "MASI-RCPT-5F5B941D5CD8D9A6",
+  "missionHash": "23c6cacad65f9fa8da97797fde8edae9751895065e3da25e34450077c195e8d2",
+  "docketHash": "f21dbc3d0b5d4b5089af5845ec3ccd263dc7f44c11983dd67f2bfa2202a7dfd4",
+  "validatorReportHash": "643cdba72d2b10d2742ac3cc77c60b618631db9cea0f6917742ea9bde3bb3c24",
+  "decision": "review-ready",
+  "issuer": "GoalOS Signoff Pro public demo generator",
+  "createdAt": "2026-06-27T21:51:08.071Z",
+  "claimBoundary": "synthetic demo receipt; no production acceptance, no live settlement, no investment claim"
+}

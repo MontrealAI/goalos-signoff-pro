@@ -1,60 +1,48 @@
 {
-  "version": "1.0.0-final-production",
+  "version": "2.0.0-final-production",
   "product": "GoalOS Signoff Pro",
-  "module": "Multi-Agent Sovereign Institution Browser Demo",
-  "productionUrl": "https://montrealai.github.io/goalos-signoff-pro/",
+  "experience": "Multi-Agent Sovereign Institution Demo",
   "contactEmail": "info@quebec.ai",
   "thesis": "Large multi-agent systems coordinate to optimal effect when they become proof-governed sovereign institutions.",
-  "claimBoundary": {
-    "publicDemo": true,
-    "browserLocal": true,
-    "noUserData": true,
-    "noInputs": true,
-    "noUploads": true,
-    "noWallet": true,
-    "noCookies": true,
-    "noAnalytics": true,
-    "noPayments": true,
-    "noValueMoved": true,
-    "notAchievedAGI": true,
-    "notAchievedASI": true,
-    "notLiveSettlement": true
-  },
-  "coordinationLaw": {
-    "plainLanguage": "Optimal effect means more verified work, lower risk, lower coordination waste, and reusable memory — not more agents for its own sake.",
-    "equation": "maximize verified value minus compute cost, safety risk, coordination overhead, and unknown externality"
-  },
-  "stages": [
-    {"id":"mission","label":"Mission", "description":"The objective is bounded into a mission contract with scope, risk, and acceptance gates."},
-    {"id":"constellation","label":"Constellation", "description":"The coordinator activates only the agents needed for the mission."},
-    {"id":"work","label":"Work", "description":"Agents execute bounded roles under tool, cost, and authority constraints."},
-    {"id":"proof","label":"Proof", "description":"Every claim becomes a proof packet, trace root, or evidence object."},
-    {"id":"validate","label":"Validate", "description":"Verifier agents, risk sentinels, and human authority gates accept, reject, or escalate."},
-    {"id":"chronicle","label":"Chronicle", "description":"Accepted proof becomes institutional memory and routing experience."},
-    {"id":"capability","label":"Capability", "description":"Reusable capability is admitted only if evidence survives the gate."}
+  "claimBoundary": "Browser-local public demonstration only. No user data, no forms, no uploads, no wallet, no payment, no value movement, no live settlement, no live staking, no escrow, no claim of achieved AGI or ASI.",
+  "coordinationObjective": "Maximize verified work while minimizing compute cost, safety risk, coordination overhead, and unknown externality.",
+  "doctrine": [
+    "A model can answer. An agent can act. An institution must prove.",
+    "Ascension is not many agents. Ascension is learned coordination under proof.",
+    "Maximum useful effect is verified work under bounded risk, low waste, recoverable failure, and compounding memory.",
+    "No ProofBundle, no settlement. No replay, no settlement. No authority, no autonomy."
   ],
   "agents": [
-    {"id":"coordinator","name":"Coordinator", "role":"selects constellation, budget, access graph, and stopping rule"},
-    {"id":"planner","name":"Planner", "role":"turns the objective into subgoals and acceptance criteria"},
-    {"id":"researcher","name":"Researcher", "role":"maps public-safe evidence and source provenance"},
-    {"id":"builder","name":"Builder", "role":"produces the bounded work artifact"},
-    {"id":"validator","name":"Validator", "role":"checks evidence, baselines, replay, and proof integrity"},
-    {"id":"risk","name":"Risk Sentinel", "role":"blocks unsafe propagation and unresolved claim debt"},
-    {"id":"chronicle","name":"Chronicle", "role":"preserves accepted experience and capability lineage"},
-    {"id":"human","name":"Human Authority", "role":"final acceptance gate and escalation boundary"}
+    {"id":"coordinator","name":"Coordinator","role":"routes work, budgets effort, stops waste","symbol":"CO"},
+    {"id":"planner","name":"Planner","role":"turns objective into role contracts","symbol":"PL"},
+    {"id":"researcher","name":"Evidence Scout","role":"maps public-safe support and uncertainty","symbol":"EV"},
+    {"id":"builder","name":"Builder","role":"packages the deliverable and proof packet","symbol":"BU"},
+    {"id":"critic","name":"Red-Team Critic","role":"finds failure modes and contradictions","symbol":"RT"},
+    {"id":"validator","name":"Validator","role":"checks proof, baseline, and replay path","symbol":"VA"},
+    {"id":"sentinel","name":"Risk Sentinel","role":"preserves boundary and human authority","symbol":"RS"},
+    {"id":"chronicle","name":"Chronicle","role":"records accepted experience for future work","symbol":"CH"}
+  ],
+  "stages": [
+    {"id":"mission","label":"Mission","description":"A bounded objective becomes a signed mission contract."},
+    {"id":"constellation","label":"Constellation","description":"GoalOS selects role contracts, access rules, budgets, validators, and stop conditions."},
+    {"id":"work","label":"Work","description":"Agents execute bounded work under scope, cost, and risk limits."},
+    {"id":"proof","label":"Proof","description":"The run emits hashes, claims matrix, proof packets, cost ledger, and risk ledger."},
+    {"id":"validation","label":"Validation","description":"Validators check evidence, contradictions, replay, baseline, and claim boundary."},
+    {"id":"chronicle","label":"Chronicle","description":"Accepted experience is written as institutional memory."},
+    {"id":"capability","label":"Capability","description":"Only proof-accepted work becomes reusable capability."}
   ],
   "scenarios": [
-    {"id":"research", "label":"AI research brief", "difficulty":64, "risk":22, "baseline":"single analyst report"},
-    {"id":"automation", "label":"Automation delivery", "difficulty":72, "risk":28, "baseline":"ad-hoc handoff"},
-    {"id":"grant", "label":"Grant milestone review", "difficulty":58, "risk":18, "baseline":"unstructured review"},
-    {"id":"defensive", "label":"Defensive readiness package", "difficulty":81, "risk":37, "baseline":"manual security checklist"}
+    {"id":"research","label":"AI research acceptance","objective":"Evaluate whether an AI-generated research brief is ready for institutional use.","difficulty":72,"risk":"medium","baseline":"single-agent report","verifiedLift":24,"wasteReduction":37},
+    {"id":"automation","label":"Automation delivery review","objective":"Determine whether a workflow automation meets stated acceptance criteria.","difficulty":64,"risk":"low","baseline":"ad-hoc handoff","verifiedLift":18,"wasteReduction":29},
+    {"id":"grant","label":"Grant milestone proof","objective":"Package milestone evidence into a decision-ready docket.","difficulty":78,"risk":"medium","baseline":"narrative status report","verifiedLift":27,"wasteReduction":34},
+    {"id":"vendor","label":"Vendor proof review","objective":"Review a vendor AI deliverable against claims, evidence, risk, and replay path.","difficulty":81,"risk":"high","baseline":"subjective acceptance","verifiedLift":31,"wasteReduction":42}
   ],
-  "outcomes": {
-    "verifiedWork": "+23%",
-    "coordinationWaste": "-31%",
-    "falseAcceptance": "0",
-    "replayReady": "YES",
-    "humanGate": "REQUIRED",
-    "valueMoved": "0"
-  }
+  "metrics": [
+    "verified work efficiency",
+    "coordination entropy",
+    "validator quality",
+    "credit fidelity",
+    "risk-adjusted impact",
+    "replay readiness"
+  ]
 }

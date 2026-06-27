@@ -1,0 +1,11 @@
+{
+  "entryId": "CHR-23c6cacad65f",
+  "acceptedExperience": [
+    "role graph",
+    "proof packets",
+    "validator report",
+    "risk ledger"
+  ],
+  "reusableCapability": "coordination demo scaffold",
+  "futureMission": "harder real proof mission after public Evidence Docket review"
+}

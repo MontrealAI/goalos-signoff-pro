@@ -1,60 +1,34 @@
-# Multi-Agent Coordination Demo — User Guide
+# User Guide — Multi-Agent Sovereign Institution Demo
 
-This is a public, browser-only demo. It is designed to help a normal user understand one idea:
+## What this demo shows
 
-> A large multi-agent system becomes useful when it behaves like a proof-governed institution.
+The demo shows a simple idea:
 
-## What you see
+> Large multi-agent systems coordinate to useful effect when they become proof-governed institutions.
 
-The demo shows:
+Instead of showing many agents merely chatting, the demo shows an institutional sequence:
 
-1. Mission — the objective becomes bounded.
-2. Constellation — only the useful agents are activated.
-3. Work — each agent acts inside a role contract.
-4. Proof — outputs become evidence packets.
-5. Validation — verifier and risk gates decide what survives.
-6. Chronicle — accepted proof becomes institutional memory.
-7. Capability — reusable capability is admitted only after proof.
+1. Mission
+2. Role Graph
+3. Bounded Work
+4. Proof Packets
+5. Validator Mesh
+6. Risk Ledger
+7. Chronicle
+8. Capability Package
 
-## What this is not
+## What to click
 
-This is not a live user-data workflow, live wallet workflow, payment workflow, escrow workflow, or live settlement workflow. It is a public-safe simulation of the coordination logic.
+Open `multi-agent-sovereign-institution.html` or `coordination-theatre.html`.
 
-## What you can do
+Click `Launch coordination cycle`.
 
-Open:
+The proof rail advances and the log explains each state. You can press `G` to launch, `R` to reset, and `D` to download a synthetic demo docket.
 
-```text
-coordination-theatre.html
-```
+## What gets downloaded
 
-Click:
+The docket is a JSON file that shows a public-safe synthetic mission contract, stage list, proof gates, metrics, and receipt.
 
-```text
-Launch coordination cycle
-```
+## What this does not do
 
-Then inspect the live trace and synthetic Evidence Docket.
-
-## Downloadable demo artifact
-
-The GitHub Action can generate a demo artifact bundle containing:
-
-```text
-mission-contract.json
-role-graph.json
-evidence-docket.json
-validator-report.json
-risk-ledger.json
-chronicle-entry.json
-mission-receipt.json
-README.md
-```
-
-## Contact
-
-Use only a non-sensitive business summary:
-
-```text
-info@quebec.ai
-```
+It does not collect information, upload files, connect a wallet, move value, execute production settlement, or request personal/confidential data.
