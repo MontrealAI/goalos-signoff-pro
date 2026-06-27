@@ -23,11 +23,13 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: '24'
+          package-manager-cache: false
       - name: Build site preview
         shell: bash
         run: |
           set -euo pipefail
           rm -rf site
+          mkdir -p site
           if [ -f scripts/build-asi-apex-v6-pages.mjs ]; then node scripts/build-asi-apex-v6-pages.mjs; fi
           if [ -f scripts/build-sovereign-machine-economy-pages.mjs ]; then node scripts/build-sovereign-machine-economy-pages.mjs; fi
           if [ -f scripts/build-user-activation-pages.mjs ]; then node scripts/build-user-activation-pages.mjs; fi
@@ -35,8 +37,8 @@ jobs:
           if [ -f scripts/build-agialpha-token-boundary-pages.mjs ]; then node scripts/build-agialpha-token-boundary-pages.mjs; fi
           if [ -f scripts/build-user-delight-pages.mjs ]; then node scripts/build-user-delight-pages.mjs; fi
           if [ -f scripts/build-holy-grail-browser-demo.mjs ]; then node scripts/build-holy-grail-browser-demo.mjs; fi
-          node scripts/build-multi-agent-coordination-demo.mjs
-          if [ -f scripts/finalize-public-site-boundaries.mjs ]; then node scripts/finalize-public-site-boundaries.mjs; fi
+          if [ -f scripts/build-multi-agent-coordination-demo.mjs ]; then node scripts/build-multi-agent-coordination-demo.mjs; fi
+          node scripts/finalize-public-site-boundaries.mjs
       - name: Run quality gates
         shell: bash
         run: |
@@ -45,8 +47,9 @@ jobs:
           if [ -f scripts/verify-legal-zero-data-posture.mjs ]; then node scripts/verify-legal-zero-data-posture.mjs; fi
           if [ -f scripts/verify-agialpha-token-boundary.mjs ]; then node scripts/verify-agialpha-token-boundary.mjs; fi
           if [ -f scripts/verify-public-artifact-safety.mjs ]; then node scripts/verify-public-artifact-safety.mjs; fi
+          if [ -f scripts/verify-user-delight-autopilot.mjs ]; then node scripts/verify-user-delight-autopilot.mjs; fi
           if [ -f scripts/verify-holy-grail-browser-demo.mjs ]; then node scripts/verify-holy-grail-browser-demo.mjs; fi
-          node scripts/verify-multi-agent-coordination-demo.mjs
+          if [ -f scripts/verify-multi-agent-coordination-demo.mjs ]; then node scripts/verify-multi-agent-coordination-demo.mjs; fi
       - name: Upload preview artifact
         uses: actions/upload-artifact@v7
         with:
