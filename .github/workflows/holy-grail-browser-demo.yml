@@ -1,51 +1,50 @@
-name: Website quality gate
+name: Holy Grail Browser Demo Autopilot
 
 on:
   workflow_dispatch:
-  pull_request:
-    branches: [main]
   push:
     branches: [main]
     paths:
-      - 'scripts/**'
-      - 'config/**'
-      - 'docs/**'
-      - '.github/workflows/website-quality.yml'
+      - 'config/holy-grail-browser-demo.json'
+      - 'scripts/build-holy-grail-browser-demo.mjs'
+      - 'scripts/verify-holy-grail-browser-demo.mjs'
+      - 'scripts/generate-holy-grail-demo-bundle.mjs'
       - '.github/workflows/holy-grail-browser-demo.yml'
 
 permissions:
   contents: read
 
 jobs:
-  quality:
-    name: Verify generated public site quality
+  demo:
+    name: Build and verify browser-only proof machine
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-node@v6
         with:
           node-version: 24
-      - name: Build site preview
+      - name: Build public site preview
         run: |
           set -euo pipefail
-          node scripts/build-asi-apex-v6-pages.mjs
+          if [ -f scripts/build-asi-apex-v6-pages.mjs ]; then node scripts/build-asi-apex-v6-pages.mjs; else mkdir -p site; fi
           if [ -f scripts/build-sovereign-machine-economy-pages.mjs ]; then node scripts/build-sovereign-machine-economy-pages.mjs; fi
           if [ -f scripts/build-user-activation-pages.mjs ] && [ -f config/goalos-proof-missions.json ]; then node scripts/build-user-activation-pages.mjs; fi
           if [ -f scripts/build-legal-zero-data-pages.mjs ]; then node scripts/build-legal-zero-data-pages.mjs; fi
           if [ -f scripts/build-agialpha-token-boundary-pages.mjs ] && [ -f config/agialpha-token-boundary.json ]; then node scripts/build-agialpha-token-boundary-pages.mjs; fi
           if [ -f scripts/build-user-delight-pages.mjs ]; then node scripts/build-user-delight-pages.mjs; fi
           node scripts/build-holy-grail-browser-demo.mjs
-      - name: Run quality gates
+      - name: Verify browser-only demo posture
         run: |
           set -euo pipefail
-          if [ -f scripts/verify-website-quality.mjs ]; then node scripts/verify-website-quality.mjs; fi
-          if [ -f scripts/verify-legal-zero-data-posture.mjs ]; then node scripts/verify-legal-zero-data-posture.mjs; fi
-          if [ -f scripts/verify-agialpha-token-boundary.mjs ]; then node scripts/verify-agialpha-token-boundary.mjs; fi
-          if [ -f scripts/verify-public-artifact-safety.mjs ]; then node scripts/verify-public-artifact-safety.mjs; fi
-          if [ -f scripts/verify-user-delight-autopilot.mjs ]; then node scripts/verify-user-delight-autopilot.mjs; fi
           node scripts/verify-holy-grail-browser-demo.mjs
+          if [ -f scripts/verify-public-artifact-safety.mjs ]; then node scripts/verify-public-artifact-safety.mjs; fi
+      - name: Generate downloadable Proof Run 001 demo bundle
+        run: node scripts/generate-holy-grail-demo-bundle.mjs
       - uses: actions/upload-artifact@v7
-        if: always()
         with:
-          name: goalos-site-preview
+          name: goalos-holy-grail-proof-run-001-demo
+          path: artifacts/holy-grail-proof-run-001
+      - uses: actions/upload-artifact@v7
+        with:
+          name: goalos-holy-grail-site-preview
           path: site
