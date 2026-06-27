@@ -1,100 +1,14 @@
 {
-  "version": "2.0.0-complete",
   "contactEmail": "info@quebec.ai",
   "productionUrl": "https://montrealai.github.io/goalos-signoff-pro/",
-  "foundingOffer": {
-    "name": "48-Hour Proof Mission",
-    "headline": "Give GoalOS one serious AI-delivered work package.",
-    "deliverables": [
-      "Evidence Docket",
-      "Verifier report",
-      "Risk ledger",
-      "Executive brief",
-      "Decision deck",
-      "Action graph",
-      "Chronicle entry",
-      "Reusable capability package",
-      "Signed Mission Receipt"
-    ],
-    "cta": "Request a 48-hour Proof Mission"
-  },
-  "pricing": [
-    {
-      "name": "Private Beta",
-      "price": "Invite-only",
-      "description": "For early proof missions and product feedback.",
-      "bestFor": "Trusted design partners"
-    },
-    {
-      "name": "Proof Mission",
-      "price": "From $500\u2013$2,500",
-      "description": "One AI-delivered work package reviewed into an Evidence Docket and Mission Receipt.",
-      "bestFor": "Consultants, agencies, AI teams"
-    },
-    {
-      "name": "Team",
-      "price": "Custom",
-      "description": "Shared templates, reviewers, receipt policies, and proof mission operations.",
-      "bestFor": "Agencies, grant programs, enterprises"
-    }
-  ],
   "examples": [
-    {
-      "slug": "ai-research-report",
-      "title": "AI research report acceptance",
-      "input": "AI-assisted market, policy, or strategy report.",
-      "process": "Check claims, source freshness, contradictions, assumptions, and unresolved risks.",
-      "output": "Evidence Docket, reviewer notes, decision state, signed receipt.",
-      "decision": "Accept, request changes, reject, or escalate."
-    },
-    {
-      "slug": "automation-delivery",
-      "title": "AI automation delivery review",
-      "input": "Workflow automation, agent trace, test output, handoff notes.",
-      "process": "Map acceptance criteria to test evidence, failure cases, and rollback plan.",
-      "output": "Verifier report, risk ledger, acceptance record, reuse package.",
-      "decision": "Accept only the verified version."
-    },
-    {
-      "slug": "enterprise-ai-adoption",
-      "title": "Enterprise AI adoption decision",
-      "input": "Pilot results, stakeholder objectives, constraints, vendor material.",
-      "process": "Compare baselines, surface risk, map evidence to decision requirements.",
-      "output": "Executive brief, decision deck, evidence matrix, action graph.",
-      "decision": "Proceed, revise, defer, or reject with rationale."
-    },
-    {
-      "slug": "market-entry",
-      "title": "Market-entry proof mission",
-      "input": "Market thesis, customer signals, competitor sources, assumptions.",
-      "process": "Validate demand signals, contradictions, timing, and risk.",
-      "output": "Claims matrix, source provenance, decision state, action graph.",
-      "decision": "Commit, test further, pause, or pivot."
-    },
-    {
-      "slug": "grant-milestone",
-      "title": "Grant / milestone verification",
-      "input": "Milestone deliverable, outputs, links, screenshots, evaluation notes.",
-      "process": "Map deliverables to acceptance criteria and reviewer obligations.",
-      "output": "Milestone Evidence Docket and signed Mission Receipt.",
-      "decision": "Approve, request changes, or escalate."
-    },
-    {
-      "slug": "procurement-review",
-      "title": "Procurement or vendor review",
-      "input": "Proposal, security notes, pricing, references, pilot results.",
-      "process": "Separate claims from evidence, compare alternatives, surface hidden risk.",
-      "output": "Vendor proof docket, decision deck, risk ledger, action plan.",
-      "decision": "Approve, negotiate, reject, or require more proof."
-    },
-    {
-      "slug": "defensive-cybersecurity-readiness",
-      "title": "Defensive cybersecurity readiness review",
-      "input": "Repo-owned defensive findings, controls, audit notes, patch proposal.",
-      "process": "Verify scope, safety boundaries, reproducibility, human review, and remediation path.",
-      "output": "Defensive Evidence Docket, safety ledger, reviewer-ready plan.",
-      "decision": "Review, patch, defer, or require external review."
-    }
+    {"slug":"ai-research-report","title":"AI research report acceptance","input":"A public-safe summary of an AI research deliverable and its evidence categories.","process":"GoalOS maps claims to criteria, flags gaps, preserves limitations, and prepares a human-review-ready decision state.","output":"Evidence Docket, verifier report, risk ledger, executive brief, decision deck, action graph, Chronicle entry, capability package, and Mission Receipt.","decision":"Accepted with visible limitations and one follow-up question."},
+    {"slug":"automation-delivery","title":"Automation delivery review","input":"A public-safe milestone description, acceptance checklist, and proof categories.","process":"GoalOS checks the delivery against criteria, test evidence, runbook completeness, known limitations, and rollback path.","output":"Verifier report, risk ledger, action graph, acceptance decision state, and signed Mission Receipt.","decision":"Ready for human approval after final runbook check."},
+    {"slug":"enterprise-ai-adoption","title":"Enterprise AI adoption decision","input":"A non-sensitive summary of an AI adoption proposal and its supporting materials.","process":"GoalOS separates supported claims from assumptions, risk items, and reviewer decisions.","output":"Executive architecture brief, claim matrix, source provenance, risk ledger, and decision deck.","decision":"Request changes until security and governance evidence are complete."},
+    {"slug":"market-entry","title":"Market-entry proof mission","input":"A public-safe market thesis and evidence categories.","process":"GoalOS checks competitor coverage, source age, contradictions, assumptions, and decision readiness.","output":"Evidence Docket, market-risk ledger, decision state, action graph, and receipt.","decision":"Ready for leadership review with open risk notes."},
+    {"slug":"grant-milestone","title":"Grant / milestone verification","input":"Public-safe milestone summary, deliverable list, and proof pointers.","process":"GoalOS maps promised outputs to evidence, reviewer notes, open items, and accepted version.","output":"Milestone Evidence Docket, reviewer report, decision state, and signed receipt.","decision":"Accepted for the specified version only."},
+    {"slug":"procurement-review","title":"Procurement or vendor review","input":"Public-safe vendor claim list and evidence categories.","process":"GoalOS maps claims to evidence, flags missing security material, and structures the adoption decision.","output":"Claims matrix, risk ledger, source provenance, reviewer notes, and decision deck.","decision":"Request changes before adoption."},
+    {"slug":"defensive-cybersecurity-readiness","title":"Defensive cybersecurity readiness review","input":"Public-safe defensive readiness summary with no secrets, credentials, exploit code, or target data.","process":"GoalOS checks control evidence, safety boundaries, review path, and remediation readiness.","output":"Readiness Evidence Docket, safety ledger, action graph, and decision state.","decision":"Escalate to qualified security review before operational use."}
   ],
   "deliverables": [
     "Executive brief",
@@ -108,37 +22,26 @@
     "Chronicle entry",
     "Capability package"
   ],
-  "glossary": {
-    "Mission": "The bounded work objective and decision to support.",
-    "Proof Mission": "A short, focused engagement that turns one AI-delivered work package into evidence, review, and a decision record.",
-    "Evidence Docket": "A public-safe proof room linking claims to evidence, sources, risks, verifier notes, and replay path.",
-    "Verifier report": "A structured review of whether claims are supported, incomplete, contradicted, risky, or ready for human decision.",
-    "Mission Receipt": "A signed record of the accepted version, evidence hashes, reviewer decision, and public proof boundary.",
-    "Claim boundary": "The line between what is supported by evidence and what remains a hypothesis, assumption, or future milestone.",
-    "Governed decision state": "An inspectable package containing the objective, claims, evidence, risks, decision, actions, and replay path.",
-    "Chronicle": "The durable history of a mission, its proof, decision, and reusable lessons.",
-    "Capability package": "What the organization can reuse from an accepted mission: templates, criteria, evidence patterns, and workflow knowledge."
-  },
+  "pricing": [
+    {"name":"Private Beta","price":"Invite-only","description":"Early proof missions and product feedback.","bestFor":"Trusted early users and public-safe examples."},
+    {"name":"Proof Mission","price":"Pilot-priced","description":"One AI-delivered work package turned into an Evidence Docket and decision state.","bestFor":"Consultants, agencies, founders, grant programs, and AI teams."},
+    {"name":"Team / Institution","price":"Custom","description":"Repeatable proof missions, templates, receipt workflows, and team review posture.","bestFor":"Organizations that need recurring acceptance records."}
+  ],
   "roadmap": [
-    {
-      "stage": "Stage 1",
-      "name": "Public site + proof mission intake",
-      "status": "Active public front door"
-    },
-    {
-      "stage": "Stage 2",
-      "name": "Sample Evidence Dockets + receipt verifier",
-      "status": "Demo and private beta"
-    },
-    {
-      "stage": "Stage 3",
-      "name": "Private beta Signoff workspace",
-      "status": "Pilot users and implementation hardening"
-    },
-    {
-      "stage": "Stage 4",
-      "name": "Optional verified receipts / protocol integration",
-      "status": "After operational gates and review"
-    }
-  ]
+    {"stage":"Stage 1","title":"Public site + proof mission intake","status":"Live public front door"},
+    {"stage":"Stage 2","title":"Sample Evidence Dockets + demo verifier","status":"Public-safe demonstration"},
+    {"stage":"Stage 3","title":"Private beta Signoff workspace","status":"Pilot-ready"},
+    {"stage":"Stage 4","title":"Optional verified receipts / protocol integration","status":"Gated roadmap"}
+  ],
+  "glossary": {
+    "Mission":"The work package and decision that need acceptance.",
+    "Evidence Docket":"A public-safe proof room connecting claims, evidence, risks, verifier notes, and replay path.",
+    "Verifier report":"A structured review of claim support, missing evidence, contradictions, risk, and readiness.",
+    "Mission Receipt":"A signed record of the accepted version, decision state, evidence hashes, issuer, and timestamp.",
+    "Claim boundary":"A clear line between what is supported, uncertain, not claimed, or reserved for human review.",
+    "Proof mission":"A focused process that turns AI-delivered work into an evidence-backed decision package.",
+    "Governed decision state":"The inspectable state that lets a reviewer accept, request changes, reject, or escalate.",
+    "Chronicle":"A durable record of mission, proof, decision, and reusable capability.",
+    "Capability package":"Reusable templates, criteria, evidence patterns, risk lessons, and review structure from a completed mission."
+  }
 }

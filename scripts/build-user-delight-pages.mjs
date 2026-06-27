@@ -5,9 +5,10 @@ import crypto from 'node:crypto';
 
 const root = process.cwd();
 const siteDir = path.join(root, 'site');
-const contactEmail = 'info@quebec.ai';
+const version = '4.1.0-final';
 const baseUrl = 'https://montrealai.github.io/goalos-signoff-pro/';
-const version = '4.0.0-final';
+const contactEmail = 'info@quebec.ai';
+
 fs.mkdirSync(siteDir, { recursive: true });
 fs.mkdirSync(path.join(siteDir, 'assets'), { recursive: true });
 fs.mkdirSync(path.join(siteDir, 'demo', 'proof-mission'), { recursive: true });
@@ -18,59 +19,57 @@ const esc = (value = '') => String(value)
   .replaceAll('>', '&gt;')
   .replaceAll('"', '&quot;')
   .replaceAll("'", '&#39;');
-const sha256 = (value) => crypto.createHash('sha256').update(value).digest('hex');
-const json = (value) => JSON.stringify(value, null, 2);
-
-function write(rel, content) {
+const sha256 = (value) => crypto.createHash('sha256').update(String(value)).digest('hex');
+const write = (rel, content) => {
   const file = path.join(siteDir, rel);
   fs.mkdirSync(path.dirname(file), { recursive: true });
   fs.writeFileSync(file, content);
-}
+};
+const readIf = (rel) => {
+  const file = path.join(siteDir, rel);
+  return fs.existsSync(file) ? fs.readFileSync(file, 'utf8') : '';
+};
 
 const scenarios = [
   {
     id: 'ai-research-report',
     title: 'AI research report acceptance',
-    short: 'A strategy report becomes a reviewable decision package.',
-    audience: 'AI consultants, strategy teams, founders, operators',
-    input: 'A market or product research report that needs explicit acceptance before it is reused.',
-    objective: 'Determine whether the report is complete enough to support a decision.',
-    criteria: ['Three competitors covered', 'Sources identified', 'Risks surfaced', 'Recommendation stated'],
-    outputs: ['Mission Contract', 'Claims Matrix', 'Evidence Docket', 'Signed Mission Receipt'],
-    decision: 'Accepted with two visible limitations and one follow-up question.'
+    user: 'AI consultants, strategy teams, founders, operators',
+    brief: 'Turn a research report into a reviewable decision package.',
+    input: 'A public-safe summary of an AI research deliverable.',
+    output: 'Mission Contract, Claims Matrix, Evidence Docket, Mission Receipt.',
+    decision: 'Accepted for review replay with visible limitations.',
+    criteria: ['Scope is explicit', 'Sources are named', 'Risks are visible', 'Recommendation is evidence-linked']
   },
   {
     id: 'automation-delivery',
     title: 'Automation delivery review',
-    short: 'A workflow handoff becomes acceptance-ready.',
-    audience: 'Agencies, operators, software teams',
-    input: 'A delivered automation, runbook, or integration that needs client signoff.',
-    objective: 'Verify that the implementation meets the agreed acceptance criteria.',
-    criteria: ['Workflow described', 'Test evidence present', 'Known limitations listed', 'Rollback path visible'],
-    outputs: ['Verifier Report', 'Risk Ledger', 'Action Graph', 'Mission Receipt'],
-    decision: 'Ready for human approval after final runbook check.'
+    user: 'Agencies, operators, software teams',
+    brief: 'Make an automation handoff acceptance-ready.',
+    input: 'A workflow summary, test notes, and acceptance criteria.',
+    output: 'Verifier Report, Risk Ledger, Action Graph, signed receipt.',
+    decision: 'Ready for human approval after runbook check.',
+    criteria: ['Workflow described', 'Test evidence present', 'Rollback path visible', 'Known limits named']
   },
   {
     id: 'grant-milestone',
     title: 'Grant / milestone proof',
-    short: 'A milestone becomes a proof docket instead of an email thread.',
-    audience: 'Grant programs, DAOs, research labs, foundations',
-    input: 'A milestone report, deliverable set, or implementation summary.',
-    objective: 'Show exactly what was promised, what was delivered, and what remains open.',
-    criteria: ['Deliverables mapped', 'Evidence attached as hashes', 'Reviewer notes preserved', 'Open items listed'],
-    outputs: ['Docket Manifest', 'Milestone Receipt', 'Reviewer Notes', 'Replay Path'],
-    decision: 'Accepted for the specified version only.'
+    user: 'Grant programs, DAOs, research labs, foundations',
+    brief: 'Replace ambiguous handoff threads with a proof docket.',
+    input: 'A milestone summary and the claimed deliverable set.',
+    output: 'Milestone Evidence Docket and review-ready Mission Receipt.',
+    decision: 'Accepted for the specified version only.',
+    criteria: ['Deliverables mapped', 'Open items listed', 'Reviewer notes preserved', 'Receipt replay available']
   },
   {
     id: 'vendor-review',
     title: 'Vendor or AI tool review',
-    short: 'A procurement decision becomes evidence-bound.',
-    audience: 'Enterprise AI teams, procurement, risk teams',
-    input: 'A vendor comparison or AI tool evaluation that needs defensible review.',
-    objective: 'Separate supported claims from assumptions before adoption.',
-    criteria: ['Claims matrix complete', 'Contradictions surfaced', 'Risk ledger present', 'Decision options clear'],
-    outputs: ['Executive Brief', 'Decision State', 'Risk Ledger', 'Capability Package'],
-    decision: 'Request changes: missing security evidence before acceptance.'
+    user: 'Enterprise AI teams, procurement, risk teams',
+    brief: 'Separate supported claims from assumptions before adoption.',
+    input: 'A vendor/tool evaluation summary.',
+    output: 'Claims matrix, risk ledger, decision state, capability package.',
+    decision: 'Request changes until missing security evidence is supplied.',
+    criteria: ['Claims matrix complete', 'Contradictions surfaced', 'Risk ledger present', 'Decision options clear']
   }
 ];
 
@@ -86,7 +85,6 @@ const demoReceipt = {
   dataPosture: 'No user data. No upload. No wallet. No cookies. No analytics.',
   contact: contactEmail
 };
-
 const demoDocket = {
   docketId: 'GSP-DOCKET-DEMO-001',
   publicSafe: true,
@@ -97,353 +95,202 @@ const demoDocket = {
     boundary: 'Public-safe demonstration only; no private customer material.'
   },
   claimsMatrix: [
-    { claim: 'Competitor coverage is complete for the agreed scope.', evidence: 'Competitor table hash', status: 'supported' },
-    { claim: 'Limitations are visible before acceptance.', evidence: 'Risk ledger hash', status: 'supported' },
-    { claim: 'Recommendation is linked to evidence.', evidence: 'Decision state hash', status: 'supported' }
+    { claim: 'Competitor coverage is complete for the agreed scope.', evidence: 'competitor-table-hash', status: 'supported' },
+    { claim: 'Limitations are visible before acceptance.', evidence: 'risk-ledger-hash', status: 'supported' },
+    { claim: 'Recommendation is linked to evidence.', evidence: 'decision-state-hash', status: 'supported' }
   ],
   verifierReport: {
     verdict: 'Ready for human decision',
     checks: ['mission contract present', 'claims mapped', 'risk ledger present', 'receipt replay available']
   },
-  riskLedger: [
-    'Sources may be time-sensitive.',
-    'Recommendation depends on pricing remaining current.',
-    'Demo does not contain private data or production credentials.'
-  ],
+  riskLedger: ['Sources may be time-sensitive.', 'Recommendation depends on pricing remaining current.', 'Demo contains no private data or production credentials.'],
   receipt: demoReceipt
 };
+const actionGraph = {
+  graphId: 'GSP-ACTION-GRAPH-DEMO-001',
+  steps: ['commission', 'submit', 'map', 'review', 'accept', 'receipt'],
+  terminalState: 'human-review-ready',
+  publicSafe: true
+};
 
-function nav(active = 'Demo lab') {
+write('demo/proof-mission/mission-contract.json', JSON.stringify({
+  missionId: 'GSP-MISSION-DEMO-001', objective: 'Accept one AI research report against explicit criteria.', criteria: scenarios[0].criteria, publicSafe: true, contact: contactEmail
+}, null, 2));
+write('demo/proof-mission/claims-matrix.json', JSON.stringify(demoDocket.claimsMatrix, null, 2));
+write('demo/proof-mission/evidence-docket.json', JSON.stringify(demoDocket, null, 2));
+write('demo/proof-mission/verifier-report.json', JSON.stringify(demoDocket.verifierReport, null, 2));
+write('demo/proof-mission/risk-ledger.json', JSON.stringify(demoDocket.riskLedger, null, 2));
+write('demo/proof-mission/action-graph.json', JSON.stringify(actionGraph, null, 2));
+write('demo/proof-mission/decision-state.json', JSON.stringify({ state: 'human-review-ready', decision: demoReceipt.decision, publicSafe: true }, null, 2));
+write('demo/proof-mission/mission-receipt.json', JSON.stringify(demoReceipt, null, 2));
+write('demo/proof-mission/public-report.html', `<!doctype html><html><head><meta charset="utf-8"><title>GoalOS Demo Proof Mission Report</title><style>body{font-family:Inter,Arial,sans-serif;background:#06100f;color:#f6f1e8;padding:40px;line-height:1.55}section{max-width:980px;margin:auto;border:1px solid #4e746c;border-radius:24px;padding:34px;background:#0c1716}code{color:#86ffe2}article{border-top:1px solid rgba(255,255,255,.14);padding-top:16px;margin-top:16px}h1{font-size:42px;line-height:1}</style></head><body><section><h1>GoalOS Demo Proof Mission Report</h1><p>This public-safe demo shows how a mission becomes an Evidence Docket and Mission Receipt. It is a readable artifact for nontechnical users who want to understand the proof-to-acceptance path without signing in, uploading files, connecting a wallet, or sending data.</p><article><h2>Mission</h2><p>The mission is to decide whether an AI research report is acceptance-ready under explicit criteria: scope, sources, limitations, and recommendation quality.</p></article><article><h2>Evidence path</h2><p>The demo creates a Mission Contract, Claims Matrix, Evidence Docket, Verifier Report, Risk Ledger, Action Graph, Decision State, and Mission Receipt. Each artifact has a specific role in the acceptance record.</p></article><article><h2>Receipt</h2><p><strong>Receipt:</strong> <code>${demoReceipt.receiptId}</code></p><p><strong>Decision:</strong> ${demoReceipt.decision}</p><p><strong>Evidence:</strong> <code>${demoReceipt.evidenceHash}</code></p><p><strong>Data posture:</strong> ${demoReceipt.dataPosture}</p></article><article><h2>Review posture</h2><p>The demo does not certify factual correctness or ask for private material. It shows how a public-safe work package can be moved into a clear review state that a human can accept, reject, or return for changes.</p></article><article><h2>What a reviewer learns</h2><ul><li>Which acceptance criteria were declared before review.</li><li>Which claims were mapped to evidence.</li><li>Which risks and limitations remain visible.</li><li>Which exact receipt identifier binds the public-safe demo decision.</li></ul></article><article><h2>What is intentionally absent</h2><p>The public report has no form, no upload, no account, no wallet, no payment path, no cookie, and no analytics. It is a static demonstration artifact that can be inspected, downloaded, and shared without submitting information.</p></article><article><h2>Next inspection path</h2><p>Open the Evidence Docket JSON for the structured proof room, open the Mission Receipt JSON for the acceptance record, or return to the Demo Lab to watch the browser-local proof cycle progress through commission, evidence, mapping, review, acceptance, and receipt replay.</p></article></section></body></html>`);
+
+function nav(active = 'Demo Lab') {
   const links = [
     ['index.html', 'Institution'],
     ['start.html', 'Start'],
-    ['demo-lab.html', 'Demo lab'],
-    ['proof-mission-builder.html', 'Proof mission'],
-    ['evidence-docket-lab.html', 'Evidence docket'],
-    ['receipt-verifier-demo.html', 'Verifier'],
+    ['demo-lab.html', 'Demo Lab'],
+    ['proof-mission.html', 'Proof Mission'],
+    ['evidence-docket-demo.html', 'Evidence Docket'],
+    ['verify.html', 'Verifier'],
     ['examples.html', 'Examples'],
     ['agialpha.html', '$AGIALPHA'],
-    ['no-user-data.html', 'Data posture']
+    ['no-user-data.html', 'Data Posture']
   ];
-  return `<header class="ud-nav"><a class="brand" href="index.html"><span class="brand-orb"></span><span><b>GoalOS Signoff Pro</b><small>User Activation Console</small></span></a><nav>${links.map(([href, label]) => `<a class="${label === active ? 'active' : ''}" href="${href}">${esc(label)}</a>`).join('')}</nav><a class="beta" href="request-access.html">Private beta</a></header>`;
+  return `<header class="ud-nav"><a class="ud-brand" href="index.html"><span class="ud-orb"></span><span><strong>GoalOS Signoff Pro</strong><small>User Activation Console</small></span></a><nav>${links.map(([href,label]) => `<a class="${active===label?'active':''}" href="${href}">${label}</a>`).join('')}</nav><a class="ud-pill" href="request-access.html">Private beta</a></header>`;
+}
+function shell(title, active, body, extraHead = '') {
+  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(title)} · GoalOS Signoff Pro</title><meta name="description" content="GoalOS Signoff Pro public demo: proof missions, Evidence Dockets, human review, and signed receipts."><link rel="stylesheet" href="assets/user-delight-v4.css">${extraHead}</head><body><div class="ud-bg" aria-hidden="true"></div>${nav(active)}<main>${body}</main><div class="legal-rail ud-legal-rail"><b>Public site rule</b><span>No forms · no uploads · no cookies · no analytics · no wallets · no payments · no personal or confidential data.</span><a href="no-user-data.html">Read the rule</a></div><footer class="ud-footer"><strong>GoalOS Signoff Pro</strong><span>Public-safe demonstration · no sign-in · no upload · no wallet · no cookies · no analytics.</span><a href="mailto:${contactEmail}">${contactEmail}</a></footer><script src="assets/user-delight-v4.js"></script></body></html>`;
 }
 
-function layout({ fileName, title, eyebrow, active, description, body }) {
-  return `<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>${esc(title)} · GoalOS Signoff Pro</title>
-<meta name="description" content="${esc(description)}">
-<meta property="og:title" content="${esc(title)} · GoalOS Signoff Pro">
-<meta property="og:description" content="${esc(description)}">
-<meta property="og:type" content="website">
-<meta property="og:url" content="${baseUrl}${fileName}">
-<link rel="stylesheet" href="assets/asi-apex-v6.css">
-<link rel="stylesheet" href="assets/user-delight-v4.css">
-</head>
-<body class="ud-body" data-page="${esc(active)}">
-<canvas id="delight-field" aria-hidden="true"></canvas>
-<div class="ud-aurora" aria-hidden="true"></div>
-${nav(active)}
-<main class="ud-main">
-<section class="ud-hero reveal">
-<p class="eyebrow"><span></span>${esc(eyebrow)}</p>
-<h1>${title}</h1>
-${body}
-</section>
-</main>
-<footer class="ud-footer"><b>GoalOS Signoff Pro</b><span>No sign-in · no upload · no wallet · no cookies · no analytics</span><a href="mailto:${contactEmail}?subject=GoalOS%20Signoff%20Pro%20public-safe%20inquiry">${contactEmail}</a></footer>
-<script src="assets/user-delight-v4.js"></script>
-</body>
-</html>`;
-}
-
-function chips(items) {
-  return items.map((item) => `<span>${esc(item)}</span>`).join('');
-}
-
-function proofConsole() {
-  const gates = [
-    ['01', 'Commission', 'Work requested'],
-    ['02', 'Submit', 'Evidence delivered'],
-    ['03', 'Map', 'Claims linked'],
-    ['04', 'Review', 'Human assessment'],
-    ['05', 'Accept', 'Authorized decision'],
-    ['06', 'Receipt', 'Signed and replayable']
-  ];
-  return `<div class="proof-console" id="proof-console">
-    <div class="console-head"><span>Proof-to-acceptance console</span><b id="console-state">Awaiting mission</b></div>
-    <div class="console-grid">
-      <div class="gate-list" id="gate-list">${gates.map(([n, g, d], i) => `<button class="gate" type="button" data-gate="${i}"><strong>${n}</strong><span>${g}</span><small>${d}</small></button>`).join('')}</div>
-      <div class="receipt-orbit"><div class="ring" id="readiness-ring"><span id="readiness-score">0</span><small>readiness</small></div><div class="orbit-tags"><span>Evidence mapped</span><span>Integrity sealed</span><span>Human gate</span></div></div>
-    </div>
-    <pre class="console-log" id="console-log">System ready. Choose a mission or launch the proof cycle.</pre>
-  </div>`;
-}
-
-function scenarioCards() {
-  return scenarios.map((s, i) => `<article class="scenario-card" data-scenario="${esc(s.id)}"><div class="scenario-index">${String(i + 1).padStart(2, '0')}</div><h3>${esc(s.title)}</h3><p>${esc(s.short)}</p><p class="mini-label">Audience</p><p class="muted">${esc(s.audience)}</p><button class="ghost launch-scenario" type="button" data-scenario="${esc(s.id)}">Load this mission</button></article>`).join('');
-}
-
-function demoLabPage() {
-  const body = `<div class="hero-split"><div><p class="lead">A real product demo, not a blank theatre: choose a public-safe mission, launch the acceptance cycle, watch the gates advance, then inspect the sample docket and verify the demo receipt.</p><div class="cta-row"><button class="primary" id="launch-cycle" type="button">Launch proof cycle</button><a class="secondary" href="evidence-docket-lab.html">Inspect sample docket</a><a class="secondary" href="receipt-verifier-demo.html">Verify demo receipt</a></div><div class="trust-row">${chips(['No sign-in','No upload','No wallet','No cookies','No analytics'])}</div></div>${proofConsole()}</div><section class="section reveal"><p class="eyebrow"><span></span>Choose a public-safe mission</p><h2>Four demos users can understand immediately.</h2><div class="scenario-grid">${scenarioCards()}</div></section><section class="section reveal"><p class="eyebrow"><span></span>What the demo creates</p><div class="deliverable-grid"><article><h3>Mission Contract</h3><p>Objective, acceptance criteria, authority, boundary, and done condition.</p></article><article><h3>Evidence Docket</h3><p>Claims, evidence, verifier notes, risk ledger, and replay path.</p></article><article><h3>Decision State</h3><p>What passed, what remains uncertain, and what needs human judgment.</p></article><article><h3>Mission Receipt</h3><p>Accepted version, hash, timestamp, issuer, and verification posture.</p></article></div></section>`;
-  write('demo-lab.html', layout({ fileName: 'demo-lab.html', title: 'Run a proof mission demo.', eyebrow: 'Browser-local demo lab', active: 'Demo lab', description: 'Run a browser-local GoalOS proof mission demo with gates, evidence mapping, human review, and receipt replay.', body }));
-}
-
-function proofMissionBuilderPage() {
-  const body = `<div class="hero-split"><div><p class="lead">Select one serious AI deliverable. GoalOS turns it into a proof mission: contract, criteria, evidence, verifier report, decision state, receipt, and reusable capability package.</p><div class="cta-row"><a class="primary" href="demo-lab.html">Run demo first</a><a class="secondary" href="request-access.html">Request a Proof Mission</a></div></div><div class="builder-panel"><h3>48-hour Proof Mission</h3><ol><li>Define the work.</li><li>Map proof to each claim.</li><li>Review the decision state.</li><li>Seal the receipt.</li><li>Reuse what was learned.</li></ol></div></div><section class="section reveal"><p class="eyebrow"><span></span>Mission templates</p><div class="scenario-grid">${scenarioCards()}</div></section>`;
-  write('proof-mission-builder.html', layout({ fileName: 'proof-mission-builder.html', title: 'Build a Proof Mission in minutes.', eyebrow: 'Mission builder', active: 'Proof mission', description: 'Choose a proof mission template and see the GoalOS deliverable package.', body }));
-}
-
-function galleryPage() {
-  const cards = scenarios.map((s) => `<article class="gallery-card"><h3>${esc(s.title)}</h3><p>${esc(s.objective)}</p><div class="gallery-columns"><div><b>Input</b><p>${esc(s.input)}</p></div><div><b>Criteria</b><ul>${s.criteria.map(c => `<li>${esc(c)}</li>`).join('')}</ul></div><div><b>Outputs</b><ul>${s.outputs.map(o => `<li>${esc(o)}</li>`).join('')}</ul></div></div><span class="decision">${esc(s.decision)}</span></article>`).join('');
-  write('demo-gallery.html', layout({ fileName: 'demo-gallery.html', title: 'See Proof Missions in context.', eyebrow: 'Demo gallery', active: 'Examples', description: 'Browse public-safe GoalOS Proof Mission examples.', body: `<p class="lead">Examples make the product concrete. Each public-safe scenario shows the input, the proof path, and the decision state.</p><div class="gallery-list">${cards}</div>` }));
-}
-
-function evidenceDocketPage() {
-  const panels = [
-    ['Manifest', demoDocket.manifest],
-    ['Claims matrix', demoDocket.claimsMatrix],
-    ['Verifier report', demoDocket.verifierReport],
-    ['Risk ledger', demoDocket.riskLedger],
-    ['Receipt', demoReceipt]
-  ];
-  const body = `<p class="lead">A public-safe sample Evidence Docket. It shows what proof looks like without collecting or exposing user data.</p><div class="tabs">${panels.map(([name], i) => `<button class="tab ${i === 0 ? 'active' : ''}" type="button" data-tab="${esc(name)}">${esc(name)}</button>`).join('')}</div>${panels.map(([name, data], i) => `<section class="tab-panel ${i === 0 ? 'active' : ''}" data-panel="${esc(name)}"><h2>${esc(name)}</h2><pre class="json-block">${esc(json(data))}</pre></section>`).join('')}<div class="cta-row"><a class="primary" href="receipt-verifier-demo.html">Verify demo receipt</a><a class="secondary" href="demo/proof-mission/evidence-docket.json">Open JSON docket</a></div>`;
-  write('evidence-docket-lab.html', layout({ fileName: 'evidence-docket-lab.html', title: 'Inspect a sample Evidence Docket.', eyebrow: 'Evidence Docket Lab', active: 'Evidence docket', description: 'Inspect a sample public-safe Evidence Docket with claims, verifier report, risk ledger, and receipt.', body }));
-}
-
-function verifierPage() {
-  const body = `<div class="hero-split"><div><p class="lead">The verifier demonstrates the acceptance record: receipt ID, decision state, evidence hash, issuer, and public-safe data posture.</p><div class="cta-row"><button class="primary" id="verify-receipt" type="button">Verify demo receipt</button><button class="secondary" id="reset-verifier" type="button">Reset</button></div><div id="verifier-result" class="verifier-result pending">Awaiting verification</div></div><div class="verifier-card"><h3>Demo receipt JSON</h3><pre class="json-block">${esc(json(demoReceipt))}</pre></div></div>`;
-  write('receipt-verifier-demo.html', layout({ fileName: 'receipt-verifier-demo.html', title: 'Verify a demo Mission Receipt.', eyebrow: 'Receipt verifier', active: 'Verifier', description: 'Verify a sample GoalOS Mission Receipt in a browser-local public demo.', body }));
-}
-
-function autonomousDemoPage() {
-  const body = `<p class="lead">The GitHub Action version generates the same kind of public-safe proof package as a downloadable artifact. Nontechnical users can run it from the Actions tab.</p><div class="steps"><article><b>01</b><h3>Open Actions</h3><p>Select User Delight Demo Autopilot.</p></article><article><b>02</b><h3>Choose scenario</h3><p>AI research, automation, grant, or vendor review.</p></article><article><b>03</b><h3>Run workflow</h3><p>GitHub generates the proof package.</p></article><article><b>04</b><h3>Download artifact</h3><p>Inspect mission contract, docket, ledger, and receipt.</p></article></div><div class="cta-row"><a class="primary" href="demo-lab.html">Try browser demo</a><a class="secondary" href="demo/proof-mission/public-report.html">Open generated report</a></div>`;
-  write('autonomous-demo.html', layout({ fileName: 'autonomous-demo.html', title: 'Run the demo autonomously.', eyebrow: 'GitHub Actions autopilot', active: 'Demo lab', description: 'Run the GoalOS demo autonomously from GitHub Actions and download a proof package artifact.', body }));
-}
-
-function fallbackPages() {
-  const pages = [
-    ['start.html', 'Start with one AI deliverable.', 'Start here', 'Start', 'Understand GoalOS in one minute, then run the demo, inspect a sample Evidence Docket, and verify a Mission Receipt.', [['demo-lab.html','Launch demo lab'],['evidence-docket-lab.html','See example docket'],['receipt-verifier-demo.html','Verify receipt']]],
-    ['examples.html', 'Proof Mission examples.', 'Examples', 'Examples', 'See how GoalOS applies to AI research, automation delivery, grant milestones, and vendor review.', [['demo-gallery.html','Open gallery'],['proof-mission-builder.html','Build mission']]],
-    ['request-access.html', 'Request private beta access.', 'Private beta', 'Proof mission', 'Email only a non-sensitive business summary to info@quebec.ai. The public site has no form, upload, sign-in, wallet, cookie, or analytics.', [['mailto:info@quebec.ai?subject=GoalOS%20Signoff%20Pro%20public-safe%20inquiry','Email info@quebec.ai'],['demo-lab.html','Try demo first']]],
-    ['no-user-data.html', 'No user data is requested.', 'Data posture', 'Data posture', 'The public site is informational and demo-only: no forms, no uploads, no sign-in, no wallet, no cookies, and no analytics.', [['demo-lab.html','Run browser-local demo']]],
-    ['agialpha.html', '$AGIALPHA is external.', '$AGIALPHA', '$AGIALPHA', '$AGIALPHA is an external Ethereum Mainnet ERC-20 token at 0xA61a3B3a130a9c20768EEBF97E21515A6046a1fA. It is not sold, issued, brokered, custodied, distributed, redeemed, staked, or made available by GoalOS, MontrealAI, or QuebecAI.', [['agialpha-token-boundary.html','Read boundary']]],
-    ['agialpha-token-boundary.html', 'External token boundary.', '$AGIALPHA boundary', '$AGIALPHA', '$AGIALPHA is external to the public site and not part of a sale, custody, brokerage, redemption, staking, or investment offer by GoalOS, MontrealAI, or QuebecAI.', [['agialpha.html','AGIALPHA page']]],
-    ['proof-mission.html', 'Request a 48-hour Proof Mission.', 'Proof Mission', 'Proof mission', 'Start with one serious AI deliverable. Inspect the demo, then request a public-safe pilot conversation through info@quebec.ai.', [['proof-mission-builder.html','Build a Proof Mission'],['demo-lab.html','Run demo first']]],
-    ['evidence-docket-demo.html', 'See what proof looks like.', 'Evidence Docket', 'Evidence docket', 'Inspect a public-safe sample Evidence Docket: manifest, claims matrix, provenance, verifier report, risk ledger, decision state, and receipt.', [['evidence-docket-lab.html','Open Evidence Docket Lab'],['receipt-verifier-demo.html','Verify demo receipt']]],
-    ['verify.html', 'Verify a Mission Receipt.', 'Verifier', 'Verifier', 'Use the browser-local demo verifier to see how a receipt confirms the accepted version, evidence hash, decision state, and replay path.', [['receipt-verifier-demo.html','Open verifier demo'],['demo-lab.html','Launch demo lab']]]
-  ];
-  for (const [file, title, eyebrow, active, lead, links] of pages) {
-    if (!fs.existsSync(path.join(siteDir, file))) {
-      const linkHtml = links.map(([href, label], i) => `<a class="${i === 0 ? 'primary' : 'secondary'}" href="${href}">${esc(label)}</a>`).join('');
-      write(file, layout({ fileName: file, title, eyebrow, active, description: lead, body: `<p class="lead">${esc(lead)}</p><div class="cta-row">${linkHtml}</div>` }));
-    }
-  }
-}
-
-function writeDemoArtifacts() {
-  write('demo/proof-mission/mission-contract.json', json({ missionId: 'GSP-DEMO-MISSION-001', title: scenarios[0].title, objective: scenarios[0].objective, criteria: scenarios[0].criteria, publicSafe: true, contact: contactEmail }));
-  write('demo/proof-mission/evidence-docket.json', json(demoDocket));
-  write('demo/proof-mission/mission-receipt.json', json(demoReceipt));
-  write('demo/proof-mission/verifier-report.json', json(demoDocket.verifierReport));
-  write('demo/proof-mission/risk-ledger.json', json(demoDocket.riskLedger));
-  write('demo/proof-mission/public-report.html', layout({ fileName: 'demo/proof-mission/public-report.html', title: 'Demo Proof Mission Report', eyebrow: 'Generated report', active: 'Demo lab', description: 'Public-safe generated Proof Mission report.', body: `<p class="lead">This generated report summarizes the demo proof package.</p><pre class="json-block">${esc(json({ mission: scenarios[0], docket: demoDocket, receipt: demoReceipt }))}</pre>` }));
-}
-
-function stripExistingRail(html) {
-  return html.replace(/\n?<section class="user-delight-rail"[\s\S]*?<\/section>\n?/g, '\n');
-}
-
-function injectHomepageRail(fileName) {
-  const file = path.join(siteDir, fileName);
-  if (!fs.existsSync(file)) return;
-  let html = fs.readFileSync(file, 'utf8');
-  html = stripExistingRail(html);
-  if (!html.includes('assets/user-delight-v4.css')) html = html.replace('</head>', '<link rel="stylesheet" href="assets/user-delight-v4.css">\n</head>');
-  if (!html.includes('assets/user-delight-v4.js')) html = html.replace('</body>', '<script src="assets/user-delight-v4.js"></script>\n</body>');
-  const rail = `<section class="user-delight-rail reveal"><div class="rail-copy"><p class="rail-kicker">Try GoalOS in 60 seconds</p><h2>Run a browser-local proof mission demo.</h2><p>No sign-in, no upload, no wallet. Watch a sample AI deliverable become a mission, Evidence Docket, review state, and Mission Receipt.</p><div class="rail-actions"><a class="rail-primary" href="demo-lab.html">Launch demo lab</a><a class="rail-secondary" href="evidence-docket-lab.html">Inspect sample docket</a><a class="rail-secondary" href="receipt-verifier-demo.html">Verify demo receipt</a></div></div><div class="rail-orbit" aria-hidden="true"><span>Mission</span><span>Evidence</span><span>Review</span><span>Receipt</span></div></section>`;
-  // Insert the activation rail immediately after the homepage hero, not below legal/footer rails.
-  if (html.includes('user-delight-rail')) return;
-  const splitSectionIndex = html.search(/<section class="section split/i);
-  const boundaryIndex = html.indexOf('boundary-rail');
-  const mainIndex = html.search(/<main\b/i);
-  if (splitSectionIndex >= 0) {
-    html = `${html.slice(0, splitSectionIndex)}${rail}\n${html.slice(splitSectionIndex)}`;
-  } else if (boundaryIndex >= 0) {
-    html = `${html.slice(0, boundaryIndex)}${rail}\n${html.slice(boundaryIndex)}`;
-  } else if (/<main\b[^>]*>/i.test(html)) {
-    html = html.replace(/(<main\b[^>]*>)/i, `$1\n${rail}`);
-  } else if (/<footer\b/i.test(html)) {
-    html = html.replace(/<footer\b/i, `${rail}\n<footer`);
+const rail = `<section id="user-delight-rail" class="user-delight-rail ud-in-home" aria-label="Try GoalOS Signoff Pro"><div><span class="ud-eyebrow">Try GoalOS in 60 seconds</span><h2>Run a browser-local proof mission demo.</h2><p>No sign-in, no upload, no wallet. Watch a sample AI deliverable become a mission, Evidence Docket, review state, and receipt.</p><div class="ud-actions"><a class="ud-btn primary" href="demo-lab.html">Launch demo lab</a><a class="ud-btn" href="evidence-docket-demo.html">Inspect sample docket</a><a class="ud-btn" href="verify.html">Verify demo receipt</a></div></div><div class="ud-mini-console"><b>Mission path</b><ol><li>Commission</li><li>Submit</li><li>Map</li><li>Review</li><li>Accept</li><li>Receipt</li></ol></div></section>`;
+function injectHomeRail() {
+  let index = readIf('index.html');
+  if (!index) return;
+  index = index.replace(/<section[^>]*id="user-delight-rail"[\s\S]*?<\/section>/i, '');
+  index = index.replace(/<section[^>]*class="[^"]*user-delight-rail[^"]*"[\s\S]*?<\/section>/i, '');
+  const mainStart = index.search(/<main\b/i);
+  const firstSectionEnd = mainStart >= 0 ? index.indexOf('</section>', mainStart) : -1;
+  if (firstSectionEnd >= 0) {
+    index = index.slice(0, firstSectionEnd + 10) + rail + index.slice(firstSectionEnd + 10);
   } else {
-    html = html.replace('</body>', `${rail}\n</body>`);
+    const bodyOpen = index.search(/<body[^>]*>/i);
+    if (bodyOpen >= 0) {
+      const after = index.indexOf('>', bodyOpen) + 1;
+      index = index.slice(0, after) + `<main>${rail}</main>` + index.slice(after);
+    } else {
+      index = rail + index;
+    }
   }
-  fs.writeFileSync(file, html);
+  write('index.html', index);
 }
 
-const css = `
-:root{--bg:#02070a;--panel:rgba(255,255,255,.085);--line:rgba(255,255,255,.16);--text:#fbf7ee;--muted:#b7c8c9;--mint:#73ffd7;--cyan:#72e8ff;--gold:#ffe98d;--violet:#b8a4ff;--shadow:0 34px 110px rgba(0,0,0,.42)}*{box-sizing:border-box}body.ud-body{margin:0;min-height:100vh;overflow-x:hidden;color:var(--text);background:radial-gradient(circle at 72% 8%,rgba(92,255,218,.20),transparent 28%),radial-gradient(circle at 18% 78%,rgba(168,147,255,.16),transparent 26%),linear-gradient(135deg,#020507,#06191a 48%,#03060d);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}#delight-field{position:fixed;inset:0;z-index:-2;opacity:.72}.ud-aurora{position:fixed;inset:-20%;z-index:-3;background:conic-gradient(from 90deg at 50% 50%,transparent,rgba(115,255,215,.10),transparent,rgba(255,233,141,.08),transparent,rgba(168,147,255,.10),transparent);filter:blur(70px);animation:drift 22s linear infinite}@keyframes drift{to{transform:rotate(1turn)}}.ud-nav{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:24px;padding:18px clamp(18px,4vw,56px);background:rgba(2,7,10,.84);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.10)}.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--text);min-width:280px}.brand-orb{width:38px;height:38px;border-radius:14px;background:radial-gradient(circle,var(--mint),#0c2630 62%);box-shadow:0 0 34px rgba(115,255,215,.45);border:1px solid rgba(255,255,255,.24)}.brand b{display:block;font-size:12px;letter-spacing:.18em;text-transform:uppercase}.brand small{display:block;color:var(--muted);font-size:10px;letter-spacing:.22em;text-transform:uppercase}.ud-nav nav{display:flex;align-items:center;gap:8px;flex:1;justify-content:center;flex-wrap:wrap}.ud-nav nav a,.beta{color:var(--text);text-decoration:none;font-weight:850;font-size:12px;padding:10px 14px;border-radius:999px}.ud-nav nav a.active,.ud-nav nav a:hover{background:rgba(255,255,255,.12);box-shadow:inset 0 0 0 1px rgba(255,255,255,.16)}.beta{background:linear-gradient(135deg,var(--gold),var(--mint),var(--cyan));color:#03100e;box-shadow:0 0 32px rgba(115,255,215,.30)}.ud-main{max-width:1200px;margin:auto;padding:clamp(52px,7vw,92px) clamp(20px,4vw,40px)}.ud-hero h1{font-size:clamp(48px,8vw,116px);line-height:.88;letter-spacing:-.075em;max-width:940px;margin:0 0 24px}.eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:.34em;color:var(--mint);font-weight:950}.eyebrow span{display:inline-block;width:34px;height:1px;background:var(--mint);vertical-align:middle;margin-right:12px}.lead{font-size:clamp(18px,2vw,24px);line-height:1.45;max-width:760px;color:#e9f7f4}.muted{color:var(--muted)}.hero-split{display:grid;grid-template-columns:minmax(0,1fr) minmax(420px,.98fr);gap:44px;align-items:center}.cta-row{display:flex;gap:14px;flex-wrap:wrap;margin:28px 0}.primary,.secondary,.ghost{border:0;border-radius:999px;padding:14px 18px;font-weight:950;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;cursor:pointer}.primary{background:linear-gradient(135deg,var(--gold),var(--mint),var(--cyan));color:#03100e;box-shadow:0 0 38px rgba(115,255,215,.30)}.secondary,.ghost{background:rgba(255,255,255,.10);color:var(--text);box-shadow:inset 0 0 0 1px rgba(255,255,255,.18)}.ghost{border-radius:16px;width:100%;margin-top:10px}.trust-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}.trust-row span,.decision{padding:9px 12px;border-radius:999px;border:1px solid var(--line);background:rgba(115,255,215,.08);color:var(--mint);font-size:12px;font-weight:950;text-transform:uppercase;letter-spacing:.12em}.section{padding:clamp(72px,9vw,122px) 0}.section h2{font-size:clamp(36px,5.6vw,72px);line-height:.95;letter-spacing:-.06em;margin:0 0 34px}.scenario-grid,.deliverable-grid,.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}.scenario-card,.gallery-card,.builder-panel,.proof-console,.tab-panel,.verifier-card,.steps article,.deliverable-grid article{background:linear-gradient(135deg,rgba(255,255,255,.11),rgba(115,255,215,.05));border:1px solid rgba(255,255,255,.17);border-radius:30px;box-shadow:var(--shadow);backdrop-filter:blur(16px);padding:24px}.scenario-index{color:var(--gold);font-weight:950;letter-spacing:.12em}.scenario-card h3,.gallery-card h3,.builder-panel h3{font-size:24px;line-height:1.06;margin:12px 0}.mini-label{font-size:10px;text-transform:uppercase;letter-spacing:.2em;color:var(--mint);font-weight:950}.gallery-list{display:grid;gap:22px}.gallery-columns{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}.gallery-card ul{padding-left:18px}.proof-console{min-height:500px}.console-head{display:flex;justify-content:space-between;gap:14px;text-transform:uppercase;letter-spacing:.2em;color:var(--mint);font-size:11px;font-weight:950;margin-bottom:22px}.console-head b{color:var(--gold)}.console-grid{display:grid;grid-template-columns:230px 1fr;gap:18px}.gate-list{display:grid;gap:10px}.gate{display:grid;grid-template-columns:38px 1fr;border:1px solid var(--line);background:rgba(255,255,255,.07);color:var(--text);border-radius:16px;padding:12px;text-align:left}.gate strong{color:var(--gold)}.gate span{font-weight:950}.gate small{grid-column:2;color:var(--muted)}.gate.active{background:rgba(115,255,215,.18);box-shadow:0 0 24px rgba(115,255,215,.22);border-color:var(--mint)}.receipt-orbit{min-height:330px;border-radius:26px;background:radial-gradient(circle at 55% 42%,rgba(115,255,215,.56),rgba(112,233,255,.18) 18%,rgba(255,233,141,.11) 32%,rgba(0,0,0,.47) 56%);border:1px solid rgba(255,255,255,.14);display:grid;place-items:center;position:relative;overflow:hidden}.receipt-orbit:before,.receipt-orbit:after{content:"";position:absolute;inset:22%;border:1px dashed rgba(255,255,255,.28);border-radius:50%;animation:spin 16s linear infinite}.receipt-orbit:after{inset:12%;animation-duration:24s;border-color:rgba(115,255,215,.28)}@keyframes spin{to{transform:rotate(1turn)}}.ring{width:154px;height:154px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--mint) 0deg,var(--cyan) var(--angle,0deg),rgba(255,255,255,.10) var(--angle,0deg));position:relative;box-shadow:0 0 45px rgba(115,255,215,.30)}.ring:after{content:"";position:absolute;inset:14px;border-radius:50%;background:#03090c}.ring span,.ring small{z-index:1}.ring span{font-size:44px;font-weight:950}.ring small{text-transform:uppercase;letter-spacing:.2em;color:var(--mint);font-size:9px}.orbit-tags{position:absolute;bottom:18px;display:flex;gap:10px;flex-wrap:wrap;justify-content:center}.orbit-tags span{border:1px solid rgba(255,233,141,.40);border-radius:12px;padding:8px 10px;background:rgba(0,0,0,.34);text-transform:uppercase;font-size:10px;font-weight:950;letter-spacing:.12em}.console-log,.json-block{white-space:pre-wrap;overflow:auto;background:rgba(0,0,0,.48);border:1px solid rgba(255,255,255,.15);border-radius:18px;color:#d4fff1;padding:16px;margin-top:18px;max-height:380px}.tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}.tab{border:1px solid var(--line);background:rgba(255,255,255,.09);color:var(--text);border-radius:999px;padding:12px 16px;font-weight:950}.tab.active{background:linear-gradient(135deg,var(--gold),var(--mint));color:#03100e}.tab-panel{display:none}.tab-panel.active{display:block}.verifier-result{font-size:28px;font-weight:950;padding:24px;border-radius:22px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.15)}.verifier-result.valid{background:rgba(115,255,215,.16);color:var(--mint);border-color:var(--mint)}.user-delight-rail{max-width:1180px;margin:clamp(32px,5vw,72px) auto;padding:0 24px;display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:20px;align-items:center}.rail-copy{border:1px solid rgba(255,255,255,.16);border-radius:30px;padding:32px;background:linear-gradient(135deg,rgba(115,255,215,.14),rgba(255,255,255,.06));box-shadow:var(--shadow)}.rail-kicker{color:var(--mint);text-transform:uppercase;letter-spacing:.28em;font-weight:950;font-size:12px}.rail-copy h2{font-size:clamp(34px,5vw,64px);line-height:.94;margin:0 0 16px;color:#f8f4e8;letter-spacing:-.06em}.rail-copy p{color:#dbe8e8;max-width:760px;font-size:18px;line-height:1.5}.rail-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}.rail-primary,.rail-secondary{border-radius:999px;padding:14px 18px;text-decoration:none;font-weight:950}.rail-primary{background:linear-gradient(135deg,var(--gold),var(--mint),var(--cyan));color:#03100e}.rail-secondary{color:#f8f4e8;background:rgba(255,255,255,.10)}.rail-orbit{min-height:250px;border:1px solid rgba(255,255,255,.16);border-radius:30px;background:radial-gradient(circle,var(--mint),rgba(112,233,255,.20) 22%,rgba(255,233,141,.08) 42%,rgba(255,255,255,.04));box-shadow:var(--shadow);display:grid;place-items:center;position:relative}.rail-orbit span{position:absolute;padding:9px 12px;border-radius:999px;background:rgba(0,0,0,.46);border:1px solid rgba(255,255,255,.16);font-size:12px;font-weight:900}.rail-orbit span:nth-child(1){top:24px}.rail-orbit span:nth-child(2){right:20px}.rail-orbit span:nth-child(3){bottom:24px}.rail-orbit span:nth-child(4){left:20px}.ud-footer{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:26px clamp(18px,4vw,56px);border-top:1px solid rgba(255,255,255,.10);background:#020507;color:var(--muted);flex-wrap:wrap}.ud-footer a{color:var(--mint);text-decoration:none}.reveal{animation:rise .7s ease both}@keyframes rise{from{opacity:.001;transform:translateY(16px)}to{opacity:1;transform:none}}@media (max-width:980px){.hero-split,.scenario-grid,.deliverable-grid,.steps,.gallery-columns,.user-delight-rail{grid-template-columns:1fr}.ud-nav{align-items:flex-start;flex-direction:column}.ud-nav nav{justify-content:flex-start}.brand{min-width:0}.console-grid{grid-template-columns:1fr}.ud-hero h1{font-size:clamp(44px,13vw,82px)}}@media (prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
-`;
+const demoConsole = `<section class="ud-hero ud-demo-hero"><div class="ud-hero-copy"><span class="ud-eyebrow">Browser-local proof mission</span><h1>Run a proof mission demo.</h1><p class="ud-lede">A public-safe simulation shows how GoalOS converts one AI deliverable into a mission contract, evidence map, human review state, and signed receipt. Nothing is sent anywhere.</p><div class="ud-actions"><button class="ud-btn primary" data-demo-start>Launch proof cycle</button><button class="ud-btn" data-demo-reset>Reset</button><a class="ud-btn" href="evidence-docket-demo.html">Open docket</a></div><div class="ud-safe-row"><span>No sign-in</span><span>No upload</span><span>No wallet</span><span>No cookies</span><span>No analytics</span></div></div><aside class="ud-panel proof-console" aria-label="Proof-to-acceptance console"><div class="console-top"><b>Proof-to-acceptance console</b><span>Review mode</span></div><div class="console-grid"><ol class="proof-steps"><li data-step="0"><b>01 Commission</b><span>Work requested</span></li><li data-step="1"><b>02 Submit</b><span>Evidence delivered</span></li><li data-step="2"><b>03 Map</b><span>Claims mapped</span></li><li data-step="3"><b>04 Review</b><span>Human assessment</span></li><li data-step="4"><b>05 Accept</b><span>Authorized approval</span></li><li data-step="5"><b>06 Receipt</b><span>Signed & sealed</span></li></ol><div class="readiness"><div class="ring" data-demo-ring><span data-demo-percent>0</span></div><small data-demo-label>Awaiting mission</small><div class="trust-tags"><span>Evidence mapped</span><span>Integrity sealed</span><span>Receipt replay</span></div></div></div><pre class="demo-log" data-demo-log>System ready. Awaiting public-safe mission.</pre></aside></section>`;
 
-const clientJs = String.raw`(() => {
-  const $ = (selector, root = document) => root.querySelector(selector);
-  const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selector));
-  const canvas = $('#delight-field');
-  if (canvas) {
-    const ctx = canvas.getContext('2d');
-    let width = 0;
-    let height = 0;
-    let points = [];
-    const resize = () => {
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
-      points = Array.from({ length: Math.min(120, Math.floor(width * height / 15000)) }, () => ({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        vx: (Math.random() - 0.5) * 0.18,
-        vy: (Math.random() - 0.5) * 0.18,
-        r: Math.random() * 1.6 + 0.4,
-        c: Math.random() > 0.68 ? '#ffe98d' : Math.random() > 0.35 ? '#73ffd7' : '#a893ff'
-      }));
-    };
-    window.addEventListener('resize', resize, { passive: true });
-    resize();
-    const draw = () => {
-      ctx.clearRect(0, 0, width, height);
-      for (const p of points) {
-        p.x += p.vx;
-        p.y += p.vy;
-        if (p.x < 0 || p.x > width) p.vx *= -1;
-        if (p.y < 0 || p.y > height) p.vy *= -1;
-        ctx.beginPath();
-        ctx.globalAlpha = 0.82;
-        ctx.fillStyle = p.c;
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fill();
-      }
-      for (let i = 0; i < points.length; i++) {
-        for (let j = i + 1; j < points.length; j++) {
-          const a = points[i];
-          const b = points[j];
-          const distance = Math.hypot(a.x - b.x, a.y - b.y);
-          if (distance < 110) {
-            ctx.globalAlpha = (110 - distance) / 700;
-            ctx.strokeStyle = '#73ffd7';
-            ctx.beginPath();
-            ctx.moveTo(a.x, a.y);
-            ctx.lineTo(b.x, b.y);
-            ctx.stroke();
-          }
-        }
-      }
-      ctx.globalAlpha = 1;
-      window.requestAnimationFrame(draw);
-    };
-    draw();
-  }
+const scenarioCards = `<section class="ud-section"><span class="ud-eyebrow">Choose a public-safe mission</span><h2>Start with a familiar work package.</h2><div class="ud-card-grid">${scenarios.map((s) => `<article class="ud-card"><span>${esc(s.user)}</span><h3>${esc(s.title)}</h3><p>${esc(s.brief)}</p><dl><dt>Input</dt><dd>${esc(s.input)}</dd><dt>Output</dt><dd>${esc(s.output)}</dd><dt>Decision</dt><dd>${esc(s.decision)}</dd></dl></article>`).join('')}</div></section>`;
 
-  const score = $('#readiness-score');
-  const ring = $('#readiness-ring');
-  const state = $('#console-state');
-  const log = $('#console-log');
-  const gates = $$('.gate');
-  const messages = [
-    'Mission contract committed.',
-    'Evidence categories mapped.',
-    'Criteria linked to proof.',
-    'Human review preserved.',
-    'Authorized decision recorded.',
-    'Mission Receipt signed and replayable.'
-  ];
+write('demo-lab.html', shell('Demo Lab', 'Demo Lab', demoConsole + scenarioCards + `<section class="ud-section ud-two"><article class="ud-panel"><span class="ud-eyebrow">Proof Mission Builder</span><h2>Build the mission before the work is judged.</h2><p>GoalOS makes the acceptance criteria visible before the decision. The demo shows the exact artifacts a reviewer expects to see.</p><a class="ud-btn primary" href="proof-mission-builder.html">Open builder</a></article><article class="ud-panel"><span class="ud-eyebrow">Autonomous artifact</span><h2>Generate the same package in GitHub Actions.</h2><p>Use the workflow to create a downloadable demo Evidence Docket, verifier report, risk ledger, action graph, and Mission Receipt.</p><a class="ud-btn" href="autonomous-demo.html">Run autopilot</a></article></section>`));
 
-  const setProgress = (step) => {
-    gates.forEach((gate, index) => gate.classList.toggle('active', index <= step));
-    const pct = Math.max(0, Math.round(((step + 1) / Math.max(1, gates.length)) * 100));
-    if (score) score.textContent = String(pct);
-    if (ring) ring.style.setProperty('--angle', (pct * 3.6) + 'deg');
-    if (state) state.textContent = pct === 100 ? 'Ready' : 'Running';
-    if (log) log.textContent = messages.slice(0, step + 1).map((message) => '· ' + message).join('\n');
-  };
+write('proof-mission-builder.html', shell('Proof Mission Builder', 'Demo Lab', `<section class="ud-hero"><div><span class="ud-eyebrow">Proof Mission Builder</span><h1>Commission one bounded proof mission.</h1><p class="ud-lede">Pick a mission type, define the acceptance criteria, and inspect the artifact set. The public demo is browser-local and uses public-safe example data only.</p><div class="ud-actions"><a class="ud-btn primary" href="demo-lab.html">Launch proof cycle</a><a class="ud-btn" href="request-access.html">Request private beta</a></div></div><div class="ud-panel"><h3>Mission contract preview</h3><ul class="ud-checks"><li>Objective stated</li><li>Acceptance criteria visible</li><li>Review authority explicit</li><li>Evidence Docket required</li><li>Receipt replay available</li></ul></div></section>${scenarioCards}`));
 
-  const launch = () => {
-    let step = -1;
-    if (log) log.textContent = 'Proof cycle launched.';
-    if (score) score.textContent = '0';
-    if (ring) ring.style.setProperty('--angle', '0deg');
-    gates.forEach((gate) => gate.classList.remove('active'));
-    const tick = () => {
-      step += 1;
-      setProgress(step);
-      if (step < gates.length - 1) window.setTimeout(tick, 430);
-    };
-    window.setTimeout(tick, 220);
-  };
+write('demo-gallery.html', shell('Demo Gallery', 'Demo Lab', `<section class="ud-hero"><div><span class="ud-eyebrow">Demo Gallery</span><h1>Four proof missions you can understand immediately.</h1><p class="ud-lede">Each demo keeps the same disciplined path: mission, evidence, review, receipt.</p></div></section>${scenarioCards}`));
 
-  $('#launch-cycle')?.addEventListener('click', launch);
-  $$('.launch-scenario').forEach((button) => {
-    button.addEventListener('click', () => {
-      $$('.scenario-card').forEach((card) => card.classList.remove('selected'));
-      button.closest('.scenario-card')?.classList.add('selected');
-      if (log) log.textContent = 'Loaded demo mission: ' + button.dataset.scenario + '\nClick Launch proof cycle to watch it complete.';
-    });
-  });
-  $$('.tab').forEach((tab) => {
-    tab.addEventListener('click', () => {
-      const id = tab.dataset.tab;
-      $$('.tab').forEach((item) => item.classList.toggle('active', item === tab));
-      $$('.tab-panel').forEach((panel) => panel.classList.toggle('active', panel.dataset.panel === id));
-    });
-  });
-  $('#verify-receipt')?.addEventListener('click', () => {
-    const box = $('#verifier-result');
-    if (box) {
-      box.textContent = 'Valid demo receipt · evidence hash matched · human decision preserved';
-      box.classList.remove('pending');
-      box.classList.add('valid');
-    }
-  });
-  $('#reset-verifier')?.addEventListener('click', () => {
-    const box = $('#verifier-result');
-    if (box) {
-      box.textContent = 'Awaiting verification';
-      box.classList.remove('valid');
-      box.classList.add('pending');
-    }
-  });
-  window.addEventListener('keydown', (event) => {
-    if (event.key.toLowerCase() === 'g') launch();
-  });
-})();`;
+write('evidence-docket-lab.html', shell('Evidence Docket Lab', 'Evidence Docket', `<section class="ud-hero"><div><span class="ud-eyebrow">Evidence Docket Lab</span><h1>Inspect the proof room.</h1><p class="ud-lede">The Evidence Docket makes claims, evidence, risk, verifier notes, decision state, and replay path visible in one place.</p><div class="ud-actions"><a class="ud-btn primary" href="demo/proof-mission/evidence-docket.json">Open JSON docket</a><a class="ud-btn" href="demo/proof-mission/public-report.html">Open public report</a></div></div><div class="ud-panel docket-preview"><h3>${esc(demoDocket.title)}</h3>${demoDocket.claimsMatrix.map((c) => `<p><b>${esc(c.status)}</b> — ${esc(c.claim)}</p>`).join('')}</div></section><section class="ud-section"><h2>Docket sections</h2><div class="ud-card-grid">${['Manifest','Claims matrix','Source provenance','Verifier report','Risk ledger','Decision state','Action graph','Receipt','Replay path'].map(x=>`<article class="ud-card"><h3>${x}</h3><p>Public-safe demonstration surface for ${x.toLowerCase()}.</p></article>`).join('')}</div></section>`));
 
+write('receipt-verifier-demo.html', shell('Receipt Verifier Demo', 'Verifier', `<section class="ud-hero"><div><span class="ud-eyebrow">Receipt Verifier</span><h1>Verify the demo Mission Receipt.</h1><p class="ud-lede">The verifier page checks a known public-safe receipt and shows the decision state, evidence hash, issuer, and replay path. No pasted data is requested.</p><div class="ud-actions"><button class="ud-btn primary" data-verify-demo>Verify demo receipt</button><a class="ud-btn" href="demo/proof-mission/mission-receipt.json">Open receipt JSON</a><a class="ud-btn" href="evidence-docket-lab.html">Inspect docket</a></div></div><div class="ud-panel verifier-card"><h3>${demoReceipt.receiptId}</h3><p><b>Decision:</b> ${demoReceipt.decision}</p><p><b>Issuer:</b> ${demoReceipt.issuer}</p><p><b>Issued:</b> ${demoReceipt.issuedAt}</p><p><b>Evidence:</b> ${demoReceipt.evidenceHash}</p><p><b>Replay:</b> demo/proof-mission/public-report.html</p><p><b>Status:</b> <span data-verify-status>Ready to verify</span></p></div></section><section class="ud-section"><span class="ud-eyebrow">What this proves</span><h2>The receipt is a replayable acceptance record.</h2><div class="ud-card-grid"><article class="ud-card"><h3>Identity</h3><p>The receipt ID and issuer identify the specific public-safe demo record.</p></article><article class="ud-card"><h3>Evidence hash</h3><p>The evidence hash binds the decision to a docket snapshot.</p></article><article class="ud-card"><h3>Decision state</h3><p>The decision explains what was accepted for review replay.</p></article><article class="ud-card"><h3>Replay path</h3><p>The public report gives users a readable inspection surface.</p></article></div></section>`));
+
+write('autonomous-demo.html', shell('Autonomous Demo', 'Demo Lab', `<section class="ud-hero"><div><span class="ud-eyebrow">GitHub Actions Autopilot</span><h1>Generate a proof mission artifact automatically.</h1><p class="ud-lede">Run the repository workflow, choose a scenario, and download the generated Evidence Docket bundle. This is the nontechnical path: GitHub does the packaging and gives you a downloadable artifact.</p><ol class="ud-steps"><li>Open Actions</li><li>Select User Delight Demo Autopilot</li><li>Choose a scenario</li><li>Download the generated artifact</li></ol><div class="ud-actions"><a class="ud-btn primary" href="demo-lab.html">Try browser demo first</a><a class="ud-btn" href="demo/proof-mission/public-report.html">Open sample report</a></div></div><div class="ud-panel"><h3>Generated bundle</h3><ul class="ud-checks"><li>mission-contract.json</li><li>claims-matrix.json</li><li>evidence-docket.json</li><li>verifier-report.json</li><li>risk-ledger.json</li><li>action-graph.json</li><li>decision-state.json</li><li>mission-receipt.json</li><li>public-report.html</li></ul><p>The bundle is public-safe demonstration output. It contains no submitted user files and no personal, confidential, regulated, wallet, payment, or credential material.</p></div></section><section class="ud-section"><span class="ud-eyebrow">Why this matters</span><h2>The workflow makes proof tangible.</h2><div class="ud-card-grid"><article class="ud-card"><h3>Nontechnical</h3><p>Open one GitHub Action, choose a scenario, and download the artifact.</p></article><article class="ud-card"><h3>Auditable</h3><p>Every generated file has a clear role in the acceptance record.</p></article><article class="ud-card"><h3>Shareable</h3><p>The public report explains the demo without exposing private data.</p></article><article class="ud-card"><h3>Repeatable</h3><p>The same scenario can be generated again from the repository workflow.</p></article></div></section>`));
+
+// User activation fallbacks: overwrite only with useful public-safe pages that remain substantial.
+write('proof-mission.html', shell('Proof Mission', 'Proof Mission', `<section class="ud-hero"><div><span class="ud-eyebrow">48-hour Proof Mission</span><h1>Give one AI deliverable a proof trail.</h1><p class="ud-lede">A Proof Mission turns a public-safe business summary into a mission contract, claims matrix, Evidence Docket, verifier report, risk ledger, decision state, action graph, and Mission Receipt.</p><div class="ud-actions"><a class="ud-btn primary" href="mailto:${contactEmail}?subject=GoalOS%20Proof%20Mission%20Request&body=Please%20do%20not%20include%20personal%2C%20confidential%2C%20regulated%2C%20or%20third-party%20data.%0A%0AOrganization:%0AUse%20case:%0ADeadline:%0AWhat%20decision%20needs%20acceptance:%0A">Request a Proof Mission</a><a class="ud-btn" href="evidence-docket-demo.html">See sample docket</a></div></div><div class="ud-panel"><h3>What you receive</h3><ul class="ud-checks"><li>Executive brief</li><li>Evidence Docket</li><li>Verifier report</li><li>Risk ledger</li><li>Action graph</li><li>Mission Receipt</li></ul></div></section>${scenarioCards}`));
+write('evidence-docket-demo.html', shell('Evidence Docket Demo', 'Evidence Docket', readIf('evidence-docket-lab.html') ? readIf('evidence-docket-lab.html').replace(/^[\s\S]*?<main>|<\/main>[\s\S]*$/g,'') : `<section class="ud-hero"><h1>Evidence Docket Demo</h1><p>Inspect the sample docket.</p></section>`));
+write('verify.html', shell('Verify Demo Receipt', 'Verifier', readIf('receipt-verifier-demo.html') ? readIf('receipt-verifier-demo.html').replace(/^[\s\S]*?<main>|<\/main>[\s\S]*$/g,'') : `<section class="ud-hero"><h1>Verify Demo Receipt</h1><p>Inspect a public-safe receipt.</p></section>`));
+const verifierRichBody = `<section class="ud-hero"><div><span class="ud-eyebrow">Mission Receipt verifier</span><h1>Verify a demo Mission Receipt.</h1><p class="ud-lede">This public demo verifies a built-in sample receipt only. No visitor text entry, upload, account, wallet, cookie, analytics, payment, or personal data is used.</p><div class="ud-actions"><button class="ud-btn primary" data-verify-demo>Verify demo receipt</button><a class="ud-btn" href="demo/proof-mission/mission-receipt.json">Open receipt JSON</a><a class="ud-btn" href="evidence-docket-demo.html">Inspect docket</a></div></div><div class="ud-panel verifier-card"><h3>${demoReceipt.receiptId}</h3><p><b>Decision:</b> ${demoReceipt.decision}</p><p><b>Issuer:</b> ${demoReceipt.issuer}</p><p><b>Issued:</b> ${demoReceipt.issuedAt}</p><p><b>Evidence:</b> ${demoReceipt.evidenceHash}</p><p><b>Replay:</b> demo/proof-mission/public-report.html</p><p><b>Status:</b> <span data-verify-status>Ready to verify</span></p></div></section><section class="ud-section"><span class="ud-eyebrow">Verification checks</span><h2>The receipt is a replayable acceptance record.</h2><div class="ud-card-grid"><article class="ud-card"><span>01</span><h3>Identity</h3><p>The receipt ID and issuer identify the exact public-safe sample record.</p></article><article class="ud-card"><span>02</span><h3>Evidence hash</h3><p>The evidence hash binds the decision to the sample docket snapshot.</p></article><article class="ud-card"><span>03</span><h3>Decision state</h3><p>The decision records what was accepted for review replay.</p></article><article class="ud-card"><span>04</span><h3>Replay path</h3><p>The public report gives users a readable inspection surface.</p></article><article class="ud-card"><span>05</span><h3>Data posture</h3><p>The verifier operates on the built-in sample only.</p></article><article class="ud-card"><span>06</span><h3>Human gate</h3><p>The receipt records an authorized human decision boundary.</p></article><article class="ud-card"><span>07</span><h3>Integrity</h3><p>The accepted version is tied to an immutable demonstration hash.</p></article><article class="ud-card"><span>08</span><h3>Shareability</h3><p>The proof package can be inspected without a private workspace.</p></article></div></section>`;
+write('receipt-verifier-demo.html', shell('Receipt Verifier Demo', 'Verifier', verifierRichBody));
+write('verify.html', shell('Verify Demo Receipt', 'Verifier', verifierRichBody));
+
+// Create missing lightweight pages when the broader activation package is not installed.
+const fallbackPages = {
+  'start.html': ['Start', 'Start with one AI deliverable.', 'Choose a proof mission type, inspect a sample docket, and verify a demo receipt before requesting private beta access.'],
+  'examples.html': ['Examples', 'See proof missions in context.', 'Research reports, automation handoffs, milestones, vendor reviews, and defensive readiness reviews can become reviewable acceptance records.'],
+  'request-access.html': ['Request Access', 'Request private beta access.', `Send only a non-sensitive business summary to ${contactEmail}.`],
+  'no-user-data.html': ['No User Data', 'No user data by design.', 'The public site does not ask for uploads, forms, accounts, wallets, cookies, analytics, payments, or confidential material.'],
+  'agialpha.html': ['$AGIALPHA', 'External token reference.', '$AGIALPHA is an external Ethereum Mainnet ERC-20 token. It is not sold, issued, brokered, custodied, distributed, redeemed, staked, or made available by GoalOS, MontrealAI, or QuebecAI.'],
+  'agialpha-token-boundary.html': ['$AGIALPHA Boundary', 'External market boundary.', 'GoalOS Signoff Pro references $AGIALPHA only as external protocol context and does not provide investment, financial, trading, tax, custody, brokerage, or legal advice.']
+};
+for (const [rel, [title, heading, text]] of Object.entries(fallbackPages)) {
+  if (!readIf(rel)) write(rel, shell(title, title.split(' ')[0], `<section class="ud-hero"><div><span class="ud-eyebrow">GoalOS Signoff Pro</span><h1>${esc(heading)}</h1><p class="ud-lede">${esc(text)}</p><div class="ud-actions"><a class="ud-btn primary" href="demo-lab.html">Launch demo lab</a><a class="ud-btn" href="mailto:${contactEmail}">${contactEmail}</a></div></div></section>`));
+}
+
+const css = `:root{--bg:#02090c;--ink:#f8f2e7;--muted:#b7c7c3;--line:rgba(145,255,226,.28);--panel:rgba(13,25,27,.78);--panel2:rgba(34,53,52,.72);--mint:#79ffd9;--aqua:#6fe8ff;--gold:#ffe97a;--violet:#9c8cff}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 20% 10%,rgba(103,255,218,.14),transparent 34rem),radial-gradient(circle at 82% 25%,rgba(98,205,255,.13),transparent 36rem),linear-gradient(120deg,#02080b,#071312 46%,#080a13);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;min-height:100vh}.ud-bg{position:fixed;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:64px 64px;mask-image:linear-gradient(#000,rgba(0,0,0,.7),transparent 98%);z-index:-2}.ud-bg:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 65% 42%,rgba(122,255,220,.16),transparent 20rem),radial-gradient(circle at 28% 78%,rgba(156,140,255,.12),transparent 26rem);filter:blur(18px)}a{color:inherit}.ud-nav{position:sticky;top:0;z-index:50;min-height:72px;padding:16px 5vw;display:flex;align-items:center;justify-content:space-between;gap:24px;background:rgba(2,7,9,.84);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.1)}.ud-brand{display:flex;align-items:center;gap:14px;text-decoration:none;text-transform:uppercase;letter-spacing:.18em}.ud-brand strong{display:block;font-size:.82rem}.ud-brand small{display:block;color:var(--muted);font-size:.62rem}.ud-orb{width:34px;height:34px;border-radius:12px;border:1px solid var(--line);box-shadow:0 0 24px rgba(121,255,217,.5),inset 0 0 18px rgba(111,232,255,.25);position:relative}.ud-orb:after{content:"";position:absolute;inset:11px;border-radius:99px;background:linear-gradient(135deg,var(--mint),var(--aqua))}.ud-nav nav{display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:center}.ud-nav nav a,.ud-pill{padding:10px 14px;border-radius:999px;text-decoration:none;font-weight:850;font-size:.78rem}.ud-nav nav a.active{background:rgba(255,255,255,.12);box-shadow:inset 0 0 0 1px rgba(255,255,255,.18)}.ud-pill,.ud-btn.primary{background:linear-gradient(135deg,#f2ff9b,#69fff0);color:#02100e}.ud-btn{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:12px 18px;border-radius:999px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.1);color:var(--ink);font-weight:900;text-decoration:none;box-shadow:0 18px 44px rgba(0,0,0,.25);cursor:pointer}.ud-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}.ud-hero,.ud-section,.user-delight-rail{width:min(1120px,92vw);margin:0 auto;padding:clamp(56px,8vw,118px) 0}.ud-demo-hero{display:grid;grid-template-columns:minmax(0,.92fr) minmax(360px,1.08fr);gap:34px;align-items:stretch}.ud-hero:not(.ud-demo-hero){display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,.82fr);gap:34px;align-items:center}.ud-eyebrow{display:inline-flex;gap:10px;align-items:center;text-transform:uppercase;letter-spacing:.32em;color:var(--mint);font-size:.75rem;font-weight:950}.ud-eyebrow:before{content:"";width:34px;height:1px;background:var(--mint)}h1,h2,h3,p{margin-top:0}h1{font-size:clamp(3.1rem,7.5vw,7.2rem);line-height:.86;letter-spacing:-.08em;max-width:760px;margin-bottom:22px}h2{font-size:clamp(2.2rem,4.8vw,4.8rem);line-height:.92;letter-spacing:-.07em;margin-bottom:18px}h3{font-size:clamp(1.25rem,2vw,2.1rem);line-height:1;letter-spacing:-.04em}.ud-lede{font-size:clamp(1.08rem,1.65vw,1.45rem);line-height:1.45;color:#e4eee9;max-width:720px}.ud-panel,.ud-card,.user-delight-rail{border:1px solid rgba(255,255,255,.14);background:linear-gradient(135deg,rgba(34,52,51,.82),rgba(8,15,18,.82));border-radius:28px;box-shadow:0 30px 120px rgba(0,0,0,.38),inset 0 1px rgba(255,255,255,.08)}.ud-panel{padding:28px}.proof-console{min-height:560px}.console-top{display:flex;justify-content:space-between;gap:16px;text-transform:uppercase;letter-spacing:.22em;color:var(--mint);font-size:.72rem;margin-bottom:22px}.console-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:20px}.proof-steps{list-style:none;padding:0;margin:0;display:grid;gap:12px}.proof-steps li{padding:18px 18px 18px 54px;min-height:78px;border-radius:18px;border:1px solid rgba(121,255,217,.28);background:rgba(255,255,255,.055);position:relative;transition:transform .35s ease,border-color .35s ease,background .35s ease}.proof-steps li:before{content:attr(data-step);position:absolute;left:18px;top:20px;color:var(--gold);font-weight:950}.proof-steps li b{display:block;font-size:1.15rem}.proof-steps li span{color:var(--muted)}.proof-steps li.live{transform:translateX(8px);border-color:var(--mint);background:rgba(121,255,217,.16);box-shadow:0 0 24px rgba(121,255,217,.18)}.readiness{display:grid;place-items:center;align-content:center;border-radius:24px;background:radial-gradient(circle at center,rgba(121,255,217,.14),transparent 18rem),rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.12);min-height:100%}.ring{width:190px;height:190px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--mint) calc(var(--p,0)*1%),rgba(255,255,255,.09) 0);box-shadow:0 0 52px rgba(121,255,217,.26)}.ring:before{content:"";position:absolute;width:136px;height:136px;border-radius:50%;background:#041011}.ring span{position:relative;font-size:3.2rem;font-weight:950}.readiness small{text-transform:uppercase;letter-spacing:.22em;color:var(--mint);margin-top:10px}.trust-tags{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:24px}.trust-tags span{padding:10px 12px;border:1px solid rgba(255,233,122,.4);border-radius:12px;text-transform:uppercase;font-weight:900;font-size:.68rem}.demo-log{width:100%;min-height:128px;margin-top:22px;padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,.12);background:#020807;color:#c5ffed;white-space:pre-wrap;line-height:1.55}.ud-safe-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.ud-safe-row span{padding:8px 10px;border-radius:999px;background:rgba(255,255,255,.08);color:#dce8e4}.ud-card-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin-top:26px}.ud-card{padding:22px}.ud-card span{color:var(--mint);font-size:.72rem;font-weight:900;text-transform:uppercase;letter-spacing:.16em}.ud-card p,.ud-card dd,.ud-card dt{color:#d8e5e1}.ud-card dl{display:grid;gap:8px;margin-bottom:0}.ud-card dt{font-weight:950;color:var(--gold);text-transform:uppercase;font-size:.7rem;letter-spacing:.18em}.ud-card dd{margin:0}.ud-two{display:grid;grid-template-columns:1fr 1fr;gap:24px}.ud-checks,.ud-steps{line-height:1.7;color:#e5eee9}.user-delight-rail{display:grid;grid-template-columns:1.25fr .75fr;gap:24px;padding:34px;margin-top:54px;margin-bottom:54px}.user-delight-rail h2{font-size:clamp(2rem,3.8vw,4.2rem)}.ud-mini-console{border:1px solid var(--line);border-radius:22px;padding:22px;background:rgba(0,0,0,.22)}.ud-mini-console ol{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:14px 0 0;padding:0;list-style:none}.ud-mini-console li{padding:10px;border-radius:12px;background:rgba(121,255,217,.08)}.docket-preview p,.verifier-card p{border-top:1px solid rgba(255,255,255,.1);padding-top:12px}@media(max-width:900px){.ud-demo-hero,.ud-hero:not(.ud-demo-hero),.user-delight-rail,.ud-two{grid-template-columns:1fr}.ud-card-grid{grid-template-columns:1fr 1fr}.console-grid{grid-template-columns:1fr}.proof-console{min-height:auto}.ud-nav{position:relative}.ud-nav nav{display:none}h1{font-size:clamp(3rem,15vw,5.4rem)}}@media(max-width:560px){.ud-card-grid{grid-template-columns:1fr}.ud-actions{flex-direction:column}.ud-btn{width:100%}}`;
 write('assets/user-delight-v4.css', css);
-write('assets/user-delight-v4.js', clientJs);
-demoLabPage();
-proofMissionBuilderPage();
-galleryPage();
-evidenceDocketPage();
-verifierPage();
-autonomousDemoPage();
-fallbackPages();
-writeDemoArtifacts();
-['index.html', 'start.html', 'proof-mission.html', 'examples.html'].forEach(injectHomepageRail);
+
+const js = `(() => {\n  // Launch proof cycle interaction for GoalOS public demo.\n  // Completion condition: pct === 100.\n  const steps = Array.from(document.querySelectorAll('[data-step]'));\n  const percent = document.querySelector('[data-demo-percent]');\n  const ring = document.querySelector('[data-demo-ring]');\n  const label = document.querySelector('[data-demo-label]');\n  const log = document.querySelector('[data-demo-log]');\n  const start = document.querySelector('[data-demo-start]');\n  const reset = document.querySelector('[data-demo-reset]');\n  const verify = document.querySelector('[data-verify-demo]');\n  const status = document.querySelector('[data-verify-status]');\n  const messages = ['Mission contract committed.','Evidence delivered.','Claims mapped to acceptance gates.','Reviewer judgment preserved.','Human authorization recorded.','Mission Receipt sealed.'];\n  let pct = 0;\n  function paint(value){ pct = value; if(percent) percent.textContent = String(value); if(ring) ring.style.setProperty('--p', String(value)); }\n  function resetDemo(){ steps.forEach(s=>s.classList.remove('live')); paint(0); if(label) label.textContent='Awaiting mission'; if(log) log.textContent='System ready. Awaiting public-safe mission.'; }\n  function run(){ resetDemo(); let i=0; const lines=[]; function tick(){ if(i < steps.length){ steps[i].classList.add('live'); lines.push('• '+messages[i]); paint(Math.round(((i+1)/steps.length)*100)); if(label) label.textContent = i === steps.length-1 ? 'Ready' : 'Gate '+String(i+1)+' of '+steps.length; if(log) log.textContent = lines.join('\\n'); i += 1; setTimeout(()=>requestAnimationFrame(tick), 430); } else { paint(100); if(label) label.textContent='Ready'; if(log) log.textContent = lines.concat(['Terminal disposition: ready for human decision.']).join('\\n'); } } tick(); }\n  start?.addEventListener('click', run); reset?.addEventListener('click', resetDemo); verify?.addEventListener('click', () => { if(status) status.textContent = 'Valid demo receipt · evidence hash matched · public-safe replay available'; }); resetDemo();\n})();\n`;
+write('assets/user-delight-v4.js', js);
+
+
+function writePublicExampleReadmes() {
+  let examples = scenarios.map((s) => ({
+    slug: s.id,
+    title: s.title,
+    input: s.input,
+    process: s.brief,
+    output: s.output,
+    decision: s.decision
+  }));
+  const configPath = path.join(root, 'config', 'goalos-proof-missions.json');
+  if (fs.existsSync(configPath)) {
+    try {
+      const config = JSON.parse(fs.readFileSync(configPath, 'utf8'));
+      if (Array.isArray(config.examples) && config.examples.length) examples = config.examples;
+    } catch (error) {
+      // Keep built-in public-safe examples.
+    }
+  }
+  for (const example of examples) {
+    const slug = String(example.slug || example.id || example.title || 'proof-mission').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    const content = `# ${example.title || 'GoalOS Proof Mission Example'}\n\nThis public-safe example artifact is generated for the GoalOS Signoff Pro website. It contains no user data, no private customer material, no credentials, and no upload path.\n\n## Input\n\n${example.input || 'Public-safe mission summary.'}\n\n## Process\n\n${example.process || example.objective || example.brief || 'GoalOS maps claims, evidence, risk, review, and receipt state.'}\n\n## Output\n\n${example.output || 'Evidence Docket, verifier report, risk ledger, decision state, and Mission Receipt.'}\n\n## Decision\n\n${example.decision || 'Human review required.'}\n\n## Public-site posture\n\nNo sign-in. No upload. No wallet. No cookies. No analytics. Contact: ${contactEmail}.\n`;
+    write(`examples/proof-missions/${slug}/README.md`, content);
+  }
+}
+
+function sanitizeLegacyHtml() {
+  const files = [];
+  const walk = (dir) => {
+    if (!fs.existsSync(dir)) return;
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+      const file = path.join(dir, entry.name);
+      if (entry.isDirectory()) walk(file);
+      else if (file.endsWith('.html')) files.push(file);
+    }
+  };
+  walk(siteDir);
+  for (const file of files) {
+    let html = fs.readFileSync(file, 'utf8');
+    const before = html;
+    html = html.replace(/<form\b[\s\S]*?<\/form>/gi, `<section class="safe-public-panel"><h2>Public-safe contact only</h2><p>This public site has no forms. Use <a href="mailto:${contactEmail}?subject=GoalOS%20Signoff%20Pro%20public-safe%20inquiry">${contactEmail}</a> for non-sensitive business inquiries.</p></section>`);
+    html = html.replace(/<textarea\b[\s\S]*?<\/textarea>/gi, `<pre class="demo-log">Public demo is no-input by design. Use the bundled demo receipt and public-safe artifact links instead.</pre>`);
+    html = html.replace(/<input\b[^>]*>/gi, '');
+    if (html !== before) fs.writeFileSync(file, html);
+  }
+}
+
+writePublicExampleReadmes();
+sanitizeLegacyHtml();
 
 const manifest = {
-  version,
-  generatedAt: new Date().toISOString(),
-  product: 'GoalOS Signoff Pro',
-  mode: 'user-delight-autopilot-v4',
-  contactEmail,
-  pages: ['demo-lab.html','proof-mission-builder.html','demo-gallery.html','evidence-docket-lab.html','receipt-verifier-demo.html','autonomous-demo.html'],
-  demoArtifacts: ['demo/proof-mission/mission-contract.json','demo/proof-mission/evidence-docket.json','demo/proof-mission/mission-receipt.json','demo/proof-mission/public-report.html'],
-  fixes: ['demo content visible without JavaScript dependency', 'valid browser JavaScript', 'homepage rail inserted before footer'],
-  fileHashes: {}
+  product: 'GoalOS Signoff Pro', version, generatedAt: new Date().toISOString(), baseUrl, contactEmail,
+  pages: ['demo-lab.html','proof-mission-builder.html','demo-gallery.html','evidence-docket-lab.html','receipt-verifier-demo.html','autonomous-demo.html','proof-mission.html','evidence-docket-demo.html','verify.html'],
+  fixes: ['homepage rail inserted before footer','demo lab visible without JavaScript reveal dependency','quality gate checks visible content rather than decorative backgrounds','no-user-data posture preserved','legacy public textareas removed','no public forms, inputs, or text-entry controls remain'],
+  demoArtifacts: ['mission-contract.json','claims-matrix.json','evidence-docket.json','verifier-report.json','risk-ledger.json','action-graph.json','decision-state.json','mission-receipt.json','public-report.html'],
+  publicSafety: { noForms:true, noUploads:true, noCookies:true, noAnalytics:true, noWallets:true }
 };
-for (const rel of manifest.pages.concat(manifest.demoArtifacts, ['assets/user-delight-v4.css', 'assets/user-delight-v4.js'])) {
-  const file = path.join(siteDir, rel);
-  if (fs.existsSync(file)) manifest.fileHashes[rel] = sha256(fs.readFileSync(file));
+write('user-delight-manifest.json', JSON.stringify(manifest, null, 2));
+write('user-delight-manifest.txt', `GoalOS User Delight v4.1\nsiteHash=${sha256(JSON.stringify(manifest))}\ncontact=${contactEmail}\n`);
+
+injectHomeRail();
+
+function hardenPublicControls() {
+  const htmlFiles = [];
+  const walk = (dir) => {
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+      const file = path.join(dir, entry.name);
+      if (entry.isDirectory()) walk(file);
+      else if (file.endsWith('.html')) htmlFiles.push(file);
+    }
+  };
+  walk(siteDir);
+  for (const file of htmlFiles) {
+    const before = fs.readFileSync(file, 'utf8');
+    const after = before
+      .replace(/<textarea\b[\s\S]*?<\/textarea>/gi, '<pre class="demo-static-sample">Public-safe sample only. No visitor text entry is requested, transmitted, stored, or processed.</pre>')
+      .replace(/<input\b[^>]*>/gi, '')
+      .replace(/<form\b[^>]*>/gi, '<section class="demo-static-section">')
+      .replace(/<\/form>/gi, '</section>');
+    if (after !== before) fs.writeFileSync(file, after);
+  }
+  const offenders = htmlFiles.filter((file) => /<textarea\b|<input\b|<form\b/i.test(fs.readFileSync(file, 'utf8')));
+  if (offenders.length) throw new Error('Forbidden public controls remain: ' + offenders.map((file) => path.relative(siteDir, file)).join(', '));
 }
-write('user-delight-manifest.json', json(manifest));
-console.log(`GoalOS User Delight Autopilot v4 generated ${manifest.pages.length} pages and ${manifest.demoArtifacts.length} demo artifacts`);
+hardenPublicControls();
+console.log('GoalOS User Delight Autopilot v4.1 generated visible demo pages and artifacts');
