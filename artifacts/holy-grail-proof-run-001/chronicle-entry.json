@@ -1,0 +1,10 @@
+{
+  "entryId": "CHR-HG-PR001",
+  "remembers": [
+    "mission",
+    "proof",
+    "validation",
+    "capability"
+  ],
+  "reusableFor": "future public-safe demo missions"
+}

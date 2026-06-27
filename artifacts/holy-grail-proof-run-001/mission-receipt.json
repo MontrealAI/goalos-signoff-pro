@@ -1,0 +1,9 @@
+{
+  "receiptId": "MR-HG-PR001",
+  "missionHash": "f132279abdc7ad9f23744f26f7a4ab0ec04c12b91f7d4c8dc5469fec13ef9353",
+  "evidenceHash": "8d7f7988a41ed0916c1c9908a2992362b8c051915c537701ae83689f732dc06b",
+  "verifierHash": "a2a6855e00a311de6ce319846de3364ea5276d9e283f290c36300631ec5e9bbe",
+  "decision": "accepted_for_demo",
+  "humanGate": "required for real missions",
+  "issuedAt": "2026-06-27T20:50:26.991Z"
+}

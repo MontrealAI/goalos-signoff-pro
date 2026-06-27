@@ -1,0 +1,10 @@
+{
+  "verdict": "demo_pass",
+  "unsupportedClaimsRejected": true,
+  "observations": [
+    "No user input required.",
+    "No wallet connection.",
+    "No value moved.",
+    "Proof stages complete."
+  ]
+}

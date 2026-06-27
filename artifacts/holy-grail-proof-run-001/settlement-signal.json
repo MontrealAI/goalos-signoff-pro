@@ -1,0 +1,6 @@
+{
+  "type": "settlement_signal",
+  "tokenReference": "$AGIALPHA external Ethereum Mainnet token reference",
+  "valueMoved": 0,
+  "boundary": "No sale, custody, brokerage, redemption, staking, or public-site settlement."
+}

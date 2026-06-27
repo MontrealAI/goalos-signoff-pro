@@ -1,0 +1,12 @@
+{
+  "riskClass": "public_demo",
+  "controls": [
+    "no forms",
+    "no uploads",
+    "no cookies",
+    "no analytics",
+    "no wallet",
+    "no payments"
+  ],
+  "valueMoved": 0
+}

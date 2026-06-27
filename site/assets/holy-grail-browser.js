@@ -1,0 +1,24 @@
+(function(){
+const canvas=document.getElementById('hgField');
+if(canvas){const ctx=canvas.getContext('2d');let w,h,pts=[];function resize(){w=canvas.width=innerWidth*devicePixelRatio;h=canvas.height=innerHeight*devicePixelRatio;pts=Array.from({length:Math.min(90,Math.floor(innerWidth/18))},()=>({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-.5)*.22*devicePixelRatio,vy:(Math.random()-.5)*.22*devicePixelRatio,r:(Math.random()*1.8+0.8)*devicePixelRatio,c:Math.random()>.72?'#ffe88e':Math.random()>.5?'#75ffd6':'#8bb7ff'}));}resize();addEventListener('resize',resize,{passive:true});(function draw(){ctx.clearRect(0,0,w,h);for(const p of pts){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>w)p.vx*=-1;if(p.y<0||p.y>h)p.vy*=-1;ctx.beginPath();ctx.fillStyle=p.c;ctx.globalAlpha=.75;ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fill()}for(let i=0;i<pts.length;i++){for(let j=i+1;j<pts.length;j++){const a=pts[i],b=pts[j],dx=a.x-b.x,dy=a.y-b.y,d=Math.hypot(dx,dy);if(d<150*devicePixelRatio){ctx.globalAlpha=(1-d/(150*devicePixelRatio))*.18;ctx.strokeStyle='#75ffd6';ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke()}}}ctx.globalAlpha=1;requestAnimationFrame(draw)})()}
+const steps=[...document.querySelectorAll('.hg-step')];
+const core=document.querySelector('.hg-core b');
+const coreSmall=document.querySelector('.hg-core small');
+const run=document.getElementById('hgRun');const reset=document.getElementById('hgReset');const dl=document.getElementById('hgDownload');const title=document.getElementById('hgStageTitle');const text=document.getElementById('hgStageText');const term=document.getElementById('hgTerminal');
+const stages=[
+['Mission committed','A bounded AI-delivered work package is converted into a mission contract.'],
+['Work executed','The sample work packet runs through a scoped proof envelope.'],
+['Evidence docket formed','Claims, evidence, hashes, risks, and replay path are packaged.'],
+['Validation gate cleared','Unsupported claims are rejected; supported claims proceed.'],
+['Verified experience recorded','Accepted proof becomes a reusable experience event.'],
+['Chronicle updated','The institution remembers what was proven.'],
+['Capability packaged','The reusable pattern becomes future mission capacity.'],
+['Settlement signal prepared','A proof-backed economic signal is prepared; the public demo moves no value.'],
+['Reinvestment simulated','Accepted capability is routed toward a harder future mission.'],
+['Harder mission ready','Only verified experience influences the next cycle.']
+];
+let timer=null;function setStep(i){steps.forEach((s,k)=>s.classList.toggle('active',k<=i));if(core)core.textContent=Math.round(((i+1)/stages.length)*100)+'%';if(coreSmall)coreSmall.textContent=i>=stages.length-1?'ready':'running';if(title)title.textContent=stages[i][0]+'.';if(text)text.textContent=stages[i][1];if(term){const p=document.createElement('p');p.textContent='• '+stages[i][0]+' — '+stages[i][1];term.appendChild(p);term.scrollTop=term.scrollHeight}}
+function launch(){clearInterval(timer);if(term)term.innerHTML='<p>Proof Run 001 initialized. Browser-local execution only.</p>';let i=0;setStep(0);timer=setInterval(()=>{i++;if(i>=stages.length){clearInterval(timer);return}setStep(i)},720)}
+function clear(){clearInterval(timer);steps.forEach(s=>s.classList.remove('active'));if(core)core.textContent='0%';if(coreSmall)coreSmall.textContent='ready';if(title)title.textContent='System ready.';if(text)text.textContent='Awaiting mission. The sample run will produce a mission contract, Evidence Docket, verifier report, risk ledger, Chronicle entry, capability package, and settlement signal.';if(term)term.innerHTML='<p>Ready. Browser-local simulation loaded.</p>'}
+function download(){const demo={type:'GoalOSBrowserLocalProofRun001',createdAt:new Date().toISOString(),publicDemo:true,noUserData:true,valueMoved:0,contact:'info@quebec.ai',claimBoundary:'Holy Grail candidate, not achievement claim.',loop:stages.map((s,i)=>({step:i+1,title:s[0],status:'demo_pass',note:s[1]})),artifacts:['mission-contract.json','evidence-docket.json','verifier-report.json','risk-ledger.json','chronicle-entry.json','capability-package.json','settlement-signal.json']};const blob=new Blob([JSON.stringify(demo,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='goalos-proof-run-001-browser-demo.json';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),5000)}
+if(run)run.addEventListener('click',launch);if(reset)reset.addEventListener('click',clear);if(dl)dl.addEventListener('click',download);steps.forEach((s,i)=>s.addEventListener('click',()=>setStep(i)));})();

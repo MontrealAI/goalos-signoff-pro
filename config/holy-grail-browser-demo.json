@@ -1,0 +1,52 @@
+{
+  "version": "1.0.0",
+  "product": "GoalOS Signoff Pro",
+  "module": "Holy Grail Candidate Browser Demo",
+  "contact": "info@quebec.ai",
+  "publicSite": "https://montrealai.github.io/goalos-signoff-pro/",
+  "token": {
+    "symbol": "$AGIALPHA",
+    "chain": "Ethereum Mainnet",
+    "address": "0xA61a3B3a130a9c20768EEBF97E21515A6046a1fA",
+    "publicBoundary": "External token reference only. Not sold, issued, brokered, custodied, distributed, redeemed, staked, or made available by GoalOS, MontrealAI, or QuebecAI."
+  },
+  "claimBoundary": {
+    "primary": "GoalOS is presented as a Holy Grail candidate for proof-gated open-ended work, not as proof that AGI, ASI, superintelligence, guaranteed returns, live settlement, or autonomous production authority has been achieved.",
+    "publicDemo": "Browser-local simulation only: no forms, no uploads, no cookies, no analytics, no wallet connection, no payments, no user data, and no value moved.",
+    "nextProof": "Proof Run 001: publish a public-safe Evidence Docket that people can inspect and replay."
+  },
+  "loop": [
+    { "id": "mission", "label": "Mission", "caption": "A bounded objective is declared." },
+    { "id": "work", "label": "Work", "caption": "Agents/tools execute inside a scoped mission envelope." },
+    { "id": "proof", "label": "Proof", "caption": "Artifacts, hashes, gates, costs, risks, and claims are packaged." },
+    { "id": "validation", "label": "Validation", "caption": "Unsupported claims are rejected; evidence earns acceptance." },
+    { "id": "experience", "label": "Verified Experience", "caption": "Accepted work becomes a reusable event, not a one-off answer." },
+    { "id": "chronicle", "label": "Chronicle", "caption": "The institution remembers what was proven." },
+    { "id": "capability", "label": "Reusable Capability", "caption": "Accepted patterns become future mission capacity." },
+    { "id": "settlement", "label": "Settlement Signal", "caption": "Proof can become economically consequential in gated protocol contexts." },
+    { "id": "reinvestment", "label": "Reinvestment", "caption": "Accepted capability funds harder future missions." },
+    { "id": "harder", "label": "Harder Mission", "caption": "The next objective inherits only verified experience." }
+  ],
+  "questions": [
+    "What was attempted?",
+    "What happened?",
+    "What proof exists?",
+    "What can be replayed?",
+    "What passed validation?",
+    "What failed?",
+    "What risk remains?",
+    "What can be trusted?",
+    "What can be reused?",
+    "What can become economically consequential?"
+  ],
+  "demoArtifacts": [
+    "mission-contract.json",
+    "evidence-docket.json",
+    "verifier-report.json",
+    "risk-ledger.json",
+    "chronicle-entry.json",
+    "capability-package.json",
+    "settlement-signal.json",
+    "proof-run-001-readme.md"
+  ]
+}

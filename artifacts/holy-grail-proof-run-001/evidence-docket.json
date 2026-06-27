@@ -1,0 +1,18 @@
+{
+  "docketId": "ED-HG-PR001",
+  "missionId": "HG-PR001-DEMO",
+  "publicPrivateBoundary": "Public-safe synthetic example only.",
+  "claims": [
+    {
+      "claim": "GoalOS can represent work as gated proof states.",
+      "support": "Browser-local deterministic demo artifacts.",
+      "status": "supported_for_demo"
+    },
+    {
+      "claim": "The public demo moves value.",
+      "support": "None.",
+      "status": "rejected"
+    }
+  ],
+  "replayPath": "Open proof-run-001.html and click Launch proof loop."
+}
