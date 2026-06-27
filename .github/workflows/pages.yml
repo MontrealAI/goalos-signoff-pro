@@ -12,6 +12,7 @@ on:
       - 'schemas/sovereign-machine-economy.schema.json'
       - 'src/lib/sovereign-machine-economy/**'
       - '.github/workflows/pages.yml'
+      - '.github/workflows/sovereign-machine-economy.yml'
 
 concurrency:
   group: pages
@@ -37,15 +38,32 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          if [ ! -f scripts/build-asi-apex-v6-pages.mjs ]; then
-            echo "Missing scripts/build-asi-apex-v6-pages.mjs. Install the v6/v6.1 website generator first."
-            exit 1
-          fi
+          test -f scripts/build-asi-apex-v6-pages.mjs
           node scripts/build-asi-apex-v6-pages.mjs
-      - name: Add Sovereign Machine Economy pages
-        run: node scripts/build-sovereign-machine-economy-pages.mjs
+      - name: Generate substantial Sovereign Machine Economy pages
+        shell: bash
+        run: |
+          set -euo pipefail
+          node scripts/build-sovereign-machine-economy-pages.mjs
       - name: Verify website-to-implementation parity
-        run: node scripts/verify-sovereign-machine-economy.mjs
+        shell: bash
+        run: |
+          set -euo pipefail
+          node scripts/verify-sovereign-machine-economy.mjs
+      - name: Verify flagship page substance
+        shell: bash
+        run: |
+          set -euo pipefail
+          for page in sovereign-machine-economy.html proof-os.html machine-economy.html constitution.html proof-missions.html; do
+            test -s "site/$page"
+            bytes=$(wc -c < "site/$page")
+            if [ "" -lt 7000 ]; then
+              echo "Generated page is too thin: $page ($bytes bytes)"
+              exit 1
+            fi
+          done
+          grep -R "sme-v2.css" site/sovereign-machine-economy.html site/proof-os.html site/machine-economy.html site/constitution.html site/proof-missions.html >/dev/null
+          grep -R "sme-v2.js" site/sovereign-machine-economy.html site/proof-os.html site/machine-economy.html site/constitution.html site/proof-missions.html >/dev/null
       - name: Public artifact safety scan
         shell: bash
         run: |
@@ -56,20 +74,23 @@ jobs:
             find site -name '.env*' -o -name 'node_modules' -o -name '.git' -o -name '.next'
             exit 1
           fi
-          if grep -RIE "BEGIN (RSA |EC |OPENSSH |)PRIVATE KEY|SUPABASE_SERVICE_ROLE|STRIPE_SECRET_KEY|sk_live_|mnemonic|seed phrase|wallet private key|Mainnet settlement is live|AGIALPHA staking is live|user funds authorized|autonomous acceptance" site; then
-            echo "Forbidden public claim or secret-like text found in Pages artifact."
+          if grep -RIE "BEGIN (RSA |EC |OPENSSH |)PRIVATE KEY|SUPABASE_SERVICE_ROLE|STRIPE_SECRET_KEY|sk_live_|mnemonic|seed phrase|wallet private key|Mainnet settlement is live|AGIALPHA staking is live|user funds authorized|autonomous acceptance|achieved ASI|superintelligence achieved|The public site is designed|intentionally cinematic" site; then
+            echo "Forbidden public claim, weak disclaimer copy, or secret-like text found in Pages artifact."
             exit 1
           fi
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: site
-      - name: Upload verification report
+      - name: Upload verification reports
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: sovereign-machine-economy-build-report
-          path: verification/sovereign-machine-economy-parity-report.json
+          name: goalos-signoff-pro-production-build-report
+          path: |
+            verification/sovereign-machine-economy-parity-report.json
+            site/sme-manifest.json
+            site/production-manifest.json
 
   deploy:
     name: Deploy to GitHub Pages
