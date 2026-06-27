@@ -1,5 +1,5 @@
 {
-  "version": "1.1.0",
+  "version": "1.2.0-final-production",
   "tokenName": "AGI ALPHA AGENT",
   "tokenSymbol": "AGIALPHA",
   "network": "Ethereum Mainnet",
@@ -7,7 +7,8 @@
   "contractAddress": "0xA61a3B3a130a9c20768EEBF97E21515A6046a1fA",
   "etherscanUrl": "https://etherscan.io/token/0xA61a3B3a130a9c20768EEBF97E21515A6046a1fA",
   "contact": "info@quebec.ai",
-  "safeStatement": "$AGIALPHA exists at 0xA61a3B3a130a9c20768EEBF97E21515A6046a1fA on Ethereum Mainnet. It is not sold, issued, brokered, custodied, distributed, redeemed, staked, or made available by GoalOS, MontrealAI, or QuebecAI. Any interaction with AGIALPHA occurs independently through third-party or on-chain market participants where lawful and available. GoalOS Signoff Pro does not provide investment, financial, trading, tax, custody, brokerage, or legal advice.",
+  "safeStatement": "$AGIALPHA is an external Ethereum Mainnet ERC-20 token at 0xA61a3B3a130a9c20768EEBF97E21515A6046a1fA. It is not sold, issued, brokered, custodied, distributed, redeemed, staked, or made available by GoalOS, MontrealAI, or QuebecAI. Any interaction with AGIALPHA occurs independently through third-party or on-chain market participants where lawful and available. GoalOS Signoff Pro does not provide investment, financial, trading, tax, custody, brokerage, or legal advice.",
+  "shortStatement": "$AGIALPHA is external. Not sold, issued, brokered, custodied, distributed, redeemed, staked, or made available by GoalOS, MontrealAI, or QuebecAI.",
   "requiredBoundaryClaims": [
     "not sold, issued, brokered, custodied, distributed, redeemed, staked, or made available by GoalOS, MontrealAI, or QuebecAI",
     "Any interaction with AGIALPHA occurs independently through third-party or on-chain market participants where lawful and available",
