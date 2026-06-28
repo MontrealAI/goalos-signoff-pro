@@ -3,20 +3,20 @@ name: Website quality gate
 on:
   workflow_dispatch:
   pull_request:
+    branches: [ main ]
+  push:
+    branches: [ main ]
     paths:
-      - 'scripts/**'
       - 'config/**'
-      - '.github/workflows/**'
-      - 'docs/**'
+      - 'scripts/**'
+      - '.github/workflows/website-quality.yml'
+      - '.github/workflows/pages.yml'
 
 permissions:
   contents: read
 
-env:
-  NODE_VERSION: '24'
-
 jobs:
-  verify-generated-public-site-quality:
+  quality:
     name: Verify generated public site quality
     runs-on: ubuntu-latest
     steps:
@@ -25,21 +25,27 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v6
         with:
-          node-version: ${{ env.NODE_VERSION }}
+          node-version: '24'
       - name: Build site preview
+        shell: bash
         run: |
           set -euo pipefail
-          if [ -f scripts/build-goalos-production-site.mjs ]; then node scripts/build-goalos-production-site.mjs; fi
-          if [ -f scripts/build-proof-gradient-lab-page.mjs ]; then node scripts/build-proof-gradient-lab-page.mjs; fi
-          node scripts/build-capability-compounding-lab-page.mjs
+          node scripts/build-goalos-production-site.mjs
+          for script in \
+            scripts/build-proof-gradient-lab-page.mjs \
+            scripts/build-capability-compounding-lab-page.mjs; do
+            if [ -f "$script" ]; then node "$script"; fi
+          done
       - name: Run quality gates
+        shell: bash
         run: |
           set -euo pipefail
-          if [ -f scripts/verify-goalos-production-site.mjs ]; then node scripts/verify-goalos-production-site.mjs; fi
+          node scripts/verify-goalos-production-site.mjs
           if [ -f scripts/verify-proof-gradient-lab-page.mjs ]; then node scripts/verify-proof-gradient-lab-page.mjs; fi
-          node scripts/verify-capability-compounding-lab-page.mjs
+          if [ -f scripts/verify-capability-compounding-lab-page.mjs ]; then node scripts/verify-capability-compounding-lab-page.mjs; fi
+          node scripts/verify-public-demo-routes.mjs
       - name: Upload site preview
         uses: actions/upload-artifact@v7
         with:
-          name: goalos-public-site-preview
+          name: goalos-site-preview-with-proof-gradient
           path: site

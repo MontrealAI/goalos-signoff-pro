@@ -3,22 +3,22 @@ name: Deploy GoalOS Signoff Pro production site
 on:
   workflow_dispatch:
   push:
-    branches: [main]
+    branches: [ main ]
     paths:
-      - 'scripts/**'
       - 'config/**'
+      - 'scripts/**'
       - '.github/workflows/pages.yml'
-      - 'docs/**'
+      - '.github/workflows/website-quality.yml'
+      - '.github/workflows/proof-gradient-lab.yml'
 
 permissions:
   contents: read
+  pages: write
+  id-token: write
 
 concurrency:
   group: pages
   cancel-in-progress: true
-
-env:
-  NODE_VERSION: '24'
 
 jobs:
   build:
@@ -30,21 +30,39 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v6
         with:
-          node-version: ${{ env.NODE_VERSION }}
-      - name: Configure Pages
-        uses: actions/configure-pages@v5
-      - name: Build canonical site and public demos
+          node-version: '24'
+      - name: Build canonical production site
+        shell: bash
         run: |
           set -euo pipefail
-          if [ -f scripts/build-goalos-production-site.mjs ]; then node scripts/build-goalos-production-site.mjs; else mkdir -p site; fi
-          if [ -f scripts/build-proof-gradient-lab-page.mjs ]; then node scripts/build-proof-gradient-lab-page.mjs; fi
-          node scripts/build-capability-compounding-lab-page.mjs
-      - name: Verify public site
+          if [ ! -f scripts/build-goalos-production-site.mjs ]; then
+            echo "Missing scripts/build-goalos-production-site.mjs. Install the canonical production site package first." >&2
+            exit 1
+          fi
+          node scripts/build-goalos-production-site.mjs
+      - name: Add route-safe public demo pages
+        shell: bash
         run: |
           set -euo pipefail
-          if [ -f scripts/verify-goalos-production-site.mjs ]; then node scripts/verify-goalos-production-site.mjs; fi
+          for script in \
+            scripts/build-proof-gradient-lab-page.mjs \
+            scripts/build-capability-compounding-lab-page.mjs; do
+            if [ -f "$script" ]; then
+              echo "Running $script"
+              node "$script"
+            else
+              echo "Skipping optional $script"
+            fi
+          done
+      - name: Verify canonical production site
+        run: node scripts/verify-goalos-production-site.mjs
+      - name: Verify public demo routes
+        shell: bash
+        run: |
+          set -euo pipefail
           if [ -f scripts/verify-proof-gradient-lab-page.mjs ]; then node scripts/verify-proof-gradient-lab-page.mjs; fi
-          node scripts/verify-capability-compounding-lab-page.mjs
+          if [ -f scripts/verify-capability-compounding-lab-page.mjs ]; then node scripts/verify-capability-compounding-lab-page.mjs; fi
+          node scripts/verify-public-demo-routes.mjs
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v5
         with:
@@ -53,13 +71,10 @@ jobs:
     name: Deploy to GitHub Pages
     needs: build
     runs-on: ubuntu-latest
-    permissions:
-      pages: write
-      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Deploy to GitHub Pages
+      - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v5
