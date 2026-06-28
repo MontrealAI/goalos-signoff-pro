@@ -1,0 +1,9 @@
+{
+  "id": "GOALOS-MISSION-001",
+  "title": "Proof-Gated Coordination Benchmark Reproducibility Packet",
+  "seed": "goalos-mission-001-v12-seed",
+  "scenario": "research-synthesis",
+  "runMode": "browser-local deterministic synthetic benchmark",
+  "dataBoundary": "public-safe synthetic task fixtures only",
+  "noUserData": true
+}
