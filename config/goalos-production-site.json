@@ -1,25 +1,20 @@
 {
-  "version": "10.0.0-final-production",
-  "product": "GoalOS Signoff Pro",
-  "siteUrl": "https://montrealai.github.io/goalos-signoff-pro/",
+  "version": "11.0.0-final-production",
+  "siteName": "GoalOS Signoff Pro",
+  "baseUrl": "https://montrealai.github.io/goalos-signoff-pro/",
   "agialphaAddress": "0xA61a3B3a130a9c20768EEBF97E21515A6046a1fA",
   "publicPosture": {
     "browserLocal": true,
     "noForms": true,
     "noInputs": true,
     "noUploads": true,
-    "noWallets": true,
     "noCookies": true,
     "noAnalytics": true,
+    "noWallets": true,
     "noPayments": true,
     "noUserData": true,
-    "noEmailGate": true
+    "noValueMoved": true
   },
-  "primaryCta": "Open browser beta",
-  "browserBeta": {
-    "openToEveryone": true,
-    "requiresEmail": false,
-    "requiresAccount": false,
-    "requiresWallet": false
-  }
+  "coordinationLaw": "Maximum coordination equals maximum verified useful work per unit of risk, cost, latency, and proof debt.",
+  "canonicalLoop": ["Objective", "Mission Contract", "Agent / Job Allocation", "Tool Execution", "Proof Bundle", "Evidence Docket", "Verifier Mesh", "Governed Decision State", "Settlement Signal", "Chronicle", "Capability Package", "Harder Future Mission"]
 }

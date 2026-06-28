@@ -1,0 +1,13 @@
+{
+  "version": "11.0.0-final-production",
+  "demoName": "Proof-Gated Coordination Browser Demo",
+  "scenario": "Large multi-agent system becomes a proof-governed institution",
+  "runsInBrowser": true,
+  "collectsUserData": false,
+  "movesValue": false,
+  "requiresWallet": false,
+  "requiresEmail": false,
+  "missionClasses": ["Research synthesis", "Software delivery", "Grant milestone", "Vendor review", "Policy option", "Security readiness"],
+  "roles": ["Coordinator", "Planner", "Builder", "Evidence Scout", "Validator", "Risk Sentinel", "Chronicle", "Human Gate"],
+  "gates": ["Mission", "Work", "Proof", "Validation", "Decision", "Chronicle", "Capability"]
+}
