@@ -1,0 +1,17 @@
+{
+  "version": "13.0.0-final",
+  "baseUrl": "https://montrealai.github.io/goalos-signoff-pro/",
+  "name": "GoalOS Proof Gradient Selection Lab",
+  "publicRule": "No forms · no uploads · no cookies · no analytics · no wallets · no payments · no personal or confidential data.",
+  "claimBoundary": "Browser-local synthetic demonstration. Not external audit, production certification, live settlement, or empirical SOTA.",
+  "coreLaw": "Score is advisory; hard gates are mandatory.",
+  "hardGates": [
+    "ProofValid",
+    "EvalPass",
+    "Risk <= rho",
+    "RollbackReady",
+    "CanaryReady",
+    "ScopeAuthorized",
+    "ChallengeCleared"
+  ]
+}
