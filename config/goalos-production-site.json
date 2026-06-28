@@ -1,0 +1,25 @@
+{
+  "version": "10.0.0-final-production",
+  "product": "GoalOS Signoff Pro",
+  "siteUrl": "https://montrealai.github.io/goalos-signoff-pro/",
+  "agialphaAddress": "0xA61a3B3a130a9c20768EEBF97E21515A6046a1fA",
+  "publicPosture": {
+    "browserLocal": true,
+    "noForms": true,
+    "noInputs": true,
+    "noUploads": true,
+    "noWallets": true,
+    "noCookies": true,
+    "noAnalytics": true,
+    "noPayments": true,
+    "noUserData": true,
+    "noEmailGate": true
+  },
+  "primaryCta": "Open browser beta",
+  "browserBeta": {
+    "openToEveryone": true,
+    "requiresEmail": false,
+    "requiresAccount": false,
+    "requiresWallet": false
+  }
+}
