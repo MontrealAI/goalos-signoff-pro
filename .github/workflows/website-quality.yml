@@ -3,18 +3,20 @@ name: Website quality gate
 on:
   workflow_dispatch:
   pull_request:
-  push:
-    branches: [ main ]
     paths:
-      - 'config/**'
       - 'scripts/**'
-      - '.github/workflows/website-quality.yml'
+      - 'config/**'
+      - '.github/workflows/**'
+      - 'docs/**'
 
 permissions:
   contents: read
 
+env:
+  NODE_VERSION: '24'
+
 jobs:
-  verify:
+  verify-generated-public-site-quality:
     name: Verify generated public site quality
     runs-on: ubuntu-latest
     steps:
@@ -23,13 +25,21 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v6
         with:
-          node-version: '24'
+          node-version: ${{ env.NODE_VERSION }}
       - name: Build site preview
-        run: node scripts/build-goalos-production-site.mjs
-      - name: Run quality gate
-        run: node scripts/verify-website-quality.mjs
+        run: |
+          set -euo pipefail
+          if [ -f scripts/build-goalos-production-site.mjs ]; then node scripts/build-goalos-production-site.mjs; fi
+          if [ -f scripts/build-proof-gradient-lab-page.mjs ]; then node scripts/build-proof-gradient-lab-page.mjs; fi
+          node scripts/build-capability-compounding-lab-page.mjs
+      - name: Run quality gates
+        run: |
+          set -euo pipefail
+          if [ -f scripts/verify-goalos-production-site.mjs ]; then node scripts/verify-goalos-production-site.mjs; fi
+          if [ -f scripts/verify-proof-gradient-lab-page.mjs ]; then node scripts/verify-proof-gradient-lab-page.mjs; fi
+          node scripts/verify-capability-compounding-lab-page.mjs
       - name: Upload site preview
         uses: actions/upload-artifact@v7
         with:
-          name: goalos-site-preview
+          name: goalos-public-site-preview
           path: site

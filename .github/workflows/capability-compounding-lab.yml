@@ -1,0 +1,29 @@
+name: Capability Compounding Lab Autopilot
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  NODE_VERSION: '24'
+
+jobs:
+  generate-capability-compounding-lab:
+    name: Generate public-safe Capability Compounding Lab bundle
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - name: Generate demo bundle
+        run: node scripts/generate-capability-compounding-lab-bundle.mjs
+      - name: Upload demo bundle
+        uses: actions/upload-artifact@v7
+        with:
+          name: goalos-capability-compounding-lab-demo
+          path: artifacts/capability-compounding-lab

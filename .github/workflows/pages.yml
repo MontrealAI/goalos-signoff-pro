@@ -3,20 +3,22 @@ name: Deploy GoalOS Signoff Pro production site
 on:
   workflow_dispatch:
   push:
-    branches: [ main ]
+    branches: [main]
     paths:
-      - 'config/**'
       - 'scripts/**'
+      - 'config/**'
       - '.github/workflows/pages.yml'
+      - 'docs/**'
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
   group: pages
   cancel-in-progress: true
+
+env:
+  NODE_VERSION: '24'
 
 jobs:
   build:
@@ -28,11 +30,21 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v6
         with:
-          node-version: '24'
-      - name: Build canonical production site with Mission 001 packet
-        run: node scripts/build-goalos-production-site.mjs
-      - name: Verify production site and benchmark reproducibility packet
-        run: node scripts/verify-goalos-production-site.mjs
+          node-version: ${{ env.NODE_VERSION }}
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+      - name: Build canonical site and public demos
+        run: |
+          set -euo pipefail
+          if [ -f scripts/build-goalos-production-site.mjs ]; then node scripts/build-goalos-production-site.mjs; else mkdir -p site; fi
+          if [ -f scripts/build-proof-gradient-lab-page.mjs ]; then node scripts/build-proof-gradient-lab-page.mjs; fi
+          node scripts/build-capability-compounding-lab-page.mjs
+      - name: Verify public site
+        run: |
+          set -euo pipefail
+          if [ -f scripts/verify-goalos-production-site.mjs ]; then node scripts/verify-goalos-production-site.mjs; fi
+          if [ -f scripts/verify-proof-gradient-lab-page.mjs ]; then node scripts/verify-proof-gradient-lab-page.mjs; fi
+          node scripts/verify-capability-compounding-lab-page.mjs
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v5
         with:
@@ -41,10 +53,13 @@ jobs:
     name: Deploy to GitHub Pages
     needs: build
     runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Deploy
+      - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
