@@ -1,0 +1,54 @@
+name: Deploy GoalOS Signoff Pro production site
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+    paths:
+      - 'config/**'
+      - 'scripts/**'
+      - '.github/workflows/pages.yml'
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build and verify canonical production site
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+      - name: Build canonical production site
+        run: node scripts/build-goalos-production-site.mjs
+      - name: Add Proof Gradient Selection Lab
+        run: node scripts/build-proof-gradient-lab-page.mjs
+      - name: Verify canonical production site
+        run: node scripts/verify-goalos-production-site.mjs
+      - name: Verify Proof Gradient Selection Lab
+        run: node scripts/verify-proof-gradient-lab-page.mjs
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: site
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v5

@@ -1,0 +1,31 @@
+name: Proof Gradient Selection Lab Autopilot
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  generate:
+    name: Generate public-safe Proof Gradient demo artifact
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+      - name: Build page preview
+        run: |
+          node scripts/build-goalos-production-site.mjs
+          node scripts/build-proof-gradient-lab-page.mjs
+          node scripts/verify-proof-gradient-lab-page.mjs
+      - name: Generate downloadable artifact bundle
+        run: node scripts/generate-proof-gradient-lab-bundle.mjs
+      - name: Upload Proof Gradient Lab artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: goalos-proof-gradient-selection-lab
+          path: artifacts/proof-gradient-lab

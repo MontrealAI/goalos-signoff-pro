@@ -1,0 +1,39 @@
+name: Website quality gate
+
+on:
+  workflow_dispatch:
+  pull_request:
+  push:
+    branches: [ main ]
+    paths:
+      - 'config/**'
+      - 'scripts/**'
+      - '.github/workflows/website-quality.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    name: Verify generated public site quality
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+      - name: Build site preview
+        run: |
+          node scripts/build-goalos-production-site.mjs
+          node scripts/build-proof-gradient-lab-page.mjs
+      - name: Run production site quality gate
+        run: node scripts/verify-goalos-production-site.mjs
+      - name: Run Proof Gradient Selection Lab gate
+        run: node scripts/verify-proof-gradient-lab-page.mjs
+      - name: Upload site preview
+        uses: actions/upload-artifact@v7
+        with:
+          name: goalos-site-preview
+          path: site
