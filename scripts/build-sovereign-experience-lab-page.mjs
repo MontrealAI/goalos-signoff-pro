@@ -5,363 +5,125 @@ import crypto from 'node:crypto';
 
 const root = process.cwd();
 const site = path.join(root, 'site');
-const configPath = path.join(root, 'config', 'sovereign-experience-stream-lab.json');
-const fallbackConfigPath = path.join(path.dirname(new URL(import.meta.url).pathname), '..', 'config', 'sovereign-experience-stream-lab.json');
-const config = JSON.parse(fs.readFileSync(fs.existsSync(configPath) ? configPath : fallbackConfigPath, 'utf8'));
-fs.mkdirSync(site, { recursive: true });
-fs.mkdirSync(path.join(site, 'assets'), { recursive: true });
+const assets = path.join(site, 'assets');
+const cfgPath = path.join(root, 'config', 'sovereign-experience-stream-lab.json');
+const fallback = path.join(path.dirname(new URL(import.meta.url).pathname), '..', 'config', 'sovereign-experience-stream-lab.json');
+const cfg = JSON.parse(fs.readFileSync(fs.existsSync(cfgPath) ? cfgPath : fallback, 'utf8'));
+fs.mkdirSync(assets, { recursive: true });
+const now = new Date().toISOString();
+const h = v => crypto.createHash('sha256').update(typeof v === 'string' ? v : JSON.stringify(v)).digest('hex');
+const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const write = (rel, body) => { fs.mkdirSync(path.dirname(path.join(site, rel)), { recursive: true }); fs.writeFileSync(path.join(site, rel), body); };
+const json = (rel, obj) => write(rel, JSON.stringify(obj, null, 2));
 
-const email = 'info@quebec.ai';
-const generatedAt = new Date().toISOString();
-const hash = (value) => crypto.createHash('sha256').update(typeof value === 'string' ? value : JSON.stringify(value)).digest('hex');
-const safeJson = (obj) => JSON.stringify(obj, null, 2);
-
-function footer(active = '') {
-  return `
-<footer class="v15-footer">
-  <div><strong>GoalOS Signoff Pro</strong><p>Proof-to-acceptance · governed experience · reusable capability.</p></div>
-  <nav aria-label="Footer navigation">
-    <a href="browser-beta.html">Browser beta</a>
-    <a href="mission-001.html">Mission 001</a>
-    <a href="proof-gradient-lab.html">Selection Gate</a>
-    <a href="capability-compounding-lab.html">Compounding</a>
-    <a href="sovereign-experience-stream-lab.html" ${active === 'experience' ? 'aria-current="page"' : ''}>Experience Stream</a>
-    <a href="no-user-data.html">No User Data</a>
-    <a href="privacy.html">Privacy</a>
-    <a href="terms.html">Terms</a>
-    <a href="agialpha-token-boundary.html">$AGIALPHA Boundary</a>
-  </nav>
-</footer>
-<div class="public-rule" role="note"><strong>Public site rule</strong><span>No forms · no inputs · no uploads · no cookies · no analytics · no wallets · no payments · no personal or confidential data.</span><a href="no-user-data.html">Read the rule</a></div>`;
+const publicRule = 'No forms · no inputs · no uploads · no cookies · no analytics · no wallets · no payments · no personal or confidential data.';
+const nav = [
+  ['Browser beta','browser-beta.html'], ['Mission 001','mission-001.html'], ['Selection gate','proof-gradient-lab.html'], ['Compounding','capability-compounding-lab.html'], ['Experience','sovereign-experience-stream-lab.html'], ['Docket','evidence-docket-demo.html'], ['$AGIALPHA','agialpha-token-boundary.html'], ['Data posture','no-user-data.html']
+];
+const baseEvents = [
+  ['mission-contract','Mission Contract','objective signed; criteria, risk class, authority, and boundary fixed','accepted'],
+  ['bounded-action','Bounded Action','agent/tool activity runs inside a public-safe synthetic sandbox','accepted'],
+  ['proof-packet','Proof Packet','trace root, output hash, policy root, cost, latency, and signature emitted','accepted'],
+  ['validator-pass','Validator Pass','evidence, contradiction, risk, and claim boundary checked','accepted'],
+  ['grounded-reward','Grounded Reward','replayability, cost, risk, and future reuse measured separately from acceptance','accepted'],
+  ['suspicious-trace','Suspicious Trace','useful-looking trace lacks replay; quarantined as warning, not authority','quarantined'],
+  ['unsupported-claim','Unsupported Claim','persuasive claim lacks evidence; rejected before memory update','rejected'],
+  ['delayed-outcome','Delayed Outcome','later observation supports or weakens the original acceptance','quarantined'],
+  ['policy-update','Policy Update','router prior can change only from accepted replayable experience','accepted'],
+  ['temporal-option','Temporal Option','accepted workflow becomes a bounded reusable macro-action','accepted'],
+  ['chronicle-write','Chronicle Write','governed experience is written as durable institutional memory','accepted'],
+  ['future-routing','Future Routing','next mission inherits only proof-cleared experience','accepted']
+];
+function buildScenario(s){
+  const events = baseEvents.slice(0, s.events).map((e,i)=>{
+    let verdict = e[3];
+    if(e[0] === 'delayed-outcome' && (s.id === 'software' || s.id === 'defensive')) verdict = 'accepted';
+    if(e[0] === 'temporal-option' && s.id === 'policy') verdict = 'quarantined';
+    return { eventId:`EXP-${s.id.toUpperCase()}-${String(i+1).padStart(2,'0')}`, kind:e[0], label:e[1], observation:e[2], verdict, replayable:verdict==='accepted', hash:h(`${s.id}:${i}:${e.join('|')}`).slice(0,18) };
+  });
+  const a = events.filter(e=>e.verdict==='accepted').length, q = events.filter(e=>e.verdict==='quarantined').length, r = events.filter(e=>e.verdict==='rejected').length;
+  const before = { verifiedWork: 58 + s.hardness, proofDebt: 46, rewardRisk: 19, routerWaste: 31, temporalOptions: 1 };
+  const after = { verifiedWork: before.verifiedWork + a*5 + s.hardness, proofDebt: Math.max(8, before.proofDebt - a*3 - r*4), rewardRisk: Math.max(2, before.rewardRisk - q*2 - r*4), routerWaste: Math.max(6, before.routerWaste - a*2 - q), temporalOptions: before.temporalOptions + events.filter(e=>e.kind==='temporal-option' && e.verdict==='accepted').length + Math.floor(a/4) };
+  const option = { id:`option-${s.id}-proof-cycle-v2`, initiation:`${s.label} requires governed acceptance`, validator:'replay + claim boundary + risk ledger', termination:'accepted receipt or human gate', riskClass:'public-demo', evidenceEvents:events.filter(e=>e.verdict==='accepted').slice(0,5).map(e=>e.eventId), status:'demo-active' };
+  return { scenario:s, events, counts:{accepted:a, quarantined:q, rejected:r}, before, after, option };
 }
+const scenarios = Object.fromEntries(cfg.scenarios.map(s=>[s.id, buildScenario(s)]));
+const bundle = { package:cfg.package, version:cfg.version, generatedAt:now, route:cfg.route, aliasRoute:cfg.aliasRoute, doctrine:cfg.doctrine, scenarios, publicSafety:{ browserLocal:true, noForms:true, noInputs:true, noUploads:true, noCookies:true, noAnalytics:true, noWallets:true, noPayments:true, noValueMoved:true, noPersonalData:true, noConfidentialData:true } };
+const rewardLedger = { title:'Grounded Reward Ledger', generatedAt:now, purpose:'Separate validator acceptance from long-run consequence signals so bad traces cannot become institutional learning authority.', signals:[['validator verdict',.20],['replayability',.21],['risk reduction',.18],['proof debt reduction',.16],['future reuse',.15],['delayed outcome',.10]].map(([signal,weight])=>({signal,weight})), blockedSignals:['persuasive output without proof','activity volume without replay','private-only trace without public-safe commitment'], hash:null}; rewardLedger.hash = h(rewardLedger);
+const optionRegistry = { title:'Temporal Option Registry', generatedAt:now, admissionRule:'Only replayable, validator-approved, claim-bounded experience can become a reusable macro-workflow.', options:Object.values(scenarios).map(x=>x.option), hash:null}; optionRegistry.hash = h(optionRegistry);
+const policyCert = { title:'Router Policy Update Certificate', generatedAt:now, decision:'promote demo routing prior from accepted replayable experience only', gates:{proofValid:true,replayPass:true,quarantineRespected:true,riskWithinBoundary:true,noPrivateData:true,humanAuthorityPreserved:true}, notClaimed:['external audit','production certification','empirical SOTA','value movement'], hash:null}; policyCert.hash = h(policyCert);
+const reanalyze = { title:'Experience Reanalyze Report', generatedAt:now, summary:'Historical synthetic experience is re-read under current hard gates. Accepted events may influence routing; quarantined and rejected events remain warnings.', findings:[
+  {id:'R1',finding:'Output is not memory',action:'Require proof before Chronicle'},
+  {id:'R2',finding:'Replay changes authority',action:'Promote replayable accepted experience only'},
+  {id:'R3',finding:'Quarantine is useful',action:'Preserve warning without propagation'},
+  {id:'R4',finding:'Options reduce future proof debt',action:'Admit bounded temporal options'}
+], hash:null}; reanalyze.hash = h(reanalyze);
+json('sovereign-experience-stream-demo-bundle.json', bundle);
+json('grounded-reward-ledger.json', rewardLedger);
+json('temporal-option-registry.json', optionRegistry);
+json('router-policy-update-certificate.json', policyCert);
+json('experience-reanalyze-report.json', reanalyze);
 
-function nav(active='experience') {
-  const links = [
-    ['Institution', 'index.html'],
-    ['Browser beta', 'browser-beta.html'],
-    ['Mission 001', 'mission-001.html'],
-    ['Selection gate', 'proof-gradient-lab.html'],
-    ['Compounding', 'capability-compounding-lab.html'],
-    ['Experience', 'sovereign-experience-stream-lab.html'],
-    ['Docket', 'evidence-docket-demo.html'],
-    ['$AGIALPHA', 'agialpha.html'],
-    ['Data posture', 'no-user-data.html']
-  ];
-  return `<header class="v15-topbar"><a class="brand" href="index.html" aria-label="GoalOS home"><span class="brand-orb"></span><span><strong>GOALOS SIGNOFF PRO</strong><small>SOVEREIGN EXPERIENCE STREAM</small></span></a><nav>${links.map(([label, href]) => `<a href="${href}" ${active==='experience' && label==='Experience' ? 'aria-current="page"' : ''}>${label}</a>`).join('')}</nav><a class="cta" href="browser-beta.html">Open browser beta</a></header>`;
+const css = `:root{--bg:#020807;--panel:rgba(18,35,33,.74);--panel2:rgba(4,14,16,.84);--line:rgba(111,255,224,.28);--text:#fff8eb;--muted:#b9c9c8;--mint:#71ffdc;--aqua:#69eaff;--gold:#fff08b;--violet:#bda6ff;--red:#ff7795;--hold:#ffd46f;--ok:#6fffbd;--r:28px}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 78% 11%,rgba(52,255,216,.26),transparent 36%),radial-gradient(circle at 20% 78%,rgba(122,88,255,.14),transparent 26%),linear-gradient(120deg,#020707,#071411 54%,#071024);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Arial,sans-serif;overflow-x:hidden}body:before{content:"";position:fixed;inset:0;z-index:-2;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:88px 88px;mask-image:linear-gradient(to bottom,rgba(0,0,0,.9),rgba(0,0,0,.2))}#field{position:fixed;inset:0;z-index:-1;opacity:.58}.topbar{min-height:88px;padding:18px clamp(20px,5vw,72px);display:flex;gap:22px;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;background:rgba(1,7,8,.9);border-bottom:1px solid var(--line);backdrop-filter:blur(18px)}.brand{display:flex;gap:14px;align-items:center;color:var(--text);text-decoration:none;text-transform:uppercase;letter-spacing:.18em;font-size:12px}.brand small{display:block;color:var(--muted);font-size:10px;margin-top:3px}.orb{width:42px;height:42px;border-radius:14px;border:1px solid var(--line);background:radial-gradient(circle,var(--mint),#2a4f78 48%,#061110 70%);box-shadow:0 0 32px rgba(113,255,220,.42)}nav{display:flex;gap:10px;flex-wrap:wrap;align-items:center}nav a{color:var(--text);font-weight:900;text-decoration:none;font-size:13px;padding:10px 12px;border-radius:999px}nav a[aria-current="page"],nav a:hover{background:rgba(255,255,255,.12);box-shadow:inset 0 0 0 1px rgba(255,255,255,.14)}main{width:min(1160px,calc(100% - 34px));margin:auto}.hero{min-height:calc(100vh - 88px);display:grid;grid-template-columns:minmax(0,1fr) minmax(360px,520px);gap:clamp(34px,7vw,88px);align-items:center;padding:clamp(70px,10vw,140px) 0}.eyebrow{color:var(--mint);letter-spacing:.38em;text-transform:uppercase;font-weight:950;font-size:12px;margin:0 0 18px}.hero h1,.section h2,.lab h2{font-size:clamp(54px,8.2vw,112px);line-height:.86;letter-spacing:-.075em;margin:0 0 24px}.hero h1 em{display:block;font-family:Georgia,serif;font-style:italic;font-weight:500;letter-spacing:-.05em;background:linear-gradient(90deg,var(--gold),var(--mint),var(--aqua),var(--violet));-webkit-background-clip:text;color:transparent}.lead{font-size:clamp(18px,2vw,23px);line-height:1.46;color:#e9f3ef;max-width:760px}.btn,button{appearance:none;border:0;cursor:pointer;text-decoration:none;border-radius:999px;min-height:48px;padding:0 22px;display:inline-flex;align-items:center;justify-content:center;font-weight:950;background:rgba(255,255,255,.13);color:var(--text);box-shadow:inset 0 0 0 1px rgba(255,255,255,.16)}.btn.primary,button.primary{color:#03110f;background:linear-gradient(120deg,#f5ff9d,var(--mint),var(--aqua));box-shadow:0 18px 42px rgba(113,255,220,.23)}.cta{display:flex;gap:14px;flex-wrap:wrap;margin:28px 0}.chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.chip{border:1px solid var(--line);border-radius:999px;padding:8px 11px;color:#dcfff8;background:rgba(0,0,0,.26);font-size:10px;font-weight:950;letter-spacing:.14em;text-transform:uppercase}.panel,.lab,.section,.card,.console,.artifact{border:1px solid var(--line);border-radius:var(--r);background:linear-gradient(145deg,rgba(37,68,60,.74),rgba(6,16,19,.82));box-shadow:0 28px 90px rgba(0,0,0,.44);backdrop-filter:blur(14px)}.console{padding:24px}.console-head{display:flex;justify-content:space-between;color:var(--mint);letter-spacing:.28em;text-transform:uppercase;font-size:11px;font-weight:950;margin-bottom:18px}.console-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:22px}.stages{display:grid;gap:10px}.stage{padding:14px;border:1px solid rgba(113,255,220,.22);border-radius:15px;background:rgba(0,0,0,.28);transition:.25s}.stage.active{border-color:var(--gold);box-shadow:0 0 28px rgba(255,240,139,.15)}.stage.done{border-color:var(--ok)}.stage b{color:var(--gold);display:block;margin-bottom:5px}.stage strong{display:block}.stage span{display:block;color:#c9d9d7;font-size:13px}.stream-viz{min-height:420px;position:relative;overflow:hidden;border-radius:22px;background:radial-gradient(circle at 55% 45%,rgba(113,255,220,.23),transparent 29%),rgba(0,0,0,.34);border:1px solid rgba(255,255,255,.1)}.nucleus{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:150px;height:150px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle,var(--mint),var(--aqua) 45%,transparent 48%);box-shadow:0 0 80px rgba(113,255,220,.4);color:#06110e;font:italic 74px Georgia,serif}.orbit{position:absolute;left:50%;top:50%;width:72%;aspect-ratio:1;border:1px dashed rgba(255,255,255,.22);border-radius:50%;transform:translate(-50%,-50%);animation:spin 28s linear infinite}.event-node{position:absolute;min-width:132px;max-width:160px;padding:12px;border-radius:15px;background:rgba(0,0,0,.68);border:1px solid var(--line);font-size:12px;transition:.25s}.event-node.accepted{border-color:rgba(111,255,189,.75)}.event-node.quarantined{border-color:rgba(255,212,111,.75)}.event-node.rejected{border-color:rgba(255,119,149,.75)}.event-node b{display:block;color:var(--mint)}.event-node span{display:block;color:var(--muted)}.section,.lab{padding:clamp(28px,5vw,56px);margin:46px 0}.section-head{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;margin-bottom:26px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{padding:24px}.card h3{font-size:clamp(26px,3vw,42px);line-height:.95;letter-spacing:-.05em;margin:0 0 14px}.card p{color:#d4e4e1;line-height:1.55}.lab-grid{display:grid;grid-template-columns:minmax(0,.95fr) minmax(360px,1.05fr);gap:24px}.scenario-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.scenario{min-height:88px;border:1px solid rgba(113,255,220,.24);border-radius:16px;background:rgba(0,0,0,.24);padding:14px;text-align:left;justify-content:flex-start;align-items:flex-start;display:block}.scenario.active{border-color:var(--mint);box-shadow:0 0 28px rgba(113,255,220,.16)}.scenario small{color:var(--gold);letter-spacing:.12em;text-transform:uppercase}.scenario strong{display:block;margin-top:4px}.metrics{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:16px}.metric{border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:14px;background:rgba(0,0,0,.28)}.metric b{display:block;color:var(--gold);font-size:28px}.metric span{display:block;color:#dce9e5;text-transform:uppercase;letter-spacing:.12em;font-size:10px}.trace{height:360px;overflow:auto;border:1px solid rgba(113,255,220,.22);border-radius:16px;background:rgba(0,0,0,.52);padding:16px;font:13px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;color:#cafff4}.trace .ok{color:var(--ok)}.trace .hold{color:var(--hold)}.trace .bad{color:var(--red)}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}.tab{min-height:38px;padding:0 15px}.tab.active{background:linear-gradient(120deg,#f5ff9d,var(--mint));color:#03110f}.code{min-height:360px;max-height:460px;overflow:auto;border:1px solid rgba(113,255,220,.22);border-radius:16px;background:rgba(0,0,0,.52);padding:18px;color:#cafff4;font:13px/1.55 ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre-wrap}.artifacts{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.artifact{display:block;text-decoration:none;color:var(--text);padding:18px}.artifact b{display:block;color:var(--gold);font-family:ui-monospace,monospace}.artifact span{display:block;color:#d5e5e0;margin-top:6px}.footer{width:100vw;margin-left:calc(50% - 50vw);padding:42px clamp(20px,5vw,72px) 78px;border-top:1px solid var(--line);background:rgba(0,0,0,.55);display:grid;grid-template-columns:1fr 1fr;gap:28px}.footer nav{justify-content:flex-end}.footer a{color:var(--mint);font-weight:900;text-decoration:none}.site-rule{grid-column:1/-1;justify-self:center;display:flex;gap:10px;flex-wrap:wrap;align-items:center;max-width:min(900px,100%);border:1px solid var(--line);border-radius:999px;padding:12px 18px;background:rgba(0,0,0,.55)}.site-rule b{color:var(--gold)}.site-rule span{font-size:13px}.site-rule a{background:linear-gradient(120deg,#f5ff9d,var(--mint));color:#03110f;border-radius:999px;padding:9px 14px;text-decoration:none;font-weight:950}@keyframes spin{to{transform:translate(-50%,-50%) rotate(360deg)}}@media(max-width:980px){.topbar{position:relative;align-items:flex-start}.topbar,nav,.footer{flex-direction:column}.hero,.console-grid,.section-head,.lab-grid{grid-template-columns:1fr}.grid,.artifacts,.metrics,.scenario-grid{grid-template-columns:1fr}.hero h1,.section h2,.lab h2{font-size:clamp(48px,14vw,78px)}.footer{grid-template-columns:1fr}.footer nav{justify-content:flex-start}.site-rule{border-radius:18px}.stream-viz{min-height:560px}.event-node{position:relative!important;left:auto!important;top:auto!important;margin:8px;display:inline-block}.nucleus,.orbit{display:none}}`;
+const js = `const DATA=${JSON.stringify(scenarios)};
+const stages=['Capture','Replay','Validate','Reward','Option','Chronicle','Route'];
+let current='research', running=false, panel='docket';
+const $=s=>document.querySelector(s), $$=s=>Array.from(document.querySelectorAll(s));
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+function b(){return DATA[current]}
+function log(t,c=''){const el=$('[data-trace]');const d=document.createElement('div');d.className=c;d.textContent=t;el.appendChild(d);el.scrollTop=el.scrollHeight}
+function metric(id,v){const el=document.querySelector('[data-metric="'+id+'"] b');if(el)el.textContent=v}
+function setMetrics(x,after=false){const m=after?x.after:x.before;metric('work',m.verifiedWork);metric('debt',m.proofDebt);metric('risk',m.rewardRisk);metric('waste',m.routerWaste);metric('options',m.temporalOptions)}
+function setStages(i){$$('.stage').forEach((el,k)=>{el.classList.toggle('active',k===i);el.classList.toggle('done',k<i)})}
+function layoutEvents(x){const box=$('[data-viz]');box.querySelectorAll('.event-node').forEach(n=>n.remove());const cx=50,cy=50,rx=37,ry=35;x.events.forEach((e,i)=>{const a=(i/x.events.length)*Math.PI*2-Math.PI/2;const n=document.createElement('div');n.className='event-node '+e.verdict;n.style.left=(cx+Math.cos(a)*rx)+'%';n.style.top=(cy+Math.sin(a)*ry)+'%';n.innerHTML='<b>'+e.label+'</b><span>'+e.verdict+' · '+e.hash+'</span>';box.appendChild(n)})}
+function panelData(){const x=b();const accepted=x.events.filter(e=>e.verdict==='accepted');const held=x.events.filter(e=>e.verdict==='quarantined');const rejected=x.events.filter(e=>e.verdict==='rejected');return {
+ docket:{title:'Evidence Docket',data:{scenario:x.scenario.label,objective:x.scenario.objective,claims:['Accepted experience may update future routing.','Quarantined experience is preserved as warning, not authority.','Rejected experience cannot become memory.'],events:x.events.map(e=>({eventId:e.eventId,label:e.label,verdict:e.verdict,hash:e.hash}))}},
+ reward:{title:'Grounded Reward Ledger',data:{accepted:accepted.length,quarantined:held.length,rejected:rejected.length,before:x.before,after:x.after,rule:'Validator acceptance is separated from grounded reward; replay, risk, proof debt, and future reuse decide learning authority.'}},
+ options:{title:'Temporal Option Registry',data:{option:x.option,admittedFrom:accepted.slice(0,5).map(e=>e.eventId),blockedFrom:held.concat(rejected).map(e=>({eventId:e.eventId,verdict:e.verdict}))}},
+ policy:{title:'Router Policy Update Certificate',data:{decision:'promote synthetic routing prior',source:'accepted replayable experience only',gates:{proofValid:true,replayPass:true,riskBoundary:true,noPrivateData:true,humanAuthorityPreserved:true},notClaimed:['external audit','production certification','empirical SOTA','value movement']}}
+}[panel]}
+function renderPanel(){const p=panelData();$('[data-panel-title]').textContent=p.title;$('[data-panel-json]').textContent=JSON.stringify(p.data,null,2);$$('[data-panel]').forEach(t=>t.classList.toggle('active',t.dataset.panel===panel))}
+function reset(){running=false;setStages(-1);setMetrics(b(),false);layoutEvents(b());$('[data-trace]').innerHTML='';log('System ready. Choose a scenario or run the sovereign experience stream.');renderPanel()}
+async function run(){if(running)return;running=true;const x=b();$('[data-trace]').innerHTML='';setMetrics(x,false);layoutEvents(x);for(let i=0;i<stages.length;i++){setStages(i);log('['+stages[i]+'] gate opened.');await sleep(260);if(i===0){for(const e of x.events){log('capture '+e.eventId+' · '+e.label+' · '+e.hash,e.verdict==='accepted'?'ok':e.verdict==='quarantined'?'hold':'bad');await sleep(90)}}if(i===1){for(const e of x.events){log((e.replayable?'replay pass ':'replay hold ')+e.eventId,e.replayable?'ok':e.verdict==='quarantined'?'hold':'bad');await sleep(70)}}if(i===2){log('validator mesh: accepted '+x.counts.accepted+', quarantined '+x.counts.quarantined+', rejected '+x.counts.rejected,x.counts.rejected?'hold':'ok')}if(i===3){log('grounded reward ledger updated from replayable events only.','ok')}if(i===4){log('temporal option admitted: '+x.option.id,'ok')}if(i===5){log('Chronicle write: accepted experience becomes governed memory.','ok')}if(i===6){log('future route inherits proof-cleared experience only.','ok');setMetrics(x,true)}}running=false;renderPanel()}
+function download(){const blob=new Blob([JSON.stringify(DATA[current],null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='goalos-sovereign-experience-'+current+'.json';a.click();URL.revokeObjectURL(a.href)}
+document.addEventListener('click',e=>{const s=e.target.closest('[data-scenario]');if(s){current=s.dataset.scenario;$$('[data-scenario]').forEach(x=>x.classList.toggle('active',x.dataset.scenario===current));reset()}const p=e.target.closest('[data-panel]');if(p){panel=p.dataset.panel;renderPanel()}if(e.target.closest('[data-run]'))run();if(e.target.closest('[data-reset]'))reset();if(e.target.closest('[data-download]'))download()});
+reset();`;
+write('assets/sovereign-experience-v15-2.css', css);
+write('assets/sovereign-experience-v15-2.js', js);
+
+function legalRail(){return `<div class="site-rule" data-goalos-legal-rail="v12" role="note"><b>Public site rule</b><span>${publicRule}</span><a href="no-user-data.html">Read the rule</a></div>`}
+function footer(){return `<footer class="footer"><div><b>GoalOS Signoff Pro</b><span>Proof-to-acceptance · governed experience · reusable capability.</span></div><nav aria-label="Footer navigation"><a href="browser-beta.html">Browser beta</a><a href="mission-001.html">Mission 001</a><a href="proof-gradient-lab.html">Selection Gate</a><a href="capability-compounding-lab.html">Compounding</a><a href="sovereign-experience-stream-lab.html">Experience</a><a href="no-user-data.html">No User Data</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="agialpha-token-boundary.html">$AGIALPHA Boundary</a></nav>${legalRail()}</footer>`}
+function topbar(){return `<header class="topbar"><a class="brand" href="index.html"><span class="orb"></span><span><strong>GOALOS SIGNOFF PRO</strong><small>SOVEREIGN EXPERIENCE STREAM</small></span></a><nav>${nav.map(([l,href])=>`<a ${l==='Experience'?'aria-current="page"':''} href="${href}">${l}</a>`).join('')}</nav><a class="btn primary" href="browser-beta.html">Open browser beta</a></header>`}
+function shell(title, body){return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(title)}</title><meta name="description" content="GoalOS Sovereign Experience Stream Lab: browser-local demonstration of governed experience, grounded reward, temporal options, and routing updates."><link rel="stylesheet" href="assets/sovereign-experience-v15-2.css"></head><body><canvas id="field" aria-hidden="true"></canvas>${topbar()}<main>${body}</main>${footer()}<script src="assets/sovereign-experience-v15-2.js"></script><script>(()=>{const c=document.getElementById('field'),x=c.getContext('2d');let w,h,p=[];function r(){w=c.width=innerWidth;h=c.height=innerHeight;p=Array.from({length:90},()=>({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-.5)*.22,vy:(Math.random()-.5)*.22}))}function a(){x.clearRect(0,0,w,h);p.forEach((q,i)=>{q.x=(q.x+q.vx+w)%w;q.y=(q.y+q.vy+h)%h;x.fillStyle=i%5?'rgba(113,255,220,.7)':'rgba(255,240,139,.8)';x.fillRect(q.x,q.y,2,2);for(let j=i+1;j<p.length;j++){const d=Math.hypot(q.x-p[j].x,q.y-p[j].y);if(d<105){x.strokeStyle='rgba(113,255,220,'+(0.18-d/650)+')';x.beginPath();x.moveTo(q.x,q.y);x.lineTo(p[j].x,p[j].y);x.stroke()}}});requestAnimationFrame(a)}addEventListener('resize',r);r();a()})()</script></body></html>`}
+const stageHtml = ['Capture','Replay','Validate','Reward','Option','Chronicle','Route'].map((s,i)=>`<article class="stage"><b>${String(i+1).padStart(2,'0')}</b><strong>${s}</strong><span>${['events enter evidence stream','replay decides authority','validators separate accept / hold / reject','reward ledger measures consequences','accepted workflow becomes macro-action','memory admits proof only','future mission inherits safe signal'][i]}</span></article>`).join('');
+const scenarioButtons = cfg.scenarios.map((s,i)=>`<button class="scenario ${i===0?'active':''}" data-scenario="${s.id}"><small>${s.missionClass}</small><strong>${s.label}</strong><span>${s.objective}</span></button>`).join('');
+const artifacts = [
+  ['sovereign-experience-stream-demo-bundle.json','Experience stream bundle'],['grounded-reward-ledger.json','Grounded reward ledger'],['temporal-option-registry.json','Temporal option registry'],['router-policy-update-certificate.json','Router policy update certificate'],['experience-reanalyze-report.json','Experience reanalyze report']
+].map(([href,label])=>`<a class="artifact" href="${href}"><b>${href}</b><span>${label}</span></a>`).join('');
+const body = `
+<section class="hero"><div><p class="eyebrow">Governed experience becomes learning authority</p><h1>Accepted proof becomes <em>sovereign experience.</em></h1><p class="lead">GoalOS does not let every output influence the next mission. Accepted proof becomes sovereign experience. Only replayable, validator-cleared experience can update routing, Chronicle memory, grounded reward, and temporal options.</p><div class="cta"><a class="btn primary" href="#lab">Run experience stream</a><a class="btn" href="capability-compounding-lab.html">Inspect compounding</a><a class="btn" href="mission-001.html">Mission 001 packet</a></div><div class="chips">${['browser-local','no input','no upload','no wallet','no value moved'].map(x=>`<span class="chip">${x}</span>`).join('')}</div></div><div class="console"><div class="console-head"><span>Experience control plane</span><span>Review mode</span></div><div class="console-grid"><div class="stages">${stageHtml}</div><div class="stream-viz" data-viz><div class="orbit"></div><div class="nucleus">α</div></div></div></div></section>
+<section class="section"><div class="section-head"><div><p class="eyebrow">The learning boundary</p><h2>Output is not memory.</h2></div><p class="lead">The experience stream demonstrates a hard institutional rule: accepted events may teach the next mission; suspicious traces are quarantined; unsupported claims are rejected before they can become default truth.</p></div><div class="grid"><article class="card"><h3>Accepted</h3><p>Replayable proof, verifier pass, cost/risk ledger, and claim boundary clear. These events may enter Chronicle and update future routing.</p></article><article class="card"><h3>Quarantined</h3><p>Useful-looking but incomplete. These events remain available as warnings and reanalysis material, not authority.</p></article><article class="card"><h3>Rejected</h3><p>Unsupported claims cannot become memory, reward, settlement signal, or reusable capability.</p></article></div></section>
+<section class="lab" id="lab"><div class="section-head"><div><p class="eyebrow">Browser-local lab</p><h2>Run the sovereign experience stream.</h2></div><p class="lead">Choose a public-safe synthetic scenario. The browser will capture events, replay them, validate them, separate reward from acceptance, admit temporal options, and update future routing only from proof-cleared experience.</p></div><div class="lab-grid"><div><div class="scenario-grid">${scenarioButtons}</div><div class="cta"><button class="primary" data-run>Run experience stream</button><button data-reset>Reset</button><button data-download>Download scenario bundle</button></div><div class="metrics"><article class="metric" data-metric="work"><b>0</b><span>Verified work</span></article><article class="metric" data-metric="debt"><b>0</b><span>Proof debt</span></article><article class="metric" data-metric="risk"><b>0</b><span>Reward risk</span></article><article class="metric" data-metric="waste"><b>0</b><span>Router waste</span></article><article class="metric" data-metric="options"><b>0</b><span>Temporal options</span></article></div><div class="trace" data-trace></div></div><div><div class="tabs"><button class="tab active" data-panel="docket">Docket</button><button class="tab" data-panel="reward">Reward</button><button class="tab" data-panel="options">Options</button><button class="tab" data-panel="policy">Policy</button></div><h3 data-panel-title>Evidence Docket</h3><pre class="code" data-panel-json>{}</pre></div></div></section>
+
+<section class="section"><div class="section-head"><div><p class="eyebrow">Experience governance objects</p><h2>Learning authority has typed evidence.</h2></div><p class="lead">The lab makes the hidden control plane visible: grounded rewards measure consequences, temporal options package reusable workflows, policy certificates explain routing updates, and reanalysis prevents old weak traces from silently becoming future authority.</p></div><div class="grid"><article class="card"><h3>Grounded Reward Ledger</h3><p>Separates pass/fail acceptance from longer-run consequence signals: replayability, risk, proof debt, future reuse, cost, and delayed outcomes.</p></article><article class="card"><h3>Temporal Option Registry</h3><p>Admits only bounded macro-workflows with initiation conditions, validators, termination rules, evidence history, and risk class.</p></article><article class="card"><h3>Router Policy Update Certificate</h3><p>Explains why a future routing prior is allowed to change, which gates passed, and which traces were blocked or quarantined.</p></article></div></section>
+<section class="section"><div class="section-head"><div><p class="eyebrow">Replay before learning</p><h2>Reanalysis blocks memory poisoning.</h2></div><p class="lead">Sovereign experience is not a transcript dump. GoalOS re-reads prior events under current gates, keeps provenance intact, and refuses to update production routing from unreplayable, unsupported, private-only, or unsafe traces.</p></div><div class="grid"><article class="card"><h3>Accepted events</h3><p>May enter Chronicle and capability memory only after replay, evidence checks, claim boundary checks, and risk review.</p></article><article class="card"><h3>Quarantined events</h3><p>Remain useful as warnings and future test cases, but do not become routing authority or settlement signal.</p></article><article class="card"><h3>Rejected events</h3><p>Are preserved as negative evidence when useful, but cannot become institutional truth, future policy, or reusable capability.</p></article></div></section>
+<section class="section"><div class="section-head"><div><p class="eyebrow">Public artifacts</p><h2>Inspectable experience, not vibes.</h2></div><p class="lead">The page emits public-safe JSON artifacts so reviewers can inspect the synthetic stream, the Grounded Reward Ledger, the Temporal Option Registry, the Router Policy Update Certificate, and the experience reanalysis report.</p></div><div class="artifacts">${artifacts}</div></section>`;
+const html = shell('GoalOS Sovereign Experience Stream Lab', body);
+write(cfg.route, html);
+write(cfg.aliasRoute, html);
+
+const manifest = { package:cfg.package, version:cfg.version, generatedAt:now, routes:[cfg.route,cfg.aliasRoute], artifacts:['sovereign-experience-stream-demo-bundle.json','grounded-reward-ledger.json','temporal-option-registry.json','router-policy-update-certificate.json','experience-reanalyze-report.json'], publicRule, claimBoundary:cfg.doctrine.claimBoundary };
+json('sovereign-experience-stream-manifest.json', manifest);
+
+function injectHomeRail(){
+  const idx = path.join(site,'index.html');
+  if(!fs.existsSync(idx)) { write('index.html', shell('GoalOS Signoff Pro', `<section class="section"><p class="eyebrow">GoalOS</p><h1>Sovereign Experience Stream Lab</h1><p class="lead">Open the browser-local lab.</p><div class="cta"><a class="btn primary" href="sovereign-experience-stream-lab.html">Open experience stream</a></div></section>`)); return; }
+  let s = fs.readFileSync(idx,'utf8');
+  if(s.includes('GOALOS-SOVEREIGN-EXPERIENCE-HOME-RAIL')) return;
+  const rail = `<section class="section" data-goalos-module="GOALOS-SOVEREIGN-EXPERIENCE-HOME-RAIL"><div class="section-head"><div><p class="eyebrow">Sovereign experience stream</p><h2>Accepted proof becomes learning authority.</h2></div><p class="lead">Run the browser-local experience lab: accepted events update routing; quarantined events become warnings; rejected claims never become memory.</p></div><div class="cta"><a class="btn primary" href="sovereign-experience-stream-lab.html">Open experience stream</a><a class="btn" href="sovereign-experience-stream-demo-bundle.json">Inspect bundle</a></div></section>`;
+  const pos = s.indexOf('<footer');
+  s = pos >= 0 ? s.slice(0,pos)+rail+s.slice(pos) : s+rail;
+  fs.writeFileSync(idx,s);
 }
-
-function makeExperience(scenario) {
-  const base = [
-    ['mission-contract', 'Mission Contract', 'objective signed; criteria and boundaries fixed', 'accepted'],
-    ['tool-trace', 'Tool Trace', 'bounded tool decision recorded with policy root', 'accepted'],
-    ['proof-packet', 'Proof Packet', 'output hash, trace root, cost, latency, and signatures emitted', 'accepted'],
-    ['validator-pass', 'Validator Pass', 'evidence and claim boundary checked', 'accepted'],
-    ['reward-signal', 'Grounded Reward', 'cost, risk, reproducibility, and usefulness scored', 'accepted'],
-    ['suspicious-trace', 'Suspicious Trace', 'looks useful but replay is incomplete; quarantined', 'quarantined'],
-    ['unsupported-claim', 'Unsupported Claim', 'candidate makes a claim not carried by evidence', 'rejected'],
-    ['delayed-outcome', 'Delayed Outcome', 'later observation confirms durable usefulness', scenario.id === 'software' || scenario.id === 'defensive' ? 'accepted' : 'quarantined'],
-    ['policy-update', 'Policy Update', 'routing prior updates only from accepted replayable events', scenario.id === 'defensive' ? 'accepted' : 'accepted']
-  ];
-  const events = base.slice(0, scenario.events).map((e, i) => ({
-    eventId: `exp-${scenario.id}-${String(i + 1).padStart(2, '0')}`,
-    kind: e[0],
-    label: e[1],
-    observation: e[2],
-    verdict: e[3],
-    replayable: e[3] === 'accepted',
-    validator: e[3] === 'accepted' ? 'pass' : e[3] === 'quarantined' ? 'hold' : 'fail',
-    hash: hash(`${scenario.id}:${i}:${e.join('|')}`).slice(0, 16)
-  }));
-  return events;
-}
-
-const scenarioBundles = Object.fromEntries(config.scenarios.map(s => {
-  const events = makeExperience(s);
-  const accepted = events.filter(e => e.verdict === 'accepted').length;
-  const quarantined = events.filter(e => e.verdict === 'quarantined').length;
-  const rejected = events.filter(e => e.verdict === 'rejected').length;
-  const before = { verifiedWork: 61, proofDebt: 42, routingWaste: 29, falseAcceptanceRisk: 12, reusableOptions: 1 };
-  const after = {
-    verifiedWork: 61 + accepted * 5,
-    proofDebt: Math.max(7, 42 - accepted * 4 - rejected * 2),
-    routingWaste: Math.max(8, 29 - accepted * 2 - quarantined),
-    falseAcceptanceRisk: Math.max(1, 12 - rejected * 3 - quarantined),
-    reusableOptions: 1 + accepted
-  };
-  return [s.id, { scenario: s, events, before, after }];
-}));
-
-const mainBundle = {
-  package: config.package,
-  version: config.version,
-  generatedAt,
-  route: config.route,
-  claimBoundary: config.doctrine.claimBoundary,
-  doctrine: config.doctrine,
-  scenarios: scenarioBundles,
-  publicSafety: {
-    browserLocal: true,
-    noForms: true,
-    noUploads: true,
-    noWallets: true,
-    noCookies: true,
-    noTrackingPixels: true,
-    noValueMoved: true,
-    noPersonalData: true,
-    noConfidentialData: true
-  }
-};
-
-const rewardLedger = {
-  ledger: 'Grounded Reward Ledger',
-  generatedAt,
-  purpose: 'Separate validator acceptance from consequence measurement; update routing only from replayable, accepted experience.',
-  signals: [
-    { signal: 'validatorVerdict', weight: 0.24, source: 'synthetic validator pass / hold / fail' },
-    { signal: 'replayability', weight: 0.21, source: 'deterministic demo replay status' },
-    { signal: 'costReduction', weight: 0.16, source: 'synthetic cost ledger delta' },
-    { signal: 'riskReduction', weight: 0.18, source: 'synthetic risk ledger delta' },
-    { signal: 'futureReuse', weight: 0.21, source: 'temporal option admission' }
-  ],
-  rejectedSignals: [
-    'unreplayable persuasion',
-    'unsupported activity volume',
-    'private-only trace without public-safe proof commitment'
-  ],
-  hash: ''
-};
-rewardLedger.hash = hash(rewardLedger);
-
-const optionRegistry = {
-  registry: 'Temporal Option Registry',
-  generatedAt,
-  options: [
-    { id: 'option-proof-review-v1', initiation: 'AI deliverable requires acceptance', validator: 'evidence docket pass', termination: 'receipt emitted', riskClass: 'low-public-demo', status: 'active-demo' },
-    { id: 'option-claim-boundary-v1', initiation: 'claim exceeds support', validator: 'claim-boundary gate', termination: 'revise or reject', riskClass: 'claim-safety', status: 'active-demo' },
-    { id: 'option-replay-before-reuse-v1', initiation: 'experience proposed for reuse', validator: 'replay gate', termination: 'accepted or quarantined', riskClass: 'memory-integrity', status: 'active-demo' }
-  ],
-  admissionRule: 'A temporal option enters the registry only if replayable, validator-approved, claim-bounded, and safe to reuse.',
-  hash: ''
-};
-optionRegistry.hash = hash(optionRegistry);
-
-const policyCert = {
-  certificate: 'Router Policy Update Certificate',
-  generatedAt,
-  decision: 'promote-synthetic-router-prior',
-  reason: 'Accepted replayable experience improves verified-work estimate and reduces proof debt in this browser-local demonstration.',
-  gates: {
-    proofValid: true,
-    replayPass: true,
-    riskWithinBoundary: true,
-    quarantineRespected: true,
-    noPrivateData: true,
-    humanAuthorityPreserved: true
-  },
-  notClaimed: [
-    'external audit',
-    'production certification',
-    'empirical benchmark victory',
-    'value movement'
-  ],
-  hash: ''
-};
-policyCert.hash = hash(policyCert);
-
-const reanalyzeReport = {
-  report: 'Experience Reanalyze Report',
-  generatedAt,
-  summary: 'Historical synthetic events are re-read under the current proof gates. Accepted events may improve future routing; quarantined and rejected events remain warnings only.',
-  findings: [
-    { id: 'f-01', title: 'Activity is not proof', action: 'reject activity-only traces as policy-update material' },
-    { id: 'f-02', title: 'Replay changes authority', action: 'promote only replayable accepted experience' },
-    { id: 'f-03', title: 'Quarantine preserves learning without propagation', action: 'retain suspicious traces as warnings, not routing authority' },
-    { id: 'f-04', title: 'Temporal options reduce future proof debt', action: 'admit bounded macro-workflows with validators and termination rules' }
-  ],
-  hash: ''
-};
-reanalyzeReport.hash = hash(reanalyzeReport);
-
-fs.writeFileSync(path.join(site, 'sovereign-experience-stream-demo-bundle.json'), safeJson(mainBundle));
-fs.writeFileSync(path.join(site, 'grounded-reward-ledger.json'), safeJson(rewardLedger));
-fs.writeFileSync(path.join(site, 'temporal-option-registry.json'), safeJson(optionRegistry));
-fs.writeFileSync(path.join(site, 'router-policy-update-certificate.json'), safeJson(policyCert));
-fs.writeFileSync(path.join(site, 'experience-reanalyze-report.json'), safeJson(reanalyzeReport));
-
-const css = `
-:root{--bg:#030908;--panel:rgba(18,35,33,.72);--panel2:rgba(16,28,32,.88);--line:rgba(112,255,220,.35);--mint:#6bffd8;--aqua:#6de8ff;--cream:#fff8ea;--gold:#fff188;--violet:#bda7ff;--muted:#b9c9c8;--danger:#ff7d9b;--hold:#ffd56a;--ok:#72ffc8}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 72% 12%,rgba(28,130,103,.4),transparent 32%),radial-gradient(circle at 12% 82%,rgba(97,85,174,.26),transparent 30%),linear-gradient(180deg,#020707,#06120f 55%,#04080a);color:var(--cream);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;min-height:100vh;overflow-x:hidden}body:before{content:"";position:fixed;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:64px 64px;mask-image:linear-gradient(#000,transparent 88%);z-index:-2}body:after{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(circle at 50% 50%,transparent 0 40%,rgba(0,0,0,.46) 82%);z-index:-1}.v15-topbar{position:sticky;top:0;z-index:20;min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:22px;padding:16px 5vw;border-bottom:1px solid rgba(111,255,218,.22);background:rgba(3,8,9,.84);backdrop-filter:blur(18px)}.brand{display:flex;align-items:center;gap:13px;color:var(--cream);text-decoration:none;letter-spacing:.22em;font-size:12px}.brand small{display:block;color:var(--muted);font-size:10px;letter-spacing:.26em}.brand-orb{width:34px;height:34px;border:1px solid var(--mint);border-radius:12px;background:radial-gradient(circle,#e7ff9e 0 14%,#62fbdb 18% 35%,#132b31 40%);box-shadow:0 0 26px rgba(107,255,216,.65)}.v15-topbar nav{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:center}.v15-topbar nav a,.cta{color:var(--cream);text-decoration:none;font-weight:800;font-size:12px;padding:10px 12px;border-radius:999px}.v15-topbar nav a[aria-current=page],.v15-topbar nav a:hover{background:rgba(255,255,255,.12)}.cta{background:linear-gradient(135deg,#f8ff97,#5ef0ff);color:#03110f;box-shadow:0 16px 42px rgba(93,255,225,.23);white-space:nowrap}.wrap{width:min(1180px,92vw);margin:0 auto}.hero{padding:128px 0 78px;display:grid;grid-template-columns:minmax(0,1.02fr) minmax(360px,.98fr);gap:54px;align-items:center}.eyebrow{color:var(--mint);letter-spacing:.46em;font-size:12px;font-weight:900;text-transform:uppercase;display:flex;gap:14px;align-items:center}.eyebrow:before{content:"";width:34px;height:1px;background:var(--mint);box-shadow:0 0 16px var(--mint)}h1{font-size:clamp(54px,8vw,108px);line-height:.82;margin:24px 0 24px;letter-spacing:-.075em}h1 em{font-family:Georgia,serif;font-weight:500;font-style:italic;background:linear-gradient(90deg,#f7ff9d,#73ffd4,#6cecff,#b69cff);-webkit-background-clip:text;background-clip:text;color:transparent}.lead{font-size:clamp(18px,2vw,24px);line-height:1.45;color:#e8f5f3;max-width:720px}.callout{margin:26px 0;padding:18px;border:1px solid rgba(255,241,136,.32);background:linear-gradient(135deg,rgba(255,241,136,.14),rgba(107,255,216,.08));border-radius:22px;color:#fff6c3}.actions{display:flex;gap:12px;flex-wrap:wrap;margin:30px 0}.btn{border:0;border-radius:999px;padding:14px 20px;font-weight:950;cursor:pointer;color:#03110f;background:linear-gradient(135deg,#f6ff9d,#58efff);box-shadow:0 18px 42px rgba(93,255,222,.18);text-decoration:none;display:inline-flex;align-items:center;justify-content:center}.btn.secondary{background:rgba(255,255,255,.1);color:var(--cream);border:1px solid rgba(255,255,255,.18)}.pillrow{display:flex;gap:9px;flex-wrap:wrap}.pill{font-size:11px;letter-spacing:.14em;font-weight:900;color:#cafff3;border:1px solid rgba(107,255,216,.42);border-radius:999px;padding:8px 12px;background:rgba(3,16,16,.62)}.console{border:1px solid var(--line);border-radius:30px;background:linear-gradient(145deg,rgba(95,130,114,.3),rgba(7,18,19,.92));padding:24px;box-shadow:0 28px 80px rgba(0,0,0,.45),inset 0 0 80px rgba(111,255,218,.06);position:relative;overflow:hidden}.console:before{content:"";position:absolute;width:260px;height:260px;border-radius:50%;right:-80px;top:-80px;background:radial-gradient(circle,rgba(107,255,216,.36),transparent 62%);filter:blur(10px)}.console-head{display:flex;justify-content:space-between;align-items:center;gap:20px;color:var(--mint);font-size:11px;font-weight:950;letter-spacing:.28em;text-transform:uppercase;position:relative}.experience-orbit{position:relative;height:370px;border:1px solid rgba(255,255,255,.1);border-radius:24px;background:radial-gradient(circle at 52% 52%,rgba(107,255,216,.25),rgba(7,15,16,.8) 36%,rgba(1,5,7,.95) 70%);margin:22px 0;overflow:hidden}.experience-orbit .core{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:132px;height:132px;border-radius:50%;display:grid;place-items:center;text-align:center;color:#041210;font-weight:950;letter-spacing:.15em;background:radial-gradient(circle,#fff783 0 9%,#6bffd8 34%,#75ddff 74%,#182835 100%);box-shadow:0 0 60px rgba(107,255,216,.55)}.ring{position:absolute;inset:58px;border-radius:50%;border:1px dashed rgba(107,255,216,.28);animation:spin 28s linear infinite}.ring.two{inset:86px;border-color:rgba(255,241,136,.25);animation-duration:42s;animation-direction:reverse}.node{position:absolute;width:118px;min-height:56px;border:1px solid rgba(107,255,216,.35);border-radius:16px;background:rgba(3,13,15,.82);display:grid;place-items:center;text-align:center;font-size:12px;font-weight:900;padding:10px;box-shadow:0 14px 38px rgba(0,0,0,.25)}.node small{display:block;color:var(--muted);font-size:10px;font-weight:700;margin-top:4px}.n1{left:28px;top:50px}.n2{right:32px;top:52px}.n3{left:35px;bottom:56px}.n4{right:36px;bottom:58px}.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.metric{border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:14px;background:rgba(255,255,255,.06)}.metric strong{font-size:28px;color:var(--gold);display:block}.metric span{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:900}.section{padding:72px 0}.section-title{font-size:clamp(38px,5vw,72px);line-height:.9;letter-spacing:-.06em;margin:14px 0 18px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card,.lab-panel{border:1px solid rgba(255,255,255,.14);border-radius:26px;background:linear-gradient(145deg,rgba(255,255,255,.09),rgba(255,255,255,.035));padding:24px;box-shadow:0 18px 50px rgba(0,0,0,.28)}.card h3,.lab-panel h3{font-size:28px;line-height:1;margin:0 0 12px;letter-spacing:-.04em}.card p,.lab-panel p{color:var(--muted);line-height:1.58}.lab{display:grid;grid-template-columns:.72fr 1.28fr;gap:22px;align-items:start}.scenario-list{display:grid;gap:10px}.scenario{width:100%;text-align:left;border:1px solid rgba(107,255,216,.28);border-radius:18px;background:rgba(3,15,16,.75);color:var(--cream);padding:16px;cursor:pointer}.scenario.active,.scenario:hover{border-color:var(--mint);box-shadow:0 0 0 1px rgba(107,255,216,.3),0 18px 48px rgba(107,255,216,.08)}.scenario strong{display:block;font-size:17px}.scenario small{display:block;color:var(--muted);margin-top:6px}.stagebar{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:18px}.stage{border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:12px;min-height:76px;background:rgba(0,0,0,.22);font-weight:900;color:var(--muted)}.stage.active{border-color:var(--mint);color:var(--cream);box-shadow:0 0 34px rgba(107,255,216,.12)}.stage.done{border-color:rgba(114,255,200,.45);color:var(--ok)}.trace{height:318px;overflow:auto;border:1px solid rgba(107,255,216,.24);border-radius:20px;background:rgba(0,5,7,.68);padding:16px;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:13px;line-height:1.58}.trace .ok{color:var(--ok)}.trace .hold{color:var(--hold)}.trace .bad{color:var(--danger)}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}.tab{border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.08);color:var(--cream);border-radius:999px;padding:10px 14px;cursor:pointer;font-weight:900}.tab.active{border-color:var(--mint);background:rgba(107,255,216,.12)}pre{white-space:pre-wrap;word-break:break-word;background:rgba(0,5,7,.72);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:16px;color:#dffff7;min-height:220px;max-height:360px;overflow:auto}.comparison{display:grid;grid-template-columns:1fr 1fr;gap:18px}.scorecard{border:1px solid rgba(107,255,216,.22);border-radius:22px;padding:20px;background:rgba(0,0,0,.22)}.scoreline{display:flex;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.08);padding:10px 0;color:var(--muted)}.scoreline strong{color:var(--cream)}.v15-footer{border-top:1px solid rgba(107,255,216,.18);margin-top:72px;padding:46px 5vw 72px;background:rgba(1,5,7,.72);display:flex;justify-content:space-between;gap:30px;align-items:flex-start}.v15-footer p{color:var(--muted)}.v15-footer nav{display:flex;gap:18px;flex-wrap:wrap;justify-content:flex-end}.v15-footer a{color:#b9fff1;text-decoration:none;font-weight:800}.public-rule{width:min(920px,92vw);margin:0 auto 42px;border:1px solid rgba(107,255,216,.35);border-radius:999px;padding:12px 14px;display:flex;gap:12px;align-items:center;justify-content:center;background:rgba(0,6,7,.86);box-shadow:0 12px 38px rgba(0,0,0,.35)}.public-rule strong{color:var(--gold)}.public-rule span{color:var(--muted);font-size:13px}.public-rule a{background:linear-gradient(135deg,#f6ff9d,#76ffe6);color:#03110f;text-decoration:none;font-weight:900;border-radius:999px;padding:9px 13px}.mini{font-size:12px;color:var(--muted);line-height:1.5}.home-rail{margin:72px auto 0;width:min(980px,92vw);border:1px solid rgba(107,255,216,.35);border-radius:28px;background:linear-gradient(145deg,rgba(107,255,216,.12),rgba(255,255,255,.035));padding:32px}.home-rail h2{font-size:clamp(34px,5vw,72px);line-height:.92;letter-spacing:-.06em;margin:10px 0}.home-rail p{max-width:780px;color:var(--muted);line-height:1.55}@keyframes spin{to{transform:rotate(360deg)}}@media(max-width:900px){.v15-topbar{position:relative;align-items:flex-start;flex-direction:column}.hero,.lab,.comparison{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.metrics,.stagebar{grid-template-columns:repeat(2,1fr)}.experience-orbit{height:420px}.node{position:relative;left:auto!important;right:auto!important;top:auto!important;bottom:auto!important;margin:10px;width:100%}.experience-orbit{display:grid;grid-template-columns:1fr;gap:8px;padding:160px 16px 16px}.v15-footer{flex-direction:column}.v15-footer nav{justify-content:flex-start}.public-rule{border-radius:24px;flex-direction:column;text-align:center}h1{font-size:56px}}`;
-fs.writeFileSync(path.join(site, 'assets', 'sovereign-experience-v15.css'), css);
-
-const js = `
-(() => {
-  const DATA = ${JSON.stringify(mainBundle)};
-  const state = { scenario: 'research', running: false, lastPanel: 'docket' };
-  const stages = ['Capture', 'Replay', 'Reward', 'Reanalyze', 'Promote'];
-  const $ = (s) => document.querySelector(s);
-  const $$ = (s) => Array.from(document.querySelectorAll(s));
-  const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
-  function scenarioData(){ return DATA.scenarios[state.scenario]; }
-  function setScenario(id){ state.scenario = id; $$('.scenario').forEach(b => b.classList.toggle('active', b.dataset.scenario === id)); resetLab(); }
-  function metric(id, value){ const el = document.querySelector('[data-metric="'+id+'"] strong'); if(el) el.textContent = value; }
-  function renderMetrics(bundle){ metric('verified', bundle.before.verifiedWork); metric('debt', bundle.before.proofDebt); metric('waste', bundle.before.routingWaste); metric('options', bundle.before.reusableOptions); }
-  function line(text, cls=''){ const t = $('#trace'); const div = document.createElement('div'); div.className = cls; div.textContent = text; t.appendChild(div); t.scrollTop = t.scrollHeight; }
-  function setStage(i){ $$('.stage').forEach((el, idx) => { el.classList.toggle('active', idx === i); el.classList.toggle('done', idx < i); }); }
-  function panelObject(){ const b = scenarioData(); const accepted = b.events.filter(e=>e.verdict==='accepted'); const quarantined = b.events.filter(e=>e.verdict==='quarantined'); const rejected = b.events.filter(e=>e.verdict==='rejected'); const panels = {
-    docket: { title:'Evidence Docket', data:{ mission:b.scenario.label, objective:b.scenario.objective, claims:['Accepted experience may update future routing.','Quarantined experience is retained as warning, not authority.','Rejected experience cannot become memory.'], events:b.events.map(e=>({eventId:e.eventId,label:e.label,verdict:e.verdict,hash:e.hash})) } },
-    reward: { title:'Grounded Reward Ledger', data:{ accepted:accepted.length, quarantined:quarantined.length, rejected:rejected.length, before:b.before, after:b.after, rewardRule:'Validator acceptance is not enough; replay, risk, cost, and future reuse decide learning authority.' } },
-    options: { title:'Temporal Option Registry', data:{ admittedOptions: accepted.slice(0,4).map((e,i)=>({optionId:'option-'+b.scenario.id+'-'+(i+1), sourceEvent:e.eventId, validator:'replay-and-boundary-pass', termination:'receipt-or-escalation'})), rejectedAsOptions: rejected.map(e=>e.eventId) } },
-    policy: { title:'Policy Update Certificate', data:{ decision:'promote synthetic routing prior', source:'accepted replayable events only', hardGates:{ replayPass:true, riskBoundary:true, noPrivateData:true, humanAuthority:true }, blocked: quarantined.concat(rejected).map(e=>({eventId:e.eventId,reason:e.verdict==='quarantined'?'held for replay':'unsupported claim'})) } }
-  };
-  return panels[state.lastPanel] || panels.docket;
-  }
-  function renderPanel(name){ state.lastPanel = name; $$('.tab').forEach(t=>t.classList.toggle('active', t.dataset.panel===name)); const p = panelObject(); $('#panelTitle').textContent = p.title; $('#panelJson').textContent = JSON.stringify(p.data, null, 2); }
-  function resetLab(){ state.running = false; const b=scenarioData(); $('#trace').innerHTML=''; line('System ready. Select a scenario or launch the sovereign experience stream.'); setStage(-1); renderMetrics(b); renderPanel(state.lastPanel); }
-  async function run(){ if(state.running) return; state.running = true; const b=scenarioData(); $('#trace').innerHTML=''; renderMetrics(b); for(let i=0;i<stages.length;i++){ setStage(i); line('['+stages[i]+'] gate opened.'); await sleep(360); if(i===0){ for(const e of b.events){ line('capture '+e.eventId+' · '+e.label+' · '+e.hash, e.verdict==='accepted'?'ok':e.verdict==='quarantined'?'hold':'bad'); await sleep(170); } }
-      if(i===1){ for(const e of b.events){ line((e.replayable?'replay pass ':'replay hold ') + e.eventId, e.replayable?'ok':e.verdict==='quarantined'?'hold':'bad'); await sleep(140); } }
-      if(i===2){ line('grounded reward ledger updated: validator verdict separated from consequence signal.', 'ok'); await sleep(360); }
-      if(i===3){ line('reanalyze: accepted events become learning material; held events become warnings.', 'hold'); await sleep(360); }
-      if(i===4){ line('policy certificate emitted: future routing may use accepted replayable experience only.', 'ok'); await sleep(360); } }
-    setStage(5); metric('verified', b.after.verifiedWork); metric('debt', b.after.proofDebt); metric('waste', b.after.routingWaste); metric('options', b.after.reusableOptions); renderPanel('policy'); line('DONE: verified experience stream sealed. No user data. No value moved.', 'ok'); state.running=false; }
-  function download(){ const b=scenarioData(); const blob = new Blob([JSON.stringify({package:DATA.package, generatedAt:new Date().toISOString(), scenario:b.scenario, events:b.events, before:b.before, after:b.after, claimBoundary:DATA.claimBoundary}, null, 2)], { type:'application/json' }); const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'goalos-sovereign-experience-'+state.scenario+'.json'; document.body.appendChild(a); a.click(); URL.revokeObjectURL(a.href); a.remove(); }
-  document.addEventListener('click', (e)=>{ const s=e.target.closest('[data-scenario]'); if(s) setScenario(s.dataset.scenario); const p=e.target.closest('[data-panel]'); if(p) renderPanel(p.dataset.panel); if(e.target.closest('[data-run]')) run(); if(e.target.closest('[data-download]')) download(); if(e.target.closest('[data-reanalyze]')) { renderPanel('reward'); line('reanalyze requested: reading accepted, held, and rejected synthetic events.', 'hold'); } });
-  document.addEventListener('DOMContentLoaded', resetLab);
-})();`;
-fs.writeFileSync(path.join(site, 'assets', 'sovereign-experience-v15.js'), js);
-
-const page = `<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>GoalOS Signoff Pro — Sovereign Experience Stream Lab</title>
-<meta name="description" content="A browser-local GoalOS demo showing how replayable accepted evidence becomes governed experience, reward ledgers, temporal options, and safer future routing." />
-<link rel="stylesheet" href="assets/sovereign-experience-v15.css" />
-</head>
-<body>
-${nav('experience')}
-<main>
-  <section class="hero wrap">
-    <div>
-      <div class="eyebrow">Sovereign experience stream</div>
-      <h1>Evidence becomes <em>training authority</em> only after proof.</h1>
-      <p class="lead">GoalOS does not let every trace become memory. Accepted, replayable, claim-bound events may improve future routing. Suspicious events are quarantined. Unsupported events are rejected.</p>
-      <div class="callout"><strong>The next core idea:</strong> evidence bundles are not only audit records — they become governed experience streams for safer future work.</div>
-      <div class="actions">
-        <button class="btn" data-run>Run experience stream</button>
-        <button class="btn secondary" data-reanalyze>Reanalyze prior traces</button>
-        <button class="btn secondary" data-download>Download demo bundle</button>
-      </div>
-      <div class="pillrow"><span class="pill">Browser-local</span><span class="pill">No user text entry</span><span class="pill">No upload</span><span class="pill">No wallet</span><span class="pill">No value moved</span></div>
-    </div>
-    <aside class="console" aria-label="Sovereign experience console">
-      <div class="console-head"><span>Experience control plane</span><span>Review mode</span></div>
-      <div class="experience-orbit">
-        <div class="ring"></div><div class="ring two"></div>
-        <div class="core">GOALOS<br/>EXPERIENCE</div>
-        <div class="node n1">Evidence Event<small>state · action · observation</small></div>
-        <div class="node n2">Replay Gate<small>accepted or held</small></div>
-        <div class="node n3">Grounded Reward Ledger<small>consequence separated</small></div>
-        <div class="node n4">Policy Update<small>only after proof</small></div>
-      </div>
-      <div class="metrics">
-        <div class="metric" data-metric="verified"><strong>61</strong><span>verified work</span></div>
-        <div class="metric" data-metric="debt"><strong>42</strong><span>proof debt</span></div>
-        <div class="metric" data-metric="waste"><strong>29</strong><span>routing waste</span></div>
-        <div class="metric" data-metric="options"><strong>1</strong><span>temporal options</span></div>
-      </div>
-    </aside>
-  </section>
-
-  <section class="section wrap">
-    <div class="eyebrow">The missing bridge</div>
-    <h2 class="section-title">From proof record to governed learning.</h2>
-    <div class="grid">
-      <article class="card"><h3>Evidence event</h3><p>Each synthetic event records state, action, observation, validation, cost, risk, and memory effect. Output alone is not enough.</p></article>
-      <article class="card"><h3>Replay before reuse</h3><p>Replayable accepted experience can inform future routing. Held events become warnings. Rejected events cannot update policy.</p></article>
-      <article class="card"><h3>Temporal option</h3><p>Repeated accepted patterns become bounded macro-workflows with initiation conditions, validators, termination rules, and risk class.</p></article>
-    </div>
-  </section>
-
-  <section class="section wrap" id="lab">
-    <div class="eyebrow">Browser-local lab</div>
-    <h2 class="section-title">Watch GoalOS choose what the next mission is allowed to learn from.</h2>
-    <div class="lab">
-      <aside class="lab-panel">
-        <h3>Choose a public-safe scenario</h3>
-        <p>No information is submitted. These are synthetic scenarios already inside the page.</p>
-        <div class="scenario-list">
-          ${config.scenarios.map((s,i)=>`<button class="scenario ${i===0?'active':''}" data-scenario="${s.id}"><strong>${s.label}</strong><small>${s.objective}</small></button>`).join('')}
-        </div>
-        <div class="actions"><button class="btn" data-run>Run stream</button><button class="btn secondary" data-download>Download</button></div>
-      </aside>
-      <section class="lab-panel">
-        <div class="stagebar">${['Capture','Replay','Reward','Reanalyze','Promote'].map((s,i)=>`<div class="stage"><small>0${i+1}</small><br/>${s}</div>`).join('')}</div>
-        <div class="trace" id="trace" aria-live="polite"></div>
-        <div class="tabs"><button class="tab active" data-panel="docket">Docket</button><button class="tab" data-panel="reward">Grounded reward ledger</button><button class="tab" data-panel="options">Temporal Option Registry</button><button class="tab" data-panel="policy">Policy certificate</button></div>
-        <h3 id="panelTitle">Evidence Docket</h3>
-        <pre id="panelJson"></pre>
-      </section>
-    </div>
-  </section>
-
-  <section class="section wrap">
-    <div class="eyebrow">Before / after</div>
-    <h2 class="section-title">The institution improves by refusing bad memory.</h2>
-    <div class="comparison">
-      <div class="scorecard"><h3>Without GoalOS</h3><div class="scoreline"><span>Activity traces</span><strong>many</strong></div><div class="scoreline"><span>Replay authority</span><strong>unclear</strong></div><div class="scoreline"><span>Proof debt</span><strong>accumulates</strong></div><div class="scoreline"><span>Memory risk</span><strong>high</strong></div><p>Everything persuasive can accidentally influence the next run.</p></div>
-      <div class="scorecard"><h3>With GoalOS</h3><div class="scoreline"><span>Accepted experience</span><strong>replayable</strong></div><div class="scoreline"><span>Quarantine</span><strong>preserved</strong></div><div class="scoreline"><span>Policy update</span><strong>certified</strong></div><div class="scoreline"><span>Future routing</span><strong>bounded</strong></div><p>Only proof-carrying experience becomes learning authority.</p></div>
-    </div>
-  </section>
-
-  <section class="section wrap">
-    <div class="eyebrow">Public artifacts</div>
-    <h2 class="section-title">Inspect the experience packet.</h2>
-    <div class="grid">
-      <a class="card" href="sovereign-experience-stream-demo-bundle.json"><h3>Experience bundle</h3><p>Full synthetic scenario set, events, metrics, and public-safety boundary.</p></a>
-      <a class="card" href="grounded-reward-ledger.json"><h3>Grounded Reward Ledger</h3><p>Signals, weights, and rejected signals for guarded routing updates.</p></a>
-      <a class="card" href="temporal-option-registry.json"><h3>Temporal Option Registry</h3><p>Reusable macro-workflows admitted only after replay and validation.</p></a>
-      <a class="card" href="router-policy-update-certificate.json"><h3>Policy Update Certificate</h3><p>Certificate showing hard gates before synthetic routing promotion.</p></a>
-      <a class="card" href="experience-reanalyze-report.json"><h3>Reanalyze report</h3><p>How prior traces are reread as accepted experience, warnings, or rejects.</p></a>
-      <a class="card" href="capability-compounding-lab.html"><h3>Next: compounding</h3><p>See how accepted proof becomes reusable capability across missions.</p></a>
-    </div>
-  </section>
-</main>
-${footer('experience')}
-<script src="assets/sovereign-experience-v15.js"></script>
-</body>
-</html>`;
-fs.writeFileSync(path.join(site, config.route), page);
-// Stable alias for users who expect the shorter lab URL.
-fs.writeFileSync(path.join(site, 'sovereign-experience-lab.html'), page.replaceAll('sovereign-experience-stream-lab.html', 'sovereign-experience-lab.html'));
-
-function upsertHomeRail() {
-  const indexPath = path.join(site, 'index.html');
-  if (!fs.existsSync(indexPath)) return;
-  let html = fs.readFileSync(indexPath, 'utf8');
-  const rail = `
-<!-- GOALOS-SOVEREIGN-EXPERIENCE-HOME-RAIL -->
-<section class="home-rail" id="sovereign-experience-stream">
-  <div class="eyebrow">Sovereign experience stream</div>
-  <h2>Only accepted experience teaches the institution.</h2>
-  <p>Run a browser-local lab showing how GoalOS turns proof into governed experience: accepted events may update future routing, suspicious events are quarantined, and unsupported claims never become memory.</p>
-  <div class="actions"><a class="btn" href="sovereign-experience-stream-lab.html">Open Experience Stream Lab</a><a class="btn secondary" href="grounded-reward-ledger.json">Inspect reward ledger</a><a class="btn secondary" href="temporal-option-registry.json">View temporal options</a></div>
-  <div class="pillrow"><span class="pill">No user text entry</span><span class="pill">Replay before reuse</span><span class="pill">Quarantine before learning</span><span class="pill">Policy update certificate</span></div>
-</section>`;
-  html = html.replace(/<!-- GOALOS-SOVEREIGN-EXPERIENCE-HOME-RAIL -->[\s\S]*?(?=<footer|<div class="public-rule"|<\/main>|<\/body>)/, '');
-  const anchors = ['<footer', '<div class="public-rule"', '</main>', '</body>'];
-  let inserted = false;
-  for (const anchor of anchors) {
-    const idx = html.indexOf(anchor);
-    if (idx !== -1) { html = html.slice(0, idx) + rail + '\n' + html.slice(idx); inserted = true; break; }
-  }
-  if (!inserted) html += rail;
-  // Ensure stylesheet is present on homepage.
-  if (!html.includes('sovereign-experience-v15.css')) {
-    html = html.replace('</head>', '<link rel="stylesheet" href="assets/sovereign-experience-v15.css" /></head>');
-  }
-  fs.writeFileSync(indexPath, html);
-}
-upsertHomeRail();
-
-console.log(`GoalOS Sovereign Experience Stream Lab generated: ${config.route}`);
-console.log(`Artifacts: ${config.publicArtifacts.join(', ')}`);
+injectHomeRail();
+console.log(`GoalOS Sovereign Experience Stream Lab v15.2 generated ${cfg.route} and ${cfg.aliasRoute}`);

@@ -1,43 +1,46 @@
 {
   "package": "GoalOS Signoff Pro — Sovereign Experience Stream Lab",
-  "version": "15.0.0",
+  "version": "15.2.0-enhanced-final",
   "route": "sovereign-experience-stream-lab.html",
-  "publicArtifacts": [
-    "sovereign-experience-stream-demo-bundle.json",
-    "grounded-reward-ledger.json",
-    "temporal-option-registry.json",
-    "router-policy-update-certificate.json",
-    "experience-reanalyze-report.json"
-  ],
+  "aliasRoute": "sovereign-experience-lab.html",
+  "baseUrl": "https://montrealai.github.io/goalos-signoff-pro/",
   "doctrine": {
-    "thesis": "Validated proof becomes governed experience; governed experience can update routing, memory, reward ledgers, and temporal options only after replay and validation.",
-    "claimBoundary": "Browser-local synthetic public demonstration only. No user data, no uploads, no wallet, no payments, no value movement, no external audit claim, no empirical SOTA claim, and no live settlement claim.",
-    "law": "Output is not memory. Activity is not learning. Replayable proof-cleared experience is learning authority."
+    "headline": "Experience becomes authority only after proof.",
+    "subhead": "GoalOS turns accepted proof into governed experience, governed experience into temporal options, and temporal options into safer future routing.",
+    "claimBoundary": "Browser-local synthetic demonstration. No external audit, no production certification, no empirical SOTA claim, no live settlement, no staking, no value movement, no user data."
   },
   "scenarios": [
     {
       "id": "research",
       "label": "AI research acceptance",
-      "objective": "Convert an AI-generated research brief into a governed decision state.",
-      "events": 8
+      "objective": "Decide whether a synthetic research brief deserves institutional acceptance.",
+      "missionClass": "evidence review",
+      "events": 10,
+      "hardness": 3
     },
     {
       "id": "software",
       "label": "Software delivery review",
-      "objective": "Review an AI-delivered software milestone for evidence, tests, and rollback readiness.",
-      "events": 9
+      "objective": "Review a synthetic automation delivery for replayability, risk, and acceptance readiness.",
+      "missionClass": "delivery acceptance",
+      "events": 11,
+      "hardness": 4
     },
     {
       "id": "defensive",
       "label": "Defensive readiness packet",
-      "objective": "Package a public-safe defensive readiness assessment into replayable proof.",
-      "events": 9
+      "objective": "Convert a synthetic defensive readiness check into governed experience without unsafe action.",
+      "missionClass": "defensive review",
+      "events": 12,
+      "hardness": 5
     },
     {
       "id": "policy",
       "label": "Policy option proof",
-      "objective": "Turn a policy option memo into traceable claims, uncertainties, risks, and a governed decision state.",
-      "events": 8
+      "objective": "Turn policy options into claim-bounded, replayable evidence states.",
+      "missionClass": "policy proof",
+      "events": 10,
+      "hardness": 4
     }
   ]
 }
