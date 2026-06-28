@@ -2,34 +2,25 @@ name: Browser Beta Demo Autopilot
 
 on:
   workflow_dispatch:
-    inputs:
-      scenario:
-        description: 'Choose a public-safe synthetic demo scenario'
-        required: true
-        default: 'AI research report'
-        type: choice
-        options:
-          - AI research report
-          - Automation delivery
-          - Grant milestone
-          - Vendor review
 
 permissions:
   contents: read
 
 jobs:
-  demo:
-    name: Generate downloadable browser beta demo bundle
+  generate-demo:
+    name: Generate browser beta demo bundle
     runs-on: ubuntu-latest
-    env:
-      GOALOS_DEMO_SCENARIO: ${{ inputs.scenario }}
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
-      - name: Generate demo bundle
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Generate demo artifact bundle
         run: node scripts/generate-browser-beta-demo-bundle.mjs
-      - name: Upload demo bundle
+      - name: Upload demo artifact
         uses: actions/upload-artifact@v4
         with:
           name: goalos-browser-beta-demo-bundle
-          path: artifacts/browser-beta-demo
+          path: artifacts/proof-gated-coordination-demo

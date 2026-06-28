@@ -1,0 +1,41 @@
+name: Proof-Gated Coordination Demo Autopilot
+
+on:
+  workflow_dispatch:
+    inputs:
+      scenario:
+        description: 'Demo scenario'
+        required: true
+        default: 'research-synthesis'
+        type: choice
+        options:
+          - research-synthesis
+          - software-delivery
+          - grant-milestone
+          - vendor-review
+          - policy-option
+          - security-readiness
+
+permissions:
+  contents: read
+
+jobs:
+  generate-demo:
+    name: Generate proof-gated coordination demo bundle
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Generate demo artifact bundle
+        env:
+          SCENARIO: ${{ inputs.scenario }}
+        run: node scripts/generate-proof-gated-coordination-demo-bundle.mjs
+      - name: Upload demo artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: goalos-proof-gated-coordination-demo
+          path: artifacts/proof-gated-coordination-demo

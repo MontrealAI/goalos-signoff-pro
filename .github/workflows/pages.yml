@@ -3,19 +3,19 @@ name: Deploy GoalOS Signoff Pro production site
 on:
   workflow_dispatch:
   push:
-    branches: [main]
+    branches: [ main ]
     paths:
       - 'config/goalos-production-site.json'
+      - 'config/proof-gated-coordination-demo.json'
       - 'scripts/build-goalos-production-site.mjs'
       - 'scripts/verify-goalos-production-site.mjs'
       - 'scripts/verify-website-quality.mjs'
-      - 'scripts/generate-browser-beta-demo-bundle.mjs'
       - '.github/workflows/pages.yml'
-      - '.github/workflows/website-quality.yml'
-      - '.github/workflows/browser-beta-demo.yml'
 
 permissions:
   contents: read
+  pages: write
+  id-token: write
 
 concurrency:
   group: pages
@@ -28,22 +28,24 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
-      - name: Build canonical GoalOS production site
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Build canonical public site
         run: node scripts/build-goalos-production-site.mjs
-      - name: Verify canonical production site
+      - name: Verify production site
         run: node scripts/verify-goalos-production-site.mjs
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: site
-
   deploy:
     name: Deploy to GitHub Pages
-    needs: build
     runs-on: ubuntu-latest
-    permissions:
-      pages: write
-      id-token: write
+    needs: build
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
