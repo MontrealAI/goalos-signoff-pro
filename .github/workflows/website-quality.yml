@@ -3,66 +3,32 @@ name: Website quality gate
 on:
   workflow_dispatch:
   pull_request:
-    branches: [main]
   push:
     branches: [main]
     paths:
-      - "scripts/**"
-      - "config/**"
-      - ".github/workflows/website-quality.yml"
+      - 'config/goalos-production-site.json'
+      - 'scripts/build-goalos-production-site.mjs'
+      - 'scripts/verify-goalos-production-site.mjs'
+      - 'scripts/verify-website-quality.mjs'
+      - '.github/workflows/website-quality.yml'
 
 permissions:
   contents: read
 
 jobs:
-  verify:
+  quality:
     name: Verify generated public site quality
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
-        uses: actions/checkout@v7
-      - name: Set up Node.js
-        uses: actions/setup-node@v6
-        with:
-          node-version: 24
+        uses: actions/checkout@v4
       - name: Build site preview
-        shell: bash
-        run: |
-          set -euo pipefail
-          mkdir -p site
-          for script in \
-            scripts/build-asi-apex-v6-pages.mjs \
-            scripts/build-sovereign-machine-economy-pages.mjs \
-            scripts/build-user-activation-pages.mjs \
-            scripts/build-legal-zero-data-pages.mjs \
-            scripts/build-agialpha-token-boundary-pages.mjs \
-            scripts/build-user-delight-pages.mjs \
-            scripts/build-browser-beta-experience.mjs \
-            scripts/build-holy-grail-browser-demo.mjs \
-            scripts/build-multi-agent-coordination-demo.mjs
-          do
-            if [ -f "$script" ]; then node "$script"; fi
-          done
-          if [ -f scripts/finalize-browser-beta-production.mjs ]; then node scripts/finalize-browser-beta-production.mjs; fi
-          node scripts/finalize-public-site-boundaries.mjs
+        run: node scripts/build-goalos-production-site.mjs
       - name: Run quality gates
-        shell: bash
-        run: |
-          set -euo pipefail
-          for script in \
-            scripts/verify-website-quality.mjs \
-            scripts/verify-legal-zero-data-posture.mjs \
-            scripts/verify-agialpha-token-boundary.mjs \
-            scripts/verify-public-artifact-safety.mjs \
-            scripts/verify-user-delight-autopilot.mjs \
-            scripts/verify-holy-grail-browser-demo.mjs \
-            scripts/verify-multi-agent-coordination-demo.mjs \
-            scripts/verify-browser-beta-production.mjs
-          do
-            if [ -f "$script" ]; then node "$script"; fi
-          done
+        run: node scripts/verify-website-quality.mjs
       - name: Upload site preview
-        uses: actions/upload-artifact@v7
+        if: always()
+        uses: actions/upload-artifact@v4
         with:
-          name: goalos-public-site-preview
+          name: goalos-site-preview
           path: site

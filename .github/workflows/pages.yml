@@ -1,14 +1,18 @@
 name: Deploy GoalOS Signoff Pro production site
 
 on:
+  workflow_dispatch:
   push:
     branches: [main]
     paths:
-      - "scripts/**"
-      - "config/**"
-      - "docs/**"
-      - ".github/workflows/pages.yml"
-  workflow_dispatch:
+      - 'config/goalos-production-site.json'
+      - 'scripts/build-goalos-production-site.mjs'
+      - 'scripts/verify-goalos-production-site.mjs'
+      - 'scripts/verify-website-quality.mjs'
+      - 'scripts/generate-browser-beta-demo-bundle.mjs'
+      - '.github/workflows/pages.yml'
+      - '.github/workflows/website-quality.yml'
+      - '.github/workflows/browser-beta-demo.yml'
 
 permissions:
   contents: read
@@ -19,57 +23,17 @@ concurrency:
 
 jobs:
   build:
-    name: Build and verify public production site
+    name: Build and verify canonical production site
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
-        uses: actions/checkout@v7
-      - name: Set up Node.js
-        uses: actions/setup-node@v6
-        with:
-          node-version: 24
-      - name: Build public website layers
-        shell: bash
-        run: |
-          set -euo pipefail
-          mkdir -p site
-          for script in \
-            scripts/build-asi-apex-v6-pages.mjs \
-            scripts/build-sovereign-machine-economy-pages.mjs \
-            scripts/build-user-activation-pages.mjs \
-            scripts/build-legal-zero-data-pages.mjs \
-            scripts/build-agialpha-token-boundary-pages.mjs \
-            scripts/build-user-delight-pages.mjs \
-            scripts/build-browser-beta-experience.mjs \
-            scripts/build-holy-grail-browser-demo.mjs \
-            scripts/build-multi-agent-coordination-demo.mjs
-          do
-            if [ -f "$script" ]; then node "$script"; fi
-          done
-          if [ -f scripts/finalize-browser-beta-production.mjs ]; then node scripts/finalize-browser-beta-production.mjs; fi
-          node scripts/finalize-public-site-boundaries.mjs
-      - name: Verify production quality gates
-        shell: bash
-        run: |
-          set -euo pipefail
-          for script in \
-            scripts/verify-sovereign-machine-economy.mjs \
-            scripts/verify-capability-parity.mjs \
-            scripts/verify-website-quality.mjs \
-            scripts/verify-legal-zero-data-posture.mjs \
-            scripts/verify-agialpha-token-boundary.mjs \
-            scripts/verify-public-artifact-safety.mjs \
-            scripts/verify-user-delight-autopilot.mjs \
-            scripts/verify-holy-grail-browser-demo.mjs \
-            scripts/verify-multi-agent-coordination-demo.mjs \
-            scripts/verify-browser-beta-production.mjs
-          do
-            if [ -f "$script" ]; then node "$script"; fi
-          done
-      - name: Configure GitHub Pages
-        uses: actions/configure-pages@v5
+        uses: actions/checkout@v4
+      - name: Build canonical GoalOS production site
+        run: node scripts/build-goalos-production-site.mjs
+      - name: Verify canonical production site
+        run: node scripts/verify-goalos-production-site.mjs
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v5
+        uses: actions/upload-pages-artifact@v3
         with:
           path: site
 
@@ -86,4 +50,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v5
+        uses: actions/deploy-pages@v4
