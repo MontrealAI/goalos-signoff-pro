@@ -1,4 +1,4 @@
-name: Browser Beta Demo Autopilot
+name: Mission 001 Benchmark Reproducibility Packet
 
 on:
   workflow_dispatch:
@@ -22,5 +22,5 @@ jobs:
       - name: Upload packet artifact
         uses: actions/upload-artifact@v7
         with:
-          name: goalos-browser-beta-demo-bundle
+          name: goalos-mission-001-benchmark-reproducibility-packet
           path: artifacts/mission-001-benchmark-reproducibility-packet

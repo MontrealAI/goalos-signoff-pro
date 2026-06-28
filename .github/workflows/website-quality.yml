@@ -6,25 +6,22 @@ on:
   push:
     branches: [ main ]
     paths:
-      - 'config/goalos-production-site.json'
-      - 'config/proof-gated-coordination-demo.json'
-      - 'scripts/build-goalos-production-site.mjs'
-      - 'scripts/verify-goalos-production-site.mjs'
-      - 'scripts/verify-website-quality.mjs'
+      - 'config/**'
+      - 'scripts/**'
       - '.github/workflows/website-quality.yml'
 
 permissions:
   contents: read
 
 jobs:
-  quality:
+  verify:
     name: Verify generated public site quality
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: '24'
       - name: Build site preview
@@ -32,7 +29,7 @@ jobs:
       - name: Run quality gate
         run: node scripts/verify-website-quality.mjs
       - name: Upload site preview
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
-          name: goalos-production-site-preview
+          name: goalos-site-preview
           path: site
