@@ -1,0 +1,10 @@
+84c80531ac3c209eb949df06df9148e3e1f311ac0c814c76184344abd957a824  ./.github/workflows/pages.yml
+51bf0938e7af88b97aea99c7fe777d1f043e68bd3feb7bbe4caa269b6dca5f07  ./.github/workflows/proof-gradient-lab.yml
+4d142a286b4a23fabe326f0b6cf62899c7b8e2a9cace6b13da0bbf39d79f461d  ./.github/workflows/website-quality.yml
+d4f9787d37c77e444c4e0e7c808d63a9eed023719c6b3072d86fa7b28588f4bf  ./config/proof-gradient-lab.json
+d9fdcd293ba235bf724f4c98c4cd2cb903a28f01739c273e3028ce97fd1273ba  ./docs/PROOF_GRADIENT_ROUTE_FIX_V13_1_INSTALL_GUIDE.md
+3be12bf70b6071b63a6ad39f5365fd9d0a7b7ed250f54a1d72003c4c410854e6  ./scripts/build-proof-gradient-lab-page.mjs
+ad26b2784281bc535a7cac814b2705ec8d64f906e2ce9e94de3cb5358813ea4f  ./scripts/generate-proof-gradient-lab-bundle.mjs
+5da59dfdd025bdec9cfcd222aece8c379ddb67d6b1dce841e8da6ca446ca392b  ./scripts/verify-proof-gradient-lab-page.mjs
+cb793d059784f14564986aef9872c14e59a8a2d3f17107dce4943a8c58df499f  ./scripts/verify-public-demo-routes.mjs
+0687c400965903de1a73085b4f63e14dcc8dfd4e39a0d3a45e3a9ab17479c434  ./verification/PROOF_GRADIENT_ROUTE_FIX_V13_1_VALIDATION.md
