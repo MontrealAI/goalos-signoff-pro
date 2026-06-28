@@ -40,14 +40,14 @@ jobs:
             scripts/build-legal-zero-data-pages.mjs \
             scripts/build-agialpha-token-boundary-pages.mjs \
             scripts/build-user-delight-pages.mjs \
+            scripts/build-browser-beta-experience.mjs \
             scripts/build-holy-grail-browser-demo.mjs \
-            scripts/build-multi-agent-coordination-demo.mjs \
-            scripts/build-browser-beta-experience.mjs
+            scripts/build-multi-agent-coordination-demo.mjs
           do
             if [ -f "$script" ]; then node "$script"; fi
           done
-          if [ -f scripts/finalize-public-site-boundaries.mjs ]; then node scripts/finalize-public-site-boundaries.mjs; fi
-          node scripts/finalize-browser-beta-production.mjs
+          if [ -f scripts/finalize-browser-beta-production.mjs ]; then node scripts/finalize-browser-beta-production.mjs; fi
+          node scripts/finalize-public-site-boundaries.mjs
       - name: Verify production quality gates
         shell: bash
         run: |
@@ -61,11 +61,11 @@ jobs:
             scripts/verify-public-artifact-safety.mjs \
             scripts/verify-user-delight-autopilot.mjs \
             scripts/verify-holy-grail-browser-demo.mjs \
-            scripts/verify-multi-agent-coordination-demo.mjs
+            scripts/verify-multi-agent-coordination-demo.mjs \
+            scripts/verify-browser-beta-production.mjs
           do
             if [ -f "$script" ]; then node "$script"; fi
           done
-          node scripts/verify-browser-beta-production.mjs
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
       - name: Upload Pages artifact
