@@ -1,0 +1,29 @@
+{
+  "scenario": {
+    "id": "research",
+    "name": "AI research acceptance",
+    "mission": "Convert an AI research output into a bounded Evidence Docket and review-ready decision state.",
+    "risk": "medium",
+    "domain": "research"
+  },
+  "cycles": [
+    {
+      "id": "M1",
+      "name": "First governed decision",
+      "stage": "Mission contract → Evidence Docket → Selection Gate",
+      "capability": "ClaimMatrixVerifier-v1"
+    },
+    {
+      "id": "M2",
+      "name": "Reuse the proof pattern",
+      "stage": "Prior capability → Faster docket assembly → Lower proof debt",
+      "capability": "EvidenceRoutingTemplate-v1"
+    },
+    {
+      "id": "M3",
+      "name": "Harder mission with memory",
+      "stage": "Chronicle memory → Capability package → Harder mission",
+      "capability": "ReplayReadyMissionDocket-v1"
+    }
+  ]
+}

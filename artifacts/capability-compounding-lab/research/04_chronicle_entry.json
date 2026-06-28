@@ -1,0 +1,20 @@
+{
+  "schema": "goalos.chronicle.demo.v2",
+  "entries": [
+    {
+      "id": "chronicle:research:M1:accepted",
+      "evidenceDocketHash": "d56e251aed3da5f4a684ed476c0700125a850f8e8e48d9885543b5bc5aec081c",
+      "capability": "ClaimMatrixVerifier-v1:research"
+    },
+    {
+      "id": "chronicle:research:M2:accepted",
+      "evidenceDocketHash": "9eb3229c762a0c08fcef7c3f4075e01906f506eacd0b5c1be6037d176a6343fc",
+      "capability": "EvidenceRoutingTemplate-v1:research"
+    },
+    {
+      "id": "chronicle:research:M3:accepted",
+      "evidenceDocketHash": "924db2886ae03e686babb18610d4f1564c778c8e0da5d1181dc21c79c5c65e7b",
+      "capability": "ReplayReadyMissionDocket-v1:research"
+    }
+  ]
+}

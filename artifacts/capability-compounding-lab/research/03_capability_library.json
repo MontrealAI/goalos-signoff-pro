@@ -1,0 +1,32 @@
+{
+  "schema": "goalos.capability_library.demo.v2",
+  "capabilities": [
+    {
+      "id": "ClaimMatrixVerifier-v1:research",
+      "proof_history": [
+        "proof:research:M1"
+      ],
+      "initiation_condition": "future public-safe research mission with matching acceptance criteria",
+      "reuse_scope": "synthetic public demo only",
+      "value_moved": 0
+    },
+    {
+      "id": "EvidenceRoutingTemplate-v1:research",
+      "proof_history": [
+        "proof:research:M2"
+      ],
+      "initiation_condition": "future public-safe research mission with matching acceptance criteria",
+      "reuse_scope": "synthetic public demo only",
+      "value_moved": 0
+    },
+    {
+      "id": "ReplayReadyMissionDocket-v1:research",
+      "proof_history": [
+        "proof:research:M3"
+      ],
+      "initiation_condition": "future public-safe research mission with matching acceptance criteria",
+      "reuse_scope": "synthetic public demo only",
+      "value_moved": 0
+    }
+  ]
+}

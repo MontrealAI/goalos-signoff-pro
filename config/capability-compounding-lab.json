@@ -1,49 +1,21 @@
 {
-  "version": "14.0.0-final",
+  "version": "14.2.0-final-production",
   "title": "GoalOS Capability Compounding Lab",
   "slug": "capability-compounding-lab.html",
-  "thesis": "Accepted proof becomes reusable capability. Reusable capability makes the next mission cheaper, safer, and more verifiable.",
+  "thesis": "Accepted proof becomes reusable capability. Reusable capability makes the next mission cheaper, safer, faster, and more verifiable.",
   "publicSiteRule": "No forms · no inputs · no uploads · no cookies · no analytics · no wallets · no payments · no personal or confidential data.",
-  "claimBoundary": "Synthetic browser-local demonstration. No AGI/ASI attainment, empirical SOTA, external audit, settlement activation, staking activation, production certification, or value movement is claimed.",
-  "missions": [
-    {
-      "id": "M1",
-      "name": "First governed decision",
-      "objective": "Turn an AI research output into a reviewable Evidence Docket.",
-      "acceptedCapability": "ClaimMatrixVerifier-v1",
-      "verifiedWork": 62,
-      "proofDebt": 38,
-      "costIndex": 100,
-      "riskIndex": 22
-    },
-    {
-      "id": "M2",
-      "name": "Reuse the proof pattern",
-      "objective": "Use the prior capability to review a harder software delivery package.",
-      "acceptedCapability": "EvidenceRoutingTemplate-v1",
-      "verifiedWork": 77,
-      "proofDebt": 24,
-      "costIndex": 82,
-      "riskIndex": 16
-    },
-    {
-      "id": "M3",
-      "name": "Harder mission with memory",
-      "objective": "Apply the Chronicle and capability package to a multi-agent coordination benchmark packet.",
-      "acceptedCapability": "ReplayReadyMissionDocket-v1",
-      "verifiedWork": 88,
-      "proofDebt": 11,
-      "costIndex": 71,
-      "riskIndex": 9
-    }
+  "claimBoundary": "Synthetic browser-local public demonstration. No external audit, production certification, value movement, activated settlement, staking activation, empirical SOTA, or AGI/ASI attainment is claimed.",
+  "scenarios": [
+    {"id":"research","name":"AI research acceptance","mission":"Convert an AI research output into a bounded Evidence Docket and review-ready decision state.","risk":"medium","domain":"research"},
+    {"id":"software","name":"Software delivery review","mission":"Convert an AI-assisted implementation milestone into criteria-mapped evidence and a signed demo receipt.","risk":"medium","domain":"software"},
+    {"id":"security","name":"Defensive readiness packet","mission":"Convert a defensive, repo-owned security review into a public-safe proof packet and capability archive.","risk":"high","domain":"security"},
+    {"id":"policy","name":"Policy option proof","mission":"Convert competing policy options into a claims matrix, contradiction ledger, and governed decision state.","risk":"medium","domain":"policy"}
   ],
-  "gates": [
-    "Mission Contract",
-    "Evidence Docket",
-    "Verifier Report",
-    "Risk Ledger",
-    "Selection Certificate",
-    "Chronicle Entry",
-    "Capability Package"
-  ]
+  "cycles": [
+    {"id":"M1","name":"First governed decision","capability":"ClaimMatrixVerifier-v1","verifiedWork":62,"proofDebt":38,"costIndex":100,"riskIndex":22,"reuse":0,"stage":"Mission contract → Evidence Docket → Selection Gate"},
+    {"id":"M2","name":"Reuse the proof pattern","capability":"EvidenceRoutingTemplate-v1","verifiedWork":77,"proofDebt":24,"costIndex":82,"riskIndex":16,"reuse":19,"stage":"Prior capability → Faster docket assembly → Lower proof debt"},
+    {"id":"M3","name":"Harder mission with memory","capability":"ReplayReadyMissionDocket-v1","verifiedWork":88,"proofDebt":11,"costIndex":71,"riskIndex":9,"reuse":34,"stage":"Chronicle memory → Capability package → Harder mission"}
+  ],
+  "gates": ["Mission Contract","Claims Matrix","Evidence Docket","Verifier Report","Risk Ledger","Selection Certificate","Chronicle Entry","Capability Package"],
+  "law": ["No proof, no memory.","No eval, no propagation.","No replay, no capability."]
 }

@@ -1,78 +1,40 @@
+#!/usr/bin/env node
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 
 const root = process.cwd();
-const out = path.join(root, 'artifacts', 'capability-compounding-lab');
-fs.mkdirSync(out, { recursive: true });
 const cfgPath = path.join(root, 'config', 'capability-compounding-lab.json');
-const cfg = fs.existsSync(cfgPath) ? JSON.parse(fs.readFileSync(cfgPath, 'utf8')) : JSON.parse(fs.readFileSync(path.join(path.dirname(new URL(import.meta.url).pathname), '..', 'config', 'capability-compounding-lab.json'), 'utf8'));
-const hash = x => crypto.createHash('sha256').update(JSON.stringify(x)).digest('hex');
-const manifest = {
-  schema: 'goalos.capability_compounding.autopilot_manifest.v1',
-  version: cfg.version,
-  title: cfg.title,
-  generated_at: new Date(0).toISOString(),
-  public_safety: ['no user data','no confidential data','no uploads','no wallet','no payments','no value moved'],
-  claim_boundary: cfg.claimBoundary
-};
-const missions = cfg.missions.map((m, i) => ({
-  ...m,
-  mission_contract: {
-    objective: m.objective,
-    successCriteria: ['claims mapped', 'evidence docket present', 'risk ledger present', 'selection gate passed', 'rollback path present'],
-    failureCriteria: ['unsupported claim', 'missing replay path', 'risk boundary exceeded'],
-    authority: 'human final gate for real use; browser-local synthetic authority for this demo'
-  },
-  proof_bundle: {
-    traceRoot: hash(['trace', m.id]),
-    outputHash: hash(['output', m.id]),
-    evalRoot: hash(['eval', m.id]),
-    policyDecisionRoot: hash(['policy', m.id]),
-    valueMoved: 0
-  },
-  selection_certificate: {
-    decision: 'accepted_for_synthetic_chronicle',
-    proofValid: true,
-    evalPass: true,
-    riskWithinBoundary: true,
-    rollbackReady: true,
-    challengeCleared: true
-  },
+const cfg = fs.existsSync(cfgPath) ? JSON.parse(fs.readFileSync(cfgPath, 'utf8')) : JSON.parse(fs.readFileSync(new URL('../config/capability-compounding-lab.json', import.meta.url), 'utf8'));
+const scenarioId = process.env.GOALOS_COMPOUNDING_SCENARIO || process.env.SCENARIO || process.argv[2] || 'research';
+const outDir = path.join(root, 'artifacts', 'capability-compounding-lab', scenarioId);
+fs.mkdirSync(outDir, { recursive: true });
+const sha256 = v => crypto.createHash('sha256').update(typeof v === 'string' ? v : JSON.stringify(v)).digest('hex');
+const scenario = cfg.scenarios.find(s => s.id === scenarioId) || cfg.scenarios[0];
+const cycles = cfg.cycles.map((c, idx) => ({
+  ...c,
+  scenario: scenario.id,
+  mission_contract_hash: sha256(['mission', scenario.id, c.id, c.stage]),
+  proof_packet_hash: sha256(['proof', scenario.id, c.id, c.capability]),
+  evidence_docket_hash: sha256(['docket', scenario.id, c.id, c.verifiedWork, c.proofDebt]),
+  selection_certificate_hash: sha256(['selection', scenario.id, c.id, 'accept_for_demo_chronicle']),
+  chronicle_entry_id: `chronicle:${scenario.id}:${c.id}:accepted`,
   capability_package: {
-    id: m.acceptedCapability,
-    class: 'public-safe synthetic capability package',
-    versionHash: hash(['capability', m.acceptedCapability]),
-    lineage: i === 0 ? [] : cfg.missions.slice(0, i).map(x => x.acceptedCapability),
-    reuseScope: 'browser-local demonstration only'
+    id: `${c.capability}:${scenario.id}`,
+    proof_history: [`proof:${scenario.id}:${c.id}`],
+    initiation_condition: `future public-safe ${scenario.domain} mission with matching acceptance criteria`,
+    reuse_scope: 'synthetic public demo only',
+    value_moved: 0
   }
 }));
-const evidenceDocket = {
-  schema: 'goalos.evidence_docket.capability_compounding_demo.v1',
-  manifest,
-  claims_matrix: [
-    { claim: 'Accepted proof becomes reusable capability.', status: 'demonstrated synthetically', evidence: 'selection certificates and capability packages' },
-    { claim: 'Proof debt decreases as Chronicle memory compounds.', status: 'demonstrated synthetically', evidence: 'mission metrics across M1-M3' },
-    { claim: 'Real-world empirical performance is not claimed.', status: 'bounded', evidence: 'claim boundary' }
-  ],
-  missions,
-  scoreboard: {
-    verifiedWorkStart: cfg.missions[0].verifiedWork,
-    verifiedWorkEnd: cfg.missions[cfg.missions.length - 1].verifiedWork,
-    proofDebtStart: cfg.missions[0].proofDebt,
-    proofDebtEnd: cfg.missions[cfg.missions.length - 1].proofDebt
-  }
-};
-const chronicle = { schema: 'goalos.chronicle.capability_compounding_demo.v1', entries: missions.map(m => ({ mission: m.id, capability: m.acceptedCapability, proofBundle: m.proof_bundle.traceRoot })) };
-const receipt = { schema: 'goalos.mission_receipt.capability_compounding_demo.v1', receiptId: 'capability-compounding-demo-001', evidenceDocketHash: hash(evidenceDocket), chronicleHash: hash(chronicle), valueMoved: 0, decision: 'synthetic_demo_complete' };
 const files = {
-  '00_manifest.json': manifest,
-  '01_mission_series.json': missions,
-  '02_evidence_docket.json': evidenceDocket,
-  '03_capability_library.json': { capabilities: missions.map(m => m.capability_package) },
-  '04_chronicle_entry.json': chronicle,
-  '05_mission_receipt.json': receipt
+  '00_manifest.json': { schema:'goalos.capability_compounding.bundle_manifest.v2', version:cfg.version, scenario, generated_at:new Date(0).toISOString(), public_site_rule:cfg.publicSiteRule, claim_boundary:cfg.claimBoundary },
+  '01_mission_series.json': { scenario, cycles: cycles.map(c => ({ id:c.id, name:c.name, stage:c.stage, capability:c.capability })) },
+  '02_evidence_docket.json': { schema:'goalos.evidence_docket.capability_compounding_demo.v2', claims: cycles.map(c => ({ mission:c.id, claim:`${c.capability} is reusable for the next synthetic mission`, evidenceDocketHash:c.evidence_docket_hash, proofPacketHash:c.proof_packet_hash })) },
+  '03_capability_library.json': { schema:'goalos.capability_library.demo.v2', capabilities: cycles.map(c => c.capability_package) },
+  '04_chronicle_entry.json': { schema:'goalos.chronicle.demo.v2', entries: cycles.map(c => ({ id:c.chronicle_entry_id, evidenceDocketHash:c.evidence_docket_hash, capability:c.capability_package.id })) },
+  '05_scoreboard.json': { verifiedWork:`${cycles[0].verifiedWork}→${cycles.at(-1).verifiedWork}`, proofDebt:`${cycles[0].proofDebt}→${cycles.at(-1).proofDebt}`, costIndex:`${cycles[0].costIndex}→${cycles.at(-1).costIndex}`, riskIndex:`${cycles[0].riskIndex}→${cycles.at(-1).riskIndex}` },
+  'README.md': `# GoalOS Capability Compounding Lab Demo\n\nScenario: ${scenario.name}\n\nThis public-safe synthetic bundle demonstrates the GoalOS rule: accepted proof becomes reusable capability, reusable capability lowers proof debt, and only proof-carrying work enters Chronicle memory.\n\nNo user data, uploads, wallets, payments, cookies, analytics, or value movement are involved.\n`
 };
-for (const [name, obj] of Object.entries(files)) fs.writeFileSync(path.join(out, name), JSON.stringify(obj, null, 2));
-fs.writeFileSync(path.join(out, 'README.md'), `# GoalOS Capability Compounding Lab\n\nThis public-safe artifact bundle demonstrates the GoalOS compounding rule:\n\n> Accepted proof becomes reusable capability.\n\nThe bundle is synthetic and browser/local-action safe. It contains no user data, no confidential data, no wallet action, no payment, and no value movement.\n\n## Files\n\n${Object.keys(files).map(f => `- ${f}`).join('\n')}\n\n## Claim boundary\n\n${cfg.claimBoundary}\n`);
-console.log(`Capability compounding demo bundle generated at ${out}`);
+for (const [name, content] of Object.entries(files)) fs.writeFileSync(path.join(outDir, name), typeof content === 'string' ? content : JSON.stringify(content, null, 2));
+console.log(`Capability Compounding Lab bundle generated at ${outDir}`);

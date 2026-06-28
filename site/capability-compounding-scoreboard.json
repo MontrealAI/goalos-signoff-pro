@@ -1,0 +1,37 @@
+{
+  "schema": "goalos.capability_compounding.scoreboard.v2",
+  "metrics": [
+    {
+      "scenario": "research",
+      "verifiedWork": "62→88",
+      "proofDebt": "38→11",
+      "costIndex": "100→71",
+      "riskIndex": "22→9",
+      "reusableCapabilities": 3
+    },
+    {
+      "scenario": "software",
+      "verifiedWork": "65→91",
+      "proofDebt": "35→8",
+      "costIndex": "94→65",
+      "riskIndex": "19→6",
+      "reusableCapabilities": 3
+    },
+    {
+      "scenario": "security",
+      "verifiedWork": "68→94",
+      "proofDebt": "32→5",
+      "costIndex": "88→59",
+      "riskIndex": "16→4",
+      "reusableCapabilities": 3
+    },
+    {
+      "scenario": "policy",
+      "verifiedWork": "71→97",
+      "proofDebt": "29→4",
+      "costIndex": "82→53",
+      "riskIndex": "13→4",
+      "reusableCapabilities": 3
+    }
+  ]
+}

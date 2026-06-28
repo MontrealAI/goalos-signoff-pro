@@ -1,0 +1,14 @@
+{
+  "schema": "goalos.capability_compounding.bundle_manifest.v2",
+  "version": "14.2.0-final-production",
+  "scenario": {
+    "id": "research",
+    "name": "AI research acceptance",
+    "mission": "Convert an AI research output into a bounded Evidence Docket and review-ready decision state.",
+    "risk": "medium",
+    "domain": "research"
+  },
+  "generated_at": "1970-01-01T00:00:00.000Z",
+  "public_site_rule": "No forms · no inputs · no uploads · no cookies · no analytics · no wallets · no payments · no personal or confidential data.",
+  "claim_boundary": "Synthetic browser-local public demonstration. No external audit, production certification, value movement, activated settlement, staking activation, empirical SOTA, or AGI/ASI attainment is claimed."
+}

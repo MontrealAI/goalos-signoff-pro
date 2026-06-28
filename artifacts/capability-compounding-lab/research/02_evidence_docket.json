@@ -1,0 +1,23 @@
+{
+  "schema": "goalos.evidence_docket.capability_compounding_demo.v2",
+  "claims": [
+    {
+      "mission": "M1",
+      "claim": "ClaimMatrixVerifier-v1 is reusable for the next synthetic mission",
+      "evidenceDocketHash": "d56e251aed3da5f4a684ed476c0700125a850f8e8e48d9885543b5bc5aec081c",
+      "proofPacketHash": "57e5b9e961d3b5e160f5eaed0c9a2a727094c5ec684896858a669d693f630c59"
+    },
+    {
+      "mission": "M2",
+      "claim": "EvidenceRoutingTemplate-v1 is reusable for the next synthetic mission",
+      "evidenceDocketHash": "9eb3229c762a0c08fcef7c3f4075e01906f506eacd0b5c1be6037d176a6343fc",
+      "proofPacketHash": "df54aafe20890a2425d90f600212bd9595bb3cbdd1e6240452d51d6e0d1dc719"
+    },
+    {
+      "mission": "M3",
+      "claim": "ReplayReadyMissionDocket-v1 is reusable for the next synthetic mission",
+      "evidenceDocketHash": "924db2886ae03e686babb18610d4f1564c778c8e0da5d1181dc21c79c5c65e7b",
+      "proofPacketHash": "e77cf641c9d6436b8d4237f20d571c9ee0bfeb19bf79e53ecbcbd3478c4a8f4b"
+    }
+  ]
+}
