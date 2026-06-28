@@ -4,22 +4,21 @@ on:
   workflow_dispatch:
     inputs:
       scenario:
-        description: 'Public-safe scenario for the synthetic experience bundle'
+        description: Public-safe synthetic scenario
         type: choice
-        required: true
-        default: research
         options:
           - research
           - software
           - defensive
           - policy
+        default: research
 
 permissions:
   contents: read
 
 jobs:
   generate:
-    name: Generate sovereign experience artifact bundle
+    name: Generate public-safe sovereign experience bundle
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
@@ -28,12 +27,12 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '24'
-      - name: Generate synthetic public-safe experience bundle
+      - name: Generate bundle
         env:
-          GOALOS_SCENARIO: ${{ inputs.scenario }}
+          SCENARIO: ${{ inputs.scenario }}
         run: node scripts/generate-sovereign-experience-lab-bundle.mjs
-      - name: Upload bundle
+      - name: Upload generated bundle
         uses: actions/upload-artifact@v4
         with:
-          name: goalos-sovereign-experience-stream-lab-${{ inputs.scenario }}
-          path: artifacts/sovereign-experience-stream-lab/${{ inputs.scenario }}
+          name: goalos-sovereign-experience-stream-lab
+          path: artifacts/sovereign-experience-stream-lab

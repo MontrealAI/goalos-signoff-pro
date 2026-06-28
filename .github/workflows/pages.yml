@@ -8,8 +8,6 @@ on:
       - 'config/**'
       - 'scripts/**'
       - '.github/workflows/pages.yml'
-      - '.github/workflows/website-quality.yml'
-      - '.github/workflows/sovereign-experience-stream-lab.yml'
 
 permissions:
   contents: read
@@ -22,7 +20,7 @@ concurrency:
 
 jobs:
   build:
-    name: Build and verify canonical production site
+    name: Build and verify canonical public site
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
@@ -31,7 +29,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '24'
-      - name: Build canonical public site and demo extensions
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+      - name: Build public site and extension labs
         shell: bash
         run: |
           set -euo pipefail
@@ -39,7 +39,7 @@ jobs:
           if [ -f scripts/build-proof-gradient-lab-page.mjs ]; then node scripts/build-proof-gradient-lab-page.mjs; fi
           if [ -f scripts/build-capability-compounding-lab-page.mjs ]; then node scripts/build-capability-compounding-lab-page.mjs; fi
           node scripts/build-sovereign-experience-lab-page.mjs
-      - name: Verify production site and demo routes
+      - name: Verify public site
         shell: bash
         run: |
           set -euo pipefail
@@ -53,6 +53,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: site
+
   deploy:
     name: Deploy to GitHub Pages
     needs: build
@@ -61,6 +62,6 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Deploy Pages artifact
+      - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
