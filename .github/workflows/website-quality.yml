@@ -11,6 +11,7 @@ on:
       - 'scripts/**'
       - '.github/workflows/website-quality.yml'
       - '.github/workflows/pages.yml'
+      - '.github/workflows/capability-compounding-lab.yml'
 
 permissions:
   contents: read
@@ -42,10 +43,10 @@ jobs:
           set -euo pipefail
           node scripts/verify-goalos-production-site.mjs
           if [ -f scripts/verify-proof-gradient-lab-page.mjs ]; then node scripts/verify-proof-gradient-lab-page.mjs; fi
-          if [ -f scripts/verify-capability-compounding-lab-page.mjs ]; then node scripts/verify-capability-compounding-lab-page.mjs; fi
+          node scripts/verify-capability-compounding-lab-page.mjs
           node scripts/verify-public-demo-routes.mjs
       - name: Upload site preview
         uses: actions/upload-artifact@v7
         with:
-          name: goalos-site-preview-with-proof-gradient
+          name: goalos-site-preview-with-capability-compounding-lab
           path: site

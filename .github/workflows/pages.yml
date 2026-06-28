@@ -9,7 +9,9 @@ on:
       - 'scripts/**'
       - '.github/workflows/pages.yml'
       - '.github/workflows/website-quality.yml'
+      - '.github/workflows/capability-compounding-lab.yml'
       - '.github/workflows/proof-gradient-lab.yml'
+      - '.github/workflows/mission-001-benchmark-reproducibility.yml'
 
 permissions:
   contents: read
@@ -35,12 +37,8 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          if [ ! -f scripts/build-goalos-production-site.mjs ]; then
-            echo "Missing scripts/build-goalos-production-site.mjs. Install the canonical production site package first." >&2
-            exit 1
-          fi
           node scripts/build-goalos-production-site.mjs
-      - name: Add route-safe public demo pages
+      - name: Add flagship public demo pages
         shell: bash
         run: |
           set -euo pipefail
@@ -54,14 +52,13 @@ jobs:
               echo "Skipping optional $script"
             fi
           done
-      - name: Verify canonical production site
-        run: node scripts/verify-goalos-production-site.mjs
-      - name: Verify public demo routes
+      - name: Verify production site and public demos
         shell: bash
         run: |
           set -euo pipefail
+          node scripts/verify-goalos-production-site.mjs
           if [ -f scripts/verify-proof-gradient-lab-page.mjs ]; then node scripts/verify-proof-gradient-lab-page.mjs; fi
-          if [ -f scripts/verify-capability-compounding-lab-page.mjs ]; then node scripts/verify-capability-compounding-lab-page.mjs; fi
+          node scripts/verify-capability-compounding-lab-page.mjs
           node scripts/verify-public-demo-routes.mjs
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v5

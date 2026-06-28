@@ -2,16 +2,24 @@ name: Capability Compounding Lab Autopilot
 
 on:
   workflow_dispatch:
+    inputs:
+      scenario:
+        description: Public-safe synthetic scenario
+        type: choice
+        required: true
+        default: research
+        options:
+          - research
+          - software
+          - security
+          - policy
 
 permissions:
   contents: read
 
-env:
-  NODE_VERSION: '24'
-
 jobs:
-  generate-capability-compounding-lab:
-    name: Generate public-safe Capability Compounding Lab bundle
+  generate:
+    name: Generate Capability Compounding Lab bundle
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
@@ -19,11 +27,16 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v6
         with:
-          node-version: ${{ env.NODE_VERSION }}
-      - name: Generate demo bundle
-        run: node scripts/generate-capability-compounding-lab-bundle.mjs
-      - name: Upload demo bundle
+          node-version: '24'
+      - name: Generate public-safe demo bundle
+        shell: bash
+        env:
+          SCENARIO: ${{ inputs.scenario }}
+        run: |
+          set -euo pipefail
+          node scripts/generate-capability-compounding-lab-bundle.mjs
+      - name: Upload demo artifact
         uses: actions/upload-artifact@v7
         with:
-          name: goalos-capability-compounding-lab-demo
-          path: artifacts/capability-compounding-lab
+          name: goalos-capability-compounding-lab-${{ inputs.scenario }}
+          path: artifacts/capability-compounding-lab/${{ inputs.scenario }}
