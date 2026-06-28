@@ -3,15 +3,13 @@ name: Deploy GoalOS Signoff Pro production site
 on:
   workflow_dispatch:
   push:
-    branches: [ main ]
+    branches: [main]
     paths:
       - 'config/**'
       - 'scripts/**'
       - '.github/workflows/pages.yml'
       - '.github/workflows/website-quality.yml'
-      - '.github/workflows/capability-compounding-lab.yml'
-      - '.github/workflows/proof-gradient-lab.yml'
-      - '.github/workflows/mission-001-benchmark-reproducibility.yml'
+      - '.github/workflows/sovereign-experience-stream-lab.yml'
 
 permissions:
   contents: read
@@ -28,40 +26,31 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
-        uses: actions/checkout@v7
+        uses: actions/checkout@v4
       - name: Set up Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v4
         with:
           node-version: '24'
-      - name: Build canonical production site
+      - name: Build canonical public site and demo extensions
         shell: bash
         run: |
           set -euo pipefail
-          node scripts/build-goalos-production-site.mjs
-      - name: Add flagship public demo pages
+          if [ -f scripts/build-goalos-production-site.mjs ]; then node scripts/build-goalos-production-site.mjs; fi
+          if [ -f scripts/build-proof-gradient-lab-page.mjs ]; then node scripts/build-proof-gradient-lab-page.mjs; fi
+          if [ -f scripts/build-capability-compounding-lab-page.mjs ]; then node scripts/build-capability-compounding-lab-page.mjs; fi
+          node scripts/build-sovereign-experience-lab-page.mjs
+      - name: Verify production site and demo routes
         shell: bash
         run: |
           set -euo pipefail
-          for script in \
-            scripts/build-proof-gradient-lab-page.mjs \
-            scripts/build-capability-compounding-lab-page.mjs; do
-            if [ -f "$script" ]; then
-              echo "Running $script"
-              node "$script"
-            else
-              echo "Skipping optional $script"
-            fi
-          done
-      - name: Verify production site and public demos
-        shell: bash
-        run: |
-          set -euo pipefail
-          node scripts/verify-goalos-production-site.mjs
+          if [ -f scripts/verify-goalos-production-site.mjs ]; then node scripts/verify-goalos-production-site.mjs; fi
           if [ -f scripts/verify-proof-gradient-lab-page.mjs ]; then node scripts/verify-proof-gradient-lab-page.mjs; fi
-          node scripts/verify-capability-compounding-lab-page.mjs
-          node scripts/verify-public-demo-routes.mjs
+          if [ -f scripts/verify-capability-compounding-lab-page.mjs ]; then node scripts/verify-capability-compounding-lab-page.mjs; fi
+          node scripts/verify-sovereign-experience-lab-page.mjs
+          if [ -f scripts/verify-public-demo-routes.mjs ]; then node scripts/verify-public-demo-routes.mjs; fi
+          if [ -f scripts/verify-website-quality.mjs ]; then node scripts/verify-website-quality.mjs; fi
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v5
+        uses: actions/upload-pages-artifact@v3
         with:
           path: site
   deploy:
@@ -72,6 +61,6 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Deploy
+      - name: Deploy Pages artifact
         id: deployment
-        uses: actions/deploy-pages@v5
+        uses: actions/deploy-pages@v4

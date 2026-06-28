@@ -1,0 +1,39 @@
+name: Sovereign Experience Stream Lab Autopilot
+
+on:
+  workflow_dispatch:
+    inputs:
+      scenario:
+        description: 'Public-safe scenario for the synthetic experience bundle'
+        type: choice
+        required: true
+        default: research
+        options:
+          - research
+          - software
+          - defensive
+          - policy
+
+permissions:
+  contents: read
+
+jobs:
+  generate:
+    name: Generate sovereign experience artifact bundle
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Generate synthetic public-safe experience bundle
+        env:
+          GOALOS_SCENARIO: ${{ inputs.scenario }}
+        run: node scripts/generate-sovereign-experience-lab-bundle.mjs
+      - name: Upload bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: goalos-sovereign-experience-stream-lab-${{ inputs.scenario }}
+          path: artifacts/sovereign-experience-stream-lab/${{ inputs.scenario }}
