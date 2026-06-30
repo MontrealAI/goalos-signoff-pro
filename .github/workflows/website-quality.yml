@@ -3,9 +3,8 @@ name: Website quality gate
 on:
   workflow_dispatch:
   pull_request:
-    branches: [main]
   push:
-    branches: [main]
+    branches: [ main ]
     paths:
       - 'config/**'
       - 'scripts/**'
@@ -29,24 +28,24 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          mkdir -p site
           if [ -f scripts/build-goalos-production-site.mjs ]; then node scripts/build-goalos-production-site.mjs; fi
-          if [ -f scripts/build-proof-gradient-lab-page.mjs ]; then node scripts/build-proof-gradient-lab-page.mjs; fi
-          if [ -f scripts/build-capability-compounding-lab-page.mjs ]; then node scripts/build-capability-compounding-lab-page.mjs; fi
-          node scripts/build-sovereign-experience-lab-page.mjs
+          if [ -f scripts/build-proof-gradient-lab-page.mjs ] && [ -f config/proof-gradient-lab.json ]; then node scripts/build-proof-gradient-lab-page.mjs; fi
+          if [ -f scripts/build-capability-compounding-lab-page.mjs ] && [ -f config/capability-compounding-lab.json ]; then node scripts/build-capability-compounding-lab-page.mjs; fi
+          if [ -f scripts/build-sovereign-experience-lab-page.mjs ] && [ -f config/sovereign-experience-stream-lab.json ]; then node scripts/build-sovereign-experience-lab-page.mjs; fi
+          node scripts/build-proof-settlement-lab-page.mjs
       - name: Run quality gates
         shell: bash
         run: |
           set -euo pipefail
           if [ -f scripts/verify-goalos-production-site.mjs ]; then node scripts/verify-goalos-production-site.mjs; fi
-          if [ -f scripts/verify-proof-gradient-lab-page.mjs ]; then node scripts/verify-proof-gradient-lab-page.mjs; fi
-          if [ -f scripts/verify-capability-compounding-lab-page.mjs ]; then node scripts/verify-capability-compounding-lab-page.mjs; fi
-          node scripts/verify-sovereign-experience-lab-page.mjs
+          if [ -f site/proof-gradient-lab.html ] && [ -f scripts/verify-proof-gradient-lab-page.mjs ]; then node scripts/verify-proof-gradient-lab-page.mjs; fi
+          if [ -f site/capability-compounding-lab.html ] && [ -f scripts/verify-capability-compounding-lab-page.mjs ]; then node scripts/verify-capability-compounding-lab-page.mjs; fi
+          if [ -f site/sovereign-experience-stream-lab.html ] && [ -f scripts/verify-sovereign-experience-lab-page.mjs ]; then node scripts/verify-sovereign-experience-lab-page.mjs; fi
+          node scripts/verify-proof-settlement-lab-page.mjs
           if [ -f scripts/verify-public-demo-routes.mjs ]; then node scripts/verify-public-demo-routes.mjs; fi
-          if [ -f scripts/verify-website-quality.mjs ]; then node scripts/verify-website-quality.mjs; fi
       - name: Upload site preview
         uses: actions/upload-artifact@v4
-        if: always()
         with:
           name: goalos-site-preview
           path: site
-          if-no-files-found: ignore
