@@ -1,0 +1,50 @@
+name: Validator Mesh Falsification Lab Autopilot
+
+on:
+  workflow_dispatch:
+    inputs:
+      scenario:
+        description: Public-safe scenario
+        required: true
+        default: research-brief
+        type: choice
+        options:
+          - research-brief
+          - software-delivery
+          - procurement-dossier
+          - safety-escalation
+
+permissions:
+  contents: read
+
+jobs:
+  run-lab:
+    name: Generate Validator Mesh demo bundle
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+      - name: Build and verify public lab page
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf site
+          if [ -f scripts/build-goalos-production-site.mjs ]; then node scripts/build-goalos-production-site.mjs; else mkdir -p site; fi
+          node scripts/build-validator-mesh-lab-page.mjs
+          node scripts/verify-validator-mesh-lab-page.mjs
+      - name: Generate public-safe demo bundle
+        shell: bash
+        env:
+          GOALOS_SCENARIO: ${{ inputs.scenario }}
+        run: |
+          set -euo pipefail
+          node scripts/generate-validator-mesh-lab-bundle.mjs "$GOALOS_SCENARIO"
+      - name: Upload Validator Mesh demo bundle
+        uses: actions/upload-artifact@v7
+        with:
+          name: goalos-validator-mesh-falsification-lab
+          path: artifacts/validator-mesh-lab

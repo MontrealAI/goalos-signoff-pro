@@ -5,6 +5,11 @@ on:
   pull_request:
   push:
     branches: [main]
+    paths:
+      - "scripts/**"
+      - "config/**"
+      - ".github/workflows/website-quality.yml"
+      - "docs/**"
 
 permissions:
   contents: read
@@ -15,33 +20,52 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
-          node-version: 20
+          node-version: 24
       - name: Build site preview
         shell: bash
         run: |
           set -euo pipefail
+          rm -rf site
           if [ -f scripts/build-goalos-production-site.mjs ]; then node scripts/build-goalos-production-site.mjs; else mkdir -p site; fi
-          if [ -f scripts/build-proof-gradient-lab-page.mjs ]; then node scripts/build-proof-gradient-lab-page.mjs; fi
-          if [ -f scripts/build-capability-compounding-lab-page.mjs ]; then node scripts/build-capability-compounding-lab-page.mjs; fi
-          if [ -f scripts/build-sovereign-experience-lab-page.mjs ]; then node scripts/build-sovereign-experience-lab-page.mjs; fi
-          if [ -f scripts/build-proof-settlement-lab-page.mjs ]; then node scripts/build-proof-settlement-lab-page.mjs; fi
-          if [ -f scripts/build-public-private-proof-boundary-lab-page.mjs ]; then node scripts/build-public-private-proof-boundary-lab-page.mjs; fi
-          if [ -f scripts/build-governed-decision-state-lab-page.mjs ]; then node scripts/build-governed-decision-state-lab-page.mjs; fi
-          node scripts/build-rollback-challenge-lab-page.mjs
+          for script in \
+            scripts/build-proof-gradient-lab-page.mjs \
+            scripts/build-capability-compounding-lab-page.mjs \
+            scripts/build-sovereign-experience-lab-page.mjs \
+            scripts/build-proof-settlement-lab-page.mjs \
+            scripts/build-public-private-proof-boundary-lab-page.mjs \
+            scripts/build-governed-decision-state-lab-page.mjs \
+            scripts/build-rollback-challenge-lab-page.mjs \
+            scripts/build-validator-mesh-lab-page.mjs
+          do
+            if [ -f "$script" ]; then node "$script"; fi
+          done
+          if [ -f scripts/finalize-public-site-boundaries.mjs ]; then node scripts/finalize-public-site-boundaries.mjs; fi
       - name: Run quality gates
         shell: bash
         run: |
           set -euo pipefail
-          if [ -f scripts/verify-goalos-production-site.mjs ]; then node scripts/verify-goalos-production-site.mjs; fi
-          if [ -f scripts/verify-proof-gradient-lab-page.mjs ]; then node scripts/verify-proof-gradient-lab-page.mjs; fi
-          if [ -f scripts/verify-capability-compounding-lab-page.mjs ]; then node scripts/verify-capability-compounding-lab-page.mjs; fi
-          if [ -f scripts/verify-sovereign-experience-lab-page.mjs ]; then node scripts/verify-sovereign-experience-lab-page.mjs; fi
-          if [ -f scripts/verify-proof-settlement-lab-page.mjs ]; then node scripts/verify-proof-settlement-lab-page.mjs; fi
-          if [ -f scripts/verify-public-private-proof-boundary-lab-page.mjs ]; then node scripts/verify-public-private-proof-boundary-lab-page.mjs; fi
-          if [ -f scripts/verify-governed-decision-state-lab-page.mjs ]; then node scripts/verify-governed-decision-state-lab-page.mjs; fi
-          node scripts/verify-rollback-challenge-lab-page.mjs
-          node scripts/verify-public-demo-routes.mjs
+          for script in \
+            scripts/verify-goalos-production-site.mjs \
+            scripts/verify-proof-gradient-lab-page.mjs \
+            scripts/verify-capability-compounding-lab-page.mjs \
+            scripts/verify-sovereign-experience-lab-page.mjs \
+            scripts/verify-proof-settlement-lab-page.mjs \
+            scripts/verify-public-private-proof-boundary-lab-page.mjs \
+            scripts/verify-governed-decision-state-lab-page.mjs \
+            scripts/verify-rollback-challenge-lab-page.mjs \
+            scripts/verify-validator-mesh-lab-page.mjs \
+            scripts/verify-public-demo-routes.mjs \
+            scripts/verify-website-quality.mjs
+          do
+            if [ -f "$script" ]; then node "$script"; fi
+          done
+      - name: Upload site preview
+        uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: goalos-site-preview
+          path: site
