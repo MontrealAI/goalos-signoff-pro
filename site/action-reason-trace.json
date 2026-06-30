@@ -1,0 +1,110 @@
+[
+  {
+    "index": 1,
+    "stage": "decision-state",
+    "label": "Decision State",
+    "rule": "Evidence has been reviewed; the next step is not execution, but action scoping.",
+    "posture": "ready",
+    "expectedObservation": "advance or block with reason",
+    "validatorStatus": "synthetic pass",
+    "rollbackPointer": "return to previous safe stage",
+    "evidencePointer": "demo://evidence/research/decision-state",
+    "valueMoved": 0
+  },
+  {
+    "index": 2,
+    "stage": "action-proposal",
+    "label": "Action Proposal",
+    "rule": "Candidate actions are written as explicit nodes with purpose, owner, evidence, and stop condition.",
+    "posture": "ready",
+    "expectedObservation": "advance or block with reason",
+    "validatorStatus": "synthetic pass",
+    "rollbackPointer": "return to previous safe stage",
+    "evidencePointer": "demo://evidence/research/action-proposal",
+    "valueMoved": 0
+  },
+  {
+    "index": 3,
+    "stage": "scope-check",
+    "label": "Scope Check",
+    "rule": "Actions outside mission authority are blocked before they become work.",
+    "posture": "gate",
+    "expectedObservation": "advance or block with reason",
+    "validatorStatus": "synthetic pass",
+    "rollbackPointer": "return to previous safe stage",
+    "evidencePointer": "demo://evidence/research/scope-check",
+    "valueMoved": 0
+  },
+  {
+    "index": 4,
+    "stage": "proof-requirement",
+    "label": "Proof Requirement",
+    "rule": "Every action must cite the claim, docket item, verifier note, and risk ledger entry that justifies it.",
+    "posture": "gate",
+    "expectedObservation": "advance or block with reason",
+    "validatorStatus": "synthetic pass",
+    "rollbackPointer": "return to previous safe stage",
+    "evidencePointer": "demo://evidence/research/proof-requirement",
+    "valueMoved": 0
+  },
+  {
+    "index": 5,
+    "stage": "authority-check",
+    "label": "Human Authority",
+    "rule": "High-impact action remains gated. GoalOS can prepare; a person or designated institution decides.",
+    "posture": "human",
+    "expectedObservation": "advance or block with reason",
+    "validatorStatus": "requires human final gate",
+    "rollbackPointer": "return to previous safe stage",
+    "evidencePointer": "demo://evidence/research/authority-check",
+    "valueMoved": 0
+  },
+  {
+    "index": 6,
+    "stage": "action-reason",
+    "label": "Action-Reason Trace",
+    "rule": "Reason, tool, permission scope, expected observation, actual observation, validator status, and rollback pointer are logged.",
+    "posture": "trace",
+    "expectedObservation": "advance or block with reason",
+    "validatorStatus": "synthetic pass",
+    "rollbackPointer": "return to previous safe stage",
+    "evidencePointer": "demo://evidence/research/action-reason",
+    "valueMoved": 0
+  },
+  {
+    "index": 7,
+    "stage": "rollback-path",
+    "label": "Rollback Path",
+    "rule": "No action becomes release-ready unless the rollback target and monitoring condition are recorded.",
+    "posture": "rollback",
+    "expectedObservation": "advance or block with reason",
+    "validatorStatus": "synthetic pass",
+    "rollbackPointer": "last-known-good decision state",
+    "evidencePointer": "demo://evidence/research/rollback-path",
+    "valueMoved": 0
+  },
+  {
+    "index": 8,
+    "stage": "receipt",
+    "label": "Receipt",
+    "rule": "The action plan emits a receipt-ready package with valueMoved = 0 in the public browser demo.",
+    "posture": "receipt",
+    "expectedObservation": "advance or block with reason",
+    "validatorStatus": "synthetic pass",
+    "rollbackPointer": "return to previous safe stage",
+    "evidencePointer": "demo://evidence/research/receipt",
+    "valueMoved": 0
+  },
+  {
+    "index": 9,
+    "stage": "chronicle-boundary",
+    "label": "Chronicle Boundary",
+    "rule": "Only completed, scoped, claim-bounded action states may become reusable institutional memory.",
+    "posture": "done",
+    "expectedObservation": "receipt-ready action state",
+    "validatorStatus": "synthetic pass",
+    "rollbackPointer": "return to previous safe stage",
+    "evidencePointer": "demo://evidence/research/chronicle-boundary",
+    "valueMoved": 0
+  }
+]

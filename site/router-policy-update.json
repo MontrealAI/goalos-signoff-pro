@@ -1,0 +1,13 @@
+{
+  "schema": "goalos.router_policy_update_certificate.v1",
+  "update": "increase probability of validator-aware search when proof debt and contradiction load are high",
+  "gates": {
+    "proof": true,
+    "replay": true,
+    "validator": true,
+    "risk": true,
+    "rollback": true,
+    "humanAuthorityPreserved": true
+  },
+  "valueMoved": 0
+}

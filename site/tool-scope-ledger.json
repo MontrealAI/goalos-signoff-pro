@@ -1,0 +1,25 @@
+{
+  "type": "ToolScopeLedger",
+  "allowed": [
+    "public-safe source mapping",
+    "synthetic evidence assembly",
+    "schema validation",
+    "browser-local receipt replay"
+  ],
+  "blocked": [
+    "private data ingestion",
+    "credential use",
+    "payment execution",
+    "wallet connection",
+    "external system mutation"
+  ],
+  "actual": [
+    "source map",
+    "claim map",
+    "contradiction pass",
+    "process validator report",
+    "receipt pointer"
+  ],
+  "boundary": "Tools are simulated and browser-local in the public demo.",
+  "valueMoved": 0
+}

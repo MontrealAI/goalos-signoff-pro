@@ -1,0 +1,174 @@
+{
+  "product": "GoalOS Signoff Pro",
+  "productionUrl": "https://montrealai.github.io/goalos-signoff-pro/",
+  "repository": "MontrealAI/goalos-signoff-pro",
+  "generatedAt": "2026-06-30T22:35:14.454Z",
+  "commit": "local",
+  "runId": "local",
+  "artifactPolicy": "static-public-front-door-no-copied-internal-docs",
+  "boundaries": {
+    "userFundsAuthorized": false,
+    "agialphaRequired": false,
+    "escrowEnabled": false,
+    "walletRequiredForMainstreamUsers": false,
+    "optionalVerifiedReceipts": true
+  },
+  "sourceFiles": [
+    {
+      "path": "README.md",
+      "sha256": "c464c7b7ee2a38b5c2090a4505e64bad027e058805eb93720b9c9d946a3d5d5a"
+    },
+    {
+      "path": "package.json",
+      "sha256": "852bb81141031b5ab012c15ec7e0823c6dd8741f71b71eaf1d0ad0e4bfbeee66"
+    },
+    {
+      "path": ".github/CODEOWNERS",
+      "sha256": "cf8e12bc7c42647843aecae229304b07376776842d7113b22218fa747b391ebe"
+    },
+    {
+      "path": "docs/ABSOLUTE_BEST_PRODUCT.md",
+      "sha256": "a0b25711b89a5cd47fdbb397877155947577bc525b0e2d85d0ec669bc541036f"
+    },
+    {
+      "path": "docs/ABSOLUTE_BEST_PRODUCT_DECISION.md",
+      "sha256": "626e38276d2b37874a47e2632ccb4d2189474d96c35d96a2334b665ce8de8876"
+    },
+    {
+      "path": "docs/ABSOLUTE_BEST_PRODUCT_SPEC.md",
+      "sha256": "02f38f50906e922f32bd74a204c8564d5af9066ca7e5dc4f039701dbd468654f"
+    },
+    {
+      "path": "docs/ACCEPTABLE_USE_POLICY.md",
+      "sha256": "36d0601a04801ecfd0fe2ed09e59c7a0968a96bfc0f8536e2ec343b6ef7058df"
+    },
+    {
+      "path": "docs/ACTION_GRAPH_AUTHORITY_LAB_USER_GUIDE.md",
+      "sha256": "6282446e59d4ca5e51d17917f707712154c757ba196cb9ba719bec933d965b5c"
+    },
+    {
+      "path": "docs/ACTION_GRAPH_AUTHORITY_LAB_V22_INSTALL_GUIDE.md",
+      "sha256": "0b29538d4314b7cb1888f76f61599d9a94f2b1ce426e5cab3bcda53f346b3bb4"
+    },
+    {
+      "path": "docs/AGIALPHA_AND_48_CONTRACTS_ROADMAP.md",
+      "sha256": "7d891fbabb87a675492a25f688ebbadb13183ea57933bf6d246108a2eac7c476"
+    },
+    {
+      "path": "docs/AGIALPHA_AND_48_CONTRACT_PATH.md",
+      "sha256": "7d891fbabb87a675492a25f688ebbadb13183ea57933bf6d246108a2eac7c476"
+    },
+    {
+      "path": "docs/AGIALPHA_AND_48_CONTRACT_STRATEGY.md",
+      "sha256": "9f9c65958261b16f32cba3e51b4f68d0c11d8f96d1ee91fac9afaff89b50334a"
+    },
+    {
+      "path": "docs/AGIALPHA_AND_PROTOCOL_ROADMAP.md",
+      "sha256": "774e4529207add9427e89f58025f22fa47dc9c74d2bf0dbeb136f486efaae55f"
+    },
+    {
+      "path": "docs/AGIALPHA_EXTERNAL_TOKEN_BOUNDARY.md",
+      "sha256": "1e908ff26676c5787215b3f005e9d4e82efe6e74afab57118213ae11c7ee2ed5"
+    },
+    {
+      "path": "docs/AGIALPHA_INTEGRATION_ROADMAP.md",
+      "sha256": "eeee41271133b77018ad4de864716a4968ad6ad55939b3a85babab6131850733"
+    },
+    {
+      "path": "docs/AGIALPHA_LATER_PATH.md",
+      "sha256": "bfab112bd31be82659975203bace22cb314e81d78964a3b77a2020a5bcd9724e"
+    },
+    {
+      "path": "docs/AGIALPHA_TOKENOMICS_AND_PROTOCOL_PATH.md",
+      "sha256": "7a9f522bf6c90403f84926486a865eaa8e89c1d728f522a1027fa3a89da3ca69"
+    },
+    {
+      "path": "docs/AGIALPHA_TOKEN_BOUNDARY_FINAL_INSTALL_GUIDE.md",
+      "sha256": "94ed86d433c7df1ad586d35af83a76d3dde336383c267f58739a1482567a97cc"
+    },
+    {
+      "path": "docs/AGIALPHA_TOKEN_BOUNDARY_INSTALL_GUIDE.md",
+      "sha256": "fa57c8914f982e1003a38afa3622ff6be7c68011b85b1379d657917ebc9f3c07"
+    },
+    {
+      "path": "docs/ARCHITECTURE.md",
+      "sha256": "3a0ff1bd233b62ad66dcaaae8b27136825c92f3772a1518586751954abe252bf"
+    },
+    {
+      "path": "docs/AUTONOMOUS_DEMO_RUNBOOK.md",
+      "sha256": "346ef84205d1691372929c3bac65639b10f640f0d5d4eefcf0fc6888b153146f"
+    },
+    {
+      "path": "docs/BENCHMARK_REPRODUCIBILITY_PACKET_V12_INSTALL_GUIDE.md",
+      "sha256": "d4bb280dc33e79a9c1bdf1adbe7eb17d85f81f97d3f785263b7347a1806b3d53"
+    },
+    {
+      "path": "docs/BILLING_SETUP.md",
+      "sha256": "d54c6abe0d75fa0dd3f59e267c4814d7ee43b27ac048c3318d35878ccabf65e0"
+    },
+    {
+      "path": "docs/BLOCKCHAIN_ANCHORING_GUIDE.md",
+      "sha256": "6093b3c319393ee346e83777eaeabd6d473d8436ee34d36e07351f708260c4aa"
+    },
+    {
+      "path": "docs/BROWSER_BETA_FINAL_PRODUCTION_INSTALL_GUIDE.md",
+      "sha256": "53070a3aca36ee56bedec703ca6293c7b72e025636bfe4989345ab2d770f3d90"
+    },
+    {
+      "path": "docs/CAPABILITY_COMPOUNDING_LAB_USER_GUIDE.md",
+      "sha256": "1e7ac03036375c7fa5d9eda3c57c9f4a5129091fe2d269fbdaac19ebf626f33f"
+    },
+    {
+      "path": "docs/CAPABILITY_COMPOUNDING_LAB_V14_2_INSTALL_GUIDE.md",
+      "sha256": "7b3b1ee04d521419bd36384fcc42755b8986fd8c6349cf6ca0bb8078a85f4059"
+    },
+    {
+      "path": "docs/CAPABILITY_COMPOUNDING_LAB_V14_2_USER_GUIDE.md",
+      "sha256": "61016936b23b207fd6755995898495f0ef52f1a23dab0dc4e8d60e3d5e44eb00"
+    },
+    {
+      "path": "docs/CAPABILITY_COMPOUNDING_LAB_V14_INSTALL_GUIDE.md",
+      "sha256": "c7d83aa49111fe78014d1f9cf135181109c0f51069da68d5006247abf9fb7230"
+    },
+    {
+      "path": "docs/CHANGE_REQUEST_WORKFLOW.md",
+      "sha256": "ea011720f9ca4795ab05baa652aafc37f12b91dfacb47bd24696f6110ad66b86"
+    },
+    {
+      "path": "docs/CLAIM_BOUNDARY.md",
+      "sha256": "ffbefb925434f71b1b982fb194c4e450e7dd69007e2d63ab21d78ce1d4edf4be"
+    },
+    {
+      "path": "docs/CODEX_RUNBOOK.md",
+      "sha256": "bc3b202a584b0937a34bdeca74555bb69e9dc60a025ae7297671a95742371a1d"
+    },
+    {
+      "path": "docs/COMMERCIAL_OPERATING_MODEL.md",
+      "sha256": "cfa2c9387b2f01eeeec217c9b377c34d83200d89b56032899227767848ff31ac"
+    },
+    {
+      "path": "docs/COMMERCIAL_PRODUCT_SPEC.md",
+      "sha256": "8a7c6d39ed7838029753aa14cf8dcc00bc41a4c464cd4ca72613bf98ac97cd0c"
+    },
+    {
+      "path": "docs/COMMERCIAL_VALIDATION_PLAN.md",
+      "sha256": "f3f8d06ec8bef1dff3b772301b53119a4d68213c0da2979513a97e605080649a"
+    },
+    {
+      "path": "docs/COSTS.md",
+      "sha256": "4d7598d8e7bd412cd699807cb75ed9d27fc9bdad5126b3340bc8cd7db8956551"
+    },
+    {
+      "path": "docs/COSTS_AND_PRICING_HYBRID.md",
+      "sha256": "f2312ddd4a746ddf9fa646ab718fd27347c878d7f3613fc0a490f5edd9dc9331"
+    },
+    {
+      "path": "docs/COSTS_AND_UNIT_ECONOMICS_HYBRID.md",
+      "sha256": "f2312ddd4a746ddf9fa646ab718fd27347c878d7f3613fc0a490f5edd9dc9331"
+    },
+    {
+      "path": "docs/CROSS_REPO_HANDOFF.md",
+      "sha256": "a9ddb30d98115d0d62371f0bc7d1b4371af421b5240359a217e4556eec3f6770"
+    }
+  ]
+}

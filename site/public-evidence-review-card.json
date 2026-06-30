@@ -1,0 +1,11 @@
+{
+  "reviewerQuestion": "Can a third party reproduce the public-safe result from the packet?",
+  "answer": "Synthetic demo answer: yes, when the packet contains manifest, baselines, runner config, replay log, validator report, cost/safety ledgers, claims matrix, and challenge-window receipt.",
+  "notClaimed": [
+    "external audit",
+    "production certification",
+    "empirical SOTA",
+    "active settlement",
+    "value movement"
+  ]
+}

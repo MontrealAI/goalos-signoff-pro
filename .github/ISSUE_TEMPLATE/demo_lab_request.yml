@@ -1,0 +1,21 @@
+name: Demo lab request
+description: Propose a public-safe proof lab or route improvement.
+title: "Demo lab: "
+labels: [demo, public-safe]
+body:
+  - type: textarea
+    id: demo
+    attributes:
+      label: Demo concept
+      description: What should the visitor see, and what proof artifact should be produced?
+    validations:
+      required: true
+  - type: checkboxes
+    id: boundary
+    attributes:
+      label: Public-safe boundary
+      options:
+        - label: No wallet connection, approval, transaction, payment, upload, analytics, cookies, or user-data intake is required.
+          required: true
+        - label: Claims are bounded by evidence, replay, human authority, and demo status.
+          required: true

@@ -1,0 +1,89 @@
+{
+  "type": "ActionReasonTraceLedger",
+  "rule": "Final output is not enough. Each material process step must carry reason, scope, evidence, validation status, and rollback pointer.",
+  "candidateId": "C3",
+  "valueMoved": 0,
+  "noPrivateData": true,
+  "steps": [
+    {
+      "step": "01",
+      "name": "Mission Contract",
+      "reason": "Bind objective, acceptance criteria, risk class, and claim boundary before work begins.",
+      "evidence": "mission_contract_hash",
+      "validator": "schema pass",
+      "rollback": "return to objective",
+      "evidenceRoot": "sha256:8103551399190057394426eb916fb3ba",
+      "publicPrivateBoundary": "public-safe commitment only; private intelligence stays out of the public artifact"
+    },
+    {
+      "step": "02",
+      "name": "Source Pass",
+      "reason": "Separate primary, secondary, derived, and uncertain sources before claims are accepted.",
+      "evidence": "source_provenance_root",
+      "validator": "provenance pass",
+      "rollback": "drop unsupported source",
+      "evidenceRoot": "sha256:52165a60dfbe838116f3859961803682",
+      "publicPrivateBoundary": "public-safe commitment only; private intelligence stays out of the public artifact"
+    },
+    {
+      "step": "03",
+      "name": "Tool Scope",
+      "reason": "Record what tools were allowed, blocked, used, and why.",
+      "evidence": "tool_scope_ledger",
+      "validator": "least-privilege pass",
+      "rollback": "revoke tool path",
+      "evidenceRoot": "sha256:5551f3dcb6b422ca827bc8886f8b563b",
+      "publicPrivateBoundary": "public-safe commitment only; private intelligence stays out of the public artifact"
+    },
+    {
+      "step": "04",
+      "name": "Claim Lineage",
+      "reason": "Tie each material claim to evidence, process step, contradiction status, and uncertainty.",
+      "evidence": "claim_lineage_map",
+      "validator": "claim support pass",
+      "rollback": "downgrade claim",
+      "evidenceRoot": "sha256:1aa05b83f5e9cd741af357c7bb84aac6",
+      "publicPrivateBoundary": "public-safe commitment only; private intelligence stays out of the public artifact"
+    },
+    {
+      "step": "05",
+      "name": "Contradiction Pass",
+      "reason": "Prevent unresolved counterevidence from becoming institutional default.",
+      "evidence": "contradiction_register",
+      "validator": "contradiction resolved",
+      "rollback": "hold decision",
+      "evidenceRoot": "sha256:d21ba8d3f4fcf2cc079b6fd794424a97",
+      "publicPrivateBoundary": "public-safe commitment only; private intelligence stays out of the public artifact"
+    },
+    {
+      "step": "06",
+      "name": "Process Validator",
+      "reason": "Validate process integrity, not just final wording.",
+      "evidence": "process_validator_report",
+      "validator": "mesh pass",
+      "rollback": "challenge window",
+      "evidenceRoot": "sha256:5ee7cb394d769bcfa0a95f08d4a6516e",
+      "publicPrivateBoundary": "public-safe commitment only; private intelligence stays out of the public artifact"
+    },
+    {
+      "step": "07",
+      "name": "Risk Ledger",
+      "reason": "Surface remaining risk, uncertainty, reversibility, and human authority boundary.",
+      "evidence": "risk_ledger",
+      "validator": "risk bounded",
+      "rollback": "escalate",
+      "evidenceRoot": "sha256:372ebfb833bd3a35ec26afe9b4b55ead",
+      "publicPrivateBoundary": "public-safe commitment only; private intelligence stays out of the public artifact"
+    },
+    {
+      "step": "08",
+      "name": "Receipt Pointer",
+      "reason": "Emit a public-safe receipt pointer without exposing private workpapers.",
+      "evidence": "mission_receipt_root",
+      "validator": "receipt ready",
+      "rollback": "revoke receipt",
+      "evidenceRoot": "sha256:0552784196fe0a56fdd987ceeb9ab8a7",
+      "publicPrivateBoundary": "public-safe commitment only; private intelligence stays out of the public artifact"
+    }
+  ]
+}

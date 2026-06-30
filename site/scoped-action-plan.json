@@ -1,0 +1,108 @@
+{
+  "actionGraphId": "GOALOS-ACTION-GRAPH-RESEARCH-SYNTHETIC",
+  "scenario": "research",
+  "objective": "Turn a persuasive research brief into an inspectable decision and scoped next actions.",
+  "decision": "accept with evidence-bound caveats",
+  "authority": "human final gate",
+  "nodes": [
+    {
+      "id": "A1",
+      "label": "Review Evidence Docket",
+      "status": "allowed",
+      "owner": "human reviewer",
+      "proof": "claims matrix + verifier report",
+      "rollback": "return to evidence gathering",
+      "reason": "Reviewer needs a bounded basis for decision."
+    },
+    {
+      "id": "A2",
+      "label": "Request targeted changes",
+      "status": "allowed",
+      "owner": "mission owner",
+      "proof": "risk ledger + contradiction register",
+      "rollback": "preserve previous decision state",
+      "reason": "Open risks must be converted into concrete change requests."
+    },
+    {
+      "id": "A3",
+      "label": "Issue public-safe receipt",
+      "status": "allowed",
+      "owner": "receipt signer",
+      "proof": "redacted docket + public boundary",
+      "rollback": "revoke or supersede receipt",
+      "reason": "Accepted evidence can become a receipt only within the public/private proof boundary."
+    },
+    {
+      "id": "A4",
+      "label": "Execute external action",
+      "status": "blocked",
+      "owner": "not delegated in browser demo",
+      "proof": "missing human authority",
+      "rollback": "not applicable because action is blocked",
+      "reason": "GoalOS demonstration cannot move value, submit forms, contact systems, deploy code, or act externally."
+    },
+    {
+      "id": "A5",
+      "label": "Admit capability pattern",
+      "status": "allowed",
+      "owner": "Chronicle steward",
+      "proof": "DONE certificate + replay path",
+      "rollback": "downgrade capability to warning memory",
+      "reason": "Reusable capability requires evidence, replay, and claim boundaries."
+    },
+    {
+      "id": "A6",
+      "label": "Settlement readiness note",
+      "status": "simulated",
+      "owner": "protocol reviewer",
+      "proof": "proof bundle + challenge window",
+      "rollback": "no settlement; valueMoved remains 0",
+      "reason": "The demo can show readiness logic without custody, escrow, staking, or payments."
+    },
+    {
+      "id": "A7",
+      "label": "High-impact release",
+      "status": "held",
+      "owner": "designated authority",
+      "proof": "requires separate authorization",
+      "rollback": "must be specified before release",
+      "reason": "High-impact release is never authorized by a public browser demo."
+    }
+  ],
+  "edges": [
+    [
+      "decision-state",
+      "action-proposal"
+    ],
+    [
+      "action-proposal",
+      "scope-check"
+    ],
+    [
+      "scope-check",
+      "proof-requirement"
+    ],
+    [
+      "proof-requirement",
+      "authority-check"
+    ],
+    [
+      "authority-check",
+      "action-reason"
+    ],
+    [
+      "action-reason",
+      "rollback-path"
+    ],
+    [
+      "rollback-path",
+      "receipt"
+    ],
+    [
+      "receipt",
+      "chronicle-boundary"
+    ]
+  ],
+  "invariant": "No high-impact action without scope, trace, validator, human authority, and rollback.",
+  "valueMoved": 0
+}

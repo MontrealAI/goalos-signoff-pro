@@ -1,0 +1,17 @@
+{
+  "gateId": "HUMAN-AUTHORITY-RESEARCH-SYNTHETIC",
+  "authorityRequired": true,
+  "browserDemoAuthority": "none",
+  "reason": "The public browser demo prepares an inspectable action state; it does not execute external actions.",
+  "blockedSurfaces": [
+    "payments",
+    "wallets",
+    "uploads",
+    "forms",
+    "external submissions",
+    "deployments",
+    "credential use",
+    "customer data processing"
+  ],
+  "valueMoved": 0
+}

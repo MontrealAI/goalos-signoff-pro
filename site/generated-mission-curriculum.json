@@ -1,0 +1,88 @@
+{
+  "id": "generated-mission-curriculum-v26",
+  "source": "accepted synthetic Evidence Docket + replay-ready claim boundary",
+  "objective": "Generate harder public-safe follow-on missions only when they are learnable, proofable, validator-bounded, replayable, and safe to inspect.",
+  "stages": [
+    "Accepted Evidence Docket",
+    "Mission seed generation",
+    "Interestingness filter",
+    "Learnability check",
+    "Validator availability",
+    "Evidence requirement map",
+    "Risk and rollback boundary",
+    "Replay and challenge window",
+    "Curriculum admission"
+  ],
+  "admittedMission": {
+    "id": "M3",
+    "name": "Proof-gated harder mission",
+    "status": "ADMITTED",
+    "reason": "clear validator, bounded risk, replay path, challenge window, and reuse objective",
+    "interestingness": 84,
+    "learnability": 79,
+    "proofability": 91,
+    "risk": 22,
+    "reuse": 86,
+    "missionPotential": 75,
+    "proofDebt": 17,
+    "evidenceRoot": "sha256:b68a52f9667898ed7194017df4e23d7e"
+  },
+  "candidates": [
+    {
+      "id": "M0",
+      "name": "Narrative moonshot",
+      "status": "REJECTED",
+      "reason": "interesting language, no validator, no replay path, broad claim boundary",
+      "interestingness": 92,
+      "learnability": 18,
+      "proofability": 0,
+      "risk": 88,
+      "reuse": 12,
+      "missionPotential": 18,
+      "proofDebt": 131,
+      "evidenceRoot": "sha256:bc0af90e943c8e44731ec12b1f921328"
+    },
+    {
+      "id": "M1",
+      "name": "Promising task idea",
+      "status": "HELD",
+      "reason": "useful but validator requirements and acceptance tests are incomplete",
+      "interestingness": 78,
+      "learnability": 64,
+      "proofability": 45,
+      "risk": 38,
+      "reuse": 48,
+      "missionPotential": 49,
+      "proofDebt": 68,
+      "evidenceRoot": "sha256:68fd99e062b805e16a58dd4d63cd27d8"
+    },
+    {
+      "id": "M2",
+      "name": "High-impact escalation",
+      "status": "QUARANTINED",
+      "reason": "impact is high, but risk boundary and rollback plan are not sufficient",
+      "interestingness": 88,
+      "learnability": 70,
+      "proofability": 62,
+      "risk": 76,
+      "reuse": 55,
+      "missionPotential": 54,
+      "proofDebt": 65,
+      "evidenceRoot": "sha256:01a37a7ddf88c06e397a9daa999261c5"
+    },
+    {
+      "id": "M3",
+      "name": "Proof-gated harder mission",
+      "status": "ADMITTED",
+      "reason": "clear validator, bounded risk, replay path, challenge window, and reuse objective",
+      "interestingness": 84,
+      "learnability": 79,
+      "proofability": 91,
+      "risk": 22,
+      "reuse": 86,
+      "missionPotential": 75,
+      "proofDebt": 17,
+      "evidenceRoot": "sha256:b68a52f9667898ed7194017df4e23d7e"
+    }
+  ]
+}

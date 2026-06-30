@@ -1,7 +1,7 @@
 {
-  "receiptId": "ROLLBACK-001-SYNTHETIC",
-  "rollbackTarget": "last-known-good-proof-carrying-artifact-v0",
-  "rollbackReason": "challenge-window contradiction and boundary drift in candidate C1",
-  "reversible": true,
+  "receiptId": "ROLLBACK-RECEIPT-RESEARCH-SYNTHETIC",
+  "lastKnownGoodState": "research-last-known-good-V2",
+  "trigger": "proof invalidation, challenge success, scope drift, privacy boundary failure, or human authority hold",
+  "status": "ROLLBACK_READY_SYNTHETIC",
   "valueMoved": 0
 }

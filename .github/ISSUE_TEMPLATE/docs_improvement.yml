@@ -1,0 +1,17 @@
+name: Documentation improvement
+description: Report a docs gap, broken link, or unclear claim boundary.
+title: "Docs: "
+labels: [documentation]
+body:
+  - type: textarea
+    id: issue
+    attributes:
+      label: What should improve?
+      description: Include file paths, routes, and the expected public-safe wording if relevant.
+    validations:
+      required: true
+  - type: textarea
+    id: checks
+    attributes:
+      label: Public-safe notes
+      description: Confirm whether the change affects claims, legal boundaries, AGIALPHA/token language, or demo routes.

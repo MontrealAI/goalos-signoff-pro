@@ -1,0 +1,14 @@
+{
+  "name": "GoalOS Action Graph & Human Authority Lab",
+  "version": "22.0.0",
+  "generatedAt": "2026-06-30T22:36:44Z",
+  "scenario": "research",
+  "browserLocal": true,
+  "noUserData": true,
+  "valueMoved": 0,
+  "routes": [
+    "action-graph-authority-lab.html",
+    "human-authority-action-lab.html",
+    "scoped-action-lab.html"
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "type": "ProcessValidatorReport",
+  "rule": "Validate the work path, not only the final answer.",
+  "candidates": [
+    {
+      "id": "C0",
+      "name": "Final answer only",
+      "status": "REJECTED",
+      "traceCompleteness": 12,
+      "claimSupport": 18,
+      "toolScope": 0,
+      "contradictionCoverage": 8,
+      "processIntegrity": 9,
+      "risk": 82,
+      "verdict": "rejected",
+      "reason": "Final text is not process evidence."
+    },
+    {
+      "id": "C1",
+      "name": "Hidden tool path",
+      "status": "QUARANTINED",
+      "traceCompleteness": 39,
+      "claimSupport": 54,
+      "toolScope": 22,
+      "contradictionCoverage": 31,
+      "processIntegrity": 34,
+      "risk": 67,
+      "verdict": "quarantined",
+      "reason": "Hidden action path cannot become authority."
+    },
+    {
+      "id": "C2",
+      "name": "Trace present, contradiction unresolved",
+      "status": "HELD",
+      "traceCompleteness": 78,
+      "claimSupport": 82,
+      "toolScope": 76,
+      "contradictionCoverage": 59,
+      "processIntegrity": 71,
+      "risk": 41,
+      "verdict": "held",
+      "reason": "Unresolved contradiction blocks acceptance."
+    },
+    {
+      "id": "C3",
+      "name": "Process-resolved proof trace",
+      "status": "REVIEW_READY",
+      "traceCompleteness": 96,
+      "claimSupport": 94,
+      "toolScope": 98,
+      "contradictionCoverage": 93,
+      "processIntegrity": 97,
+      "risk": 12,
+      "verdict": "decision-review ready",
+      "reason": "Process-resolved evidence is decision-review ready."
+    }
+  ],
+  "acceptedCandidate": "C3",
+  "valueMoved": 0
+}

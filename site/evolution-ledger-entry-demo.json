@@ -1,0 +1,13 @@
+{
+  "ledgerEntryId": "EVOLUTION-LEDGER-RESEARCH-V3-SYNTHETIC",
+  "generatedAt": "2026-06-30T22:36:44Z",
+  "eventType": "SELECTION_CERTIFICATE_EMITTED",
+  "artifactFamilyId": "GOALOS-PCA-RESEARCH-SYNTHETIC",
+  "versionHash": "37e41a76746470427beb1e36dbe2696a",
+  "proofRoot": "12e9dc12f053edc98db57221f5925b09",
+  "selectionCertificateHash": "d79fd33b5b6f6667195dba5a75ad5b33c794373cad06bd40e94dac3758ac2935",
+  "rolloutReceiptHash": "4035fda48f2b48b6cd6f93c234e61a8eb9af91185c6201618c765b2eabe49b8f",
+  "rollbackReceiptHash": "1ad93eba0cdeb0b4ccb17d5bb58078309ee8ef04202cd45eae065767fe8f1d54",
+  "publicPrivateBoundary": "Public-safe commitments only; no private prompts, traces, documents, customer data, credentials, or confidential rationale.",
+  "valueMoved": 0
+}

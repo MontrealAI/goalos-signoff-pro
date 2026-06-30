@@ -1,0 +1,15 @@
+{
+  "rightId": "PROOF-BACKED-UPGRADE-RIGHT-RESEARCH-SYNTHETIC",
+  "holder": "GoalOS synthetic public demo artifact",
+  "right": "May influence future synthetic missions within explicit public-safe scope after selection gates clear.",
+  "notARightTo": [
+    "move value",
+    "use private data",
+    "self-authorize external action",
+    "bypass human authority",
+    "claim production certification"
+  ],
+  "proofCondition": "SelectionCertificate + EvolutionLedgerEntry + RolloutReceipt + RollbackReceipt",
+  "active": true,
+  "valueMoved": 0
+}

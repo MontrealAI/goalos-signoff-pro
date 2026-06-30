@@ -1,0 +1,103 @@
+{
+  "schema": "goalos.proofzero_planning.demo_bundle.v1",
+  "version": "25.0.0",
+  "generatedAt": "2026-06-30T22:36:44.665Z",
+  "posture": {
+    "browserLocal": true,
+    "noUserData": true,
+    "noUploads": true,
+    "noWallet": true,
+    "noCookies": true,
+    "noAnalytics": true,
+    "noValueMoved": true
+  },
+  "doctrine": "Plan over proof-relevant latent work states, not persuasive futures.",
+  "scenarios": [
+    {
+      "id": "research",
+      "label": "Research acceptance",
+      "objective": "Decide whether an AI research brief is acceptance-ready.",
+      "bestAction": "validate_then_reanalyze",
+      "risk": "medium",
+      "verifiedWorkStart": 44,
+      "verifiedWorkEnd": 78,
+      "proofDebtStart": 33,
+      "proofDebtEnd": 9
+    },
+    {
+      "id": "software",
+      "label": "Software delivery",
+      "objective": "Choose the safest next step for an AI-delivered software milestone.",
+      "bestAction": "test_then_gate",
+      "risk": "medium",
+      "verifiedWorkStart": 52,
+      "verifiedWorkEnd": 86,
+      "proofDebtStart": 29,
+      "proofDebtEnd": 7
+    },
+    {
+      "id": "procurement",
+      "label": "Procurement proof room",
+      "objective": "Plan review actions for a vendor claim package before acceptance.",
+      "bestAction": "retrieve_then_contradict",
+      "risk": "high",
+      "verifiedWorkStart": 38,
+      "verifiedWorkEnd": 72,
+      "proofDebtStart": 41,
+      "proofDebtEnd": 13
+    },
+    {
+      "id": "safety",
+      "label": "Safety escalation",
+      "objective": "Choose whether to escalate, quarantine, or continue a sensitive proof package.",
+      "bestAction": "quarantine_then_replay",
+      "risk": "high",
+      "verifiedWorkStart": 35,
+      "verifiedWorkEnd": 69,
+      "proofDebtStart": 46,
+      "proofDebtEnd": 15
+    }
+  ],
+  "planningLoop": [
+    "evidence state",
+    "latent work state",
+    "bounded hypothetical actions",
+    "cost-risk-value backup",
+    "selected action",
+    "validator gate",
+    "evidence reanalyze",
+    "router policy update"
+  ],
+  "candidates": [
+    {
+      "id": "B0",
+      "name": "Narrative planner",
+      "status": "reject",
+      "reason": "persuasive future with no validator-backed evidence state"
+    },
+    {
+      "id": "B1",
+      "name": "Heuristic router",
+      "status": "baseline",
+      "reason": "auditable fallback, but no lookahead over proof debt"
+    },
+    {
+      "id": "B2",
+      "name": "Latent model without gate",
+      "status": "hold",
+      "reason": "predicts useful next action but lacks validator and replay boundary"
+    },
+    {
+      "id": "B3",
+      "name": "ProofZero work planner",
+      "status": "promote",
+      "reason": "bounded search, validator-aware backup, replay boundary, and evidence reanalyze pass"
+    }
+  ],
+  "outputs": [
+    "latent-work-state-report.json",
+    "evidence-reanalyze-ledger.json",
+    "planning-depth-scoreboard.json",
+    "router-policy-update.json"
+  ]
+}

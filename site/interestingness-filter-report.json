@@ -1,0 +1,17 @@
+{
+  "type": "InterestingnessFilterReport",
+  "rule": "Interestingness is allocation pressure only. It is not admission authority.",
+  "admitted": [
+    "M3"
+  ],
+  "held": [
+    "M1"
+  ],
+  "rejected": [
+    "M0"
+  ],
+  "quarantined": [
+    "M2"
+  ],
+  "reason": "Mission seeds must be useful, learnable, proofable, bounded, replayable, and challengeable."
+}

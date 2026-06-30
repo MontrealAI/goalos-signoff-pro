@@ -1,0 +1,12 @@
+{
+  "id": "goalos-signoff-pro-mission-foundry-lab-v26",
+  "version": "26.0.0",
+  "generatedAt": "2026-06-30T22:36:44.842Z",
+  "primaryRoute": "mission-foundry-lab.html",
+  "aliases": [
+    "curriculum-lab.html",
+    "harder-mission-lab.html"
+  ],
+  "claimBoundary": "Synthetic public demonstration only. No external audit, production certification, live settlement, value movement, or AGI/ASI attainment claim.",
+  "canonicalDemoHash": "sha256:3a737d99bf8618fa5a91ef8871fdd79e248301c6eeb23a39"
+}

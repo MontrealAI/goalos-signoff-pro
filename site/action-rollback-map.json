@@ -1,0 +1,43 @@
+{
+  "rollbackMapId": "ROLLBACK-MAP-RESEARCH-SYNTHETIC",
+  "lastKnownGoodState": "governed_decision_state_v0",
+  "rollbackTargets": [
+    {
+      "actionId": "A1",
+      "status": "allowed",
+      "rollback": "return to evidence gathering"
+    },
+    {
+      "actionId": "A2",
+      "status": "allowed",
+      "rollback": "preserve previous decision state"
+    },
+    {
+      "actionId": "A3",
+      "status": "allowed",
+      "rollback": "revoke or supersede receipt"
+    },
+    {
+      "actionId": "A4",
+      "status": "blocked",
+      "rollback": "not applicable because action is blocked"
+    },
+    {
+      "actionId": "A5",
+      "status": "allowed",
+      "rollback": "downgrade capability to warning memory"
+    },
+    {
+      "actionId": "A6",
+      "status": "simulated",
+      "rollback": "no settlement; valueMoved remains 0"
+    },
+    {
+      "actionId": "A7",
+      "status": "held",
+      "rollback": "must be specified before release"
+    }
+  ],
+  "monitoringCondition": "Any unsupported claim, missing proof pointer, or human-authority failure returns the mission to proof work.",
+  "valueMoved": 0
+}
