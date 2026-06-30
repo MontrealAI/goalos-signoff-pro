@@ -1,0 +1,53 @@
+{
+  "version": "21.0.0",
+  "name": "GoalOS Signoff Pro — Until-DONE Mission Control Lab",
+  "slug": "until-done-lab",
+  "aliases": ["mission-control-lab", "proof-debt-lab"],
+  "publicRoutes": [
+    "until-done-lab.html",
+    "mission-control-lab.html",
+    "proof-debt-lab.html"
+  ],
+  "artifacts": [
+    "until-done-demo-bundle.json",
+    "mission-done-certificate.json",
+    "proof-debt-burndown-ledger.json",
+    "until-done-action-graph.json",
+    "until-done-chronicle-entry.json",
+    "until-done-manifest.json"
+  ],
+  "scenarios": [
+    {
+      "id": "research",
+      "label": "AI research acceptance",
+      "objective": "Move one AI research deliverable from persuasive draft to review-ready governed decision state.",
+      "decision": "Accept, request changes, reject, or escalate the research deliverable.",
+      "initialProofDebt": 42,
+      "finalProofDebt": 5
+    },
+    {
+      "id": "software",
+      "label": "Software delivery review",
+      "objective": "Convert a delivered software milestone into evidence, tests, risk state, receipt, and safe next action.",
+      "decision": "Approve milestone, request fixes, hold release, or escalate review.",
+      "initialProofDebt": 38,
+      "finalProofDebt": 4
+    },
+    {
+      "id": "procurement",
+      "label": "Vendor proof room",
+      "objective": "Turn vendor claims into inspectable evidence before procurement acceptance.",
+      "decision": "Accept vendor package, request clarifications, reject claim, or escalate diligence.",
+      "initialProofDebt": 46,
+      "finalProofDebt": 7
+    },
+    {
+      "id": "safety",
+      "label": "Safety escalation package",
+      "objective": "Create a decision state around a high-impact AI output while preserving human authority.",
+      "decision": "Hold, escalate, approve bounded next action, or reject unsupported claim.",
+      "initialProofDebt": 51,
+      "finalProofDebt": 9
+    }
+  ]
+}
