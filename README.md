@@ -8,6 +8,7 @@ Production website: <https://montrealai.github.io/goalos-signoff-pro/>
 [![Pages](https://github.com/MontrealAI/goalos-signoff-pro/actions/workflows/pages.yml/badge.svg)](https://github.com/MontrealAI/goalos-signoff-pro/actions/workflows/pages.yml)
 [![Website quality](https://github.com/MontrealAI/goalos-signoff-pro/actions/workflows/website-quality.yml/badge.svg)](https://github.com/MontrealAI/goalos-signoff-pro/actions/workflows/website-quality.yml)
 [![Public labs v22-v27](https://github.com/MontrealAI/goalos-signoff-pro/actions/workflows/goalos-signoff-public-labs-v22-v27.yml/badge.svg)](https://github.com/MontrealAI/goalos-signoff-pro/actions/workflows/goalos-signoff-public-labs-v22-v27.yml)
+[![Institutional excellence](https://github.com/MontrealAI/goalos-signoff-pro/actions/workflows/institutional-excellence.yml/badge.svg)](https://github.com/MontrealAI/goalos-signoff-pro/actions/workflows/institutional-excellence.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 ![Public-safe demos](https://img.shields.io/badge/public%20demos-browser--local-0f766e)
 ![No public wallet](https://img.shields.io/badge/public%20wallet-none-334155)
@@ -147,6 +148,7 @@ npm run repo:all
 npm run package:verify
 npm run pro:verify
 npm run hybrid:anchor:check
+npm run institutional:verify
 node scripts/verify-goalos-production-site.mjs
 node scripts/verify-goalos-signoff-public-labs-v22-v27.mjs
 git diff --check

@@ -81,7 +81,8 @@
     "typecheck": "tsc --noEmit",
     "repo:verify": "node scripts/repository-readiness.mjs",
     "repo:all": "npm run repo:codeowners && npm run repo:verify && npm run package:verify && npm run hybrid:anchor:check",
-    "repo:codeowners": "node scripts/check-codeowners-owner.mjs"
+    "repo:codeowners": "node scripts/check-codeowners-owner.mjs",
+    "institutional:verify": "node scripts/verify-institutional-excellence.mjs"
   },
   "version": "1.1.0"
 }
