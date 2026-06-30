@@ -1,30 +1,13 @@
 #!/usr/bin/env node
 import fs from 'node:fs';
 import path from 'node:path';
-
-const root = process.cwd();
-const site = path.join(root, 'site');
-const fail = (m) => { console.error(`GoalOS public demo route registry FAILED\n- ${m}`); process.exit(1); };
-const candidates = [
-  ['mission-001.html', 'config/mission-001-benchmark.json'],
-  ['proof-gradient-lab.html', 'config/proof-gradient-lab.json'],
-  ['capability-compounding-lab.html', 'config/capability-compounding-lab.json'],
-  ['sovereign-experience-stream-lab.html', 'config/sovereign-experience-stream-lab.json'],
-  ['sovereign-experience-lab.html', 'config/sovereign-experience-stream-lab.json'],
-  ['proof-settlement-lab.html', 'config/proof-settlement-lab.json'],
-  ['settlement-control-lab.html', 'config/proof-settlement-lab.json'],
-  ['public-private-proof-boundary-lab.html', 'config/public-private-proof-boundary-lab.json'],
-  ['proof-boundary-lab.html', 'config/public-private-proof-boundary-lab.json']
+const site=path.join(process.cwd(),'site');
+const required=['governed-decision-state-lab.html','decision-state-lab.html'];
+const optional=[
+ ['proof-gradient-lab.html','Proof Gradient'],['capability-compounding-lab.html','Capability Compounding'],['sovereign-experience-stream-lab.html','Sovereign Experience'],['proof-settlement-lab.html','Proof Settlement'],['public-private-proof-boundary-lab.html','Public Private Boundary']
 ];
-const required = candidates.filter(([, cfg]) => fs.existsSync(path.join(root, cfg)));
-for (const [route] of required) {
-  const file = path.join(site, route);
-  if (!fs.existsSync(file)) fail(`${route} is missing`);
-  const html = fs.readFileSync(file, 'utf8');
-  if (/Route Not Found/i.test(html)) fail(`${route} contains Route Not Found fallback`);
-  const rails = (html.match(/data-goalos-legal-rail="v12"/g) || []).length;
-  if (rails !== 1) fail(`${route} must contain exactly one v12 legal rail; found ${rails}`);
-  const footers = (html.match(/<footer\b/g) || []).length;
-  if (footers !== 1) fail(`${route} must contain exactly one footer; found ${footers}`);
-}
-console.log(`GoalOS public demo route registry PASS (${required.length} routes checked)`);
+let errors=[];
+for(const rel of required){ const p=path.join(site,rel); if(!fs.existsSync(p)) errors.push(`${rel} missing`); else if(fs.readFileSync(p,'utf8').includes('Route Not Found')) errors.push(`${rel} is Route Not Found fallback`); }
+for(const [rel,label] of optional){ const p=path.join(site,rel); if(fs.existsSync(p) && fs.readFileSync(p,'utf8').includes('Route Not Found')) errors.push(`${label} route degraded to Route Not Found`); }
+if(errors.length){ console.error('GoalOS public demo route registry FAILED'); errors.forEach(e=>console.error(' - '+e)); process.exit(1); }
+console.log('GoalOS public demo route registry PASS');

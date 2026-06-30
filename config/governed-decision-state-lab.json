@@ -1,0 +1,97 @@
+{
+  "package": "GoalOS Signoff Pro \u2014 Governed Decision State Lab",
+  "version": "18.0.0",
+  "route": "governed-decision-state-lab.html",
+  "aliases": [
+    "decision-state-lab.html"
+  ],
+  "doctrine": {
+    "thesis": "The deliverable is not a report. The deliverable is a governed decision state.",
+    "law": "Evidence becomes judgment only after claims, contradictions, risk, authority, and actionability are all explicit.",
+    "rule": "Objective \u2192 Mission Contract \u2192 Evidence Docket \u2192 Verifier Mesh \u2192 Risk Ledger \u2192 Decision State \u2192 Action Graph \u2192 Chronicle \u2192 Capability Package.",
+    "claimBoundary": "Browser-local synthetic demonstration. No external audit, production certification, settlement activation, value movement, or customer-data processing is claimed."
+  },
+  "publicSafety": {
+    "browserLocal": true,
+    "forms": false,
+    "inputs": false,
+    "uploads": false,
+    "wallets": false,
+    "cookies": false,
+    "analytics": false,
+    "payments": false,
+    "userData": false,
+    "confidentialData": false,
+    "valueMoved": 0
+  },
+  "scenarios": [
+    {
+      "id": "research-brief",
+      "label": "AI research brief",
+      "mission": "Decide whether an AI-generated strategic research brief is ready for executive use.",
+      "claims": 7,
+      "evidence": 13,
+      "contradictions": 2,
+      "risk": 22,
+      "actionability": 88,
+      "authority": "human final gate",
+      "outcome": "ACCEPT_WITH_BOUNDARY"
+    },
+    {
+      "id": "software-delivery",
+      "label": "Software delivery review",
+      "mission": "Decide whether a delivered automation milestone is accepted, needs changes, or should be escalated.",
+      "claims": 9,
+      "evidence": 17,
+      "contradictions": 1,
+      "risk": 18,
+      "actionability": 92,
+      "authority": "reviewer signoff required",
+      "outcome": "ACCEPT_WITH_RECEIPT"
+    },
+    {
+      "id": "procurement-dossier",
+      "label": "Procurement proof room",
+      "mission": "Decide whether a vendor-recommendation packet has enough evidence for a procurement committee.",
+      "claims": 8,
+      "evidence": 11,
+      "contradictions": 4,
+      "risk": 48,
+      "actionability": 64,
+      "authority": "committee review required",
+      "outcome": "REQUEST_CHANGES"
+    },
+    {
+      "id": "safety-escalation",
+      "label": "Safety escalation package",
+      "mission": "Decide whether a high-impact AI output should be paused until additional review is complete.",
+      "claims": 6,
+      "evidence": 9,
+      "contradictions": 3,
+      "risk": 67,
+      "actionability": 51,
+      "authority": "human escalation required",
+      "outcome": "ESCALATE"
+    }
+  ],
+  "decisionGates": [
+    "mission contract present",
+    "claims matrix complete",
+    "source provenance linked",
+    "contradictions surfaced",
+    "verifier report emitted",
+    "risk ledger bounded",
+    "decision state explicit",
+    "action graph scoped",
+    "rollback condition present",
+    "human authority preserved"
+  ],
+  "artifacts": [
+    "governed-decision-state-demo-bundle.json",
+    "governed-decision-state-certificate.json",
+    "action-graph-demo.json",
+    "verifier-mesh-report.json",
+    "contradiction-register.json",
+    "decision-state-manifest.json"
+  ]
+}

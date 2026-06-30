@@ -1,0 +1,27 @@
+#!/usr/bin/env node
+import fs from 'node:fs';
+import path from 'node:path';
+import crypto from 'node:crypto';
+const root=process.cwd();
+const out=path.join(root,'artifacts','governed-decision-state-lab');
+fs.mkdirSync(out,{recursive:true});
+const scenario=process.env.SCENARIO || 'software-delivery';
+const now=new Date().toISOString();
+const h=v=>crypto.createHash('sha256').update(typeof v==='string'?v:JSON.stringify(v)).digest('hex');
+const write=(name,obj)=>fs.writeFileSync(path.join(out,name),JSON.stringify(obj,null,2));
+const mission={scenario,generatedAt:now,objective:'Convert an AI-delivered work package into a governed decision state.',publicSafety:'synthetic artifact only; no user data; no value moved'};
+const claims={claims:[1,2,3,4,5,6].map(i=>({id:`CL-${i}`,status:i<6?'supported':'bounded uncertainty',evidence:`EV-${i}`}))};
+const verifier={verdict:'ACCEPT_WITH_RECEIPT',proofIntegrity:92,contradictionCoverage:89,riskIndex:18,valueMoved:0};
+const risk={riskIndex:18,status:'bounded',humanAuthority:'final gate'};
+const action={nodes:['accept boundary','issue receipt','chronicle entry','capability candidate'],rollback:'request changes if new contradiction appears'};
+const certificate={certificateId:'GDS-'+h(`${scenario}:${now}`).slice(0,12).toUpperCase(),outcome:'ACCEPT_WITH_RECEIPT',valueMoved:0,hash:h({mission,claims,verifier,risk,action})};
+const readme=`# GoalOS Governed Decision State Lab\n\nSynthetic public-safe demo artifact. No user data, no upload, no wallet, no value moved.\n\nThe deliverable is not a report. The deliverable is a governed decision state.\n`;
+write('00_manifest.json',{package:'GoalOS Governed Decision State Lab',generatedAt:now,scenario,hash:h({scenario,now})});
+write('01_mission_contract.json',mission);
+write('02_claims_matrix.json',claims);
+write('03_verifier_report.json',verifier);
+write('04_risk_ledger.json',risk);
+write('05_action_graph.json',action);
+write('06_decision_state_certificate.json',certificate);
+fs.writeFileSync(path.join(out,'README.md'),readme);
+console.log('Governed Decision State Lab artifact generated at '+out);
