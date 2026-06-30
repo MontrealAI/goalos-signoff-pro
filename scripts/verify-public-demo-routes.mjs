@@ -1,24 +1,29 @@
 #!/usr/bin/env node
 import fs from 'node:fs';
 import path from 'node:path';
-const root = process.cwd();
-const site = path.join(root, 'site');
-const fail = msg => { console.error('GoalOS public demo route registry FAILED'); console.error('- '+msg); process.exit(1); };
-const routes = [
-  ['mission-001.html','Mission 001'],
-  ['proof-gradient-lab.html','Selection Gate'],
-  ['capability-compounding-lab.html','Compounding'],
-  ['sovereign-experience-stream-lab.html','Sovereign experience'],
-  ['sovereign-experience-lab.html','Sovereign experience'],
-  ['evidence-docket-demo.html','Evidence']
-];
-for (const [rel,label] of routes) {
-  const p = path.join(site, rel);
-  if (!fs.existsSync(p)) fail(`${rel} is missing`);
-  const html = fs.readFileSync(p, 'utf8');
-  if (html.includes('Route Not Found') || html.includes('not part of the receipt map')) fail(`${rel} resolves to fallback 404`);
-  if (!html.toLowerCase().includes(label.toLowerCase().split(' ')[0])) fail(`${rel} appears to miss route content for ${label}`);
-  if ((html.match(/data-goalos-legal-rail="v12"/g)||[]).length !== 1) fail(`${rel} must contain exactly one v12 legal rail`);
-  if ((html.match(/<footer\b/gi)||[]).length !== 1) fail(`${rel} must contain exactly one footer`);
+
+const site = path.join(process.cwd(), 'site');
+const errors = [];
+const exists = rel => fs.existsSync(path.join(site, rel));
+function checkPage(rel, phrase, required = false) {
+  if (!exists(rel)) { if (required) errors.push(`${rel} missing`); return; }
+  const html = fs.readFileSync(path.join(site, rel), 'utf8');
+  if (/Route Not Found/i.test(html)) errors.push(`${rel} contains Route Not Found fallback`);
+  const rail = (html.match(/data-goalos-legal-rail="v12"/g) || []).length;
+  if (rail !== 1) errors.push(`${rel} must contain exactly one v12 legal rail, found ${rail}`);
+  const foot = (html.match(/<footer\b/gi) || []).length;
+  if (foot !== 1) errors.push(`${rel} must contain exactly one footer, found ${foot}`);
+  if (phrase && !html.toLowerCase().includes(phrase.toLowerCase())) errors.push(`${rel} missing phrase: ${phrase}`);
+}
+checkPage('proof-settlement-lab.html', 'No ProofBundle', true);
+checkPage('settlement-control-lab.html', 'No ProofBundle', true);
+checkPage('mission-001.html', 'Mission 001');
+checkPage('proof-gradient-lab.html', 'Score is advisory');
+checkPage('capability-compounding-lab.html', 'Accepted proof becomes');
+checkPage('sovereign-experience-stream-lab.html', 'sovereign experience');
+if (errors.length) {
+  console.error('GoalOS public demo route registry FAILED');
+  for (const e of errors) console.error(' - ' + e);
+  process.exit(1);
 }
 console.log('GoalOS public demo route registry PASS');

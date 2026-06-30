@@ -1,0 +1,88 @@
+{
+  "package": "GoalOS Signoff Pro — Proof-to-Settlement Control Lab",
+  "version": "16.0.0",
+  "route": "proof-settlement-lab.html",
+  "aliasRoute": "settlement-control-lab.html",
+  "manifestRoute": "proof-settlement-lab-manifest.json",
+  "doctrine": {
+    "headline": "No ProofBundle, no settlement signal.",
+    "subheadline": "GoalOS turns proof into economic control without moving value in the public demo.",
+    "formula": "Settlement readiness = replayable proof × validator quorum × challenge clearance × risk boundary × human authority",
+    "claimBoundary": "This browser-local demonstration is synthetic and public-safe. It does not perform production settlement activation, custody, protocol bonding, escrow, brokerage, payment, wallet connection, Mainnet transaction, external audit, production certification, empirical SOTA, AGI, ASI, or superintelligence claim."
+  },
+  "scenarios": [
+    {
+      "id": "output-only",
+      "label": "Output-only report",
+      "mission": "A polished AI report arrives without replayable proof.",
+      "candidate": "C0",
+      "verdict": "rejected",
+      "risk": 72,
+      "alphaWU": 0,
+      "reason": "persuasive output is not a settlement-grade ProofBundle"
+    },
+    {
+      "id": "proof-with-gap",
+      "label": "Proof packet with replay gap",
+      "mission": "A run provides claims and hashes, but the replay path is incomplete.",
+      "candidate": "C1",
+      "verdict": "challenge",
+      "risk": 41,
+      "alphaWU": 0,
+      "reason": "validator quorum cannot clear until replay succeeds"
+    },
+    {
+      "id": "settlement-ready",
+      "label": "Replayable ProofBundle",
+      "mission": "A bounded mission emits trace roots, output hashes, cost/risk ledgers, validator reveals, and a closed challenge window.",
+      "candidate": "C2",
+      "verdict": "settlement_signal",
+      "risk": 12,
+      "alphaWU": 38.6,
+      "reason": "proof, replay, quorum, risk, and challenge-window gates clear"
+    },
+    {
+      "id": "human-gated",
+      "label": "High-impact human gate",
+      "mission": "A strong ProofBundle clears technical gates, but risk class requires human authority before any future action.",
+      "candidate": "C3",
+      "verdict": "human_gate",
+      "risk": 26,
+      "alphaWU": 21.4,
+      "reason": "technical readiness is not authority for high-impact action"
+    }
+  ],
+  "gates": [
+    "JobSpec",
+    "PolicyContext",
+    "ContainerDigest",
+    "SBOM",
+    "DependencyPins",
+    "InputHashes",
+    "OutputHashes",
+    "TraceRoot",
+    "CostLedger",
+    "SafetyLedger",
+    "ValidatorCommit",
+    "ValidatorReveal",
+    "ReplayResult",
+    "ChallengeWindow",
+    "HumanAuthority",
+    "ChroniclePointer"
+  ],
+  "publicSafety": {
+    "browserLocal": true,
+    "noForms": true,
+    "noInputs": true,
+    "noTextareas": true,
+    "noUploads": true,
+    "noCookies": true,
+    "noAnalytics": true,
+    "noWalletConnection": true,
+    "noPayments": true,
+    "noValueMoved": true,
+    "noPersonalData": true,
+    "noConfidentialData": true,
+    "agialphaBoundary": "$AGIALPHA is an external Ethereum Mainnet token reference only and is not sold, issued, brokered, custodied, distributed, redeemed, staked, or made available by GoalOS, MontrealAI, or QuebecAI."
+  }
+}
