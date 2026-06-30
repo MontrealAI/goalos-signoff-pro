@@ -1,0 +1,43 @@
+{
+  "version": "23.0.0",
+  "routes": [
+    "proof-carrying-artifact-lab.html",
+    "artifact-vault-lab.html",
+    "evolution-ledger-lab.html",
+    "upgrade-right-lab.html"
+  ],
+  "scenarios": [
+    {
+      "id": "research",
+      "label": "Research acceptance workflow",
+      "artifactClass": "capability-package",
+      "objective": "Turn a public-safe research acceptance workflow into a reusable proof-carrying capability.",
+      "riskClass": "medium",
+      "domain": "AI research review"
+    },
+    {
+      "id": "software",
+      "label": "Software delivery pattern",
+      "artifactClass": "workflow",
+      "objective": "Promote a proof-backed software delivery review pattern only after tests, baselines, rollback, and challenge windows clear.",
+      "riskClass": "medium",
+      "domain": "software delivery"
+    },
+    {
+      "id": "verifier",
+      "label": "Verifier policy update",
+      "artifactClass": "policy",
+      "objective": "Evaluate whether a verifier policy may influence future missions without admitting false proof or privacy leakage.",
+      "riskClass": "high",
+      "domain": "validation governance"
+    },
+    {
+      "id": "docket",
+      "label": "Evidence Docket template",
+      "artifactClass": "template",
+      "objective": "Convert a useful Evidence Docket template into an immutable, replayable, rollbackable reusable artifact.",
+      "riskClass": "low",
+      "domain": "proof operations"
+    }
+  ]
+}

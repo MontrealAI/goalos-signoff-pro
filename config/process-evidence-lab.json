@@ -1,0 +1,111 @@
+{
+  "id": "goalos-process-evidence-lab-v27",
+  "version": "27.0.0",
+  "title": "GoalOS Signoff Pro \u2014 Process-Resolved Evidence Lab",
+  "primaryRoute": "process-evidence-lab.html",
+  "aliases": [
+    "process-trace-lab.html",
+    "proof-native-workbench-lab.html",
+    "evidence-lineage-lab.html"
+  ],
+  "publicArtifacts": [
+    "process-evidence-demo-bundle.json",
+    "process-validator-report.json",
+    "action-reason-trace-ledger.json",
+    "tool-scope-ledger.json",
+    "claim-lineage-map.json",
+    "process-evidence-manifest.json"
+  ],
+  "scenarios": [
+    {
+      "id": "research",
+      "label": "AI research acceptance",
+      "objective": "Decide whether an AI research brief is acceptance-ready.",
+      "riskClass": "reviewable",
+      "domain": "Research"
+    },
+    {
+      "id": "software",
+      "label": "Software delivery review",
+      "objective": "Decide whether an AI-delivered software package can be accepted.",
+      "riskClass": "implementation",
+      "domain": "Software"
+    },
+    {
+      "id": "procurement",
+      "label": "Procurement proof room",
+      "objective": "Decide whether vendor claims have enough evidence for procurement review.",
+      "riskClass": "commercial",
+      "domain": "Procurement"
+    },
+    {
+      "id": "safety",
+      "label": "Safety escalation package",
+      "objective": "Decide whether a high-impact AI recommendation requires human escalation.",
+      "riskClass": "high-impact",
+      "domain": "Safety"
+    }
+  ],
+  "candidates": [
+    {
+      "id": "C0",
+      "name": "Final answer only",
+      "status": "REJECTED",
+      "tag": "Output without process",
+      "summary": "Looks polished but has no trace root, source provenance, tool scope, or contradiction pass.",
+      "traceCompleteness": 12,
+      "claimSupport": 18,
+      "toolScope": 0,
+      "contradictionCoverage": 8,
+      "risk": 82,
+      "processIntegrity": 9,
+      "reason": "Final text is not process evidence."
+    },
+    {
+      "id": "C1",
+      "name": "Hidden tool path",
+      "status": "QUARANTINED",
+      "tag": "Good answer, opaque path",
+      "summary": "The answer may be useful, but tool use, retrieval steps, and data boundary are not inspectable.",
+      "traceCompleteness": 39,
+      "claimSupport": 54,
+      "toolScope": 22,
+      "contradictionCoverage": 31,
+      "risk": 67,
+      "processIntegrity": 34,
+      "reason": "Hidden action path cannot become authority."
+    },
+    {
+      "id": "C2",
+      "name": "Trace present, contradiction unresolved",
+      "status": "HELD",
+      "tag": "Almost reviewable",
+      "summary": "The trace, claims, and sources exist, but one contradiction remains unresolved and rollback is incomplete.",
+      "traceCompleteness": 78,
+      "claimSupport": 82,
+      "toolScope": 76,
+      "contradictionCoverage": 59,
+      "risk": 41,
+      "processIntegrity": 71,
+      "reason": "Unresolved contradiction blocks acceptance."
+    },
+    {
+      "id": "C3",
+      "name": "Process-resolved proof trace",
+      "status": "REVIEW_READY",
+      "tag": "Process evidence cleared",
+      "summary": "Every material claim is linked to evidence, tool scope, validator status, risk ledger, contradiction pass, and receipt pointer.",
+      "traceCompleteness": 96,
+      "claimSupport": 94,
+      "toolScope": 98,
+      "contradictionCoverage": 93,
+      "risk": 12,
+      "processIntegrity": 97,
+      "reason": "Process-resolved evidence is decision-review ready."
+    }
+  ],
+  "boundary": {
+    "claimBoundary": "Synthetic browser-local public demonstration. No external audit, no production certification, no live settlement, no wallet connection, no user data, and no value moved.",
+    "publicRule": "No forms \u00b7 no inputs \u00b7 no uploads \u00b7 no cookies \u00b7 no analytics \u00b7 no wallets \u00b7 no payments \u00b7 no personal or confidential data."
+  }
+}

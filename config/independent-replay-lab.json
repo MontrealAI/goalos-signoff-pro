@@ -1,0 +1,19 @@
+{
+  "version": "24.0.0",
+  "name": "GoalOS Signoff Pro — Independent Replay & Claim Promotion Lab",
+  "primaryRoute": "independent-replay-lab.html",
+  "aliases": ["replay-council-lab.html", "claim-promotion-lab.html"],
+  "scenarios": ["research", "software", "procurement", "safety"],
+  "posture": {
+    "browserLocal": true,
+    "forms": false,
+    "inputs": false,
+    "uploads": false,
+    "wallets": false,
+    "analytics": false,
+    "payments": false,
+    "userData": false,
+    "valueMoved": 0
+  },
+  "claimBoundary": "Synthetic public demonstration. No external audit, production certification, empirical SOTA, active settlement, custody, staking, value movement, AGI attainment, ASI attainment, or autonomous production authority is claimed."
+}

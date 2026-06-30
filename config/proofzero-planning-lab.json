@@ -1,0 +1,57 @@
+{
+  "version": "25.0.0",
+  "name": "ProofZero Planning & Evidence Reanalyze Lab",
+  "primaryRoute": "proofzero-planning-lab.html",
+  "aliases": [
+    "evidence-reanalyze-lab.html",
+    "latent-work-state-lab.html",
+    "bounded-search-lab.html"
+  ],
+  "thesis": "Plan over proof-relevant work states, not persuasive futures.",
+  "scenarios": [
+    {
+      "id": "research",
+      "label": "Research acceptance",
+      "objective": "Decide whether an AI research brief is acceptance-ready.",
+      "bestAction": "validate_then_reanalyze",
+      "risk": "medium",
+      "verifiedWorkStart": 44,
+      "verifiedWorkEnd": 78,
+      "proofDebtStart": 33,
+      "proofDebtEnd": 9
+    },
+    {
+      "id": "software",
+      "label": "Software delivery",
+      "objective": "Choose the safest next step for an AI-delivered software milestone.",
+      "bestAction": "test_then_gate",
+      "risk": "medium",
+      "verifiedWorkStart": 52,
+      "verifiedWorkEnd": 86,
+      "proofDebtStart": 29,
+      "proofDebtEnd": 7
+    },
+    {
+      "id": "procurement",
+      "label": "Procurement proof room",
+      "objective": "Plan review actions for a vendor claim package before acceptance.",
+      "bestAction": "retrieve_then_contradict",
+      "risk": "high",
+      "verifiedWorkStart": 38,
+      "verifiedWorkEnd": 72,
+      "proofDebtStart": 41,
+      "proofDebtEnd": 13
+    },
+    {
+      "id": "safety",
+      "label": "Safety escalation",
+      "objective": "Choose whether to escalate, quarantine, or continue a sensitive proof package.",
+      "bestAction": "quarantine_then_replay",
+      "risk": "high",
+      "verifiedWorkStart": 35,
+      "verifiedWorkEnd": 69,
+      "proofDebtStart": 46,
+      "proofDebtEnd": 15
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "id": "goalos-signoff-pro-mission-foundry-lab-v26",
+  "version": "26.0.0",
+  "title": "GoalOS Signoff Pro — Proof-Gated Mission Foundry & Curriculum Lab",
+  "primaryRoute": "mission-foundry-lab.html",
+  "aliases": ["curriculum-lab.html", "harder-mission-lab.html"],
+  "publicArtifacts": [
+    "mission-foundry-demo-bundle.json",
+    "generated-mission-curriculum.json",
+    "mission-seed-certificate.json",
+    "interestingness-filter-report.json",
+    "mission-quarantine-ledger.json",
+    "mission-foundry-manifest.json"
+  ],
+  "scenarios": [
+    {
+      "id": "research",
+      "label": "Research acceptance",
+      "objective": "Turn an accepted research Evidence Docket into a harder, replayable follow-on mission.",
+      "missionClass": "AI research acceptance",
+      "nextMission": "Mission 002 — reproduce claims under external replay constraints"
+    },
+    {
+      "id": "software",
+      "label": "Software delivery",
+      "objective": "Turn a signed delivery receipt into a bounded regression and transfer mission.",
+      "missionClass": "Software delivery review",
+      "nextMission": "Mission 002 — validate transfer to a harder repository task"
+    },
+    {
+      "id": "procurement",
+      "label": "Procurement proof room",
+      "objective": "Turn vendor evidence into a structured challenge mission with hidden contradiction checks.",
+      "missionClass": "Procurement / vendor review",
+      "nextMission": "Mission 002 — run comparator and risk-bound replay"
+    },
+    {
+      "id": "safety",
+      "label": "Safety escalation",
+      "objective": "Turn accepted safety evidence into a safer, harder escalation test with rollback boundaries.",
+      "missionClass": "Safety escalation package",
+      "nextMission": "Mission 002 — test delayed-risk detection and quarantine behavior"
+    }
+  ],
+  "candidateSeeds": [
+    {
+      "id": "M0",
+      "name": "Narrative moonshot",
+      "status": "REJECTED",
+      "reason": "interesting language, no validator, no replay path, broad claim boundary",
+      "interestingness": 92,
+      "learnability": 18,
+      "proofability": 0,
+      "risk": 88,
+      "reuse": 12
+    },
+    {
+      "id": "M1",
+      "name": "Promising task idea",
+      "status": "HELD",
+      "reason": "useful but validator requirements and acceptance tests are incomplete",
+      "interestingness": 78,
+      "learnability": 64,
+      "proofability": 45,
+      "risk": 38,
+      "reuse": 48
+    },
+    {
+      "id": "M2",
+      "name": "High-impact escalation",
+      "status": "QUARANTINED",
+      "reason": "impact is high, but risk boundary and rollback plan are not sufficient",
+      "interestingness": 88,
+      "learnability": 70,
+      "proofability": 62,
+      "risk": 76,
+      "reuse": 55
+    },
+    {
+      "id": "M3",
+      "name": "Proof-gated harder mission",
+      "status": "ADMITTED",
+      "reason": "clear validator, bounded risk, replay path, challenge window, and reuse objective",
+      "interestingness": 84,
+      "learnability": 79,
+      "proofability": 91,
+      "risk": 22,
+      "reuse": 86
+    }
+  ],
+  "boundary": {
+    "browserLocal": true,
+    "noForms": true,
+    "noUploads": true,
+    "noWallet": true,
+    "noCookies": true,
+    "noAnalytics": true,
+    "noPayments": true,
+    "noUserData": true,
+    "noValueMoved": true,
+    "claimBoundary": "Synthetic public demonstration only. No external audit, production certification, live settlement, value movement, or AGI/ASI attainment claim."
+  }
+}
