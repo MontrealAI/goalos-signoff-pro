@@ -1,0 +1,80 @@
+{
+  "version": "20.0.0",
+  "name": "GoalOS Signoff Pro — Validator Mesh & Falsification Lab",
+  "slug": "validator-mesh-lab",
+  "aliases": ["falsification-lab"],
+  "claimBoundary": "Synthetic browser-local demonstration. No external audit, no production certification, no live settlement, no value movement, no user data, no confidential data, no wallet, no upload, no form.",
+  "publicRule": "No forms · no inputs · no uploads · no cookies · no analytics · no wallets · no payments · no personal or confidential data.",
+  "scenarios": [
+    {
+      "id": "research-brief",
+      "label": "AI research brief",
+      "objective": "Decide whether an AI-generated research brief is acceptance-ready.",
+      "riskClass": "decision-support",
+      "validatorQuorum": 5
+    },
+    {
+      "id": "software-delivery",
+      "label": "Software delivery review",
+      "objective": "Decide whether a delivered automation package has enough proof to accept.",
+      "riskClass": "delivery-review",
+      "validatorQuorum": 5
+    },
+    {
+      "id": "procurement-dossier",
+      "label": "Procurement proof room",
+      "objective": "Decide whether a vendor claim survives evidence, contradiction, and risk review.",
+      "riskClass": "procurement",
+      "validatorQuorum": 7
+    },
+    {
+      "id": "safety-escalation",
+      "label": "Safety escalation packet",
+      "objective": "Decide whether a high-impact claim must be held for human escalation.",
+      "riskClass": "high-impact-review",
+      "validatorQuorum": 7
+    }
+  ],
+  "candidates": [
+    {
+      "id": "C0",
+      "title": "Confident report",
+      "type": "output-only",
+      "result": "REJECTED",
+      "reason": "Unsupported claims and no replay path.",
+      "proofIntegrity": 18,
+      "validatorConsensus": 22,
+      "challengeResult": "failed"
+    },
+    {
+      "id": "C1",
+      "title": "Proof packet with contradiction",
+      "type": "partial-proof",
+      "result": "CHALLENGED",
+      "reason": "A contradiction survives the verifier mesh.",
+      "proofIntegrity": 54,
+      "validatorConsensus": 48,
+      "challengeResult": "open"
+    },
+    {
+      "id": "C2",
+      "title": "Collusive-looking approval",
+      "type": "weak-quorum",
+      "result": "QUARANTINED",
+      "reason": "Validator diversity and commit-reveal checks fail.",
+      "proofIntegrity": 61,
+      "validatorConsensus": 34,
+      "challengeResult": "quarantined"
+    },
+    {
+      "id": "C3",
+      "title": "Proof-carrying decision package",
+      "type": "proof-survives-challenge",
+      "result": "ACCEPTED_FOR_DECISION_REVIEW",
+      "reason": "Replay, negative controls, diverse validators, and challenge window clear.",
+      "proofIntegrity": 94,
+      "validatorConsensus": 91,
+      "challengeResult": "cleared"
+    }
+  ]
+}
