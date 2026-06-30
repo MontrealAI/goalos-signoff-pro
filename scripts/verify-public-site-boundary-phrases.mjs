@@ -12,7 +12,6 @@ const errors = [];
 const files = htmlFiles(site);
 for (const fp of files) {
   const rel = path.relative(site, fp).replaceAll(path.sep, '/');
-  if (rel.startsWith('404')) continue;
   const html = fs.readFileSync(fp, 'utf8');
   assertBoundary(html, rel, errors);
 }
