@@ -47,3 +47,24 @@ Commands run and outcomes are recorded in the PR body and final response. Any fa
 - `node scripts/verify-goalos-signoff-public-labs-v22-v27.mjs` passed after public overclaim wording cleanup.
 - `npm run repo:verify`, `npm run repo:all`, and `npm run package:verify` were blocked by environment/package hygiene checks that detect `.git`, `.next`, and local `node_modules` directories in this live workspace.
 - `node scripts/verify-goalos-production-site.mjs` remains a legacy production-site gate expecting older Mission 001/browser-beta route artifacts not present in this attached site snapshot.
+
+## 2026-06-30 incremental institutional gate update
+
+### Discovery summary
+
+- Runtime/package posture: `package.json` requires Node `>=20.19.0` and exposes local gates for typecheck, lint, tests, Next build, package verification, repository readiness, optional anchoring config, and public labs verification.
+- Public website posture: `site/` is a static GitHub Pages-compatible surface with browser-local demos and generated v22-v27 labs.
+- Route source posture: v22-v27 hub, manifest, aliases, and lab artifacts are generated from `scripts/build-goalos-signoff-public-labs-v22-v27.mjs`; individual lab builders own the lab pages.
+- Workflow posture: the repository already has CI, Pages, website-quality, and demo-specific workflows. This pass adds a lightweight institutional-excellence workflow that runs deterministic public-safe documentation and route checks.
+- Documentation posture: the repository has many historical install guides. They are retained for audit trail and curated through `docs/INDEX.md` rather than deleted.
+
+### Additional changes implemented
+
+- Added `docs/EXECUTIVE_BRIEF.md` as the executive-facing two-minute explanation of Signoff Pro, its public-safe posture, and the cross-suite relationship with AGIJobManager Ascension.
+- Added `scripts/verify-institutional-excellence.mjs` and `npm run institutional:verify` to validate required front-door docs, v22-v27 route discoverability, manifest shape, README sections, and prohibited public implementation patterns.
+- Added `.github/workflows/institutional-excellence.yml` so pull requests can run the deterministic institutional gate without secrets.
+- Updated the v22-v27 public hub generator and regenerated the hub pages to include the explicit “Why these six labs matter” curriculum section.
+
+### Skipped companion repository work
+
+The companion `goalos-agijobmanager-ascension` checkout was not present in `/workspace`, so no edits or PR could be prepared there. The required handoff remains in `docs/CROSS_REPO_HANDOFF.md`.
