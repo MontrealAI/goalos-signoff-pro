@@ -68,3 +68,66 @@ Commands run and outcomes are recorded in the PR body and final response. Any fa
 ### Skipped companion repository work
 
 The companion `goalos-agijobmanager-ascension` checkout was not present in `/workspace`, so no edits or PR could be prepared there. The required handoff remains in `docs/CROSS_REPO_HANDOFF.md`.
+
+## 2026-06-30 curriculum and receipt lifecycle update
+
+### Repository architecture map
+
+- `app/` and framework files: private-beta Next.js product scaffold and TypeScript application surface.
+- `site/`: GitHub Pages-compatible static public website, generated demo hubs, browser-local lab pages, and public-safe JSON artifacts.
+- `scripts/`: deterministic builders, generators, route verifiers, package verifiers, boundary normalizers, and repository-readiness checks.
+- `config/`: route/demo source data and product-policy examples used by builders and verification scripts.
+- `docs/`: canonical documentation, retained install guides, boundary docs, operator runbooks, and historical validation notes.
+- `contracts/`, `blockchain/`, and `services/anchor-relayer/`: optional anchoring examples separated from the public no-wallet demos.
+- `.github/workflows/`: CI, Pages publication, website-quality gates, demo-generation workflows, and institutional-excellence verification.
+
+### Documentation inventory
+
+- Front doors: `README.md`, `START_HERE.md`, `docs/INDEX.md`, `docs/START_HERE.md`, and `docs/EXECUTIVE_BRIEF.md`.
+- Demo and curriculum docs: `docs/DEMO_CATALOG.md`, `docs/V22_V27_CURRICULUM.md`, public lab user guides, and the v22-v27 global install guide.
+- Acceptance/proof docs: `docs/ACCEPTANCE_WORKFLOW.md`, `docs/MISSION_RECEIPT_LIFECYCLE.md`, Evidence Docket guidance, receipt verification guidance, and proof mission guidance.
+- Operations docs: `docs/VERIFICATION.md`, `docs/PUBLIC_SITE_OPERATIONS.md`, `docs/REPOSITORY_MAP.md`, `docs/CODEX_RUNBOOK.md`, and `docs/RELEASE_CHECKLIST.md`.
+- Boundary docs: `docs/CLAIM_BOUNDARY.md`, `docs/AGIALPHA_EXTERNAL_TOKEN_BOUNDARY.md`, no-user-data/privacy/legal docs, and mainnet/funds boundary docs.
+- Historical docs: versioned install guides remain retained and curated through `docs/INDEX.md` rather than deleted.
+
+### Public site inventory
+
+- Public front door: `site/index.html`.
+- v22-v27 global hubs: `site/public-demo-labs.html` and `site/goalos-public-demo-labs.html`.
+- v22-v27 canonical routes and aliases: action authority, proof-carrying artifact, independent replay, ProofZero planning, mission foundry/curriculum, and process evidence pages.
+- Public artifacts: `site/goalos-public-demo-labs-v22-v27.json` plus lab-specific bundles, manifests, receipts, ledgers, reports, and certificates.
+
+### Route count and route sources
+
+- The v22-v27 route source is `scripts/build-goalos-signoff-public-labs-v22-v27.mjs`.
+- The global manifest currently records 21 hub/canonical/alias routes across six labs.
+- Individual lab pages are owned by their corresponding `scripts/build-*-lab-page.mjs` builders and `scripts/generate-*-lab-bundle.mjs` generators.
+
+### Gaps addressed in this increment
+
+- Added `docs/V22_V27_CURRICULUM.md` to make v22-v27 read as a coherent institutional curriculum instead of six isolated demos.
+- Added `docs/MISSION_RECEIPT_LIFECYCLE.md` to clarify receipt contents, verification, optional anchoring boundary, and invalidation modes.
+- Added `docs/ACCEPTANCE_WORKFLOW.md` to document the six-gate signoff flow in plain language.
+- Updated `docs/INDEX.md` so these docs are discoverable from the canonical docs hub.
+
+### Residual risks
+
+- The companion AGIJobManager Ascension repository was not present in this workspace; companion implementation remains a handoff rather than a committed PR.
+- Production deployment was not performed in this environment; this branch changes repository artifacts only.
+- Visual screenshot capture was not run because the changes are documentation-focused and the public hub generator was already present.
+
+### Verification run for this increment
+
+- `node --version && npm --version` passed with Node v20.20.2 and npm 11.4.2; npm emitted a non-fatal warning about an unknown `http-proxy` env config.
+- `npm ci` passed, installed 477 packages, audited 478 packages, and found 0 vulnerabilities.
+- `npm run institutional:verify` passed.
+- `git diff --check` passed.
+- `npm run typecheck` passed.
+- `npm run lint` passed with 22 pre-existing warnings and 0 errors.
+- `npm run test` passed: 11 test files and 22 tests.
+- `npm run build` passed with Next.js 16.2.9.
+- `node scripts/verify-goalos-signoff-public-labs-v22-v27.mjs` passed: 23 HTML routes and 40 JSON artifacts.
+- `npm run hybrid:anchor:check` passed in disabled/no-mainnet mode.
+- `npm run package:verify` failed because this live workspace contains local build/dependency directories (`node_modules`, `.next`) that the package verifier intentionally forbids from release packages.
+- `npm run repo:verify` failed for the same live-workspace hygiene reason, plus repository-only directories (`.git`, `blockchain/node_modules`, `services/anchor-relayer/node_modules`).
+- `node scripts/verify-goalos-production-site.mjs` failed because the attached site snapshot does not include legacy Mission 001/browser-beta route artifacts expected by that older production-site gate and several legacy pages lack the exact v12 legal rail count expected by the script.

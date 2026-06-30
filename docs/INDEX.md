@@ -34,6 +34,13 @@ flowchart LR
   C --> K[Reusable Capability]
 ```
 
+
+## Public demo curriculum
+
+- [V22_V27_CURRICULUM.md](V22_V27_CURRICULUM.md) — Six-lab learning path for governed action, proof-carrying artifacts, replay, ProofZero planning, mission curriculum, and process-resolved evidence.
+- [MISSION_RECEIPT_LIFECYCLE.md](MISSION_RECEIPT_LIFECYCLE.md) — Mission Receipt contents, verification path, optional anchoring boundary, and failure modes.
+- [ACCEPTANCE_WORKFLOW.md](ACCEPTANCE_WORKFLOW.md) — Six-gate acceptance workflow from commission to signed receipt.
+
 ## Public-safe boundary summary
 
 No public wallet connection, token approval, network switching, transaction broadcast, custody, escrow release, value movement, payment, token sale, analytics, cookies, tracking pixels, secrets, user uploads, public form intake, personal data, customer data, confidential data, or unbounded AGI/ASI/SOTA/ROI/certification claims.
