@@ -7,9 +7,12 @@ on:
     paths:
       - 'config/**'
       - 'scripts/**'
-      - '.github/workflows/pages.yml'
       - 'docs/**'
+      - 'verification/**'
       - 'README.md'
+      - '.github/workflows/pages.yml'
+      - '.github/workflows/website-quality.yml'
+      - '.github/workflows/goalos-signoff-public-labs-v22-v27.yml'
 
 permissions:
   contents: read
@@ -22,7 +25,7 @@ concurrency:
 
 jobs:
   build:
-    name: Build and verify canonical production site
+    name: Build and verify canonical site plus public labs v22-v27
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
@@ -31,40 +34,33 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Build public site and public demo labs
+      - name: Build production site and all public demonstration labs
         shell: bash
         run: |
           set -euo pipefail
           rm -rf site artifacts
           mkdir -p site artifacts
           if [ -f scripts/build-goalos-production-site.mjs ]; then node scripts/build-goalos-production-site.mjs; fi
-          if [ -f scripts/build-proof-gradient-lab-page.mjs ]; then node scripts/build-proof-gradient-lab-page.mjs; fi
-          if [ -f scripts/build-capability-compounding-lab-page.mjs ]; then node scripts/build-capability-compounding-lab-page.mjs; fi
-          if [ -f scripts/build-sovereign-experience-lab-page.mjs ]; then node scripts/build-sovereign-experience-lab-page.mjs; fi
-          if [ -f scripts/build-proof-settlement-lab-page.mjs ]; then node scripts/build-proof-settlement-lab-page.mjs; fi
-          if [ -f scripts/build-public-private-proof-boundary-lab-page.mjs ]; then node scripts/build-public-private-proof-boundary-lab-page.mjs; fi
-          if [ -f scripts/build-governed-decision-state-lab-page.mjs ]; then node scripts/build-governed-decision-state-lab-page.mjs; fi
-          if [ -f scripts/build-rollback-challenge-lab-page.mjs ]; then node scripts/build-rollback-challenge-lab-page.mjs; fi
-          if [ -f scripts/build-validator-mesh-lab-page.mjs ]; then node scripts/build-validator-mesh-lab-page.mjs; fi
-          if [ -f scripts/build-until-done-lab-page.mjs ]; then node scripts/build-until-done-lab-page.mjs; fi
-          node scripts/build-action-graph-authority-lab-page.mjs
-          if [ -f scripts/finalize-public-site-boundaries.mjs ]; then node scripts/finalize-public-site-boundaries.mjs; fi
-      - name: Verify public site gates
+          for f in \
+            scripts/build-proof-gradient-lab-page.mjs \
+            scripts/build-capability-compounding-lab-page.mjs \
+            scripts/build-sovereign-experience-lab-page.mjs \
+            scripts/build-proof-settlement-lab-page.mjs \
+            scripts/build-public-private-proof-boundary-lab-page.mjs \
+            scripts/build-governed-decision-state-lab-page.mjs \
+            scripts/build-rollback-challenge-lab-page.mjs \
+            scripts/build-validator-mesh-lab-page.mjs \
+            scripts/build-until-done-lab-page.mjs
+          do
+            if [ -f "$f" ]; then node "$f"; fi
+          done
+          node scripts/build-goalos-signoff-public-labs-v22-v27.mjs
+      - name: Verify production site and public labs v22-v27
         shell: bash
         run: |
           set -euo pipefail
           if [ -f scripts/verify-goalos-production-site.mjs ]; then node scripts/verify-goalos-production-site.mjs; fi
-          if [ -f scripts/verify-proof-gradient-lab-page.mjs ]; then node scripts/verify-proof-gradient-lab-page.mjs; fi
-          if [ -f scripts/verify-capability-compounding-lab-page.mjs ]; then node scripts/verify-capability-compounding-lab-page.mjs; fi
-          if [ -f scripts/verify-sovereign-experience-lab-page.mjs ]; then node scripts/verify-sovereign-experience-lab-page.mjs; fi
-          if [ -f scripts/verify-proof-settlement-lab-page.mjs ]; then node scripts/verify-proof-settlement-lab-page.mjs; fi
-          if [ -f scripts/verify-public-private-proof-boundary-lab-page.mjs ]; then node scripts/verify-public-private-proof-boundary-lab-page.mjs; fi
-          if [ -f scripts/verify-governed-decision-state-lab-page.mjs ]; then node scripts/verify-governed-decision-state-lab-page.mjs; fi
-          if [ -f scripts/verify-rollback-challenge-lab-page.mjs ]; then node scripts/verify-rollback-challenge-lab-page.mjs; fi
-          if [ -f scripts/verify-validator-mesh-lab-page.mjs ]; then node scripts/verify-validator-mesh-lab-page.mjs; fi
-          if [ -f scripts/verify-until-done-lab-page.mjs ]; then node scripts/verify-until-done-lab-page.mjs; fi
-          node scripts/verify-action-graph-authority-lab-page.mjs
-          node scripts/verify-public-demo-routes.mjs
+          node scripts/verify-goalos-signoff-public-labs-v22-v27.mjs
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload Pages artifact

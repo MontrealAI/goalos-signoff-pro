@@ -1,0 +1,158 @@
+name: GoalOS Signoff Pro — Global Public Demo Labs v22-v27
+
+on:
+  workflow_dispatch:
+    inputs:
+      action_graph_scenario:
+        description: v22 scenario
+        required: true
+        default: research
+        type: choice
+        options: [research, software, procurement, safety]
+      proof_carrying_scenario:
+        description: v23 scenario
+        required: true
+        default: research
+        type: choice
+        options: [research, software, verifier, docket]
+      independent_replay_scenario:
+        description: v24 scenario
+        required: true
+        default: research
+        type: choice
+        options: [research, software, procurement, safety]
+      proofzero_scenario:
+        description: v25 scenario
+        required: true
+        default: research
+        type: choice
+        options: [research, software, procurement, safety]
+      mission_foundry_scenario:
+        description: v26 scenario
+        required: true
+        default: research
+        type: choice
+        options: [research, software, procurement, safety]
+      process_evidence_scenario:
+        description: v27 scenario
+        required: true
+        default: research
+        type: choice
+        options: [research, software, procurement, safety]
+      commit_generated_site:
+        description: Commit generated site/ and artifacts/ back to this branch
+        required: true
+        default: true
+        type: boolean
+      deploy_pages:
+        description: Deploy generated site to GitHub Pages
+        required: true
+        default: true
+        type: boolean
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+  actions: read
+
+concurrency:
+  group: goalos-pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build, verify, bundle, and optionally commit public labs v22-v27
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Build production site and global public demonstration suite
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf site artifacts
+          mkdir -p site artifacts
+          if [ -f scripts/build-goalos-production-site.mjs ]; then node scripts/build-goalos-production-site.mjs; fi
+          for f in \
+            scripts/build-proof-gradient-lab-page.mjs \
+            scripts/build-capability-compounding-lab-page.mjs \
+            scripts/build-sovereign-experience-lab-page.mjs \
+            scripts/build-proof-settlement-lab-page.mjs \
+            scripts/build-public-private-proof-boundary-lab-page.mjs \
+            scripts/build-governed-decision-state-lab-page.mjs \
+            scripts/build-rollback-challenge-lab-page.mjs \
+            scripts/build-validator-mesh-lab-page.mjs \
+            scripts/build-until-done-lab-page.mjs
+          do
+            if [ -f "$f" ]; then node "$f"; fi
+          done
+          node scripts/build-goalos-signoff-public-labs-v22-v27.mjs
+      - name: Generate one public-safe artifact bundle per lab
+        shell: bash
+        run: |
+          set -euo pipefail
+          SCENARIO='${{ inputs.action_graph_scenario }}' node scripts/generate-action-graph-authority-lab-bundle.mjs '${{ inputs.action_graph_scenario }}'
+          SCENARIO='${{ inputs.proof_carrying_scenario }}' node scripts/generate-proof-carrying-artifact-lab-bundle.mjs '${{ inputs.proof_carrying_scenario }}'
+          GOALOS_REPLAY_SCENARIO='${{ inputs.independent_replay_scenario }}' node scripts/generate-independent-replay-lab-bundle.mjs '${{ inputs.independent_replay_scenario }}'
+          SCENARIO='${{ inputs.proofzero_scenario }}' node scripts/generate-proofzero-planning-lab-bundle.mjs
+          GOALOS_MISSION_FOUNDRY_SCENARIO='${{ inputs.mission_foundry_scenario }}' node scripts/generate-mission-foundry-lab-bundle.mjs
+          SCENARIO='${{ inputs.process_evidence_scenario }}' node scripts/generate-process-evidence-lab-bundle.mjs '${{ inputs.process_evidence_scenario }}'
+      - name: Verify production site and global public labs
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -f scripts/verify-goalos-production-site.mjs ]; then node scripts/verify-goalos-production-site.mjs; fi
+          node scripts/verify-goalos-signoff-public-labs-v22-v27.mjs
+      - name: Upload generated lab bundles
+        uses: actions/upload-artifact@v4
+        with:
+          name: goalos-signoff-public-labs-v22-v27-bundles
+          path: artifacts
+          if-no-files-found: error
+      - name: Upload generated site preview
+        uses: actions/upload-artifact@v4
+        with:
+          name: goalos-signoff-public-labs-v22-v27-site
+          path: site
+          if-no-files-found: error
+      - name: Commit generated static site and artifacts
+        if: ${{ inputs.commit_generated_site == true }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add site artifacts
+          if git diff --cached --quiet; then
+            echo "No generated site or artifact changes to commit."
+          else
+            git commit -m "Add GoalOS public demo labs v22-v27 generated site [skip ci]"
+            git push || echo "::warning::Generated site commit could not be pushed. The Pages artifact will still be available and deploy can continue."
+          fi
+      - name: Configure Pages
+        if: ${{ inputs.deploy_pages == true }}
+        uses: actions/configure-pages@v5
+      - name: Upload Pages artifact
+        if: ${{ inputs.deploy_pages == true }}
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+  deploy:
+    name: Deploy to GitHub Pages
+    if: ${{ inputs.deploy_pages == true }}
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
