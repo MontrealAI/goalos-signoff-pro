@@ -1,0 +1,42 @@
+name: Governed Decision State Lab Autopilot
+
+on:
+  workflow_dispatch:
+    inputs:
+      scenario:
+        description: Synthetic scenario to generate
+        type: choice
+        required: true
+        default: software-delivery
+        options:
+          - research-brief
+          - software-delivery
+          - procurement-dossier
+          - safety-escalation
+
+permissions:
+  contents: read
+
+jobs:
+  generate:
+    name: Generate governed decision state demo artifact
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Generate artifact bundle
+        shell: bash
+        env:
+          SCENARIO: ${{ inputs.scenario }}
+        run: |
+          set -euo pipefail
+          node scripts/generate-governed-decision-state-lab-bundle.mjs
+      - name: Upload governed decision state artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: goalos-governed-decision-state-demo
+          path: artifacts/governed-decision-state-lab
