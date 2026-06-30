@@ -55,27 +55,18 @@ jobs:
               node "$script"
             done < <(find scripts -maxdepth 1 -type f \( -name 'repair-*-legal-rails.mjs' -o -name 'repair-*-public-rule.mjs' \) | sort)
           fi
-          if [ -f scripts/normalize-public-site-boundaries.mjs ]; then
-            node scripts/normalize-public-site-boundaries.mjs
-          fi
-          if [ -f scripts/repair-governed-decision-state-public-rule.mjs ]; then
-            node scripts/repair-governed-decision-state-public-rule.mjs
-          fi
-          if [ -f scripts/repair-validator-mesh-legal-rails.mjs ]; then
-            node scripts/repair-validator-mesh-legal-rails.mjs
-          fi
-          if [ -f scripts/repair-rollback-challenge-footer-compatibility.mjs ]; then
-            node scripts/repair-rollback-challenge-footer-compatibility.mjs
-          fi
-          if [ -f scripts/repair-public-site-boundary-compatibility.mjs ]; then
-            node scripts/repair-public-site-boundary-compatibility.mjs
-          fi
-          if [ -f scripts/repair-public-site-footer-compatibility.mjs ]; then
-            node scripts/repair-public-site-footer-compatibility.mjs
-          fi
-          if [ -f scripts/verify-public-site-boundary-phrases.mjs ]; then
-            node scripts/verify-public-site-boundary-phrases.mjs
-          fi
+          for script in \
+            scripts/normalize-public-site-boundaries.mjs \
+            scripts/repair-governed-decision-state-public-rule.mjs \
+            scripts/repair-validator-mesh-legal-rails.mjs \
+            scripts/repair-rollback-challenge-footer-compatibility.mjs \
+            scripts/repair-public-site-boundary-compatibility.mjs \
+            scripts/repair-public-site-footer-compatibility.mjs \
+            scripts/repair-404-public-site-rule.mjs \
+            scripts/verify-public-site-boundary-phrases.mjs \
+            scripts/verify-404-public-site-rule.mjs; do
+            if [ -f "$script" ]; then node "$script"; fi
+          done
       - name: Verify production site
         shell: bash
         run: |
@@ -83,32 +74,30 @@ jobs:
           if [ -f scripts/verify-goalos-production-site.mjs ]; then
             node scripts/verify-goalos-production-site.mjs
           fi
-          if [ -f scripts/repair-public-site-boundary-compatibility.mjs ]; then
-            node scripts/repair-public-site-boundary-compatibility.mjs
-          fi
-          if [ -f scripts/repair-public-site-footer-compatibility.mjs ]; then
-            node scripts/repair-public-site-footer-compatibility.mjs
-          fi
-          if [ -f scripts/repair-rollback-challenge-footer-compatibility.mjs ]; then
-            node scripts/repair-rollback-challenge-footer-compatibility.mjs
-          fi
-          if [ -f scripts/verify-public-site-boundary-phrases.mjs ]; then
-            node scripts/verify-public-site-boundary-phrases.mjs
-          fi
+          for script in \
+            scripts/repair-public-site-boundary-compatibility.mjs \
+            scripts/repair-public-site-footer-compatibility.mjs \
+            scripts/repair-governed-decision-state-public-rule.mjs \
+            scripts/repair-validator-mesh-legal-rails.mjs \
+            scripts/repair-rollback-challenge-footer-compatibility.mjs \
+            scripts/repair-404-public-site-rule.mjs \
+            scripts/verify-public-site-boundary-phrases.mjs \
+            scripts/verify-404-public-site-rule.mjs; do
+            if [ -f "$script" ]; then node "$script"; fi
+          done
           if [ -d scripts ]; then
             while IFS= read -r script; do
               node "$script"
             done < <(find scripts -maxdepth 1 -type f -name 'verify-*-lab-page.mjs' | sort)
           fi
-          if [ -f scripts/repair-public-site-boundary-compatibility.mjs ]; then
-            node scripts/repair-public-site-boundary-compatibility.mjs
-          fi
-          if [ -f scripts/repair-public-site-footer-compatibility.mjs ]; then
-            node scripts/repair-public-site-footer-compatibility.mjs
-          fi
-          if [ -f scripts/verify-public-site-boundary-phrases.mjs ]; then
-            node scripts/verify-public-site-boundary-phrases.mjs
-          fi
+          for script in \
+            scripts/repair-public-site-boundary-compatibility.mjs \
+            scripts/repair-public-site-footer-compatibility.mjs \
+            scripts/repair-404-public-site-rule.mjs \
+            scripts/verify-public-site-boundary-phrases.mjs \
+            scripts/verify-404-public-site-rule.mjs; do
+            if [ -f "$script" ]; then node "$script"; fi
+          done
           if [ -f scripts/verify-public-demo-routes.mjs ]; then
             node scripts/verify-public-demo-routes.mjs
           fi
