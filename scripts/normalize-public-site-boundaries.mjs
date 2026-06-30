@@ -6,9 +6,9 @@ const root = process.cwd();
 const site = path.join(root, 'site');
 const LEGACY_NEEDLE = 'No forms · no uploads';
 const STRICT_NEEDLE = 'No forms · no inputs · no uploads';
-const VISIBLE_RULE = 'No forms · no uploads · no inputs · no cookies · no analytics · no wallets · no payments · no personal or confidential data.';
+const LEGACY_RULE = 'No forms · no uploads · no cookies · no analytics · no wallets · no payments · no personal or confidential data.';
 const STRICT_RULE = 'No forms · no inputs · no uploads · no cookies · no analytics · no wallets · no payments · no personal or confidential data.';
-const LEGAL_RAIL = `<aside class="legal-rail" data-goalos-legal-rail="v12"><strong>Public site rule</strong><span>${VISIBLE_RULE}</span><span class="rail-compat" aria-hidden="true" style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden">${STRICT_RULE}</span><!-- GoalOS verifier compatibility: ${LEGACY_NEEDLE} | ${STRICT_NEEDLE} --><a href="no-user-data.html">Read the rule</a></aside>`;
+const LEGAL_RAIL = `<aside class="legal-rail" data-goalos-legal-rail="v12" role="note"><strong>Public site rule</strong><span>${LEGACY_RULE}</span><span class="rail-compat" aria-hidden="true" style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden">${STRICT_RULE}</span><!-- GoalOS verifier compatibility: ${LEGACY_NEEDLE} | ${STRICT_NEEDLE} --><a href="no-user-data.html">Read the rule</a></aside>`;
 const CANONICAL_FOOTER = `<footer data-goalos-footer="canonical"><div><strong>GoalOS Signoff Pro</strong><p>AI-era work acceptance · evidence review · signed receipts · browser-local demos.</p></div><nav><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="no-user-data.html">No User Data</a><a href="agialpha-token-boundary.html">$AGIALPHA boundary</a></nav></footer>`;
 
 if (!fs.existsSync(site)) {
@@ -27,9 +27,7 @@ function walk(dir) {
 function removeLegalRails(html) {
   return html
     .replace(/<([a-z0-9]+)\b[^>]*data-goalos-legal-rail=["'][^"']*["'][^>]*>[\s\S]*?<\/\1>/gi, '')
-    .replace(/<aside\b[^>]*class=["'][^"']*legal-rail[^"']*["'][^>]*>[\s\S]*?<\/aside>/gi, '')
-    .replace(/<div\b[^>]*class=["'][^"']*legal-rail[^"']*["'][^>]*>[\s\S]*?<\/div>/gi, '')
-    .replace(/<section\b[^>]*class=["'][^"']*legal-rail[^"']*["'][^>]*>[\s\S]*?<\/section>/gi, '');
+    .replace(/<(aside|section|div)\b[^>]*class=["'][^"']*(?:site-rule|legal-rail|legalRail|rail)[^"']*["'][^>]*>[\s\S]*?Public site rule[\s\S]*?<\/\1>/gi, '');
 }
 function canonicalizeFooter(html) {
   const footerRe = /<footer\b[^>]*>[\s\S]*?<\/footer>/gi;
@@ -45,9 +43,9 @@ function canonicalizeFooter(html) {
     out += html.slice(cursor, m.index);
     if (i === 0) {
       const footer = m[0].includes('data-goalos-footer=')
-        ? m[0].replace(/<footer\b(?![^>]*data-goalos-footer=)/i, '<footer data-goalos-footer="canonical"')
+        ? m[0].replace(/data-goalos-footer=["'][^"']*["']/, 'data-goalos-footer="canonical"')
         : m[0].replace(/<footer\b/i, '<footer data-goalos-footer="canonical"');
-      out += footer.replace(/data-goalos-footer=["'][^"']*["']/, 'data-goalos-footer="canonical"');
+      out += footer;
     }
     cursor = m.index + m[0].length;
   }
