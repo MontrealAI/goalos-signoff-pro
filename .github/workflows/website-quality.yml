@@ -3,13 +3,15 @@ name: Website quality gate
 on:
   workflow_dispatch:
   pull_request:
+    branches: [main]
   push:
     branches: [main]
     paths:
-      - "scripts/**"
-      - "config/**"
-      - ".github/workflows/website-quality.yml"
-      - "docs/**"
+      - 'scripts/**'
+      - 'config/**'
+      - 'docs/**'
+      - 'public/**'
+      - '.github/workflows/website-quality.yml'
 
 permissions:
   contents: read
@@ -20,51 +22,55 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
-        uses: actions/checkout@v7
+        uses: actions/checkout@v4
       - name: Set up Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v4
         with:
-          node-version: 24
+          node-version: '24'
       - name: Build site preview
         shell: bash
         run: |
           set -euo pipefail
           rm -rf site
-          if [ -f scripts/build-goalos-production-site.mjs ]; then node scripts/build-goalos-production-site.mjs; else mkdir -p site; fi
-          for script in \
-            scripts/build-proof-gradient-lab-page.mjs \
-            scripts/build-capability-compounding-lab-page.mjs \
-            scripts/build-sovereign-experience-lab-page.mjs \
-            scripts/build-proof-settlement-lab-page.mjs \
-            scripts/build-public-private-proof-boundary-lab-page.mjs \
-            scripts/build-governed-decision-state-lab-page.mjs \
-            scripts/build-rollback-challenge-lab-page.mjs \
-            scripts/build-validator-mesh-lab-page.mjs
-          do
-            if [ -f "$script" ]; then node "$script"; fi
-          done
-          if [ -f scripts/finalize-public-site-boundaries.mjs ]; then node scripts/finalize-public-site-boundaries.mjs; fi
+          if [ -f scripts/build-goalos-production-site.mjs ]; then
+            node scripts/build-goalos-production-site.mjs
+          else
+            mkdir -p site
+          fi
+          if [ -d scripts ]; then
+            while IFS= read -r script; do
+              node "$script"
+            done < <(find scripts -maxdepth 1 -type f -name 'build-*-lab-page.mjs' | sort)
+          fi
+          if [ -f scripts/finalize-public-site-boundaries.mjs ]; then
+            node scripts/finalize-public-site-boundaries.mjs
+          fi
+          if [ -f scripts/repair-validator-mesh-legal-rails.mjs ]; then
+            node scripts/repair-validator-mesh-legal-rails.mjs
+          fi
+          if [ -f scripts/normalize-public-site-boundaries.mjs ]; then
+            node scripts/normalize-public-site-boundaries.mjs
+          fi
       - name: Run quality gates
         shell: bash
         run: |
           set -euo pipefail
-          for script in \
-            scripts/verify-goalos-production-site.mjs \
-            scripts/verify-proof-gradient-lab-page.mjs \
-            scripts/verify-capability-compounding-lab-page.mjs \
-            scripts/verify-sovereign-experience-lab-page.mjs \
-            scripts/verify-proof-settlement-lab-page.mjs \
-            scripts/verify-public-private-proof-boundary-lab-page.mjs \
-            scripts/verify-governed-decision-state-lab-page.mjs \
-            scripts/verify-rollback-challenge-lab-page.mjs \
-            scripts/verify-validator-mesh-lab-page.mjs \
-            scripts/verify-public-demo-routes.mjs \
-            scripts/verify-website-quality.mjs
-          do
-            if [ -f "$script" ]; then node "$script"; fi
-          done
+          if [ -f scripts/verify-goalos-production-site.mjs ]; then
+            node scripts/verify-goalos-production-site.mjs
+          fi
+          if [ -d scripts ]; then
+            while IFS= read -r script; do
+              node "$script"
+            done < <(find scripts -maxdepth 1 -type f -name 'verify-*-lab-page.mjs' | sort)
+          fi
+          if [ -f scripts/verify-public-demo-routes.mjs ]; then
+            node scripts/verify-public-demo-routes.mjs
+          fi
+          if [ -f scripts/verify-website-quality.mjs ]; then
+            node scripts/verify-website-quality.mjs
+          fi
       - name: Upload site preview
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: goalos-site-preview

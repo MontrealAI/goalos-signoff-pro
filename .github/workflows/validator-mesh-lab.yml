@@ -4,10 +4,10 @@ on:
   workflow_dispatch:
     inputs:
       scenario:
-        description: Public-safe scenario
+        description: Public-safe synthetic scenario
+        type: choice
         required: true
         default: research-brief
-        type: choice
         options:
           - research-brief
           - software-delivery
@@ -18,8 +18,8 @@ permissions:
   contents: read
 
 jobs:
-  run-lab:
-    name: Generate Validator Mesh demo bundle
+  generate:
+    name: Generate public-safe validator mesh demo bundle
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
@@ -28,23 +28,13 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version: 24
-      - name: Build and verify public lab page
+      - name: Generate demo bundle
         shell: bash
         run: |
           set -euo pipefail
-          rm -rf site
-          if [ -f scripts/build-goalos-production-site.mjs ]; then node scripts/build-goalos-production-site.mjs; else mkdir -p site; fi
-          node scripts/build-validator-mesh-lab-page.mjs
-          node scripts/verify-validator-mesh-lab-page.mjs
-      - name: Generate public-safe demo bundle
-        shell: bash
-        env:
-          GOALOS_SCENARIO: ${{ inputs.scenario }}
-        run: |
-          set -euo pipefail
-          node scripts/generate-validator-mesh-lab-bundle.mjs "$GOALOS_SCENARIO"
-      - name: Upload Validator Mesh demo bundle
+          node scripts/generate-validator-mesh-lab-bundle.mjs "${{ inputs.scenario }}"
+      - name: Upload demo bundle
         uses: actions/upload-artifact@v7
         with:
-          name: goalos-validator-mesh-falsification-lab
+          name: goalos-validator-mesh-falsification-demo
           path: artifacts/validator-mesh-lab
