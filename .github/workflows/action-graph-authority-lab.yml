@@ -1,0 +1,42 @@
+name: Action Graph Authority Lab Autopilot
+
+on:
+  workflow_dispatch:
+    inputs:
+      scenario:
+        description: Public-safe scenario
+        required: true
+        default: research
+        type: choice
+        options:
+          - research
+          - software
+          - procurement
+          - safety
+
+permissions:
+  contents: read
+
+jobs:
+  generate:
+    name: Generate Action Graph Authority Lab bundle
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Generate demo bundle
+        shell: bash
+        env:
+          SCENARIO: ${{ inputs.scenario }}
+        run: |
+          set -euo pipefail
+          node scripts/generate-action-graph-authority-lab-bundle.mjs "$SCENARIO"
+      - name: Upload demo artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: goalos-action-graph-authority-lab-${{ inputs.scenario }}
+          path: artifacts/action-graph-authority-lab
