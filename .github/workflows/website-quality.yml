@@ -14,7 +14,7 @@ permissions:
   contents: read
 
 jobs:
-  verify:
+  quality:
     name: Verify generated public site quality
     runs-on: ubuntu-latest
     steps:
@@ -33,7 +33,8 @@ jobs:
           if [ -f scripts/build-proof-gradient-lab-page.mjs ] && [ -f config/proof-gradient-lab.json ]; then node scripts/build-proof-gradient-lab-page.mjs; fi
           if [ -f scripts/build-capability-compounding-lab-page.mjs ] && [ -f config/capability-compounding-lab.json ]; then node scripts/build-capability-compounding-lab-page.mjs; fi
           if [ -f scripts/build-sovereign-experience-lab-page.mjs ] && [ -f config/sovereign-experience-stream-lab.json ]; then node scripts/build-sovereign-experience-lab-page.mjs; fi
-          node scripts/build-proof-settlement-lab-page.mjs
+          if [ -f scripts/build-proof-settlement-lab-page.mjs ] && [ -f config/proof-settlement-lab.json ]; then node scripts/build-proof-settlement-lab-page.mjs; fi
+          node scripts/build-public-private-proof-boundary-lab-page.mjs
       - name: Run quality gates
         shell: bash
         run: |
@@ -42,7 +43,8 @@ jobs:
           if [ -f site/proof-gradient-lab.html ] && [ -f scripts/verify-proof-gradient-lab-page.mjs ]; then node scripts/verify-proof-gradient-lab-page.mjs; fi
           if [ -f site/capability-compounding-lab.html ] && [ -f scripts/verify-capability-compounding-lab-page.mjs ]; then node scripts/verify-capability-compounding-lab-page.mjs; fi
           if [ -f site/sovereign-experience-stream-lab.html ] && [ -f scripts/verify-sovereign-experience-lab-page.mjs ]; then node scripts/verify-sovereign-experience-lab-page.mjs; fi
-          node scripts/verify-proof-settlement-lab-page.mjs
+          if [ -f site/proof-settlement-lab.html ] && [ -f scripts/verify-proof-settlement-lab-page.mjs ]; then node scripts/verify-proof-settlement-lab-page.mjs; fi
+          node scripts/verify-public-private-proof-boundary-lab-page.mjs
           if [ -f scripts/verify-public-demo-routes.mjs ]; then node scripts/verify-public-demo-routes.mjs; fi
       - name: Upload site preview
         uses: actions/upload-artifact@v4

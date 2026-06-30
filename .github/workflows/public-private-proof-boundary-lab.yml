@@ -1,0 +1,42 @@
+name: Public-Private Proof Boundary Lab Autopilot
+
+on:
+  workflow_dispatch:
+    inputs:
+      scenario:
+        description: Synthetic public-safe scenario
+        required: true
+        default: research-acceptance
+        type: choice
+        options:
+          - research-acceptance
+          - software-delivery
+          - procurement-review
+          - safety-escalation
+
+permissions:
+  contents: read
+
+jobs:
+  generate:
+    name: Generate Proof Boundary demo bundle
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Generate public-safe proof boundary bundle
+        shell: bash
+        env:
+          SCENARIO: ${{ inputs.scenario }}
+        run: |
+          set -euo pipefail
+          node scripts/generate-public-private-proof-boundary-lab-bundle.mjs "$SCENARIO"
+      - name: Upload public-safe proof boundary bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: goalos-public-private-proof-boundary-lab-${{ inputs.scenario }}
+          path: artifacts/public-private-proof-boundary-lab/${{ inputs.scenario }}
