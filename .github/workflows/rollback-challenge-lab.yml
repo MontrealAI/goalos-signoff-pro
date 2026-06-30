@@ -1,0 +1,39 @@
+name: Rollback Challenge Lab Autopilot
+
+on:
+  workflow_dispatch:
+    inputs:
+      scenario:
+        description: Public-safe scenario
+        required: true
+        type: choice
+        default: research-brief
+        options:
+          - research-brief
+          - software-delivery
+          - procurement-review
+          - safety-escalation
+
+permissions:
+  contents: read
+
+jobs:
+  generate:
+    name: Generate rollback and challenge-window demo bundle
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Generate public-safe artifact bundle
+        env:
+          SCENARIO: ${{ inputs.scenario }}
+        run: node scripts/generate-rollback-challenge-lab-bundle.mjs
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: goalos-rollback-challenge-lab
+          path: artifacts/rollback-challenge-lab

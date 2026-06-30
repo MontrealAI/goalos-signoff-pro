@@ -3,13 +3,7 @@ name: Deploy GoalOS Signoff Pro production site
 on:
   workflow_dispatch:
   push:
-    branches: [ main ]
-    paths:
-      - 'config/**'
-      - 'scripts/**'
-      - '.github/workflows/pages.yml'
-      - '.github/workflows/website-quality.yml'
-      - '.github/workflows/governed-decision-state-lab.yml'
+    branches: [main]
 
 permissions:
   contents: read
@@ -17,12 +11,12 @@ permissions:
   id-token: write
 
 concurrency:
-  group: goalos-pages
+  group: pages
   cancel-in-progress: true
 
 jobs:
   build:
-    name: Build and verify public production site
+    name: Build and verify canonical production site
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
@@ -30,33 +24,32 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '24'
-      - name: Build canonical site and public demo extensions
+          node-version: 20
+      - name: Build public site and extensions
         shell: bash
         run: |
           set -euo pipefail
-          mkdir -p site
-          if [ -f scripts/build-goalos-production-site.mjs ]; then node scripts/build-goalos-production-site.mjs; fi
-          if [ -f scripts/build-proof-gradient-lab-page.mjs ] && [ -f config/proof-gradient-lab.json ]; then node scripts/build-proof-gradient-lab-page.mjs; fi
-          if [ -f scripts/build-capability-compounding-lab-page.mjs ] && [ -f config/capability-compounding-lab.json ]; then node scripts/build-capability-compounding-lab-page.mjs; fi
-          if [ -f scripts/build-sovereign-experience-lab-page.mjs ] && [ -f config/sovereign-experience-stream-lab.json ]; then node scripts/build-sovereign-experience-lab-page.mjs; fi
-          if [ -f scripts/build-proof-settlement-lab-page.mjs ] && [ -f config/proof-settlement-lab.json ]; then node scripts/build-proof-settlement-lab-page.mjs; fi
-          if [ -f scripts/build-public-private-proof-boundary-lab-page.mjs ] && [ -f config/public-private-proof-boundary-lab.json ]; then node scripts/build-public-private-proof-boundary-lab-page.mjs; fi
-          node scripts/build-governed-decision-state-lab-page.mjs
-      - name: Run production quality gates
+          if [ -f scripts/build-goalos-production-site.mjs ]; then node scripts/build-goalos-production-site.mjs; else mkdir -p site; fi
+          if [ -f scripts/build-proof-gradient-lab-page.mjs ]; then node scripts/build-proof-gradient-lab-page.mjs; fi
+          if [ -f scripts/build-capability-compounding-lab-page.mjs ]; then node scripts/build-capability-compounding-lab-page.mjs; fi
+          if [ -f scripts/build-sovereign-experience-lab-page.mjs ]; then node scripts/build-sovereign-experience-lab-page.mjs; fi
+          if [ -f scripts/build-proof-settlement-lab-page.mjs ]; then node scripts/build-proof-settlement-lab-page.mjs; fi
+          if [ -f scripts/build-public-private-proof-boundary-lab-page.mjs ]; then node scripts/build-public-private-proof-boundary-lab-page.mjs; fi
+          if [ -f scripts/build-governed-decision-state-lab-page.mjs ]; then node scripts/build-governed-decision-state-lab-page.mjs; fi
+          node scripts/build-rollback-challenge-lab-page.mjs
+      - name: Verify public site
         shell: bash
         run: |
           set -euo pipefail
           if [ -f scripts/verify-goalos-production-site.mjs ]; then node scripts/verify-goalos-production-site.mjs; fi
-          if [ -f site/proof-gradient-lab.html ] && [ -f scripts/verify-proof-gradient-lab-page.mjs ]; then node scripts/verify-proof-gradient-lab-page.mjs; fi
-          if [ -f site/capability-compounding-lab.html ] && [ -f scripts/verify-capability-compounding-lab-page.mjs ]; then node scripts/verify-capability-compounding-lab-page.mjs; fi
-          if [ -f site/sovereign-experience-stream-lab.html ] && [ -f scripts/verify-sovereign-experience-lab-page.mjs ]; then node scripts/verify-sovereign-experience-lab-page.mjs; fi
-          if [ -f site/proof-settlement-lab.html ] && [ -f scripts/verify-proof-settlement-lab-page.mjs ]; then node scripts/verify-proof-settlement-lab-page.mjs; fi
-          if [ -f site/public-private-proof-boundary-lab.html ] && [ -f scripts/verify-public-private-proof-boundary-lab-page.mjs ]; then node scripts/verify-public-private-proof-boundary-lab-page.mjs; fi
-          node scripts/verify-governed-decision-state-lab-page.mjs
+          if [ -f scripts/verify-proof-gradient-lab-page.mjs ]; then node scripts/verify-proof-gradient-lab-page.mjs; fi
+          if [ -f scripts/verify-capability-compounding-lab-page.mjs ]; then node scripts/verify-capability-compounding-lab-page.mjs; fi
+          if [ -f scripts/verify-sovereign-experience-lab-page.mjs ]; then node scripts/verify-sovereign-experience-lab-page.mjs; fi
+          if [ -f scripts/verify-proof-settlement-lab-page.mjs ]; then node scripts/verify-proof-settlement-lab-page.mjs; fi
+          if [ -f scripts/verify-public-private-proof-boundary-lab-page.mjs ]; then node scripts/verify-public-private-proof-boundary-lab-page.mjs; fi
+          if [ -f scripts/verify-governed-decision-state-lab-page.mjs ]; then node scripts/verify-governed-decision-state-lab-page.mjs; fi
+          node scripts/verify-rollback-challenge-lab-page.mjs
           node scripts/verify-public-demo-routes.mjs
-      - name: Configure Pages
-        uses: actions/configure-pages@v5
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
