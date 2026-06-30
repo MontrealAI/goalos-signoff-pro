@@ -1,10 +1,12 @@
 {
-  "version": "20.0.0",
-  "name": "GoalOS Signoff Pro — Validator Mesh & Falsification Lab",
+  "version": "20.2.0",
+  "name": "GoalOS Signoff Pro \u2014 Validator Mesh & Falsification Lab v20.2 Stabilized",
   "slug": "validator-mesh-lab",
-  "aliases": ["falsification-lab"],
-  "claimBoundary": "Synthetic browser-local demonstration. No external audit, no production certification, no live settlement, no value movement, no user data, no confidential data, no wallet, no upload, no form.",
-  "publicRule": "No forms · no inputs · no uploads · no cookies · no analytics · no wallets · no payments · no personal or confidential data.",
+  "aliases": [
+    "falsification-lab"
+  ],
+  "claimBoundary": "Synthetic browser-local demonstration. No external audit, no production certification, no live settlement, no value movement, no user data, no confidential data, no wallet, no upload, no form. Validator conclusions are public-demo artifacts only.",
+  "publicRule": "No forms \u00b7 no inputs \u00b7 no uploads \u00b7 no cookies \u00b7 no analytics \u00b7 no wallets \u00b7 no payments \u00b7 no personal or confidential data.",
   "scenarios": [
     {
       "id": "research-brief",
