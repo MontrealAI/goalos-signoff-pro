@@ -1,0 +1,32 @@
+{
+  "windowId": "CW-001-SYNTHETIC",
+  "phase": [
+    "commit",
+    "review",
+    "challenge",
+    "replay",
+    "decision"
+  ],
+  "checks": [
+    "proof integrity",
+    "claim boundary",
+    "replay path",
+    "rollback target",
+    "canary monitor",
+    "human authority"
+  ],
+  "result": {
+    "blocked": [
+      "C0"
+    ],
+    "rolledBack": [
+      "C1"
+    ],
+    "paused": [
+      "C2"
+    ],
+    "releaseReady": [
+      "C3"
+    ]
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "receiptId": "ROLLBACK-001-SYNTHETIC",
+  "rollbackTarget": "last-known-good-proof-carrying-artifact-v0",
+  "rollbackReason": "challenge-window contradiction and boundary drift in candidate C1",
+  "reversible": true,
+  "valueMoved": 0
+}

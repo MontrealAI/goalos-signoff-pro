@@ -1,0 +1,8 @@
+{
+  "certificateId": "RELEASE-READY-001-SYNTHETIC",
+  "candidate": "C3",
+  "status": "simulation_release_ready",
+  "humanAuthority": "required",
+  "valueMoved": 0,
+  "hash": "1e468a31468edd7bc45503b63e99e8b6e5ca0f14e30c9c34b861d0e74be97dba"
+}

@@ -1,0 +1,26 @@
+{
+  "version": "19.0.0",
+  "slug": "rollback-challenge-lab",
+  "title": "Rollback & Challenge Window Lab",
+  "canonicalRoutes": [
+    "rollback-challenge-lab.html",
+    "challenge-window-lab.html"
+  ],
+  "publicArtifacts": [
+    "rollback-challenge-demo-bundle.json",
+    "challenge-window-record.json",
+    "rollback-receipt-demo.json",
+    "canary-monitor-report.json",
+    "release-readiness-certificate.json",
+    "failure-memory-entry.json",
+    "rollback-challenge-manifest.json"
+  ],
+  "legalRail": "No forms · no inputs · no uploads · no cookies · no analytics · no wallets · no payments · no personal or confidential data.",
+  "claimBoundary": "Browser-local synthetic demonstration. No certification claim, no external audit claim, no value movement, no active settlement, no custody, no staking, no autonomous production authority.",
+  "scenarios": [
+    "research-brief",
+    "software-delivery",
+    "procurement-review",
+    "safety-escalation"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "lab": "GoalOS Signoff Pro — Rollback & Challenge Window Lab",
+  "version": "19.0.0",
+  "scenario": "research-brief",
+  "generatedAt": "2026-06-29T17:11:36.986Z",
+  "publicSafe": true,
+  "valueMoved": 0,
+  "posture": "synthetic browser-local demonstration; no production release authority"
+}

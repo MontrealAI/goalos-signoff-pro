@@ -1,0 +1,8 @@
+{
+  "receiptId": "ROLLBACK-001-SYNTHETIC",
+  "target": "last-known-good-artifact-v0",
+  "candidate": "C1",
+  "reversible": true,
+  "valueMoved": 0,
+  "hash": "deacfa87db9e79a2e1f0cf832686d4633ff1ada6705ffc80d77a97919700a42a"
+}

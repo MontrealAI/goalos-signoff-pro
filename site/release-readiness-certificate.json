@@ -1,0 +1,13 @@
+{
+  "candidate": "C3",
+  "releaseState": "simulation_release_ready",
+  "gates": {
+    "proofValid": true,
+    "evalPass": true,
+    "rollbackReady": true,
+    "canaryReady": true,
+    "scopeAuthorized": true,
+    "challengeCleared": true,
+    "humanGateRequired": true
+  }
+}

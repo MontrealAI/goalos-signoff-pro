@@ -1,0 +1,34 @@
+[
+  {
+    "id": "C0",
+    "title": "Output-only candidate",
+    "decision": "blocked",
+    "failure": "missing rollback target and replay path"
+  },
+  {
+    "id": "C1",
+    "title": "Challenged proof packet",
+    "decision": "rolled_back",
+    "failure": "claim-boundary contradiction found during challenge window"
+  },
+  {
+    "id": "C2",
+    "title": "Canary candidate",
+    "decision": "paused",
+    "failure": "delayed-risk signal triggered canary hold"
+  },
+  {
+    "id": "C3",
+    "title": "Rollbackable proof-carrying artifact",
+    "decision": "release_ready_simulation",
+    "gates": [
+      "proof",
+      "eval",
+      "rollback",
+      "canary",
+      "scope",
+      "challenge",
+      "human gate"
+    ]
+  }
+]

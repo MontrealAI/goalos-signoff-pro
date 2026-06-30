@@ -1,0 +1,127 @@
+{
+  "manifest": {
+    "lab": "GoalOS Signoff Pro — Rollback & Challenge Window Lab",
+    "version": "19.0.0",
+    "generatedAt": "2026-06-29T17:11:36.776Z",
+    "publicSitePosture": "No forms · no inputs · no uploads · no cookies · no analytics · no wallets · no payments · no personal or confidential data.",
+    "claimBoundary": "Browser-local synthetic demonstration. No certification claim, no external audit claim, no value movement, no active settlement, no custody, no staking, no autonomous production authority."
+  },
+  "mission": {
+    "objective": "Demonstrate why release authority requires proof, challenge clearance, canary monitoring, and rollback readiness.",
+    "doctrine": "No proof, no propagation. No rollback, no release.",
+    "userOutcome": "Understand how GoalOS prevents persuasive but unsafe AI output from becoming institutional default."
+  },
+  "candidates": [
+    {
+      "id": "C0",
+      "name": "Persuasive release note",
+      "class": "output-only",
+      "outcome": "blocked",
+      "reason": "No rollback target. No replay path. No release authority.",
+      "score": 72,
+      "proof": 12,
+      "rollback": 0,
+      "challenge": 11,
+      "risk": 64
+    },
+    {
+      "id": "C1",
+      "name": "Proof packet with contradiction",
+      "class": "challenged",
+      "outcome": "rolled_back",
+      "reason": "Challenge window found unsupported claim boundary drift.",
+      "score": 84,
+      "proof": 78,
+      "rollback": 71,
+      "challenge": 38,
+      "risk": 49
+    },
+    {
+      "id": "C2",
+      "name": "Canary release candidate",
+      "class": "paused",
+      "outcome": "paused",
+      "reason": "Canary monitor found delayed-risk signal. Release held.",
+      "score": 88,
+      "proof": 86,
+      "rollback": 82,
+      "challenge": 79,
+      "risk": 42
+    },
+    {
+      "id": "C3",
+      "name": "Rollbackable proof-carrying artifact",
+      "class": "release_ready",
+      "outcome": "release_ready",
+      "reason": "Proof, replay, rollback, canary, challenge, scope, and human gate clear.",
+      "score": 91,
+      "proof": 94,
+      "rollback": 96,
+      "challenge": 92,
+      "risk": 12
+    }
+  ],
+  "challengeWindowRecord": {
+    "windowId": "CW-001-SYNTHETIC",
+    "phase": [
+      "commit",
+      "review",
+      "challenge",
+      "replay",
+      "decision"
+    ],
+    "checks": [
+      "proof integrity",
+      "claim boundary",
+      "replay path",
+      "rollback target",
+      "canary monitor",
+      "human authority"
+    ],
+    "result": {
+      "blocked": [
+        "C0"
+      ],
+      "rolledBack": [
+        "C1"
+      ],
+      "paused": [
+        "C2"
+      ],
+      "releaseReady": [
+        "C3"
+      ]
+    }
+  },
+  "rollbackReceipt": {
+    "receiptId": "ROLLBACK-001-SYNTHETIC",
+    "rollbackTarget": "last-known-good-proof-carrying-artifact-v0",
+    "rollbackReason": "challenge-window contradiction and boundary drift in candidate C1",
+    "reversible": true,
+    "valueMoved": 0
+  },
+  "canaryMonitorReport": {
+    "canaryId": "CANARY-001-SYNTHETIC",
+    "scope": "public-safe browser simulation",
+    "delayedRiskSignal": "detected in C2",
+    "promotionState": "held for review"
+  },
+  "releaseReadinessCertificate": {
+    "candidate": "C3",
+    "releaseState": "simulation_release_ready",
+    "gates": {
+      "proofValid": true,
+      "evalPass": true,
+      "rollbackReady": true,
+      "canaryReady": true,
+      "scopeAuthorized": true,
+      "challengeCleared": true,
+      "humanGateRequired": true
+    }
+  },
+  "failureMemoryEntry": {
+    "chronicleRule": "Rejected or rolled-back traces remain as warnings, not reusable authority.",
+    "reusableWarning": "High score without rollback is not release-grade work.",
+    "nextMissionEffect": "future routing penalizes proof debt and missing rollback plans"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "chronicleRule": "Rejected or rolled-back traces remain as warnings, not reusable authority.",
+  "reusableWarning": "High score without rollback is not release-grade work.",
+  "nextMissionEffect": "future routing penalizes proof debt and missing rollback plans"
+}

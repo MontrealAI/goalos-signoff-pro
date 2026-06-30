@@ -1,0 +1,8 @@
+{
+  "canaryId": "CANARY-001-SYNTHETIC",
+  "candidate": "C2",
+  "scope": "public-safe simulation",
+  "status": "held",
+  "reason": "delayed risk signal",
+  "hash": "a4e1cfd566438c07b31731085d831b1b0732f1081fe8ececb5ad485878b599fb"
+}

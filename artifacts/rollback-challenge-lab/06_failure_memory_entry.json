@@ -1,0 +1,8 @@
+{
+  "entryId": "FAILURE-MEMORY-001-SYNTHETIC",
+  "rule": "Rejected and rolled-back traces become warnings, not authority.",
+  "warnings": [
+    "High score without rollback is not release-grade work."
+  ],
+  "hash": "be1bc04878d61e1a3412b01c996689994e66ac00a13ff6546073cfd8721c6d4c"
+}
