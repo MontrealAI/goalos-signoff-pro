@@ -5,12 +5,11 @@ on:
   push:
     branches: [main]
     paths:
-      - 'scripts/**'
       - 'config/**'
-      - 'docs/**'
-      - 'public/**'
-      - 'src/**'
+      - 'scripts/**'
       - '.github/workflows/pages.yml'
+      - 'docs/**'
+      - 'README.md'
 
 permissions:
   contents: read
@@ -18,12 +17,12 @@ permissions:
   id-token: write
 
 concurrency:
-  group: goalos-pages-production
+  group: goalos-pages
   cancel-in-progress: true
 
 jobs:
   build:
-    name: Build and verify public production site
+    name: Build and verify canonical production site
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
@@ -31,49 +30,39 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '24'
-      - name: Build public site and extension labs
+          node-version: '22'
+      - name: Build public site and public demo labs
         shell: bash
         run: |
           set -euo pipefail
-          rm -rf site
-          if [ -f scripts/build-goalos-production-site.mjs ]; then
-            node scripts/build-goalos-production-site.mjs
-          else
-            mkdir -p site
-          fi
-          if [ -d scripts ]; then
-            while IFS= read -r script; do
-              node "$script"
-            done < <(find scripts -maxdepth 1 -type f -name 'build-*-lab-page.mjs' | sort)
-          fi
-          if [ -f scripts/finalize-public-site-boundaries.mjs ]; then
-            node scripts/finalize-public-site-boundaries.mjs
-          fi
-          if [ -f scripts/repair-validator-mesh-legal-rails.mjs ]; then
-            node scripts/repair-validator-mesh-legal-rails.mjs
-          fi
-          if [ -f scripts/normalize-public-site-boundaries.mjs ]; then
-            node scripts/normalize-public-site-boundaries.mjs
-          fi
-      - name: Verify production site
+          rm -rf site artifacts
+          mkdir -p site artifacts
+          if [ -f scripts/build-goalos-production-site.mjs ]; then node scripts/build-goalos-production-site.mjs; fi
+          if [ -f scripts/build-proof-gradient-lab-page.mjs ]; then node scripts/build-proof-gradient-lab-page.mjs; fi
+          if [ -f scripts/build-capability-compounding-lab-page.mjs ]; then node scripts/build-capability-compounding-lab-page.mjs; fi
+          if [ -f scripts/build-sovereign-experience-lab-page.mjs ]; then node scripts/build-sovereign-experience-lab-page.mjs; fi
+          if [ -f scripts/build-proof-settlement-lab-page.mjs ]; then node scripts/build-proof-settlement-lab-page.mjs; fi
+          if [ -f scripts/build-public-private-proof-boundary-lab-page.mjs ]; then node scripts/build-public-private-proof-boundary-lab-page.mjs; fi
+          if [ -f scripts/build-governed-decision-state-lab-page.mjs ]; then node scripts/build-governed-decision-state-lab-page.mjs; fi
+          if [ -f scripts/build-rollback-challenge-lab-page.mjs ]; then node scripts/build-rollback-challenge-lab-page.mjs; fi
+          if [ -f scripts/build-validator-mesh-lab-page.mjs ]; then node scripts/build-validator-mesh-lab-page.mjs; fi
+          node scripts/build-until-done-lab-page.mjs
+          if [ -f scripts/finalize-public-site-boundaries.mjs ]; then node scripts/finalize-public-site-boundaries.mjs; fi
+      - name: Verify public site gates
         shell: bash
         run: |
           set -euo pipefail
-          if [ -f scripts/verify-goalos-production-site.mjs ]; then
-            node scripts/verify-goalos-production-site.mjs
-          fi
-          if [ -d scripts ]; then
-            while IFS= read -r script; do
-              node "$script"
-            done < <(find scripts -maxdepth 1 -type f -name 'verify-*-lab-page.mjs' | sort)
-          fi
-          if [ -f scripts/verify-public-demo-routes.mjs ]; then
-            node scripts/verify-public-demo-routes.mjs
-          fi
-          if [ -f scripts/verify-website-quality.mjs ]; then
-            node scripts/verify-website-quality.mjs
-          fi
+          if [ -f scripts/verify-goalos-production-site.mjs ]; then node scripts/verify-goalos-production-site.mjs; fi
+          if [ -f scripts/verify-proof-gradient-lab-page.mjs ]; then node scripts/verify-proof-gradient-lab-page.mjs; fi
+          if [ -f scripts/verify-capability-compounding-lab-page.mjs ]; then node scripts/verify-capability-compounding-lab-page.mjs; fi
+          if [ -f scripts/verify-sovereign-experience-lab-page.mjs ]; then node scripts/verify-sovereign-experience-lab-page.mjs; fi
+          if [ -f scripts/verify-proof-settlement-lab-page.mjs ]; then node scripts/verify-proof-settlement-lab-page.mjs; fi
+          if [ -f scripts/verify-public-private-proof-boundary-lab-page.mjs ]; then node scripts/verify-public-private-proof-boundary-lab-page.mjs; fi
+          if [ -f scripts/verify-governed-decision-state-lab-page.mjs ]; then node scripts/verify-governed-decision-state-lab-page.mjs; fi
+          if [ -f scripts/verify-rollback-challenge-lab-page.mjs ]; then node scripts/verify-rollback-challenge-lab-page.mjs; fi
+          if [ -f scripts/verify-validator-mesh-lab-page.mjs ]; then node scripts/verify-validator-mesh-lab-page.mjs; fi
+          node scripts/verify-until-done-lab-page.mjs
+          node scripts/verify-public-demo-routes.mjs
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload Pages artifact
@@ -82,8 +71,8 @@ jobs:
           path: site
   deploy:
     name: Deploy to GitHub Pages
-    runs-on: ubuntu-latest
     needs: build
+    runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

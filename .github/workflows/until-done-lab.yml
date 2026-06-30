@@ -1,0 +1,38 @@
+name: Until-DONE Mission Control Lab Autopilot
+
+on:
+  workflow_dispatch:
+    inputs:
+      scenario:
+        description: Public-safe demo scenario
+        type: choice
+        default: research
+        options:
+          - research
+          - software
+          - procurement
+          - safety
+
+permissions:
+  contents: read
+
+jobs:
+  generate:
+    name: Generate Until-DONE demo artifact bundle
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Generate demo bundle
+        env:
+          SCENARIO: ${{ inputs.scenario }}
+        run: node scripts/generate-until-done-lab-bundle.mjs
+      - name: Upload demo artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: goalos-until-done-mission-control-lab-${{ inputs.scenario }}
+          path: artifacts/until-done-lab/${{ inputs.scenario }}
