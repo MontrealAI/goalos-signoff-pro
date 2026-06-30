@@ -1,0 +1,19 @@
+{
+  "schema": "goalos.latent_work_state_report.v1",
+  "stateVector": [
+    "claims_coverage",
+    "contradiction_load",
+    "validator_capacity",
+    "risk_boundary",
+    "rollback_readiness",
+    "proof_debt"
+  ],
+  "diagnostics": {
+    "decisionPredictiveness": "PASS",
+    "searchUtility": "PASS",
+    "compressionEfficiency": "PASS",
+    "calibration": "PASS",
+    "safetyProbeability": "PASS"
+  },
+  "boundary": "Latent state is advisory until evidence, validation, replay, and risk gates clear."
+}

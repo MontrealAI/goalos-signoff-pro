@@ -1,0 +1,314 @@
+{
+  "type": "ProcessResolvedEvidenceDemoBundle",
+  "generatedAt": "2026-06-30T22:36:45.010Z",
+  "manifest": {
+    "id": "goalos-process-evidence-lab-v27",
+    "version": "27.0.0",
+    "generatedAt": "2026-06-30T22:36:45.010Z",
+    "primaryRoute": "process-evidence-lab.html",
+    "aliases": [
+      "process-trace-lab.html",
+      "proof-native-workbench-lab.html",
+      "evidence-lineage-lab.html"
+    ],
+    "claimBoundary": "Synthetic browser-local public demonstration. No external audit, no production certification, no live settlement, no wallet connection, no user data, and no value moved.",
+    "canonicalDemoHash": "sha256:f429da1d3fd7095fc5abaec71e4ce38136885a3da40d7570"
+  },
+  "candidates": [
+    {
+      "id": "C0",
+      "name": "Final answer only",
+      "status": "REJECTED",
+      "tag": "Output without process",
+      "summary": "Looks polished but has no trace root, source provenance, tool scope, or contradiction pass.",
+      "traceCompleteness": 12,
+      "claimSupport": 18,
+      "toolScope": 0,
+      "contradictionCoverage": 8,
+      "risk": 82,
+      "processIntegrity": 9,
+      "reason": "Final text is not process evidence."
+    },
+    {
+      "id": "C1",
+      "name": "Hidden tool path",
+      "status": "QUARANTINED",
+      "tag": "Good answer, opaque path",
+      "summary": "The answer may be useful, but tool use, retrieval steps, and data boundary are not inspectable.",
+      "traceCompleteness": 39,
+      "claimSupport": 54,
+      "toolScope": 22,
+      "contradictionCoverage": 31,
+      "risk": 67,
+      "processIntegrity": 34,
+      "reason": "Hidden action path cannot become authority."
+    },
+    {
+      "id": "C2",
+      "name": "Trace present, contradiction unresolved",
+      "status": "HELD",
+      "tag": "Almost reviewable",
+      "summary": "The trace, claims, and sources exist, but one contradiction remains unresolved and rollback is incomplete.",
+      "traceCompleteness": 78,
+      "claimSupport": 82,
+      "toolScope": 76,
+      "contradictionCoverage": 59,
+      "risk": 41,
+      "processIntegrity": 71,
+      "reason": "Unresolved contradiction blocks acceptance."
+    },
+    {
+      "id": "C3",
+      "name": "Process-resolved proof trace",
+      "status": "REVIEW_READY",
+      "tag": "Process evidence cleared",
+      "summary": "Every material claim is linked to evidence, tool scope, validator status, risk ledger, contradiction pass, and receipt pointer.",
+      "traceCompleteness": 96,
+      "claimSupport": 94,
+      "toolScope": 98,
+      "contradictionCoverage": 93,
+      "risk": 12,
+      "processIntegrity": 97,
+      "reason": "Process-resolved evidence is decision-review ready."
+    }
+  ],
+  "traceLedger": {
+    "type": "ActionReasonTraceLedger",
+    "rule": "Final output is not enough. Each material process step must carry reason, scope, evidence, validation status, and rollback pointer.",
+    "candidateId": "C3",
+    "valueMoved": 0,
+    "noPrivateData": true,
+    "steps": [
+      {
+        "step": "01",
+        "name": "Mission Contract",
+        "reason": "Bind objective, acceptance criteria, risk class, and claim boundary before work begins.",
+        "evidence": "mission_contract_hash",
+        "validator": "schema pass",
+        "rollback": "return to objective",
+        "evidenceRoot": "sha256:8103551399190057394426eb916fb3ba",
+        "publicPrivateBoundary": "public-safe commitment only; private intelligence stays out of the public artifact"
+      },
+      {
+        "step": "02",
+        "name": "Source Pass",
+        "reason": "Separate primary, secondary, derived, and uncertain sources before claims are accepted.",
+        "evidence": "source_provenance_root",
+        "validator": "provenance pass",
+        "rollback": "drop unsupported source",
+        "evidenceRoot": "sha256:52165a60dfbe838116f3859961803682",
+        "publicPrivateBoundary": "public-safe commitment only; private intelligence stays out of the public artifact"
+      },
+      {
+        "step": "03",
+        "name": "Tool Scope",
+        "reason": "Record what tools were allowed, blocked, used, and why.",
+        "evidence": "tool_scope_ledger",
+        "validator": "least-privilege pass",
+        "rollback": "revoke tool path",
+        "evidenceRoot": "sha256:5551f3dcb6b422ca827bc8886f8b563b",
+        "publicPrivateBoundary": "public-safe commitment only; private intelligence stays out of the public artifact"
+      },
+      {
+        "step": "04",
+        "name": "Claim Lineage",
+        "reason": "Tie each material claim to evidence, process step, contradiction status, and uncertainty.",
+        "evidence": "claim_lineage_map",
+        "validator": "claim support pass",
+        "rollback": "downgrade claim",
+        "evidenceRoot": "sha256:1aa05b83f5e9cd741af357c7bb84aac6",
+        "publicPrivateBoundary": "public-safe commitment only; private intelligence stays out of the public artifact"
+      },
+      {
+        "step": "05",
+        "name": "Contradiction Pass",
+        "reason": "Prevent unresolved counterevidence from becoming institutional default.",
+        "evidence": "contradiction_register",
+        "validator": "contradiction resolved",
+        "rollback": "hold decision",
+        "evidenceRoot": "sha256:d21ba8d3f4fcf2cc079b6fd794424a97",
+        "publicPrivateBoundary": "public-safe commitment only; private intelligence stays out of the public artifact"
+      },
+      {
+        "step": "06",
+        "name": "Process Validator",
+        "reason": "Validate process integrity, not just final wording.",
+        "evidence": "process_validator_report",
+        "validator": "mesh pass",
+        "rollback": "challenge window",
+        "evidenceRoot": "sha256:5ee7cb394d769bcfa0a95f08d4a6516e",
+        "publicPrivateBoundary": "public-safe commitment only; private intelligence stays out of the public artifact"
+      },
+      {
+        "step": "07",
+        "name": "Risk Ledger",
+        "reason": "Surface remaining risk, uncertainty, reversibility, and human authority boundary.",
+        "evidence": "risk_ledger",
+        "validator": "risk bounded",
+        "rollback": "escalate",
+        "evidenceRoot": "sha256:372ebfb833bd3a35ec26afe9b4b55ead",
+        "publicPrivateBoundary": "public-safe commitment only; private intelligence stays out of the public artifact"
+      },
+      {
+        "step": "08",
+        "name": "Receipt Pointer",
+        "reason": "Emit a public-safe receipt pointer without exposing private workpapers.",
+        "evidence": "mission_receipt_root",
+        "validator": "receipt ready",
+        "rollback": "revoke receipt",
+        "evidenceRoot": "sha256:0552784196fe0a56fdd987ceeb9ab8a7",
+        "publicPrivateBoundary": "public-safe commitment only; private intelligence stays out of the public artifact"
+      }
+    ]
+  },
+  "claimLineage": {
+    "type": "ClaimLineageMap",
+    "candidateId": "C3",
+    "claims": [
+      {
+        "id": "CL-001",
+        "claim": "The deliverable is review-ready.",
+        "evidence": [
+          "mission_contract_hash",
+          "source_provenance_root",
+          "process_validator_report"
+        ],
+        "status": "supported",
+        "uncertainty": "bounded"
+      },
+      {
+        "id": "CL-002",
+        "claim": "Material claims are linked to evidence.",
+        "evidence": [
+          "claim_lineage_map",
+          "contradiction_register"
+        ],
+        "status": "supported",
+        "uncertainty": "bounded"
+      },
+      {
+        "id": "CL-003",
+        "claim": "Tool actions stayed inside declared scope.",
+        "evidence": [
+          "tool_scope_ledger",
+          "action_reason_trace"
+        ],
+        "status": "supported",
+        "uncertainty": "bounded"
+      },
+      {
+        "id": "CL-004",
+        "claim": "Human authority remains final for acceptance.",
+        "evidence": [
+          "risk_ledger",
+          "mission_receipt_root"
+        ],
+        "status": "supported",
+        "uncertainty": "explicit"
+      }
+    ],
+    "notClaimed": [
+      "external audit",
+      "production certification",
+      "live settlement",
+      "mainnet proof",
+      "autonomous authority"
+    ],
+    "valueMoved": 0
+  },
+  "toolScope": {
+    "type": "ToolScopeLedger",
+    "allowed": [
+      "public-safe source mapping",
+      "synthetic evidence assembly",
+      "schema validation",
+      "browser-local receipt replay"
+    ],
+    "blocked": [
+      "private data ingestion",
+      "credential use",
+      "payment execution",
+      "wallet connection",
+      "external system mutation"
+    ],
+    "actual": [
+      "source map",
+      "claim map",
+      "contradiction pass",
+      "process validator report",
+      "receipt pointer"
+    ],
+    "boundary": "Tools are simulated and browser-local in the public demo.",
+    "valueMoved": 0
+  },
+  "validatorReport": {
+    "type": "ProcessValidatorReport",
+    "rule": "Validate the work path, not only the final answer.",
+    "candidates": [
+      {
+        "id": "C0",
+        "name": "Final answer only",
+        "status": "REJECTED",
+        "traceCompleteness": 12,
+        "claimSupport": 18,
+        "toolScope": 0,
+        "contradictionCoverage": 8,
+        "processIntegrity": 9,
+        "risk": 82,
+        "verdict": "rejected",
+        "reason": "Final text is not process evidence."
+      },
+      {
+        "id": "C1",
+        "name": "Hidden tool path",
+        "status": "QUARANTINED",
+        "traceCompleteness": 39,
+        "claimSupport": 54,
+        "toolScope": 22,
+        "contradictionCoverage": 31,
+        "processIntegrity": 34,
+        "risk": 67,
+        "verdict": "quarantined",
+        "reason": "Hidden action path cannot become authority."
+      },
+      {
+        "id": "C2",
+        "name": "Trace present, contradiction unresolved",
+        "status": "HELD",
+        "traceCompleteness": 78,
+        "claimSupport": 82,
+        "toolScope": 76,
+        "contradictionCoverage": 59,
+        "processIntegrity": 71,
+        "risk": 41,
+        "verdict": "held",
+        "reason": "Unresolved contradiction blocks acceptance."
+      },
+      {
+        "id": "C3",
+        "name": "Process-resolved proof trace",
+        "status": "REVIEW_READY",
+        "traceCompleteness": 96,
+        "claimSupport": 94,
+        "toolScope": 98,
+        "contradictionCoverage": 93,
+        "processIntegrity": 97,
+        "risk": 12,
+        "verdict": "decision-review ready",
+        "reason": "Process-resolved evidence is decision-review ready."
+      }
+    ],
+    "acceptedCandidate": "C3",
+    "valueMoved": 0
+  },
+  "receipt": {
+    "type": "ProcessEvidenceReceipt",
+    "candidateId": "C3",
+    "status": "REVIEW_READY_SYNTHETIC_PUBLIC_DEMO",
+    "decisionState": "human-review-ready",
+    "receiptRoot": "sha256:0cd10f4770a1b86a5ad7ad396da5c8c6aeedf48b2adc08fc",
+    "valueMoved": 0,
+    "noUserData": true,
+    "noWallet": true
+  }
+}

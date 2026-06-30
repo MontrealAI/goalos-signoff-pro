@@ -1,0 +1,13 @@
+{
+  "id": "goalos-process-evidence-lab-v27",
+  "version": "27.0.0",
+  "generatedAt": "2026-06-30T22:36:45.010Z",
+  "primaryRoute": "process-evidence-lab.html",
+  "aliases": [
+    "process-trace-lab.html",
+    "proof-native-workbench-lab.html",
+    "evidence-lineage-lab.html"
+  ],
+  "claimBoundary": "Synthetic browser-local public demonstration. No external audit, no production certification, no live settlement, no wallet connection, no user data, and no value moved.",
+  "canonicalDemoHash": "sha256:f429da1d3fd7095fc5abaec71e4ce38136885a3da40d7570"
+}

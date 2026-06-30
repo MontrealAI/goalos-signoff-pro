@@ -1,0 +1,25 @@
+{
+  "operators": [
+    {
+      "id": "R1",
+      "role": "Fresh clone replay",
+      "pass": true,
+      "checks": 106
+    },
+    {
+      "id": "R2",
+      "role": "Pinned environment replay",
+      "pass": true,
+      "checks": 106
+    },
+    {
+      "id": "R3",
+      "role": "Adversarial boundary replay",
+      "pass": true,
+      "checks": 106
+    }
+  ],
+  "quorum": "3/3 public-safe synthetic operators passed",
+  "focusedTests": 318,
+  "officialFieldsMissing": 0
+}

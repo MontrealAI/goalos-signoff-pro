@@ -1,32 +1,41 @@
-## Summary
+# Institutional Excellence Pass
 
-What changed?
+## Executive summary
+-
 
-## Why
+## What changed
+- Documentation:
+- Website UX:
+- Badges / repo metadata:
+- Flowcharts / architecture:
+- Verification / quality gates:
+- Public-safe boundaries:
 
-Why is this needed?
+## Public routes touched
+-
 
-## Type of change
+## Docs changed
+-
 
-- [ ] Product / UX
-- [ ] Engineering
-- [ ] Supabase / data model
-- [ ] Security / privacy
-- [ ] Receipt / verification
-- [ ] Optional blockchain anchor
-- [ ] Documentation
-- [ ] Operations / CI
+## Public-safe boundary checklist
+- [ ] No wallet connection added
+- [ ] No token approval added
+- [ ] No transaction broadcast added
+- [ ] No payment/value movement added
+- [ ] No analytics/cookies/tracking added
+- [ ] No upload/intake surface added
+- [ ] No personal/confidential data requested
+- [ ] No AGI/ASI/SOTA/ROI/production-certification overclaim added
+- [ ] Legal/financial/tax/investment boundaries preserved
 
-## Checks
+## Verification commands run
+-
 
-- [ ] I did not commit secrets, customer data, `.env` files, `node_modules`, or build cache.
-- [ ] CI is expected to pass.
-- [ ] I updated relevant docs.
-- [ ] I included screenshots for UI changes.
-- [ ] I documented database migrations, if any.
-- [ ] I documented rollback notes, if relevant.
+## Screenshots or before/after notes
+-
 
-## Boundary confirmation
+## Residual risks / follow-ups
+-
 
-- [ ] This change does not enable escrow, custody, AGIALPHA staking, slashing, Mainnet settlement, or automatic payment release.
-- [ ] If it touches those areas, a separate governance decision is attached.
+## Companion PR
+-

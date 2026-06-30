@@ -1,0 +1,25 @@
+{
+  "type": "MissionQuarantineLedger",
+  "entries": [
+    {
+      "candidateId": "M0",
+      "status": "REJECTED",
+      "reason": "interesting language, no validator, no replay path, broad claim boundary",
+      "memoryRule": "preserve as negative example, no mission authority"
+    },
+    {
+      "candidateId": "M1",
+      "status": "HELD",
+      "reason": "useful but validator requirements and acceptance tests are incomplete",
+      "memoryRule": "preserve as warning, no production authority"
+    },
+    {
+      "candidateId": "M2",
+      "status": "QUARANTINED",
+      "reason": "impact is high, but risk boundary and rollback plan are not sufficient",
+      "memoryRule": "preserve as warning, no production authority"
+    }
+  ],
+  "noPrivateData": true,
+  "noValueMoved": true
+}

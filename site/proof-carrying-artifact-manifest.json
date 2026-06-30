@@ -1,0 +1,16 @@
+{
+  "name": "GoalOS Signoff Pro — Proof-Carrying Artifact & Evolution Ledger Lab",
+  "version": "23.0.0",
+  "generatedAt": "2026-06-30T22:36:44Z",
+  "routes": [
+    "proof-carrying-artifact-lab.html",
+    "artifact-vault-lab.html",
+    "evolution-ledger-lab.html",
+    "upgrade-right-lab.html"
+  ],
+  "scenario": "research",
+  "browserLocal": true,
+  "noUserData": true,
+  "noExternalAction": true,
+  "valueMoved": 0
+}

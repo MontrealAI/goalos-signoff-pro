@@ -1,0 +1,304 @@
+{
+  "manifest": {
+    "name": "GoalOS Action Graph & Human Authority Lab",
+    "version": "22.0.0",
+    "generatedAt": "2026-06-30T22:36:44Z",
+    "scenario": "research",
+    "browserLocal": true,
+    "noUserData": true,
+    "valueMoved": 0,
+    "routes": [
+      "action-graph-authority-lab.html",
+      "human-authority-action-lab.html",
+      "scoped-action-lab.html"
+    ]
+  },
+  "actionGraph": {
+    "actionGraphId": "GOALOS-ACTION-GRAPH-RESEARCH-SYNTHETIC",
+    "scenario": "research",
+    "objective": "Turn a persuasive research brief into an inspectable decision and scoped next actions.",
+    "decision": "accept with evidence-bound caveats",
+    "authority": "human final gate",
+    "nodes": [
+      {
+        "id": "A1",
+        "label": "Review Evidence Docket",
+        "status": "allowed",
+        "owner": "human reviewer",
+        "proof": "claims matrix + verifier report",
+        "rollback": "return to evidence gathering",
+        "reason": "Reviewer needs a bounded basis for decision."
+      },
+      {
+        "id": "A2",
+        "label": "Request targeted changes",
+        "status": "allowed",
+        "owner": "mission owner",
+        "proof": "risk ledger + contradiction register",
+        "rollback": "preserve previous decision state",
+        "reason": "Open risks must be converted into concrete change requests."
+      },
+      {
+        "id": "A3",
+        "label": "Issue public-safe receipt",
+        "status": "allowed",
+        "owner": "receipt signer",
+        "proof": "redacted docket + public boundary",
+        "rollback": "revoke or supersede receipt",
+        "reason": "Accepted evidence can become a receipt only within the public/private proof boundary."
+      },
+      {
+        "id": "A4",
+        "label": "Execute external action",
+        "status": "blocked",
+        "owner": "not delegated in browser demo",
+        "proof": "missing human authority",
+        "rollback": "not applicable because action is blocked",
+        "reason": "GoalOS demonstration cannot move value, submit forms, contact systems, deploy code, or act externally."
+      },
+      {
+        "id": "A5",
+        "label": "Admit capability pattern",
+        "status": "allowed",
+        "owner": "Chronicle steward",
+        "proof": "DONE certificate + replay path",
+        "rollback": "downgrade capability to warning memory",
+        "reason": "Reusable capability requires evidence, replay, and claim boundaries."
+      },
+      {
+        "id": "A6",
+        "label": "Settlement readiness note",
+        "status": "simulated",
+        "owner": "protocol reviewer",
+        "proof": "proof bundle + challenge window",
+        "rollback": "no settlement; valueMoved remains 0",
+        "reason": "The demo can show readiness logic without custody, escrow, staking, or payments."
+      },
+      {
+        "id": "A7",
+        "label": "High-impact release",
+        "status": "held",
+        "owner": "designated authority",
+        "proof": "requires separate authorization",
+        "rollback": "must be specified before release",
+        "reason": "High-impact release is never authorized by a public browser demo."
+      }
+    ],
+    "edges": [
+      [
+        "decision-state",
+        "action-proposal"
+      ],
+      [
+        "action-proposal",
+        "scope-check"
+      ],
+      [
+        "scope-check",
+        "proof-requirement"
+      ],
+      [
+        "proof-requirement",
+        "authority-check"
+      ],
+      [
+        "authority-check",
+        "action-reason"
+      ],
+      [
+        "action-reason",
+        "rollback-path"
+      ],
+      [
+        "rollback-path",
+        "receipt"
+      ],
+      [
+        "receipt",
+        "chronicle-boundary"
+      ]
+    ],
+    "invariant": "No high-impact action without scope, trace, validator, human authority, and rollback.",
+    "valueMoved": 0
+  },
+  "authorityGate": {
+    "gateId": "HUMAN-AUTHORITY-RESEARCH-SYNTHETIC",
+    "authorityRequired": true,
+    "browserDemoAuthority": "none",
+    "reason": "The public browser demo prepares an inspectable action state; it does not execute external actions.",
+    "blockedSurfaces": [
+      "payments",
+      "wallets",
+      "uploads",
+      "forms",
+      "external submissions",
+      "deployments",
+      "credential use",
+      "customer data processing"
+    ],
+    "valueMoved": 0
+  },
+  "actionReasonTrace": [
+    {
+      "index": 1,
+      "stage": "decision-state",
+      "label": "Decision State",
+      "rule": "Evidence has been reviewed; the next step is not execution, but action scoping.",
+      "posture": "ready",
+      "expectedObservation": "advance or block with reason",
+      "validatorStatus": "synthetic pass",
+      "rollbackPointer": "return to previous safe stage",
+      "evidencePointer": "demo://evidence/research/decision-state",
+      "valueMoved": 0
+    },
+    {
+      "index": 2,
+      "stage": "action-proposal",
+      "label": "Action Proposal",
+      "rule": "Candidate actions are written as explicit nodes with purpose, owner, evidence, and stop condition.",
+      "posture": "ready",
+      "expectedObservation": "advance or block with reason",
+      "validatorStatus": "synthetic pass",
+      "rollbackPointer": "return to previous safe stage",
+      "evidencePointer": "demo://evidence/research/action-proposal",
+      "valueMoved": 0
+    },
+    {
+      "index": 3,
+      "stage": "scope-check",
+      "label": "Scope Check",
+      "rule": "Actions outside mission authority are blocked before they become work.",
+      "posture": "gate",
+      "expectedObservation": "advance or block with reason",
+      "validatorStatus": "synthetic pass",
+      "rollbackPointer": "return to previous safe stage",
+      "evidencePointer": "demo://evidence/research/scope-check",
+      "valueMoved": 0
+    },
+    {
+      "index": 4,
+      "stage": "proof-requirement",
+      "label": "Proof Requirement",
+      "rule": "Every action must cite the claim, docket item, verifier note, and risk ledger entry that justifies it.",
+      "posture": "gate",
+      "expectedObservation": "advance or block with reason",
+      "validatorStatus": "synthetic pass",
+      "rollbackPointer": "return to previous safe stage",
+      "evidencePointer": "demo://evidence/research/proof-requirement",
+      "valueMoved": 0
+    },
+    {
+      "index": 5,
+      "stage": "authority-check",
+      "label": "Human Authority",
+      "rule": "High-impact action remains gated. GoalOS can prepare; a person or designated institution decides.",
+      "posture": "human",
+      "expectedObservation": "advance or block with reason",
+      "validatorStatus": "requires human final gate",
+      "rollbackPointer": "return to previous safe stage",
+      "evidencePointer": "demo://evidence/research/authority-check",
+      "valueMoved": 0
+    },
+    {
+      "index": 6,
+      "stage": "action-reason",
+      "label": "Action-Reason Trace",
+      "rule": "Reason, tool, permission scope, expected observation, actual observation, validator status, and rollback pointer are logged.",
+      "posture": "trace",
+      "expectedObservation": "advance or block with reason",
+      "validatorStatus": "synthetic pass",
+      "rollbackPointer": "return to previous safe stage",
+      "evidencePointer": "demo://evidence/research/action-reason",
+      "valueMoved": 0
+    },
+    {
+      "index": 7,
+      "stage": "rollback-path",
+      "label": "Rollback Path",
+      "rule": "No action becomes release-ready unless the rollback target and monitoring condition are recorded.",
+      "posture": "rollback",
+      "expectedObservation": "advance or block with reason",
+      "validatorStatus": "synthetic pass",
+      "rollbackPointer": "last-known-good decision state",
+      "evidencePointer": "demo://evidence/research/rollback-path",
+      "valueMoved": 0
+    },
+    {
+      "index": 8,
+      "stage": "receipt",
+      "label": "Receipt",
+      "rule": "The action plan emits a receipt-ready package with valueMoved = 0 in the public browser demo.",
+      "posture": "receipt",
+      "expectedObservation": "advance or block with reason",
+      "validatorStatus": "synthetic pass",
+      "rollbackPointer": "return to previous safe stage",
+      "evidencePointer": "demo://evidence/research/receipt",
+      "valueMoved": 0
+    },
+    {
+      "index": 9,
+      "stage": "chronicle-boundary",
+      "label": "Chronicle Boundary",
+      "rule": "Only completed, scoped, claim-bounded action states may become reusable institutional memory.",
+      "posture": "done",
+      "expectedObservation": "receipt-ready action state",
+      "validatorStatus": "synthetic pass",
+      "rollbackPointer": "return to previous safe stage",
+      "evidencePointer": "demo://evidence/research/chronicle-boundary",
+      "valueMoved": 0
+    }
+  ],
+  "rollbackMap": {
+    "rollbackMapId": "ROLLBACK-MAP-RESEARCH-SYNTHETIC",
+    "lastKnownGoodState": "governed_decision_state_v0",
+    "rollbackTargets": [
+      {
+        "actionId": "A1",
+        "status": "allowed",
+        "rollback": "return to evidence gathering"
+      },
+      {
+        "actionId": "A2",
+        "status": "allowed",
+        "rollback": "preserve previous decision state"
+      },
+      {
+        "actionId": "A3",
+        "status": "allowed",
+        "rollback": "revoke or supersede receipt"
+      },
+      {
+        "actionId": "A4",
+        "status": "blocked",
+        "rollback": "not applicable because action is blocked"
+      },
+      {
+        "actionId": "A5",
+        "status": "allowed",
+        "rollback": "downgrade capability to warning memory"
+      },
+      {
+        "actionId": "A6",
+        "status": "simulated",
+        "rollback": "no settlement; valueMoved remains 0"
+      },
+      {
+        "actionId": "A7",
+        "status": "held",
+        "rollback": "must be specified before release"
+      }
+    ],
+    "monitoringCondition": "Any unsupported claim, missing proof pointer, or human-authority failure returns the mission to proof work.",
+    "valueMoved": 0
+  },
+  "receipt": {
+    "receiptId": "GOALOS-ACTION-RECEIPT-RESEARCH-SYNTHETIC",
+    "issuedAt": "2026-06-30T22:36:44Z",
+    "actionGraphHash": "76b7b4e5a3b7953e41efe0eea1accc328d10d11d6d99af57047046e075eb3c3d",
+    "authorityGateHash": "6ef32e520d2d72edc78ed0e17edca759ed8a968a8e8de524fda3974b6d132f3c",
+    "rollbackMapHash": "c79e11c7662ed6869a40a71f209ff710e49a9caa218ea761fee44593e4953410",
+    "status": "ACTION_GRAPH_READY_FOR_HUMAN_REVIEW_SYNTHETIC",
+    "publicBoundary": "browser-local, no user data, no external action, no value moved",
+    "valueMoved": 0
+  }
+}

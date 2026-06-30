@@ -1,0 +1,241 @@
+{
+  "manifest": {
+    "name": "GoalOS Signoff Pro — Proof-Carrying Artifact & Evolution Ledger Lab",
+    "version": "23.0.0",
+    "generatedAt": "2026-06-30T22:36:44Z",
+    "routes": [
+      "proof-carrying-artifact-lab.html",
+      "artifact-vault-lab.html",
+      "evolution-ledger-lab.html",
+      "upgrade-right-lab.html"
+    ],
+    "scenario": "research",
+    "browserLocal": true,
+    "noUserData": true,
+    "noExternalAction": true,
+    "valueMoved": 0
+  },
+  "artifactVault": {
+    "artifactFamilyId": "GOALOS-PCA-RESEARCH-SYNTHETIC",
+    "artifactClass": "capability-package",
+    "objective": "Turn a public-safe research acceptance workflow into a reusable proof-carrying capability.",
+    "riskClass": "medium",
+    "domain": "AI research review",
+    "immutableVersions": [
+      {
+        "id": "V0",
+        "label": "Persuasive artifact",
+        "status": "REJECTED",
+        "tone": "blocked",
+        "reason": "Useful language is not reusable capability. Missing ProofPacket, baseline, replay, and rollback target.",
+        "proofValid": false,
+        "evalPass": false,
+        "rollbackReady": false,
+        "challengeWindowCleared": false,
+        "verifiedValue": 12,
+        "proofDebt": 88,
+        "falsePromotionRisk": 76,
+        "versionHash": "e857e156dd2b67c1a0789645718b607e",
+        "proofPacketRoot": null,
+        "rollbackTarget": null,
+        "scope": "not promoted",
+        "valueMoved": 0
+      },
+      {
+        "id": "V1",
+        "label": "Proof-linked candidate",
+        "status": "HELD",
+        "tone": "held",
+        "reason": "Evidence exists, but baseline comparison and scope boundary are incomplete.",
+        "proofValid": true,
+        "evalPass": false,
+        "rollbackReady": false,
+        "challengeWindowCleared": false,
+        "verifiedValue": 41,
+        "proofDebt": 54,
+        "falsePromotionRisk": 39,
+        "versionHash": "a579334fd2a23f1cc4c0425ee49a4214",
+        "proofPacketRoot": "9b0d5cd36605c0a9981bf97c0a55a074",
+        "rollbackTarget": null,
+        "scope": "not promoted",
+        "valueMoved": 0
+      },
+      {
+        "id": "V2",
+        "label": "Canary candidate",
+        "status": "CANARY",
+        "tone": "canary",
+        "reason": "Proof and baseline clear; canary monitoring and challenge window remain open.",
+        "proofValid": true,
+        "evalPass": true,
+        "rollbackReady": true,
+        "challengeWindowCleared": false,
+        "verifiedValue": 67,
+        "proofDebt": 23,
+        "falsePromotionRisk": 16,
+        "versionHash": "a2005bd1e5fd0c28f72282c9001ef1ab",
+        "proofPacketRoot": "b5cb63f79d48b7fe241b9e6c3c161e68",
+        "rollbackTarget": "research-last-known-good-V1",
+        "scope": "not promoted",
+        "valueMoved": 0
+      },
+      {
+        "id": "V3",
+        "label": "Proof-carrying artifact",
+        "status": "ACTIVE_SYNTHETIC",
+        "tone": "active",
+        "reason": "Proof, eval, risk, rollback, canary, scope, and challenge gates clear. Upgrade right earned for the synthetic demo scope.",
+        "proofValid": true,
+        "evalPass": true,
+        "rollbackReady": true,
+        "challengeWindowCleared": true,
+        "verifiedValue": 84,
+        "proofDebt": 9,
+        "falsePromotionRisk": 5,
+        "versionHash": "37e41a76746470427beb1e36dbe2696a",
+        "proofPacketRoot": "12e9dc12f053edc98db57221f5925b09",
+        "rollbackTarget": "research-last-known-good-V2",
+        "scope": "AI research review / public-safe browser demo",
+        "valueMoved": 0
+      }
+    ],
+    "invariant": "A reusable artifact cannot silently mutate; a new version must carry proof and pass gates.",
+    "noUserData": true,
+    "valueMoved": 0
+  },
+  "proofHistory": [
+    {
+      "version": "V0",
+      "versionHash": "e857e156dd2b67c1a0789645718b607e",
+      "proofPacketRoot": null,
+      "evidenceDocketPointer": null,
+      "baseline": null,
+      "challenger": "B0 output-only baseline",
+      "verifiedValue": 12,
+      "proofDebt": 88,
+      "falsePromotionRisk": 76,
+      "verdict": "REJECTED",
+      "reason": "Useful language is not reusable capability. Missing ProofPacket, baseline, replay, and rollback target.",
+      "valueMoved": 0
+    },
+    {
+      "version": "V1",
+      "versionHash": "a579334fd2a23f1cc4c0425ee49a4214",
+      "proofPacketRoot": "9b0d5cd36605c0a9981bf97c0a55a074",
+      "evidenceDocketPointer": "demo://evidence-docket/research/V1",
+      "baseline": null,
+      "challenger": "B0 output-only baseline",
+      "verifiedValue": 41,
+      "proofDebt": 54,
+      "falsePromotionRisk": 39,
+      "verdict": "HELD",
+      "reason": "Evidence exists, but baseline comparison and scope boundary are incomplete.",
+      "valueMoved": 0
+    },
+    {
+      "version": "V2",
+      "versionHash": "a2005bd1e5fd0c28f72282c9001ef1ab",
+      "proofPacketRoot": "b5cb63f79d48b7fe241b9e6c3c161e68",
+      "evidenceDocketPointer": "demo://evidence-docket/research/V2",
+      "baseline": "B5 current governed workflow",
+      "challenger": "B0 output-only baseline",
+      "verifiedValue": 67,
+      "proofDebt": 23,
+      "falsePromotionRisk": 16,
+      "verdict": "CANARY",
+      "reason": "Proof and baseline clear; canary monitoring and challenge window remain open.",
+      "valueMoved": 0
+    },
+    {
+      "version": "V3",
+      "versionHash": "37e41a76746470427beb1e36dbe2696a",
+      "proofPacketRoot": "12e9dc12f053edc98db57221f5925b09",
+      "evidenceDocketPointer": "demo://evidence-docket/research/V3",
+      "baseline": "B5 current governed workflow",
+      "challenger": "B0 output-only baseline",
+      "verifiedValue": 84,
+      "proofDebt": 9,
+      "falsePromotionRisk": 5,
+      "verdict": "ACTIVE_SYNTHETIC",
+      "reason": "Proof, eval, risk, rollback, canary, scope, and challenge gates clear. Upgrade right earned for the synthetic demo scope.",
+      "valueMoved": 0
+    }
+  ],
+  "selectionCertificate": {
+    "certificateId": "SELECTION-CERT-RESEARCH-V3-SYNTHETIC",
+    "promotedVersion": "V3",
+    "promotedVersionHash": "37e41a76746470427beb1e36dbe2696a",
+    "decision": "PROMOTE_WITHIN_SYNTHETIC_BROWSER_SCOPE",
+    "hardGates": {
+      "proofValid": true,
+      "evalPass": true,
+      "riskWithinBoundary": true,
+      "rollbackReady": true,
+      "canaryReady": true,
+      "scopeAuthorized": true,
+      "challengeWindowCleared": true
+    },
+    "blockedVersions": [
+      {
+        "version": "V0",
+        "status": "REJECTED",
+        "reason": "Useful language is not reusable capability. Missing ProofPacket, baseline, replay, and rollback target."
+      },
+      {
+        "version": "V1",
+        "status": "HELD",
+        "reason": "Evidence exists, but baseline comparison and scope boundary are incomplete."
+      },
+      {
+        "version": "V2",
+        "status": "CANARY",
+        "reason": "Proof and baseline clear; canary monitoring and challenge window remain open."
+      }
+    ],
+    "scope": "AI research review / public-safe browser demo",
+    "valueMoved": 0
+  },
+  "evolutionLedgerEntry": {
+    "ledgerEntryId": "EVOLUTION-LEDGER-RESEARCH-V3-SYNTHETIC",
+    "generatedAt": "2026-06-30T22:36:44Z",
+    "eventType": "SELECTION_CERTIFICATE_EMITTED",
+    "artifactFamilyId": "GOALOS-PCA-RESEARCH-SYNTHETIC",
+    "versionHash": "37e41a76746470427beb1e36dbe2696a",
+    "proofRoot": "12e9dc12f053edc98db57221f5925b09",
+    "selectionCertificateHash": "d79fd33b5b6f6667195dba5a75ad5b33c794373cad06bd40e94dac3758ac2935",
+    "rolloutReceiptHash": "4035fda48f2b48b6cd6f93c234e61a8eb9af91185c6201618c765b2eabe49b8f",
+    "rollbackReceiptHash": "1ad93eba0cdeb0b4ccb17d5bb58078309ee8ef04202cd45eae065767fe8f1d54",
+    "publicPrivateBoundary": "Public-safe commitments only; no private prompts, traces, documents, customer data, credentials, or confidential rationale.",
+    "valueMoved": 0
+  },
+  "rolloutReceipt": {
+    "receiptId": "ROLLOUT-RECEIPT-RESEARCH-SYNTHETIC",
+    "version": "V3",
+    "status": "SYNTHETIC_CANARY_CLEARED",
+    "canaryScope": "browser-local demo only",
+    "monitoringCondition": "false promotion risk must remain below scenario threshold; challenge window must clear",
+    "valueMoved": 0
+  },
+  "rollbackReceipt": {
+    "receiptId": "ROLLBACK-RECEIPT-RESEARCH-SYNTHETIC",
+    "lastKnownGoodState": "research-last-known-good-V2",
+    "trigger": "proof invalidation, challenge success, scope drift, privacy boundary failure, or human authority hold",
+    "status": "ROLLBACK_READY_SYNTHETIC",
+    "valueMoved": 0
+  },
+  "upgradeRight": {
+    "rightId": "PROOF-BACKED-UPGRADE-RIGHT-RESEARCH-SYNTHETIC",
+    "holder": "GoalOS synthetic public demo artifact",
+    "right": "May influence future synthetic missions within explicit public-safe scope after selection gates clear.",
+    "notARightTo": [
+      "move value",
+      "use private data",
+      "self-authorize external action",
+      "bypass human authority",
+      "claim production certification"
+    ],
+    "proofCondition": "SelectionCertificate + EvolutionLedgerEntry + RolloutReceipt + RollbackReceipt",
+    "active": true,
+    "valueMoved": 0
+  }
+}

@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { mkdirSync, rmSync, writeFileSync, existsSync, readFileSync, readdirSync, statSync } from "node:fs";
+import { mkdirSync, writeFileSync, existsSync, readFileSync, readdirSync, statSync } from "node:fs";
 import { join, dirname, relative } from "node:path";
 import { createHash } from "node:crypto";
 
@@ -16,9 +16,6 @@ function esc(value) {
   return String(value ?? "").replace(/[&<>"']/g, (ch) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[ch]));
 }
 
-function readMaybe(path, fallback = "") {
-  try { return readFileSync(join(root, path), "utf8"); } catch { return fallback; }
-}
 
 function listDocs(dir = "docs", max = 36) {
   const full = join(root, dir);
@@ -43,10 +40,8 @@ function write(path, content) {
   writeFileSync(full, content, "utf8");
 }
 
-rmSync(out, { recursive: true, force: true });
 mkdirSync(out, { recursive: true });
 
-const readme = readMaybe("README.md", "# GoalOS Signoff Pro");
 const docs = listDocs();
 const runId = process.env.GITHUB_RUN_ID || "local";
 const commit = process.env.GITHUB_SHA || "local";
@@ -62,80 +57,30 @@ const html = `<!doctype html>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>GoalOS Signoff Pro</title>
-  <meta name="description" content="Know when AI work is actually done. Define done, collect evidence, obtain human approval, and issue a signed Mission Receipt.">
+  <title>GoalOS Signoff Pro — Proof-governed AI work acceptance</title>
+  <meta name="description" content="GoalOS Signoff Pro turns AI work into evidence dockets, human acceptance, signed receipts, and replayable proof while keeping public demos browser-local and claim-bounded.">
+  <link rel="canonical" href="${productionUrl}">
+  <meta property="og:title" content="GoalOS Signoff Pro">
+  <meta property="og:description" content="AI creates output. GoalOS creates proof. Public-safe acceptance demos for evidence, replay, and signed receipts.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="${productionUrl}">
+  <meta name="twitter:card" content="summary">
   <style>
-    :root{color-scheme:dark;--bg:#080b12;--card:#111827;--muted:#9ca3af;--text:#f9fafb;--line:#263244;--accent:#7dd3fc;--ok:#86efac}
-    *{box-sizing:border-box}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial;background:radial-gradient(circle at top,#14223a,#080b12 42%);color:var(--text);line-height:1.55}
-    main{max-width:1120px;margin:auto;padding:56px 20px}.hero{display:grid;gap:24px;grid-template-columns:1.2fr .8fr;align-items:center}.badge{display:inline-flex;padding:7px 11px;border:1px solid var(--line);border-radius:999px;color:var(--accent);background:#0f172a}
-    h1{font-size:clamp(42px,7vw,80px);line-height:.95;margin:20px 0}h2{font-size:32px;margin:0 0 12px}.lead{font-size:21px;color:#dbeafe;max-width:760px}.card{background:rgba(17,24,39,.86);border:1px solid var(--line);border-radius:22px;padding:24px;box-shadow:0 20px 70px rgba(0,0,0,.28)}
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:34px 0}.two{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:34px 0}.btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}.btn{display:inline-block;text-decoration:none;padding:13px 18px;border-radius:13px;background:var(--accent);color:#06111f;font-weight:800}.btn.secondary{background:#172033;color:var(--text);border:1px solid var(--line)}
-    code{background:#0b1220;padding:2px 6px;border-radius:6px}.muted{color:var(--muted)}li{margin:6px 0}.ok{color:var(--ok);font-weight:700}.docs a{color:#bfdbfe;text-decoration:none}.docs a:hover{text-decoration:underline}
-    pre{white-space:pre-wrap;background:#050914;border:1px solid var(--line);border-radius:16px;padding:16px;max-height:360px;overflow:auto}
-    @media(max-width:800px){.hero,.grid,.two{grid-template-columns:1fr}main{padding:32px 16px}}
+    :root{color-scheme:dark;--bg:#05070c;--card:#101827;--card2:#0c1220;--muted:#aab7c8;--text:#fbf7ef;--line:#26364d;--accent:#8be9d1;--gold:#f7df8a;--blue:#8ecbff}*{box-sizing:border-box}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial;background:radial-gradient(circle at 15% 0,rgba(139,233,209,.22),transparent 32%),radial-gradient(circle at 90% 5%,rgba(142,203,255,.17),transparent 34%),linear-gradient(180deg,#07111d,#05070c 48%,#030408);color:var(--text);line-height:1.55}a{color:inherit}.top{position:sticky;top:0;z-index:3;display:flex;justify-content:space-between;align-items:center;gap:18px;padding:18px clamp(18px,4vw,58px);background:rgba(5,7,12,.78);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.08)}.brand{font-weight:950;text-decoration:none;letter-spacing:-.03em}.nav{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}.nav a,.pill{display:inline-flex;padding:10px 14px;border:1px solid rgba(255,255,255,.13);border-radius:999px;text-decoration:none;color:#dfe8f2;font-size:13px}.pill.primary,.nav a:hover{background:linear-gradient(135deg,var(--gold),var(--accent));color:#061010;border-color:transparent;font-weight:900}main{max-width:1180px;margin:auto;padding:62px 20px}.hero{display:grid;grid-template-columns:1.08fr .92fr;gap:34px;align-items:end}.eyebrow{color:var(--accent);font-size:12px;font-weight:950;text-transform:uppercase;letter-spacing:.24em}h1{font-size:clamp(48px,8vw,104px);line-height:.86;letter-spacing:-.08em;margin:16px 0}h2{font-size:clamp(28px,4vw,52px);line-height:.95;letter-spacing:-.045em;margin:0 0 14px}.lead{font-size:clamp(19px,2.1vw,26px);color:#d8e7ef;max-width:820px}.card{background:linear-gradient(150deg,rgba(16,24,39,.92),rgba(8,13,22,.96));border:1px solid rgba(255,255,255,.12);border-radius:28px;padding:24px;box-shadow:0 24px 80px rgba(0,0,0,.28)}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:28px 0 58px}.two{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:34px 0}.intent{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin:34px 0}.intent a{min-height:118px;padding:16px;border-radius:22px;background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.1);text-decoration:none}.intent b{display:block;color:var(--gold);margin-bottom:8px}.flow{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}.flow span{padding:16px 10px;border-radius:18px;text-align:center;background:rgba(139,233,209,.08);border:1px solid rgba(139,233,209,.22);font-weight:850;font-size:13px}.muted{color:var(--muted)}.ok{color:var(--accent);font-weight:800}code{background:#09111d;border:1px solid rgba(255,255,255,.08);padding:2px 6px;border-radius:7px}.section{margin-top:72px}.rule{position:sticky;bottom:0;display:flex;justify-content:center;gap:10px;align-items:center;padding:13px 20px;background:rgba(5,7,12,.88);border-top:1px solid rgba(255,255,255,.1);color:#d3e0e9;text-align:center;font-size:13px}.rule b{color:var(--accent)}footer{max-width:1180px;margin:74px auto 34px;padding:24px 20px;border-top:1px solid rgba(255,255,255,.12);display:flex;justify-content:space-between;gap:20px;color:var(--muted)}@media(max-width:950px){.hero,.grid,.two,.intent{grid-template-columns:1fr}.flow{grid-template-columns:1fr 1fr}.top,footer{flex-direction:column;align-items:flex-start}}
   </style>
 </head>
 <body>
+<header class="top"><a class="brand" href="index.html">GoalOS Signoff Pro</a><nav class="nav"><a href="public-demo-labs.html">Public labs</a><a href="goalos-public-demo-labs-v22-v27.json">Manifest</a><a href="${repoUrl}">GitHub</a><a href="${repoUrl}/blob/main/docs/START_HERE.md">Docs</a></nav></header>
 <main>
-  <section class="hero">
-    <div>
-      <span class="badge">Production public front door</span>
-      <h1>Know when AI work is actually done.</h1>
-      <p class="lead">GoalOS Signoff Pro helps teams define “done,” collect evidence, obtain human acceptance, issue signed Mission Receipts, and optionally verify receipts on IPFS/Ethereum later.</p>
-      <div class="btns">
-        <a class="btn" href="#pilot">Start a private beta</a>
-        <a class="btn secondary" href="${repoUrl}">View repository</a>
-        <a class="btn secondary" href="production-manifest.json">Production manifest</a>
-      </div>
-    </div>
-    <div class="card">
-      <h2>Launch boundary</h2>
-      <ul>
-        <li><span class="ok">No wallet required</span> for mainstream users</li>
-        <li><span class="ok">No AGIALPHA required</span></li>
-        <li><span class="ok">No escrow or custody</span></li>
-        <li><span class="ok">Optional verified receipt path</span></li>
-        <li><span class="ok">Human acceptance stays authoritative</span></li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="grid" id="product">
-    <div class="card"><h2>1. Define done</h2><p class="muted">Create a brief with acceptance criteria, evidence requirements, deadline, and roles.</p></div>
-    <div class="card"><h2>2. Review evidence</h2><p class="muted">Map evidence to each criterion. The assistant flags gaps; humans decide acceptance.</p></div>
-    <div class="card"><h2>3. Issue receipt</h2><p class="muted">Produce a signed Mission Receipt with artifact hashes, revision history, and verifier output.</p></div>
-  </section>
-
-  <section class="two" id="pilot">
-    <div class="card">
-      <h2>Private-beta target</h2>
-      <ul>
-        <li>10 real Signoffs attempted</li>
-        <li>7 completed end-to-end</li>
-        <li>3 users say they would use it again</li>
-        <li>0 lost evidence</li>
-        <li>0 broken receipts</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h2>Production URL</h2>
-      <p><code>${productionUrl}</code></p>
-      <p class="muted">Generated by GitHub Actions from commit <code>${esc(commit.slice(0, 12))}</code>.</p>
-      <p class="muted">Run ID: <code>${esc(runId)}</code></p>
-    </div>
-  </section>
-
-  <section class="card docs">
-    <h2>Documentation highlights</h2>
-    <p class="muted">These links open the source documentation in GitHub rather than copying internal documentation into the public Pages artifact.</p>
-    <ul>${docLinks}</ul>
-  </section>
-
-  <section class="card">
-    <h2>Repository README snapshot</h2>
-    <pre>${esc(readme.slice(0, 5000))}</pre>
-  </section>
+  <section class="hero"><div><p class="eyebrow">AI creates output. GoalOS creates proof.</p><h1>Know when AI work is actually done.</h1><p class="lead">GoalOS Signoff Pro is the acceptance layer for AI work: define done, map evidence, review claims, accept with human authority, and issue signed/replayable receipts.</p><p><a class="pill primary" href="public-demo-labs.html">Open public proof labs</a> <a class="pill" href="${repoUrl}/blob/main/README.md">Read the institutional README</a></p></div><aside class="card"><p class="eyebrow">Public-safe boundary</p><h2>Browser-local proof demos. No intake.</h2><ul><li><span class="ok">No wallet, approval, transaction, payment, escrow, custody, or value moved.</span></li><li><span class="ok">No forms, uploads, analytics, cookies, tracking, personal data, or confidential data.</span></li><li><span class="ok">No AGI/ASI/SOTA/ROI/certification overclaim.</span></li></ul></aside></section>
+  <section class="section"><p class="eyebrow">Start by intent</p><div class="intent"><a href="public-demo-labs.html"><b>New visitor</b><span>See the six proof labs in plain language.</span></a><a href="${repoUrl}/blob/main/docs/START_HERE.md"><b>Executive</b><span>Read the two-minute institutional narrative.</span></a><a href="${repoUrl}/blob/main/docs/DEMO_CATALOG.md"><b>Reviewer</b><span>Inspect proof routes, artifacts, and boundaries.</span></a><a href="${repoUrl}/blob/main/docs/PUBLIC_SITE_OPERATIONS.md"><b>Operator</b><span>Separate public demo, private beta, optional anchoring, and simulated signals.</span></a><a href="${repoUrl}/blob/main/docs/CODEX_RUNBOOK.md"><b>Developer</b><span>Build, verify, and regenerate safely.</span></a><a href="${repoUrl}/blob/main/docs/CLAIM_BOUNDARY.md"><b>Legal / risk</b><span>Review claim and AGIALPHA/token boundaries.</span></a></div></section>
+  <section class="section"><p class="eyebrow">Six Signoff gates</p><div class="flow"><span>Commission work</span><span>Submit evidence</span><span>Map criteria</span><span>Review</span><span>Accept</span><span>Issue signed receipt</span></div></section>
+  <section class="grid"><article class="card"><h2>What you will see</h2><p class="muted">Mission receipts, Evidence Docket narratives, proof lab artifacts, replay and claim-promotion demos, and a manifest-first public route catalog.</p></article><article class="card"><h2>Why it matters</h2><p class="muted">Persuasive AI output is not institutional proof. GoalOS adds criteria, evidence, replay, validator reports, and human authority.</p></article><article class="card"><h2>Output artifact</h2><p class="muted">A signed/replayable receipt or lab manifest that states what was proven, what remains bounded, and what is simulated.</p></article></section>
+  <section class="two"><div class="card"><h2>What this is</h2><p class="muted">A public-safe proof demonstration suite and repository for building acceptance workflows around AI work.</p></div><div class="card"><h2>What this is not</h2><p class="muted">Not a wallet, payment app, legal service, token sale, live settlement surface, analytics site, upload portal, or claim of completed AGI/ASI.</p></div></section>
+  <section class="card docs"><h2>Documentation highlights</h2><p class="muted">Source documentation remains in GitHub for review and audit trail.</p><ul>${docLinks}</ul></section>
 </main>
+<footer><div><b>GoalOS Signoff Pro</b><br><span>Proof-governed acceptance · human authority · replayable receipts.</span></div><nav class="nav"><a href="${repoUrl}/blob/main/LEGAL.md">Legal</a><a href="${repoUrl}/blob/main/docs/NO_USER_DATA_POLICY.md">Privacy / data</a><a href="${repoUrl}/blob/main/docs/AGIALPHA_EXTERNAL_TOKEN_BOUNDARY.md">AGIALPHA boundary</a></nav></footer>
+<div class="rule"><b>Public site rule</b><span>No forms · no inputs · no uploads · no cookies · no analytics · no wallets · no payments · no personal or confidential data.</span></div>
 </body>
 </html>`;
 

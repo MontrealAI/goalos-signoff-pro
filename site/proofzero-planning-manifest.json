@@ -1,0 +1,12 @@
+{
+  "schema": "goalos.public_demo_manifest.v1",
+  "route": "proofzero-planning-lab.html",
+  "aliases": [
+    "evidence-reanalyze-lab.html",
+    "latent-work-state-lab.html",
+    "bounded-search-lab.html"
+  ],
+  "bundleHash": "ebe763e46f9ccd9c58a1373eb4172d8eddf494891c412b59f3405e9f12d76eae",
+  "generatedAt": "2026-06-30T22:36:44.665Z",
+  "valueMoved": 0
+}

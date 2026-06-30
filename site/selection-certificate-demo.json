@@ -1,0 +1,34 @@
+{
+  "certificateId": "SELECTION-CERT-RESEARCH-V3-SYNTHETIC",
+  "promotedVersion": "V3",
+  "promotedVersionHash": "37e41a76746470427beb1e36dbe2696a",
+  "decision": "PROMOTE_WITHIN_SYNTHETIC_BROWSER_SCOPE",
+  "hardGates": {
+    "proofValid": true,
+    "evalPass": true,
+    "riskWithinBoundary": true,
+    "rollbackReady": true,
+    "canaryReady": true,
+    "scopeAuthorized": true,
+    "challengeWindowCleared": true
+  },
+  "blockedVersions": [
+    {
+      "version": "V0",
+      "status": "REJECTED",
+      "reason": "Useful language is not reusable capability. Missing ProofPacket, baseline, replay, and rollback target."
+    },
+    {
+      "version": "V1",
+      "status": "HELD",
+      "reason": "Evidence exists, but baseline comparison and scope boundary are incomplete."
+    },
+    {
+      "version": "V2",
+      "status": "CANARY",
+      "reason": "Proof and baseline clear; canary monitoring and challenge window remain open."
+    }
+  ],
+  "scope": "AI research review / public-safe browser demo",
+  "valueMoved": 0
+}

@@ -1,0 +1,45 @@
+{
+  "id": "GOALOS-INDEPENDENT-REPLAY-DEMO-V24",
+  "thesis": "A claim is not promoted because one run passed. It is promoted when independent replay survives manifest checks, replay logs, verifier reports, safety/cost ledgers, baselines, challenge windows, and claim boundaries.",
+  "candidates": [
+    {
+      "id": "C0",
+      "name": "Narrative-only demo",
+      "verdict": "REJECT",
+      "reason": "No replayable manifest, no baselines, no public evidence docket."
+    },
+    {
+      "id": "C1",
+      "name": "Local packet only",
+      "verdict": "HOLD",
+      "reason": "Local verifier passes, but independent replay quorum is missing."
+    },
+    {
+      "id": "C2",
+      "name": "Public replay packet",
+      "verdict": "CHALLENGE",
+      "reason": "Replay passes but challenge window and contradiction check remain open."
+    },
+    {
+      "id": "C3",
+      "name": "Independent replay packet",
+      "verdict": "PROMOTE_FOR_REVIEW",
+      "reason": "Manifest, baselines, operators, validator reports, cost/safety ledgers, challenge clearance, and claim boundary pass."
+    }
+  ],
+  "gates": [
+    "manifest",
+    "environment",
+    "baselines",
+    "runner",
+    "proofBundle",
+    "replayLogs",
+    "validatorReports",
+    "costLedger",
+    "safetyLedger",
+    "claimsMatrix",
+    "challengeWindow",
+    "claimBoundary"
+  ],
+  "valueMoved": 0
+}

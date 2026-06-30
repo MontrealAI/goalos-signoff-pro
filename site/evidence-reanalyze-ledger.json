@@ -1,0 +1,24 @@
+{
+  "schema": "goalos.evidence_reanalyze_ledger.v1",
+  "entries": [
+    {
+      "id": "old-run-001",
+      "oldStatus": "local-pass",
+      "newStatus": "review-ready",
+      "change": "new verifier mesh confirms claim boundary"
+    },
+    {
+      "id": "old-run-002",
+      "oldStatus": "accepted",
+      "newStatus": "quarantined",
+      "change": "delayed contradiction discovered"
+    },
+    {
+      "id": "old-run-003",
+      "oldStatus": "held",
+      "newStatus": "candidate",
+      "change": "replay path now complete"
+    }
+  ],
+  "rule": "Old evidence may update future routing only after replay and provenance checks."
+}

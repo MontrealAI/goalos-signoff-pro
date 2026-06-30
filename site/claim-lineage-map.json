@@ -1,0 +1,55 @@
+{
+  "type": "ClaimLineageMap",
+  "candidateId": "C3",
+  "claims": [
+    {
+      "id": "CL-001",
+      "claim": "The deliverable is review-ready.",
+      "evidence": [
+        "mission_contract_hash",
+        "source_provenance_root",
+        "process_validator_report"
+      ],
+      "status": "supported",
+      "uncertainty": "bounded"
+    },
+    {
+      "id": "CL-002",
+      "claim": "Material claims are linked to evidence.",
+      "evidence": [
+        "claim_lineage_map",
+        "contradiction_register"
+      ],
+      "status": "supported",
+      "uncertainty": "bounded"
+    },
+    {
+      "id": "CL-003",
+      "claim": "Tool actions stayed inside declared scope.",
+      "evidence": [
+        "tool_scope_ledger",
+        "action_reason_trace"
+      ],
+      "status": "supported",
+      "uncertainty": "bounded"
+    },
+    {
+      "id": "CL-004",
+      "claim": "Human authority remains final for acceptance.",
+      "evidence": [
+        "risk_ledger",
+        "mission_receipt_root"
+      ],
+      "status": "supported",
+      "uncertainty": "explicit"
+    }
+  ],
+  "notClaimed": [
+    "external audit",
+    "production certification",
+    "live settlement",
+    "mainnet proof",
+    "autonomous authority"
+  ],
+  "valueMoved": 0
+}

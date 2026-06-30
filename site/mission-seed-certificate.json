@@ -1,0 +1,20 @@
+{
+  "type": "MissionSeedCertificate",
+  "candidateId": "M3",
+  "status": "ADMITTED_FOR_PUBLIC_SAFE_DEMO_CURRICULUM",
+  "gates": {
+    "sourceAccepted": true,
+    "learnabilityBand": "target-hard",
+    "proofRequirementsMapped": true,
+    "validatorAvailable": true,
+    "replayPath": true,
+    "riskBoundary": true,
+    "rollbackPlan": true,
+    "challengeWindow": true,
+    "claimBoundary": true,
+    "humanAuthority": "final gate preserved"
+  },
+  "nextMission": "Mission 002 candidate — harder, replayable, bounded, public-safe follow-on mission",
+  "valueMoved": 0,
+  "evidenceRoot": "sha256:b68a52f9667898ed7194017df4e23d7e"
+}

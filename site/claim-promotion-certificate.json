@@ -1,0 +1,8 @@
+{
+  "type": "ClaimPromotionCertificate",
+  "claimLevelBefore": "LOCAL_PACKET_PASS",
+  "claimLevelAfter": "INDEPENDENT_REPLAY_REVIEW_READY",
+  "promotedCandidate": "C3",
+  "hardRule": "No replay quorum, no claim promotion.",
+  "valueMoved": 0
+}

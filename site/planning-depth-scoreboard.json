@@ -1,0 +1,31 @@
+{
+  "schema": "goalos.proofzero_planning_depth_scoreboard.v1",
+  "depths": [
+    {
+      "depth": 0,
+      "verifiedWork": 44,
+      "proofDebt": 33,
+      "criticalSafety": 0
+    },
+    {
+      "depth": 1,
+      "verifiedWork": 61,
+      "proofDebt": 20,
+      "criticalSafety": 0
+    },
+    {
+      "depth": 2,
+      "verifiedWork": 73,
+      "proofDebt": 11,
+      "criticalSafety": 0
+    },
+    {
+      "depth": 3,
+      "verifiedWork": 78,
+      "proofDebt": 9,
+      "criticalSafety": 0,
+      "plateau": true
+    }
+  ],
+  "claimBoundary": "Synthetic browser-local demonstration; not an empirical SOTA claim."
+}

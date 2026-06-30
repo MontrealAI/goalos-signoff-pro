@@ -21,6 +21,7 @@ jobs:
       - run: node scripts/build-sovereign-machine-economy-pages.mjs
       - run: node scripts/build-user-activation-pages.mjs
       - run: node scripts/build-legal-zero-data-pages.mjs
+      - run: node scripts/finalize-public-site-boundaries.mjs
       - run: node scripts/verify-legal-zero-data-posture.mjs
       - uses: actions/upload-artifact@v4
         with:

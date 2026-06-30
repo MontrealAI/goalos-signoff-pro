@@ -1,0 +1,8 @@
+{
+  "receiptId": "ROLLOUT-RECEIPT-RESEARCH-SYNTHETIC",
+  "version": "V3",
+  "status": "SYNTHETIC_CANARY_CLEARED",
+  "canaryScope": "browser-local demo only",
+  "monitoringCondition": "false promotion risk must remain below scenario threshold; challenge window must clear",
+  "valueMoved": 0
+}
