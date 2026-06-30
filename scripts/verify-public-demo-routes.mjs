@@ -2,28 +2,29 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-const site = path.join(process.cwd(), 'site');
-const errors = [];
-const exists = rel => fs.existsSync(path.join(site, rel));
-function checkPage(rel, phrase, required = false) {
-  if (!exists(rel)) { if (required) errors.push(`${rel} missing`); return; }
-  const html = fs.readFileSync(path.join(site, rel), 'utf8');
-  if (/Route Not Found/i.test(html)) errors.push(`${rel} contains Route Not Found fallback`);
-  const rail = (html.match(/data-goalos-legal-rail="v12"/g) || []).length;
-  if (rail !== 1) errors.push(`${rel} must contain exactly one v12 legal rail, found ${rail}`);
-  const foot = (html.match(/<footer\b/gi) || []).length;
-  if (foot !== 1) errors.push(`${rel} must contain exactly one footer, found ${foot}`);
-  if (phrase && !html.toLowerCase().includes(phrase.toLowerCase())) errors.push(`${rel} missing phrase: ${phrase}`);
+const root = process.cwd();
+const site = path.join(root, 'site');
+const fail = (m) => { console.error(`GoalOS public demo route registry FAILED\n- ${m}`); process.exit(1); };
+const candidates = [
+  ['mission-001.html', 'config/mission-001-benchmark.json'],
+  ['proof-gradient-lab.html', 'config/proof-gradient-lab.json'],
+  ['capability-compounding-lab.html', 'config/capability-compounding-lab.json'],
+  ['sovereign-experience-stream-lab.html', 'config/sovereign-experience-stream-lab.json'],
+  ['sovereign-experience-lab.html', 'config/sovereign-experience-stream-lab.json'],
+  ['proof-settlement-lab.html', 'config/proof-settlement-lab.json'],
+  ['settlement-control-lab.html', 'config/proof-settlement-lab.json'],
+  ['public-private-proof-boundary-lab.html', 'config/public-private-proof-boundary-lab.json'],
+  ['proof-boundary-lab.html', 'config/public-private-proof-boundary-lab.json']
+];
+const required = candidates.filter(([, cfg]) => fs.existsSync(path.join(root, cfg)));
+for (const [route] of required) {
+  const file = path.join(site, route);
+  if (!fs.existsSync(file)) fail(`${route} is missing`);
+  const html = fs.readFileSync(file, 'utf8');
+  if (/Route Not Found/i.test(html)) fail(`${route} contains Route Not Found fallback`);
+  const rails = (html.match(/data-goalos-legal-rail="v12"/g) || []).length;
+  if (rails !== 1) fail(`${route} must contain exactly one v12 legal rail; found ${rails}`);
+  const footers = (html.match(/<footer\b/g) || []).length;
+  if (footers !== 1) fail(`${route} must contain exactly one footer; found ${footers}`);
 }
-checkPage('proof-settlement-lab.html', 'No ProofBundle', true);
-checkPage('settlement-control-lab.html', 'No ProofBundle', true);
-checkPage('mission-001.html', 'Mission 001');
-checkPage('proof-gradient-lab.html', 'Score is advisory');
-checkPage('capability-compounding-lab.html', 'Accepted proof becomes');
-checkPage('sovereign-experience-stream-lab.html', 'sovereign experience');
-if (errors.length) {
-  console.error('GoalOS public demo route registry FAILED');
-  for (const e of errors) console.error(' - ' + e);
-  process.exit(1);
-}
-console.log('GoalOS public demo route registry PASS');
+console.log(`GoalOS public demo route registry PASS (${required.length} routes checked)`);

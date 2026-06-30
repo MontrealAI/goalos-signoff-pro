@@ -1,0 +1,125 @@
+{
+  "package": "GoalOS Signoff Pro — Public-Private Proof Boundary Lab",
+  "version": "17.0.0",
+  "route": "public-private-proof-boundary-lab.html",
+  "aliasRoute": "proof-boundary-lab.html",
+  "manifestRoute": "public-private-proof-boundary-manifest.json",
+  "doctrine": {
+    "headline": "Do not publish private intelligence. Publish proof commitments.",
+    "law": "Private execution stays private; public proof remains verifiable.",
+    "rule": "A public proof page must reveal only the minimum evidence required to coordinate trust.",
+    "claimBoundary": "Synthetic browser-local demonstration only. It does not publish private customer data, execute a real audit, certify production readiness, move value, connect a wallet, or perform a Mainnet transaction."
+  },
+  "publicSafety": {
+    "browserLocal": true,
+    "noForms": true,
+    "noInputs": true,
+    "noTextareas": true,
+    "noUploads": true,
+    "noEmailGate": true,
+    "noWalletConnection": true,
+    "noCookies": true,
+    "noAnalytics": true,
+    "noPayments": true,
+    "noPersonalData": true,
+    "noConfidentialData": true,
+    "noValueMoved": true
+  },
+  "lanes": [
+    {
+      "id": "private-execution",
+      "label": "Private execution",
+      "status": "PRIVATE",
+      "description": "Raw prompts, traces, customer files, credentials, and privileged evaluator notes remain outside the public artifact."
+    },
+    {
+      "id": "redaction-pass",
+      "label": "Redaction pass",
+      "status": "BOUNDARY",
+      "description": "Sensitive values are removed; only hashes, reason codes, schema names, and public-safe summaries advance."
+    },
+    {
+      "id": "public-proof",
+      "label": "Public proof",
+      "status": "PUBLIC",
+      "description": "Commitments, roots, attestations, proof packet hashes, cost/risk summaries, and claim boundaries become inspectable."
+    },
+    {
+      "id": "selection-record",
+      "label": "Selection record",
+      "status": "GATED",
+      "description": "Only a proof-cleared record can influence Chronicle memory, future routing, reuse, or settlement readiness."
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "research-acceptance",
+      "label": "AI research acceptance",
+      "mission": "Review an AI-generated research memo without publishing private drafts or reviewer workpapers.",
+      "privateArtifacts": ["private prompt", "reviewer notes", "draft source excerpts", "internal scoring notes"],
+      "publicArtifacts": ["claims matrix hash", "source-provenance summary", "verifier attestation", "claim boundary"],
+      "risk": 18,
+      "redactionScore": 96,
+      "proofIntegrity": 94,
+      "publicReadiness": 92
+    },
+    {
+      "id": "software-delivery",
+      "label": "Software delivery review",
+      "mission": "Convert a software delivery into a public-safe proof page while private repository traces remain scoped.",
+      "privateArtifacts": ["private repository path", "developer comments", "internal test logs", "security notes"],
+      "publicArtifacts": ["commit hash", "test summary", "SBOM digest", "rollback pointer"],
+      "risk": 22,
+      "redactionScore": 95,
+      "proofIntegrity": 91,
+      "publicReadiness": 89
+    },
+    {
+      "id": "procurement-review",
+      "label": "Procurement proof room",
+      "mission": "Show why a vendor recommendation is reviewable without exposing commercial details.",
+      "privateArtifacts": ["pricing appendix", "vendor emails", "internal ranking", "legal comments"],
+      "publicArtifacts": ["decision matrix digest", "risk-ledger summary", "conflict register", "review receipt"],
+      "risk": 29,
+      "redactionScore": 93,
+      "proofIntegrity": 90,
+      "publicReadiness": 86
+    },
+    {
+      "id": "safety-escalation",
+      "label": "Safety escalation boundary",
+      "mission": "Preserve a high-impact evidence record while refusing to publish sensitive traces or grant authority.",
+      "privateArtifacts": ["sensitive trace", "incident detail", "credential-adjacent note", "restricted appendix"],
+      "publicArtifacts": ["quarantine reason", "incident root", "human-gate status", "no-release certificate"],
+      "risk": 64,
+      "redactionScore": 99,
+      "proofIntegrity": 88,
+      "publicReadiness": 71
+    }
+  ],
+  "requiredPublicFields": [
+    "missionId",
+    "claimBoundary",
+    "publicPrivateBoundary",
+    "proofCommitments",
+    "redactionMapHash",
+    "proofPacketHash",
+    "validatorAttestationHash",
+    "riskSummary",
+    "decisionState",
+    "replayPathStatus",
+    "legalRailVersion"
+  ],
+  "blockedPublicFields": [
+    "rawPrompt",
+    "rawTrace",
+    "customerData",
+    "privateCredential",
+    "secretValue",
+    "privateKey",
+    "seedPhrase",
+    "internalWorkpaper",
+    "privilegedNote",
+    "unredactedDocument"
+  ]
+}
