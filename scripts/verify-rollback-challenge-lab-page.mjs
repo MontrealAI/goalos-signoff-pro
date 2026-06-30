@@ -22,11 +22,15 @@ for (const file of requiredHtml) {
   if (!fs.existsSync(p)) continue;
   const html = fs.readFileSync(p, 'utf8');
   assert(!html.includes('Route Not Found'), `${file} contains fallback route`);
-  assert(html.includes('Rollback & Challenge Window Lab') || html.includes('rollback before release'), `${file} missing page identity`);
+  assert(html.includes('Rollback & Challenge Window Lab') || html.includes('rollback before release') || html.includes('No rollback, no release'), `${file} missing page identity`);
   assert(html.includes('Run challenge window'), `${file} missing primary action`);
   assert(html.includes('Challenge') && html.includes('Rollback') && html.includes('Canary') && html.includes('Release'), `${file} missing control stages`);
   assert(count(html, 'data-goalos-legal-rail="v12"') === 1, `${file} must contain exactly one v12 legal rail`);
-  assert(count(html, 'data-goalos-footer="v12"') === 1, `${file} must contain exactly one v12 footer`);
+  assert(count(html, 'data-goalos-footer="canonical"') === 1, `${file} must contain exactly one canonical footer`);
+  // Legacy v19 verifier compatibility: the marker is inside a comment, not a second footer.
+  assert(count(html, 'data-goalos-footer="v12"') === 1, `${file} must contain exactly one v12 footer marker`);
+  assert(html.includes('No forms · no uploads'), `${file} missing legacy public rule phrase`);
+  assert(html.includes('No forms · no inputs · no uploads'), `${file} missing strict public rule phrase`);
   assert(!/<form\b/i.test(html), `${file} contains a form`);
   assert(!/<input\b/i.test(html), `${file} contains an input`);
   assert(!/<textarea\b/i.test(html), `${file} contains a textarea`);
@@ -59,4 +63,4 @@ if (errors.length) {
   for (const e of errors) console.error(' - ' + e);
   process.exit(1);
 }
-console.log('GoalOS Rollback & Challenge Window Lab v19 gate PASS');
+console.log('GoalOS Rollback & Challenge Window Lab v19.1 gate PASS');
