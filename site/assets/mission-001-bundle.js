@@ -2,7 +2,7 @@ window.GOALOS_MISSION_001_BUNDLE={
   "00_manifest.json": {
     "missionId": "GOALOS-MISSION-001",
     "packetVersion": "12.0.0-final-production",
-    "generatedAt": "2026-07-01T11:57:40.516Z",
+    "generatedAt": "2026-07-01T12:18:28.253Z",
     "seed": "goalos-mission-001-v12-seed",
     "publicPrivateBoundary": "public packet contains synthetic proof artifacts only; private/user data is not requested or processed",
     "requiredFiles": [
