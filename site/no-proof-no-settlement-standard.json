@@ -1,0 +1,14 @@
+{
+  "type": "NoProofNoSettlementStandard",
+  "name": "GoalOS Blockchain Credibility Standard",
+  "version": "28.0.0",
+  "tagline": "No Proof. No Trust. No Settlement.",
+  "operatingPrinciples": [
+    "Claims do not settle; accepted proof settles.",
+    "A smart contract can move value, but GoalOS explains why value deserves to move.",
+    "Off-chain work becomes on-chain-referenceable only through mission, evidence, replay, validation, risk, authority, and receipt.",
+    "Human authority remains explicit for consequential acceptance.",
+    "Public demos stay browser-local and move zero value."
+  ],
+  "valueMoved": 0
+}

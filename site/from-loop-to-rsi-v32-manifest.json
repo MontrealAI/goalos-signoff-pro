@@ -1,0 +1,177 @@
+{
+  "id": "GOALOS-SIGNOFF-PRO-V32-FROM-LOOP-TO-RSI",
+  "version": "32.0.0",
+  "generatedAt": "2026-07-01T20:21:13.799Z",
+  "title": "GoalOS Signoff Pro — From Loop to RSI: Sovereign Invention Governance Lab v32",
+  "tagline": "The proof loop becomes an invention-governance institution.",
+  "coreMessage": "Blockchain proves the transaction. GoalOS proves the work. RSI governs the invention loop.",
+  "standard": "No Proof. No Trust. No Settlement. No ungoverned self-improvement.",
+  "claimBoundary": [
+    "Public-safe demonstration only.",
+    "No claim that AGI, ASI, or recursive self-improvement has been achieved.",
+    "No production deployment authority.",
+    "No wallet, escrow, payment, token transaction, user upload, user account, analytics, cookie, or personal data collection.",
+    "The RSI console uses predefined synthetic scenarios and does not call an external AI service."
+  ],
+  "routes": [
+    "from-loop-to-rsi-lab.html",
+    "loop-to-rsi.html",
+    "rsi.html",
+    "agi-alpha-rsi-lab.html",
+    "rsi-governance-console.html",
+    "sovereign-invention-governance-lab.html",
+    "deterministic-invention-os-lab.html",
+    "move37-breakthrough-lab.html",
+    "omni-search-control-lab.html"
+  ],
+  "stages": [
+    {
+      "id": "TARGET",
+      "label": "Target",
+      "purpose": "Allocate exploration pressure across archive cells, bridge regions, and themes.",
+      "artifacts": [
+        "coverage_targets.json",
+        "bridge_targets.json",
+        "omni_explore_plan.json"
+      ]
+    },
+    {
+      "id": "EMIT",
+      "label": "Emit",
+      "purpose": "Generate candidate cards under explicit constraints and targeting.",
+      "artifacts": [
+        "candidates.raw.jsonl",
+        "novelty_distance.jsonl",
+        "stage_log.jsonl"
+      ]
+    },
+    {
+      "id": "FILTER",
+      "label": "Filter",
+      "purpose": "Apply risk gates and interestingness routing without admission authority.",
+      "artifacts": [
+        "candidates.filtered.jsonl",
+        "risk_reports.jsonl",
+        "omni_interest.jsonl"
+      ]
+    },
+    {
+      "id": "ATLAS",
+      "label": "Atlas",
+      "purpose": "Extract mechanisms, causal triples, and neighborhood context for comparatives.",
+      "artifacts": [
+        "causal_atlas_triples.jsonl",
+        "neighborhood_context.jsonl"
+      ]
+    },
+    {
+      "id": "TEST-PLAN",
+      "label": "Test-plan",
+      "purpose": "Build falsification ladders and schedule cheapest useful probes.",
+      "artifacts": [
+        "falsification_ladders.jsonl",
+        "probe_schedule.jsonl"
+      ]
+    },
+    {
+      "id": "EVAL",
+      "label": "Eval",
+      "purpose": "Evaluate against incumbent, neighbor, and null baselines; mint evidence objects.",
+      "artifacts": [
+        "eval_results.jsonl",
+        "baseline_comparison.jsonl",
+        "evidence_objects.jsonl",
+        "eci_ledger.jsonl"
+      ]
+    },
+    {
+      "id": "INSERT",
+      "label": "Insert",
+      "purpose": "Update append-only archive mechanically; record breakthrough events.",
+      "artifacts": [
+        "updated_frontier_cell.csv",
+        "updated_frontier_cell.jsonl",
+        "breakthrough_events.jsonl"
+      ]
+    },
+    {
+      "id": "PROMOTE",
+      "label": "Promote",
+      "purpose": "Rank promotions by mechanical scoring and emit queue artifacts.",
+      "artifacts": [
+        "promotion_queue.csv",
+        "promotion_queue.jsonl"
+      ]
+    }
+  ],
+  "gates": [
+    {
+      "id": "risk",
+      "name": "Risk gate",
+      "rule": "Prohibited-domain and unsafe-deployment signals can stop or downgrade outcomes.",
+      "signal": "BLOCK / PROBE / REFINE / ESCALATE"
+    },
+    {
+      "id": "evidence",
+      "name": "Evidence gate",
+      "rule": "Confidence cannot inflate without evidence execution; simulated evidence stays capped.",
+      "signal": "ECI capped until execution"
+    },
+    {
+      "id": "baseline",
+      "name": "Baseline gate",
+      "rule": "Every serious advantage claim is comparative against incumbent, neighbor, or null baseline.",
+      "signal": "AdvantageDelta required"
+    },
+    {
+      "id": "persistence",
+      "name": "Persistence gate",
+      "rule": "High novelty receives more skepticism and stress testing before promotion.",
+      "signal": "Probe-first for novelty ≥ 0.80"
+    },
+    {
+      "id": "authority",
+      "name": "Human authority gate",
+      "rule": "Validator/Architect Council can stop, bound, or request a dossier before release.",
+      "signal": "Council decision state"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "loop",
+      "title": "The current GoalOS loop",
+      "decision": "REVIEW_READY",
+      "dossier": "Mission Receipt + Evidence Docket"
+    },
+    {
+      "id": "rsi",
+      "title": "From loop to recursive invention governance",
+      "decision": "GOVERNED_EXPLORATION",
+      "dossier": "Sovereign Dossier + RSI Ledger"
+    },
+    {
+      "id": "move37",
+      "title": "Breakthroughs as state transitions",
+      "decision": "PROBE_FIRST",
+      "dossier": "Move-37 Dossier"
+    },
+    {
+      "id": "omni",
+      "title": "Search control is not outcome authority",
+      "decision": "SEARCH_CONTROL_ONLY",
+      "dossier": "OMNI Boundary Receipt"
+    }
+  ],
+  "sourceDocuments": [
+    {
+      "title": "AGI Alpha RSI — Sovereign Invention Governance",
+      "publicUrl": "https://github.com/MontrealAI/AGI-Alpha-Agent-v0/blob/main/docs/presentation/AGI_Alpha_RSI_Sovereign_v0.pdf",
+      "localPath": "research/rsi/AGI_Alpha_RSI_Sovereign_v0.pdf"
+    },
+    {
+      "title": "AGI Alpha RSI — Sovereign Strategy Brief",
+      "publicUrl": "https://github.com/MontrealAI/AGI-Alpha-Agent-v0/blob/main/docs/presentation/AGI_Alpha_RSI_Sovereign_Strategy_Brief_v0.pdf",
+      "localPath": "research/rsi/AGI_Alpha_RSI_Sovereign_Strategy_Brief_v0.pdf"
+    }
+  ]
+}

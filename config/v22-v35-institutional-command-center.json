@@ -1,0 +1,30 @@
+{
+  "id": "goalos-v22-v35-institutional-command-center",
+  "version": "v35",
+  "title": "GoalOS Signoff Pro — v22-v35 Institutional Command Center",
+  "purpose": "Unify the public demonstration journey from proof-gated work to blockchain credibility, RSI governance, ASI-readiness gates, control tower review, and synthetic mission receipts.",
+  "routes": [
+    "goalos-v22-v35-command-center.html",
+    "command-center.html",
+    "start-here.html",
+    "latest.html",
+    "proof-to-superintelligence.html",
+    "governed-superintelligence.html",
+    "v22-v35.html"
+  ],
+  "publicSafety": {
+    "forms": false,
+    "textInputs": false,
+    "uploads": false,
+    "cookies": false,
+    "analytics": false,
+    "wallets": false,
+    "payments": false,
+    "externalAiCalls": false,
+    "personalData": false,
+    "valueMoved": 0,
+    "claimedAgi": false,
+    "claimedAsi": false,
+    "productionAuthority": false
+  }
+}

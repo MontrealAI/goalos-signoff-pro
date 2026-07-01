@@ -1,0 +1,5 @@
+Proof Before Settlement: The GoalOS Signoff Pro Standard for Blockchain Credibility
+
+Blockchain systems can prove that state changed, but they do not automatically prove that the off-chain work that justified the state change was real, complete, reviewed, safe, replayable, or accepted. GoalOS Signoff Pro fills this work-verification gap by converting missions, evidence, replay paths, validator reports, risk ledgers, human decisions, and signed receipts into an institutional proof package that projects, DAOs, auditors, partners, and users can inspect before value, governance, reputation, or settlement readiness move.
+
+Core standard: Blockchain proves the transaction. GoalOS proves the work. No Proof. No Trust. No Settlement.

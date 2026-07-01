@@ -1,0 +1,24 @@
+{
+  "missionId": "GOALOS-MISSION-001",
+  "packetVersion": "12.0.0-final-production",
+  "generatedAt": "2026-07-01T20:21:13.200Z",
+  "seed": "goalos-mission-001-v12-seed",
+  "publicPrivateBoundary": "public packet contains synthetic proof artifacts only; private/user data is not requested or processed",
+  "requiredFiles": [
+    "00_manifest.json",
+    "01_mission_contract.json",
+    "02_environment.json",
+    "03_benchmark_tasks.json",
+    "04_baselines.json",
+    "05_runner_config.json",
+    "06_proof_bundle.json",
+    "07_replay_log.ndjson",
+    "08_cost_ledger.json",
+    "09_safety_ledger.json",
+    "10_validator_report.json",
+    "11_scoreboard.json",
+    "12_claims_matrix.json",
+    "README.md"
+  ],
+  "packetHash": "44f997f6bad7cb36f71ca6b617b0905105859cda89b791cb7359233b85abd545"
+}

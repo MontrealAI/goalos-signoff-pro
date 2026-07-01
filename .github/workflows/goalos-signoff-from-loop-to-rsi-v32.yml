@@ -1,0 +1,92 @@
+name: GoalOS Signoff Pro — From Loop to RSI v32
+
+on:
+  workflow_dispatch:
+    inputs:
+      rsi_scenario:
+        description: Public-safe RSI scenario label for the generated preview
+        required: true
+        default: 'sovereign-invention-governance'
+        type: choice
+        options:
+          - sovereign-invention-governance
+          - move37-breakthrough-control
+          - omni-search-control-boundary
+          - architect-validator-council
+      commit_generated_site:
+        description: Commit generated site/pages/artifacts back to this branch
+        required: true
+        default: 'true'
+        type: choice
+        options: ['true','false']
+      deploy_pages:
+        description: Deploy generated site to GitHub Pages
+        required: true
+        default: 'true'
+        type: choice
+        options: ['true','false']
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: goalos-signoff-v32-from-loop-to-rsi
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Build v22-v32 public demonstration suite
+        run: |
+          set -euo pipefail
+          echo "Scenario: ${{ inputs.rsi_scenario }}"
+          node scripts/build-goalos-signoff-pro-institutional-v22-v32.mjs
+      - name: Verify v32 and public-safe posture
+        run: |
+          set -euo pipefail
+          node scripts/verify-from-loop-to-rsi-v32.mjs
+          if [ -f scripts/verify-goalos-production-site.mjs ]; then node scripts/verify-goalos-production-site.mjs; fi
+          if [ -f scripts/verify-public-artifact-safety.mjs ]; then node scripts/verify-public-artifact-safety.mjs; fi
+      - name: Upload generated site preview
+        uses: actions/upload-artifact@v4
+        with:
+          name: goalos-signoff-pro-v32-from-loop-to-rsi-site
+          path: site
+      - name: Commit generated v32 site
+        if: ${{ inputs.commit_generated_site == 'true' }}
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add site scripts config docs verification .github/workflows/goalos-signoff-from-loop-to-rsi-v32.yml GOALOS_PUBLIC_LAB_V32_START_HERE.md PACKAGE_MANIFEST.json
+          if git diff --cached --quiet; then
+            echo "No generated changes to commit."
+          else
+            git commit -m "Add GoalOS From Loop to RSI Lab v32"
+            git push
+          fi
+      - name: Configure GitHub Pages
+        if: ${{ inputs.deploy_pages == 'true' }}
+        uses: actions/configure-pages@v5
+      - name: Upload Pages artifact
+        if: ${{ inputs.deploy_pages == 'true' }}
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+  deploy:
+    if: ${{ inputs.deploy_pages == 'true' }}
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

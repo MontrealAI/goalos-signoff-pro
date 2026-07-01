@@ -1,0 +1,29 @@
+{
+  "id": "GOALOS-V32-OMNI-SEARCH-CONTROL-BOUNDARY",
+  "generatedAt": "2026-07-01T20:21:13.799Z",
+  "allowed": "OMNI may influence targeting, allocation, interestingness, and probe prioritization.",
+  "disallowed": "OMNI may not bypass risk gates, evidence gates, baseline comparisons, persistence tests, council stop authority, or dossier packaging.",
+  "slogan": "Search control is not outcome authority.",
+  "checks": [
+    {
+      "gate": "Risk gate",
+      "protectedBy": "Prohibited-domain and unsafe-deployment signals can stop or downgrade outcomes."
+    },
+    {
+      "gate": "Evidence gate",
+      "protectedBy": "Confidence cannot inflate without evidence execution; simulated evidence stays capped."
+    },
+    {
+      "gate": "Baseline gate",
+      "protectedBy": "Every serious advantage claim is comparative against incumbent, neighbor, or null baseline."
+    },
+    {
+      "gate": "Persistence gate",
+      "protectedBy": "High novelty receives more skepticism and stress testing before promotion."
+    },
+    {
+      "gate": "Human authority gate",
+      "protectedBy": "Validator/Architect Council can stop, bound, or request a dossier before release."
+    }
+  ]
+}

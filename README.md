@@ -1,207 +1,179 @@
 # GoalOS Signoff Pro
 
-**GoalOS Signoff Pro is the human acceptance and signed-receipt layer for AI work: it helps teams define done, map evidence, review claims, and publish replayable proof artifacts without turning the public demo into a wallet, payment, upload, analytics, or advice surface.**
+[![Pages](https://github.com/MontrealAI/goalos-signoff-pro/actions/workflows/pages.yml/badge.svg)](https://github.com/MontrealAI/goalos-signoff-pro/actions/workflows/pages.yml) [![Website Quality](https://github.com/MontrealAI/goalos-signoff-pro/actions/workflows/website-quality.yml/badge.svg)](https://github.com/MontrealAI/goalos-signoff-pro/actions/workflows/website-quality.yml) [![Complete v22-v35 Repair and Publish](https://github.com/MontrealAI/goalos-signoff-pro/actions/workflows/goalos-signoff-v22-v35-complete-repair-and-publish.yml/badge.svg)](https://github.com/MontrealAI/goalos-signoff-pro/actions/workflows/goalos-signoff-v22-v35-complete-repair-and-publish.yml) ![Public Safe](https://img.shields.io/badge/public--safe-no_forms_no_uploads_no_wallets-43f0df) ![Zero Value Moved](https://img.shields.io/badge/value_moved-0-f6d77d) ![License](https://img.shields.io/badge/license-MIT-white)
 
-Production website: <https://montrealai.github.io/goalos-signoff-pro/>
+**GoalOS Signoff Pro is the institutional proof-to-acceptance layer for AI work: evidence first, replay before trust, human authority before settlement readiness.**
 
-[![CI](https://github.com/MontrealAI/goalos-signoff-pro/actions/workflows/ci.yml/badge.svg)](https://github.com/MontrealAI/goalos-signoff-pro/actions/workflows/ci.yml)
-[![Pages](https://github.com/MontrealAI/goalos-signoff-pro/actions/workflows/pages.yml/badge.svg)](https://github.com/MontrealAI/goalos-signoff-pro/actions/workflows/pages.yml)
-[![Website quality](https://github.com/MontrealAI/goalos-signoff-pro/actions/workflows/website-quality.yml/badge.svg)](https://github.com/MontrealAI/goalos-signoff-pro/actions/workflows/website-quality.yml)
-[![Public labs v22-v27](https://github.com/MontrealAI/goalos-signoff-pro/actions/workflows/goalos-signoff-public-labs-v22-v27.yml/badge.svg)](https://github.com/MontrealAI/goalos-signoff-pro/actions/workflows/goalos-signoff-public-labs-v22-v27.yml)
-[![Institutional excellence](https://github.com/MontrealAI/goalos-signoff-pro/actions/workflows/institutional-excellence.yml/badge.svg)](https://github.com/MontrealAI/goalos-signoff-pro/actions/workflows/institutional-excellence.yml)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-![Public-safe demos](https://img.shields.io/badge/public%20demos-browser--local-0f766e)
-![No public wallet](https://img.shields.io/badge/public%20wallet-none-334155)
-![No analytics or cookies](https://img.shields.io/badge/analytics%2Fcookies-none-334155)
-![Claim bounded](https://img.shields.io/badge/claims-proof--bounded-7c3aed)
-![Evidence Docket discipline](https://img.shields.io/badge/Evidence%20Docket-required-1d4ed8)
+> Blockchain proves the transaction. GoalOS proves the work. RSI governs invention. ASI must not self-authorize.
+>
+> **No Proof. No Trust. No Settlement.**
+
+## Start here
+
+Open the premium command center first: [site/goalos-v22-v35-command-center.html](site/goalos-v22-v35-command-center.html). Public aliases include [Start Here](site/start-here.html), [Latest](site/latest.html), [Command Center](site/command-center.html), [Experience](site/experience.html), [Demo](site/demo.html), [Proof to Superintelligence](site/proof-to-superintelligence.html), [Governed Superintelligence](site/governed-superintelligence.html), and [v22-v35](site/v22-v35.html).
+
 
 ## 30-second explanation
 
-AI can produce persuasive output before anyone can prove that the work is complete. GoalOS Signoff Pro turns acceptance into a governed proof loop: commission work, submit evidence, map criteria, review, accept, and issue a signed/replayable receipt. The public site demonstrates that loop with browser-local proof labs and sample artifacts only. It does not request uploads, collect personal data, connect wallets, move funds, provide legal or financial advice, or claim completed AGI/ASI.
-
-> AI creates output. GoalOS creates proof. No Evidence Docket, no strong public claim.
+GoalOS Signoff Pro turns AI work from a persuasive claim into an inspectable acceptance record. A mission defines what counts, evidence is attached, replay and validation test the claim, human authority signs or withholds acceptance, and a receipt records the decision boundary.
 
 ## Best first clicks
 
-| If you are... | Start here | Why |
-| --- | --- | --- |
-| New visitor | [Production website](https://montrealai.github.io/goalos-signoff-pro/) | Understand the product promise and public-safe boundary. |
-| Executive | [docs/START_HERE.md](docs/START_HERE.md) | Two-minute narrative, user intents, and acceptance gates. |
-| Reviewer | [docs/DEMO_CATALOG.md](docs/DEMO_CATALOG.md) | Inspect Mission 001, verifier routes, settlement-readiness demos, and labs v22-v27. |
-| Developer | [docs/CODEX_RUNBOOK.md](docs/CODEX_RUNBOOK.md) | Build, verify, and update generated public site artifacts safely. |
-| Operator | [docs/PUBLIC_SITE_OPERATIONS.md](docs/PUBLIC_SITE_OPERATIONS.md) | Know what is simulated, public-safe, private-beta, optional, or out of scope. |
-| Legal/risk reviewer | [docs/CLAIM_BOUNDARY.md](docs/CLAIM_BOUNDARY.md) | Public-safe invariants, AGIALPHA/token boundaries, and non-advice posture. |
-
-## Core doctrine
-
-- A model can answer. An agent can act. An institution must prove.
-- No Evidence Docket, no strong public claim.
-- No ProofBundle, no settlement signal.
-- No replay, no settlement.
-- Public demos are browser-local, public-safe, and claim-bounded.
+1. [Command Center](site/goalos-v22-v35-command-center.html) — the guided v22-v35 start path.
+2. [Public Demo Hub](site/public-demo-labs.html) — all labs grouped by chapter.
+3. [v35 Mission Simulator](site/loop-rsi-asi-superintelligence-mission-simulator-lab.html) — the latest public-safe simulator.
+4. [Docs Portal](docs/INDEX.md) — audience-specific documentation.
 
 ## Six Signoff gates
 
-1. **Commission work** — define objective, roles, acceptance criteria, and evidence requirements.
-2. **Submit evidence** — attach or reference artifacts in an Evidence Docket in the private/product context.
-3. **Map criteria** — connect each acceptance criterion to evidence and unresolved gaps.
-4. **Review** — human reviewers inspect claims, evidence, conflicts, and replay readiness.
-5. **Accept** — authorized humans approve, reject, or request changes.
-6. **Issue signed/replayable receipt** — publish a receipt with hashes, verifier output, and claim boundaries.
+1. Mission boundary.
+2. Evidence docket.
+3. Replay path.
+4. Validation report.
+5. Human authority.
+6. Signed or synthetic receipt with settlement-readiness boundary.
 
-## What this repository contains
+## What GoalOS Signoff Pro is
 
-- A Next.js private-beta/SaaS acceptance workspace scaffold and verification scripts.
-- Static GitHub Pages public demo artifacts in `site/`.
-- Mission 001 reproducibility material and public proof demonstrations.
-- Public labs v22-v27 covering action authority, proof-carrying artifacts, independent replay, ProofZero planning, mission foundry, and process-resolved evidence.
-- Blockchain anchoring contracts and relayer examples for optional verified receipts, kept separate from the public no-wallet demo posture.
-- Documentation, workflow, and repository-readiness checks for safe review.
+GoalOS Signoff Pro demonstrates how a work claim becomes an acceptance-grade record: mission contract, evidence docket, replay, validator review, human signoff, signed receipt, and settlement-readiness boundary. The public site is static, browser-local, and sample-data oriented. It does not collect personal data or move value.
 
-## What this repository does not do
+## Public website
 
-- It does not add a public wallet connection, token approval, network switch, transaction broadcast, payment flow, escrow, custody, or value movement.
-- It does not request public uploads, public forms, personal data, customer data, confidential workpapers, cookies, analytics, or tracking pixels.
-- It does not provide investment, tax, legal, medical, safety-certification, or financial advice.
-- It does not claim completed AGI or ASI, empirical SOTA, external audit completion, production certification, guaranteed ROI, autonomous sovereignty, or safe autonomy proven.
-- It does not treat AGIALPHA references as anything beyond an identity/protocol-boundary reference unless a future expert-only document explicitly says otherwise.
+- Website: https://montrealai.github.io/goalos-signoff-pro/
+- Demo hub: [site/public-demo-labs.html](site/public-demo-labs.html)
+- Latest simulator: [site/loop-rsi-asi-superintelligence-mission-simulator-lab.html](site/loop-rsi-asi-superintelligence-mission-simulator-lab.html)
+- Documentation portal: [docs/INDEX.md](docs/INDEX.md)
 
-## Canonical demos and route catalog
+## v22-v35 demonstration suite
 
-See [docs/DEMO_CATALOG.md](docs/DEMO_CATALOG.md) for the full route and artifact map.
+| Version | Lab | Core idea |
+| --- | --- | --- |
+| v22 | [Action Graph & Human Authority](site/action-graph-authority-lab.html) | Action is not authority; proof earns scope. |
+| v23 | [Proof-Carrying Artifact & Evolution Ledger](site/proof-carrying-artifact-lab.html) | Reusable capability must carry proof. |
+| v24 | [Independent Replay & Claim Promotion](site/independent-replay-lab.html) | One run is not proof; replay makes it public. |
+| v25 | [ProofZero Planning & Evidence Reanalyze](site/proofzero-planning-lab.html) | Plan over proof states, not persuasive futures. |
+| v26 | [Proof-Gated Mission Foundry & Curriculum](site/mission-foundry-lab.html) | Accepted proof becomes the next harder mission. |
+| v27 | [Process-Resolved Evidence](site/process-evidence-lab.html) | Final output is not proof; process lineage matters. |
+| v28 | [Blockchain Credibility Standard](site/blockchain-credibility-lab.html) | Blockchain proves the transaction; GoalOS proves the work. |
+| v29 | [Blockchain Proof Mandate & Due Diligence](site/blockchain-proof-mandate-lab.html) | Require the proof package before trust, funding, governance, reputation, or settlement readiness. |
+| v30 | [Proof Before Settlement Research Standard](site/proof-before-settlement-research-lab.html) | Proof before settlement becomes an institutional standard. |
+| v31 | [Executive AI Proof Console](site/executive-ai-proof-console.html) | Make proof obvious through a role-based console. |
+| v32 | [From Loop to RSI](site/from-loop-to-rsi-lab.html) | The proof loop becomes deterministic invention governance. |
+| v33 | [Loop → RSI → ASI Console](site/loop-rsi-asi-superintelligence-lab.html) | Recursive self-improvement requires gates, dossiers, councils, and rollback. |
+| v34 | [ASI Superintelligence Control Tower](site/loop-rsi-asi-superintelligence-control-tower-lab.html) | ASI-readiness needs a control tower, not a slogan. |
+| v35 | [ASI Mission Simulator](site/loop-rsi-asi-superintelligence-mission-simulator-lab.html) | Run a public-safe simulator with gates, metrics, dossiers, and synthetic receipts. |
 
-| Demo | Route / artifact | Output artifact | Boundary |
-| --- | --- | --- | --- |
-| Public front door | `site/index.html` | Start-by-intent institutional hub | Browser-local public explanation; no intake. |
-| Mission 001 | `mission-001.html` when generated | Reproducibility packet and Evidence Docket narrative | Sample/demo proof only. |
-| Receipt verifier | `verify.html` when generated | Receipt verification explanation | No legal advice; no jurisdictional acceptance guarantee. |
-| Settlement-readiness lab | proof-settlement generated routes/artifacts | Simulated settlement signal | No escrow release and no value moved. |
-| Public labs v22-v27 | `public-demo-labs.html`, `goalos-public-demo-labs.html` | Six lab pages plus JSON manifest | No forms, inputs, uploads, wallets, analytics, or payments. |
-
-## Architecture map
-
-```mermaid
-flowchart LR
-  Brief[Mission brief] --> Docket[Evidence Docket]
-  Docket --> Criteria[Criteria map]
-  Criteria --> Review[Human review]
-  Review --> Receipt[Signed / replayable receipt]
-  Receipt --> Verify[Verifier / replay path]
-  Receipt --> Optional[Optional hash anchoring]
-  Optional -. public site .-> Boundary[Explained only; no wallet or value movement]
-```
-
-## GoalOS proof lifecycle
-
-```mermaid
-flowchart LR
-  O[Objective] --> M[Mission Contract]
-  M --> W[Work / Agent Execution]
-  W --> E[Evidence Docket]
-  E --> P[ProofBundle]
-  P --> R[Replay]
-  R --> V[Validation]
-  V --> H[Human Authority]
-  H --> D[Governed Decision State]
-  D --> C[Chronicle]
-  C --> K[Reusable Capability]
-```
-
-## Public/private proof boundary
+## Architecture
 
 ```mermaid
 flowchart TB
-  subgraph Private[Private intelligence boundary]
-    P1[Private prompts]
-    P2[Raw traces]
-    P3[Customer data]
-    P4[Confidential workpapers]
+  subgraph PublicSite[Static GitHub Pages site]
+    Home[index.html]
+    Command[Command Center v22-v35]
+    Labs[Public demo labs]
+    Manifests[JSON manifests and site maps]
   end
-  subgraph Commit[Commitment layer]
-    H1[Hashes]
-    H2[Redaction map]
-    H3[Attestations]
+  subgraph Repo[Repository]
+    Config[config/*.json]
+    Builders[scripts/build-*.mjs]
+    Verifiers[scripts/verify-*.mjs and integrity gates]
+    Docs[README and docs portal]
   end
-  subgraph Public[Public proof surface]
-    D1[Evidence Docket summary]
-    D2[Replay path]
-    D3[Validator report]
-    D4[Claim boundary]
-    D5[Receipt / decision state]
-  end
-  Private --> Commit --> Public
+  Config --> Builders --> PublicSite
+  PublicSite --> Verifiers
+  Docs --> Command
 ```
 
-## Local verification commands
+## Proof-to-acceptance flow
+
+```mermaid
+flowchart LR
+  Objective --> Mission[Mission Contract]
+  Mission --> Evidence[Evidence Docket]
+  Evidence --> Replay[Independent Replay]
+  Replay --> Validation[Validation Report]
+  Validation --> Authority[Human Authority]
+  Authority --> Receipt[Signed / Synthetic Receipt]
+  Receipt --> Boundary[Settlement-readiness boundary]
+```
+
+## Loop → RSI → ASI governance flow
+
+```mermaid
+flowchart LR
+  Loop[Proof loop] --> Target[Target]
+  Target --> Emit[Emit]
+  Emit --> Filter[Filter]
+  Filter --> Atlas[Atlas]
+  Atlas --> Eval[Eval]
+  Eval --> Dossier[Insight / MARK / Sovereign Dossier]
+  Dossier --> Council[Architect + Validator Council]
+  Council -->|Pass with rollback| Promote[Bounded promotion]
+  Council -->|Insufficient proof| Block[Block / probe-first]
+```
+
+Search may guide allocation. Proof decides promotion. Breakthroughs are audited state transitions, not narratives.
+
+## GitHub Web UI instructions
+
+1. Download the repository or update package as a ZIP.
+2. Unzip it locally.
+3. Upload the contents of the unzipped folder, not the outer folder.
+4. Include hidden files and the hidden `.github` folder.
+5. Commit to a new branch.
+6. Run **GoalOS Signoff Pro — Complete v22-v35 Repair and Publish**.
+7. Verify the Pages deployment and open `/goalos-signoff-pro/goalos-v22-v35-command-center.html`.
+
+## Local developer workflow
 
 ```bash
-node --version
-npm --version
 npm ci
-npm run typecheck
 npm run lint
+npm run typecheck
 npm run test
 npm run build
-npm run repo:verify
-npm run repo:all
+npm run site:verify:all
+```
+
+Useful focused commands:
+
+```bash
+npm run site:build:public-labs
+npm run site:verify:workflows
+npm run site:verify:routes
+npm run site:verify:public-labs
 npm run package:verify
-npm run pro:verify
-npm run hybrid:anchor:check
+npm run repo:verify
 npm run institutional:verify
-node scripts/verify-goalos-production-site.mjs
-node scripts/verify-goalos-signoff-public-labs-v22-v27.mjs
-git diff --check
 ```
 
-## GitHub Pages / deployment
+## Workflow guide
 
-The public website is generated into `site/` and published by the Pages workflows. Update source scripts first, regenerate derived artifacts, and then run repository verification. Do not hand-edit generated HTML if a builder script owns the route.
+- `.github/workflows/goalos-signoff-v22-v35-complete-repair-and-publish.yml` is the canonical one-go manual repair, verification, preview artifact, and optional Pages deploy workflow.
+- `scripts/check-workflow-script-integrity.mjs` fails when a workflow references a missing `node scripts/*.mjs` file.
+- `scripts/check-site-route-integrity.mjs` verifies flagship routes, aliases, manifests, public-safe boundaries, and forbidden public claims.
 
-```mermaid
-flowchart LR
-  Source[Source files / data manifests] --> QA[Verification gates]
-  QA --> Build[Static site build]
-  Build --> Review[Human review]
-  Review --> Pages[GitHub Pages]
-  QA -. failure .-> Fix[Fix source; do not publish]
-```
 
-## Cross-repo product map
+## What this repository does not do
 
-```mermaid
-flowchart LR
-  Signoff[GoalOS Signoff Pro] --> Accept[Human acceptance / signed receipts]
-  Signoff --> Labs[Public proof labs v22-v27]
-  AGIJobs[AGIJobManager Ascension] --> Settle[Proof-settlement lifecycle]
-  AGIJobs --> Chronicle[Chronicle / reusable capability]
-  Labs --> Proof[Evidence Dockets / ProofBundles]
-  Proof --> Settle
-  Accept --> Chronicle
-```
+This repository does not run public custody, escrow release, staking, token sale, brokerage, live Mainnet settlement, wallet connection, public uploads, public forms, analytics, external AI calls, or personal-data collection. It does not provide legal, financial, tax, or investment advice.
 
-## Claim boundary
+## What would prove more
 
-Signoff Pro makes a bounded product claim: proof-governed acceptance is a practical way to review AI work. Stronger claims require an Evidence Docket, ProofBundle, replay path, validator report, human authority, and claim-boundary language. See [docs/CLAIM_BOUNDARY.md](docs/CLAIM_BOUNDARY.md).
+More evidence would include independent replay reports, external institutional audits, production security reviews, live customer acceptance records with appropriate privacy controls, and formally governed pilot outcomes.
 
-### What would prove more
+## What would falsify
 
-- Independent replay by reviewers who did not author the original work.
-- Multiple accepted missions with published receipts, challenge windows, and contradiction reports.
-- Clear separation between private evidence, public commitments, and public-safe summaries.
-- External review of specific claims, described as review of those claims rather than a broad certification.
+Broken routes, missing scripts referenced by workflows, unverifiable generated artifacts, public pages that collect data or move value, unsupported AGI/ASI/production-RSI claims, or receipts that cannot be replayed would falsify the public posture.
 
-### What would falsify the claim
+## Claim boundary and public-safe posture
 
-- Missing, contradictory, or unreplayable evidence for a strong public claim.
-- A receipt whose hashes or artifacts do not verify.
-- A public page that requests uploads, connects wallets, tracks users, moves funds, or implies legal/financial acceptance beyond the documented boundary.
-- Unbounded claims of completed AGI/ASI, live settlement, guaranteed ROI, or production certification.
+The public demos are deterministic simulations and institutional review aids. They are not live Mainnet settlement, custody, escrow, staking, token sale, brokerage, legal advice, financial advice, tax advice, investment advice, realized AGI, realized ASI, production RSI, autonomous deployment authority, external audit completion, or guaranteed ROI. There are no public forms, text inputs, uploads, cookies, analytics, wallets, payments, external AI calls, personal data, or value movement.
 
-## Contributing, security, and support
+## Maintainership and contribution links
 
-- Contributing: [CONTRIBUTING.md](CONTRIBUTING.md)
-- Security: [SECURITY.md](SECURITY.md)
-- Support: [SUPPORT.md](SUPPORT.md)
-- Governance: [GOVERNANCE.md](GOVERNANCE.md)
-- Contact: `info@quebec.ai`
+- [CONTRIBUTING.md](CONTRIBUTING.md)
+- [SECURITY.md](SECURITY.md)
+- [GOVERNANCE.md](GOVERNANCE.md)
+- [SUPPORT.md](SUPPORT.md)
+- [LEGAL.md](LEGAL.md)

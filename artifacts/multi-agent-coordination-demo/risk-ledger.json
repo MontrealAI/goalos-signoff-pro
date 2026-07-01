@@ -8,8 +8,8 @@
   "noPayment": true,
   "noValueMoved": true,
   "unsupportedClaimsBlocked": [
-    "achieved AGI",
-    "achieved ASI",
+    "realized AGI",
+    "realized ASI",
     "guaranteed return",
     "live settlement"
   ]

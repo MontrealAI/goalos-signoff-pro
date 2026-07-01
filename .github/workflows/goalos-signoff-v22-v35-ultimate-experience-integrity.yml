@@ -1,0 +1,117 @@
+name: GoalOS Signoff Pro — Ultimate v22-v35 Experience Integrity
+
+on:
+  workflow_dispatch:
+    inputs:
+      commit_generated_site:
+        description: "Commit generated site files back to this branch"
+        type: boolean
+        required: false
+        default: true
+      deploy_pages:
+        description: "Deploy GitHub Pages after successful verification"
+        type: boolean
+        required: false
+        default: true
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+env:
+  GOALOS_PUBLIC_SAFE: "true"
+  GOALOS_ZERO_VALUE_MOVED: "true"
+  GOALOS_NO_EXTERNAL_AI_CALLS: "true"
+  NODE_VERSION: "20.20.2"
+
+concurrency:
+  group: goalos-signoff-pro-v22-v35-ultimate-experience-integrity
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Build, repair, verify, and publish ultimate v22-v35 experience
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          package-manager-cache: false
+      - name: Preflight package completeness
+        shell: bash
+        run: |
+          set -euo pipefail
+          required=(
+            "scripts/build-goalos-signoff-public-labs-v22-v35.mjs"
+            "scripts/enhance-goalos-v22-v35-ultimate-public-experience.mjs"
+            "scripts/repair-goalos-v22-v35-html-integrity.mjs"
+            "scripts/verify-goalos-v22-v35-ultimate-public-experience.mjs"
+            "scripts/verify-goalos-signoff-public-labs-v22-v35.mjs"
+          )
+          for f in "${required[@]}"; do
+            if [[ ! -f "$f" ]]; then
+              echo "::error::Missing required file: $f"
+              echo "Upload the complete Ultimate v22-v35 Experience package to the repository root."
+              exit 1
+            fi
+            echo "OK $f"
+          done
+      - name: Install dependencies
+        shell: bash
+        run: |
+          if [[ -f package-lock.json ]]; then npm ci; else npm install; fi
+      - name: Verify workflow/script references before build
+        run: node scripts/verify-workflow-script-references.mjs
+      - name: Build complete v22-v35 public suite
+        run: node scripts/build-goalos-signoff-public-labs-v22-v35.mjs
+      - name: Apply ultimate public experience layer
+        run: node scripts/enhance-goalos-v22-v35-ultimate-public-experience.mjs
+      - name: Repair legal rail and footer integrity
+        run: node scripts/repair-goalos-v22-v35-html-integrity.mjs
+      - name: Verify production site integrity
+        run: node scripts/verify-goalos-production-site.mjs
+      - name: Verify route integrity
+        run: node scripts/check-site-route-integrity.mjs
+      - name: Verify ultimate v22-v35 experience
+        run: node scripts/verify-goalos-v22-v35-ultimate-public-experience.mjs
+      - name: Verify complete public-safe lab suite
+        run: node scripts/verify-goalos-signoff-public-labs-v22-v35.mjs
+      - name: Commit generated site files
+        if: ${{ inputs.commit_generated_site }}
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add site docs scripts .github/workflows GOALOS_* GITHUB_WEB_UI_INSTALL_* || true
+          if git diff --cached --quiet; then
+            echo "No generated changes to commit."
+          else
+            git commit -m "Polish and verify GoalOS Signoff Pro v22-v35 ultimate public experience"
+            git push
+          fi
+      - name: Upload ultimate site preview artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: goalos-signoff-pro-v22-v35-ultimate-site-preview
+          path: site
+      - name: Upload Pages artifact
+        if: ${{ inputs.deploy_pages }}
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+  deploy:
+    name: Deploy GitHub Pages
+    if: ${{ inputs.deploy_pages }}
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

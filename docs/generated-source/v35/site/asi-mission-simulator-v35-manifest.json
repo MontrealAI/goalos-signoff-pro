@@ -1,0 +1,67 @@
+{
+  "id": "GOALOS-SIGNOFF-PRO-V35-LOOP-RSI-ASI-MISSION-SIMULATOR",
+  "version": "v35",
+  "title": "GoalOS Signoff Pro — Loop → RSI → ASI Superintelligence Mission Simulator Lab v35",
+  "shortTitle": "Loop → RSI → ASI Mission Simulator v35",
+  "flagshipRoute": "loop-rsi-asi-superintelligence-mission-simulator-lab.html",
+  "routes": [
+    "loop-rsi-asi-superintelligence-mission-simulator-lab.html",
+    "asi-mission-simulator.html",
+    "sovereign-asi-flight-simulator.html",
+    "proof-gated-asi-simulator.html",
+    "superintelligence-simulation-console.html",
+    "rsi-to-asi-control-simulator.html",
+    "goalos-asi-mission-control.html",
+    "loop-rsi-asi-v35.html",
+    "no-ungoverned-asi.html",
+    "v35.html"
+  ],
+  "coreMessage": "GoalOS proves work. RSI governs invention. ASI-scale escalation requires proof, gates, dossiers, councils, rollback, and a non-self-authorization boundary.",
+  "publicMessage": "Blockchain proves the transaction. GoalOS proves the work. RSI governs invention. ASI must not self-authorize.",
+  "sourceAlignment": {
+    "presentation": [
+      "build the governance institution first",
+      "deterministic discovery to auditable advantage",
+      "OMNI search control, not outcome authority",
+      "breakthroughs as audited state transitions"
+    ],
+    "strategyBrief": [
+      "target → emit → filter → atlas → test-plan → eval → insert → promote",
+      "schema-bound artifacts",
+      "baseline discipline",
+      "ECI semantics",
+      "Move-37 reproduction/stress/persistence/dossier handling",
+      "minimum operational dashboard"
+    ]
+  },
+  "publicSafety": {
+    "forms": false,
+    "textInputs": false,
+    "uploads": false,
+    "cookies": false,
+    "analytics": false,
+    "wallets": false,
+    "payments": false,
+    "externalAiCalls": false,
+    "personalData": false,
+    "valueMoved": 0,
+    "liveRsi": false,
+    "claimedAgi": false,
+    "claimedAsi": false,
+    "productionAuthority": false
+  },
+  "artifacts": [
+    "asi-mission-simulator-v35-manifest.json",
+    "asi-mission-simulator-scenarios-v35.json",
+    "asi-mission-simulator-state-machine-v35.json",
+    "asi-mission-simulator-kpi-dashboard-v35.json",
+    "asi-mission-simulator-public-safe-boundary-v35.json",
+    "asi-mission-simulator-engagement-map-v35.json",
+    "asi-mission-simulator-move37-dossier-v35.json",
+    "asi-mission-simulator-synthetic-receipt-v35.json",
+    "asi-mission-simulator-demo-bundle-v35.json",
+    "goalos-public-demo-labs-v22-v35.json",
+    "goalos-signoff-pro-site-map-v22-v35.json"
+  ],
+  "generatedAt": "2026-07-01T14:55:00Z"
+}

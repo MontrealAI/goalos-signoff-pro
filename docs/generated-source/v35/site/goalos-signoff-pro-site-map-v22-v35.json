@@ -1,0 +1,24 @@
+{
+  "generatedAt": "2026-07-01T14:55:00Z",
+  "version": "v22-v35",
+  "flagship": "loop-rsi-asi-superintelligence-mission-simulator-lab.html",
+  "v35Routes": [
+    "loop-rsi-asi-superintelligence-mission-simulator-lab.html",
+    "asi-mission-simulator.html",
+    "sovereign-asi-flight-simulator.html",
+    "proof-gated-asi-simulator.html",
+    "superintelligence-simulation-console.html",
+    "rsi-to-asi-control-simulator.html",
+    "goalos-asi-mission-control.html",
+    "loop-rsi-asi-v35.html",
+    "no-ungoverned-asi.html",
+    "v35.html"
+  ],
+  "recommendedJourney": [
+    "index.html",
+    "v30-v34-premium-experience.html",
+    "loop-rsi-asi-superintelligence-mission-simulator-lab.html",
+    "loop-rsi-asi-superintelligence-control-tower-lab.html"
+  ],
+  "publicSafe": true
+}

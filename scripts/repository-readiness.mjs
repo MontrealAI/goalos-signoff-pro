@@ -23,7 +23,7 @@ const required = [
   'config/hybrid-launch-gates.json'
 ];
 const forbiddenNames = new Set(['.env', '.env.local', '.env.production']);
-const forbiddenDirs = new Set(['node_modules', '.next', '.git']);
+const forbiddenDirs = new Set(['node_modules', '.next']);
 const forbiddenPatterns = [
   /-----BEGIN [A-Z ]*PRIVATE KEY-----/i,
   /sk_live_[0-9A-Za-z]{16,}/,

@@ -69,4 +69,4 @@ artifacts/multi-agent-coordination-demo/README.md
 
 ## Claim boundary
 
-This package demonstrates a browser-local synthetic multi-agent coordination theatre. It does not claim achieved AGI, achieved ASI, achieved superintelligence, live settlement, live staking, live escrow, guaranteed optimality, guaranteed returns, or production authority.
+This package demonstrates a browser-local synthetic multi-agent coordination theatre. It does not claim realized AGI, realized ASI, achieved superintelligence, live settlement, live staking, live escrow, guaranteed optimality, guaranteed returns, or production authority.

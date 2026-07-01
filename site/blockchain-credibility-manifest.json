@@ -1,0 +1,32 @@
+{
+  "id": "goalos-signoff-pro-blockchain-credibility-lab-v28",
+  "title": "GoalOS Signoff Pro — Blockchain Credibility Standard Lab",
+  "version": "28.0.0",
+  "generatedAt": "2026-07-01T20:21:13Z",
+  "primaryRoute": "blockchain-credibility-lab.html",
+  "aliases": [
+    "proof-to-settlement-standard-lab.html",
+    "trust-before-settlement-lab.html",
+    "no-proof-no-settlement-lab.html",
+    "blockchain-trust-layer-lab.html"
+  ],
+  "publicArtifacts": [
+    "blockchain-credibility-demo-bundle.json",
+    "blockchain-credibility-manifest.json",
+    "proof-package-requirement-map.json",
+    "no-proof-no-settlement-standard.json",
+    "trust-settlement-readiness-ledger.json",
+    "stakeholder-demand-card.json",
+    "blockchain-settlement-receipt-demo.json"
+  ],
+  "boundary": {
+    "claimBoundary": "Synthetic browser-local public demonstration only. It does not include wallet use, token approval, transaction broadcasting, fund movement, legal/financial/investment advice, external fact certification, or live settlement activation.",
+    "publicRule": "No forms · no inputs · no uploads · no cookies · no analytics · no wallets · no payments · no personal or confidential data.",
+    "valueMoved": 0,
+    "browserLocal": true,
+    "noUserData": true,
+    "noWallet": true,
+    "noPayments": true
+  },
+  "canonicalDemoHash": "sha256:be8a9d2cb3d97700f2a4abf39686f6421ebcbedf3da0ca36"
+}

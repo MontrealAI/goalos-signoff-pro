@@ -1,0 +1,51 @@
+{
+  "type": "BlockchainCredibilityEvidenceDocket",
+  "scenario": "dao-grant",
+  "proofPackage": [
+    {
+      "id": "E01",
+      "name": "mission contract",
+      "status": "present",
+      "evidenceRoot": "sha256:af8a867a1ba159f2f9d83f0b5675d91a"
+    },
+    {
+      "id": "E02",
+      "name": "deliverable evidence",
+      "status": "present",
+      "evidenceRoot": "sha256:ec9b0cdaa750d0fb40bd1e8d7bb1848e"
+    },
+    {
+      "id": "E03",
+      "name": "claims matrix",
+      "status": "present",
+      "evidenceRoot": "sha256:157ca9265a5ab018ee62d3ba1fe281d0"
+    },
+    {
+      "id": "E04",
+      "name": "reviewer report",
+      "status": "present",
+      "evidenceRoot": "sha256:e942b9d14c47c5fe2b7adc14447c8b27"
+    },
+    {
+      "id": "E05",
+      "name": "risk ledger",
+      "status": "present",
+      "evidenceRoot": "sha256:dafbede190d91525b671a25323398cfa"
+    },
+    {
+      "id": "E06",
+      "name": "acceptance receipt",
+      "status": "present",
+      "evidenceRoot": "sha256:1a6684cbc24bf16e01bbb0c6ebd100ef"
+    }
+  ],
+  "missingFromRejectedMode": [
+    "mission contract",
+    "claim mapping",
+    "replay path",
+    "risk ledger",
+    "human signoff",
+    "receipt"
+  ],
+  "valueMoved": 0
+}

@@ -1,0 +1,44 @@
+{
+  "router": "proof-gated coordination router R0/R5 synthetic selector",
+  "roles": [
+    "Coordinator",
+    "Planner",
+    "Builder",
+    "Evidence Scout",
+    "Validator",
+    "Risk Sentinel",
+    "Chronicle",
+    "Human Gate"
+  ],
+  "loop": [
+    "Objective",
+    "Mission Contract",
+    "Agent / Job Allocation",
+    "Tool Execution",
+    "Proof Bundle",
+    "Evidence Docket",
+    "Verifier Mesh",
+    "Governed Decision State",
+    "Settlement Signal",
+    "Chronicle",
+    "Capability Package",
+    "Harder Future Mission"
+  ],
+  "budget": {
+    "maxSyntheticUnits": 3.5,
+    "maxStages": 12,
+    "maxValidators": 3
+  },
+  "stopRules": [
+    "stop when required proof artifacts exist",
+    "stop on critical safety event",
+    "stop if user data would be required"
+  ],
+  "scoringWeights": {
+    "verifiedWork": 1,
+    "proofIntegrity": 1,
+    "risk": -0.9,
+    "coordinationOverhead": -0.8,
+    "cost": -1.2
+  }
+}

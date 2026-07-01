@@ -1,0 +1,76 @@
+{
+  "id": "GOALOS-SIGNOFF-PRO-V34-LOOP-RSI-ASI-SUPERINTELLIGENCE-CONTROL-TOWER",
+  "version": "v34",
+  "title": "GoalOS Signoff Pro — Loop → RSI → ASI Superintelligence Control Tower Lab v34",
+  "shortTitle": "Loop → RSI → ASI Control Tower v34",
+  "flagshipRoute": "loop-rsi-asi-superintelligence-control-tower-lab.html",
+  "routes": [
+    "loop-rsi-asi-superintelligence-control-tower-lab.html",
+    "asi-control-tower.html",
+    "superintelligence-control-tower.html",
+    "governed-asi-console.html",
+    "asi-readiness-flight-simulator.html",
+    "loop-to-rsi-to-asi-v34.html",
+    "proof-gated-superintelligence.html",
+    "asi-governance-dashboard.html",
+    "move37-asi-control-room.html",
+    "no-ungoverned-superintelligence-v34.html",
+    "v34.html"
+  ],
+  "incrementalAfter": "v33 Loop → RSI → ASI Superintelligence Console",
+  "coreMessage": "GoalOS proves work. RSI governs invention. ASI-scale escalation requires proof, councils, rollback, and non-bypassable gates.",
+  "heroTagline": "Govern the invention loop before superintelligence scale exists.",
+  "taglines": [
+    "From loop to RSI to ASI: proof-gated work becomes proof-gated invention, then proof-gated superintelligence governance.",
+    "No Proof. No Trust. No Settlement. No ungoverned self-improvement. No self-authorized ASI.",
+    "Search may guide allocation. Proof decides promotion. Human authority governs escalation.",
+    "Superintelligence is not a landing page claim. It is a gated institutional boundary."
+  ],
+  "publicSafety": {
+    "forms": false,
+    "textInputs": false,
+    "uploads": false,
+    "cookies": false,
+    "analytics": false,
+    "wallets": false,
+    "payments": false,
+    "externalAiCalls": false,
+    "personalData": false,
+    "valueMoved": 0,
+    "liveRsi": false,
+    "claimedAgi": false,
+    "claimedAsi": false,
+    "productionAuthority": false
+  },
+  "sourceDocuments": [
+    {
+      "title": "AGI Alpha RSI — Sovereign Invention Governance presentation",
+      "path": "research/rsi/AGI_Alpha_RSI_Sovereign_v0.pdf"
+    },
+    {
+      "title": "AGI Alpha RSI — Sovereign Strategy Brief",
+      "path": "research/rsi/AGI_Alpha_RSI_Sovereign_Strategy_Brief_v0.pdf"
+    }
+  ],
+  "v34Upgrade": [
+    "Adds a more complete Control Tower with role, scenario, maturity, policy-shock, rollback, council, and dossier modes.",
+    "Adds a deterministic AI-style briefing console that explains the same scenario at simple, executive, technical, governance, and red-team levels.",
+    "Adds ASI readiness state machine, readiness gates, rollback drill, council charter, maturity ladder, and synthetic receipt artifacts.",
+    "Adds copy-ready board memo and public standard outputs without collecting text, identity, files, wallets, or payments."
+  ],
+  "generatedAt": "2026-07-01T12:42:05Z",
+  "artifacts": [
+    "loop-rsi-asi-v34-manifest.json",
+    "asi-control-tower-state-machine-v34.json",
+    "asi-governance-console-scenarios-v34.json",
+    "asi-readiness-gates-v34.json",
+    "move37-asi-dossier-v34.json",
+    "superintelligence-council-charter-v34.json",
+    "rollback-and-containment-drill-v34.json",
+    "public-safe-ai-console-boundary-v34.json",
+    "rsi-source-document-index-v34.json",
+    "goalos-public-demo-labs-v22-v34.json",
+    "goalos-signoff-pro-site-map-v22-v34.json",
+    "loop-rsi-asi-v34-demo-bundle.json"
+  ]
+}

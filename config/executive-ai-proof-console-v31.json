@@ -1,0 +1,18 @@
+{
+  "version": "31.0.0",
+  "title": "GoalOS Signoff Pro — Executive AI Proof Console & Guided Website Experience Lab v31",
+  "canonicalRoute": "executive-ai-proof-console.html",
+  "coreMessage": "Blockchain proves the transaction. GoalOS proves the work.",
+  "standard": "No Proof. No Trust. No Settlement.",
+  "publicSafety": {
+    "forms": false,
+    "inputs": false,
+    "uploads": false,
+    "cookies": false,
+    "analytics": false,
+    "wallets": false,
+    "payments": false,
+    "personalData": false,
+    "valueMoved": 0
+  }
+}

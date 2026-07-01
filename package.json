@@ -82,7 +82,18 @@
     "repo:verify": "node scripts/repository-readiness.mjs",
     "repo:all": "npm run repo:codeowners && npm run repo:verify && npm run package:verify && npm run hybrid:anchor:check",
     "repo:codeowners": "node scripts/check-codeowners-owner.mjs",
-    "institutional:verify": "node scripts/verify-institutional-excellence.mjs"
+    "institutional:verify": "node scripts/verify-institutional-excellence.mjs",
+    "site:build:public-labs": "node scripts/build-goalos-signoff-public-labs-v22-v35.mjs",
+    "site:verify:public-labs": "node scripts/verify-goalos-signoff-public-labs-v22-v35.mjs",
+    "site:verify:workflows": "node scripts/verify-workflow-script-references.mjs",
+    "site:verify:routes": "node scripts/check-site-route-integrity.mjs",
+    "site:verify:all": "npm run site:verify:workflows && npm run site:verify:routes && npm run site:verify:public-labs",
+    "site:audit": "node scripts/audit-goalos-v22-v35.mjs",
+    "site:build:v22-v35": "node scripts/build-goalos-signoff-public-labs-v22-v35.mjs",
+    "site:verify:v22-v35": "node scripts/verify-goalos-signoff-public-labs-v22-v35.mjs",
+    "site:verify:public-safe": "node scripts/verify-goalos-public-safe.mjs",
+    "site:verify:links": "node scripts/verify-goalos-links-and-routes.mjs",
+    "site:all": "npm run site:audit && npm run site:build:v22-v35 && npm run site:verify:v22-v35 && npm run site:verify:public-safe && npm run site:verify:links && npm run site:verify:workflows"
   },
   "version": "1.1.0"
 }

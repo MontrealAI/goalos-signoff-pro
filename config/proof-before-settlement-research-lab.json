@@ -1,0 +1,162 @@
+{
+  "id": "goalos-signoff-pro-proof-before-settlement-research-lab-v30",
+  "version": "v30",
+  "title": "GoalOS Signoff Pro \u2014 Proof Before Settlement Institutional Research Lab v30",
+  "shortTitle": "Proof Before Settlement Research Lab",
+  "subtitle": "A prestigious research-to-adoption public lab for the GoalOS blockchain credibility standard.",
+  "headline": "Turn the paper into the standard.",
+  "motto": "Blockchain proves the transaction. GoalOS proves the work.",
+  "tagline": "No Proof. No Trust. No Settlement.",
+  "primaryRoute": "proof-before-settlement-research-lab.html",
+  "manifestRoute": "proof-before-settlement-research-manifest.json",
+  "aliases": [
+    "institutional-research-lab.html",
+    "elite-paper-lab.html",
+    "blockchain-standard-paper-lab.html",
+    "settlement-safety-lab.html",
+    "proof-before-settlement-paper.html",
+    "paper.html",
+    "research.html"
+  ],
+  "paperAssets": [
+    {
+      "label": "Compiled elite PDF",
+      "path": "research/proof-before-settlement/GoalOS_Proof_Before_Settlement_Elite_Edition.pdf"
+    },
+    {
+      "label": "LaTeX source",
+      "path": "research/proof-before-settlement/GoalOS_Proof_Before_Settlement_Elite_Edition.tex"
+    },
+    {
+      "label": "Single-file LaTeX",
+      "path": "research/proof-before-settlement/GoalOS_Proof_Before_Settlement_Elite_Edition_SINGLE_FILE.tex"
+    },
+    {
+      "label": "BibTeX references",
+      "path": "research/proof-before-settlement/GoalOS_Proof_Before_Settlement_Elite_Edition_references.bib"
+    },
+    {
+      "label": "Executive abstract",
+      "path": "research/proof-before-settlement/executive-abstract.txt"
+    }
+  ],
+  "researchObjects": [
+    {
+      "name": "Work-Verification Gap",
+      "plain": "A blockchain can settle a transaction without proving that the off-chain work behind it was real, complete, reviewed, or accepted.",
+      "institutionalUse": "Makes the problem obvious to DAOs, auditors, grant programs, exchanges, partners, and users."
+    },
+    {
+      "name": "Proof Object Model",
+      "plain": "Mission Contract, Evidence Docket, ProofBundle, Replay Log, Validator Report, Risk Ledger, Human Authority, Mission Receipt, Anchor, Chronicle.",
+      "institutionalUse": "Gives teams a shared vocabulary for credible proof packages."
+    },
+    {
+      "name": "Acceptance Predicate",
+      "plain": "Settlement readiness exists only when required proof objects exist, replay is possible, validation passes, risk is bounded, and the human authority gate is explicit.",
+      "institutionalUse": "Turns vague milestone acceptance into a reviewable decision."
+    },
+    {
+      "name": "Settlement-Safety Invariant",
+      "plain": "No proof package should produce settlement readiness unless its mission, evidence, replay, validation, risk, authority, receipt, and boundary gates pass.",
+      "institutionalUse": "Creates a simple rule that stakeholders can demand."
+    },
+    {
+      "name": "Claim-Maturity Lattice",
+      "plain": "Claims mature from unsubmitted to submitted, internally checked, independently replayed, accepted, anchored, challenged, and chronicle-admitted.",
+      "institutionalUse": "Prevents raw claims from masquerading as institutional proof."
+    },
+    {
+      "name": "Proof Mandate",
+      "plain": "Users, DAOs, investors, auditors, enterprises, and ecosystem partners can ask one question: where is the proof package?",
+      "institutionalUse": "Converts the research into practical market pressure."
+    }
+  ],
+  "adoptionBlueprint": [
+    {
+      "phase": "Day 0",
+      "name": "Declare the standard",
+      "output": "Publicly state that important blockchain work requires mission, evidence, validation, receipt, and settlement-readiness boundaries."
+    },
+    {
+      "phase": "Day 30",
+      "name": "Require proof packages for new milestones",
+      "output": "DAO grants, treasury payments, audits, partnerships, and AI-agent tasks must define acceptance criteria before execution."
+    },
+    {
+      "phase": "Day 60",
+      "name": "Publish public-safe dockets",
+      "output": "Each material claim links to a redacted Evidence Docket, replay path, validator report, risk ledger, and human signoff."
+    },
+    {
+      "phase": "Day 90",
+      "name": "Bind receipts to governance and settlement readiness",
+      "output": "No payout, upgrade, milestone closure, or public credibility claim without an accepted Mission Receipt."
+    },
+    {
+      "phase": "Mature",
+      "name": "Use proof as institutional memory",
+      "output": "Accepted work enters the Chronicle and influences future missions only with proof provenance."
+    }
+  ],
+  "standardClauses": [
+    {
+      "clause": "No Proof Package, No Settlement Readiness",
+      "text": "A milestone, grant, upgrade, audit remediation, AI-agent output, or treasury payment is not settlement-ready until the required proof package has been submitted, reviewed, and accepted."
+    },
+    {
+      "clause": "Replay Before Reliance",
+      "text": "Any material technical claim should provide a replay path, reproduction packet, or independent review route before it is used to justify governance, payment, or launch."
+    },
+    {
+      "clause": "Human Authority Remains Explicit",
+      "text": "Automation may prepare evidence and recommend decisions, but high-impact acceptance remains bound to a named human or governance authority."
+    },
+    {
+      "clause": "Claim Boundary Disclosure",
+      "text": "Every public proof package must state what it proves, what it does not prove, what remains unverified, and what risk remains."
+    },
+    {
+      "clause": "Public-Safe Publication",
+      "text": "Public demos and public dockets must not request personal/confidential data, use wallet integrations, move funds, or imply production settlement authority unless separately authorized."
+    }
+  ],
+  "audiences": [
+    {
+      "name": "DAO Delegates",
+      "ask": "Where is the proof package before we vote or release treasury funds?"
+    },
+    {
+      "name": "Grant Committees",
+      "ask": "Which evidence proves that the milestone was earned?"
+    },
+    {
+      "name": "Auditors",
+      "ask": "Can the remediation claim be replayed and reviewed independently?"
+    },
+    {
+      "name": "Exchanges & Partners",
+      "ask": "What evidence supports the project\u2019s credibility claim?"
+    },
+    {
+      "name": "Enterprises",
+      "ask": "What acceptance record proves that this vendor delivery is complete?"
+    },
+    {
+      "name": "Users",
+      "ask": "Why should we trust this claim before value or governance power moves?"
+    }
+  ],
+  "publicSafePosture": {
+    "forms": false,
+    "inputs": false,
+    "uploads": false,
+    "cookies": false,
+    "analytics": false,
+    "wallets": false,
+    "payments": false,
+    "personalData": false,
+    "confidentialData": false,
+    "valueMoved": 0
+  }
+}

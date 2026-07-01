@@ -1,0 +1,13 @@
+{
+  "id": "goalos-signoff-pro-blockchain-credibility-lab-v28",
+  "version": "28.0.0",
+  "generatedAt": "2026-07-01T02:49:06Z",
+  "scenario": "dao-grant",
+  "title": "GoalOS Signoff Pro — Blockchain Credibility Standard Lab",
+  "claimBoundary": "Synthetic browser-local public demonstration only. It does not include wallet use, token approval, transaction broadcasting, fund movement, legal/financial/investment advice, external fact certification, or live settlement activation.",
+  "publicRule": "No forms · no inputs · no uploads · no cookies · no analytics · no wallets · no payments · no personal or confidential data.",
+  "valueMoved": 0,
+  "noUserData": true,
+  "noWallet": true,
+  "noPayments": true
+}

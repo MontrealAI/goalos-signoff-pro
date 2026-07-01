@@ -1,0 +1,24 @@
+{
+  "generatedAt": "2026-07-01T12:16:32.184Z",
+  "title": "Move-37 → ASI Dossier Template",
+  "sections": [
+    "Claim boundary",
+    "Novelty and advantage thresholds",
+    "Reproduction manifest",
+    "Fixed-seed replay log",
+    "Policy-shock matrix",
+    "Persistence report",
+    "Risk ledger",
+    "Evidence objects",
+    "Baseline comparisons",
+    "Council review note",
+    "Rollback plan",
+    "Synthetic receipt"
+  ],
+  "decisionStates": [
+    "REJECTED_BY_RISK_GATE",
+    "PROBE_FIRST_DOSSIER_REQUIRED",
+    "RSI_PROMOTION_REVIEW_READY",
+    "ASI_READINESS_REVIEW_READY"
+  ]
+}

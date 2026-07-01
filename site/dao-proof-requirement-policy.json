@@ -1,0 +1,14 @@
+{
+  "type": "GoalOSDAOProofRequirementPolicyTemplateV29",
+  "version": "v29.0.0",
+  "title": "No proof package, no payout, no upgrade, no closure, no serious trust.",
+  "policyClauses": [
+    "Every material funding, upgrade, grant, audit-remediation, RWA, AI-agent, or treasury claim must link to a proof package.",
+    "A proof package must include mission contract, evidence docket, replay path, validator review, risk ledger, human authority, and signed receipt.",
+    "Announcement-only claims remain CLAIM_ONLY and cannot trigger settlement readiness.",
+    "Partial evidence may enter review but remains on hold until validation, authority, and receipt are complete.",
+    "Public dashboards may show proof status, claim maturity, challenge state, and receipt hash without exposing private or confidential data."
+  ],
+  "defaultMotion": "Resolved: this organization requires a GoalOS-style proof package before material trust, payout, governance approval, or settlement readiness.",
+  "valueMoved": 0
+}

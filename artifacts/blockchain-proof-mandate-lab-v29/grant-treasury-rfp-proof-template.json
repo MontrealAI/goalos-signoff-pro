@@ -1,0 +1,50 @@
+{
+  "type": "GoalOSGrantTreasuryRFPProofTemplateV29",
+  "version": "v29.0.0",
+  "title": "Proof Package Requirement for Blockchain Vendors, Grantees, and Partners",
+  "instructions": "Attach this requirement to grants, RFPs, milestone agreements, partner approvals, and treasury vendor scopes.",
+  "requiredFields": [
+    {
+      "field": "Public proof package URL",
+      "whyItMatters": "A single public place to inspect the claim and its evidence.",
+      "missingResult": "The claim remains marketing, not diligence-ready."
+    },
+    {
+      "field": "Mission contract",
+      "whyItMatters": "What was promised, by whom, under what acceptance criteria.",
+      "missingResult": "No one can tell whether the work was actually complete."
+    },
+    {
+      "field": "Evidence docket",
+      "whyItMatters": "Artifacts, commits, reports, hashes, provenance, and boundaries.",
+      "missingResult": "The project has claims, but no structured proof."
+    },
+    {
+      "field": "Replay path",
+      "whyItMatters": "How another reviewer can check the result again.",
+      "missingResult": "The work cannot graduate from assertion to reviewable evidence."
+    },
+    {
+      "field": "Validator review",
+      "whyItMatters": "What independent or role-specific review passed, failed, or challenged.",
+      "missingResult": "The claim should not become mature or settlement-ready."
+    },
+    {
+      "field": "Risk ledger",
+      "whyItMatters": "Known limitations, unresolved risks, rollback path, and challenge window.",
+      "missingResult": "Stakeholders cannot price or govern the remaining risk."
+    },
+    {
+      "field": "Human authority",
+      "whyItMatters": "Who accepted, rejected, or held the claim.",
+      "missingResult": "No release, payout, upgrade, or public reliance should occur."
+    },
+    {
+      "field": "Signed receipt",
+      "whyItMatters": "A durable decision record with hash commitments and boundary language.",
+      "missingResult": "No serious credibility or settlement readiness."
+    }
+  ],
+  "acceptanceLanguage": "Payment, recognition, launch support, listing support, public endorsement, or governance readiness should not proceed until the receipt-ready proof package is complete.",
+  "valueMoved": 0
+}

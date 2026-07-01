@@ -1,0 +1,17 @@
+{
+  "version": "v30-v34-premium-experience-assurance",
+  "status": "PUBLIC_SAFE_BROWSER_LOCAL",
+  "restrictions": [
+    "no forms",
+    "no text inputs",
+    "no uploads",
+    "no cookies",
+    "no analytics",
+    "no wallets",
+    "no payments",
+    "no external AI calls",
+    "no personal data",
+    "zero value moved"
+  ],
+  "note": "This package adds deterministic local UI controls and navigation only. It does not process user data, call AI APIs, connect wallets, or move value."
+}

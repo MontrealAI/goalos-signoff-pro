@@ -1,65 +1,28 @@
-name: Website quality gate
+name: GoalOS Signoff Pro — Website Quality
 
 on:
-  workflow_dispatch:
   pull_request:
-    branches: [main]
-  push:
-    branches: [main]
-    paths:
-      - 'config/**'
-      - 'scripts/**'
-      - 'docs/**'
-      - 'verification/**'
-      - '.github/workflows/website-quality.yml'
-      - '.github/workflows/pages.yml'
-      - '.github/workflows/goalos-signoff-public-labs-v22-v27.yml'
+  workflow_dispatch:
 
 permissions:
   contents: read
 
 jobs:
-  quality:
-    name: Verify generated public site quality
+  website-quality:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repository
-        uses: actions/checkout@v4
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Build site preview
-        shell: bash
+      - name: Build website
         run: |
           set -euo pipefail
-          rm -rf site artifacts
-          mkdir -p site artifacts
-          if [ -f scripts/build-goalos-production-site.mjs ]; then node scripts/build-goalos-production-site.mjs; fi
-          for f in \
-            scripts/build-proof-gradient-lab-page.mjs \
-            scripts/build-capability-compounding-lab-page.mjs \
-            scripts/build-sovereign-experience-lab-page.mjs \
-            scripts/build-proof-settlement-lab-page.mjs \
-            scripts/build-public-private-proof-boundary-lab-page.mjs \
-            scripts/build-governed-decision-state-lab-page.mjs \
-            scripts/build-rollback-challenge-lab-page.mjs \
-            scripts/build-validator-mesh-lab-page.mjs \
-            scripts/build-until-done-lab-page.mjs
-          do
-            if [ -f "$f" ]; then node "$f"; fi
-          done
-          node scripts/build-goalos-signoff-public-labs-v22-v27.mjs
-      - name: Run quality gates
-        shell: bash
+          node scripts/build-goalos-signoff-pro-institutional-v22-v30.mjs
+      - name: Verify website
         run: |
           set -euo pipefail
           if [ -f scripts/verify-goalos-production-site.mjs ]; then node scripts/verify-goalos-production-site.mjs; fi
-          node scripts/verify-goalos-signoff-public-labs-v22-v27.mjs
-      - name: Upload site preview
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: goalos-signoff-pro-site-preview-v22-v27
-          path: site
-          if-no-files-found: error
+          node scripts/verify-proof-before-settlement-research-lab-page.mjs
+          node scripts/verify-goalos-signoff-public-labs-v22-v30.mjs
+          if [ -f scripts/verify-public-artifact-safety.mjs ]; then node scripts/verify-public-artifact-safety.mjs; fi

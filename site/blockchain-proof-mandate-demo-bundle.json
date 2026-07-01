@@ -1,0 +1,447 @@
+{
+  "type": "GoalOSSignoffProBlockchainProofMandateLabV29Bundle",
+  "generatedAt": "2026-07-01T20:21:13Z",
+  "manifest": {
+    "id": "goalos-signoff-pro-blockchain-proof-mandate-due-diligence-lab-v29",
+    "title": "GoalOS Signoff Pro — Blockchain Proof Mandate & Due Diligence Lab v29",
+    "version": "v29.0.0",
+    "generatedAt": "2026-07-01T20:21:13Z",
+    "primaryRoute": "blockchain-proof-mandate-lab.html",
+    "aliases": [
+      "proof-package-requirement-lab.html",
+      "require-proof-before-trust-lab.html",
+      "blockchain-due-diligence-lab.html",
+      "goalos-proof-request-lab.html",
+      "no-proof-no-credibility-lab.html"
+    ],
+    "routes": [
+      "blockchain-proof-mandate-lab.html",
+      "proof-package-requirement-lab.html",
+      "require-proof-before-trust-lab.html",
+      "blockchain-due-diligence-lab.html",
+      "goalos-proof-request-lab.html",
+      "no-proof-no-credibility-lab.html"
+    ],
+    "artifacts": [
+      "blockchain-proof-mandate-lab-manifest.json",
+      "proof-package-request-card.json",
+      "stakeholder-requirement-map.json",
+      "blockchain-due-diligence-scorecard.json",
+      "dao-proof-requirement-policy.json",
+      "grant-treasury-rfp-proof-template.json",
+      "settlement-readiness-decision-tree.json",
+      "public-proof-dashboard-schema.json",
+      "blockchain-proof-mandate-demo-bundle.json"
+    ],
+    "motto": "Where is the proof package?",
+    "tagline": "No proof package, no serious trust. No validation, no settlement. No receipt, no credibility.",
+    "canonicalHash": "sha256:a4e3622580092f6ff81edaab549f5abf0dea65c4b740e29d",
+    "boundary": {
+      "noUserData": true,
+      "noWallet": true,
+      "noPayments": true,
+      "valueMoved": 0,
+      "claimBoundary": "Public-safe synthetic demonstration of a proof requirement and due-diligence standard. It is not financial advice, legal advice, investment advice, production certification, an audit, a wallet, escrow, exchange, broker, custodian, or live settlement system.",
+      "notClaimed": [
+        "guaranteed project success",
+        "live mainnet settlement",
+        "custody of funds",
+        "token offering",
+        "investment recommendation",
+        "external audit certification",
+        "legal, financial, tax, or investment advice"
+      ]
+    },
+    "valueMoved": 0
+  },
+  "proofRequestCard": {
+    "type": "GoalOSProofPackageRequestCardV29",
+    "version": "v29.0.0",
+    "motto": "Where is the proof package?",
+    "oneLiner": "Blockchain projects should not just ask for trust. They should pass proof-based due diligence.",
+    "copyPasteAsk": "Before we trust, fund, list, vote, approve, settle, or promote this blockchain claim: where is the proof package?",
+    "requiredPackage": [
+      {
+        "order": 1,
+        "id": "proof-url",
+        "label": "Public proof package URL",
+        "plainEnglish": "A single public place to inspect the claim and its evidence.",
+        "blockIfMissing": "The claim remains marketing, not diligence-ready.",
+        "weight": 15,
+        "requirementRoot": "sha256:5864da63af243943de714a35b61ab834"
+      },
+      {
+        "order": 2,
+        "id": "mission-contract",
+        "label": "Mission contract",
+        "plainEnglish": "What was promised, by whom, under what acceptance criteria.",
+        "blockIfMissing": "No one can tell whether the work was actually complete.",
+        "weight": 20,
+        "requirementRoot": "sha256:ce0f167d90a7a70816a08a40277c911e"
+      },
+      {
+        "order": 3,
+        "id": "evidence-docket",
+        "label": "Evidence docket",
+        "plainEnglish": "Artifacts, commits, reports, hashes, provenance, and boundaries.",
+        "blockIfMissing": "The project has claims, but no structured proof.",
+        "weight": 15,
+        "requirementRoot": "sha256:fc2bbb33f5616d6ee00678a90996088f"
+      },
+      {
+        "order": 4,
+        "id": "replay-path",
+        "label": "Replay path",
+        "plainEnglish": "How another reviewer can check the result again.",
+        "blockIfMissing": "The work cannot graduate from assertion to reviewable evidence.",
+        "weight": 20,
+        "requirementRoot": "sha256:26e36666c3b1bd7d75019996aad866e3"
+      },
+      {
+        "order": 5,
+        "id": "validator-review",
+        "label": "Validator review",
+        "plainEnglish": "What independent or role-specific review passed, failed, or challenged.",
+        "blockIfMissing": "The claim should not become mature or settlement-ready.",
+        "weight": 10,
+        "requirementRoot": "sha256:05024cf5522c262a2cd16e478da8e153"
+      },
+      {
+        "order": 6,
+        "id": "risk-ledger",
+        "label": "Risk ledger",
+        "plainEnglish": "Known limitations, unresolved risks, rollback path, and challenge window.",
+        "blockIfMissing": "Stakeholders cannot price or govern the remaining risk.",
+        "weight": 10,
+        "requirementRoot": "sha256:f1542262c3a4bdb36eb995d93d753f79"
+      },
+      {
+        "order": 7,
+        "id": "human-authority",
+        "label": "Human authority",
+        "plainEnglish": "Who accepted, rejected, or held the claim.",
+        "blockIfMissing": "No release, payout, upgrade, or public reliance should occur.",
+        "weight": 10,
+        "requirementRoot": "sha256:e2fe558474882ace2bdb76557442046b"
+      },
+      {
+        "order": 8,
+        "id": "signed-receipt",
+        "label": "Signed receipt",
+        "plainEnglish": "A durable decision record with hash commitments and boundary language.",
+        "blockIfMissing": "No serious credibility or settlement readiness.",
+        "weight": 15,
+        "requirementRoot": "sha256:a530d93f790a4c593e3d6552f1dc3b73"
+      }
+    ],
+    "publicSafeUse": "Copy this into DAO proposals, grant reviews, partner diligence, audit closeout, treasury approvals, and community questions.",
+    "valueMoved": 0,
+    "noWallet": true,
+    "noUserData": true
+  },
+  "stakeholderRequirementMap": {
+    "type": "GoalOSStakeholderRequirementMapV29",
+    "version": "v29.0.0",
+    "message": "Every stakeholder can ask the same simple question, then require the same proof package before trust escalates.",
+    "stakeholders": [
+      {
+        "order": 1,
+        "id": "community-user",
+        "name": "Community user",
+        "ask": "Before I trust this claim, where is the proof package?",
+        "requires": "Public proof package URL, readable summary, current decision state.",
+        "defaultGate": "proof package required",
+        "escalation": "No proof package → hold trust, funding, governance, settlement, or public reliance."
+      },
+      {
+        "order": 2,
+        "id": "dao-delegate",
+        "name": "DAO delegate",
+        "ask": "Before I vote yes, what evidence supports the proposal?",
+        "requires": "Mission contract, evidence docket, validation note, risk ledger, receipt boundary.",
+        "defaultGate": "proof package required",
+        "escalation": "No proof package → hold trust, funding, governance, settlement, or public reliance."
+      },
+      {
+        "order": 3,
+        "id": "grant-committee",
+        "name": "Grant committee",
+        "ask": "Before a payout, did the milestone pass acceptance?",
+        "requires": "Acceptance criteria, proof mapping, reviewer signoff, payout readiness receipt.",
+        "defaultGate": "proof package required",
+        "escalation": "No proof package → hold trust, funding, governance, settlement, or public reliance."
+      },
+      {
+        "order": 4,
+        "id": "treasury-council",
+        "name": "Treasury council",
+        "ask": "Before funds move, what proves the vendor earned them?",
+        "requires": "Deliverable evidence, replay notes, authority decision, settlement gate.",
+        "defaultGate": "proof package required",
+        "escalation": "No proof package → hold trust, funding, governance, settlement, or public reliance."
+      },
+      {
+        "order": 5,
+        "id": "security-reviewer",
+        "name": "Security reviewer",
+        "ask": "Before closure, can the fix be independently checked?",
+        "requires": "Finding map, patch evidence, test output, residual risk, challenge window.",
+        "defaultGate": "proof package required",
+        "escalation": "No proof package → hold trust, funding, governance, settlement, or public reliance."
+      },
+      {
+        "order": 6,
+        "id": "investor-partner",
+        "name": "Investor or partner",
+        "ask": "Before diligence passes, what proof supports the project’s material claims?",
+        "requires": "Claims matrix, proof status, unresolved risks, receipts, governance boundary.",
+        "defaultGate": "proof package required",
+        "escalation": "No proof package → hold trust, funding, governance, settlement, or public reliance."
+      },
+      {
+        "order": 7,
+        "id": "enterprise-procurement",
+        "name": "Enterprise procurement",
+        "ask": "Before approval, does the project meet institutional evidence standards?",
+        "requires": "RFP proof checklist, responsible owners, audit trail, redaction boundary.",
+        "defaultGate": "proof package required",
+        "escalation": "No proof package → hold trust, funding, governance, settlement, or public reliance."
+      },
+      {
+        "order": 8,
+        "id": "ai-agent-operator",
+        "name": "AI-agent operator",
+        "ask": "Before the agent is paid or reused, what ProofBundle validates the work?",
+        "requires": "Task trace, tool scope, validator review, signed receipt, reusable capability gate.",
+        "defaultGate": "proof package required",
+        "escalation": "No proof package → hold trust, funding, governance, settlement, or public reliance."
+      }
+    ],
+    "valueMoved": 0
+  },
+  "dueDiligenceScorecard": {
+    "type": "GoalOSBlockchainDueDiligenceScorecardV29",
+    "version": "v29.0.0",
+    "selectedScenario": {
+      "id": "dao-grant-payout",
+      "name": "DAO grant payout",
+      "trustEvent": "A team asks for the next grant tranche.",
+      "requiredDecision": "Release only after milestone evidence maps to acceptance criteria and reviewer signoff."
+    },
+    "scoringRule": "Require at least 85/100 plus human authority and receipt before settlement readiness.",
+    "weights": {
+      "mission": 15,
+      "evidence": 20,
+      "replay": 15,
+      "validation": 20,
+      "risk": 10,
+      "authority": 10,
+      "receipt": 10
+    },
+    "candidates": [
+      {
+        "id": "announcement-only",
+        "name": "Announcement-only project",
+        "mission": 0,
+        "evidence": 5,
+        "replay": 0,
+        "validation": 0,
+        "risk": 0,
+        "authority": 0,
+        "receipt": 0,
+        "state": "CLAIM_ONLY",
+        "score": 5,
+        "verdict": "do not rely yet"
+      },
+      {
+        "id": "partial-evidence",
+        "name": "Partial evidence project",
+        "mission": 12,
+        "evidence": 14,
+        "replay": 5,
+        "validation": 0,
+        "risk": 3,
+        "authority": 0,
+        "receipt": 0,
+        "state": "EVIDENCE_SUBMITTED",
+        "score": 34,
+        "verdict": "hold pending validation, authority, and receipt"
+      },
+      {
+        "id": "goalos-proof-package",
+        "name": "GoalOS proof-package project",
+        "mission": 15,
+        "evidence": 20,
+        "replay": 15,
+        "validation": 20,
+        "risk": 10,
+        "authority": 10,
+        "receipt": 10,
+        "state": "RECEIPT_READY",
+        "score": 100,
+        "verdict": "credibility-ready in this public demo"
+      }
+    ],
+    "valueMoved": 0
+  },
+  "daoPolicyTemplate": {
+    "type": "GoalOSDAOProofRequirementPolicyTemplateV29",
+    "version": "v29.0.0",
+    "title": "No proof package, no payout, no upgrade, no closure, no serious trust.",
+    "policyClauses": [
+      "Every material funding, upgrade, grant, audit-remediation, RWA, AI-agent, or treasury claim must link to a proof package.",
+      "A proof package must include mission contract, evidence docket, replay path, validator review, risk ledger, human authority, and signed receipt.",
+      "Announcement-only claims remain CLAIM_ONLY and cannot trigger settlement readiness.",
+      "Partial evidence may enter review but remains on hold until validation, authority, and receipt are complete.",
+      "Public dashboards may show proof status, claim maturity, challenge state, and receipt hash without exposing private or confidential data."
+    ],
+    "defaultMotion": "Resolved: this organization requires a GoalOS-style proof package before material trust, payout, governance approval, or settlement readiness.",
+    "valueMoved": 0
+  },
+  "rfpTemplate": {
+    "type": "GoalOSGrantTreasuryRFPProofTemplateV29",
+    "version": "v29.0.0",
+    "title": "Proof Package Requirement for Blockchain Vendors, Grantees, and Partners",
+    "instructions": "Attach this requirement to grants, RFPs, milestone agreements, partner approvals, and treasury vendor scopes.",
+    "requiredFields": [
+      {
+        "field": "Public proof package URL",
+        "whyItMatters": "A single public place to inspect the claim and its evidence.",
+        "missingResult": "The claim remains marketing, not diligence-ready."
+      },
+      {
+        "field": "Mission contract",
+        "whyItMatters": "What was promised, by whom, under what acceptance criteria.",
+        "missingResult": "No one can tell whether the work was actually complete."
+      },
+      {
+        "field": "Evidence docket",
+        "whyItMatters": "Artifacts, commits, reports, hashes, provenance, and boundaries.",
+        "missingResult": "The project has claims, but no structured proof."
+      },
+      {
+        "field": "Replay path",
+        "whyItMatters": "How another reviewer can check the result again.",
+        "missingResult": "The work cannot graduate from assertion to reviewable evidence."
+      },
+      {
+        "field": "Validator review",
+        "whyItMatters": "What independent or role-specific review passed, failed, or challenged.",
+        "missingResult": "The claim should not become mature or settlement-ready."
+      },
+      {
+        "field": "Risk ledger",
+        "whyItMatters": "Known limitations, unresolved risks, rollback path, and challenge window.",
+        "missingResult": "Stakeholders cannot price or govern the remaining risk."
+      },
+      {
+        "field": "Human authority",
+        "whyItMatters": "Who accepted, rejected, or held the claim.",
+        "missingResult": "No release, payout, upgrade, or public reliance should occur."
+      },
+      {
+        "field": "Signed receipt",
+        "whyItMatters": "A durable decision record with hash commitments and boundary language.",
+        "missingResult": "No serious credibility or settlement readiness."
+      }
+    ],
+    "acceptanceLanguage": "Payment, recognition, launch support, listing support, public endorsement, or governance readiness should not proceed until the receipt-ready proof package is complete.",
+    "valueMoved": 0
+  },
+  "decisionTree": {
+    "type": "GoalOSSettlementReadinessDecisionTreeV29",
+    "version": "v29.0.0",
+    "selectedScenario": "dao-grant-payout",
+    "steps": [
+      {
+        "order": 1,
+        "state": "CLAIM_ONLY",
+        "meaning": "The project made an assertion without a full proof package.",
+        "publicAnswer": "Do not rely yet.",
+        "nextAction": "Request missing proof and keep irreversible action paused."
+      },
+      {
+        "order": 2,
+        "state": "PROOF_REQUESTED",
+        "meaning": "Stakeholders have asked for the proof package.",
+        "publicAnswer": "Pause trust until evidence arrives.",
+        "nextAction": "Request missing proof and keep irreversible action paused."
+      },
+      {
+        "order": 3,
+        "state": "EVIDENCE_SUBMITTED",
+        "meaning": "Evidence exists, but replay or validation is incomplete.",
+        "publicAnswer": "Review, but do not settle.",
+        "nextAction": "Request missing proof and keep irreversible action paused."
+      },
+      {
+        "order": 4,
+        "state": "VALIDATION_HOLD",
+        "meaning": "Some proof exists, but risk, challenge, or authority is unresolved.",
+        "publicAnswer": "Hold payout, launch, or vote.",
+        "nextAction": "Request missing proof and keep irreversible action paused."
+      },
+      {
+        "order": 5,
+        "state": "RECEIPT_READY",
+        "meaning": "Mission, evidence, replay, validation, authority, and receipt are aligned.",
+        "publicAnswer": "The claim is credibility-ready and settlement-ready in the demo.",
+        "nextAction": "Consider settlement readiness under applicable governance and law."
+      }
+    ],
+    "hardStops": [
+      "no proof package",
+      "no replay path for high-stakes claims",
+      "no validator review",
+      "unresolved critical risk",
+      "no human authority",
+      "no signed receipt"
+    ],
+    "valueMoved": 0
+  },
+  "dashboardSchema": {
+    "type": "GoalOSPublicProofDashboardSchemaV29",
+    "version": "v29.0.0",
+    "purpose": "A corporate-friendly public dashboard schema that lets stakeholders see proof status without exposing private data.",
+    "columns": [
+      "project",
+      "claim",
+      "mission",
+      "evidence",
+      "replay",
+      "validation",
+      "risk",
+      "authority",
+      "receipt",
+      "decision_state",
+      "last_reviewed",
+      "public_proof_url"
+    ],
+    "exampleRow": {
+      "project": "Synthetic Blockchain Project",
+      "claim": "A team asks for the next grant tranche.",
+      "mission": "present",
+      "evidence": "present",
+      "replay": "present",
+      "validation": "passed in public demo",
+      "risk": "bounded",
+      "authority": "recorded",
+      "receipt": "synthetic receipt ready",
+      "decision_state": "RECEIPT_READY",
+      "public_proof_url": "blockchain-proof-mandate-lab.html"
+    },
+    "publicSafeFieldsOnly": true,
+    "valueMoved": 0
+  },
+  "receipt": {
+    "type": "SyntheticProofMandateReceiptV29",
+    "receiptId": "receipt-v29-f3b1a509eca89c5757",
+    "decisionState": "RECEIPT_READY_SYNTHETIC_PUBLIC_DEMO",
+    "statement": "This lab demonstrates how stakeholders can require proof packages before trust, funding, governance, reputation, or settlement readiness.",
+    "receiptRoot": "sha256:3015d64a06b7189027cd991cb9c76973ae35186116deb520",
+    "signerBoundary": "Synthetic public demonstration receipt only.",
+    "valueMoved": 0,
+    "noUserData": true,
+    "noWallet": true
+  }
+}

@@ -1,0 +1,494 @@
+{
+  "package": "goalos-signoff-pro-v35-webui-one-go-complete-repair",
+  "version": "v35",
+  "generatedAt": "2026-07-01T15:30:10Z",
+  "fileCount": 97,
+  "description": "GitHub Web UI optimized one-go repair package for GoalOS Signoff Pro v22-v35; includes required scripts, generated sources, workflows, and docs only.",
+  "files": [
+    {
+      "path": ".github/workflows/goalos-signoff-loop-rsi-asi-v35.yml",
+      "sha256": "fec961577b72be219ae8e079fc33e1ffcae9e51f21747fcdd47c83532e6b4cf7",
+      "bytes": 3555
+    },
+    {
+      "path": ".github/workflows/goalos-signoff-v22-v35-complete-repair-and-publish.yml",
+      "sha256": "10da291e5a02800c52cac2cfaf767d769c500d6c6c4591d0c039bda0ae9b6ea6",
+      "bytes": 3953
+    },
+    {
+      "path": ".github/workflows/goalos-signoff-v30-v34-premium-experience.yml",
+      "sha256": "9f7537fed7708a793fd84594e609258d6ba1173027de04d447f1849302ac9278",
+      "bytes": 2341
+    },
+    {
+      "path": "GITHUB_WEB_UI_INSTALL_V35_COMPLETE_REPAIR.txt",
+      "sha256": "823c87fb7176f0f3c3dcfeb4d0c9a8642196921fb12b112a287392ab2c6f763d",
+      "bytes": 870
+    },
+    {
+      "path": "GOALOS_V35_COMPLETE_REPAIR_AND_EXPERIENCE_START_HERE.md",
+      "sha256": "dbbab602f138931b69370ef334cd74634c1a85fc09f4b8c0fba32dad361e57df",
+      "bytes": 2378
+    },
+    {
+      "path": "config/action-graph-authority-lab.json",
+      "sha256": "cc4bea46cd8e8aa942e6fe7fc4d9ed1c7d298849983c4f4f90c190f89a45c534",
+      "bytes": 1591
+    },
+    {
+      "path": "config/asi-mission-simulator-v35.json",
+      "sha256": "7476ea28d0eb2fa1e2baa55f1e0825bb65678d41fcb591bb9af4cf0dc66db18f",
+      "bytes": 752
+    },
+    {
+      "path": "config/blockchain-credibility-lab.json",
+      "sha256": "6e5ea68d93f8ff7a31e03e3db818666c8f5f08cd3eb7af41c6e70fcabcd36f17",
+      "bytes": 9032
+    },
+    {
+      "path": "config/blockchain-proof-mandate-lab.json",
+      "sha256": "8f45ec90436b2fadcf279b6eb8662fcf6e1d3eae5a5e8a3292c0e85462d0cdba",
+      "bytes": 9711
+    },
+    {
+      "path": "config/executive-ai-proof-console-v31.json",
+      "sha256": "f807ad4448d0f9fbc2842960d6e53450166dc38f4beffd187af59bda7d18b0da",
+      "bytes": 538
+    },
+    {
+      "path": "config/from-loop-to-rsi-v32.json",
+      "sha256": "bf99157d8387c19a0d5fabfd1b37922ec9387acda9b26c4a612e3ce9064e288c",
+      "bytes": 1675
+    },
+    {
+      "path": "config/independent-replay-lab.json",
+      "sha256": "1abf65a88075f95de72b96ff28a76406f8ba949e0142a4aaee5039a83d29cd9a",
+      "bytes": 756
+    },
+    {
+      "path": "config/loop-rsi-asi-superintelligence-console-v33.json",
+      "sha256": "d6766d13f741a93838b9977df8e979a2185a792ccab5fc0a6c8be20ecfc925f3",
+      "bytes": 2907
+    },
+    {
+      "path": "config/loop-rsi-asi-superintelligence-control-tower-v34.json",
+      "sha256": "0bf8656804193689ba72a38d2bae299ca670f8b33060c6f05d151ac2644ab90b",
+      "bytes": 2806
+    },
+    {
+      "path": "config/mission-foundry-lab.json",
+      "sha256": "c46c7576db3a31377a5ea39bb15494b1cfff8b3235dcdc816758261d08e64c9f",
+      "bytes": 3497
+    },
+    {
+      "path": "config/process-evidence-lab.json",
+      "sha256": "d9c1cbd1323e7b5ede1387cf27887b43848bc666d92663f098c91ed2677235a3",
+      "bytes": 3874
+    },
+    {
+      "path": "config/proof-before-settlement-research-lab.json",
+      "sha256": "4eaf000d039fee7dff65bdea82fa68b94ced1b126271cc9597a5c9f9fe2a87e1",
+      "bytes": 6896
+    },
+    {
+      "path": "config/proof-carrying-artifact-lab.json",
+      "sha256": "ddc86abd3def89941a1a7f5ccc0d5ef5ca5e859c7863a0d3dc951ee526615c90",
+      "bytes": 1450
+    },
+    {
+      "path": "config/proofzero-planning-lab.json",
+      "sha256": "368471c18d116527946a9bd3315ef014664db19a54a4910a97eacf68b1abd31f",
+      "bytes": 1727
+    },
+    {
+      "path": "config/v22-v35-institutional-command-center.json",
+      "sha256": "f3a0945407b6fdda4398bf733f2656ad2a15dec0d37dafcbd521b2addae93ca5",
+      "bytes": 918
+    },
+    {
+      "path": "config/v30-v34-premium-experience-assurance.json",
+      "sha256": "b07cba0a6b199ede55dba94bc56fb855e18898a4dec600c514352e418d43dcb8",
+      "bytes": 507
+    },
+    {
+      "path": "docs/V35_COMPLETE_REPAIR_AND_INSTITUTIONAL_COMMAND_CENTER_USER_GUIDE.md",
+      "sha256": "7c4ffbbf7b0fdee811041ec2b6451b957c8da12430cbbb5b15416a4873f34772",
+      "bytes": 1476
+    },
+    {
+      "path": "docs/generated-source/v30-v34-premium/site/assets/goalos-v30-v34-premium-ux.css",
+      "sha256": "8f6f3baa81e08bd628416be6e9ca958207c653a3f5077375bb92de01c54d6417",
+      "bytes": 10467
+    },
+    {
+      "path": "docs/generated-source/v30-v34-premium/site/assets/goalos-v30-v34-premium-ux.js",
+      "sha256": "8348e7b331b8f63bb4a4d14e6d2814e6b4c44b212521dfec3fc56b391e7165bd",
+      "bytes": 7835
+    },
+    {
+      "path": "docs/generated-source/v30-v34-premium/site/goalos-v30-v34-experience-map.json",
+      "sha256": "47c5e467a44e25e34f5fe0fd89f86a02ff529a4e63e12efd66e4d3079d8e6b5f",
+      "bytes": 2822
+    },
+    {
+      "path": "docs/generated-source/v30-v34-premium/site/goalos-v30-v34-premium-experience-manifest.json",
+      "sha256": "5f584decea4ddea35d61aaaefbcc69305201077df822f6e563cbaed8022dd1c5",
+      "bytes": 628
+    },
+    {
+      "path": "docs/generated-source/v30-v34-premium/site/v30-v34-premium-experience.html",
+      "sha256": "058e27a80797b1811a4dc08ed5598897949c6dfed47670658b231eb09b82fef6",
+      "bytes": 11620
+    },
+    {
+      "path": "docs/generated-source/v33/site/asi-mission-control.html",
+      "sha256": "c9794c444d7a57487c00d8f4b08bc379c3f271b1ba286608aeeb4033d8fcb5cb",
+      "bytes": 9097
+    },
+    {
+      "path": "docs/generated-source/v33/site/asi-readiness-governance-boundary-v33.json",
+      "sha256": "949810319e58a5c46bbc5685c094f2b8a57930805bff464520676c89350f31dd",
+      "bytes": 577
+    },
+    {
+      "path": "docs/generated-source/v33/site/asi-superintelligence-console.html",
+      "sha256": "c9794c444d7a57487c00d8f4b08bc379c3f271b1ba286608aeeb4033d8fcb5cb",
+      "bytes": 9097
+    },
+    {
+      "path": "docs/generated-source/v33/site/assets/goalos-v33-loop-rsi-asi-console.css",
+      "sha256": "dd89ef3208f32abfaf4d2abd193197a3bdeb57e86a61d311976f76f944822f8f",
+      "bytes": 8184
+    },
+    {
+      "path": "docs/generated-source/v33/site/assets/goalos-v33-loop-rsi-asi-console.js",
+      "sha256": "ce9f7e65de198af988612b0f706d706e5295ec23b8cfc0db25ed5cebdfdbbe44",
+      "bytes": 11200
+    },
+    {
+      "path": "docs/generated-source/v33/site/goalos-public-demo-labs-v22-v33.json",
+      "sha256": "2a50a056252abe402542349a302879b68de1a4486d26d434302fd508b1a0f7f1",
+      "bytes": 682
+    },
+    {
+      "path": "docs/generated-source/v33/site/goalos-signoff-pro-site-map-v22-v33.json",
+      "sha256": "be6c277d07a77ef4c8b305be5a32ff9234719022ff6ef9ab29b9059996343d7f",
+      "bytes": 705
+    },
+    {
+      "path": "docs/generated-source/v33/site/invention-to-superintelligence-console.html",
+      "sha256": "c9794c444d7a57487c00d8f4b08bc379c3f271b1ba286608aeeb4033d8fcb5cb",
+      "bytes": 9097
+    },
+    {
+      "path": "docs/generated-source/v33/site/loop-rsi-asi-console-script-v33.json",
+      "sha256": "7a76cd8c00dd8be71b6a7f58128ce62ba0c2b6530e3340408bcd8935ecfece4c",
+      "bytes": 373
+    },
+    {
+      "path": "docs/generated-source/v33/site/loop-rsi-asi-demo-bundle-v33.json",
+      "sha256": "80b737a741803feb6e487459fa7388a09fd8836b978952fd5b6f9c9b6a1433c7",
+      "bytes": 1058
+    },
+    {
+      "path": "docs/generated-source/v33/site/loop-rsi-asi-state-machine-v33.json",
+      "sha256": "1b6d6155b4b787fad9532e27da8adf7d2b3af0cd16ec841c63092d0773f2902d",
+      "bytes": 1205
+    },
+    {
+      "path": "docs/generated-source/v33/site/loop-rsi-asi-superintelligence-lab.html",
+      "sha256": "c9794c444d7a57487c00d8f4b08bc379c3f271b1ba286608aeeb4033d8fcb5cb",
+      "bytes": 9097
+    },
+    {
+      "path": "docs/generated-source/v33/site/loop-rsi-asi-superintelligence-v33-manifest.json",
+      "sha256": "5a258cb6a17d3ce5b30696b61cb17c2b0e743a9b495e2bfba5496f64aaf4a448",
+      "bytes": 3114
+    },
+    {
+      "path": "docs/generated-source/v33/site/loop-to-rsi-to-asi.html",
+      "sha256": "c9794c444d7a57487c00d8f4b08bc379c3f271b1ba286608aeeb4033d8fcb5cb",
+      "bytes": 9097
+    },
+    {
+      "path": "docs/generated-source/v33/site/move37-to-asi-dossier-template-v33.json",
+      "sha256": "cd57f4706aade69c5d01e96570db3f518dccdee5136ffcba2c0e90608eb10daa",
+      "bytes": 591
+    },
+    {
+      "path": "docs/generated-source/v33/site/no-ungoverned-superintelligence.html",
+      "sha256": "c9794c444d7a57487c00d8f4b08bc379c3f271b1ba286608aeeb4033d8fcb5cb",
+      "bytes": 9097
+    },
+    {
+      "path": "docs/generated-source/v33/site/recursive-self-improvement-to-asi-lab.html",
+      "sha256": "c9794c444d7a57487c00d8f4b08bc379c3f271b1ba286608aeeb4033d8fcb5cb",
+      "bytes": 9097
+    },
+    {
+      "path": "docs/generated-source/v33/site/rsi-source-document-index-v33.json",
+      "sha256": "714889434e80d945dd508069db7a526f39451242daab0755ebf459debee03eaa",
+      "bytes": 548
+    },
+    {
+      "path": "docs/generated-source/v33/site/rsi-to-asi-escalation-gates-v33.json",
+      "sha256": "7ec2e85db5386756def79a0c75f65e87772b522be7bc7b343e9fbfbe632ef1f0",
+      "bytes": 390
+    },
+    {
+      "path": "docs/generated-source/v33/site/rsi-to-asi-superintelligence.html",
+      "sha256": "c9794c444d7a57487c00d8f4b08bc379c3f271b1ba286608aeeb4033d8fcb5cb",
+      "bytes": 9097
+    },
+    {
+      "path": "docs/generated-source/v33/site/sovereign-asi-readiness-lab.html",
+      "sha256": "c9794c444d7a57487c00d8f4b08bc379c3f271b1ba286608aeeb4033d8fcb5cb",
+      "bytes": 9097
+    },
+    {
+      "path": "docs/generated-source/v33/site/superintelligence-governance-console.html",
+      "sha256": "c9794c444d7a57487c00d8f4b08bc379c3f271b1ba286608aeeb4033d8fcb5cb",
+      "bytes": 9097
+    },
+    {
+      "path": "docs/generated-source/v33/site/superintelligence-readiness-rubric-v33.json",
+      "sha256": "241e2ed7db5118b32a53c1b18bdd2a1b0f7a358b5a24da49c1208a0f0dd82cf0",
+      "bytes": 695
+    },
+    {
+      "path": "docs/generated-source/v35/site/asi-mission-simulator-demo-bundle-v35.json",
+      "sha256": "48fec652263680a7dad7f1413e3cdd2c02ab3428382cf964f250d9aaff9a9a84",
+      "bytes": 1303
+    },
+    {
+      "path": "docs/generated-source/v35/site/asi-mission-simulator-engagement-map-v35.json",
+      "sha256": "55f2dce8a3ce0c11ffadb34b53a10287ef63bcd53bf24cc6a69d6adcf7d18e76",
+      "bytes": 424
+    },
+    {
+      "path": "docs/generated-source/v35/site/asi-mission-simulator-kpi-dashboard-v35.json",
+      "sha256": "4f2509bc32ae76f238c19b65e686d8b9210c9d64335aaa21bde4bb2bcceec6a0",
+      "bytes": 924
+    },
+    {
+      "path": "docs/generated-source/v35/site/asi-mission-simulator-move37-dossier-v35.json",
+      "sha256": "1f05be39173fbbc0ec31a8453c439e9573e058a52bf4c6d1602e52bd90cac47e",
+      "bytes": 621
+    },
+    {
+      "path": "docs/generated-source/v35/site/asi-mission-simulator-public-safe-boundary-v35.json",
+      "sha256": "d0d77f7b7e3ce08548d6da19d9a38d82887497fe8a1a6d6372cd015d6b6e2660",
+      "bytes": 872
+    },
+    {
+      "path": "docs/generated-source/v35/site/asi-mission-simulator-scenarios-v35.json",
+      "sha256": "e1eed84a47d95cf60ec685253b96ce75e78a9fc1f76cc65c192e542631e47dd5",
+      "bytes": 4101
+    },
+    {
+      "path": "docs/generated-source/v35/site/asi-mission-simulator-state-machine-v35.json",
+      "sha256": "d1e4031453666011612110cf208624b53608258c097ca09bc26f463c7922264b",
+      "bytes": 796
+    },
+    {
+      "path": "docs/generated-source/v35/site/asi-mission-simulator-synthetic-receipt-v35.json",
+      "sha256": "afdda654d9fce6331f2d4a466563cb754005116ec4448d39cd2f1b8c0a4c8893",
+      "bytes": 752
+    },
+    {
+      "path": "docs/generated-source/v35/site/asi-mission-simulator-v35-manifest.json",
+      "sha256": "15c3144891c986e573ffd83d5ce89d9b389a5b5d4a3ad82679dec8964374333a",
+      "bytes": 2606
+    },
+    {
+      "path": "docs/generated-source/v35/site/assets/goalos-v35-asi-mission-simulator.css",
+      "sha256": "e3e1ef5854ec24e357ed6e29dbb7e2d71abcab24d2eb4463a775365d0e43ad3c",
+      "bytes": 10287
+    },
+    {
+      "path": "docs/generated-source/v35/site/assets/goalos-v35-asi-mission-simulator.js",
+      "sha256": "b0933eba7ac59c1376413223fceac1e8555feff2fcf2d2f05b174717cfcbb106",
+      "bytes": 12188
+    },
+    {
+      "path": "docs/generated-source/v35/site/goalos-signoff-pro-site-map-v22-v35.json",
+      "sha256": "926784d842d111eed69d98b29dd22e995858ba483260fdd9168346238459bda6",
+      "bytes": 783
+    },
+    {
+      "path": "docs/generated-source/v35/site/loop-rsi-asi-superintelligence-mission-simulator-lab.html",
+      "sha256": "9b4d73a3ab6bc899ef7f2cfde1423288f77f641a366d18792de4776b77b6ffd3",
+      "bytes": 7528
+    },
+    {
+      "path": "docs/research/rsi/AGI_Alpha_RSI_Sovereign_Strategy_Brief_v0.pdf",
+      "sha256": "b7912c63fe57cde538a1b8351ea28f51b2eae8647255017df054d621d338fe69",
+      "bytes": 76451
+    },
+    {
+      "path": "docs/research/rsi/AGI_Alpha_RSI_Sovereign_v0.pdf",
+      "sha256": "25fbbec0877043b664b0310dd413125560dcb5e6d29f4a54f664a509e04fd6f4",
+      "bytes": 908098
+    },
+    {
+      "path": "public/research/proof-before-settlement/GoalOS_Proof_Before_Settlement_Elite_Edition.pdf",
+      "sha256": "db0d0652e8314f74dfce9086e9588792681444abe1406217bfaae6cf34ba59d2",
+      "bytes": 173901
+    },
+    {
+      "path": "public/research/proof-before-settlement/GoalOS_Proof_Before_Settlement_Elite_Edition.tex",
+      "sha256": "d9ae6ae0b2f60e52f2deef401bba98f36c3b65e8186ab02d9e60bbcc5b63ce10",
+      "bytes": 69250
+    },
+    {
+      "path": "public/research/proof-before-settlement/GoalOS_Proof_Before_Settlement_Elite_Edition_SINGLE_FILE.tex",
+      "sha256": "2bf9ed12e91959f3cc5f49fbb34bf6b260427990e4c53852b628ae6690b73529",
+      "bytes": 75019
+    },
+    {
+      "path": "public/research/proof-before-settlement/GoalOS_Proof_Before_Settlement_Elite_Edition_references.bib",
+      "sha256": "5747ce5137d3a4174596801eaca7279f96b62b8ec771538f8a569a69765c9a79",
+      "bytes": 5710
+    },
+    {
+      "path": "public/research/proof-before-settlement/executive-abstract.txt",
+      "sha256": "38156a6cd1822c66a3e2d90aa58df51998feb192deb382ec43e351ab020b36e3",
+      "bytes": 734
+    },
+    {
+      "path": "scripts/blockchain-proof-mandate-lab-core.mjs",
+      "sha256": "93ac54c6fc266bf02375995d90557452275a0b166d688ac86dbdf980950bcff5",
+      "bytes": 9213
+    },
+    {
+      "path": "scripts/build-action-graph-authority-lab-page.mjs",
+      "sha256": "97ae28a1ab9c8a1214f6b26d290ff1ee3107d924a5890e5dcabc939f4da0d862",
+      "bytes": 26068
+    },
+    {
+      "path": "scripts/build-blockchain-credibility-lab-page.mjs",
+      "sha256": "55e57adb9cf659078c7b0da1cf61d2cd6548206765effdb322e6b5a60beb7b07",
+      "bytes": 22523
+    },
+    {
+      "path": "scripts/build-blockchain-proof-mandate-lab-page.mjs",
+      "sha256": "28677131f7ca596d39ab3f42e17b3f7b916632d3daacc82f02716670b8f73f11",
+      "bytes": 16415
+    },
+    {
+      "path": "scripts/build-executive-ai-proof-console-v31.mjs",
+      "sha256": "5229aea266b06f653c50b8ef8cbaaafca4aa48c7b437d7ee8230432ea293b67b",
+      "bytes": 34553
+    },
+    {
+      "path": "scripts/build-from-loop-to-rsi-lab-v32.mjs",
+      "sha256": "245e3a0c814e69e9ef0391a34f7e4a5e6e01ae7c469509c92fcf0eb0bb36624a",
+      "bytes": 36141
+    },
+    {
+      "path": "scripts/build-goalos-signoff-public-labs-v22-v27.mjs",
+      "sha256": "a1cf47d1753cbbeb0c12520d48fe62d6035214cde51f6f7dcbdf07c686ce1a38",
+      "bytes": 20415
+    },
+    {
+      "path": "scripts/build-goalos-signoff-public-labs-v22-v35.mjs",
+      "sha256": "4a2c4fc79b7cb7aa73a758a480832fbeb6dd5471a6a0cb11411401a9ef89f021",
+      "bytes": 2089
+    },
+    {
+      "path": "scripts/build-independent-replay-lab-page.mjs",
+      "sha256": "1493293ffdaf79812ef22b7b05af6e21fcf381bef010f04e6e7742cbc9beece4",
+      "bytes": 24541
+    },
+    {
+      "path": "scripts/build-loop-rsi-asi-superintelligence-console-v33.mjs",
+      "sha256": "1a96b1faded22a649d8b3f6eac04232efcce4dbb5a7435536b99aaef476a04d0",
+      "bytes": 6714
+    },
+    {
+      "path": "scripts/build-loop-rsi-asi-superintelligence-control-tower-v34.mjs",
+      "sha256": "338ddc11a472a64918c5e0afca218dcf2bc2a4460f3d579fb074d748aab0f14a",
+      "bytes": 95503
+    },
+    {
+      "path": "scripts/build-loop-rsi-asi-superintelligence-mission-simulator-v35.mjs",
+      "sha256": "b6084eb3597b5465f5ad87bad9e87b7c804b085325d15cf07067514b2c7d5af3",
+      "bytes": 5144
+    },
+    {
+      "path": "scripts/build-mission-foundry-lab-page.mjs",
+      "sha256": "601047ab999332b7d5b416b79e15fb9722b84f6b213d1730a9188c0267b842b0",
+      "bytes": 26879
+    },
+    {
+      "path": "scripts/build-process-evidence-lab-page.mjs",
+      "sha256": "bab2d375f50a739fab79e5b4bf1f07488a439138e7f19fe9fe88bf05bfa7ef24",
+      "bytes": 25251
+    },
+    {
+      "path": "scripts/build-proof-before-settlement-research-lab-page.mjs",
+      "sha256": "300631b6965f50a3c8bed20c584af41a2753be5f8a0fc2d47162b1e848ac952a",
+      "bytes": 14661
+    },
+    {
+      "path": "scripts/build-proof-carrying-artifact-lab-page.mjs",
+      "sha256": "5abdbc9b17bc1f5ab3fc55a581c2c620cbce24e7eb00caa04e4ef849181efaa3",
+      "bytes": 27861
+    },
+    {
+      "path": "scripts/build-proofzero-planning-lab-page.mjs",
+      "sha256": "b3e9af8d767fc9fb2c560e19e3e025ccf5ff660a09bf189a3f8f7ec66455093e",
+      "bytes": 20585
+    },
+    {
+      "path": "scripts/enhance-goalos-v22-v35-institutional-command-center.mjs",
+      "sha256": "7521ee0ecb56da6e2958be772c0b1da879128305f9440d483e1bf40467e6ab33",
+      "bytes": 28250
+    },
+    {
+      "path": "scripts/enhance-goalos-v30-v34-premium-experience.mjs",
+      "sha256": "aa0ca9e9aa8c12b6b75cb79e63828621b9db97a243f3d38d93f2a40b825e56cc",
+      "bytes": 6659
+    },
+    {
+      "path": "scripts/proof-before-settlement-research-lab-core.mjs",
+      "sha256": "5f8491c936ebd0f8bf5f18eaa168634a014a3160532be5c1044163681bf75efe",
+      "bytes": 8358
+    },
+    {
+      "path": "scripts/verify-goalos-signoff-public-labs-v22-v35.mjs",
+      "sha256": "9bf61efd317242545f4ccbedeebf02ceee0e7587baa01d217a3ae1807f4c113b",
+      "bytes": 1026
+    },
+    {
+      "path": "scripts/verify-goalos-v22-v35-institutional-command-center.mjs",
+      "sha256": "6f96602c8df65762dc449d7ae64dd046ace0c8f12380850bba71db6f12006371",
+      "bytes": 1970
+    },
+    {
+      "path": "scripts/verify-goalos-v30-v34-premium-experience.mjs",
+      "sha256": "8cf9a1dad8407ff1f63b7378cdfc93254c74f38b23b038111ed9005d1b4f3e38",
+      "bytes": 2118
+    },
+    {
+      "path": "scripts/verify-loop-rsi-asi-superintelligence-console-v33.mjs",
+      "sha256": "c2cc7659e3f9572f79997042a038e859d7ae854ad4078b51a3a2982fc5683a19",
+      "bytes": 1682
+    },
+    {
+      "path": "scripts/verify-loop-rsi-asi-superintelligence-control-tower-v34.mjs",
+      "sha256": "fc1b71794ade8a1ba8628babf84765ec1646a639156a9fd1cd3b96eae180e070",
+      "bytes": 2500
+    },
+    {
+      "path": "scripts/verify-loop-rsi-asi-superintelligence-mission-simulator-v35.mjs",
+      "sha256": "adc6fc460fc136346a64eeddc504fcd3e8224c929ff3c1c336b3f0be968579f1",
+      "bytes": 2091
+    },
+    {
+      "path": "verification/V35_COMPLETE_REPAIR_VALIDATION.md",
+      "sha256": "f05a0873ce7f3df93f7f1c957ec6a4dcf5ae933fca621a610b4e10918002219b",
+      "bytes": 800
+    }
+  ]
+}

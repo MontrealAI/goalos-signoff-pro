@@ -1,0 +1,80 @@
+name: GoalOS Signoff Pro — Loop to RSI to ASI v33
+
+on:
+  workflow_dispatch:
+    inputs:
+      scenario:
+        description: "Public-safe v33 scenario label"
+        required: false
+        default: "loop-rsi-asi-repair"
+      commit_generated_site:
+        description: "Commit generated site artifacts back to the branch"
+        type: boolean
+        required: false
+        default: true
+      deploy_pages:
+        description: "Deploy GitHub Pages after build"
+        type: boolean
+        required: false
+        default: true
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+env:
+  GOALOS_PUBLIC_SAFE: "true"
+  GOALOS_ZERO_VALUE_MOVED: "true"
+  GOALOS_NO_EXTERNAL_AI_CALLS: "true"
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
+jobs:
+  build-v33:
+    name: Build and verify v33 Loop → RSI → ASI console
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+      - name: Setup Node.js 24
+        uses: actions/setup-node@v5
+        with:
+          node-version: "24"
+          package-manager-cache: false
+      - name: Build v22-v33 public labs
+        run: node scripts/build-goalos-signoff-public-labs-v22-v33.mjs
+      - name: Verify v33 public-safe console
+        run: node scripts/verify-loop-rsi-asi-superintelligence-console-v33.mjs
+      - name: Commit generated site files
+        if: ${{ inputs.commit_generated_site }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add site config docs scripts verification .github/workflows GOALOS_V33_V34_ACTIONS_ERROR_CORRECTION_START_HERE.md || true
+          if git diff --cached --quiet; then
+            echo "No generated changes to commit."
+          else
+            git commit -m "Repair GoalOS Loop to RSI to ASI v33 GitHub Action"
+            git push
+          fi
+      - name: Upload v33 site preview artifact
+        uses: actions/upload-artifact@v6
+        with:
+          name: goalos-signoff-pro-v33-repaired-site-preview
+          path: site
+      - name: Upload Pages artifact
+        if: ${{ inputs.deploy_pages }}
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: site
+  deploy:
+    if: ${{ inputs.deploy_pages }}
+    needs: build-v33
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

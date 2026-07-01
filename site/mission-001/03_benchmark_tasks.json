@@ -1,0 +1,37 @@
+{
+  "taskSet": [
+    {
+      "id": "T001",
+      "family": "research-synthesis",
+      "objective": "Convert a supplied synthetic research brief into claim-bound evidence and contradiction notes.",
+      "acceptance": [
+        "all major claims mapped",
+        "contradiction register present",
+        "risk ledger present",
+        "receipt emitted"
+      ]
+    },
+    {
+      "id": "T002",
+      "family": "software-delivery",
+      "objective": "Review a synthetic automation milestone for evidence completeness and replay readiness.",
+      "acceptance": [
+        "artifact hashes present",
+        "baseline compared",
+        "safety ledger zero critical",
+        "human gate required"
+      ]
+    },
+    {
+      "id": "T003",
+      "family": "vendor-review",
+      "objective": "Map vendor-style claims to evidence, uncertainty, validator notes, and decision state.",
+      "acceptance": [
+        "claims matrix complete",
+        "unsupported claims rejected",
+        "validator report present",
+        "replay instructions present"
+      ]
+    }
+  ]
+}

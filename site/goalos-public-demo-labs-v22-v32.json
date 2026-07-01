@@ -1,0 +1,192 @@
+{
+  "id": "goalos-signoff-pro-public-labs-v22-v27",
+  "title": "GoalOS Signoff Pro public demonstration labs v22-v27",
+  "generatedAt": "2026-07-01T20:21:13.799Z",
+  "posture": {
+    "browserLocal": true,
+    "forms": false,
+    "inputs": false,
+    "uploads": false,
+    "cookies": false,
+    "analytics": false,
+    "wallets": false,
+    "payments": false,
+    "personalData": false,
+    "confidentialData": false,
+    "valueMoved": 0
+  },
+  "routes": [
+    "public-demo-labs.html",
+    "goalos-public-demo-labs.html",
+    "action-graph-authority-lab.html",
+    "human-authority-action-lab.html",
+    "scoped-action-lab.html",
+    "proof-carrying-artifact-lab.html",
+    "artifact-vault-lab.html",
+    "evolution-ledger-lab.html",
+    "upgrade-right-lab.html",
+    "independent-replay-lab.html",
+    "replay-council-lab.html",
+    "claim-promotion-lab.html",
+    "proofzero-planning-lab.html",
+    "evidence-reanalyze-lab.html",
+    "latent-work-state-lab.html",
+    "bounded-search-lab.html",
+    "mission-foundry-lab.html",
+    "curriculum-lab.html",
+    "harder-mission-lab.html",
+    "process-evidence-lab.html",
+    "process-trace-lab.html",
+    "proof-native-workbench-lab.html",
+    "evidence-lineage-lab.html"
+  ],
+  "labs": [
+    {
+      "version": "v22",
+      "title": "Action Graph & Human Authority Lab",
+      "route": "action-graph-authority-lab.html",
+      "aliases": [
+        "human-authority-action-lab.html",
+        "scoped-action-lab.html"
+      ],
+      "proof": "Decision → scoped actions → authority gate → rollback → receipt.",
+      "audience": "Executives, reviewers, compliance teams, AI delivery leads.",
+      "promise": "Shows why GoalOS prepares action, but does not self-authorize high-impact action.",
+      "artifacts": [
+        "action-graph-demo-bundle.json",
+        "scoped-action-plan.json",
+        "human-authority-gate.json",
+        "action-reason-trace.json",
+        "action-rollback-map.json",
+        "action-graph-receipt.json",
+        "action-graph-authority-manifest.json"
+      ]
+    },
+    {
+      "version": "v23",
+      "title": "Proof-Carrying Artifact & Evolution Ledger Lab",
+      "route": "proof-carrying-artifact-lab.html",
+      "aliases": [
+        "artifact-vault-lab.html",
+        "evolution-ledger-lab.html",
+        "upgrade-right-lab.html"
+      ],
+      "proof": "Candidate artifact → proof gates → immutable version → evolution ledger → upgrade right.",
+      "audience": "Product teams, AI platform teams, governance stewards.",
+      "promise": "Shows how reusable capability earns the right to influence future work.",
+      "artifacts": [
+        "proof-carrying-artifact-demo-bundle.json",
+        "artifact-vault-index.json",
+        "selection-certificate-demo.json",
+        "evolution-ledger-entry-demo.json",
+        "rollout-receipt-demo.json",
+        "rollback-receipt-demo.json",
+        "proof-backed-upgrade-right.json",
+        "proof-carrying-artifact-manifest.json"
+      ]
+    },
+    {
+      "version": "v24",
+      "title": "Independent Replay & Claim Promotion Lab",
+      "route": "independent-replay-lab.html",
+      "aliases": [
+        "replay-council-lab.html",
+        "claim-promotion-lab.html"
+      ],
+      "proof": "Proof packet → independent replay → challenge window → claim maturity promotion.",
+      "audience": "Research reviewers, auditors, grant evaluators, technical diligence teams.",
+      "promise": "Shows that one run is not proof; replay makes a claim institutionally usable.",
+      "artifacts": [
+        "independent-replay-demo-bundle.json",
+        "replay-operator-reports.json",
+        "claim-promotion-certificate.json",
+        "public-evidence-review-card.json",
+        "reproduction-manifest.json",
+        "independent-replay-manifest.json"
+      ]
+    },
+    {
+      "version": "v25",
+      "title": "ProofZero Planning & Evidence Reanalyze Lab",
+      "route": "proofzero-planning-lab.html",
+      "aliases": [
+        "evidence-reanalyze-lab.html",
+        "latent-work-state-lab.html",
+        "bounded-search-lab.html"
+      ],
+      "proof": "Latent work state → bounded search → validator-aware backup → evidence reanalysis.",
+      "audience": "AI operators, mission designers, evaluation teams.",
+      "promise": "Shows how GoalOS plans over proof-relevant work states instead of persuasive futures.",
+      "artifacts": [
+        "proofzero-planning-demo-bundle.json",
+        "latent-work-state-report.json",
+        "evidence-reanalyze-ledger.json",
+        "planning-depth-scoreboard.json",
+        "router-policy-update.json",
+        "proofzero-planning-manifest.json"
+      ]
+    },
+    {
+      "version": "v26",
+      "title": "Proof-Gated Mission Foundry & Curriculum Lab",
+      "route": "mission-foundry-lab.html",
+      "aliases": [
+        "curriculum-lab.html",
+        "harder-mission-lab.html"
+      ],
+      "proof": "Accepted proof → mission seeds → interestingness filter → quarantine/admission → harder mission.",
+      "audience": "Program owners, frontier evaluation teams, autonomous work architects.",
+      "promise": "Shows how accepted proof becomes curriculum rather than a dead artifact.",
+      "artifacts": [
+        "mission-foundry-demo-bundle.json",
+        "generated-mission-curriculum.json",
+        "mission-seed-certificate.json",
+        "interestingness-filter-report.json",
+        "mission-quarantine-ledger.json",
+        "mission-foundry-manifest.json"
+      ]
+    },
+    {
+      "version": "v27",
+      "title": "Process-Resolved Evidence Lab",
+      "route": "process-evidence-lab.html",
+      "aliases": [
+        "process-trace-lab.html",
+        "proof-native-workbench-lab.html",
+        "evidence-lineage-lab.html"
+      ],
+      "proof": "Trace steps → claim lineage → tool scope → contradiction pass → validator report.",
+      "audience": "Corporate reviewers, analysts, legal/compliance observers, AI assurance teams.",
+      "promise": "Shows that final output is not enough; process-resolved evidence determines review readiness.",
+      "artifacts": [
+        "process-evidence-demo-bundle.json",
+        "process-validator-report.json",
+        "action-reason-trace-ledger.json",
+        "tool-scope-ledger.json",
+        "claim-lineage-map.json",
+        "process-evidence-manifest.json"
+      ]
+    },
+    {
+      "version": "v31",
+      "title": "Executive AI Proof Console & Guided Website Experience Lab",
+      "route": "executive-ai-proof-console.html",
+      "purpose": "Makes GoalOS immediately understandable through role-based, interactive, public-safe proof consoles.",
+      "proofLoop": "Role → situation → proof package → proof gates → decision → best next lab.",
+      "bestFor": "First-time visitors, executives, DAOs, auditors, investors, enterprises, AI operators, and blockchain teams.",
+      "valueMoved": 0
+    },
+    {
+      "version": "v32",
+      "title": "From Loop to RSI: Sovereign Invention Governance Lab",
+      "route": "from-loop-to-rsi-lab.html",
+      "purpose": "Shows how the GoalOS proof loop expands into deterministic invention governance for RSI-scale systems.",
+      "proofLoop": "Proof loop → deterministic invention OS → mechanical gates → Move-37 dossier → council-bounded promotion.",
+      "bestFor": "Executives, AI governance leaders, blockchain founders, DAO councils, auditors, national-scale strategy teams, and frontier AI governance programs.",
+      "valueMoved": 0
+    }
+  ],
+  "manifestHash": "sha256:7fc0d89408ce8d8b65c781acd0d67c8f2b0b5d4e1880cd9b0adb4d3349562a67",
+  "version": "v22-v32",
+  "labCount": 8
+}

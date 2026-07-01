@@ -1,0 +1,34 @@
+{
+  "type": "GoalOSPublicProofDashboardSchemaV29",
+  "version": "v29.0.0",
+  "purpose": "A corporate-friendly public dashboard schema that lets stakeholders see proof status without exposing private data.",
+  "columns": [
+    "project",
+    "claim",
+    "mission",
+    "evidence",
+    "replay",
+    "validation",
+    "risk",
+    "authority",
+    "receipt",
+    "decision_state",
+    "last_reviewed",
+    "public_proof_url"
+  ],
+  "exampleRow": {
+    "project": "Synthetic Blockchain Project",
+    "claim": "A team asks for the next grant tranche.",
+    "mission": "present",
+    "evidence": "present",
+    "replay": "present",
+    "validation": "passed in public demo",
+    "risk": "bounded",
+    "authority": "recorded",
+    "receipt": "synthetic receipt ready",
+    "decision_state": "RECEIPT_READY",
+    "public_proof_url": "blockchain-proof-mandate-lab.html"
+  },
+  "publicSafeFieldsOnly": true,
+  "valueMoved": 0
+}

@@ -1,0 +1,33 @@
+{
+  "id": "asi-mission-simulator-kpi-dashboard-v35",
+  "minimumOperationalDashboard": [
+    {
+      "metric": "Replayability",
+      "target": "≥95% cycles reproducible from manifests"
+    },
+    {
+      "metric": "Evidence quality",
+      "target": "executed vs simulated share, ECI distribution, calibration drift"
+    },
+    {
+      "metric": "Exploration quality",
+      "target": "novelty distribution, probe ROI, stepping-stone reuse"
+    },
+    {
+      "metric": "Advantage confirmation",
+      "target": "AdvantageDelta vs baselines, shock persistence pass rate"
+    },
+    {
+      "metric": "Safety",
+      "target": "risk gate block rate, prohibited-domain detection, adverse incidents"
+    },
+    {
+      "metric": "Council authority",
+      "target": "independent verification + stop authority"
+    },
+    {
+      "metric": "Rollback readiness",
+      "target": "containment drill + reversal path"
+    }
+  ]
+}

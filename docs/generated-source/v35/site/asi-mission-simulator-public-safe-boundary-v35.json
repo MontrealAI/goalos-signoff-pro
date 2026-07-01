@@ -1,0 +1,29 @@
+{
+  "id": "asi-mission-simulator-public-safe-boundary-v35",
+  "summary": "Static browser-local demonstration only. It simulates a governance console without collecting data, calling AI APIs, connecting wallets, moving value, or authorizing deployment.",
+  "forbidden": [
+    "forms",
+    "text inputs",
+    "uploads",
+    "cookies",
+    "analytics",
+    "wallets",
+    "payments",
+    "external AI calls",
+    "personal data",
+    "credential collection",
+    "mainnet activation",
+    "production RSI authority",
+    "AGI/ASI achievement claims"
+  ],
+  "allowed": [
+    "button-only interaction",
+    "role selection",
+    "scenario selection",
+    "synthetic proof gates",
+    "copyable synthetic JSON",
+    "public-safe artifacts",
+    "static routes"
+  ],
+  "safeConsoleRule": "The console behaves like a command center but remains a static educational simulation."
+}

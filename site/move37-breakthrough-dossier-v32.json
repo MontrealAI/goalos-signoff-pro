@@ -1,0 +1,20 @@
+{
+  "id": "GOALOS-V32-MOVE37-BREAKTHROUGH-DOSSIER",
+  "generatedAt": "2026-07-01T20:21:13.799Z",
+  "definition": "A breakthrough candidate becomes an audited state transition, not a narrative claim.",
+  "trigger": {
+    "noveltyDistance": ">= 0.80 synthetic threshold",
+    "advantageDelta": "positive vs selected baselines",
+    "risk": "within allowed public-safe boundary",
+    "confidence": "bounded by ECI semantics"
+  },
+  "mandatorySteps": [
+    "Recognize",
+    "Reproduce with fixed seeds",
+    "Stress-test policy shocks",
+    "Persistence gate",
+    "Dossier package",
+    "Architect/Validator Council review"
+  ],
+  "decision": "PROBE_FIRST_UNTIL_PERSISTENCE_CONFIRMED"
+}

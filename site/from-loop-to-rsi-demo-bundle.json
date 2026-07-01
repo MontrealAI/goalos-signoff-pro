@@ -1,0 +1,45 @@
+{
+  "id": "GOALOS-V32-FROM-LOOP-TO-RSI-DEMO-BUNDLE",
+  "generatedAt": "2026-07-01T20:21:13.799Z",
+  "publicSafe": true,
+  "zeroValueMoved": true,
+  "artifactHashes": {
+    "manifest": "db76512bbd0b2e659460465c9046e5fddf0e3a3d8d2085fcb415c4feebfc719e",
+    "pipeline": "f1925d0ce8cbf631a83b1fdaf532589c58ce293fa536b15cd8352c3bac9b40c0",
+    "omniBoundary": "86530f82da2889b4d88d3e6cde08a2afd6e2459eda1219aad8ee6c2fdc0fa217",
+    "move37Dossier": "ca31f2cd83439fba7363614ca06c391cda71fbb3a27c26679fcc4c5e6a7c9817",
+    "councilCharter": "fd5ffe43de505875ab261091b12bfac365f6388ab137badd2d01e9e8d1784cbb",
+    "dashboardSchema": "f575c7a94b7709c645f91c45481f63421c0aea98f95cdbfd8324594fa90709c8",
+    "transitionMap": "0bc68aea0c8cab8539a3346419f5007af839f2c3c64c8169797481cd731cc0ce"
+  },
+  "scenarios": [
+    {
+      "id": "loop",
+      "decision": "REVIEW_READY",
+      "syntheticReadinessScore": 92,
+      "dossier": "Mission Receipt + Evidence Docket",
+      "receiptPointer": "GOALOS-V32-LOOP-254637f72e"
+    },
+    {
+      "id": "rsi",
+      "decision": "GOVERNED_EXPLORATION",
+      "syntheticReadinessScore": 95,
+      "dossier": "Sovereign Dossier + RSI Ledger",
+      "receiptPointer": "GOALOS-V32-RSI-f0f8270db4"
+    },
+    {
+      "id": "move37",
+      "decision": "PROBE_FIRST",
+      "syntheticReadinessScore": 88,
+      "dossier": "Move-37 Dossier",
+      "receiptPointer": "GOALOS-V32-MOVE37-6e0f169bc9"
+    },
+    {
+      "id": "omni",
+      "decision": "SEARCH_CONTROL_ONLY",
+      "syntheticReadinessScore": 96,
+      "dossier": "OMNI Boundary Receipt",
+      "receiptPointer": "GOALOS-V32-OMNI-cfb12585da"
+    }
+  ]
+}

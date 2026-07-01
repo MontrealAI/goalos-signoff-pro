@@ -1,0 +1,45 @@
+{
+  "version": "v35",
+  "generatedAt": "2026-07-01T20:21:14.031Z",
+  "journeys": [
+    {
+      "role": "First-time visitor",
+      "start": "goalos-v22-v35-command-center.html",
+      "next": [
+        "executive-ai-proof-console.html",
+        "loop-rsi-asi-superintelligence-mission-simulator-lab.html"
+      ]
+    },
+    {
+      "role": "Blockchain stakeholder",
+      "start": "blockchain-proof-mandate-lab.html",
+      "next": [
+        "proof-before-settlement-research-lab.html",
+        "goalos-v22-v35-command-center.html"
+      ]
+    },
+    {
+      "role": "RSI / ASI governance stakeholder",
+      "start": "from-loop-to-rsi-lab.html",
+      "next": [
+        "loop-rsi-asi-superintelligence-control-tower-lab.html",
+        "loop-rsi-asi-superintelligence-mission-simulator-lab.html"
+      ]
+    }
+  ],
+  "publicSafety": {
+    "noForms": true,
+    "noTextInputs": true,
+    "noUploads": true,
+    "noCookies": true,
+    "noAnalytics": true,
+    "noWallets": true,
+    "noPayments": true,
+    "noExternalAiCalls": true,
+    "noPersonalData": true,
+    "valueMoved": 0,
+    "claimedAgi": false,
+    "claimedAsi": false,
+    "productionAuthority": false
+  }
+}

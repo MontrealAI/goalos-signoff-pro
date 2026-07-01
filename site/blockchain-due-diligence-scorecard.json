@@ -1,0 +1,65 @@
+{
+  "type": "GoalOSBlockchainDueDiligenceScorecardV29",
+  "version": "v29.0.0",
+  "selectedScenario": {
+    "id": "dao-grant-payout",
+    "name": "DAO grant payout",
+    "trustEvent": "A team asks for the next grant tranche.",
+    "requiredDecision": "Release only after milestone evidence maps to acceptance criteria and reviewer signoff."
+  },
+  "scoringRule": "Require at least 85/100 plus human authority and receipt before settlement readiness.",
+  "weights": {
+    "mission": 15,
+    "evidence": 20,
+    "replay": 15,
+    "validation": 20,
+    "risk": 10,
+    "authority": 10,
+    "receipt": 10
+  },
+  "candidates": [
+    {
+      "id": "announcement-only",
+      "name": "Announcement-only project",
+      "mission": 0,
+      "evidence": 5,
+      "replay": 0,
+      "validation": 0,
+      "risk": 0,
+      "authority": 0,
+      "receipt": 0,
+      "state": "CLAIM_ONLY",
+      "score": 5,
+      "verdict": "do not rely yet"
+    },
+    {
+      "id": "partial-evidence",
+      "name": "Partial evidence project",
+      "mission": 12,
+      "evidence": 14,
+      "replay": 5,
+      "validation": 0,
+      "risk": 3,
+      "authority": 0,
+      "receipt": 0,
+      "state": "EVIDENCE_SUBMITTED",
+      "score": 34,
+      "verdict": "hold pending validation, authority, and receipt"
+    },
+    {
+      "id": "goalos-proof-package",
+      "name": "GoalOS proof-package project",
+      "mission": 15,
+      "evidence": 20,
+      "replay": 15,
+      "validation": 20,
+      "risk": 10,
+      "authority": 10,
+      "receipt": 10,
+      "state": "RECEIPT_READY",
+      "score": 100,
+      "verdict": "credibility-ready in this public demo"
+    }
+  ],
+  "valueMoved": 0
+}

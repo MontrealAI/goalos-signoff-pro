@@ -1,0 +1,41 @@
+{
+  "generatedAt": "2026-07-01T20:21:13.738Z",
+  "journey": [
+    {
+      "step": "Start",
+      "label": "I need the big idea",
+      "route": "executive-ai-proof-console.html",
+      "value": "guided, role-based proof console"
+    },
+    {
+      "step": "Understand",
+      "label": "Why blockchain needs it",
+      "route": "blockchain-credibility-lab.html",
+      "value": "v28 credibility standard"
+    },
+    {
+      "step": "Require",
+      "label": "How stakeholders ask for proof",
+      "route": "blockchain-proof-mandate-lab.html",
+      "value": "v29 due-diligence mandate"
+    },
+    {
+      "step": "Cite",
+      "label": "Give me the serious paper",
+      "route": "proof-before-settlement-research-lab.html",
+      "value": "v30 institutional research standard"
+    },
+    {
+      "step": "Inspect",
+      "label": "Show all public labs",
+      "route": "public-demo-labs.html",
+      "value": "v22-v30 proof curriculum"
+    },
+    {
+      "step": "Replay",
+      "label": "Run the proof loop",
+      "route": "mission-001-replay.html",
+      "value": "Mission 001 browser replay"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "id": "goalos-signoff-pro-blockchain-proof-mandate-due-diligence-lab-v29",
+  "title": "GoalOS Signoff Pro — Blockchain Proof Mandate & Due Diligence Lab v29",
+  "version": "v29.0.0",
+  "generatedAt": "2026-07-01T02:49:06Z",
+  "primaryRoute": "blockchain-proof-mandate-lab.html",
+  "aliases": [
+    "proof-package-requirement-lab.html",
+    "require-proof-before-trust-lab.html",
+    "blockchain-due-diligence-lab.html",
+    "goalos-proof-request-lab.html",
+    "no-proof-no-credibility-lab.html"
+  ],
+  "routes": [
+    "blockchain-proof-mandate-lab.html",
+    "proof-package-requirement-lab.html",
+    "require-proof-before-trust-lab.html",
+    "blockchain-due-diligence-lab.html",
+    "goalos-proof-request-lab.html",
+    "no-proof-no-credibility-lab.html"
+  ],
+  "artifacts": [
+    "blockchain-proof-mandate-lab-manifest.json",
+    "proof-package-request-card.json",
+    "stakeholder-requirement-map.json",
+    "blockchain-due-diligence-scorecard.json",
+    "dao-proof-requirement-policy.json",
+    "grant-treasury-rfp-proof-template.json",
+    "settlement-readiness-decision-tree.json",
+    "public-proof-dashboard-schema.json",
+    "blockchain-proof-mandate-demo-bundle.json"
+  ],
+  "motto": "Where is the proof package?",
+  "tagline": "No proof package, no serious trust. No validation, no settlement. No receipt, no credibility.",
+  "canonicalHash": "sha256:a4e3622580092f6ff81edaab549f5abf0dea65c4b740e29d",
+  "boundary": {
+    "noUserData": true,
+    "noWallet": true,
+    "noPayments": true,
+    "valueMoved": 0,
+    "claimBoundary": "Public-safe synthetic demonstration of a proof requirement and due-diligence standard. It is not financial advice, legal advice, investment advice, production certification, an audit, a wallet, escrow, exchange, broker, custodian, or live settlement system.",
+    "notClaimed": [
+      "guaranteed project success",
+      "live mainnet settlement",
+      "custody of funds",
+      "token offering",
+      "investment recommendation",
+      "external audit certification",
+      "legal, financial, tax, or investment advice"
+    ]
+  },
+  "valueMoved": 0
+}

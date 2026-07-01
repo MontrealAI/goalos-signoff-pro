@@ -1,0 +1,33 @@
+{
+  "id": "asi-mission-simulator-demo-bundle-v35",
+  "route": "loop-rsi-asi-superintelligence-mission-simulator-lab.html",
+  "manifest": "asi-mission-simulator-v35-manifest.json",
+  "artifacts": [
+    "asi-mission-simulator-v35-manifest.json",
+    "asi-mission-simulator-scenarios-v35.json",
+    "asi-mission-simulator-state-machine-v35.json",
+    "asi-mission-simulator-kpi-dashboard-v35.json",
+    "asi-mission-simulator-public-safe-boundary-v35.json",
+    "asi-mission-simulator-engagement-map-v35.json",
+    "asi-mission-simulator-move37-dossier-v35.json",
+    "asi-mission-simulator-synthetic-receipt-v35.json",
+    "asi-mission-simulator-demo-bundle-v35.json",
+    "goalos-public-demo-labs-v22-v35.json",
+    "goalos-signoff-pro-site-map-v22-v35.json"
+  ],
+  "routes": [
+    "loop-rsi-asi-superintelligence-mission-simulator-lab.html",
+    "asi-mission-simulator.html",
+    "sovereign-asi-flight-simulator.html",
+    "proof-gated-asi-simulator.html",
+    "superintelligence-simulation-console.html",
+    "rsi-to-asi-control-simulator.html",
+    "goalos-asi-mission-control.html",
+    "loop-rsi-asi-v35.html",
+    "no-ungoverned-asi.html",
+    "v35.html"
+  ],
+  "publicSafe": true,
+  "valueMoved": 0,
+  "verifyWith": "node scripts/verify-loop-rsi-asi-superintelligence-mission-simulator-v35.mjs"
+}

@@ -1,0 +1,71 @@
+{
+  "id": "asi-control-tower-state-machine-v34",
+  "states": [
+    "CLAIM_RECEIVED",
+    "PROOF_LOOP_ACTIVE",
+    "RSI_PILOT_REVIEW",
+    "MOVE37_DOSSIER_REQUIRED",
+    "ASI_CLAIM_LOCKED",
+    "COUNCIL_REVIEW",
+    "ROLLBACK_REQUIRED",
+    "REVIEW_READY",
+    "BLOCKED"
+  ],
+  "transitions": [
+    {
+      "from": "CLAIM_RECEIVED",
+      "to": "PROOF_LOOP_ACTIVE",
+      "requires": [
+        "mission_contract"
+      ]
+    },
+    {
+      "from": "PROOF_LOOP_ACTIVE",
+      "to": "RSI_PILOT_REVIEW",
+      "requires": [
+        "evidence_docket",
+        "human_signoff"
+      ]
+    },
+    {
+      "from": "RSI_PILOT_REVIEW",
+      "to": "MOVE37_DOSSIER_REQUIRED",
+      "requires": [
+        "novelty_threshold",
+        "advantage_delta"
+      ]
+    },
+    {
+      "from": "MOVE37_DOSSIER_REQUIRED",
+      "to": "ASI_CLAIM_LOCKED",
+      "requires": [
+        "high_impact_escalation"
+      ]
+    },
+    {
+      "from": "ASI_CLAIM_LOCKED",
+      "to": "COUNCIL_REVIEW",
+      "requires": [
+        "extraordinary_replay",
+        "independent_validation",
+        "containment_plan"
+      ]
+    },
+    {
+      "from": "COUNCIL_REVIEW",
+      "to": "ROLLBACK_REQUIRED",
+      "requires": [
+        "release_candidate"
+      ]
+    },
+    {
+      "from": "ROLLBACK_REQUIRED",
+      "to": "REVIEW_READY",
+      "requires": [
+        "rollback_drill_passed",
+        "stop_authority_confirmed"
+      ]
+    }
+  ],
+  "invariant": "No ASI-scale promotion may self-authorize. Every escalation requires external proof, council authority, and rollback readiness."
+}

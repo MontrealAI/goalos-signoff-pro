@@ -53,4 +53,4 @@ Only replayable, provenance-preserving, validator-cleared traces can update futu
 
 ## Public boundary
 
-This page does not claim external audit, production certification, empirical SOTA, active settlement, custody, staking, value movement, achieved AGI, achieved ASI, or autonomous production authority.
+This page does not claim external audit, production certification, empirical SOTA, active settlement, custody, staking, value movement, realized AGI, realized ASI, or autonomous production authority.

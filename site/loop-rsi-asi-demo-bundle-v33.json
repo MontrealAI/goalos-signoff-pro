@@ -1,0 +1,26 @@
+{
+  "generatedAt": "2026-07-01T12:16:32.184Z",
+  "id": "GOALOS-SIGNOFF-PRO-V33-LOOP-RSI-ASI-SUPERINTELLIGENCE-CONSOLE",
+  "artifactHash": "d12582546cbecf73e85236a8e40af9bfe1763514fecfe692dc64ce4d97d37134",
+  "routes": [
+    "loop-rsi-asi-superintelligence-lab.html",
+    "loop-to-rsi-to-asi.html",
+    "rsi-to-asi-superintelligence.html",
+    "asi-superintelligence-console.html",
+    "superintelligence-governance-console.html",
+    "sovereign-asi-readiness-lab.html",
+    "recursive-self-improvement-to-asi-lab.html",
+    "asi-mission-control.html",
+    "invention-to-superintelligence-console.html",
+    "no-ungoverned-superintelligence.html"
+  ],
+  "publicSafe": true,
+  "zeroValueMoved": true,
+  "coreMessage": [
+    "Blockchain proves the transaction. GoalOS proves the work.",
+    "RSI governs the invention loop.",
+    "ASI-scale systems require proof, gates, dossiers, councils, and rollback before promotion.",
+    "No Proof. No Trust. No Settlement. No ungoverned superintelligence."
+  ],
+  "flagship": "loop-rsi-asi-superintelligence-lab.html"
+}

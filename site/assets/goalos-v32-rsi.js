@@ -1,0 +1,36 @@
+
+(function(){
+  const scenarios = [{"id":"loop","label":"Proof loop","title":"The current GoalOS loop","claim":"A mission can become accepted work only after proof, validation, human authority, and receipt.","sequence":["Mission","Work","Evidence","Replay","Validation","Receipt","Settlement readiness","Chronicle memory"],"decision":"REVIEW_READY","score":92,"dossier":"Mission Receipt + Evidence Docket","message":"The work loop becomes inspectable before trust or consequence moves."},{"id":"rsi","label":"RSI kernel","title":"From loop to recursive invention governance","claim":"Open-ended invention requires a deterministic governance kernel before AGI-scale systems mature.","sequence":["Target","Emit","Filter","Atlas","Test-plan","Eval","Insert","Promote"],"decision":"GOVERNED_EXPLORATION","score":95,"dossier":"Sovereign Dossier + RSI Ledger","message":"The proof loop is upgraded into a governed invention operating system."},{"id":"move37","label":"Move-37","title":"Breakthroughs as state transitions","claim":"A surprising candidate is not accepted as a story; it must reproduce, stress-test, persist, and be packaged.","sequence":["Recognize","Reproduce","Stress-test","Persistence","Dossier","Council review"],"decision":"PROBE_FIRST","score":88,"dossier":"Move-37 Dossier","message":"High novelty increases skepticism; authority remains mechanical and reviewable."},{"id":"omni","label":"OMNI","title":"Search control is not outcome authority","claim":"OMNI can improve where exploration pressure goes, but cannot bypass risk, evidence, baseline, or persistence gates.","sequence":["Allocate","Route","Suggest","Gate","Evaluate","Council"],"decision":"SEARCH_CONTROL_ONLY","score":96,"dossier":"OMNI Boundary Receipt","message":"Exploration becomes smarter without becoming ungoverned."}];
+  const stages = [{"id":"TARGET","label":"Target","purpose":"Allocate exploration pressure across archive cells, bridge regions, and themes.","artifacts":["coverage_targets.json","bridge_targets.json","omni_explore_plan.json"]},{"id":"EMIT","label":"Emit","purpose":"Generate candidate cards under explicit constraints and targeting.","artifacts":["candidates.raw.jsonl","novelty_distance.jsonl","stage_log.jsonl"]},{"id":"FILTER","label":"Filter","purpose":"Apply risk gates and interestingness routing without admission authority.","artifacts":["candidates.filtered.jsonl","risk_reports.jsonl","omni_interest.jsonl"]},{"id":"ATLAS","label":"Atlas","purpose":"Extract mechanisms, causal triples, and neighborhood context for comparatives.","artifacts":["causal_atlas_triples.jsonl","neighborhood_context.jsonl"]},{"id":"TEST-PLAN","label":"Test-plan","purpose":"Build falsification ladders and schedule cheapest useful probes.","artifacts":["falsification_ladders.jsonl","probe_schedule.jsonl"]},{"id":"EVAL","label":"Eval","purpose":"Evaluate against incumbent, neighbor, and null baselines; mint evidence objects.","artifacts":["eval_results.jsonl","baseline_comparison.jsonl","evidence_objects.jsonl","eci_ledger.jsonl"]},{"id":"INSERT","label":"Insert","purpose":"Update append-only archive mechanically; record breakthrough events.","artifacts":["updated_frontier_cell.csv","updated_frontier_cell.jsonl","breakthrough_events.jsonl"]},{"id":"PROMOTE","label":"Promote","purpose":"Rank promotions by mechanical scoring and emit queue artifacts.","artifacts":["promotion_queue.csv","promotion_queue.jsonl"]}];
+  const gates = [{"id":"risk","name":"Risk gate","rule":"Prohibited-domain and unsafe-deployment signals can stop or downgrade outcomes.","signal":"BLOCK / PROBE / REFINE / ESCALATE"},{"id":"evidence","name":"Evidence gate","rule":"Confidence cannot inflate without evidence execution; simulated evidence stays capped.","signal":"ECI capped until execution"},{"id":"baseline","name":"Baseline gate","rule":"Every serious advantage claim is comparative against incumbent, neighbor, or null baseline.","signal":"AdvantageDelta required"},{"id":"persistence","name":"Persistence gate","rule":"High novelty receives more skepticism and stress testing before promotion.","signal":"Probe-first for novelty ≥ 0.80"},{"id":"authority","name":"Human authority gate","rule":"Validator/Architect Council can stop, bound, or request a dossier before release.","signal":"Council decision state"}];
+  const dashboard = [{"metric":"Replayability","target":"≥95%","value":96,"note":"Cycles reproducible from manifests"},{"metric":"Schema integrity","target":"0 silent failures","value":100,"note":"Repair or hard-stop semantics"},{"metric":"Evidence quality","target":"EXECUTED share rising","value":74,"note":"Simulated evidence remains bounded"},{"metric":"Advantage confirmation","target":"Positive Δ under stress","value":82,"note":"Baseline-comparative persistence"},{"metric":"Safety posture","target":"No public data/funds","value":100,"note":"Public demo has no value movement"}];
+  const $ = sel => document.querySelector(sel);
+  const $$ = sel => Array.from(document.querySelectorAll(sel));
+  function render(id){
+    const s = scenarios.find(x => x.id === id) || scenarios[0];
+    $$('.tab').forEach(btn => btn.classList.toggle('active', btn.dataset.scenario === s.id));
+    const title = $('#scenario-title'); if(title) title.textContent = s.title;
+    const claim = $('#scenario-claim'); if(claim) claim.textContent = s.claim;
+    const msg = $('#scenario-message'); if(msg) msg.textContent = s.message;
+    const decision = $('#scenario-decision'); if(decision) decision.textContent = s.decision;
+    const dossier = $('#scenario-dossier'); if(dossier) dossier.textContent = s.dossier;
+    const score = $('#scenario-score'); if(score) score.textContent = String(s.score) + '/100';
+    const seq = $('#scenario-sequence');
+    if(seq) seq.innerHTML = s.sequence.map((item, i) => '<div class="node"><b>' + item + '</b><small>Step ' + (i+1) + '</small></div>').join('');
+    const sg = $('#stage-grid');
+    if(sg){
+      sg.innerHTML = stages.map(st => '<article class="stage ' + (s.sequence.map(x=>x.toLowerCase()).includes(st.label.toLowerCase()) || s.id==='rsi' ? 'hot' : '') + '"><small>' + st.id + '</small><b>' + st.label + '</b><p>' + st.purpose + '</p></article>').join('');
+    }
+  }
+  document.addEventListener('click', e => {
+    const tab = e.target.closest('.tab');
+    if(tab) render(tab.dataset.scenario);
+    const copy = e.target.closest('[data-copy]');
+    if(copy && navigator.clipboard){ navigator.clipboard.writeText(copy.dataset.copy).catch(()=>{}); copy.textContent = 'Copied'; setTimeout(()=>copy.textContent='Copy tagline', 1100); }
+  });
+  const gatesEl = $('#gates');
+  if(gatesEl) gatesEl.innerHTML = gates.map(g => '<article class="gate"><b>' + g.name + '</b><p>' + g.rule + '</p><span class="pill">' + g.signal + '</span></article>').join('');
+  const dash = $('#dashboard');
+  if(dash) dash.innerHTML = dashboard.map(m => '<article class="metric"><b>' + m.value + '%</b><span>' + m.metric + ' · ' + m.target + '</span><div class="bar"><i style="width:' + m.value + '%"></i></div><p>' + m.note + '</p></article>').join('');
+  render('rsi');
+})();

@@ -1,0 +1,24 @@
+GoalOS Signoff Pro v30 adds the Proof Before Settlement Institutional Research Lab.
+
+Core message:
+Blockchain proves the transaction. GoalOS proves the work.
+No Proof. No Trust. No Settlement.
+
+What v30 adds:
+- A prestigious public research lab for the elite Proof Before Settlement paper.
+- Public PDF, LaTeX, single-file LaTeX, BibTeX, and executive abstract assets.
+- Acceptance predicate artifact.
+- Settlement-safety invariant artifact.
+- Claim-maturity lattice artifact.
+- Due-diligence rubric artifact.
+- Adoption blueprint artifact.
+- Mandate clauses artifact.
+- Research-to-product translation map.
+- Global public labs manifest v22-v30.
+- GitHub Actions workflow for one-go generation and deployment.
+
+Main route:
+proof-before-settlement-research-lab.html
+
+Best public line:
+Do not just settle transactions. Settle proven work.

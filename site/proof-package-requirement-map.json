@@ -1,0 +1,105 @@
+{
+  "type": "ProofPackageRequirementMap",
+  "rule": "Blockchain proves the transaction. GoalOS proves the work.",
+  "standard": "No Proof. No Trust. No Settlement.",
+  "gates": [
+    {
+      "id": "G1",
+      "name": "Mission",
+      "question": "What was promised?",
+      "artifact": "Mission Contract",
+      "status": "required",
+      "order": 1,
+      "commitment": "sha256:08ba8e7810afa290ad06de9d37a2eee7",
+      "publicPrivateBoundary": "public-safe commitment only; private project workpapers stay outside the public demo"
+    },
+    {
+      "id": "G2",
+      "name": "Evidence",
+      "question": "What was delivered?",
+      "artifact": "Evidence Docket",
+      "status": "required",
+      "order": 2,
+      "commitment": "sha256:34faa4c2ef1ad32c4a10e4ed52fe019b",
+      "publicPrivateBoundary": "public-safe commitment only; private project workpapers stay outside the public demo"
+    },
+    {
+      "id": "G3",
+      "name": "Replay",
+      "question": "Can the claim be checked?",
+      "artifact": "Replay Path",
+      "status": "required",
+      "order": 3,
+      "commitment": "sha256:334f7789ff9f27b1e194278ae0791791",
+      "publicPrivateBoundary": "public-safe commitment only; private project workpapers stay outside the public demo"
+    },
+    {
+      "id": "G4",
+      "name": "Validation",
+      "question": "What passed, failed, or remains uncertain?",
+      "artifact": "Validator Report",
+      "status": "required",
+      "order": 4,
+      "commitment": "sha256:ebc7d5c0695c5fafc4b844a62f4fcd32",
+      "publicPrivateBoundary": "public-safe commitment only; private project workpapers stay outside the public demo"
+    },
+    {
+      "id": "G5",
+      "name": "Risk",
+      "question": "What can still go wrong?",
+      "artifact": "Risk Ledger",
+      "status": "required",
+      "order": 5,
+      "commitment": "sha256:9dc0c2f5f019ecfba16266ec106bafed",
+      "publicPrivateBoundary": "public-safe commitment only; private project workpapers stay outside the public demo"
+    },
+    {
+      "id": "G6",
+      "name": "Human Authority",
+      "question": "Who accepted the result?",
+      "artifact": "Signoff Record",
+      "status": "required",
+      "order": 6,
+      "commitment": "sha256:085f9ce19904bb6dcc92256a1319586a",
+      "publicPrivateBoundary": "public-safe commitment only; private project workpapers stay outside the public demo"
+    },
+    {
+      "id": "G7",
+      "name": "Receipt",
+      "question": "What can be referenced later?",
+      "artifact": "Signed Mission Receipt",
+      "status": "required",
+      "order": 7,
+      "commitment": "sha256:aa1129bcd0525a2e358ebbe793487cb6",
+      "publicPrivateBoundary": "public-safe commitment only; private project workpapers stay outside the public demo"
+    },
+    {
+      "id": "G8",
+      "name": "Settlement Signal",
+      "question": "What consequence may now move?",
+      "artifact": "Settlement Readiness Signal",
+      "status": "gated",
+      "order": 8,
+      "commitment": "sha256:ab771a02811d1164989ad422b9ea89fb",
+      "publicPrivateBoundary": "public-safe commitment only; private project workpapers stay outside the public demo"
+    }
+  ],
+  "requiredFor": [
+    "grant payout",
+    "treasury spend",
+    "protocol upgrade",
+    "audit remediation",
+    "AI-agent settlement",
+    "RWA claim maturity",
+    "governance execution"
+  ],
+  "notEnough": [
+    "announcement",
+    "dashboard alone",
+    "tweet thread",
+    "unmapped GitHub commit",
+    "unlinked audit badge",
+    "private verbal approval"
+  ],
+  "valueMoved": 0
+}

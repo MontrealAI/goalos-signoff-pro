@@ -1,0 +1,367 @@
+{
+  "type": "BlockchainCredibilityDemoBundle",
+  "generatedAt": "2026-07-01T20:21:13Z",
+  "manifest": {
+    "id": "goalos-signoff-pro-blockchain-credibility-lab-v28",
+    "title": "GoalOS Signoff Pro — Blockchain Credibility Standard Lab",
+    "version": "28.0.0",
+    "generatedAt": "2026-07-01T20:21:13Z",
+    "primaryRoute": "blockchain-credibility-lab.html",
+    "aliases": [
+      "proof-to-settlement-standard-lab.html",
+      "trust-before-settlement-lab.html",
+      "no-proof-no-settlement-lab.html",
+      "blockchain-trust-layer-lab.html"
+    ],
+    "publicArtifacts": [
+      "blockchain-credibility-demo-bundle.json",
+      "blockchain-credibility-manifest.json",
+      "proof-package-requirement-map.json",
+      "no-proof-no-settlement-standard.json",
+      "trust-settlement-readiness-ledger.json",
+      "stakeholder-demand-card.json",
+      "blockchain-settlement-receipt-demo.json"
+    ],
+    "boundary": {
+      "claimBoundary": "Synthetic browser-local public demonstration only. It does not include wallet use, token approval, transaction broadcasting, fund movement, legal/financial/investment advice, external fact certification, or live settlement activation.",
+      "publicRule": "No forms · no inputs · no uploads · no cookies · no analytics · no wallets · no payments · no personal or confidential data.",
+      "valueMoved": 0,
+      "browserLocal": true,
+      "noUserData": true,
+      "noWallet": true,
+      "noPayments": true
+    },
+    "canonicalDemoHash": "sha256:be8a9d2cb3d97700f2a4abf39686f6421ebcbedf3da0ca36"
+  },
+  "scenarios": [
+    {
+      "id": "dao-grant",
+      "label": "DAO grant payout",
+      "headline": "No grant payout without a proof package.",
+      "objective": "Require milestone evidence, reviewer validation, and a signed receipt before treasury funds are released.",
+      "valueAtStake": "DAO treasury funds",
+      "proofPackage": [
+        "mission contract",
+        "deliverable evidence",
+        "claims matrix",
+        "reviewer report",
+        "risk ledger",
+        "acceptance receipt"
+      ],
+      "settlementRule": "No Evidence Docket, no payout.",
+      "proofRoot": "sha256:abeafdf9d3727c7eb1e0a4c44ae02042",
+      "selectedByDefault": true
+    },
+    {
+      "id": "protocol-upgrade",
+      "label": "Protocol upgrade",
+      "headline": "No upgrade without replayable proof and rollback authority.",
+      "objective": "Bind each upgrade to test evidence, simulation results, audit remediation, risk boundaries, and human release authority.",
+      "valueAtStake": "governance power and protocol safety",
+      "proofPackage": [
+        "upgrade mission",
+        "test ledger",
+        "simulation report",
+        "risk ledger",
+        "rollback plan",
+        "release receipt"
+      ],
+      "settlementRule": "No replay and rollback plan, no release.",
+      "proofRoot": "sha256:4eaef2b0836321f53e3f788c26c11654",
+      "selectedByDefault": false
+    },
+    {
+      "id": "audit-remediation",
+      "label": "Audit remediation",
+      "headline": "No fixed claim without evidence that the finding is actually resolved.",
+      "objective": "Map audit findings to code changes, tests, reviewer decisions, residual risk, and acceptance receipts.",
+      "valueAtStake": "security credibility",
+      "proofPackage": [
+        "finding map",
+        "fix evidence",
+        "test replay",
+        "review report",
+        "residual risk",
+        "remediation receipt"
+      ],
+      "settlementRule": "No finding-to-fix trace, no remediation credit.",
+      "proofRoot": "sha256:caa97db479bc2f597f1d4446b7a5235c",
+      "selectedByDefault": false
+    },
+    {
+      "id": "ai-agent-work",
+      "label": "AI-agent work",
+      "headline": "No autonomous-agent payment without a ProofBundle.",
+      "objective": "Make agent output settlement-ready only after scope, trace, evidence, validation, and human authority are complete.",
+      "valueAtStake": "agent rewards and future work allocation",
+      "proofPackage": [
+        "agent mission",
+        "tool trace",
+        "evidence docket",
+        "validator report",
+        "human gate",
+        "agent receipt"
+      ],
+      "settlementRule": "No ProofBundle, no agent settlement.",
+      "proofRoot": "sha256:2931987d2e456784ff8a0b0798047c9b",
+      "selectedByDefault": false
+    },
+    {
+      "id": "rwa-claim",
+      "label": "RWA / external claim",
+      "headline": "No real-world claim without provenance and review.",
+      "objective": "Turn off-chain claims into public-safe commitments, provenance records, review decisions, and revocable receipts.",
+      "valueAtStake": "real-world asset credibility",
+      "proofPackage": [
+        "claim boundary",
+        "provenance map",
+        "redaction ledger",
+        "reviewer packet",
+        "challenge window",
+        "claim receipt"
+      ],
+      "settlementRule": "No provenance and challenge window, no maturity promotion.",
+      "proofRoot": "sha256:725703a9ed230285504f0185859b4814",
+      "selectedByDefault": false
+    },
+    {
+      "id": "treasury-spend",
+      "label": "Treasury vendor spend",
+      "headline": "No vendor payment without clear acceptance.",
+      "objective": "Convert invoices, deliverables, acceptance criteria, reviewer notes, and client signoff into a settlement-ready record.",
+      "valueAtStake": "vendor payments and institutional reputation",
+      "proofPackage": [
+        "statement of work",
+        "deliverables",
+        "criteria map",
+        "review notes",
+        "decision state",
+        "signed receipt"
+      ],
+      "settlementRule": "No signed acceptance receipt, no settlement signal.",
+      "proofRoot": "sha256:f5050c39cb26927adb62ad9441781326",
+      "selectedByDefault": false
+    }
+  ],
+  "requirementMap": {
+    "type": "ProofPackageRequirementMap",
+    "rule": "Blockchain proves the transaction. GoalOS proves the work.",
+    "standard": "No Proof. No Trust. No Settlement.",
+    "gates": [
+      {
+        "id": "G1",
+        "name": "Mission",
+        "question": "What was promised?",
+        "artifact": "Mission Contract",
+        "status": "required",
+        "order": 1,
+        "commitment": "sha256:08ba8e7810afa290ad06de9d37a2eee7",
+        "publicPrivateBoundary": "public-safe commitment only; private project workpapers stay outside the public demo"
+      },
+      {
+        "id": "G2",
+        "name": "Evidence",
+        "question": "What was delivered?",
+        "artifact": "Evidence Docket",
+        "status": "required",
+        "order": 2,
+        "commitment": "sha256:34faa4c2ef1ad32c4a10e4ed52fe019b",
+        "publicPrivateBoundary": "public-safe commitment only; private project workpapers stay outside the public demo"
+      },
+      {
+        "id": "G3",
+        "name": "Replay",
+        "question": "Can the claim be checked?",
+        "artifact": "Replay Path",
+        "status": "required",
+        "order": 3,
+        "commitment": "sha256:334f7789ff9f27b1e194278ae0791791",
+        "publicPrivateBoundary": "public-safe commitment only; private project workpapers stay outside the public demo"
+      },
+      {
+        "id": "G4",
+        "name": "Validation",
+        "question": "What passed, failed, or remains uncertain?",
+        "artifact": "Validator Report",
+        "status": "required",
+        "order": 4,
+        "commitment": "sha256:ebc7d5c0695c5fafc4b844a62f4fcd32",
+        "publicPrivateBoundary": "public-safe commitment only; private project workpapers stay outside the public demo"
+      },
+      {
+        "id": "G5",
+        "name": "Risk",
+        "question": "What can still go wrong?",
+        "artifact": "Risk Ledger",
+        "status": "required",
+        "order": 5,
+        "commitment": "sha256:9dc0c2f5f019ecfba16266ec106bafed",
+        "publicPrivateBoundary": "public-safe commitment only; private project workpapers stay outside the public demo"
+      },
+      {
+        "id": "G6",
+        "name": "Human Authority",
+        "question": "Who accepted the result?",
+        "artifact": "Signoff Record",
+        "status": "required",
+        "order": 6,
+        "commitment": "sha256:085f9ce19904bb6dcc92256a1319586a",
+        "publicPrivateBoundary": "public-safe commitment only; private project workpapers stay outside the public demo"
+      },
+      {
+        "id": "G7",
+        "name": "Receipt",
+        "question": "What can be referenced later?",
+        "artifact": "Signed Mission Receipt",
+        "status": "required",
+        "order": 7,
+        "commitment": "sha256:aa1129bcd0525a2e358ebbe793487cb6",
+        "publicPrivateBoundary": "public-safe commitment only; private project workpapers stay outside the public demo"
+      },
+      {
+        "id": "G8",
+        "name": "Settlement Signal",
+        "question": "What consequence may now move?",
+        "artifact": "Settlement Readiness Signal",
+        "status": "gated",
+        "order": 8,
+        "commitment": "sha256:ab771a02811d1164989ad422b9ea89fb",
+        "publicPrivateBoundary": "public-safe commitment only; private project workpapers stay outside the public demo"
+      }
+    ],
+    "requiredFor": [
+      "grant payout",
+      "treasury spend",
+      "protocol upgrade",
+      "audit remediation",
+      "AI-agent settlement",
+      "RWA claim maturity",
+      "governance execution"
+    ],
+    "notEnough": [
+      "announcement",
+      "dashboard alone",
+      "tweet thread",
+      "unmapped GitHub commit",
+      "unlinked audit badge",
+      "private verbal approval"
+    ],
+    "valueMoved": 0
+  },
+  "readinessLedger": {
+    "type": "TrustSettlementReadinessLedger",
+    "settlementMode": "synthetic-public-demo",
+    "candidates": [
+      {
+        "id": "B0",
+        "name": "Announcement-only credibility",
+        "status": "REJECTED",
+        "proofScore": 4,
+        "trustScore": 8,
+        "settlementReadiness": 0,
+        "reason": "Marketing is not proof.",
+        "action": "block, hold, or challenge"
+      },
+      {
+        "id": "B1",
+        "name": "Dashboard and commit credibility",
+        "status": "HELD",
+        "proofScore": 42,
+        "trustScore": 47,
+        "settlementReadiness": 22,
+        "reason": "Evidence exists, but it is not packaged for decision or settlement.",
+        "action": "block, hold, or challenge"
+      },
+      {
+        "id": "B2",
+        "name": "Audit badge credibility",
+        "status": "CHALLENGE_REQUIRED",
+        "proofScore": 66,
+        "trustScore": 62,
+        "settlementReadiness": 48,
+        "reason": "A badge helps, but unresolved evidence and rollback gaps block full readiness.",
+        "action": "block, hold, or challenge"
+      },
+      {
+        "id": "B3",
+        "name": "GoalOS proof-package credibility",
+        "status": "SETTLEMENT_READY_SYNTHETIC",
+        "proofScore": 96,
+        "trustScore": 94,
+        "settlementReadiness": 92,
+        "reason": "Proof is structured, reviewable, replayable, human-authorized, and settlement-ready.",
+        "action": "emit settlement-readiness signal only"
+      }
+    ],
+    "acceptedCandidate": "B3",
+    "valueMoved": 0,
+    "noWallet": true,
+    "noPayments": true
+  },
+  "stakeholderDemandCard": {
+    "type": "StakeholderDemandCard",
+    "question": "Where is the proof package?",
+    "demands": [
+      {
+        "name": "Users",
+        "demand": "Show the proof before asking for trust."
+      },
+      {
+        "name": "DAOs",
+        "demand": "Show the Evidence Docket before treasury funds move."
+      },
+      {
+        "name": "Foundations",
+        "demand": "Show milestone proof before grants close."
+      },
+      {
+        "name": "Auditors",
+        "demand": "Show finding-to-fix trace before remediation claims mature."
+      },
+      {
+        "name": "Validators",
+        "demand": "Show replay and rollback readiness before upgrades."
+      },
+      {
+        "name": "Enterprises",
+        "demand": "Show signed acceptance records before adoption."
+      },
+      {
+        "name": "Investors",
+        "demand": "Show proof of execution, not only narrative traction."
+      }
+    ],
+    "iconicLines": [
+      "Blockchain proves the transaction. GoalOS proves the work.",
+      "No Proof. No Trust. No Settlement.",
+      "Do not just move value. Prove it was earned."
+    ],
+    "plainEnglishRule": "Do not ask communities to trust a blockchain project because it sounds credible. Show what was promised, what was delivered, what evidence exists, who reviewed it, what risk remains, and what justifies settlement.",
+    "valueMoved": 0
+  },
+  "standard": {
+    "type": "NoProofNoSettlementStandard",
+    "name": "GoalOS Blockchain Credibility Standard",
+    "version": "28.0.0",
+    "tagline": "No Proof. No Trust. No Settlement.",
+    "operatingPrinciples": [
+      "Claims do not settle; accepted proof settles.",
+      "A smart contract can move value, but GoalOS explains why value deserves to move.",
+      "Off-chain work becomes on-chain-referenceable only through mission, evidence, replay, validation, risk, authority, and receipt.",
+      "Human authority remains explicit for consequential acceptance.",
+      "Public demos stay browser-local and move zero value."
+    ],
+    "valueMoved": 0
+  },
+  "receipt": {
+    "type": "BlockchainSettlementReceiptDemo",
+    "receiptId": "goalos-v28-47c5323a633b",
+    "decisionState": "SETTLEMENT_READY_SYNTHETIC_PUBLIC_DEMO",
+    "acceptedCandidate": "B3",
+    "settlementSignal": "proof-package-complete; human-authority-required-before-live-use",
+    "receiptRoot": "sha256:e96367172c51cf8542810cadee01d94dc91a0cc5abe6c69a",
+    "noUserData": true,
+    "noWallet": true,
+    "valueMoved": 0
+  }
+}

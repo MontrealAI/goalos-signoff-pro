@@ -1,0 +1,19 @@
+{
+  "id": "asi-mission-simulator-move37-dossier-v35",
+  "dossierName": "Move‑37 → ASI Boundary Dossier (synthetic)",
+  "mandatorySections": [
+    "mission intent",
+    "novelty distance",
+    "baseline comparison",
+    "reproduction manifest",
+    "policy-shock report",
+    "persistence gate",
+    "risk ledger",
+    "ECI ledger",
+    "council memo",
+    "rollback plan",
+    "synthetic receipt"
+  ],
+  "decisionBoundary": "A breakthrough is accepted only after reproduction, stress testing, persistence, and authority review.",
+  "sampleOutcome": "REVIEW_READY_FOR_COUNCIL — not deployed, not self-authorized."
+}

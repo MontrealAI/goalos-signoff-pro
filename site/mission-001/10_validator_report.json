@@ -1,0 +1,21 @@
+{
+  "verdict": "PASS_FOR_SYNTHETIC_REPRODUCIBILITY_DEMO",
+  "gates": [
+    "manifest present",
+    "baselines present",
+    "runner config present",
+    "proof bundle present",
+    "replay log present",
+    "cost ledger present",
+    "safety ledger present",
+    "claim boundaries present"
+  ],
+  "notClaiming": [
+    "empirical SOTA",
+    "external audit",
+    "live settlement",
+    "production certification",
+    "real-world benchmark win"
+  ],
+  "challengeWindow": "not applicable to browser-local synthetic packet"
+}

@@ -1,0 +1,41 @@
+{
+  "type": "StakeholderDemandCard",
+  "question": "Where is the proof package?",
+  "demands": [
+    {
+      "name": "Users",
+      "demand": "Show the proof before asking for trust."
+    },
+    {
+      "name": "DAOs",
+      "demand": "Show the Evidence Docket before treasury funds move."
+    },
+    {
+      "name": "Foundations",
+      "demand": "Show milestone proof before grants close."
+    },
+    {
+      "name": "Auditors",
+      "demand": "Show finding-to-fix trace before remediation claims mature."
+    },
+    {
+      "name": "Validators",
+      "demand": "Show replay and rollback readiness before upgrades."
+    },
+    {
+      "name": "Enterprises",
+      "demand": "Show signed acceptance records before adoption."
+    },
+    {
+      "name": "Investors",
+      "demand": "Show proof of execution, not only narrative traction."
+    }
+  ],
+  "iconicLines": [
+    "Blockchain proves the transaction. GoalOS proves the work.",
+    "No Proof. No Trust. No Settlement.",
+    "Do not just move value. Prove it was earned."
+  ],
+  "plainEnglishRule": "Do not ask communities to trust a blockchain project because it sounds credible. Show what was promised, what was delivered, what evidence exists, who reviewed it, what risk remains, and what justifies settlement.",
+  "valueMoved": 0
+}

@@ -1,0 +1,100 @@
+name: GoalOS Signoff Pro — Loop to RSI to ASI Mission Simulator v35
+
+on:
+  workflow_dispatch:
+    inputs:
+      v35_scenario:
+        description: "Public-safe v35 scenario label"
+        required: false
+        default: "asi-mission-simulator"
+      commit_generated_site:
+        description: "Commit generated site artifacts back to the branch"
+        type: boolean
+        required: false
+        default: true
+      deploy_pages:
+        description: "Deploy GitHub Pages after build"
+        type: boolean
+        required: false
+        default: true
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+env:
+  GOALOS_PUBLIC_SAFE: "true"
+  GOALOS_ZERO_VALUE_MOVED: "true"
+  GOALOS_NO_EXTERNAL_AI_CALLS: "true"
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+  NODE_VERSION: "24"
+
+concurrency:
+  group: goalos-signoff-pro-v35-pages
+  cancel-in-progress: false
+
+jobs:
+  build-v35:
+    name: Build and verify v35 Loop → RSI → ASI mission simulator
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+      - name: Setup Node.js 24
+        uses: actions/setup-node@v5
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          package-manager-cache: false
+      - name: Preflight package completeness
+        shell: bash
+        run: |
+          set -euo pipefail
+          for f in \
+            scripts/build-goalos-signoff-public-labs-v22-v35.mjs \
+            scripts/verify-goalos-signoff-public-labs-v22-v35.mjs \
+            scripts/build-loop-rsi-asi-superintelligence-mission-simulator-v35.mjs \
+            scripts/verify-loop-rsi-asi-superintelligence-mission-simulator-v35.mjs \
+            scripts/enhance-goalos-v30-v34-premium-experience.mjs \
+            scripts/enhance-goalos-v22-v35-institutional-command-center.mjs \
+            docs/generated-source/v35/site/loop-rsi-asi-superintelligence-mission-simulator-lab.html; do
+            test -f "$f" || { echo "::error::Missing required file: $f"; exit 1; }
+            echo "OK $f"
+          done
+      - name: Build v22-v35 public labs
+        run: node scripts/build-goalos-signoff-public-labs-v22-v35.mjs
+      - name: Verify global v22-v35 public-safe suite
+        run: node scripts/verify-goalos-signoff-public-labs-v22-v35.mjs
+      - name: Commit generated site files
+        if: ${{ inputs.commit_generated_site }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add site config docs scripts verification .github/workflows GOALOS_* GITHUB_WEB_UI_INSTALL_* PACKAGE_MANIFEST.json PACKAGE_MANIFEST.sha256 || true
+          if git diff --cached --quiet; then
+            echo "No generated changes to commit."
+          else
+            git commit -m "Add GoalOS v35 complete mission simulator and command center"
+            git push
+          fi
+      - name: Upload v35 site preview artifact
+        uses: actions/upload-artifact@v6
+        with:
+          name: goalos-signoff-pro-v35-site-preview
+          path: site
+      - name: Upload Pages artifact
+        if: ${{ inputs.deploy_pages }}
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: site
+  deploy:
+    if: ${{ inputs.deploy_pages }}
+    needs: build-v35
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

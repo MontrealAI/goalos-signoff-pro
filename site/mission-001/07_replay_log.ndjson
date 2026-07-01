@@ -1,0 +1,12 @@
+{"step":1,"stage":"Objective","timestampOffsetMs":0,"status":"PASS","evidenceHash":"a366a69464042a42a425e1f0","note":"Objective completed under synthetic public-safe conditions."}
+{"step":2,"stage":"Mission Contract","timestampOffsetMs":730,"status":"PASS","evidenceHash":"7a43fd1c33c055c1b3056065","note":"Mission Contract completed under synthetic public-safe conditions."}
+{"step":3,"stage":"Agent / Job Allocation","timestampOffsetMs":1460,"status":"PASS","evidenceHash":"442aeb6ae7b469ec69cc222e","note":"Agent / Job Allocation completed under synthetic public-safe conditions."}
+{"step":4,"stage":"Tool Execution","timestampOffsetMs":2190,"status":"PASS","evidenceHash":"841b1afa2d50d8dd41586819","note":"Tool Execution completed under synthetic public-safe conditions."}
+{"step":5,"stage":"Proof Bundle","timestampOffsetMs":2920,"status":"PASS","evidenceHash":"8e4cd7df3bc7872c3816e566","note":"Proof Bundle completed under synthetic public-safe conditions."}
+{"step":6,"stage":"Evidence Docket","timestampOffsetMs":3650,"status":"PASS","evidenceHash":"cd1d5a1bbfb1dc73220f5e38","note":"Evidence Docket completed under synthetic public-safe conditions."}
+{"step":7,"stage":"Verifier Mesh","timestampOffsetMs":4380,"status":"PASS","evidenceHash":"059d039f40b5f1a17b8226ad","note":"Verifier Mesh completed under synthetic public-safe conditions."}
+{"step":8,"stage":"Governed Decision State","timestampOffsetMs":5110,"status":"PASS","evidenceHash":"d73960ac4c6ccdea8411e478","note":"Governed Decision State completed under synthetic public-safe conditions."}
+{"step":9,"stage":"Settlement Signal","timestampOffsetMs":5840,"status":"PASS","evidenceHash":"0ca627c4cab50dfcf8689b50","note":"Settlement Signal completed under synthetic public-safe conditions."}
+{"step":10,"stage":"Chronicle","timestampOffsetMs":6570,"status":"PASS","evidenceHash":"9d6759997d2f3b231363858a","note":"Chronicle completed under synthetic public-safe conditions."}
+{"step":11,"stage":"Capability Package","timestampOffsetMs":7300,"status":"PASS","evidenceHash":"11d6d0bef4fcffd848baf0ad","note":"Capability Package completed under synthetic public-safe conditions."}
+{"step":12,"stage":"Harder Future Mission","timestampOffsetMs":8030,"status":"PASS","evidenceHash":"9376de271f805d1fce769f68","note":"Harder Future Mission completed under synthetic public-safe conditions."}

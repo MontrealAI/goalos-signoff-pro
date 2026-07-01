@@ -1,0 +1,16 @@
+{
+  "labs": [
+    {
+      "id": "v33-loop-rsi-asi",
+      "version": "v33",
+      "title": "GoalOS Signoff Pro — Loop to RSI to ASI Superintelligence Console Lab v33",
+      "route": "loop-rsi-asi-superintelligence-lab.html",
+      "purpose": "Interactive public-safe console for proof loop → RSI governance → ASI-readiness boundaries.",
+      "publicSafe": true,
+      "valueMoved": 0
+    }
+  ],
+  "generatedAt": "2026-07-01T20:21:13.865Z",
+  "version": "v22-v33",
+  "labCount": 1
+}

@@ -1,0 +1,20 @@
+{
+  "id": "asi-mission-simulator-engagement-map-v35",
+  "visitorJourney": [
+    "choose role",
+    "choose mission",
+    "run deterministic cycle",
+    "earn proof objects",
+    "inspect dossier",
+    "copy synthetic receipt",
+    "open next lab"
+  ],
+  "interactionLoops": [
+    "scenario rerun",
+    "mode switching",
+    "shock drill",
+    "dossier inspection",
+    "synthetic receipt copy",
+    "next-lab routing"
+  ]
+}

@@ -1,0 +1,6 @@
+1. Unzip the package.
+2. Upload the contents to the repository root with GitHub Add file -> Upload files.
+3. Include .github/, scripts/, docs/, and site/ assets if present.
+4. Commit to a branch.
+5. Run Actions -> GoalOS Signoff Pro — Ultimate v22-v35 Experience Integrity.
+6. Use commit_generated_site=true and deploy_pages=true.

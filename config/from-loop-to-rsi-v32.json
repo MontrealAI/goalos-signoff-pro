@@ -1,0 +1,44 @@
+{
+  "id": "GOALOS-SIGNOFF-PRO-V32-FROM-LOOP-TO-RSI",
+  "version": "32.0.0",
+  "title": "GoalOS Signoff Pro — From Loop to RSI: Sovereign Invention Governance Lab v32",
+  "shortTitle": "From Loop to RSI Lab v32",
+  "tagline": "The proof loop becomes an invention-governance institution.",
+  "coreMessage": "Blockchain proves the transaction. GoalOS proves the work. RSI governs the invention loop.",
+  "standard": "No Proof. No Trust. No Settlement. No ungoverned self-improvement.",
+  "publicSafety": {
+    "forms": false,
+    "textInputs": false,
+    "uploads": false,
+    "cookies": false,
+    "analytics": false,
+    "walletConnections": false,
+    "payments": false,
+    "personalData": false,
+    "externalAiCalls": false,
+    "valueMoved": 0
+  },
+  "routes": [
+    "from-loop-to-rsi-lab.html",
+    "loop-to-rsi.html",
+    "rsi.html",
+    "agi-alpha-rsi-lab.html",
+    "rsi-governance-console.html",
+    "sovereign-invention-governance-lab.html",
+    "deterministic-invention-os-lab.html",
+    "move37-breakthrough-lab.html",
+    "omni-search-control-lab.html"
+  ],
+  "sourceDocuments": [
+    {
+      "title": "AGI Alpha RSI — Sovereign Invention Governance",
+      "publicUrl": "https://github.com/MontrealAI/AGI-Alpha-Agent-v0/blob/main/docs/presentation/AGI_Alpha_RSI_Sovereign_v0.pdf",
+      "localPath": "research/rsi/AGI_Alpha_RSI_Sovereign_v0.pdf"
+    },
+    {
+      "title": "AGI Alpha RSI — Sovereign Strategy Brief",
+      "publicUrl": "https://github.com/MontrealAI/AGI-Alpha-Agent-v0/blob/main/docs/presentation/AGI_Alpha_RSI_Sovereign_Strategy_Brief_v0.pdf",
+      "localPath": "research/rsi/AGI_Alpha_RSI_Sovereign_Strategy_Brief_v0.pdf"
+    }
+  ]
+}

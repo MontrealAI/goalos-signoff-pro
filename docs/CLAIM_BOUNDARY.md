@@ -1,15 +1,23 @@
-# Claim boundary
+# GoalOS Signoff Pro Claim Boundary
 
-GoalOS Signoff Pro claims that proof-governed acceptance can make AI work easier to review, verify, and govern. It does not claim completed AGI or ASI, empirical SOTA, external audit completion, production certification, guaranteed ROI, legal advice, financial advice, tax advice, investment advice, or live autonomous settlement.
+GoalOS Signoff Pro demonstrates proof-to-acceptance, proof-before-settlement, deterministic RSI governance patterns, and ASI-readiness gates. The latest public suite is v22-v35.
 
-## Strong-claim rule
+## Permitted public claims
 
-No Evidence Docket, no strong public claim. No ProofBundle, no settlement signal. No replay, no settlement.
+- Public-safe deterministic demonstration.
+- Browser-local proof console and mission simulator.
+- Synthetic receipts and sample manifests.
+- ASI-readiness gates and superintelligence governance demo.
+- Proof-before-settlement research standard.
 
-## Settlement language
+## Prohibited public claims
 
-Settlement pages and artifacts are simulated/read-only on the public site unless a future expert-only, human-authority-gated surface explicitly documents otherwise. Public demos move no value.
+- Achieved AGI or realized ASI.
+- Production RSI or autonomous deployment authority.
+- Live Mainnet settlement, custody, escrow release, staking, brokerage, payment, token sale, or value movement.
+- Legal, financial, tax, or investment advice.
+- External audit completion, production certification, guaranteed ROI, or guaranteed success.
 
-## AGIALPHA / token language
+## Public-safe implementation boundary
 
-AGIALPHA references are identity, protocol, and boundary references only in public materials. The public demo is not a token sale, token approval flow, wallet connection, or investment surface.
+No public forms, text inputs, uploads, cookies, analytics, external scripts, wallets, payments, external AI calls, personal data, customer data, confidential data, or regulated data on public demo pages.
