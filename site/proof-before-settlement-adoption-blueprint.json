@@ -1,0 +1,40 @@
+{
+  "id": "proof-before-settlement-adoption-blueprint-v30",
+  "scenario": "dao-grant-standard",
+  "phases": [
+    {
+      "phase": "Day 0",
+      "name": "Declare the standard",
+      "output": "Publicly state that important blockchain work requires mission, evidence, validation, receipt, and settlement-readiness boundaries."
+    },
+    {
+      "phase": "Day 30",
+      "name": "Require proof packages for new milestones",
+      "output": "DAO grants, treasury payments, audits, partnerships, and AI-agent tasks must define acceptance criteria before execution."
+    },
+    {
+      "phase": "Day 60",
+      "name": "Publish public-safe dockets",
+      "output": "Each material claim links to a redacted Evidence Docket, replay path, validator report, risk ledger, and human signoff."
+    },
+    {
+      "phase": "Day 90",
+      "name": "Bind receipts to governance and settlement readiness",
+      "output": "No payout, upgrade, milestone closure, or public credibility claim without an accepted Mission Receipt."
+    },
+    {
+      "phase": "Mature",
+      "name": "Use proof as institutional memory",
+      "output": "Accepted work enters the Chronicle and influences future missions only with proof provenance."
+    }
+  ],
+  "primaryKpi": "percentage of material claims linked to accepted proof packages",
+  "secondaryKpis": [
+    "dispute rate",
+    "time to acceptance decision",
+    "replay pass rate",
+    "risk-ledger closure rate",
+    "receipt coverage",
+    "number of claims demoted due to missing proof"
+  ]
+}

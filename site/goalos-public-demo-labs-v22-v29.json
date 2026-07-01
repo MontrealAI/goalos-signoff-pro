@@ -1,7 +1,7 @@
 {
   "id": "goalos-signoff-pro-public-labs-v22-v29",
   "title": "GoalOS Signoff Pro public demonstration labs v22-v29",
-  "generatedAt": "2026-07-01T02:35:39Z",
+  "generatedAt": "2026-07-01T02:49:06Z",
   "posture": {
     "browserLocal": true,
     "forms": false,
@@ -49,14 +49,7 @@
     "require-proof-before-trust-lab.html",
     "blockchain-due-diligence-lab.html",
     "goalos-proof-request-lab.html",
-    "no-proof-no-credibility-lab.html",
-    "blockchain.html",
-    "proof-package.html",
-    "proof-mandate.html",
-    "due-diligence.html",
-    "credibility-standard.html",
-    "proof-before-settlement.html",
-    "no-proof-no-settlement.html"
+    "no-proof-no-credibility-lab.html"
   ],
   "labs": [
     {
@@ -235,21 +228,5 @@
       ]
     }
   ],
-  "institutionalUpdate": {
-    "id": "goalos-signoff-pro-institutional-website-update-v28-v29",
-    "message": "Blockchain proves the transaction. GoalOS proves the work.",
-    "standard": "No Proof. No Trust. No Settlement.",
-    "frontDoorRoutes": [
-      "blockchain.html",
-      "proof-package.html",
-      "proof-mandate.html",
-      "due-diligence.html",
-      "credibility-standard.html",
-      "proof-before-settlement.html",
-      "no-proof-no-settlement.html"
-    ],
-    "publicSafe": true,
-    "valueMoved": 0
-  },
-  "manifestHash": "sha256:629ad76c7be59e676c015e0eaba7465b8168ba10974c0a84b9df252c035d5ea6"
+  "manifestHash": "sha256:d8b2b1e7be73f62d4cf24a47d0583f88ed376c6ce4fb9db194162d107c73f6cb"
 }

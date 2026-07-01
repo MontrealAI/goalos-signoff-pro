@@ -1,0 +1,24 @@
+{
+  "id": "settlement-safety-invariant-v30",
+  "invariant": "No accepted settlement signal without a complete proof package and explicit authority boundary.",
+  "unsafeShortcuts": [
+    "announcement-only milestone",
+    "dashboard-only evidence",
+    "unaudited upgrade claim",
+    "tweet/thread as proof",
+    "GitHub commit without acceptance criteria",
+    "AI-agent output without replay",
+    "audit badge without remediation packet"
+  ],
+  "safePath": [
+    "mission",
+    "evidence",
+    "replay",
+    "validation",
+    "risk ledger",
+    "human signoff",
+    "signed receipt",
+    "challenge/appeal route",
+    "settlement-readiness decision"
+  ]
+}
