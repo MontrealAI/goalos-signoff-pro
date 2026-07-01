@@ -131,3 +131,16 @@ The companion `goalos-agijobmanager-ascension` checkout was not present in `/wor
 - `npm run package:verify` failed because this live workspace contains local build/dependency directories (`node_modules`, `.next`) that the package verifier intentionally forbids from release packages.
 - `npm run repo:verify` failed for the same live-workspace hygiene reason, plus repository-only directories (`.git`, `blockchain/node_modules`, `services/anchor-relayer/node_modules`).
 - `node scripts/verify-goalos-production-site.mjs` failed because the attached site snapshot does not include legacy Mission 001/browser-beta route artifacts expected by that older production-site gate and several legacy pages lack the exact v12 legal rail count expected by the script.
+
+## 2026-06-30 public-safe standards increment
+
+### Changes implemented
+
+- Added `docs/PUBLIC_SAFE_DEMO_STANDARD.md` so future public demo releases have one concise standard for browser-local posture, required boundary copy, scanner patterns, and acceptance rules.
+- Added `docs/PROOF_LIFECYCLE.md` so executives, reviewers, developers, and operators can inspect the universal GoalOS proof lifecycle, Signoff acceptance flow, claim maturity ladder, public-safe boundary, and gate failure modes in one place.
+- Added `.github/ISSUE_TEMPLATE/documentation.yml` to collect documentation issues without inviting secrets, private data, wallet credentials, public intake, or unsafe feature requests.
+- Updated `docs/INDEX.md` to make the new standards discoverable from the canonical docs hub.
+
+### Verification notes
+
+This increment is documentation and issue-template focused. The deterministic checks run for this commit are recorded in the final response and PR body.

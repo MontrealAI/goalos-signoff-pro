@@ -35,6 +35,12 @@ flowchart LR
 ```
 
 
+
+## Standards and lifecycle
+
+- [PROOF_LIFECYCLE.md](PROOF_LIFECYCLE.md) — Universal GoalOS proof lifecycle, Signoff acceptance flow, claim maturity ladder, and gate failure modes.
+- [PUBLIC_SAFE_DEMO_STANDARD.md](PUBLIC_SAFE_DEMO_STANDARD.md) — Required public-demo posture, page copy, scanner patterns, and release checklist.
+
 ## Public demo curriculum
 
 - [V22_V27_CURRICULUM.md](V22_V27_CURRICULUM.md) — Six-lab learning path for governed action, proof-carrying artifacts, replay, ProofZero planning, mission curriculum, and process-resolved evidence.

@@ -1,0 +1,53 @@
+name: Documentation improvement
+about: Report unclear, stale, missing, or boundary-sensitive documentation.
+title: "docs: "
+labels:
+  - documentation
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for improving GoalOS Signoff Pro documentation. Please keep reports public-safe: do not include secrets, customer data, personal data, confidential data, or regulated data.
+  - type: input
+    id: page
+    attributes:
+      label: Page or file
+      description: Which README, docs page, public route, or artifact needs attention?
+      placeholder: docs/DEMO_CATALOG.md
+    validations:
+      required: true
+  - type: dropdown
+    id: audience
+    attributes:
+      label: Primary audience
+      options:
+        - New visitor
+        - Executive
+        - Reviewer
+        - Developer
+        - Operator
+        - Legal/risk reviewer
+        - Contributor
+    validations:
+      required: true
+  - type: textarea
+    id: issue
+    attributes:
+      label: What is unclear or incorrect?
+      description: Describe the gap without including private or regulated data.
+    validations:
+      required: true
+  - type: checkboxes
+    id: boundary
+    attributes:
+      label: Public-safe boundary check
+      options:
+        - label: This report does not include secrets, personal data, customer data, confidential data, regulated data, wallet credentials, or private keys.
+          required: true
+        - label: This request does not ask for public wallet connection, payments, uploads, analytics, cookies, token sale, legal advice, financial advice, or production authority.
+          required: true
+  - type: textarea
+    id: proposed
+    attributes:
+      label: Suggested improvement
+      description: Optional concise wording, links, or acceptance criteria.
