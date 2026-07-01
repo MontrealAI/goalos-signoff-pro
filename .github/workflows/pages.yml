@@ -22,16 +22,23 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Build institutional public site v22-v30
+      - name: Build institutional public site v22-v31
         run: |
           set -euo pipefail
-          node scripts/build-goalos-signoff-pro-institutional-v22-v30.mjs
+          if [ -f scripts/build-goalos-signoff-pro-institutional-v22-v31.mjs ]; then
+            node scripts/build-goalos-signoff-pro-institutional-v22-v31.mjs
+          elif [ -f scripts/build-goalos-signoff-pro-institutional-v22-v30.mjs ]; then
+            node scripts/build-goalos-signoff-pro-institutional-v22-v30.mjs
+          else
+            node scripts/build-goalos-production-site.mjs
+          fi
       - name: Verify institutional public site
         run: |
           set -euo pipefail
+          if [ -f scripts/verify-executive-ai-proof-console-v31.mjs ]; then node scripts/verify-executive-ai-proof-console-v31.mjs; fi
           if [ -f scripts/verify-goalos-production-site.mjs ]; then node scripts/verify-goalos-production-site.mjs; fi
           if [ -f scripts/verify-proof-before-settlement-research-lab-page.mjs ]; then node scripts/verify-proof-before-settlement-research-lab-page.mjs; fi
-          node scripts/verify-goalos-signoff-public-labs-v22-v30.mjs
+          if [ -f scripts/verify-goalos-signoff-public-labs-v22-v30.mjs ]; then node scripts/verify-goalos-signoff-public-labs-v22-v30.mjs; fi
           if [ -f scripts/verify-public-artifact-safety.mjs ]; then node scripts/verify-public-artifact-safety.mjs; fi
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
