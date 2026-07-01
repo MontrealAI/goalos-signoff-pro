@@ -1,10 +1,10 @@
 {
   "type": "ProcessResolvedEvidenceDemoBundle",
-  "generatedAt": "2026-07-01T20:21:13.535Z",
+  "generatedAt": "2026-07-01T20:53:11.357Z",
   "manifest": {
     "id": "goalos-process-evidence-lab-v27",
     "version": "27.0.0",
-    "generatedAt": "2026-07-01T20:21:13.535Z",
+    "generatedAt": "2026-07-01T20:53:11.357Z",
     "primaryRoute": "process-evidence-lab.html",
     "aliases": [
       "process-trace-lab.html",

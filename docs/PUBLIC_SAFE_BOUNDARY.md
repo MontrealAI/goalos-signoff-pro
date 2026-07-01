@@ -1,15 +1,7 @@
 # Public-Safe Boundary
 
-Purpose: define what public pages may and may not do.
+Public demos are deterministic, browser-local, sample-data demonstrations.
 
-Best first action: open [`site/goalos-v22-v35-command-center.html`](../site/goalos-v22-v35-command-center.html), then continue to the recommended lab.
+They must not include public forms, text inputs, uploads, cookies, analytics, external scripts, remote fonts, external AI calls, wallet connections, chain switching, token approvals, transaction broadcasts, payments, custody, escrow release, staking, token sales, personal data, customer data, confidential data, regulated data, or value movement.
 
-Relevant routes: [`site/index.html`](../site/index.html), [`site/public-demo-labs.html`](../site/public-demo-labs.html), [`site/goalos-v22-v35-command-center.html`](../site/goalos-v22-v35-command-center.html), [`site/loop-rsi-asi-superintelligence-mission-simulator-lab.html`](../site/loop-rsi-asi-superintelligence-mission-simulator-lab.html).
-
-Verification command: `npm run site:verify:public-safe`.
-
-Public-safe boundary: no forms, no inputs, no uploads, no cookies, no analytics, no wallets, no payments, no external AI calls, no personal data, zero value moved. This is not legal advice, financial advice, investment advice, live settlement, achieved AGI/ASI, or production RSI.
-
-Allowed: static links, deterministic button/selector simulations, sample-data JSON, synthetic receipts. Not allowed: forms, uploads, wallets, payments, cookies, analytics, trackers, external AI calls, personal data, confidential data, or value movement.
-
-Back to [docs index](INDEX.md).
+Allowed: buttons, selectors, static JSON, local deterministic JavaScript, route navigation, synthetic receipts, and public-safe sample artifacts.

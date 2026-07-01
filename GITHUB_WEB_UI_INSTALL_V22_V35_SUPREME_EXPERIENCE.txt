@@ -1,0 +1,14 @@
+GoalOS Signoff Pro v22-v35 Supreme Experience — GitHub Web UI Install
+
+1. Download or unzip the upgrade package locally.
+2. Upload the CONTENTS of the unzipped folder to the repository root, not the outer folder.
+3. Include hidden folders and files, especially .github/ and workflow files.
+4. Commit to a branch such as codex/supreme-v35-institutional-website-repository-upgrade.
+5. Open Actions and run: GoalOS Signoff Pro — v22-v35 Complete Repair and Publish.
+6. If you want the workflow to commit generated site files, set commit_generated_site: true.
+7. If you want GitHub Pages deployment, set deploy_pages: true.
+8. Inspect the preview artifact if produced.
+9. After deployment, open /goalos-signoff-pro/goalos-v22-v35-command-center.html.
+10. If a missing-script error appears, re-upload the full package and confirm scripts/*.mjs and .github/workflows/*.yml were included.
+
+Routes to check: index.html, goalos-v22-v35-command-center.html, public-demo-labs.html, browser-beta.html, mission-001.html, mission-001-replay.html, verify.html, no-user-data.html, and loop-rsi-asi-superintelligence-mission-simulator-lab.html.
