@@ -8,6 +8,22 @@ GoalOS Signoff Pro is the human acceptance and signed-receipt layer for AI work.
 - [Complete v35 repair and experience start here](../GOALOS_V35_COMPLETE_REPAIR_AND_EXPERIENCE_START_HERE.md)
 - [Public command center](../site/goalos-v22-v35-command-center.html)
 
+
+## v22-v35 institutional upgrade guides
+
+- [Start here](START_HERE.md)
+- [Website experience guide](WEBSITE_EXPERIENCE_GUIDE.md)
+- [Route catalog v22-v35](ROUTE_CATALOG_V22_V35.md)
+- [Demo lab catalog v22-v35](DEMO_LAB_CATALOG_V22_V35.md)
+- [Public-safe boundary](PUBLIC_SAFE_BOUNDARY.md)
+- [GitHub Web UI install v22-v35](GITHUB_WEB_UI_INSTALL_V22_V35.md)
+- [GitHub Actions troubleshooting](GITHUB_ACTIONS_TROUBLESHOOTING.md)
+- [Verification and release checklist](VERIFICATION_AND_RELEASE_CHECKLIST.md)
+- [Communications and positioning guide](COMMUNICATIONS_AND_POSITIONING_GUIDE.md)
+- [Architecture overview](ARCHITECTURE_OVERVIEW.md)
+- [Flowcharts](FLOWCHARTS.md)
+- [Codex institutional audit v22-v35](CODEX_INSTITUTIONAL_AUDIT_V22_V35.md)
+
 ## Product / Executive
 
 - [README](../README.md)
