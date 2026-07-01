@@ -158,6 +158,6 @@ let manifest = {labs: []};
 if(fs.existsSync(priorPath)){ try{ manifest = JSON.parse(fs.readFileSync(priorPath,'utf8')); }catch{} }
 const existingLabs = Array.isArray(manifest.labs) ? manifest.labs.filter(l => String(l.id||'') !== 'v35-institutional-command-center') : [];
 existingLabs.push({id:'v35-institutional-command-center', version:'v35', title:'GoalOS Signoff Pro — v22-v35 Institutional Command Center', route:'goalos-v22-v35-command-center.html', publicSafe:true, valueMoved:0});
-fs.writeFileSync(priorPath, JSON.stringify({...manifest, version:'v22-v35', generatedAt:now, labCount:existingLabs.length, labs:existingLabs}, null, 2)+"\n");
+fs.writeFileSync(priorPath, JSON.stringify({...manifest, suite:'GoalOS Signoff Pro public demo labs v22-v35', latest:'v35', latestRoute:'loop-rsi-asi-superintelligence-mission-simulator-lab.html', latestTitle:'GoalOS Signoff Pro — Loop → RSI → ASI Superintelligence Mission Simulator Lab v35', version:'v22-v35', generatedAt:now, labCount:existingLabs.length, labs:existingLabs}, null, 2)+"\n");
 
 console.log(`GoalOS v22-v35 institutional command center PASS: ${routes.length} routes, ${patched} pages patched.`);
