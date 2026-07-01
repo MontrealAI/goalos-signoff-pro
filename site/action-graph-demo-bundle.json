@@ -2,7 +2,7 @@
   "manifest": {
     "name": "GoalOS Action Graph & Human Authority Lab",
     "version": "22.0.0",
-    "generatedAt": "2026-07-01T21:49:32Z",
+    "generatedAt": "2026-07-01T22:39:06Z",
     "scenario": "research",
     "browserLocal": true,
     "noUserData": true,
@@ -293,7 +293,7 @@
   },
   "receipt": {
     "receiptId": "GOALOS-ACTION-RECEIPT-RESEARCH-SYNTHETIC",
-    "issuedAt": "2026-07-01T21:49:32Z",
+    "issuedAt": "2026-07-01T22:39:06Z",
     "actionGraphHash": "76b7b4e5a3b7953e41efe0eea1accc328d10d11d6d99af57047046e075eb3c3d",
     "authorityGateHash": "6ef32e520d2d72edc78ed0e17edca759ed8a968a8e8de524fda3974b6d132f3c",
     "rollbackMapHash": "c79e11c7662ed6869a40a71f209ff710e49a9caa218ea761fee44593e4953410",

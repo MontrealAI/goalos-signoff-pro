@@ -1,6 +1,6 @@
 {
   "id": "GOALOS-V32-OMNI-SEARCH-CONTROL-BOUNDARY",
-  "generatedAt": "2026-07-01T21:49:33.790Z",
+  "generatedAt": "2026-07-01T22:39:06.976Z",
   "allowed": "OMNI may influence targeting, allocation, interestingness, and probe prioritization.",
   "disallowed": "OMNI may not bypass risk gates, evidence gates, baseline comparisons, persistence tests, council stop authority, or dossier packaging.",
   "slogan": "Search control is not outcome authority.",
