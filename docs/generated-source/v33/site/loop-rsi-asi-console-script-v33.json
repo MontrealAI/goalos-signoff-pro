@@ -1,0 +1,16 @@
+{
+  "generatedAt": "2026-07-01T12:16:32.184Z",
+  "mode": "deterministic browser-local AI-style console",
+  "interactions": [
+    "choose role",
+    "choose scenario",
+    "run proof loop",
+    "escalate to RSI",
+    "inspect ASI gates",
+    "apply policy shock",
+    "build dossier",
+    "copy synthetic receipt"
+  ],
+  "noTextInput": true,
+  "noExternalModelCall": true
+}

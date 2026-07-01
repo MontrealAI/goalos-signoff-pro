@@ -1,0 +1,15 @@
+{
+  "generatedAt": "2026-07-01T12:16:32.184Z",
+  "sources": [
+    {
+      "title": "AGI Alpha RSI — Sovereign Invention Governance",
+      "path": "research/rsi/AGI_Alpha_RSI_Sovereign_v0.pdf",
+      "purpose": "Presentation basis for building governance before AGI-scale systems mature."
+    },
+    {
+      "title": "AGI Alpha RSI — Sovereign Strategy Brief",
+      "path": "research/rsi/AGI_Alpha_RSI_Sovereign_Strategy_Brief_v0.pdf",
+      "purpose": "Strategy basis for deterministic invention operations and Move-37 handling."
+    }
+  ]
+}

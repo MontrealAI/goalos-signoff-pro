@@ -1,0 +1,45 @@
+{
+  "generatedAt": "2026-07-01T12:16:32.184Z",
+  "title": "Loop → RSI → ASI governance state machine",
+  "states": [
+    {
+      "id": "proof_loop",
+      "purpose": "Convert work into evidence, validation, receipts, and Chronicle memory.",
+      "stages": [
+        "Mission",
+        "Work",
+        "Evidence",
+        "Validation",
+        "Receipt",
+        "Chronicle"
+      ]
+    },
+    {
+      "id": "rsi_kernel",
+      "purpose": "Convert invention pressure into deterministic, replayable, baseline-comparative artifacts.",
+      "stages": [
+        "TARGET",
+        "EMIT",
+        "FILTER",
+        "ATLAS",
+        "TEST-PLAN",
+        "EVAL",
+        "INSERT",
+        "PROMOTE"
+      ]
+    },
+    {
+      "id": "asi_governance_horizon",
+      "purpose": "Treat potential ASI-scale escalation as bounded, stress-tested, council-reviewed, and rollback-ready.",
+      "stages": [
+        "Boundary",
+        "Sandbox",
+        "Red-team",
+        "Council",
+        "Pause/Rollback",
+        "Controlled Promotion"
+      ]
+    }
+  ],
+  "invariant": "No promotion from one state to the next without proof, baseline comparison, risk gate, persistence, human authority, and rollback path."
+}

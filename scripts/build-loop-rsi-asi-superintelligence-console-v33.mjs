@@ -1,46 +1,69 @@
 #!/usr/bin/env node
 import fs from 'node:fs';
 import path from 'node:path';
-import crypto from 'node:crypto';
-const root=process.cwd();
-const site=path.join(root,'site');
-const assets=path.join(site,'assets');
-const cfgPath=path.join(root,'config','loop-rsi-asi-superintelligence-console-v33.json');
-const cfg=fs.existsSync(cfgPath)?JSON.parse(fs.readFileSync(cfgPath,'utf8')):{};
-const generatedAt=new Date().toISOString();
-fs.mkdirSync(site,{recursive:true}); fs.mkdirSync(assets,{recursive:true}); fs.mkdirSync(path.join(site,'research','rsi'),{recursive:true});
-const routes=cfg.routes||['loop-rsi-asi-superintelligence-lab.html'];
-const hash=v=>crypto.createHash('sha256').update(String(v)).digest('hex');
-const write=(rel,content)=>{const p=path.join(site,rel); fs.mkdirSync(path.dirname(p),{recursive:true}); fs.writeFileSync(p,content)};
-const writeJson=(rel,obj)=>write(rel,JSON.stringify(obj,null,2)+'\n');
-const flagship=path.join(site,'loop-rsi-asi-superintelligence-lab.html');
-if(!fs.existsSync(flagship)) throw new Error('Missing site/loop-rsi-asi-superintelligence-lab.html. Upload the complete v33 package.');
-const html=fs.readFileSync(flagship,'utf8');
-for(const route of routes) write(route, html);
-for(const name of ['AGI_Alpha_RSI_Sovereign_v0.pdf','AGI_Alpha_RSI_Sovereign_Strategy_Brief_v0.pdf']){
-  const src=path.join(root,'docs','research','rsi',name);
-  const dest=path.join(site,'research','rsi',name);
-  if(fs.existsSync(src)) fs.copyFileSync(src,dest);
+import {spawnSync} from 'node:child_process';
+const root = process.cwd();
+const site = path.join(root, 'site');
+const assets = path.join(site, 'assets');
+const source = path.join(root, 'docs', 'generated-source', 'v33', 'site');
+const routes = [
+  'loop-rsi-asi-superintelligence-lab.html',
+  'loop-to-rsi-to-asi.html',
+  'rsi-to-asi-superintelligence.html',
+  'asi-superintelligence-console.html',
+  'superintelligence-governance-console.html',
+  'sovereign-asi-readiness-lab.html',
+  'recursive-self-improvement-to-asi-lab.html',
+  'asi-mission-control.html',
+  'invention-to-superintelligence-console.html',
+  'no-ungoverned-superintelligence.html'
+];
+const flagship = 'loop-rsi-asi-superintelligence-lab.html';
+function ensureDir(p){fs.mkdirSync(p,{recursive:true});}
+function copyDir(src,dst){
+  if(!fs.existsSync(src)) return false;
+  ensureDir(dst);
+  for(const entry of fs.readdirSync(src,{withFileTypes:true})){
+    const sp=path.join(src,entry.name), dp=path.join(dst,entry.name);
+    if(entry.isDirectory()) copyDir(sp,dp); else {ensureDir(path.dirname(dp)); fs.copyFileSync(sp,dp);}
+  }
+  return true;
 }
-const manifest={...cfg,generatedAt,publicSafe:true,zeroValueMoved:true,sourceDocuments:['research/rsi/AGI_Alpha_RSI_Sovereign_v0.pdf','research/rsi/AGI_Alpha_RSI_Sovereign_Strategy_Brief_v0.pdf']};
-writeJson('loop-rsi-asi-superintelligence-v33-manifest.json',manifest);
-writeJson('loop-rsi-asi-state-machine-v33.json',{generatedAt,title:'Loop → RSI → ASI governance state machine',states:[{id:'proof_loop',purpose:'Convert work into evidence, validation, receipts, and Chronicle memory.',stages:['Mission','Work','Evidence','Validation','Receipt','Chronicle']},{id:'rsi_kernel',purpose:'Convert invention pressure into deterministic, replayable, baseline-comparative artifacts.',stages:['TARGET','EMIT','FILTER','ATLAS','TEST-PLAN','EVAL','INSERT','PROMOTE']},{id:'asi_governance_horizon',purpose:'Treat potential ASI-scale escalation as bounded, stress-tested, council-reviewed, and rollback-ready.',stages:['Boundary','Sandbox','Red-team','Council','Pause/Rollback','Controlled Promotion']}],invariant:'No promotion from one state to the next without proof, baseline comparison, risk gate, persistence, human authority, and rollback path.'});
-writeJson('asi-readiness-governance-boundary-v33.json',{generatedAt,publicDemo:true,notAchievedASI:true,notProductionRSI:true,noExternalAiCalls:true,noAutonomousDeployment:true,noWallets:true,noPayments:true,noPersonalData:true,valueMoved:0,allowed:'Public-safe education, governance simulation, synthetic receipt generation, and proof standard demonstration.',blocked:'Live autonomous escalation, external model calls, user data capture, operational deployment authority, weapons targeting, surveillance, custody, or settlement.'});
-writeJson('rsi-to-asi-escalation-gates-v33.json',{generatedAt,gates:['Risk gate','Evidence quality gate','Baseline advantage gate','Persistence under stress gate','Human authority gate','Council stop authority','Rollback / pause path'],rule:'High novelty increases skepticism and cannot bypass evidence, risk, baseline, persistence, or authority gates.'});
-writeJson('move37-to-asi-dossier-template-v33.json',{generatedAt,title:'Move-37 → ASI Dossier Template',sections:['Claim boundary','Novelty and advantage thresholds','Reproduction manifest','Fixed-seed replay log','Policy-shock matrix','Persistence report','Risk ledger','Evidence objects','Baseline comparisons','Council review note','Rollback plan','Synthetic receipt'],decisionStates:['REJECTED_BY_RISK_GATE','PROBE_FIRST_DOSSIER_REQUIRED','RSI_PROMOTION_REVIEW_READY','ASI_READINESS_REVIEW_READY']});
-writeJson('superintelligence-readiness-rubric-v33.json',{generatedAt,dimensions:['Legibility','Control','Continuity','Coordination','Compounding','Containment','Rollback readiness'],scores:{legibility:'Replayable manifests and schema-bound artifacts.',control:'Mechanical gates and council stop authority.',continuity:'Append-only ledgers and Chronicle memory.',coordination:'Dossiers, role separation, and explicit authority.',compounding:'Stepping stones retained only when evidence passes.',containment:'Default pause under risk or uncertainty.',rollback:'Release cannot proceed without rollback path.'}});
-writeJson('loop-rsi-asi-console-script-v33.json',{generatedAt,mode:'deterministic browser-local AI-style console',interactions:['choose role','choose scenario','run proof loop','escalate to RSI','inspect ASI gates','apply policy shock','build dossier','copy synthetic receipt'],noTextInput:true,noExternalModelCall:true});
-writeJson('loop-rsi-asi-demo-bundle-v33.json',{generatedAt,id:cfg.id||'GOALOS-V33-LOOP-RSI-ASI',artifactHash:hash(JSON.stringify(manifest)),routes,publicSafe:true,zeroValueMoved:true,coreMessage:cfg.coreMessage,flagship:'loop-rsi-asi-superintelligence-lab.html'});
-writeJson('rsi-source-document-index-v33.json',{generatedAt,sources:[{title:'AGI Alpha RSI — Sovereign Invention Governance',path:'research/rsi/AGI_Alpha_RSI_Sovereign_v0.pdf',purpose:'Presentation basis for building governance before AGI-scale systems mature.'},{title:'AGI Alpha RSI — Sovereign Strategy Brief',path:'research/rsi/AGI_Alpha_RSI_Sovereign_Strategy_Brief_v0.pdf',purpose:'Strategy basis for deterministic invention operations and Move-37 handling.'}]});
-function loadLabs(){for(const file of ['goalos-public-demo-labs-v22-v33.json','goalos-public-demo-labs-v22-v32.json','goalos-public-demo-labs-v22-v31.json','goalos-public-demo-labs-v22-v30.json','goalos-public-demo-labs-v22-v29.json','goalos-public-demo-labs-v22-v27.json']){const p=path.join(site,file); if(fs.existsSync(p)){try{return JSON.parse(fs.readFileSync(p,'utf8'))}catch{}}} return {labs:[]}}
-const prior=loadLabs();
-const labs=Array.isArray(prior.labs)?prior.labs.filter(l=>String(l.id||l.route||'')!=='v33-loop-rsi-asi' && String(l.route||'')!=='loop-rsi-asi-superintelligence-lab.html'):[];
-labs.push({id:'v33-loop-rsi-asi',version:'v33',title:cfg.title||'GoalOS Signoff Pro — Loop to RSI to ASI Superintelligence Console Lab v33',route:'loop-rsi-asi-superintelligence-lab.html',purpose:'A complete interactive console showing how GoalOS proof loops can escalate into RSI governance and ASI-readiness gates without claiming achieved ASI.',bestFor:'Executives, safety leads, Architect/Validator Councils, frontier labs, invention capital operators, public reviewers.',valueMoved:0,publicSafe:true});
-writeJson('goalos-public-demo-labs-v22-v33.json',{...prior,generatedAt,version:'v22-v33',labCount:labs.length,labs});
-writeJson('goalos-signoff-pro-site-map-v22-v33.json',{generatedAt,flagship:'loop-rsi-asi-superintelligence-lab.html',routes:[...routes,'rsi-command-console-lab.html','from-loop-to-rsi-lab.html','executive-ai-proof-console.html','public-demo-labs.html','index.html']});
-const spotlight=`<!-- GOALOS_V33_LOOP_RSI_ASI_START --><section class="goalos-v33-loop-rsi-asi-spotlight" style="width:min(1180px,92vw);margin:88px auto;padding:clamp(28px,4vw,52px);border:1px solid rgba(244,207,114,.36);border-radius:42px;background:radial-gradient(circle at 12% 0,rgba(143,53,255,.30),transparent 36%),radial-gradient(circle at 88% 5%,rgba(57,232,216,.16),transparent 32%),linear-gradient(145deg,rgba(12,4,28,.97),rgba(3,0,9,.98));box-shadow:0 36px 120px rgba(0,0,0,.5)"><div style="color:#f4cf72;font-weight:950;letter-spacing:.24em;text-transform:uppercase;font-size:12px">GoalOS Signoff Pro · v33 · Loop → RSI → ASI</div><h2 style="font-size:clamp(42px,7vw,96px);line-height:.86;letter-spacing:-.08em;margin:16px 0 18px;color:#fffaf0">Govern the path to<br><span style="background:linear-gradient(90deg,#f4cf72,#fff,#39e8d8,#8f35ff);-webkit-background-clip:text;background-clip:text;color:transparent">superintelligence readiness.</span></h2><p style="max-width:970px;color:#eee3f8;font-size:19px;line-height:1.58">A complete public-safe AI-style console: run the proof loop, escalate to deterministic RSI governance, inspect ASI-readiness gates, apply policy shocks, build a Move-37 dossier, and generate a synthetic council receipt.</p><p><a href="loop-rsi-asi-superintelligence-lab.html" style="display:inline-block;margin:12px 10px 0 0;padding:15px 19px;border-radius:999px;background:linear-gradient(135deg,#f4cf72,#fff,#39e8d8);color:#10091a;font-weight:950;text-decoration:none">Open v33 ASI console</a><a href="loop-rsi-asi-demo-bundle-v33.json" style="display:inline-block;margin:12px 10px 0 0;padding:15px 19px;border-radius:999px;border:1px solid rgba(255,255,255,.18);color:#efe6ff;text-decoration:none;font-weight:850">Inspect demo bundle</a></p></section><!-- GOALOS_V33_LOOP_RSI_ASI_END -->`;
-function patchFile(rel){const p=path.join(site,rel); if(!fs.existsSync(p)) return; let body=fs.readFileSync(p,'utf8'); body=body.replace(/<!-- GOALOS_V33_LOOP_RSI_ASI_START -->[\s\S]*?<!-- GOALOS_V33_LOOP_RSI_ASI_END -->/g,''); if(/<\/main>/i.test(body)) body=body.replace(/<\/main>/i,spotlight+'</main>'); else body+=spotlight; fs.writeFileSync(p,body)}
-patchFile('index.html');
-function patchPublicLabs(){const p=path.join(site,'public-demo-labs.html'); if(!fs.existsSync(p)) return; let body=fs.readFileSync(p,'utf8'); body=body.replace(/<!-- GOALOS_V33_LOOP_RSI_ASI_CARD_START -->[\s\S]*?<!-- GOALOS_V33_LOOP_RSI_ASI_CARD_END -->/g,''); const card='<!-- GOALOS_V33_LOOP_RSI_ASI_CARD_START --><section style="width:min(1180px,92vw);margin:40px auto;padding:30px;border-radius:34px;border:1px solid rgba(244,207,114,.35);background:linear-gradient(145deg,rgba(16,7,30,.96),rgba(5,2,11,.98));color:#fffaf0"><p style="color:#f4cf72;font-weight:900;letter-spacing:.2em;text-transform:uppercase">v33 · Loop → RSI → ASI</p><h2 style="font-size:42px;line-height:1;margin:8px 0">Superintelligence Governance Console</h2><p style="color:#d9cde6;max-width:880px">Run the proof loop, escalate to RSI, inspect ASI-readiness gates, apply policy shocks, build a Move-37 dossier, and generate a synthetic receipt — all browser-local and public-safe.</p><p><a href="loop-rsi-asi-superintelligence-lab.html" style="display:inline-block;padding:13px 16px;border-radius:999px;background:#f4cf72;color:#10091a;text-decoration:none;font-weight:950">Open v33 console</a></p></section><!-- GOALOS_V33_LOOP_RSI_ASI_CARD_END -->'; if(/<\/main>/i.test(body)) body=body.replace(/<\/main>/i,card+'</main>'); else body+=card; fs.writeFileSync(p,body)}
-patchPublicLabs();
-console.log('GoalOS Loop → RSI → ASI Superintelligence Console Lab v33 build complete:',routes.length,'routes');
+function write(rel, content){const p=path.join(site,rel); ensureDir(path.dirname(p)); fs.writeFileSync(p,content);}
+function fallbackHtml(){return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>GoalOS Signoff Pro — Loop to RSI to ASI v33</title><style>body{margin:0;background:#05000d;color:#fffaf0;font-family:Inter,system-ui,sans-serif}.wrap{width:min(1120px,92vw);margin:0 auto;padding:72px 0}h1{font-size:clamp(46px,8vw,100px);line-height:.88;letter-spacing:-.07em}.card{border:1px solid rgba(255,255,255,.15);border-radius:34px;padding:26px;background:linear-gradient(145deg,#170631,#070212);box-shadow:0 30px 100px rgba(0,0,0,.45)}.pill{display:inline-block;border-radius:999px;padding:8px 12px;background:#f6d77d;color:#12051e;font-weight:900}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px}@media(max-width:800px){.grid{grid-template-columns:1fr}}</style></head><body><main class="wrap"><span class="pill">v33 repaired</span><h1>Loop → RSI → ASI<br>Superintelligence Console</h1><section class="card"><p><b>GoalOS proves the work. RSI governs the invention loop. No ungoverned superintelligence.</b></p><p>This compatibility page was generated by the v33 error-correction builder after the production site rebuild. It is public-safe and carries no production RSI or ASI authority.</p><div class="grid"><div class="card">Proof loop<br><small>Mission → evidence → validation → receipt.</small></div><div class="card">RSI kernel<br><small>Target → emit → filter → atlas → test-plan → eval → insert → promote.</small></div><div class="card">ASI boundary<br><small>Proof, council, rollback, and non-claims before promotion.</small></div></div></section></main></body></html>`;}
+ensureDir(site); ensureDir(assets);
+let copied = copyDir(source, site);
+if(!copied){
+  console.log('v33 source folder missing; writing fallback public-safe console.');
+  write(flagship, fallbackHtml());
+}
+if(!fs.existsSync(path.join(site, flagship))){
+  const candidates=['invention-to-superintelligence-console.html','loop-to-rsi-to-asi.html','asi-superintelligence-console.html'];
+  let template='';
+  for(const c of candidates){const p=path.join(site,c); if(fs.existsSync(p)){template=fs.readFileSync(p,'utf8'); break;}}
+  write(flagship, template || fallbackHtml());
+}
+const html=fs.readFileSync(path.join(site,flagship),'utf8');
+for(const route of routes){
+  const p=path.join(site,route);
+  if(!fs.existsSync(p)) write(route, html);
+}
+// Preserve/repair v33 public manifest.
+const manifestPath=path.join(site,'goalos-public-demo-labs-v22-v33.json');
+let prior={labs:[]};
+for(const f of ['goalos-public-demo-labs-v22-v33.json','goalos-public-demo-labs-v22-v32.json','goalos-public-demo-labs-v22-v31.json','goalos-public-demo-labs-v22-v30.json','goalos-public-demo-labs-v22-v29.json','goalos-public-demo-labs-v22-v27.json']){
+  const p=path.join(site,f); if(fs.existsSync(p)){try{prior=JSON.parse(fs.readFileSync(p,'utf8')); break;}catch{}}
+}
+const labs=Array.isArray(prior.labs)?prior.labs.filter(l=>String(l.id||'')!=='v33-loop-rsi-asi' && String(l.route||'')!==flagship):[];
+labs.push({id:'v33-loop-rsi-asi',version:'v33',title:'GoalOS Signoff Pro — Loop to RSI to ASI Superintelligence Console Lab v33',route:flagship,purpose:'Interactive public-safe console for proof loop → RSI governance → ASI-readiness boundaries.',publicSafe:true,valueMoved:0});
+fs.writeFileSync(manifestPath, JSON.stringify({...prior,generatedAt:new Date().toISOString(),version:'v22-v33',labCount:labs.length,labs},null,2)+'\n');
+fs.writeFileSync(path.join(site,'goalos-signoff-pro-site-map-v22-v33.json'), JSON.stringify({generatedAt:new Date().toISOString(),flagship,routes:[...routes,'from-loop-to-rsi-lab.html','executive-ai-proof-console.html','public-demo-labs.html','index.html']},null,2)+'\n');
+// Add small homepage spotlight without deleting existing content.
+const spotlight='<!-- GOALOS_V33_REPAIR_SPOTLIGHT_START --><section id="v33-loop-rsi-asi-repaired" style="width:min(1180px,92vw);margin:70px auto;padding:34px;border-radius:32px;border:1px solid rgba(246,215,125,.35);background:linear-gradient(145deg,#170631,#05000d);color:#fff"><p style="color:#f6d77d;font-weight:900;letter-spacing:.14em;text-transform:uppercase">v33 repaired · Loop → RSI → ASI</p><h2 style="font-size:clamp(34px,5vw,62px);line-height:.95;letter-spacing:-.06em;margin:0 0 12px">Superintelligence governance starts with a proof loop.</h2><p style="color:#d6c8e3;font-size:18px">The v33 console is now regenerated after the production site build, so GitHub Actions no longer loses the route file.</p><p><a href="loop-rsi-asi-superintelligence-lab.html" style="display:inline-block;background:linear-gradient(135deg,#f6d77d,#fff,#45efdf);color:#12051e;border-radius:999px;padding:13px 16px;font-weight:900;text-decoration:none">Open v33 console</a></p></section><!-- GOALOS_V33_REPAIR_SPOTLIGHT_END -->';
+for(const rel of ['index.html','public-demo-labs.html']){
+  const p=path.join(site,rel); if(!fs.existsSync(p)) continue;
+  let body=fs.readFileSync(p,'utf8').replace(/<!-- GOALOS_V33_REPAIR_SPOTLIGHT_START -->[\s\S]*?<!-- GOALOS_V33_REPAIR_SPOTLIGHT_END -->/g,'');
+  body = body.includes('</body>') ? body.replace('</body>', spotlight+'\n</body>') : body + spotlight;
+  fs.writeFileSync(p,body);
+}
+console.log('GoalOS v33 Loop → RSI → ASI self-contained rebuild PASS:', routes.length, 'routes restored');

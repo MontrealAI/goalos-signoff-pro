@@ -1,0 +1,18 @@
+{
+  "name": "Architect / Validator Council \u2014 illustrative public-safe charter",
+  "purpose": "Independent review, stop authority, and escalation control for RSI and ASI-scale claims.",
+  "powers": [
+    "block promotion",
+    "require reproduction",
+    "demand red-team shocks",
+    "freeze ASI-scale claims",
+    "require rollback drill",
+    "publish decision receipt"
+  ],
+  "constraints": [
+    "no production authority from public demo",
+    "no wallet or fund movement",
+    "no claim of achieved AGI/ASI",
+    "no external AI calls"
+  ]
+}

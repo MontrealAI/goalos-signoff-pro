@@ -1,0 +1,21 @@
+{
+  "generatedAt": "2026-07-01T12:16:32.184Z",
+  "dimensions": [
+    "Legibility",
+    "Control",
+    "Continuity",
+    "Coordination",
+    "Compounding",
+    "Containment",
+    "Rollback readiness"
+  ],
+  "scores": {
+    "legibility": "Replayable manifests and schema-bound artifacts.",
+    "control": "Mechanical gates and council stop authority.",
+    "continuity": "Append-only ledgers and Chronicle memory.",
+    "coordination": "Dossiers, role separation, and explicit authority.",
+    "compounding": "Stepping stones retained only when evidence passes.",
+    "containment": "Default pause under risk or uncertainty.",
+    "rollback": "Release cannot proceed without rollback path."
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "drill": [
+    "define containment boundary",
+    "confirm monitoring",
+    "simulate stop signal",
+    "verify rollback path",
+    "record adverse-event register",
+    "require human authorization before release"
+  ],
+  "passCondition": "all release-critical controls pass under stress"
+}
