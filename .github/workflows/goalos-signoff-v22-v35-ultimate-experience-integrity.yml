@@ -51,6 +51,8 @@ jobs:
             "scripts/repair-goalos-v22-v35-html-integrity.mjs"
             "scripts/verify-goalos-v22-v35-ultimate-public-experience.mjs"
             "scripts/verify-goalos-signoff-public-labs-v22-v35.mjs"
+            "scripts/enhance-goalos-v22-v35-worldclass-website.mjs"
+            "scripts/verify-goalos-v22-v35-worldclass-website.mjs"
           )
           for f in "${required[@]}"; do
             if [[ ! -f "$f" ]]; then
@@ -70,6 +72,8 @@ jobs:
         run: node scripts/build-goalos-signoff-public-labs-v22-v35.mjs
       - name: Apply ultimate public experience layer
         run: node scripts/enhance-goalos-v22-v35-ultimate-public-experience.mjs
+      - name: Apply world-class website completion layer
+        run: node scripts/enhance-goalos-v22-v35-worldclass-website.mjs
       - name: Repair legal rail and footer integrity
         run: node scripts/repair-goalos-v22-v35-html-integrity.mjs
       - name: Verify production site integrity
@@ -78,6 +82,8 @@ jobs:
         run: node scripts/check-site-route-integrity.mjs
       - name: Verify ultimate v22-v35 experience
         run: node scripts/verify-goalos-v22-v35-ultimate-public-experience.mjs
+      - name: Verify complete world-class v22-v35 experience
+        run: node scripts/verify-goalos-v22-v35-worldclass-website.mjs
       - name: Verify complete public-safe lab suite
         run: node scripts/verify-goalos-signoff-public-labs-v22-v35.mjs
       - name: Commit generated site files
