@@ -1,7 +1,7 @@
 # Codex Supreme v35 Audit
 
-- Branch: `work` (preferred PR branch requested: `codex/supreme-v35-institutional-website-repository-upgrade`).
-- Commit audited: `87071dbce0f7e2fd17734fb308425b27ddfafc6a`.
+- Branch: `codex/supreme-v35-institutional-website-repository-upgrade`.
+- Commit audited: `d551c50f0c366d34b2b67d75922f470548c53bef`.
 - Audit date/time: 2026-07-01 UTC.
 - Live-site network inspection: available. The live homepage at `https://montrealai.github.io/goalos-signoff-pro/` still exposed stale “Six new proof labs” v22-v27 framing near the public-suite section, while the command center route was live and readable through v35.
 
@@ -86,3 +86,10 @@ The canonical `scripts/build-goalos-signoff-public-labs-v22-v35.mjs` regenerates
 - Full manual visual QA on deployed GitHub Pages after merge.
 - Optional OG/Twitter metadata expansion across every historical lab page.
 - Optional screenshot artifact capture from a browser runner in CI.
+
+- `npm ci` — PASS.
+- `npm run lint` — PASS with warnings.
+- `npm run typecheck` — PASS.
+- `npm run test` — PASS.
+- `npm run build` — PASS.
+- `git diff --check` — PASS.
