@@ -1,26 +1,26 @@
 # Codex Supreme v35 Changelog
 
-## 2026-07-01 — Supreme v35 institutional upgrade
+## 2026-07-01 — Institutional website/repository upgrade
 
 ### Website
 
-- Regenerated the v22-v35 public suite from committed source builders.
-- Updated the v22-v35 command-center generator so the command center is the obvious first stop and the synthetic receipt is static/sample-data only.
-- Reframed v22-v27 as the first chapter of the complete v22-v35 suite rather than the whole suite.
-- Preserved all flagship routes, required aliases, and historical bridge routes (`all-labs.html`, `labs.html`, `docs.html`, `documentation.html`, `route-catalog.html`) through the v22-v35 generator.
+- Regenerated the public suite through v35.
+- Made the v22-v35 command center and its aliases the obvious starting point.
+- Rebuilt the public demo hub as a complete v22-v35 chapter map rather than a v22-v27-only page.
+- Normalized generated homepage copy so the first six labs are described as the first chapter, not the full suite.
 
-### Documentation
+### Repository and documentation
 
-- Added the Supreme v35 audit and changelog.
-- Added current guides for the command center, website, public labs, GitHub Web UI path, workflows/verification, public-safe boundary, claim boundary, route catalog, and RSI/ASI-readiness boundary.
-- Added root GitHub Web UI upload/install instructions.
+- Updated README badges and workflow-script wording.
+- Added this concrete audit/changelog record for the Supreme v35 pass.
 
-### Workflows and scripts
+### Workflows/scripts
 
-- Verified workflow references to `node scripts/*.mjs` with the repository verifier.
-- Kept the canonical v22-v35 complete repair/publish workflow as the one-go path.
-- Rebuilt the committed `site/` output through the v22-v35 source builder and made preservation-sensitive legacy routes deterministic generator outputs when the production rebuild prunes old compatibility files.
+- Preserved all existing workflows and scripts.
+- Hardened `scripts/enhance-goalos-v22-v35-institutional-command-center.mjs` so production regeneration restores the complete hub and current framing.
 
-### Removals
+### Public-safe boundary
 
-No files were removed in this pass.
+- No files were removed.
+- No public forms, uploads, wallets, payments, analytics, external AI calls, or value-moving paths were added.
+- The resulting generated site passed route, public-safe, link, and v22-v35 verification commands.

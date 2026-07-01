@@ -1,6 +1,6 @@
 # GoalOS Signoff Pro
 
-[![Pages](https://github.com/MontrealAI/goalos-signoff-pro/actions/workflows/pages.yml/badge.svg)](https://github.com/MontrealAI/goalos-signoff-pro/actions/workflows/pages.yml) [![Website Quality](https://github.com/MontrealAI/goalos-signoff-pro/actions/workflows/website-quality.yml/badge.svg)](https://github.com/MontrealAI/goalos-signoff-pro/actions/workflows/website-quality.yml) [![Complete v22-v35 Repair and Publish](https://github.com/MontrealAI/goalos-signoff-pro/actions/workflows/goalos-signoff-v22-v35-complete-repair-and-publish.yml/badge.svg)](https://github.com/MontrealAI/goalos-signoff-pro/actions/workflows/goalos-signoff-v22-v35-complete-repair-and-publish.yml) ![Public Safe](https://img.shields.io/badge/public--safe-no_forms_no_uploads_no_wallets-43f0df) ![Zero Value Moved](https://img.shields.io/badge/value_moved-0-f6d77d) ![License](https://img.shields.io/badge/license-MIT-white)
+[![Pages](https://github.com/MontrealAI/goalos-signoff-pro/actions/workflows/pages.yml/badge.svg)](https://github.com/MontrealAI/goalos-signoff-pro/actions/workflows/pages.yml) [![Website Quality](https://github.com/MontrealAI/goalos-signoff-pro/actions/workflows/website-quality.yml/badge.svg)](https://github.com/MontrealAI/goalos-signoff-pro/actions/workflows/website-quality.yml) [![Complete v22-v35 Repair and Publish](https://github.com/MontrealAI/goalos-signoff-pro/actions/workflows/goalos-signoff-v22-v35-complete-repair-and-publish.yml/badge.svg)](https://github.com/MontrealAI/goalos-signoff-pro/actions/workflows/goalos-signoff-v22-v35-complete-repair-and-publish.yml) [![Ultimate Experience Integrity](https://github.com/MontrealAI/goalos-signoff-pro/actions/workflows/goalos-signoff-v22-v35-ultimate-experience-integrity.yml/badge.svg)](https://github.com/MontrealAI/goalos-signoff-pro/actions/workflows/goalos-signoff-v22-v35-ultimate-experience-integrity.yml) ![Public Safe](https://img.shields.io/badge/public--safe-no_forms_no_uploads_no_wallets-43f0df) ![Zero Value Moved](https://img.shields.io/badge/value_moved-0-f6d77d) ![License](https://img.shields.io/badge/license-MIT-white)
 
 **GoalOS Signoff Pro is the institutional proof-to-acceptance layer for AI work: evidence first, replay before trust, human authority before settlement readiness.**
 
@@ -150,7 +150,7 @@ npm run institutional:verify
 ## Workflow guide
 
 - `.github/workflows/goalos-signoff-v22-v35-complete-repair-and-publish.yml` is the canonical one-go manual repair, verification, preview artifact, and optional Pages deploy workflow.
-- `scripts/check-workflow-script-integrity.mjs` fails when a workflow references a missing `node scripts/*.mjs` file.
+- `scripts/verify-workflow-script-references.mjs` fails when a workflow references a missing `node scripts/*.mjs` file.
 - `scripts/check-site-route-integrity.mjs` verifies flagship routes, aliases, manifests, public-safe boundaries, and forbidden public claims.
 
 

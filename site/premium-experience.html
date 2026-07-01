@@ -73,5 +73,7 @@ function buildReceipt(){state.step=4;const receipt={receipt_id:'GOALOS-V30-V34-P
 $('#run-cycle').onclick=runCycle;$('#stress-test').onclick=stressTest;$('#build-receipt').onclick=buildReceipt;$('#hub-copy').onclick=()=>navigator.clipboard&&navigator.clipboard.writeText('Blockchain proves the transaction. GoalOS proves the work.\nNo Proof. No Trust. No Settlement.\nNo ungoverned superintelligence.');$('#hub-tour').onclick=()=>{state.step=0;render();let i=0;const timer=setInterval(()=>{state.step=i;state.why=['Start with proof before settlement.','Use a guided console to make the idea obvious.','Govern invention through deterministic RSI gates.','Escalate ASI claims only through council, rollback, and dossiers.','Finish with a receipt: proof becomes institutional memory.'][i];render();i++;if(i>4)clearInterval(timer)},900)};renderCards();render();
 </script>
 <script defer src="assets/goalos-v30-v34-premium-ux.js"></script>
+
+
 <!-- GOALOS_V35_FLOATING_START --><a class="goalos35-floating" href="goalos-v22-v35-command-center.html">✦ Guided Command Center</a><!-- GOALOS_V35_FLOATING_END -->
 </body></html>
