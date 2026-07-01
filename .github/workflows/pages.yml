@@ -1,18 +1,9 @@
-name: Deploy GoalOS Signoff Pro production site
+name: Deploy GoalOS Signoff Pro to GitHub Pages
 
 on:
-  workflow_dispatch:
   push:
     branches: [main]
-    paths:
-      - 'config/**'
-      - 'scripts/**'
-      - 'docs/**'
-      - 'verification/**'
-      - 'README.md'
-      - '.github/workflows/pages.yml'
-      - '.github/workflows/website-quality.yml'
-      - '.github/workflows/goalos-signoff-public-labs-v22-v27.yml'
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -25,56 +16,33 @@ concurrency:
 
 jobs:
   build:
-    name: Build and verify canonical site plus public labs v22-v27
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repository
-        uses: actions/checkout@v4
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Build production site and all public demonstration labs
-        shell: bash
+      - name: Build institutional public site v22-v29
         run: |
           set -euo pipefail
-          rm -rf site artifacts
-          mkdir -p site artifacts
-          if [ -f scripts/build-goalos-production-site.mjs ]; then node scripts/build-goalos-production-site.mjs; fi
-          for f in \
-            scripts/build-proof-gradient-lab-page.mjs \
-            scripts/build-capability-compounding-lab-page.mjs \
-            scripts/build-sovereign-experience-lab-page.mjs \
-            scripts/build-proof-settlement-lab-page.mjs \
-            scripts/build-public-private-proof-boundary-lab-page.mjs \
-            scripts/build-governed-decision-state-lab-page.mjs \
-            scripts/build-rollback-challenge-lab-page.mjs \
-            scripts/build-validator-mesh-lab-page.mjs \
-            scripts/build-until-done-lab-page.mjs
-          do
-            if [ -f "$f" ]; then node "$f"; fi
-          done
-          node scripts/build-goalos-signoff-public-labs-v22-v27.mjs
-      - name: Verify production site and public labs v22-v27
-        shell: bash
+          node scripts/build-goalos-signoff-pro-institutional-v22-v29.mjs
+      - name: Verify institutional public site
         run: |
           set -euo pipefail
           if [ -f scripts/verify-goalos-production-site.mjs ]; then node scripts/verify-goalos-production-site.mjs; fi
-          node scripts/verify-goalos-signoff-public-labs-v22-v27.mjs
-      - name: Configure Pages
-        uses: actions/configure-pages@v5
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
+          node scripts/verify-goalos-signoff-public-labs-v22-v29.mjs
+          node scripts/verify-signoff-pro-institutional-v28-v29.mjs
+          if [ -f scripts/verify-public-artifact-safety.mjs ]; then node scripts/verify-public-artifact-safety.mjs; fi
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
         with:
           path: site
   deploy:
-    name: Deploy to GitHub Pages
     needs: build
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
+      - id: deployment
         uses: actions/deploy-pages@v4

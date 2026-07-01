@@ -1,0 +1,90 @@
+name: GoalOS Signoff Pro — Institutional Website v22-v29
+
+on:
+  workflow_dispatch:
+    inputs:
+      commit_generated_site:
+        description: Commit generated site/ and artifacts/ back to this branch
+        required: true
+        default: true
+        type: boolean
+      deploy_pages:
+        description: Deploy generated site to GitHub Pages
+        required: true
+        default: true
+        type: boolean
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: goalos-pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Build institutional public site v22-v29
+        run: |
+          set -euo pipefail
+          node scripts/build-goalos-signoff-pro-institutional-v22-v29.mjs
+      - name: Generate optional public-safe lab bundles
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts
+          if [ -f scripts/generate-blockchain-credibility-lab-bundle.mjs ]; then node scripts/generate-blockchain-credibility-lab-bundle.mjs dao-grants; fi
+          if [ -f scripts/generate-blockchain-proof-mandate-lab-bundle.mjs ]; then node scripts/generate-blockchain-proof-mandate-lab-bundle.mjs dao-grant-payout; fi
+      - name: Verify institutional public site
+        run: |
+          set -euo pipefail
+          if [ -f scripts/verify-goalos-production-site.mjs ]; then node scripts/verify-goalos-production-site.mjs; fi
+          node scripts/verify-goalos-signoff-public-labs-v22-v29.mjs
+          node scripts/verify-signoff-pro-institutional-v28-v29.mjs
+          if [ -f scripts/verify-public-artifact-safety.mjs ]; then node scripts/verify-public-artifact-safety.mjs; fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: goalos-signoff-pro-institutional-site-v22-v29
+          path: site
+      - uses: actions/upload-artifact@v4
+        with:
+          name: goalos-signoff-pro-v28-v29-artifacts
+          path: artifacts
+          if-no-files-found: ignore
+      - name: Commit generated site and artifacts
+        if: ${{ inputs.commit_generated_site == true }}
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add site artifacts
+          if git diff --cached --quiet; then
+            echo "No generated site changes."
+          else
+            git commit -m "Update GoalOS Signoff Pro institutional site v22-v29 [skip ci]"
+            git push || echo "Generated site commit could not be pushed; artifact remains available."
+          fi
+      - uses: actions/configure-pages@v5
+        if: ${{ inputs.deploy_pages == true }}
+      - uses: actions/upload-pages-artifact@v3
+        if: ${{ inputs.deploy_pages == true }}
+        with:
+          path: site
+  deploy:
+    if: ${{ inputs.deploy_pages == true }}
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
