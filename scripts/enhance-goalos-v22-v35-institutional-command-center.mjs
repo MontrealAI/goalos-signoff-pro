@@ -9,10 +9,7 @@ const now = new Date().toISOString();
 
 function ensureDir(p){ fs.mkdirSync(p, {recursive:true}); }
 function write(rel, content){ const p = path.join(site, rel); ensureDir(path.dirname(p)); fs.writeFileSync(p, content); }
-function copy(src, dst){ ensureDir(path.dirname(dst)); fs.copyFileSync(src, dst); }
-function exists(rel){ return fs.existsSync(path.join(site, rel)); }
 function escapeHtml(s){ return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
-function compact(s){ return String(s).replace(/\s+/g,' ').trim(); }
 ensureDir(site); ensureDir(assets);
 
 const labs = [
@@ -116,8 +113,32 @@ const html = `<!doctype html>
 <section><div class="goalos35-kicker">Recommended high-signal labs</div><div id="g35-cards" class="goalos35-cards">${labCards}</div></section>
 <footer class="goalos35-footer"><p><strong>GoalOS proves work. RSI governs invention. ASI must not self-authorize.</strong></p><p>Boundary: public-safe demonstration only; no AGI/ASI achievement claim, no production RSI, no autonomous deployment authority, no legal certification, no investment advice, no live settlement, no wallet support, and no value movement.</p></footer></div><script src="assets/goalos-v22-v35-command-center.js"></script></body></html>`;
 
-const routes = ['goalos-v22-v35-command-center.html','command-center.html','start-here.html','latest.html','experience.html','demo.html','proof-to-superintelligence.html','governed-superintelligence.html','v22-v35.html'];
+const routes = ['goalos-v22-v35-command-center.html','command-center.html','start-here.html','latest.html','experience.html','demo.html','proof-to-superintelligence.html','governed-superintelligence.html','v22-v35.html','website-guide.html'];
 for(const r of routes) write(r, html);
+
+const bridgePages = {
+  'all-labs.html': {title:'All Public Labs', target:'public-demo-labs.html', note:'Complete v22-v35 public lab hub.'},
+  'labs.html': {title:'Public Labs', target:'public-demo-labs.html', note:'Chaptered route map for v22-v35.'},
+  'docs.html': {title:'Documentation', target:'website-guide.html', note:'Reviewer guide, route catalog, and public-safe documentation.'},
+  'documentation.html': {title:'Documentation', target:'website-guide.html', note:'Reviewer guide, route catalog, and public-safe documentation.'},
+  'route-catalog.html': {title:'Route Catalog', target:'goalos-v22-v35-route-catalog.json', note:'Machine-readable v22-v35 route catalog.'}
+};
+function bridgeHtml({title,target,note}){
+  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>GoalOS Signoff Pro · ${escapeHtml(title)}</title><meta name="description" content="GoalOS Signoff Pro ${escapeHtml(title)} bridge for the public-safe v22-v35 suite."><link rel="stylesheet" href="assets/goalos-v22-v35-command-center.css"></head><body class="goalos35-command"><main class="goalos35-shell"><nav class="goalos35-nav"><a class="goalos35-brand" href="index.html"><span class="goalos35-sigil">α</span><span>GoalOS Signoff Pro</span></a><a class="goalos35-pill" href="goalos-v22-v35-command-center.html">Start Here</a></nav><section class="goalos35-hero"><div><div class="goalos35-kicker">Preserved bridge route · v22-v35</div><h1 class="goalos35-title">${escapeHtml(title)}</h1><p class="goalos35-sub">${escapeHtml(note)} This bridge preserves historical navigation while routing reviewers to the current public-safe v22-v35 experience.</p><div class="goalos35-actions"><a class="goalos35-button" href="${target}">Open current page</a><a class="goalos35-button secondary" href="goalos-v22-v35-command-center.html">Open command center</a></div></div><aside class="goalos35-panel"><h2>Public-safe boundary</h2><p>No forms, no inputs, no uploads, no analytics, no wallets, no payments, no external AI calls, and zero value moved.</p></aside></section></main></body></html>`;
+}
+for(const [rel, model] of Object.entries(bridgePages)) write(rel, bridgeHtml(model));
+
+const routeCatalog = {
+  suite:'GoalOS Signoff Pro public route catalog v22-v35',
+  latest:'v35',
+  generatedAt:now,
+  flagshipRoutes:['index.html','goalos-v22-v35-command-center.html','start-here.html','latest.html','command-center.html','experience.html','demo.html','proof-to-superintelligence.html','governed-superintelligence.html','v22-v35.html','public-demo-labs.html','website-guide.html','browser-beta.html','mission-001.html','mission-001-replay.html','verify.html','no-user-data.html'],
+  preservedBridgeRoutes:Object.keys(bridgePages),
+  labs,
+  publicSafety
+};
+write('goalos-v22-v35-route-catalog.json', JSON.stringify(routeCatalog,null,2)+"\n");
+
 
 const commandManifest = JSON.stringify({version:'v35', generatedAt:now, flagship:'goalos-v22-v35-command-center.html', routes, labs, publicSafety}, null, 2)+"\n";
 write('goalos-v22-v35-command-center-manifest.json', commandManifest);
