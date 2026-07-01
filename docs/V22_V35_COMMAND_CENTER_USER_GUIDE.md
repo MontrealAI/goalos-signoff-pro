@@ -12,4 +12,4 @@ Start here, Proof before settlement, Blockchain / DAO credibility, Loop to RSI, 
 
 ## What it proves
 
-It proves the public explanation path is coherent and that proof gates can be made visible. It does not prove live settlement, achieved AGI/ASI, production RSI, autonomous deployment authority, legal certification, or external audit completion.
+It proves the public explanation path is coherent and that proof gates can be made visible. It does not prove live settlement, realized AGI/ASI, production RSI, autonomous deployment authority, legal certification, or external audit completion.

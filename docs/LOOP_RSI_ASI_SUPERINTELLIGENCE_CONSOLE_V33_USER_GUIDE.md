@@ -10,7 +10,7 @@ GoalOS proof loop
 → ASI-scale readiness gates
 ```
 
-It does **not** claim achieved ASI. It demonstrates the governance layer needed before any system can responsibly mature toward ASI-scale capability.
+It does **not** claim realized ASI. It demonstrates the governance layer needed before any system can responsibly mature toward ASI-scale capability.
 
 ## Public-safe interaction model
 

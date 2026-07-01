@@ -19,7 +19,7 @@ Open `site/goalos-v22-v35-command-center.html` after the workflow publishes. The
 
 ## Public-safe boundaries
 
-The public site remains browser-local and deterministic: no forms, no text inputs, no uploads, no cookies, no analytics, no wallets, no payments, no external AI calls, no personal data, and zero value moved. It does not claim achieved AGI, achieved ASI, production RSI, autonomous deployment authority, legal advice, financial advice, live settlement, custody, or token sale.
+The public site remains browser-local and deterministic: no forms, no text inputs, no uploads, no cookies, no analytics, no wallets, no payments, no external AI calls, no personal data, and zero value moved. It does not claim realized AGI, realized ASI, production RSI, autonomous deployment authority, legal advice, financial advice, live settlement, custody, or token sale.
 
 ## Local verification
 

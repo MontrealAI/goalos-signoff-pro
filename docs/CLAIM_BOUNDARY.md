@@ -12,7 +12,7 @@ GoalOS Signoff Pro demonstrates proof-to-acceptance, proof-before-settlement, de
 
 ## Prohibited public claims
 
-- Achieved AGI or achieved ASI.
+- Achieved AGI or realized ASI.
 - Production RSI or autonomous deployment authority.
 - Live Mainnet settlement, custody, escrow release, staking, brokerage, payment, token sale, or value movement.
 - Legal, financial, tax, or investment advice.

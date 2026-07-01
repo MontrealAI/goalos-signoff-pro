@@ -61,4 +61,4 @@ GoalOS Signoff Pro is the human acceptance and signed-receipt layer for AI work.
 - README, docs, site routes, and manifests mention v22-v35 and v35 latest.
 - Workflow/script integrity checker passes.
 - Route/public-safe integrity checker passes.
-- No public wallet, form, upload, analytics, payment, personal-data, live settlement, achieved AGI/ASI, or production RSI claims.
+- No public wallet, form, upload, analytics, payment, personal-data, live settlement, realized AGI/ASI, or production RSI claims.

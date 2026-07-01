@@ -39,7 +39,7 @@
 
 ## Claim-boundary checklist
 
-- [ ] No achieved AGI/ASI claim
+- [ ] No realized AGI/ASI claim
 - [ ] No production RSI claim
 - [ ] No autonomous deployment authority claim
 - [ ] No live Mainnet settlement/custody/staking/token sale claim

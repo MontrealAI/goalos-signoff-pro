@@ -50,4 +50,4 @@ proofzero-planning-manifest.json
 
 ## Claim boundary
 
-Synthetic browser-local public demonstration only. No external audit, no production certification, no empirical SOTA claim, no active settlement, no custody, no staking, no value movement, no achieved AGI or ASI claim, and no autonomous production authority.
+Synthetic browser-local public demonstration only. No external audit, no production certification, no empirical SOTA claim, no active settlement, no custody, no staking, no value movement, no realized AGI or ASI claim, and no autonomous production authority.

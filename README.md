@@ -168,7 +168,7 @@ Broken routes, missing scripts referenced by workflows, unverifiable generated a
 
 ## Claim boundary and public-safe posture
 
-The public demos are deterministic simulations and institutional review aids. They are not live Mainnet settlement, custody, escrow, staking, token sale, brokerage, legal advice, financial advice, tax advice, investment advice, achieved AGI, achieved ASI, production RSI, autonomous deployment authority, external audit completion, or guaranteed ROI. There are no public forms, text inputs, uploads, cookies, analytics, wallets, payments, external AI calls, personal data, or value movement.
+The public demos are deterministic simulations and institutional review aids. They are not live Mainnet settlement, custody, escrow, staking, token sale, brokerage, legal advice, financial advice, tax advice, investment advice, realized AGI, realized ASI, production RSI, autonomous deployment authority, external audit completion, or guaranteed ROI. There are no public forms, text inputs, uploads, cookies, analytics, wallets, payments, external AI calls, personal data, or value movement.
 
 ## Maintainership and contribution links
 

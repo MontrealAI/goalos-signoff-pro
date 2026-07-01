@@ -13,4 +13,4 @@ Blockchain proves the transaction. GoalOS proves the work. RSI governs invention
 
 ## Claim boundary
 
-Say public-safe demonstration, readiness gates, synthetic receipt, deterministic simulation, governance console, and claim-boundary. Do not claim achieved AGI, achieved ASI, production RSI, autonomous deployment authority, guaranteed ROI, legal advice, financial advice, live Mainnet settlement, custody, or token sale.
+Say public-safe demonstration, readiness gates, synthetic receipt, deterministic simulation, governance console, and claim-boundary. Do not claim realized AGI, realized ASI, production RSI, autonomous deployment authority, guaranteed ROI, legal advice, financial advice, live Mainnet settlement, custody, or token sale.

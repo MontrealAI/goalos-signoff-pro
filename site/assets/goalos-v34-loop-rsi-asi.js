@@ -535,7 +535,7 @@ Mode: ${activeMode} — ${DATA.explainModes[activeMode]}
 
 Plain answer: ${s.decision}
 
-Boundary: this is a deterministic browser-local demo. It does not call an AI API, collect user input, connect wallets, move value, or claim achieved AGI/ASI.`);
+Boundary: this is a deterministic browser-local demo. It does not call an AI API, collect user input, connect wallets, move value, or claim realized AGI/ASI.`);
 }
 function runCycle() {
   cycleIndex += 1; const s = DATA.scenarios[activeScenario]; const p = DATA.personas[activePersona]; let i = 0, artifacts = [];
@@ -605,7 +605,7 @@ Recommended action: ${s.decision}
 
 Required before escalation: evidence docket, deterministic replay, baseline comparison, policy-shock persistence, independent council review, rollback drill, signed receipt.
 
-Public boundary: no external AI call, no uploads, no wallet, no payment, no value moved, no claim of achieved AGI/ASI.`;
+Public boundary: no external AI call, no uploads, no wallet, no payment, no value moved, no claim of realized AGI/ASI.`;
   $('#memo').textContent = memo; copyText(memo, 'Board memo copied');
 }
 function buildReceipt(showLog=true) {
@@ -627,7 +627,7 @@ function buildReceipt(showLog=true) {
     advantage_delta_percent: s.advantage,
     gates: s.gates,
     required_dossier: DATA.dossier.map(d => d.name),
-    mandatory_boundary: ['not achieved AGI','not achieved ASI or superintelligence','not live RSI','not autonomous deployment','no wallet','no payment','no external AI call','zero value moved','no self-authorized promotion'],
+    mandatory_boundary: ['not realized AGI','not realized ASI or superintelligence','not live RSI','not autonomous deployment','no wallet','no payment','no external AI call','zero value moved','no self-authorized promotion'],
     decision_note: s.decision,
     generated_at: new Date().toISOString()
   };

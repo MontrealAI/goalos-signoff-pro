@@ -16,7 +16,7 @@ GoalOS Signoff Pro is the human acceptance and signed-receipt layer for AI work.
 - No Evidence Docket, no strong public claim.
 - No ProofBundle, no settlement signal.
 - No replay, no settlement.
-- Do not claim achieved AGI or ASI, empirical SOTA, production RSI, production certification, external audit completion, guaranteed ROI, legal advice, financial advice, tax advice, investment advice, autonomous deployment authority, or safe autonomy proven.
+- Do not claim realized AGI or ASI, empirical SOTA, production RSI, production certification, external audit completion, guaranteed ROI, legal advice, financial advice, tax advice, investment advice, autonomous deployment authority, or safe autonomy proven.
 - Use “ASI-readiness gates,” “public-safe deterministic demonstration,” “synthetic receipt,” and “governance console” for v32-v35.
 - AGIALPHA references are identity/protocol-boundary references only unless an explicit boundary document says otherwise.
 

@@ -23,4 +23,4 @@ No forms, no user text input, no uploads, no cookies, no analytics, no wallet ac
 
 ## Claim boundary
 
-This PR does not claim achieved AGI, ASI, or recursive self-improvement. It is a public-safe governance demonstration only.
+This PR does not claim realized AGI, ASI, or recursive self-improvement. It is a public-safe governance demonstration only.

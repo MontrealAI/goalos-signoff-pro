@@ -27,4 +27,4 @@ Use this standard everywhere:
 
 ## What not to claim
 
-Do not claim guaranteed project success, live Mainnet settlement, custody, staking, token distribution, legal certification, investment advice, achieved AGI, achieved ASI, or guaranteed return.
+Do not claim guaranteed project success, live Mainnet settlement, custody, staking, token distribution, legal certification, investment advice, realized AGI, realized ASI, or guaranteed return.

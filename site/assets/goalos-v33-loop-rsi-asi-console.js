@@ -113,7 +113,7 @@
     $('#copyBtn')?.addEventListener('click',async()=>{const txt=$('#receiptJson').textContent; try{await navigator.clipboard.writeText(txt); addLine('Console','Synthetic receipt copied to clipboard.');}catch{addLine('Console','Copy unavailable in this browser; receipt remains visible for manual copy.');}});
     $('#resetBtn')?.addEventListener('click',()=>{state.phase='loop'; state.runs=0; state.shock=0; $('#consoleLines').innerHTML=''; addLine('Console','Reset complete. Choose a role and scenario, then run the proof loop.'); render();});
     addLine('Console','Welcome. This is a browser-local AI-style governance console: no text input, no external model call, no wallet, no payment, no data capture.');
-    addLine('Console','Start with the proof loop, escalate to RSI, then inspect ASI-readiness gates without claiming achieved ASI.');
+    addLine('Console','Start with the proof loop, escalate to RSI, then inspect ASI-readiness gates without claiming realized ASI.');
     render();
   }
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init); else init();
