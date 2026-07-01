@@ -58,13 +58,13 @@ jobs:
             git push
           fi
       - name: Upload v34 preview artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: goalos-signoff-pro-v34-site-preview
           path: site
       - name: Upload Pages artifact
         if: ${{ inputs.deploy_pages }}
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: site
   deploy:

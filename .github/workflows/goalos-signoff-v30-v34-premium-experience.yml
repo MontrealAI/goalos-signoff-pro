@@ -22,6 +22,7 @@ permissions:
   id-token: write
 
 env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
   NODE_VERSION: "24"
 
 jobs:
@@ -53,7 +54,7 @@ jobs:
           fi
       - name: Upload Pages artifact
         if: ${{ github.event.inputs.deploy_pages == 'true' }}
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: site
   deploy:
