@@ -1,0 +1,23 @@
+{
+  "id": "goalos-signoff-pro-institutional-website-update-v28-v29",
+  "title": "GoalOS Signoff Pro Institutional Website Update v28/v29",
+  "adds": [
+    "v28 Blockchain Credibility Standard Lab",
+    "v29 Blockchain Proof Mandate & Due Diligence Lab",
+    "homepage institutional repair",
+    "README/docs/workflows/verification",
+    "short front-door routes"
+  ],
+  "publicSafe": {
+    "forms": false,
+    "inputs": false,
+    "uploads": false,
+    "cookies": false,
+    "analytics": false,
+    "wallets": false,
+    "payments": false,
+    "personalData": false,
+    "confidentialData": false,
+    "valueMoved": 0
+  }
+}

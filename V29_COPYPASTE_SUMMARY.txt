@@ -1,0 +1,22 @@
+GoalOS Signoff Pro — Blockchain Proof Mandate & Due Diligence Lab v29
+
+Core message:
+Blockchain proves the transaction. GoalOS proves the work.
+Where is the proof package?
+No proof package, no serious trust. No validation, no settlement. No receipt, no credibility.
+
+What v29 does:
+It turns the v28 Blockchain Credibility Standard into an actionable stakeholder mandate. It gives everyone a simple proof request, due-diligence scorecard, DAO policy template, RFP/procurement template, decision tree, dashboard schema, and synthetic receipt-ready demo bundle.
+
+Flagship route:
+blockchain-proof-mandate-lab.html
+
+Aliases:
+proof-package-requirement-lab.html
+require-proof-before-trust-lab.html
+blockchain-due-diligence-lab.html
+goalos-proof-request-lab.html
+no-proof-no-credibility-lab.html
+
+Action:
+Run the GitHub Action: GoalOS Signoff Pro — Global Public Demo Labs v22-v29
