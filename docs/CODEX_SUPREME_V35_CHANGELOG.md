@@ -1,26 +1,57 @@
 # Codex Supreme v35 Changelog
 
-## 2026-07-01 — Institutional website/repository upgrade
+Date: 2026-07-01 UTC
+Branch: `codex/supreme-v35-institutional-website-repository-upgrade`
 
-### Website
+## Summary
 
-- Regenerated the public suite through v35.
-- Made the v22-v35 command center and its aliases the obvious starting point.
-- Rebuilt the public demo hub as a complete v22-v35 chapter map rather than a v22-v27-only page.
-- Normalized generated homepage copy so the first six labs are described as the first chapter, not the full suite.
+This pass regenerated the v22-v35 public website suite from the committed builders and preserved all flagship routes, aliases, manifests, and public-safe boundaries. No historical pages, docs, workflows, artifacts, or route aliases were intentionally removed.
 
-### Repository and documentation
+## Website changes
 
-- Updated README badges and workflow-script wording.
-- Added this concrete audit/changelog record for the Supreme v35 pass.
+- Regenerated the complete static `site/` output with `npm run site:build:v22-v35`.
+- Preserved the canonical command-center route: `site/goalos-v22-v35-command-center.html`.
+- Preserved required aliases: `site/start-here.html`, `site/latest.html`, `site/command-center.html`, `site/experience.html`, `site/demo.html`, `site/proof-to-superintelligence.html`, `site/governed-superintelligence.html`, and `site/v22-v35.html`.
+- Rebuilt the public lab catalogs and manifests through v35, including `site/goalos-v22-v35-route-catalog.json`, `site/goalos-public-demo-labs-v22-v35.json`, and `site/goalos-signoff-pro-site-map-v22-v35.json`.
+- Refreshed generated HTML/JSON timestamps and manifest metadata produced by the public-labs build pipeline.
 
-### Workflows/scripts
+## Repository and documentation changes
 
-- Preserved all existing workflows and scripts.
-- Hardened `scripts/enhance-goalos-v22-v35-institutional-command-center.mjs` so production regeneration restores the complete hub and current framing.
+- Updated this changelog with the concrete changes made in the Supreme v35 pass.
+- Updated `docs/CODEX_SUPREME_V35_AUDIT.md` with the current branch, audited commit, live-site inspection note, route inventory, coverage matrix, actions taken, and validation results.
 
-### Public-safe boundary
+## Removals
 
-- No files were removed.
-- No public forms, uploads, wallets, payments, analytics, external AI calls, or value-moving paths were added.
-- The resulting generated site passed route, public-safe, link, and v22-v35 verification commands.
+No intentional file removals were made. Generated output briefly omitted legacy v35 ultimate assets during rebuild, and those files were restored before commit to preserve prior work.
+
+## Public-safe boundary confirmation
+
+The generated public pages remain static and claim-bounded:
+
+- no public forms;
+- no public text inputs;
+- no uploads;
+- no cookies;
+- no analytics;
+- no external scripts or remote fonts;
+- no wallet connections or chain switching;
+- no token approvals or transaction broadcasts;
+- no payments, custody, escrow, staking, token sale, or value movement;
+- no external AI API calls;
+- no personal, customer, confidential, or regulated data.
+
+## Validation results
+
+- `npm ci` — PASS.
+- `npm run site:verify:workflows` — PASS.
+- `npm run site:build:v22-v35` — PASS.
+- `npm run site:verify:v22-v35` — PASS.
+- `npm run site:verify:routes` — PASS.
+- `npm run site:verify:public-safe` — PASS.
+- `npm run site:verify:links` — PASS.
+- `npm run site:verify:all` — PASS.
+- `npm run lint` — PASS with existing warnings only.
+- `npm run typecheck` — PASS.
+- `npm run test` — PASS.
+- `npm run build` — PASS.
+- `git diff --check` — PASS.
