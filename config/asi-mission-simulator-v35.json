@@ -1,0 +1,21 @@
+{
+  "id": "goalos-signoff-pro-v35",
+  "flagshipRoute": "loop-rsi-asi-superintelligence-mission-simulator-lab.html",
+  "routes": [
+    "loop-rsi-asi-superintelligence-mission-simulator-lab.html",
+    "asi-mission-simulator.html",
+    "sovereign-asi-flight-simulator.html",
+    "proof-gated-asi-simulator.html",
+    "superintelligence-simulation-console.html",
+    "rsi-to-asi-control-simulator.html",
+    "goalos-asi-mission-control.html",
+    "loop-rsi-asi-v35.html",
+    "no-ungoverned-asi.html",
+    "v35.html"
+  ],
+  "publicSafe": true,
+  "valueMoved": 0,
+  "externalAiCalls": false,
+  "build": "node scripts/build-goalos-signoff-public-labs-v22-v35.mjs",
+  "verify": "node scripts/verify-loop-rsi-asi-superintelligence-mission-simulator-v35.mjs"
+}
