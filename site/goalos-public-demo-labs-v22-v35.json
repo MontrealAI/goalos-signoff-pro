@@ -1,8 +1,8 @@
 {
-  "suite": "GoalOS Signoff Pro public demo labs v22-v34",
-  "latest": "v34",
-  "latestRoute": "loop-rsi-asi-superintelligence-control-tower-lab.html",
-  "latestTitle": "GoalOS Signoff Pro — Loop → RSI → ASI Superintelligence Control Tower Lab v34",
+  "suite": "GoalOS Signoff Pro public demo labs v22-v35",
+  "latest": "v35",
+  "latestRoute": "loop-rsi-asi-superintelligence-mission-simulator-lab.html",
+  "latestTitle": "GoalOS Signoff Pro — Loop → RSI → ASI Superintelligence Mission Simulator Lab v35",
   "labs": [
     "v22 Action Graph & Human Authority",
     "v23 Proof-Carrying Artifact & Evolution Ledger",
@@ -35,7 +35,7 @@
       "valueMoved": 0
     }
   ],
-  "generatedAt": "2026-07-01T17:26:27.264Z",
+  "generatedAt": "2026-07-01T17:34:15.054Z",
   "version": "v22-v35",
   "labCount": 15
 }

@@ -2,7 +2,7 @@
   "manifest": {
     "name": "GoalOS Signoff Pro — Proof-Carrying Artifact & Evolution Ledger Lab",
     "version": "23.0.0",
-    "generatedAt": "2026-07-01T17:26:25Z",
+    "generatedAt": "2026-07-01T17:34:12Z",
     "routes": [
       "proof-carrying-artifact-lab.html",
       "artifact-vault-lab.html",
@@ -197,7 +197,7 @@
   },
   "evolutionLedgerEntry": {
     "ledgerEntryId": "EVOLUTION-LEDGER-RESEARCH-V3-SYNTHETIC",
-    "generatedAt": "2026-07-01T17:26:25Z",
+    "generatedAt": "2026-07-01T17:34:12Z",
     "eventType": "SELECTION_CERTIFICATE_EMITTED",
     "artifactFamilyId": "GOALOS-PCA-RESEARCH-SYNTHETIC",
     "versionHash": "37e41a76746470427beb1e36dbe2696a",
