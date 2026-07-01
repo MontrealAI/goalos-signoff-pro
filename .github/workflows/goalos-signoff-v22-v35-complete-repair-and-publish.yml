@@ -1,19 +1,15 @@
-name: GoalOS Signoff Pro — Loop to RSI to ASI Mission Simulator v35
+name: GoalOS Signoff Pro — Complete v22-v35 Repair and Publish
 
 on:
   workflow_dispatch:
     inputs:
-      v35_scenario:
-        description: "Public-safe v35 scenario label"
-        required: false
-        default: "asi-mission-simulator"
       commit_generated_site:
-        description: "Commit generated site artifacts back to the branch"
+        description: "Commit generated site files back to this branch"
         type: boolean
         required: false
         default: true
       deploy_pages:
-        description: "Deploy GitHub Pages after build"
+        description: "Deploy GitHub Pages after successful verification"
         type: boolean
         required: false
         default: true
@@ -31,12 +27,12 @@ env:
   NODE_VERSION: "24"
 
 concurrency:
-  group: goalos-signoff-pro-v35-pages
+  group: goalos-signoff-pro-v22-v35-complete-repair-and-publish
   cancel-in-progress: false
 
 jobs:
-  build-v35:
-    name: Build and verify v35 Loop → RSI → ASI mission simulator
+  build:
+    name: Build, repair, verify, and publish v22-v35
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -50,23 +46,36 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          for f in \
-            scripts/build-goalos-signoff-public-labs-v22-v35.mjs \
-            scripts/verify-goalos-signoff-public-labs-v22-v35.mjs \
-            scripts/build-loop-rsi-asi-superintelligence-mission-simulator-v35.mjs \
-            scripts/verify-loop-rsi-asi-superintelligence-mission-simulator-v35.mjs \
-            scripts/enhance-goalos-v30-v34-premium-experience.mjs \
-            scripts/enhance-goalos-v22-v35-institutional-command-center.mjs \
-            docs/generated-source/v35/site/loop-rsi-asi-superintelligence-mission-simulator-lab.html; do
-            test -f "$f" || { echo "::error::Missing required file: $f"; exit 1; }
-            echo "OK $f"
+          required=(
+            "scripts/build-goalos-signoff-public-labs-v22-v35.mjs"
+            "scripts/verify-goalos-signoff-public-labs-v22-v35.mjs"
+            "scripts/enhance-goalos-v30-v34-premium-experience.mjs"
+            "scripts/enhance-goalos-v22-v35-institutional-command-center.mjs"
+            "scripts/build-loop-rsi-asi-superintelligence-mission-simulator-v35.mjs"
+            "scripts/verify-loop-rsi-asi-superintelligence-mission-simulator-v35.mjs"
+            "docs/generated-source/v35/site/loop-rsi-asi-superintelligence-mission-simulator-lab.html"
+            "docs/generated-source/v33/site/loop-rsi-asi-superintelligence-lab.html"
+          )
+          missing=0
+          for f in "${required[@]}"; do
+            if [[ ! -f "$f" ]]; then
+              echo "::error::Missing required v35 repair file: $f"
+              missing=1
+            else
+              echo "OK $f"
+            fi
           done
-      - name: Build v22-v35 public labs
+          if [[ "$missing" == "1" ]]; then
+            echo "Upload the complete one-go package contents to the repository root, including scripts/ and docs/generated-source/."
+            exit 1
+          fi
+      - name: Build complete v22-v35 public site
         run: node scripts/build-goalos-signoff-public-labs-v22-v35.mjs
-      - name: Verify global v22-v35 public-safe suite
+      - name: Verify complete v22-v35 public-safe suite
         run: node scripts/verify-goalos-signoff-public-labs-v22-v35.mjs
       - name: Commit generated site files
         if: ${{ inputs.commit_generated_site }}
+        shell: bash
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -74,13 +83,13 @@ jobs:
           if git diff --cached --quiet; then
             echo "No generated changes to commit."
           else
-            git commit -m "Add GoalOS v35 complete mission simulator and command center"
+            git commit -m "Repair and publish GoalOS Signoff Pro v22-v35 complete experience"
             git push
           fi
-      - name: Upload v35 site preview artifact
+      - name: Upload v22-v35 site preview artifact
         uses: actions/upload-artifact@v6
         with:
-          name: goalos-signoff-pro-v35-site-preview
+          name: goalos-signoff-pro-v22-v35-complete-site-preview
           path: site
       - name: Upload Pages artifact
         if: ${{ inputs.deploy_pages }}
@@ -88,8 +97,9 @@ jobs:
         with:
           path: site
   deploy:
+    name: Deploy GitHub Pages
     if: ${{ inputs.deploy_pages }}
-    needs: build-v35
+    needs: build
     runs-on: ubuntu-latest
     environment:
       name: github-pages
