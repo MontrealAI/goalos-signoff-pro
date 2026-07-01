@@ -1,0 +1,36 @@
+
+/* GoalOS v35 world-class completion layer: compact, non-intrusive, public-safe navigation. */
+body.goalos-v35-final-ready { scroll-behavior: smooth; }
+.gx-premium-spotlight { display:none !important; }
+.gx-compact-dock * { box-sizing: border-box; }
+.gx-compact-dock .gx-floating-launch { position: fixed; right: 18px; bottom: 18px; z-index: 99990; display: flex; flex-direction: column; gap: 10px; align-items: flex-end; }
+.gx-compact-dock .gx-launch-btn { border: 1px solid rgba(255,255,255,.22); border-radius: 999px; padding: 12px 16px; background: linear-gradient(135deg, rgba(155,92,255,.96), rgba(72,240,217,.9)); color: #fff; font-weight: 950; box-shadow: 0 18px 55px rgba(0,0,0,.45); cursor: pointer; text-decoration: none; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+.gx-compact-dock .gx-command-link { background: linear-gradient(135deg, rgba(255,225,138,.98), rgba(255,79,163,.94)); color:#170817; }
+.gx-compact-dock .gx-panel { position: fixed; right: 18px; bottom: 116px; width: min(460px, calc(100vw - 28px)); max-height: min(760px, calc(100vh - 128px)); overflow: auto; z-index: 99991; padding: 1px; border-radius: 28px; background: linear-gradient(135deg, rgba(247,208,122,.72), rgba(155,92,255,.72), rgba(72,240,217,.55)); box-shadow: 0 30px 90px rgba(0,0,0,.55); display: none; }
+.gx-compact-dock .gx-panel.open { display:block; }
+.gx-compact-dock .gx-panel-inner { background: rgba(8,9,22,.97); border-radius: 27px; padding: 20px; border: 1px solid rgba(255,255,255,.08); color:#f7f4ff; }
+.gx-compact-dock .gx-panel-top { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; margin-bottom:14px; }
+.gx-compact-dock .gx-panel h3 { margin:0; font-size:22px; letter-spacing:-.03em; }
+.gx-compact-dock .gx-panel p { margin:6px 0 14px; color:#bcb6d8; line-height:1.55; }
+.gx-compact-dock .gx-kicker { display:inline-flex; gap:9px; align-items:center; font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:#f7d07a; font-weight:900; }
+.gx-compact-dock .gx-close { border:0; background:rgba(255,255,255,.08); color:#fff; border-radius:12px; min-width:34px; height:34px; cursor:pointer; }
+.gx-compact-dock .gx-nav-list { display:grid; gap:9px; margin:12px 0; }
+.gx-compact-dock .gx-nav-link { display:flex; justify-content:space-between; gap:10px; align-items:center; padding:12px; border-radius:16px; text-decoration:none; border:1px solid rgba(255,255,255,.10); background:rgba(255,255,255,.045); transition:.18s; color:#f7f4ff; }
+.gx-compact-dock .gx-nav-link:hover { background:rgba(255,255,255,.08); transform:translateX(2px); }
+.gx-compact-dock .gx-nav-link small { display:block; color:#bcb6d8; margin-top:3px; line-height:1.35; }
+.gx-compact-dock .gx-progress { height:9px; border-radius:99px; background:rgba(255,255,255,.08); overflow:hidden; margin:9px 0 14px; }
+.gx-compact-dock .gx-progress span { display:block; height:100%; width:86%; background:linear-gradient(90deg,#9b5cff,#48f0d9); border-radius:99px; }
+.gx-compact-dock .gx-stage-row { display:flex; flex-wrap:wrap; gap:8px; margin:12px 0; }
+.gx-compact-dock .gx-stage { border-radius:999px; padding:7px 10px; border:1px solid rgba(255,255,255,.12); background:rgba(255,255,255,.06); font-size:12px; color:#eee; }
+.gx-compact-dock .gx-stage.active { background:linear-gradient(135deg,#9b5cff,rgba(72,240,217,.8)); border-color:transparent; color:#fff; }
+.gx-compact-dock .gx-premium-actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:18px; }
+.gx-compact-dock .gx-btn { border:1px solid rgba(255,255,255,.16); border-radius:999px; background:rgba(255,255,255,.06); color:#f7f4ff; font-weight:850; padding:11px 14px; cursor:pointer; }
+.gx-compact-dock .gx-btn.cyan { background:linear-gradient(135deg,rgba(72,240,217,.9),rgba(40,172,255,.9)); color:#07101b; }
+.gx-compact-dock .gx-btn.gold { background:linear-gradient(135deg,rgba(247,208,122,.95),rgba(255,165,82,.95)); color:#17110a; }
+.gx-compact-dock .gx-live { border:1px solid rgba(72,240,217,.24); border-radius:18px; background:rgba(72,240,217,.055); padding:12px; margin-top:12px; color:#dffef9; line-height:1.45; }
+.gx-highlight { outline:3px solid rgba(72,240,217,.7)!important; outline-offset:6px; border-radius:22px; }
+.goalos-final-strip { width:min(1180px,92vw); margin:22px auto 0; padding:14px 16px; border:1px solid rgba(134,255,223,.24); border-radius:999px; background:rgba(5,10,20,.76); display:flex; gap:12px; align-items:center; justify-content:space-between; color:#eafffb; box-shadow:0 18px 54px rgba(0,0,0,.32); }
+.goalos-final-strip strong { color:#86ffdf; }
+.goalos-final-strip a { color:#07100d; text-decoration:none; background:linear-gradient(135deg,#c9ff8f,#6dffde); padding:10px 13px; border-radius:999px; font-weight:950; white-space:nowrap; }
+@media(max-width:720px){ .goalos-final-strip { border-radius:22px; flex-direction:column; align-items:flex-start; } .gx-compact-dock .gx-floating-launch { right:10px; bottom:10px; } .gx-compact-dock .gx-panel { right:10px; bottom:106px; width:calc(100vw - 20px); } }
+@media(prefers-reduced-motion:reduce){ *{scroll-behavior:auto!important} .gx-nav-link:hover{transform:none!important} }

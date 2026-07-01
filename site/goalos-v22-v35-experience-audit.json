@@ -1,22 +1,11 @@
 {
-  "status": "ready",
+  "status": "FINAL_EXPERIENCE_READY",
   "checks": [
-    "complete v22-v35 navigation",
-    "role-based command center",
-    "public-safe no-input console",
-    "route catalog",
-    "legal rail/footer normalization",
-    "stale v22-v30 language replaced"
+    "complete v22-v35 route catalog",
+    "non-intrusive guided console",
+    "homepage stale-copy repaired",
+    "public demo hub v22-v35",
+    "old v30-v34 top spotlight suppressed"
   ],
-  "publicSafeBoundary": [
-    "no forms",
-    "no text inputs",
-    "no uploads",
-    "no cookies",
-    "no analytics",
-    "no wallets",
-    "no payments",
-    "no external AI calls",
-    "zero value moved"
-  ]
+  "boundary": "No forms · no text inputs · no uploads · no cookies · no analytics · no wallets · no payments · no external AI calls · no personal or confidential data · zero value moved."
 }

@@ -1,230 +1,228 @@
 {
-  "suite": "GoalOS Signoff Pro public route catalog v22-v35",
-  "latest": "v35",
-  "generatedAt": "2026-07-01T21:51:01.059Z",
-  "flagshipRoutes": [
-    "index.html",
+  "version": "v35-final-worldclass-experience",
+  "generatedAt": "2026-07-01T22:20:10.769Z",
+  "completeThrough": "v35",
+  "publicSafe": true,
+  "zeroValueMoved": true,
+  "entrypoints": [
     "goalos-v22-v35-command-center.html",
-    "start-here.html",
-    "latest.html",
-    "command-center.html",
-    "experience.html",
-    "demo.html",
-    "proof-to-superintelligence.html",
-    "governed-superintelligence.html",
-    "v22-v35.html",
     "public-demo-labs.html",
     "website-guide.html",
-    "browser-beta.html",
-    "mission-001.html",
-    "mission-001-replay.html",
-    "verify.html",
-    "no-user-data.html"
-  ],
-  "preservedBridgeRoutes": [
-    "all-labs.html",
-    "labs.html",
-    "docs.html",
-    "documentation.html",
-    "route-catalog.html"
+    "loop-rsi-asi-superintelligence-mission-simulator-lab.html"
   ],
   "labs": [
     {
-      "version": "v22",
-      "route": "action-graph-authority-lab.html",
-      "chapter": "Human authority",
+      "v": "v22",
       "title": "Action Graph & Human Authority",
-      "promise": "Convert accepted proof into bounded action graphs with reason, authority, rollback, and receipt boundaries.",
-      "audience": [
-        "Executive",
-        "Auditor",
-        "Builder"
-      ],
-      "value": "See why GoalOS never treats output as automatic permission to act."
+      "route": "action-graph-authority-lab.html",
+      "stage": "Proof loop",
+      "value": "Shows why GoalOS prepares action, but does not self-authorize high-impact action.",
+      "bestFor": "Executives, reviewers, compliance teams, AI delivery leads."
     },
     {
-      "version": "v23",
-      "route": "proof-carrying-artifact-lab.html",
-      "chapter": "Reusable capability",
+      "v": "v23",
       "title": "Proof-Carrying Artifact & Evolution Ledger",
-      "promise": "Make reusable artifacts earn upgrade rights through proof, ledgers, rollback, and evidence.",
-      "audience": [
-        "Builder",
-        "Auditor",
-        "AI operator"
-      ],
-      "value": "Understand how accepted work becomes reusable without becoming ungoverned."
+      "route": "proof-carrying-artifact-lab.html",
+      "stage": "Reusable capability",
+      "value": "Shows how reusable capability earns the right to influence future work.",
+      "bestFor": "Product teams, AI platform teams, governance stewards."
     },
     {
-      "version": "v24",
-      "route": "independent-replay-lab.html",
-      "chapter": "Independent replay",
+      "v": "v24",
       "title": "Independent Replay & Claim Promotion",
-      "promise": "Promote claims only when independent replay, review, and claim maturity gates pass.",
-      "audience": [
-        "Reviewer",
-        "Auditor",
-        "DAO"
-      ],
-      "value": "See how one run becomes review-ready evidence."
+      "route": "independent-replay-lab.html",
+      "stage": "Replay and promotion",
+      "value": "Shows that one run is not proof; replay makes a claim institutionally usable.",
+      "bestFor": "Research reviewers, auditors, grant evaluators, technical diligence teams."
     },
     {
-      "version": "v25",
-      "route": "proofzero-planning-lab.html",
-      "chapter": "Planning over proof states",
+      "v": "v25",
       "title": "ProofZero Planning & Evidence Reanalyze",
-      "promise": "Plan over evidence states, latent work, validators, and bounded search instead of persuasive futures.",
-      "audience": [
-        "Strategist",
-        "AI operator",
-        "Reviewer"
-      ],
-      "value": "Explore how GoalOS reasons about what remains unproven."
+      "route": "proofzero-planning-lab.html",
+      "stage": "Planning over proof states",
+      "value": "Shows how GoalOS plans over proof-relevant work states instead of persuasive futures.",
+      "bestFor": "AI operators, mission designers, evaluation teams."
     },
     {
-      "version": "v26",
+      "v": "v26",
+      "title": "Proof-Gated Mission Foundry & Curriculum",
       "route": "mission-foundry-lab.html",
-      "chapter": "Curriculum",
-      "title": "Proof-Gated Mission Foundry",
-      "promise": "Turn accepted proof into harder next missions while rejecting unproofable or unsafe mission seeds.",
-      "audience": [
-        "Program lead",
-        "Research lead",
-        "Founder"
-      ],
-      "value": "Watch proof become a curriculum for compounding work."
+      "stage": "Curriculum and compounding",
+      "value": "Shows how accepted proof becomes curriculum rather than a dead artifact.",
+      "bestFor": "Program owners, frontier evaluation teams, autonomous work architects."
     },
     {
-      "version": "v27",
-      "route": "process-evidence-lab.html",
-      "chapter": "Process evidence",
+      "v": "v27",
       "title": "Process-Resolved Evidence",
-      "promise": "Resolve evidence through process traces, lineage, provenance, and proof-native workbench views.",
-      "audience": [
-        "Auditor",
-        "Reviewer",
-        "Enterprise"
-      ],
-      "value": "Inspect how work history becomes legible instead of anecdotal."
+      "route": "process-evidence-lab.html",
+      "stage": "Process evidence",
+      "value": "Shows that final output is not enough; process-resolved evidence determines review readiness.",
+      "bestFor": "Corporate reviewers, analysts, legal/compliance observers, AI assurance teams."
     },
     {
-      "version": "v28",
-      "route": "blockchain-credibility-lab.html",
-      "chapter": "Blockchain credibility",
+      "v": "v28",
       "title": "Blockchain Credibility Standard",
-      "promise": "Blockchain proves the transaction. GoalOS proves the work.",
-      "audience": [
-        "Blockchain team",
-        "DAO",
-        "Investor"
-      ],
-      "value": "Make proof before settlement obvious."
+      "route": "blockchain-credibility-lab.html",
+      "stage": "Blockchain credibility",
+      "value": "Shows why credible blockchain projects need proof packages before trust, reputation, governance, or settlement readiness.",
+      "bestFor": "Blockchain teams, DAOs, foundations, auditors, validators, investors, users."
     },
     {
-      "version": "v29",
-      "route": "blockchain-proof-mandate-lab.html",
-      "chapter": "Proof mandate",
+      "v": "v29",
       "title": "Blockchain Proof Mandate & Due Diligence",
-      "promise": "Require the proof package before trust, funding, governance, reputation, or settlement readiness escalates.",
-      "audience": [
-        "DAO delegate",
-        "Investor",
-        "Auditor"
-      ],
-      "value": "Turn the slogan into a stakeholder checklist."
+      "route": "blockchain-proof-mandate-lab.html",
+      "stage": "Mandate and diligence",
+      "value": "Turns the blockchain credibility standard into a concrete requirement everyone can ask for, score, and enforce.",
+      "bestFor": "Users, DAO delegates, grant committees, treasury councils, auditors, investors, partners, enterprises."
     },
     {
-      "version": "v30",
+      "v": "v30",
+      "title": "Proof Before Settlement Research Standard",
       "route": "proof-before-settlement-research-lab.html",
-      "chapter": "Research standard",
-      "title": "Proof Before Settlement Research Lab",
-      "promise": "Publish the institutional research standard, acceptance predicate, due-diligence rubric, and mandate clauses.",
-      "audience": [
-        "Executive",
-        "Partner",
-        "Researcher"
-      ],
-      "value": "Give serious stakeholders a paper-grade reference."
+      "stage": "Institutional research",
+      "value": "Turns the Proof Before Settlement paper into a public standard stakeholders can read, download, cite, and require.",
+      "bestFor": "Foundations, DAOs, auditors, investors, exchanges, enterprises, partners."
     },
     {
-      "version": "v31",
-      "route": "executive-ai-proof-console.html",
-      "chapter": "Guided proof console",
+      "v": "v31",
       "title": "Executive AI Proof Console",
-      "promise": "Choose a role and run a public-safe proof-gate simulation with no inputs, no uploads, no wallets, and no external AI calls.",
-      "audience": [
-        "First-time visitor",
-        "Executive",
-        "DAO"
-      ],
-      "value": "Let anyone understand GoalOS in one guided experience."
+      "route": "executive-ai-proof-console.html",
+      "stage": "Guided proof console",
+      "value": "Makes GoalOS obvious to first-time visitors with a role-based, public-safe proof gate.",
+      "bestFor": "Executives, DAO delegates, auditors, investors, enterprises, AI operators."
     },
     {
-      "version": "v32",
-      "route": "from-loop-to-rsi-lab.html",
-      "chapter": "Loop to RSI",
+      "v": "v32",
       "title": "From Loop to RSI",
-      "promise": "Move from proof-gated work to deterministic invention governance and RSI readiness.",
-      "audience": [
-        "Frontier lab",
-        "Policy lead",
-        "Researcher"
-      ],
-      "value": "Connect proof loops to governed invention."
+      "route": "from-loop-to-rsi-lab.html",
+      "stage": "Sovereign invention governance",
+      "value": "Connects proof loops to deterministic invention governance and RSI readiness.",
+      "bestFor": "Frontier labs, governance teams, sovereign strategy leads."
     },
     {
-      "version": "v33",
-      "route": "loop-rsi-asi-superintelligence-lab.html",
-      "chapter": "RSI to ASI",
+      "v": "v33",
       "title": "Loop → RSI → ASI Console",
-      "promise": "Escalate from mission proof to RSI governance and ASI-readiness gates without self-authorization.",
-      "audience": [
-        "Safety lead",
-        "Frontier lab",
-        "Executive"
-      ],
-      "value": "See the superintelligence control boundary."
+      "route": "loop-rsi-asi-superintelligence-lab.html",
+      "stage": "RSI to ASI boundary",
+      "value": "Shows the superintelligence control boundary: promotion cannot self-authorize.",
+      "bestFor": "Safety leads, architecture councils, frontier lab directors."
     },
     {
-      "version": "v34",
-      "route": "loop-rsi-asi-superintelligence-control-tower-lab.html",
-      "chapter": "Control tower",
+      "v": "v34",
       "title": "ASI Superintelligence Control Tower",
-      "promise": "Run explanation modes, stress tests, rollback drills, council review, and Move‑37 dossier handling.",
-      "audience": [
-        "Council",
-        "Executive",
-        "Red-team"
-      ],
-      "value": "Operate the full governance cockpit."
+      "route": "loop-rsi-asi-superintelligence-control-tower-lab.html",
+      "stage": "Control tower",
+      "value": "Runs explanation modes, stress tests, rollback drills, council review, and Move‑37 dossier handling.",
+      "bestFor": "Boards, councils, sovereign programs, assurance teams."
     },
     {
-      "version": "v35",
-      "route": "loop-rsi-asi-superintelligence-mission-simulator-lab.html",
-      "chapter": "Mission simulator",
+      "v": "v35",
       "title": "ASI Mission Simulator",
-      "promise": "Choose role, mission, and explanation mode; run proof, RSI, ASI gates; generate a synthetic Mission Receipt.",
-      "audience": [
-        "Everyone",
-        "Executive",
-        "Reviewer"
-      ],
-      "value": "Experience the complete journey in one interactive lab."
+      "route": "loop-rsi-asi-superintelligence-mission-simulator-lab.html",
+      "stage": "Mission simulator",
+      "value": "Experiences the complete Loop → RSI → ASI path in one guided, button-only interactive lab.",
+      "bestFor": "Everyone: first-time visitors, executives, reviewers, blockchain teams, and RSI/ASI governance audiences."
     }
   ],
-  "publicSafety": {
-    "noForms": true,
-    "noTextInputs": true,
-    "noUploads": true,
-    "noCookies": true,
-    "noAnalytics": true,
-    "noWallets": true,
-    "noPayments": true,
-    "noExternalAiCalls": true,
-    "noPersonalData": true,
-    "valueMoved": 0,
-    "claimedAgi": false,
-    "claimedAsi": false,
-    "productionAuthority": false
-  }
+  "roles": [
+    {
+      "id": "visitor",
+      "label": "First-time visitor",
+      "headline": "Understand the big idea in one guided path.",
+      "next": "goalos-v22-v35-command-center.html",
+      "brief": "Start with the command center. It explains the proof loop, shows what to inspect next, and routes you to the right lab."
+    },
+    {
+      "id": "blockchain",
+      "label": "Blockchain / DAO",
+      "headline": "Require proof before trust or settlement.",
+      "next": "blockchain-proof-mandate-lab.html",
+      "brief": "Use v28-v30 to make proof packages normal for grants, treasuries, upgrades, audits, partners, and public claims."
+    },
+    {
+      "id": "executive",
+      "label": "Executive / board",
+      "headline": "Turn complexity into an institutional decision record.",
+      "next": "executive-ai-proof-console.html",
+      "brief": "Use the executive console and command center to see the gates, risks, authority, and receipts without reading every artifact first."
+    },
+    {
+      "id": "auditor",
+      "label": "Auditor / reviewer",
+      "headline": "Follow the evidence, replay path, and claim boundary.",
+      "next": "independent-replay-lab.html",
+      "brief": "Open the replay and process evidence labs when the main question is whether the claim can be checked independently."
+    },
+    {
+      "id": "frontier",
+      "label": "Frontier lab / RSI team",
+      "headline": "Govern invention before it compounds.",
+      "next": "from-loop-to-rsi-lab.html",
+      "brief": "Use v32-v35 to inspect deterministic invention operations, Move‑37 dossiers, stress gates, rollback, and ASI-readiness."
+    },
+    {
+      "id": "public",
+      "label": "Public reviewer",
+      "headline": "Ask the simple public question: where is the proof package?",
+      "next": "proof-package.html",
+      "brief": "Use the proof mandate and route catalog to check whether claims are marketing-only or evidence-ready."
+    }
+  ],
+  "modes": [
+    {
+      "id": "start",
+      "label": "Start here",
+      "gates": [
+        "Mission",
+        "Evidence",
+        "Replay",
+        "Validation",
+        "Human authority",
+        "Receipt"
+      ],
+      "message": "GoalOS starts by making a claim inspectable. Define the mission, bind evidence, replay it, validate it, preserve human judgment, and issue a receipt."
+    },
+    {
+      "id": "settlement",
+      "label": "Proof before settlement",
+      "gates": [
+        "Proof package URL",
+        "Mission contract",
+        "Evidence docket",
+        "Risk ledger",
+        "Signed receipt",
+        "Settlement readiness"
+      ],
+      "message": "For blockchain, the rule is simple: do not just settle transactions; settle proven work."
+    },
+    {
+      "id": "rsi",
+      "label": "Loop → RSI",
+      "gates": [
+        "Target",
+        "Emit",
+        "Filter",
+        "Atlas",
+        "Test-plan",
+        "Eval",
+        "Insert",
+        "Promote"
+      ],
+      "message": "The proof loop becomes RSI governance when exploration is deterministic, replayable, schema-bound, and gated before promotion."
+    },
+    {
+      "id": "asi",
+      "label": "RSI → ASI readiness",
+      "gates": [
+        "Risk gate",
+        "Evidence gate",
+        "Baseline gate",
+        "Persistence gate",
+        "Council gate",
+        "Rollback gate"
+      ],
+      "message": "The ASI boundary is not a capability claim. It is the governance rule: ASI-scale systems must not self-authorize."
+    }
+  ],
+  "boundary": "No forms · no text inputs · no uploads · no cookies · no analytics · no wallets · no payments · no external AI calls · no personal or confidential data · zero value moved."
 }

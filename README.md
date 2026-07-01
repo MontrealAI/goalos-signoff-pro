@@ -1,6 +1,6 @@
 # GoalOS Signoff Pro
 
-[![Pages](https://github.com/MontrealAI/goalos-signoff-pro/actions/workflows/pages.yml/badge.svg)](https://github.com/MontrealAI/goalos-signoff-pro/actions/workflows/pages.yml) [![Website Quality](https://github.com/MontrealAI/goalos-signoff-pro/actions/workflows/website-quality.yml/badge.svg)](https://github.com/MontrealAI/goalos-signoff-pro/actions/workflows/website-quality.yml) [![Complete v22-v35 Repair and Publish](https://github.com/MontrealAI/goalos-signoff-pro/actions/workflows/goalos-signoff-v22-v35-complete-repair-and-publish.yml/badge.svg)](https://github.com/MontrealAI/goalos-signoff-pro/actions/workflows/goalos-signoff-v22-v35-complete-repair-and-publish.yml) [![Ultimate Experience Integrity](https://github.com/MontrealAI/goalos-signoff-pro/actions/workflows/goalos-signoff-v22-v35-ultimate-experience-integrity.yml/badge.svg)](https://github.com/MontrealAI/goalos-signoff-pro/actions/workflows/goalos-signoff-v22-v35-ultimate-experience-integrity.yml) ![Public Safe](https://img.shields.io/badge/public--safe-no_forms_no_uploads_no_wallets-43f0df) ![Zero Value Moved](https://img.shields.io/badge/value_moved-0-f6d77d) ![License](https://img.shields.io/badge/license-MIT-white)
+[![World-Class v22-v35 Website Completion](https://github.com/MontrealAI/goalos-signoff-pro/actions/workflows/goalos-signoff-v22-v35-worldclass-website.yml/badge.svg)](https://github.com/MontrealAI/goalos-signoff-pro/actions/workflows/goalos-signoff-v22-v35-worldclass-website.yml) [![Pages](https://github.com/MontrealAI/goalos-signoff-pro/actions/workflows/pages.yml/badge.svg)](https://github.com/MontrealAI/goalos-signoff-pro/actions/workflows/pages.yml) [![Website Quality](https://github.com/MontrealAI/goalos-signoff-pro/actions/workflows/website-quality.yml/badge.svg)](https://github.com/MontrealAI/goalos-signoff-pro/actions/workflows/website-quality.yml) [![Complete v22-v35 Repair and Publish](https://github.com/MontrealAI/goalos-signoff-pro/actions/workflows/goalos-signoff-v22-v35-complete-repair-and-publish.yml/badge.svg)](https://github.com/MontrealAI/goalos-signoff-pro/actions/workflows/goalos-signoff-v22-v35-complete-repair-and-publish.yml) [![Ultimate Experience Integrity](https://github.com/MontrealAI/goalos-signoff-pro/actions/workflows/goalos-signoff-v22-v35-ultimate-experience-integrity.yml/badge.svg)](https://github.com/MontrealAI/goalos-signoff-pro/actions/workflows/goalos-signoff-v22-v35-ultimate-experience-integrity.yml) ![Public Safe](https://img.shields.io/badge/public--safe-no_forms_no_uploads_no_wallets-43f0df) ![Zero Value Moved](https://img.shields.io/badge/value_moved-0-f6d77d) ![License](https://img.shields.io/badge/license-MIT-white)
 
 **GoalOS Signoff Pro is the institutional proof-to-acceptance layer for AI work: evidence first, replay before trust, human authority before settlement readiness.**
 
@@ -113,6 +113,11 @@ flowchart LR
 ```
 
 Search may guide allocation. Proof decides promotion. Breakthroughs are audited state transitions, not narratives.
+
+
+## Recommended publish workflow
+
+Use **GoalOS Signoff Pro — World-Class v22-v35 Website Completion** for the final public website build. It builds the full v22-v35 suite, applies the compact guided console, repairs legal/footer integrity, verifies route coverage, and publishes the GitHub Pages artifact.
 
 ## GitHub Web UI instructions
 

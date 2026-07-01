@@ -1,0 +1,6 @@
+1. Download and unzip the package.
+2. Upload the contents to the repository root with GitHub Add file -> Upload files.
+3. Include .github/, scripts/, docs/, and site/ assets.
+4. Commit to a new branch.
+5. Run Actions -> GoalOS Signoff Pro — World-Class v22-v35 Website Completion.
+6. Use commit_generated_site=true and deploy_pages=true.
