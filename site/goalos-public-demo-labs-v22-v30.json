@@ -1,7 +1,7 @@
 {
   "id": "goalos-signoff-pro-public-labs-v22-v30",
   "title": "GoalOS Signoff Pro public demonstration labs v22-v30",
-  "generatedAt": "2026-07-01T02:49:06Z",
+  "generatedAt": "2026-07-01T11:57:40Z",
   "posture": {
     "browserLocal": true,
     "forms": false,
@@ -272,5 +272,5 @@
     "message": "Blockchain proves the transaction. GoalOS proves the work.",
     "standard": "No Proof. No Trust. No Settlement."
   },
-  "manifestHash": "sha256:c675a505231bacde52bf32c10eeea5b93411f059ab7adb79cdaaab5aa2af9129"
+  "manifestHash": "sha256:cedc4f9c8fe032d81959378f4c8182be6762a8cd3cadbbda527b7ad48cfb6e29"
 }

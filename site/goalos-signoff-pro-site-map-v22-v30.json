@@ -1,6 +1,6 @@
 {
   "id": "goalos-signoff-pro-institutional-site-map-v22-v30",
-  "generatedAt": "2026-07-01T02:49:06Z",
+  "generatedAt": "2026-07-01T11:57:40Z",
   "canonicalMessage": "Blockchain proves the transaction. GoalOS proves the work.",
   "standard": "No Proof. No Trust. No Settlement.",
   "flagshipRoute": "proof-before-settlement-research-lab.html",
@@ -62,5 +62,5 @@
     "paper.html",
     "research.html"
   ],
-  "hash": "sha256:ed0c68137dc0a2ff6d09fdf495814ed315758303d373a4cd62b7152c9c1c1938"
+  "hash": "sha256:4384701ec1e3856f26ec9296ba0b2bd8966f817d517ec361e57b2946f2b6d74c"
 }
