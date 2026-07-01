@@ -1,0 +1,22 @@
+{
+  "version": "v30-v34-premium-experience-assurance",
+  "defaultHub": "v30-v34-premium-experience.html",
+  "patchMode": "additive-only",
+  "injectSharedNavigator": true,
+  "injectSpotlight": true,
+  "createMissingPrimaryPages": true,
+  "targetVersions": [
+    "v30",
+    "v31",
+    "v32",
+    "v33",
+    "v34"
+  ],
+  "qualityTargets": {
+    "firstTimeClarity": "high",
+    "interactivity": "browser-local",
+    "aesthetic": "institutional-premium",
+    "safety": "public-safe",
+    "tracking": "none"
+  }
+}
