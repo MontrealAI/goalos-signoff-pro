@@ -1,0 +1,148 @@
+{
+  "id": "asi-mission-simulator-scenarios-v35",
+  "roles": {
+    "firstVisitor": {
+      "label": "First-time visitor",
+      "want": "Understand the full arc in three minutes.",
+      "mode": "simple"
+    },
+    "executive": {
+      "label": "Sovereign / enterprise executive",
+      "want": "Authorize only when proof, rollback, and council authority are ready.",
+      "mode": "executive"
+    },
+    "architectCouncil": {
+      "label": "Architect / Validator Council",
+      "want": "Inspect gates, dossiers, stop authority, and rollback.",
+      "mode": "governance"
+    },
+    "frontierLab": {
+      "label": "Frontier lab director",
+      "want": "Move fast while keeping promotion non-bypassable.",
+      "mode": "technical"
+    },
+    "safetyLead": {
+      "label": "Safety & assurance lead",
+      "want": "Stress-test failure modes before promotion.",
+      "mode": "redteam"
+    },
+    "inventionCapital": {
+      "label": "Invention capital operator",
+      "want": "Allocate budget only to replayable advantage.",
+      "mode": "executive"
+    },
+    "publicReviewer": {
+      "label": "Public reviewer",
+      "want": "Ask for the proof package before trust.",
+      "mode": "simple"
+    }
+  },
+  "scenarios": {
+    "tour": {
+      "label": "Guided tour",
+      "state": "REVIEW_READY",
+      "score": 88,
+      "risk": 20,
+      "novelty": 48,
+      "advantage": 52,
+      "replayability": 96,
+      "persistence": 86,
+      "council": 90,
+      "rollback": 84,
+      "description": "A public walk-through of proof-gated work becoming proof-gated invention governance."
+    },
+    "governedPilot": {
+      "label": "Governed RSI pilot",
+      "state": "PILOT_AUTHORIZATION",
+      "score": 86,
+      "risk": 24,
+      "novelty": 54,
+      "advantage": 61,
+      "replayability": 96,
+      "persistence": 82,
+      "council": 86,
+      "rollback": 80,
+      "description": "Authorize a bounded deterministic invention loop with schema registry, baselines, ECI ledger, and replayability target."
+    },
+    "move37": {
+      "label": "Move‑37 candidate",
+      "state": "DOSSIER_REQUIRED",
+      "score": 72,
+      "risk": 44,
+      "novelty": 86,
+      "advantage": 74,
+      "replayability": 93,
+      "persistence": 61,
+      "council": 78,
+      "rollback": 67,
+      "description": "A high-novelty candidate crosses advantage thresholds and must be reproduced, stressed, persistence-tested, and packaged."
+    },
+    "asiEscalation": {
+      "label": "ASI-scale escalation review",
+      "state": "ASI_LOCK",
+      "score": 64,
+      "risk": 58,
+      "novelty": 91,
+      "advantage": 82,
+      "replayability": 95,
+      "persistence": 58,
+      "council": 80,
+      "rollback": 55,
+      "description": "A strategically significant claim is locked until independent validation, containment, rollback, and authority are present."
+    },
+    "redTeamShock": {
+      "label": "Red-team policy shock",
+      "state": "ROLLBACK_DRILL",
+      "score": 59,
+      "risk": 72,
+      "novelty": 78,
+      "advantage": 50,
+      "replayability": 92,
+      "persistence": 44,
+      "council": 76,
+      "rollback": 48,
+      "description": "A promising candidate fails under shocks. The correct result is containment, repair, and a better evidence plan."
+    },
+    "capitalAllocation": {
+      "label": "Invention capital allocation",
+      "state": "BUDGET_READY",
+      "score": 84,
+      "risk": 30,
+      "novelty": 62,
+      "advantage": 70,
+      "replayability": 97,
+      "persistence": 78,
+      "council": 83,
+      "rollback": 79,
+      "description": "Budget flows to lanes with the best proof quality, replayability, baseline advantage, safety, and dossier readiness."
+    }
+  },
+  "stages": [
+    "Mission",
+    "Evidence",
+    "Replay",
+    "Validate",
+    "Receipt",
+    "Target",
+    "Emit",
+    "Filter",
+    "Atlas",
+    "Test-plan",
+    "Eval",
+    "Insert",
+    "Promote",
+    "ASI lock",
+    "Council",
+    "Rollback"
+  ],
+  "gates": [
+    "Risk",
+    "Evidence",
+    "Baseline",
+    "Persistence",
+    "Replay",
+    "Council",
+    "Rollback",
+    "ASI lock"
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "title": "GoalOS Signoff Pro v30-v34 Premium Experience Map",
+  "tagline": "Blockchain proves the transaction. GoalOS proves the work. RSI governs invention. ASI must not self-authorize.",
+  "chapters": [
+    {
+      "version": "v30",
+      "route": "proof-before-settlement-research-lab.html",
+      "purpose": "Make proof before settlement a formal blockchain credibility standard.",
+      "visitorQuestion": "Why does blockchain need GoalOS?",
+      "bestNextAction": "Read the tear sheet and inspect the due-diligence rubric."
+    },
+    {
+      "version": "v31",
+      "route": "executive-ai-proof-console.html",
+      "purpose": "Give first-time visitors an immediate role-based proof console.",
+      "visitorQuestion": "What does GoalOS do for me?",
+      "bestNextAction": "Choose a role and run the gates."
+    },
+    {
+      "version": "v32",
+      "route": "from-loop-to-rsi-lab.html",
+      "purpose": "Translate proof loops into deterministic invention governance.",
+      "visitorQuestion": "How does GoalOS govern open-ended discovery?",
+      "bestNextAction": "Inspect the deterministic pipeline and OMNI boundary."
+    },
+    {
+      "version": "v33",
+      "route": "loop-rsi-asi-superintelligence-lab.html",
+      "purpose": "Escalate RSI governance into ASI-readiness boundaries.",
+      "visitorQuestion": "What prevents self-authorized superintelligence?",
+      "bestNextAction": "Run the ASI-readiness scenario and inspect gates."
+    },
+    {
+      "version": "v34",
+      "route": "loop-rsi-asi-superintelligence-control-tower-lab.html",
+      "purpose": "Provide a complete control tower with stress testing, rollback, council, dossier, and receipt.",
+      "visitorQuestion": "What should leadership see before authorization?",
+      "bestNextAction": "Run the full control tower and copy the board memo."
+    }
+  ],
+  "publicSafeBoundary": [
+    "no forms",
+    "no text inputs",
+    "no uploads",
+    "no cookies",
+    "no analytics",
+    "no wallets",
+    "no payments",
+    "no external AI calls",
+    "no personal data",
+    "zero value moved"
+  ],
+  "designBestPractices": [
+    "role-based onboarding",
+    "single start-here hub",
+    "progressive disclosure",
+    "dynamic but deterministic console",
+    "copy-ready public standard",
+    "clear next actions",
+    "accessibility labels",
+    "keyboard-safe overlays",
+    "reduced-motion support",
+    "no dark-pattern storage or tracking"
+  ],
+  "sourceGrounding": [
+    "AGI Alpha RSI presentation: governance institution first; deterministic discovery to auditable advantage; OMNI search control not outcome authority; breakthroughs are audited state transitions.",
+    "AGI Alpha RSI strategy brief: deterministic pipeline; baseline discipline; ECI semantics; Move-37 handling; operational dashboard; dossier options."
+  ]
+}
