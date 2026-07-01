@@ -1,0 +1,70 @@
+name: GoalOS Signoff Pro — v30-v34 Premium Experience Assurance
+
+on:
+  workflow_dispatch:
+    inputs:
+      commit_generated_site:
+        description: "Commit generated site files back to this branch"
+        required: true
+        default: "true"
+        type: choice
+        options: ["true", "false"]
+      deploy_pages:
+        description: "Deploy GitHub Pages after verification"
+        required: true
+        default: "true"
+        type: choice
+        options: ["true", "false"]
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+env:
+  NODE_VERSION: "24"
+
+jobs:
+  build:
+    name: Build and verify v30-v34 premium experience
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - name: Apply premium experience assurance
+        run: node scripts/enhance-goalos-v30-v34-premium-experience.mjs
+      - name: Verify premium experience assurance
+        run: node scripts/verify-goalos-v30-v34-premium-experience.mjs
+      - name: Commit generated site files
+        if: ${{ github.event.inputs.commit_generated_site == 'true' }}
+        run: |
+          git config user.name "goalos-signoff-bot"
+          git config user.email "goalos-signoff-bot@users.noreply.github.com"
+          git add site docs config scripts .github/workflows GOALOS_V30_V34_PREMIUM_EXPERIENCE_START_HERE.md GITHUB_WEB_UI_INSTALL_V30_V34_PREMIUM_EXPERIENCE.txt PACKAGE_MANIFEST.json PACKAGE_MANIFEST.sha256 || true
+          if git diff --cached --quiet; then
+            echo "No generated changes to commit."
+          else
+            git commit -m "Polish GoalOS v30-v34 premium experience"
+            git push
+          fi
+      - name: Upload Pages artifact
+        if: ${{ github.event.inputs.deploy_pages == 'true' }}
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+  deploy:
+    name: Deploy GitHub Pages
+    if: ${{ github.event.inputs.deploy_pages == 'true' }}
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
