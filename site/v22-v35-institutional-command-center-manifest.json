@@ -1,6 +1,6 @@
 {
   "version": "v35",
-  "generatedAt": "2026-07-01T21:10:00.031Z",
+  "generatedAt": "2026-07-01T21:37:27.338Z",
   "flagship": "goalos-v22-v35-command-center.html",
   "routes": [
     "goalos-v22-v35-command-center.html",
@@ -11,7 +11,8 @@
     "demo.html",
     "proof-to-superintelligence.html",
     "governed-superintelligence.html",
-    "v22-v35.html"
+    "v22-v35.html",
+    "website-guide.html"
   ],
   "labs": [
     {

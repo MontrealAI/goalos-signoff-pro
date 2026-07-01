@@ -24,7 +24,7 @@ const rules=[
 ];
 const allowlist=[
   // Historical/static policy pages may name forbidden phrases only to deny them.
-  /site\/(terms|privacy|legal|acceptable-use|investment-boundary|agialpha-token-boundary|no-user-data|goalos-v22-v35-command-center)\.html$/,
+  /site\/(terms|privacy|legal|acceptable-use|investment-boundary|agialpha-token-boundary|no-user-data|goalos-v22-v35-command-center|website-guide)\.html$/,
   // v32-v35 pages and assets include explicit denial copy such as 'No self-authorization' and 'no production RSI'.
   /site\/(.*asi.*|.*rsi.*|.*superintelligence.*|from-loop-to-rsi-lab|command-center|demo|experience|latest|start-here|proof-to-superintelligence|governed-superintelligence|v22-v35|v34|v35|deterministic-invention-os-lab|move37-breakthrough-lab|omni-search-control-lab|sovereign-invention-governance-lab)\.html$/,
   /site\/assets\/goalos-v3[3-5].*\.js$/,
