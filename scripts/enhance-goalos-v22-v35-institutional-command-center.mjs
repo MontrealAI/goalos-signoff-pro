@@ -116,10 +116,12 @@ const html = `<!doctype html>
 <section><div class="goalos35-kicker">Recommended high-signal labs</div><div id="g35-cards" class="goalos35-cards">${labCards}</div></section>
 <footer class="goalos35-footer"><p><strong>GoalOS proves work. RSI governs invention. ASI must not self-authorize.</strong></p><p>No claim of achieved AGI, ASI, production RSI, autonomous deployment authority, legal certification, investment advice, live settlement, wallet support, or value movement.</p></footer></div><script src="assets/goalos-v22-v35-command-center.js"></script></body></html>`;
 
-const routes = ['goalos-v22-v35-command-center.html','command-center.html','start-here.html','latest.html','proof-to-superintelligence.html','governed-superintelligence.html','v22-v35.html'];
+const routes = ['goalos-v22-v35-command-center.html','command-center.html','start-here.html','latest.html','experience.html','demo.html','proof-to-superintelligence.html','governed-superintelligence.html','v22-v35.html'];
 for(const r of routes) write(r, html);
 
-write('goalos-v22-v35-command-center-manifest.json', JSON.stringify({version:'v35', generatedAt:now, flagship:'goalos-v22-v35-command-center.html', routes, labs, publicSafety}, null, 2)+"\n");
+const commandManifest = JSON.stringify({version:'v35', generatedAt:now, flagship:'goalos-v22-v35-command-center.html', routes, labs, publicSafety}, null, 2)+"\n";
+write('goalos-v22-v35-command-center-manifest.json', commandManifest);
+write('v22-v35-institutional-command-center-manifest.json', commandManifest);
 write('goalos-v22-v35-user-journey.json', JSON.stringify({version:'v35', generatedAt:now, journeys:[
   {role:'First-time visitor', start:'goalos-v22-v35-command-center.html', next:['executive-ai-proof-console.html','loop-rsi-asi-superintelligence-mission-simulator-lab.html']},
   {role:'Blockchain stakeholder', start:'blockchain-proof-mandate-lab.html', next:['proof-before-settlement-research-lab.html','goalos-v22-v35-command-center.html']},

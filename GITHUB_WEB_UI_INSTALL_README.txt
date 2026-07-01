@@ -1,20 +1,3 @@
-GOALOS SIGNOFF PRO — INSTITUTIONAL WEBSITE UPDATE V28/V29
+GoalOS Signoff Pro v35 GitHub Web UI install
 
-1) Unzip this package.
-2) Open the unzipped folder.
-3) In GitHub, open https://github.com/MontrealAI/goalos-signoff-pro at the repository root.
-4) Click Add file -> Upload files.
-5) Drag the CONTENTS of this folder into GitHub. Do not upload the ZIP itself.
-6) Make sure .github is included.
-7) Commit to a new branch.
-8) Run Actions -> GoalOS Signoff Pro — Institutional Website v22-v29.
-
-Recommended workflow settings:
-commit_generated_site: true
-deploy_pages: true
-
-Core line:
-Blockchain proves the transaction. GoalOS proves the work.
-
-Core standard:
-No Proof. No Trust. No Settlement.
+Upload the contents of the unzipped package to the repository root, including the hidden .github folder. Commit to a new branch. Run the workflow named GoalOS Signoff Pro — Complete v22-v35 Repair and Publish. Verify the command center route after Pages deploys: /goalos-signoff-pro/goalos-v22-v35-command-center.html

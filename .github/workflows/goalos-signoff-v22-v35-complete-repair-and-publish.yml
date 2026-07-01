@@ -24,7 +24,7 @@ env:
   GOALOS_ZERO_VALUE_MOVED: "true"
   GOALOS_NO_EXTERNAL_AI_CALLS: "true"
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
-  NODE_VERSION: "24"
+  NODE_VERSION: "20.20.2"
 
 concurrency:
   group: goalos-signoff-pro-v22-v35-complete-repair-and-publish
@@ -36,9 +36,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5
-      - name: Setup Node.js 24
-        uses: actions/setup-node@v5
+        uses: actions/checkout@v4
+      - name: Setup Node.js 20
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
           package-manager-cache: false
@@ -69,8 +69,21 @@ jobs:
             echo "Upload the complete one-go package contents to the repository root, including scripts/ and docs/generated-source/."
             exit 1
           fi
+
+      - name: Install dependencies
+        shell: bash
+        run: |
+          if [[ -f package-lock.json ]]; then
+            npm ci
+          else
+            npm install
+          fi
+      - name: Verify workflow/script integrity
+        run: node scripts/check-workflow-script-integrity.mjs
       - name: Build complete v22-v35 public site
         run: node scripts/build-goalos-signoff-public-labs-v22-v35.mjs
+      - name: Verify route and public-safe integrity
+        run: node scripts/check-site-route-integrity.mjs
       - name: Verify complete v22-v35 public-safe suite
         run: node scripts/verify-goalos-signoff-public-labs-v22-v35.mjs
       - name: Commit generated site files
@@ -87,13 +100,13 @@ jobs:
             git push
           fi
       - name: Upload v22-v35 site preview artifact
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v4
         with:
           name: goalos-signoff-pro-v22-v35-complete-site-preview
           path: site
       - name: Upload Pages artifact
         if: ${{ inputs.deploy_pages }}
-        uses: actions/upload-pages-artifact@v5
+        uses: actions/upload-pages-artifact@v3
         with:
           path: site
   deploy:

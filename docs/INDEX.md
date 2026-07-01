@@ -1,53 +1,64 @@
-# Documentation index
+# GoalOS Signoff Pro Documentation Portal
 
-**GoalOS Signoff Pro is the human acceptance and signed-receipt layer for AI work.** Public pages are browser-local, claim-bounded, and do not add wallets, payments, uploads, analytics, cookies, or user-data intake.
+GoalOS Signoff Pro is the human acceptance and signed-receipt layer for AI work. The latest public suite is **v22-v35**, with v35 as the latest public-safe mission simulator.
 
-## 30-second explanation
+## Start Here
 
-A visitor should understand the project as a proof-to-acceptance system: AI work is commissioned, evidence is mapped to criteria, humans review the record, and accepted work receives a signed/replayable receipt. The public site demonstrates this posture with sample artifacts only.
+- [Command Center user guide](V22_V35_COMMAND_CENTER_USER_GUIDE.md)
+- [Complete v35 repair and experience start here](../GOALOS_V35_COMPLETE_REPAIR_AND_EXPERIENCE_START_HERE.md)
+- [Public command center](../site/goalos-v22-v35-command-center.html)
 
-## Best first clicks
+## Product / Executive
 
-| Intent | Link |
-| --- | --- |
-| Start | [START_HERE.md](START_HERE.md) |
-| Demo routes | [DEMO_CATALOG.md](DEMO_CATALOG.md) |
-| Architecture | [ARCHITECTURE.md](ARCHITECTURE.md) |
-| Verification | [VERIFICATION.md](VERIFICATION.md) |
-| Public operations | [PUBLIC_SITE_OPERATIONS.md](PUBLIC_SITE_OPERATIONS.md) |
-| Claim boundary | [CLAIM_BOUNDARY.md](CLAIM_BOUNDARY.md) |
-| FAQ | [FAQ.md](FAQ.md) |
+- [README](../README.md)
+- [Communications and public positioning](COMMUNICATIONS_AND_PUBLIC_POSITIONING.md)
+- [FAQ](FAQ.md)
 
-## Proof lifecycle
+## Public Demo Labs v22-v35
 
-```mermaid
-flowchart LR
-  O[Objective] --> M[Mission Contract]
-  M --> W[Work / Agent Execution]
-  W --> E[Evidence Docket]
-  E --> P[ProofBundle]
-  P --> R[Replay]
-  R --> V[Validation]
-  V --> H[Human Authority]
-  H --> D[Governed Decision State]
-  D --> C[Chronicle]
-  C --> K[Reusable Capability]
-```
+- [Complete public demo suite](GOALOS_V22_V35_PUBLIC_DEMO_SUITE.md)
+- [Demo hub](../site/public-demo-labs.html)
+- [v35 user guide](LOOP_RSI_ASI_V35_USER_GUIDE.md)
 
+## Blockchain Credibility / Proof Before Settlement
 
-## Public demo curriculum
+- [Blockchain proof package standard](BLOCKCHAIN_PROOF_PACKAGE_STANDARD.md)
+- [Blockchain anchoring guide](BLOCKCHAIN_ANCHORING_GUIDE.md)
+- [Proof before settlement lab](../site/proof-before-settlement-research-lab.html)
 
-- [V22_V27_CURRICULUM.md](V22_V27_CURRICULUM.md) — Six-lab learning path for governed action, proof-carrying artifacts, replay, ProofZero planning, mission curriculum, and process-resolved evidence.
-- [MISSION_RECEIPT_LIFECYCLE.md](MISSION_RECEIPT_LIFECYCLE.md) — Mission Receipt contents, verification path, optional anchoring boundary, and failure modes.
-- [ACCEPTANCE_WORKFLOW.md](ACCEPTANCE_WORKFLOW.md) — Six-gate acceptance workflow from commission to signed receipt.
+## Loop → RSI → ASI Governance
 
-## Public-safe boundary summary
+- [From Loop to RSI lab](../site/from-loop-to-rsi-lab.html)
+- [ASI control tower](../site/loop-rsi-asi-superintelligence-control-tower-lab.html)
+- [v35 mission simulator](../site/loop-rsi-asi-superintelligence-mission-simulator-lab.html)
 
-No public wallet connection, token approval, network switching, transaction broadcast, custody, escrow release, value movement, payment, token sale, analytics, cookies, tracking pixels, secrets, user uploads, public form intake, personal data, customer data, confidential data, or unbounded AGI/ASI/SOTA/ROI/certification claims.
+## Developer / GitHub Actions
+
+- [Developer build and verify](DEVELOPER_BUILD_AND_VERIFY.md)
+- [GitHub Web UI install steps](GITHUB_WEB_UI_INSTALL_STEPS.md)
+- [Codex runbook](CODEX_RUNBOOK.md)
+
+## Safety / Legal / Boundaries
+
+- [Claim boundary](CLAIM_BOUNDARY.md)
+- [Security and privacy](SECURITY_AND_PRIVACY.md)
+- [Investment token boundary](INVESTMENT_TOKEN_BOUNDARY.md)
+
+## Architecture / Receipts / Anchoring
+
+- [Architecture](ARCHITECTURE.md)
+- [Receipt verification guide](RECEIPT_VERIFICATION_GUIDE.md)
+- [Web3 anchoring runbook](WEB3_ANCHORING_RUNBOOK.md)
+
+## Commercial / Pilot / Launch
+
+- [Billing setup](BILLING_SETUP.md)
+- [Hybrid product spec](HYBRID_PRODUCT_SPEC.md)
+- [Website operations](WEBSITE_OPERATIONS.md)
 
 ## Release checklist
 
-- [ ] README and docs links resolve.
-- [ ] Public route boundary copy is present.
-- [ ] Generated site artifacts are regenerated from source.
-- [ ] Verification commands and skipped checks are recorded.
+- README, docs, site routes, and manifests mention v22-v35 and v35 latest.
+- Workflow/script integrity checker passes.
+- Route/public-safe integrity checker passes.
+- No public wallet, form, upload, analytics, payment, personal-data, live settlement, achieved AGI/ASI, or production RSI claims.

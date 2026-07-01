@@ -82,7 +82,12 @@
     "repo:verify": "node scripts/repository-readiness.mjs",
     "repo:all": "npm run repo:codeowners && npm run repo:verify && npm run package:verify && npm run hybrid:anchor:check",
     "repo:codeowners": "node scripts/check-codeowners-owner.mjs",
-    "institutional:verify": "node scripts/verify-institutional-excellence.mjs"
+    "institutional:verify": "node scripts/verify-institutional-excellence.mjs",
+    "site:build:public-labs": "node scripts/build-goalos-signoff-public-labs-v22-v35.mjs",
+    "site:verify:public-labs": "node scripts/verify-goalos-signoff-public-labs-v22-v35.mjs",
+    "site:verify:workflows": "node scripts/check-workflow-script-integrity.mjs",
+    "site:verify:routes": "node scripts/check-site-route-integrity.mjs",
+    "site:verify:all": "npm run site:verify:workflows && npm run site:verify:routes && npm run site:verify:public-labs"
   },
   "version": "1.1.0"
 }
