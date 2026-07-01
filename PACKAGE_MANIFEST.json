@@ -1,23 +1,133 @@
 {
-  "id": "goalos-signoff-pro-institutional-website-update-v28-v29",
-  "title": "GoalOS Signoff Pro Institutional Website Update v28/v29",
-  "adds": [
-    "v28 Blockchain Credibility Standard Lab",
-    "v29 Blockchain Proof Mandate & Due Diligence Lab",
-    "homepage institutional repair",
-    "README/docs/workflows/verification",
-    "short front-door routes"
-  ],
-  "publicSafe": {
-    "forms": false,
-    "inputs": false,
-    "uploads": false,
-    "cookies": false,
-    "analytics": false,
-    "wallets": false,
-    "payments": false,
-    "personalData": false,
-    "confidentialData": false,
-    "valueMoved": 0
-  }
+  "id": "goalos-signoff-pro-proof-before-settlement-research-lab-v30",
+  "version": "v30.0.0",
+  "created": "2026-07-01",
+  "purpose": "Incremental GoalOS Signoff Pro public lab v30 package for Proof Before Settlement institutional research and adoption.",
+  "files": [
+    {
+      "path": ".github/workflows/goalos-signoff-public-labs-v22-v30.yml",
+      "bytes": 3997,
+      "sha256": "d7e38e156552b12eb7816d4e23f9575a6d3edec984b7101d0f0807b9444e36f1"
+    },
+    {
+      "path": ".github/workflows/pages.yml",
+      "bytes": 1465,
+      "sha256": "8eb16135f2532c19f8626cf0fd1903e09699a376f61bf2439292bd7f0ab0ffcf"
+    },
+    {
+      "path": ".github/workflows/website-quality.yml",
+      "bytes": 895,
+      "sha256": "732842335756b7d797dd761a55f39a7066a6c78e69e2551059c29be805d2974d"
+    },
+    {
+      "path": "GITHUB_WEB_UI_INSTALL_V30.txt",
+      "bytes": 908,
+      "sha256": "deb259a9a1f68b60ce0d99bd94488822d98a7970a4f16d89ce3eb411ad4df5ac"
+    },
+    {
+      "path": "GOALOS_PUBLIC_LAB_V30_START_HERE.md",
+      "bytes": 1445,
+      "sha256": "f225a5a73df3df2de1fd4596462d97ca8ea35c012a1f5cb1d861908a07ca4a52"
+    },
+    {
+      "path": "INSTALL_ONE_GO.sh",
+      "bytes": 297,
+      "sha256": "b23abb20e585b8535a69723299c36b67b333514d70df2622054eae9972e06d5b"
+    },
+    {
+      "path": "V30_COPYPASTE_SUMMARY.txt",
+      "bytes": 838,
+      "sha256": "1f8874a8ad05213c3f00cef5e3a22c04f4ac899179bb7ddfe8ad137aa74dcb87"
+    },
+    {
+      "path": "config/proof-before-settlement-research-lab.json",
+      "bytes": 6896,
+      "sha256": "4eaf000d039fee7dff65bdea82fa68b94ced1b126271cc9597a5c9f9fe2a87e1"
+    },
+    {
+      "path": "docs/PROOF_BEFORE_SETTLEMENT_RESEARCH_LAB_USER_GUIDE.md",
+      "bytes": 1025,
+      "sha256": "13a4e825e389784473279cfacfdc267d1c5fc8b820984889c334a10fbdb6cd6c"
+    },
+    {
+      "path": "docs/PROOF_BEFORE_SETTLEMENT_RESEARCH_LAB_V30_INSTALL_GUIDE.md",
+      "bytes": 639,
+      "sha256": "3d4b3e06f73340b16424158209c214972f0bd2a53dc2f96fea7f69978a2f473c"
+    },
+    {
+      "path": "docs/PR_DESCRIPTION_V30.md",
+      "bytes": 832,
+      "sha256": "b6a78162291150ab566dd10045c63c92b1f6cc6b6496ce50b352d42058a2d00b"
+    },
+    {
+      "path": "public/research/proof-before-settlement/GoalOS_Proof_Before_Settlement_Elite_Edition.pdf",
+      "bytes": 173901,
+      "sha256": "db0d0652e8314f74dfce9086e9588792681444abe1406217bfaae6cf34ba59d2"
+    },
+    {
+      "path": "public/research/proof-before-settlement/GoalOS_Proof_Before_Settlement_Elite_Edition.tex",
+      "bytes": 69250,
+      "sha256": "d9ae6ae0b2f60e52f2deef401bba98f36c3b65e8186ab02d9e60bbcc5b63ce10"
+    },
+    {
+      "path": "public/research/proof-before-settlement/GoalOS_Proof_Before_Settlement_Elite_Edition_SINGLE_FILE.tex",
+      "bytes": 75019,
+      "sha256": "2bf9ed12e91959f3cc5f49fbb34bf6b260427990e4c53852b628ae6690b73529"
+    },
+    {
+      "path": "public/research/proof-before-settlement/GoalOS_Proof_Before_Settlement_Elite_Edition_references.bib",
+      "bytes": 5710,
+      "sha256": "5747ce5137d3a4174596801eaca7279f96b62b8ec771538f8a569a69765c9a79"
+    },
+    {
+      "path": "public/research/proof-before-settlement/README.md",
+      "bytes": 436,
+      "sha256": "1ebd710e3f592ffd2fe7bb9601729e9c35f7224f13fe221aef98158aed352ca6"
+    },
+    {
+      "path": "public/research/proof-before-settlement/executive-abstract.txt",
+      "bytes": 734,
+      "sha256": "38156a6cd1822c66a3e2d90aa58df51998feb192deb382ec43e351ab020b36e3"
+    },
+    {
+      "path": "scripts/build-goalos-signoff-pro-institutional-v22-v30.mjs",
+      "bytes": 512,
+      "sha256": "f79dbabc2ee56c525e512a0c0be6c51d9f1c3104cc1da6809b6951e7efca0596"
+    },
+    {
+      "path": "scripts/build-goalos-signoff-public-labs-v22-v30.mjs",
+      "bytes": 15553,
+      "sha256": "c479c84b7b70fd772c88433b67649a144c654b7d664406f35268aa38a282f516"
+    },
+    {
+      "path": "scripts/build-proof-before-settlement-research-lab-page.mjs",
+      "bytes": 14661,
+      "sha256": "300631b6965f50a3c8bed20c584af41a2753be5f8a0fc2d47162b1e848ac952a"
+    },
+    {
+      "path": "scripts/generate-proof-before-settlement-research-lab-bundle.mjs",
+      "bytes": 1546,
+      "sha256": "8e002e44cb573979004f3c795e8265eba6e52008cd2d7a1a1c9c768afeb81288"
+    },
+    {
+      "path": "scripts/proof-before-settlement-research-lab-core.mjs",
+      "bytes": 8358,
+      "sha256": "5f8491c936ebd0f8bf5f18eaa168634a014a3160532be5c1044163681bf75efe"
+    },
+    {
+      "path": "scripts/verify-goalos-signoff-public-labs-v22-v30.mjs",
+      "bytes": 2862,
+      "sha256": "8f9ba12d5638455698678f9763987008a616a69969abdb527b6634796b79a69c"
+    },
+    {
+      "path": "scripts/verify-proof-before-settlement-research-lab-page.mjs",
+      "bytes": 2604,
+      "sha256": "6c0cb9d75db0873279fb78e4cd1e31a3f01449b15818fa6ee752f16491f9ca40"
+    },
+    {
+      "path": "verification/PROOF_BEFORE_SETTLEMENT_RESEARCH_LAB_V30_VALIDATION.md",
+      "bytes": 761,
+      "sha256": "572cf4c10bf509500ca725bfd683fcbe1f21e13fb096c6cbad7dfa6aae56242d"
+    }
+  ]
 }

@@ -1,0 +1,27 @@
+GoalOS Signoff Pro v30 GitHub Web UI Install
+============================================
+
+Use this if you are uploading through github.com instead of using the terminal.
+
+1. Download the ZIP package.
+2. Unzip it on your computer.
+3. Open the unzipped folder.
+4. Select the CONTENTS INSIDE the folder.
+5. In GitHub, open MontrealAI/goalos-signoff-pro at the repository root.
+6. Click Add file -> Upload files.
+7. Drag the selected contents into GitHub.
+8. Include the hidden .github folder.
+   - macOS: Command + Shift + .
+   - Windows: View -> Show -> Hidden items
+9. Commit to a new branch.
+10. Open a pull request.
+11. Run Actions -> GoalOS Signoff Pro — Global Public Demo Labs v22-v30.
+
+Commit message:
+Add GoalOS Proof Before Settlement Research Lab v30
+
+Branch name:
+add-goalos-signoff-v30-proof-before-settlement-research-lab
+
+Important:
+Upload the contents of the folder, not the ZIP file itself.
