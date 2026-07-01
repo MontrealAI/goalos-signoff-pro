@@ -1,0 +1,13 @@
+{
+  "generatedAt": "2026-07-01T12:16:32.184Z",
+  "gates": [
+    "Risk gate",
+    "Evidence quality gate",
+    "Baseline advantage gate",
+    "Persistence under stress gate",
+    "Human authority gate",
+    "Council stop authority",
+    "Rollback / pause path"
+  ],
+  "rule": "High novelty increases skepticism and cannot bypass evidence, risk, baseline, persistence, or authority gates."
+}

@@ -1,208 +1,147 @@
 {
-  "id": "goalos-signoff-pro-from-loop-to-rsi-lab-v32",
-  "title": "GoalOS Signoff Pro — From Loop to RSI: Sovereign Invention Governance Lab v32",
-  "version": "32.0.0",
-  "fileCount": 40,
+  "package": "goalos-signoff-pro-loop-rsi-asi-superintelligence-console-v33",
+  "generatedAt": "2026-07-01T12:16:31Z",
+  "fileCount": 28,
   "files": [
     {
-      "path": ".github/workflows/goalos-signoff-from-loop-to-rsi-v32.yml",
-      "size": 3184,
-      "sha256": "39b53b7e573eb42273ef0f86f6a623d64146a68848252e4b6b045de9d3812899"
+      "path": ".github/workflows/goalos-signoff-loop-rsi-asi-v33.yml",
+      "sha256": "d7d9458e34f87fcffd9c14a732dd01b036af0c11d2de4b88081a9e0875591bde",
+      "bytes": 2449
     },
     {
-      "path": "GOALOS_PUBLIC_LAB_V32_START_HERE.md",
-      "size": 1964,
-      "sha256": "ec6468a66876ed3520fb7f76b95592820ba29c274414c3fa62ac8762ea23c7d9"
+      "path": "GITHUB_WEB_UI_INSTALL_V33_LOOP_RSI_ASI.txt",
+      "sha256": "45ed9c7629b9778683e2ab2fa96f3a1499262235d5e24e51d65af8fe63b20be9",
+      "bytes": 1053
+    },
+    {
+      "path": "GOALOS_PUBLIC_LAB_V33_LOOP_RSI_ASI_START_HERE.md",
+      "sha256": "7daa20d98d3f55bc1e92b59eb6af05cd71ea78535be77ce7eb2d95b87886e6a6",
+      "bytes": 1294
     },
     {
       "path": "INSTALL_ONE_GO.sh",
-      "size": 203,
-      "sha256": "1d22b0b27c0dac1267cacd9bb4fb0846de47c29352eb9d3623d5369e2bafcc3b"
+      "sha256": "7507bc3fc545933cc1f84e2f646ba3e5b1faa544bcaab8e20ba00e973cb08d07",
+      "bytes": 309
     },
     {
-      "path": "config/from-loop-to-rsi-v32.json",
-      "size": 1675,
-      "sha256": "bf99157d8387c19a0d5fabfd1b37922ec9387acda9b26c4a612e3ce9064e288c"
+      "path": "config/loop-rsi-asi-superintelligence-console-v33.json",
+      "sha256": "d6766d13f741a93838b9977df8e979a2185a792ccab5fc0a6c8be20ecfc925f3",
+      "bytes": 2907
     },
     {
-      "path": "docs/FROM_LOOP_TO_RSI_V32_USER_GUIDE.md",
-      "size": 1964,
-      "sha256": "ec6468a66876ed3520fb7f76b95592820ba29c274414c3fa62ac8762ea23c7d9"
+      "path": "docs/GITHUB_WEB_UI_INSTALL_V33_LOOP_RSI_ASI.md",
+      "sha256": "45ed9c7629b9778683e2ab2fa96f3a1499262235d5e24e51d65af8fe63b20be9",
+      "bytes": 1053
     },
     {
-      "path": "docs/GITHUB_WEB_UI_INSTALL_V32.md",
-      "size": 1964,
-      "sha256": "ec6468a66876ed3520fb7f76b95592820ba29c274414c3fa62ac8762ea23c7d9"
+      "path": "docs/LOOP_RSI_ASI_SUPERINTELLIGENCE_CONSOLE_V33_USER_GUIDE.md",
+      "sha256": "bcdc1312f2aa6e39290d8952a3d49797065376454e58e4ee96c81c9aa861f55b",
+      "bytes": 1145
     },
     {
-      "path": "docs/PR_DESCRIPTION_V32.md",
-      "size": 1217,
-      "sha256": "0a65131533c85c74ca8d2afa43372e99780bc3a54e3ce81945e6f8442135aff0"
+      "path": "docs/PR_DESCRIPTION_V33_LOOP_RSI_ASI.md",
+      "sha256": "881c0276e19c4f514c98d3c6619ca5ac2f7b04ed83bd643c3a0419c10f5dd1c5",
+      "bytes": 931
     },
     {
       "path": "docs/research/rsi/AGI_Alpha_RSI_Sovereign_Strategy_Brief_v0.pdf",
-      "size": 76451,
-      "sha256": "b7912c63fe57cde538a1b8351ea28f51b2eae8647255017df054d621d338fe69"
+      "sha256": "b7912c63fe57cde538a1b8351ea28f51b2eae8647255017df054d621d338fe69",
+      "bytes": 76451
     },
     {
       "path": "docs/research/rsi/AGI_Alpha_RSI_Sovereign_v0.pdf",
-      "size": 908098,
-      "sha256": "25fbbec0877043b664b0310dd413125560dcb5e6d29f4a54f664a509e04fd6f4"
+      "sha256": "25fbbec0877043b664b0310dd413125560dcb5e6d29f4a54f664a509e04fd6f4",
+      "bytes": 908098
     },
     {
-      "path": "scripts/build-from-loop-to-rsi-lab-v32.mjs",
-      "size": 36141,
-      "sha256": "245e3a0c814e69e9ef0391a34f7e4a5e6e01ae7c469509c92fcf0eb0bb36624a"
+      "path": "scripts/build-goalos-signoff-public-labs-v22-v33.mjs",
+      "sha256": "13dcf6fe84b886a34eaf96f60950f019353e24c11b3bf5b47183c87d003547ea",
+      "bytes": 1080
     },
     {
-      "path": "scripts/build-goalos-signoff-pro-institutional-v22-v32.mjs",
-      "size": 1146,
-      "sha256": "f42d805c5e1a91dfd7082d933cd33d69c7253e3ceecabbde5e17eab22dd18435"
+      "path": "scripts/build-loop-rsi-asi-superintelligence-console-v33.mjs",
+      "sha256": "6783d6b2bd69df9e73301a0f3cb618499fdc1cad30b149634828fdacd86d6e4c",
+      "bytes": 10911
     },
     {
-      "path": "scripts/build-goalos-signoff-public-labs-v22-v32.mjs",
-      "size": 1146,
-      "sha256": "f42d805c5e1a91dfd7082d933cd33d69c7253e3ceecabbde5e17eab22dd18435"
+      "path": "scripts/verify-loop-rsi-asi-superintelligence-console-v33.mjs",
+      "sha256": "fd4294326935ee06c1975cc0f17699da641609ea8268bed7fa109a2099a63f08",
+      "bytes": 2479
     },
     {
-      "path": "scripts/verify-from-loop-to-rsi-v32.mjs",
-      "size": 3496,
-      "sha256": "12913c168c821044cf06093366867a99132f7b122c5d7d6237f7893292841a9e"
+      "path": "site/asi-mission-control.html",
+      "sha256": "c9794c444d7a57487c00d8f4b08bc379c3f271b1ba286608aeeb4033d8fcb5cb",
+      "bytes": 9097
     },
     {
-      "path": "site/agi-alpha-rsi-lab.html",
-      "size": 8523,
-      "sha256": "d264f2708956d29a6a70f069fa364723e8d5ed1279ec03f225a76858e24eae01"
+      "path": "site/asi-superintelligence-console.html",
+      "sha256": "c9794c444d7a57487c00d8f4b08bc379c3f271b1ba286608aeeb4033d8fcb5cb",
+      "bytes": 9097
     },
     {
-      "path": "site/architect-validator-council-charter-v32.json",
-      "size": 602,
-      "sha256": "c3f292820daefa0f217bfc4da69a775a85360fa8dfcbfe7b99816af5276d7f45"
+      "path": "site/assets/goalos-v33-loop-rsi-asi-console.css",
+      "sha256": "dd89ef3208f32abfaf4d2abd193197a3bdeb57e86a61d311976f76f944822f8f",
+      "bytes": 8184
     },
     {
-      "path": "site/assets/goalos-v32-rsi.css",
-      "size": 7360,
-      "sha256": "b40abd43c235e07c794b197c8016e30fcd75e6aebc12c19e4ede450706336630"
+      "path": "site/assets/goalos-v33-loop-rsi-asi-console.js",
+      "sha256": "ce9f7e65de198af988612b0f706d706e5295ec23b8cfc0db25ed5cebdfdbbe44",
+      "bytes": 11200
     },
     {
-      "path": "site/assets/goalos-v32-rsi.js",
-      "size": 7100,
-      "sha256": "8badb9d75d881f70af82637079e81a6042e1eb6bfae81ec62988fbf18ac71af9"
+      "path": "site/invention-to-superintelligence-console.html",
+      "sha256": "c9794c444d7a57487c00d8f4b08bc379c3f271b1ba286608aeeb4033d8fcb5cb",
+      "bytes": 9097
     },
     {
-      "path": "site/deterministic-invention-os-lab.html",
-      "size": 8536,
-      "sha256": "3753519239feaa5a1febe2d3f92fd8dce5b9a65fd8a7abaa6f3b38054cf0671c"
+      "path": "site/loop-rsi-asi-superintelligence-lab.html",
+      "sha256": "c9794c444d7a57487c00d8f4b08bc379c3f271b1ba286608aeeb4033d8fcb5cb",
+      "bytes": 9097
     },
     {
-      "path": "site/deterministic-invention-pipeline-v32.json",
-      "size": 2547,
-      "sha256": "33460bfcf3dc6bdca4644df8220dfb18cdca08753af046cecaf3b860f834ded8"
+      "path": "site/loop-to-rsi-to-asi.html",
+      "sha256": "c9794c444d7a57487c00d8f4b08bc379c3f271b1ba286608aeeb4033d8fcb5cb",
+      "bytes": 9097
     },
     {
-      "path": "site/from-loop-to-rsi-demo-bundle.json",
-      "size": 1636,
-      "sha256": "9e36854414ae8c330d2ff81d313832dc2ccb78779a3afac930bda88a47da682b"
+      "path": "site/no-ungoverned-superintelligence.html",
+      "sha256": "c9794c444d7a57487c00d8f4b08bc379c3f271b1ba286608aeeb4033d8fcb5cb",
+      "bytes": 9097
     },
     {
-      "path": "site/from-loop-to-rsi-lab.html",
-      "size": 8526,
-      "sha256": "a81d6e400a5de3b0c781a599181bcacf224c7cb8f0e993acab0ac04d38dfc5fa"
-    },
-    {
-      "path": "site/from-loop-to-rsi-transition-map-v32.json",
-      "size": 982,
-      "sha256": "77ba4026ca88b5b534c29866a18ee59cd2cc518d745a5dd4ed95ccd44ea9cbb4"
-    },
-    {
-      "path": "site/from-loop-to-rsi-v32-manifest.json",
-      "size": 5817,
-      "sha256": "9440f1646bf1129a7119c61ed2f70164b898d25809c2f082c2b163ce72e0ee1c"
-    },
-    {
-      "path": "site/goalos-public-demo-labs-v22-v32.json",
-      "size": 706,
-      "sha256": "311cb445ca36e1a71ba133e72ff0adbbae7d421e7905e13c4f40ba77c9fbed4a"
-    },
-    {
-      "path": "site/goalos-signoff-pro-site-map-v22-v32.json",
-      "size": 1106,
-      "sha256": "4f027bc5476c97c455a147a9b5731277e38975d20d058ae5b3d95ea53be6e17a"
-    },
-    {
-      "path": "site/loop-to-rsi.html",
-      "size": 8517,
-      "sha256": "4970efada7fa0a5938a79acc869fe0172faf5242084727e6a9acee320ccb0f90"
-    },
-    {
-      "path": "site/move37-breakthrough-dossier-v32.json",
-      "size": 684,
-      "sha256": "a23d97163f2d16c91d0d6d8460fb5f46173736906ab61078458fce56dd1d29cb"
-    },
-    {
-      "path": "site/move37-breakthrough-lab.html",
-      "size": 8529,
-      "sha256": "39556a1102ff065644cea6fa47f28f2f4bc2cc95f8a4c7e07717cc0fb36e2aa0"
-    },
-    {
-      "path": "site/omni-search-control-boundary-v32.json",
-      "size": 1185,
-      "sha256": "d15191643c50a7a4f756c041d68a09a435d74e6a863d004f57588e569faf78db"
-    },
-    {
-      "path": "site/omni-search-control-lab.html",
-      "size": 8529,
-      "sha256": "326eace5d194ed7a42af82ac8a5634a765cd7fe9e1f05f7ee18fbae54e1cb25e"
+      "path": "site/recursive-self-improvement-to-asi-lab.html",
+      "sha256": "c9794c444d7a57487c00d8f4b08bc379c3f271b1ba286608aeeb4033d8fcb5cb",
+      "bytes": 9097
     },
     {
       "path": "site/research/rsi/AGI_Alpha_RSI_Sovereign_Strategy_Brief_v0.pdf",
-      "size": 76451,
-      "sha256": "b7912c63fe57cde538a1b8351ea28f51b2eae8647255017df054d621d338fe69"
+      "sha256": "b7912c63fe57cde538a1b8351ea28f51b2eae8647255017df054d621d338fe69",
+      "bytes": 76451
     },
     {
       "path": "site/research/rsi/AGI_Alpha_RSI_Sovereign_v0.pdf",
-      "size": 908098,
-      "sha256": "25fbbec0877043b664b0310dd413125560dcb5e6d29f4a54f664a509e04fd6f4"
+      "sha256": "25fbbec0877043b664b0310dd413125560dcb5e6d29f4a54f664a509e04fd6f4",
+      "bytes": 908098
     },
     {
-      "path": "site/research/rsi/README.txt",
-      "size": 299,
-      "sha256": "eeaff0f3f2079eaa57cfc7d1e3b3cdafae4ecb091585efa6a8b420cc2ca6d1f7"
+      "path": "site/rsi-to-asi-superintelligence.html",
+      "sha256": "c9794c444d7a57487c00d8f4b08bc379c3f271b1ba286608aeeb4033d8fcb5cb",
+      "bytes": 9097
     },
     {
-      "path": "site/research/rsi/executive-brief.txt",
-      "size": 289,
-      "sha256": "11c6ed023d47aaf95dbfc24adefb633b78ecaaffbfd9259ae45cfbcfc83883b0"
+      "path": "site/sovereign-asi-readiness-lab.html",
+      "sha256": "c9794c444d7a57487c00d8f4b08bc379c3f271b1ba286608aeeb4033d8fcb5cb",
+      "bytes": 9097
     },
     {
-      "path": "site/rsi-governance-console.html",
-      "size": 8528,
-      "sha256": "0157d9053bff0b929be6d93ccb57d17d88b97078f786fa1f5dcfb958e48ec744"
+      "path": "site/superintelligence-governance-console.html",
+      "sha256": "c9794c444d7a57487c00d8f4b08bc379c3f271b1ba286608aeeb4033d8fcb5cb",
+      "bytes": 9097
     },
     {
-      "path": "site/rsi-operational-dashboard-schema-v32.json",
-      "size": 1188,
-      "sha256": "2dcdc9c509513fd373c2df6f64bba04d57ce230c83e26d09bfbf3340be4f0b54"
-    },
-    {
-      "path": "site/rsi-source-document-index-v32.json",
-      "size": 739,
-      "sha256": "d3c64434df5d7eb6b64e8326fc91fd6a7748ad881896b6b575f5fa60c2d4cd2a"
-    },
-    {
-      "path": "site/rsi.html",
-      "size": 8509,
-      "sha256": "954d816a2c48b65e345603f3258a3cc43c82f91b75cfd11da90ae0948ce2a17d"
-    },
-    {
-      "path": "site/sovereign-invention-governance-lab.html",
-      "size": 8540,
-      "sha256": "f5b2ca3329cf039855f4ee8c17f595f3da59174bdc382c5ae37c4d2fe17bc9e2"
-    },
-    {
-      "path": "verification/FROM_LOOP_TO_RSI_V32_VALIDATION.md",
-      "size": 573,
-      "sha256": "3d8eebd88b15c8922f64bbe1e1f3c6df5f7e60d4b87e41c245c3fcbbcfa0a40e"
+      "path": "verification/LOOP_RSI_ASI_SUPERINTELLIGENCE_CONSOLE_V33_VALIDATION.md",
+      "sha256": "904c20d0987a70493e530434f944a8f646e4305489e5e5c60412c97902869998",
+      "bytes": 614
     }
   ]
 }

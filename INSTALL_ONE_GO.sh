@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
-ROOT=${1:-.}
-cp -R . "$ROOT"/
-echo "Installed GoalOS Signoff Pro v32 package into $ROOT"
-echo "Run: node scripts/build-goalos-signoff-pro-institutional-v22-v32.mjs"
+ROOT="$(cd "$(dirname "$0")" && pwd)"
+cd "$ROOT"
+node scripts/build-goalos-signoff-public-labs-v22-v33.mjs
+node scripts/verify-loop-rsi-asi-superintelligence-console-v33.mjs
+printf '
+GoalOS Loop → RSI → ASI Superintelligence Console Lab v33 installed and verified.
+'

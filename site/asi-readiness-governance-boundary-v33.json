@@ -1,0 +1,14 @@
+{
+  "generatedAt": "2026-07-01T12:16:32.184Z",
+  "publicDemo": true,
+  "notAchievedASI": true,
+  "notProductionRSI": true,
+  "noExternalAiCalls": true,
+  "noAutonomousDeployment": true,
+  "noWallets": true,
+  "noPayments": true,
+  "noPersonalData": true,
+  "valueMoved": 0,
+  "allowed": "Public-safe education, governance simulation, synthetic receipt generation, and proof standard demonstration.",
+  "blocked": "Live autonomous escalation, external model calls, user data capture, operational deployment authority, weapons targeting, surveillance, custody, or settlement."
+}
