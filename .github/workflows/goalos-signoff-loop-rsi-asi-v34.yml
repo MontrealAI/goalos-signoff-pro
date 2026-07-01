@@ -1,12 +1,12 @@
-name: GoalOS Signoff Pro — Loop to RSI to ASI v33
+name: GoalOS Signoff Pro — Loop to RSI to ASI Control Tower v34
 
 on:
   workflow_dispatch:
     inputs:
       scenario:
-        description: "Public-safe v33 scenario label"
+        description: "Public-safe v34 scenario label"
         required: false
-        default: "loop-rsi-asi-repair"
+        default: "asi-threshold-review"
       commit_generated_site:
         description: "Commit generated site artifacts back to the branch"
         type: boolean
@@ -30,8 +30,8 @@ env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
 
 jobs:
-  build-v33:
-    name: Build and verify v33 Loop → RSI → ASI console
+  build-v34:
+    name: Build v34 Control Tower
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -41,26 +41,26 @@ jobs:
         with:
           node-version: "24"
           package-manager-cache: false
-      - name: Build v22-v33 public labs
-        run: node scripts/build-goalos-signoff-public-labs-v22-v33.mjs
-      - name: Verify v33 public-safe console
-        run: node scripts/verify-loop-rsi-asi-superintelligence-console-v33.mjs
-      - name: Commit generated site files
+      - name: Build GoalOS public labs through v34
+        run: node scripts/build-goalos-signoff-public-labs-v22-v34.mjs
+      - name: Verify v34 Control Tower
+        run: node scripts/verify-loop-rsi-asi-superintelligence-control-tower-v34.mjs
+      - name: Commit generated site artifacts
         if: ${{ inputs.commit_generated_site }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add site config docs scripts verification .github/workflows GOALOS_V33_V34_ACTIONS_ERROR_CORRECTION_START_HERE.md || true
+          git add site config docs scripts verification .github/workflows GOALOS_PUBLIC_LAB_V34_LOOP_RSI_ASI_START_HERE.md GITHUB_WEB_UI_INSTALL_V34_LOOP_RSI_ASI.txt GOALOS_V33_V34_ACTIONS_ERROR_CORRECTION_START_HERE.md || true
           if git diff --cached --quiet; then
-            echo "No generated changes to commit."
+            echo "No changes to commit."
           else
-            git commit -m "Repair GoalOS Loop to RSI to ASI v33 GitHub Action"
+            git commit -m "Add GoalOS Loop to RSI to ASI Control Tower Lab v34"
             git push
           fi
-      - name: Upload v33 site preview artifact
+      - name: Upload v34 preview artifact
         uses: actions/upload-artifact@v4
         with:
-          name: goalos-signoff-pro-v33-repaired-site-preview
+          name: goalos-signoff-pro-v34-site-preview
           path: site
       - name: Upload Pages artifact
         if: ${{ inputs.deploy_pages }}
@@ -69,7 +69,7 @@ jobs:
           path: site
   deploy:
     if: ${{ inputs.deploy_pages }}
-    needs: build-v33
+    needs: build-v34
     runs-on: ubuntu-latest
     environment:
       name: github-pages
