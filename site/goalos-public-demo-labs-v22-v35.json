@@ -1,0 +1,41 @@
+{
+  "suite": "GoalOS Signoff Pro public demo labs v22-v34",
+  "latest": "v34",
+  "latestRoute": "loop-rsi-asi-superintelligence-control-tower-lab.html",
+  "latestTitle": "GoalOS Signoff Pro — Loop → RSI → ASI Superintelligence Control Tower Lab v34",
+  "labs": [
+    "v22 Action Graph & Human Authority",
+    "v23 Proof-Carrying Artifact & Evolution Ledger",
+    "v24 Independent Replay & Claim Promotion",
+    "v25 ProofZero Planning & Evidence Reanalyze",
+    "v26 Proof-Gated Mission Foundry & Curriculum",
+    "v27 Process-Resolved Evidence",
+    "v28 Blockchain Credibility Standard",
+    "v29 Blockchain Proof Mandate & Due Diligence",
+    "v30 Proof Before Settlement Research",
+    "v31 Executive AI Proof Console",
+    "v32 From Loop to RSI",
+    "v33 Loop to RSI to ASI",
+    "v34 ASI Superintelligence Control Tower",
+    {
+      "id": "v35-loop-rsi-asi-mission-simulator",
+      "version": "v35",
+      "title": "GoalOS Signoff Pro — Loop → RSI → ASI Superintelligence Mission Simulator Lab v35",
+      "route": "loop-rsi-asi-superintelligence-mission-simulator-lab.html",
+      "purpose": "Guided public-safe mission simulator for the proof loop, RSI governance, Move‑37 dossiers, ASI lock, council review, rollback, and synthetic receipts.",
+      "publicSafe": true,
+      "valueMoved": 0
+    },
+    {
+      "id": "v35-institutional-command-center",
+      "version": "v35",
+      "title": "GoalOS Signoff Pro — v22-v35 Institutional Command Center",
+      "route": "goalos-v22-v35-command-center.html",
+      "publicSafe": true,
+      "valueMoved": 0
+    }
+  ],
+  "generatedAt": "2026-07-01T15:49:09.831Z",
+  "version": "v22-v35",
+  "labCount": 15
+}

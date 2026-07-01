@@ -1,0 +1,33 @@
+{
+  "dossierSteps": [
+    {
+      "name": "Recognition note",
+      "detail": "Why the candidate crossed novelty or advantage thresholds."
+    },
+    {
+      "name": "Reproduction manifest",
+      "detail": "Fixed seeds, artifact hashes, environment, and replay instructions."
+    },
+    {
+      "name": "Stress-test bundle",
+      "detail": "Policy shocks, sensitivity deltas, and failure-mode register."
+    },
+    {
+      "name": "Persistence report",
+      "detail": "Minimum pass rate under shocks and baseline comparison."
+    },
+    {
+      "name": "Rollback plan",
+      "detail": "Containment, stop authority, monitoring, and release gates."
+    },
+    {
+      "name": "Council memo",
+      "detail": "Decision asks, dissent register, and approval boundaries."
+    },
+    {
+      "name": "Synthetic receipt",
+      "detail": "Public-safe record of decision state and remaining proof debt."
+    }
+  ],
+  "rule": "A breakthrough is not a narrative; it is a deterministic state transition with mandatory reproduction, stress testing, persistence, and packaging."
+}

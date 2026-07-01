@@ -1,0 +1,24 @@
+{
+  "id": "GOALOS-V35-SYNTHETIC-RECEIPT-DEMO",
+  "receiptType": "public-safe synthetic Mission Receipt",
+  "mission": "Loop → RSI → ASI superintelligence mission simulator",
+  "decisionState": "REVIEW_READY_FOR_COUNCIL",
+  "valueMoved": 0,
+  "externalAiCalls": false,
+  "walletConnected": false,
+  "claims": [
+    "The demo shows a proof-gated governance pattern.",
+    "It does not claim achieved AGI, ASI, production RSI, legal certification, or deployment authority."
+  ],
+  "proofObjects": [
+    "mission contract",
+    "evidence docket",
+    "replay log",
+    "validator report",
+    "risk ledger",
+    "Move‑37 dossier",
+    "rollback drill",
+    "council memo"
+  ],
+  "syntheticHash": "sha256:GOALOS-V35-PUBLIC-SAFE-SYNTHETIC-DEMO-HASH"
+}

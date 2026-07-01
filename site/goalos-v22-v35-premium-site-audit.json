@@ -1,0 +1,27 @@
+{
+  "version": "v35",
+  "generatedAt": "2026-07-01T15:49:09.831Z",
+  "verdict": "strong-substance-now-needs-unified-entrypoint-and-reliable-actions",
+  "implemented": [
+    "site-wide command center",
+    "floating guided navigation",
+    "interactive button-only AI-style console",
+    "all v22-v35 lab map",
+    "v33/v34/v35 action repair coverage"
+  ],
+  "publicSafety": {
+    "noForms": true,
+    "noTextInputs": true,
+    "noUploads": true,
+    "noCookies": true,
+    "noAnalytics": true,
+    "noWallets": true,
+    "noPayments": true,
+    "noExternalAiCalls": true,
+    "noPersonalData": true,
+    "valueMoved": 0,
+    "claimedAgi": false,
+    "claimedAsi": false,
+    "productionAuthority": false
+  }
+}

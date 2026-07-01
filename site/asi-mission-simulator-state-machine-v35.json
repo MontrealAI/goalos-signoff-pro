@@ -1,0 +1,24 @@
+{
+  "id": "asi-mission-simulator-state-machine-v35",
+  "invariant": "No ASI-scale escalation can promote itself. Any high-impact promotion requires proof, independent review, rollback readiness, and explicit human/council authority.",
+  "states": [
+    "CLAIM_RECEIVED",
+    "PROOF_LOOP_ACTIVE",
+    "RSI_PILOT_AUTHORIZATION",
+    "MOVE37_DOSSIER_REQUIRED",
+    "ASI_LOCK",
+    "COUNCIL_REVIEW",
+    "ROLLBACK_DRILL",
+    "REVIEW_READY",
+    "BLOCKED"
+  ],
+  "transitions": [
+    "CLAIM_RECEIVED → PROOF_LOOP_ACTIVE",
+    "PROOF_LOOP_ACTIVE → RSI_PILOT_AUTHORIZATION",
+    "RSI_PILOT_AUTHORIZATION → MOVE37_DOSSIER_REQUIRED",
+    "MOVE37_DOSSIER_REQUIRED → ASI_LOCK",
+    "ASI_LOCK → COUNCIL_REVIEW",
+    "COUNCIL_REVIEW → ROLLBACK_DRILL",
+    "ROLLBACK_DRILL → REVIEW_READY"
+  ]
+}
