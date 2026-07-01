@@ -42,7 +42,7 @@
       gates: ['mission-defined','evidence-bound','replay-ready','human-authority','rollback-available'],
       publicSafety: {forms:false, inputs:false, uploads:false, wallets:false, payments:false, externalAiCalls:false, valueMoved:0},
       decision: state.mode==='asi' ? 'ASI_ESCALATION_REQUIRES_COUNCIL_AND_ROLLBACK' : 'REVIEW_READY_DEMO',
-      timestamp: new Date().toISOString()
+      generated_at_static: 'STATIC_SAMPLE_2026_07_01T00_00_00Z'
     };
     const out = $('g35-output'); if(out){ out.textContent = 'GOALOS COMMAND CENTER\n\nRole: '+roles[state.role]+'\nMode: '+state.mode.toUpperCase()+'\nStep: '+steps[state.step]+'\n\n'+messages[state.role]+'\n\nRecommended next route: '+routeFor()+'\n\nSynthetic receipt:\n'+safeJson(receipt); }
     const open = $('g35-open'); if(open) open.href = routeFor();

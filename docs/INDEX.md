@@ -24,6 +24,19 @@ GoalOS Signoff Pro is the human acceptance and signed-receipt layer for AI work.
 - [Flowcharts](FLOWCHARTS.md)
 - [Codex institutional audit v22-v35](CODEX_INSTITUTIONAL_AUDIT_V22_V35.md)
 
+
+## Supreme v35 current guides
+
+- [Supreme v35 audit](CODEX_SUPREME_V35_AUDIT.md)
+- [Supreme v35 changelog](CODEX_SUPREME_V35_CHANGELOG.md)
+- [Website guide](WEBSITE_GUIDE.md)
+- [v22-v35 public labs guide](V22_V35_PUBLIC_LABS_GUIDE.md)
+- [Command center guide](COMMAND_CENTER_GUIDE.md)
+- [GitHub Web UI guide](GITHUB_WEB_UI_GUIDE.md)
+- [Workflows and verification](WORKFLOWS_AND_VERIFICATION.md)
+- [Route catalog](ROUTE_CATALOG.md)
+- [RSI / ASI-readiness boundary](RSI_ASI_READINESS_BOUNDARY.md)
+
 ## Product / Executive
 
 - [README](../README.md)

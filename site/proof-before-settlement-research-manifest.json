@@ -2,7 +2,7 @@
   "id": "goalos-signoff-pro-proof-before-settlement-research-lab-v30",
   "version": "v30",
   "title": "GoalOS Signoff Pro — Proof Before Settlement Institutional Research Lab v30",
-  "generatedAt": "2026-07-01T20:21:13Z",
+  "generatedAt": "2026-07-01T20:53:11Z",
   "primaryRoute": "proof-before-settlement-research-lab.html",
   "aliases": [
     "institutional-research-lab.html",
@@ -68,5 +68,5 @@
     "productionAuthority": false
   },
   "standard": "No Proof. No Trust. No Settlement.",
-  "manifestHash": "sha256:710af0b5b1b2575449c22759cb5b5867f17a8b88fe613a0a005e31fe8ea190d6"
+  "manifestHash": "sha256:5cc50ad43a14b3f6e7fed4fc53a4470137fe7061ae057a64dc7f5f3fbdcf0a5e"
 }

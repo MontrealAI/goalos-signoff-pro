@@ -2,7 +2,7 @@
   "id": "goalos-signoff-pro-blockchain-credibility-lab-v28",
   "title": "GoalOS Signoff Pro — Blockchain Credibility Standard Lab",
   "version": "28.0.0",
-  "generatedAt": "2026-07-01T20:21:13Z",
+  "generatedAt": "2026-07-01T20:53:11Z",
   "primaryRoute": "blockchain-credibility-lab.html",
   "aliases": [
     "proof-to-settlement-standard-lab.html",
@@ -28,5 +28,5 @@
     "noWallet": true,
     "noPayments": true
   },
-  "canonicalDemoHash": "sha256:be8a9d2cb3d97700f2a4abf39686f6421ebcbedf3da0ca36"
+  "canonicalDemoHash": "sha256:c22a78c1aae6012a7d1e7aabbd87957fa4abcf9d2616d8f7"
 }

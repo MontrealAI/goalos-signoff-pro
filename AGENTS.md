@@ -79,3 +79,7 @@ git diff --check
 
 - Include an audit summary, website changes, docs/repository changes, GitHub Actions repairs, public-safe boundary confirmation, validation results, and route preview list/screenshots.
 - Do not commit secrets, generated junk, local environment files, customer data, personal data, or live private configuration.
+
+## Codex review guidelines
+
+When reviewing or changing this repository, flag P0/P1 issues for missing workflow scripts, broken public routes, public pages that collect data, external scripts or analytics, wallet/payment functionality on public demo pages, AGI/ASI/production-RSI overclaims, accessibility regressions, stale v22-v35 version claims, or missing documentation for new public routes.
