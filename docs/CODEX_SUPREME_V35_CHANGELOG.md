@@ -19,6 +19,7 @@
 
 - Verified workflow references to `node scripts/*.mjs` with the repository verifier.
 - Kept the canonical v22-v35 complete repair/publish workflow as the one-go path.
+- Rebuilt the committed `site/` output through the v22-v35 source builder and restored preservation-sensitive legacy routes/assets when the production rebuild pruned old compatibility files.
 
 ### Removals
 

@@ -1,9 +1,16 @@
 # Codex Supreme v35 Audit
 
-- Branch at audit: `work` (preferred delivery branch name from request: `codex/supreme-v35-institutional-website-repository-upgrade`).
-- Commit at audit start: `e93ff0de46222d5f1d146662306258f626431623`.
+- Branch at audit: `codex/supreme-v35-institutional-website-repository-upgrade`.
+- Commit at audit start: `e11b54a2bd9c3f95bffbbd16622f50cb11634763`.
 - Audit date/time: 2026-07-01 UTC.
-- Live-site network inspection: internet is available, but the implemented audit focused on repository HEAD and deterministic local rebuild/verification so the PR can be reviewed from committed artifacts.
+- Live-site network inspection: available. The live homepage and command-center route were opened on July 1, 2026; the live homepage still exposed older v31/v22-v30 emphasis, so this branch relies on deterministic local rebuilds and committed site artifacts to publish the v22-v35 command-center-first experience.
+
+
+## Live-site inspection notes
+
+- Live home inspected: `https://montrealai.github.io/goalos-signoff-pro/`. It was reachable and showed the older production homepage with strong Mission 001/v31 content plus v29/v30 sections.
+- Live command center inspected: `https://montrealai.github.io/goalos-signoff-pro/goalos-v22-v35-command-center.html`. It was reachable for publication comparison.
+- Local target after rebuild: home and aliases include the v22-v35 guided command-center spotlight, complete suite framing, and v35 latest simulator path.
 
 ## Repository files inspected
 
@@ -76,4 +83,29 @@ Claim-boundary language was reviewed for AGI/ASI/RSI/settlement overclaims. Hist
 
 ## Validation results
 
-Validation commands and final results are recorded in the PR and final response. Known follow-up: a future pass could consolidate legacy inline CSS across older generated labs, but current pages remain static and verifiable.
+Validation commands run in this pass:
+
+- `npm ci` — pass.
+- `npm run site:build:v22-v35` — pass; regenerated the public suite from committed builders.
+- `npm run site:verify:workflows` — pass; 132 workflow script references checked.
+- `npm run site:verify:v22-v35` — pass.
+- `npm run site:verify:routes` — pass; required routes/artifacts and flagship pages checked.
+- `npm run site:verify:public-safe` — pass; 184 site HTML/JS files checked recursively.
+- `npm run site:verify:links` — pass.
+- `npm run site:verify:all` — pass.
+- `npm run lint` — pass with pre-existing warnings only.
+- `npm run typecheck` — pass.
+- `npm run test` — pass; 11 files and 22 tests.
+- `npm run build` — pass.
+- `git diff --check` — pass.
+
+Known follow-up: a future pass could consolidate legacy inline CSS across older generated labs, but current pages remain static and verifiable.
+
+
+## Final self-review
+
+- First-time executive path: home → command center → guided console → v35 simulator is visible in generated artifacts.
+- Developer path: `package.json` exposes v22-v35 build and verification scripts; workflow-script references are machine-checked.
+- GitHub Web UI path: root guide and docs guide explain uploading contents, including `.github/`, running the canonical workflow, and troubleshooting missing scripts.
+- Public claim boundary: pages and docs use ASI-readiness and deterministic simulation language rather than achievement claims.
+- Remaining risk: older historical pages still contain legacy route names and compatibility workflow names; they are preserved intentionally, while current docs point to v22-v35 first.
