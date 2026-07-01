@@ -1,0 +1,16 @@
+{
+  "generatedAt": "2026-07-01T03:04:05.792Z",
+  "labs": [
+    {
+      "version": "v31",
+      "title": "Executive AI Proof Console & Guided Website Experience Lab",
+      "route": "executive-ai-proof-console.html",
+      "purpose": "Makes GoalOS immediately understandable through role-based, interactive, public-safe proof consoles.",
+      "proofLoop": "Role → situation → proof package → proof gates → decision → best next lab.",
+      "bestFor": "First-time visitors, executives, DAOs, auditors, investors, enterprises, AI operators, and blockchain teams.",
+      "valueMoved": 0
+    }
+  ],
+  "version": "v22-v31",
+  "labCount": 1
+}

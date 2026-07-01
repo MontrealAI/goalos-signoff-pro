@@ -1,0 +1,21 @@
+{
+  "publicConsole": true,
+  "aiConsoleMode": "browser-local synthetic console; no API call; no prompt box; no user text input; no data collection",
+  "allowedInteractions": [
+    "scenario buttons",
+    "role buttons",
+    "tabs",
+    "demo run button",
+    "copy static phrase button"
+  ],
+  "disallowedInteractions": [
+    "text entry",
+    "file upload",
+    "wallet connection",
+    "payment",
+    "cookie tracking",
+    "analytics beacon",
+    "personal/confidential data request"
+  ],
+  "message": "The console is dynamic and AI-styled, but public-safe. It demonstrates how GoalOS would reason over proof states using predefined synthetic scenarios."
+}

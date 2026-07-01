@@ -1,0 +1,117 @@
+{
+  "manifestId": "GOALOS-SIGNOFF-PRO-V31-EXECUTIVE-AI-PROOF-CONSOLE",
+  "artifactHash": "161b7db949aab5c39ddee254b742ddcb07227eaea9f5f81f92b50a383ae754a6",
+  "generatedAt": "2026-07-01T03:04:05.792Z",
+  "publicSafe": true,
+  "zeroValueMoved": true,
+  "scenarios": [
+    {
+      "id": "dao-delegate",
+      "role": "DAO Delegate",
+      "question": "Should treasury funds move?",
+      "situation": "A grantee claims a milestone is complete and requests payment.",
+      "rejectedMode": "Dashboard updates and Discord posts are not enough to authorize funds.",
+      "requiredProofPackage": [
+        "Mission Contract",
+        "Milestone Evidence Docket",
+        "Reviewer Report",
+        "Risk Ledger",
+        "Human / Governance Signoff",
+        "Mission Receipt"
+      ],
+      "decision": "Settlement-ready only after evidence, validation, and authority gates pass.",
+      "syntheticReadinessScore": 94,
+      "receiptPointer": "GOALOS-V31-DAO-DELEGATE-b8bbab0a1a"
+    },
+    {
+      "id": "protocol-founder",
+      "role": "Protocol Founder",
+      "question": "How do we earn serious credibility?",
+      "situation": "The project wants partners, users, and investors to believe execution claims.",
+      "rejectedMode": "Narrative traction without inspectable proof creates fragile credibility.",
+      "requiredProofPackage": [
+        "Execution Claims Matrix",
+        "Evidence Docket",
+        "Replay Path",
+        "Public Boundary",
+        "Receipt",
+        "Adoption Roadmap"
+      ],
+      "decision": "Publish proof packages before asking for trust, listings, partnerships, or governance support.",
+      "syntheticReadinessScore": 91,
+      "receiptPointer": "GOALOS-V31-PROTOCOL-FOUNDER-3bf1fdb412"
+    },
+    {
+      "id": "auditor",
+      "role": "Auditor / Reviewer",
+      "question": "Was the issue actually fixed?",
+      "situation": "A protocol says an audit finding has been remediated.",
+      "rejectedMode": "An audit badge is helpful, but does not prove the specific fix path by itself.",
+      "requiredProofPackage": [
+        "Finding-to-Fix Trace",
+        "Test Evidence",
+        "Independent Replay",
+        "Contradiction Pass",
+        "Rollback Plan",
+        "Validator Report"
+      ],
+      "decision": "Promote the remediation claim only after replay, review, and bounded acceptance.",
+      "syntheticReadinessScore": 93,
+      "receiptPointer": "GOALOS-V31-AUDITOR-c5a62ce3fa"
+    },
+    {
+      "id": "investor",
+      "role": "Investor / Partner",
+      "question": "Is the execution real?",
+      "situation": "A team presents milestones, traction, and technical readiness claims.",
+      "rejectedMode": "Slides, commits, and metrics do not become institutional proof unless claims are mapped to evidence.",
+      "requiredProofPackage": [
+        "Claims Matrix",
+        "Evidence Index",
+        "Due-Diligence Scorecard",
+        "Risk Boundary",
+        "Decision State",
+        "Receipt Pointer"
+      ],
+      "decision": "Escalate credibility only when material claims are proof-backed and boundary-disclosed.",
+      "syntheticReadinessScore": 92,
+      "receiptPointer": "GOALOS-V31-INVESTOR-df22016bdd"
+    },
+    {
+      "id": "enterprise-buyer",
+      "role": "Enterprise Buyer",
+      "question": "Can we accept this vendor delivery?",
+      "situation": "A vendor delivers AI-assisted blockchain work and asks for signoff.",
+      "rejectedMode": "A polished deliverable is not enough without process-resolved evidence.",
+      "requiredProofPackage": [
+        "Frozen Brief",
+        "Criteria Mapping",
+        "Artifact Hashes",
+        "Process Evidence",
+        "Reviewer Notes",
+        "Acceptance Receipt"
+      ],
+      "decision": "Accept only after done criteria, evidence, reviewer judgment, and receipt are aligned.",
+      "syntheticReadinessScore": 95,
+      "receiptPointer": "GOALOS-V31-ENTERPRISE-BUYER-8c2ea9c88b"
+    },
+    {
+      "id": "agent-operator",
+      "role": "AI Agent Operator",
+      "question": "Should autonomous work influence future work?",
+      "situation": "An agent produced a useful artifact and wants it reused in future missions.",
+      "rejectedMode": "Useful output is not reusable capability until it becomes proof-carrying.",
+      "requiredProofPackage": [
+        "Candidate Artifact",
+        "Selection Certificate",
+        "Evolution Ledger",
+        "Canary Result",
+        "Rollback Receipt",
+        "Upgrade Right"
+      ],
+      "decision": "Only proof-carrying, rollbackable artifacts may enter memory or future routing.",
+      "syntheticReadinessScore": 90,
+      "receiptPointer": "GOALOS-V31-AGENT-OPERATOR-53490fdf13"
+    }
+  ]
+}

@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
-node scripts/build-goalos-signoff-pro-institutional-v22-v30.mjs
-node scripts/generate-proof-before-settlement-research-lab-bundle.mjs
-node scripts/verify-proof-before-settlement-research-lab-page.mjs
-node scripts/verify-goalos-signoff-public-labs-v22-v30.mjs
+ROOT="$(pwd)"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+rsync -a "$SCRIPT_DIR/" "$ROOT/"
+node scripts/build-goalos-signoff-pro-institutional-v22-v31.mjs
+node scripts/verify-executive-ai-proof-console-v31.mjs
+printf '\nGoalOS Signoff Pro v31 installed locally. Review, commit, and deploy.\n'

@@ -1,133 +1,149 @@
 {
-  "id": "goalos-signoff-pro-proof-before-settlement-research-lab-v30",
-  "version": "v30.0.0",
-  "created": "2026-07-01",
-  "purpose": "Incremental GoalOS Signoff Pro public lab v30 package for Proof Before Settlement institutional research and adoption.",
+  "id": "GOALOS-SIGNOFF-PRO-EXPERIENCE-CONSOLE-V31",
+  "version": "31.0.0",
+  "generatedAt": "2026-07-01T03:06:32Z",
+  "description": "Additive v31 guided website experience package for GoalOS Signoff Pro. Adds dynamic public-safe AI proof consoles and homepage/demo hub integration.",
+  "fileCount": 28,
   "files": [
     {
-      "path": ".github/workflows/goalos-signoff-public-labs-v22-v30.yml",
-      "bytes": 3997,
-      "sha256": "d7e38e156552b12eb7816d4e23f9575a6d3edec984b7101d0f0807b9444e36f1"
-    },
-    {
-      "path": ".github/workflows/pages.yml",
-      "bytes": 1465,
-      "sha256": "8eb16135f2532c19f8626cf0fd1903e09699a376f61bf2439292bd7f0ab0ffcf"
-    },
-    {
-      "path": ".github/workflows/website-quality.yml",
-      "bytes": 895,
-      "sha256": "732842335756b7d797dd761a55f39a7066a6c78e69e2551059c29be805d2974d"
-    },
-    {
-      "path": "GITHUB_WEB_UI_INSTALL_V30.txt",
-      "bytes": 908,
-      "sha256": "deb259a9a1f68b60ce0d99bd94488822d98a7970a4f16d89ce3eb411ad4df5ac"
-    },
-    {
-      "path": "GOALOS_PUBLIC_LAB_V30_START_HERE.md",
-      "bytes": 1445,
-      "sha256": "f225a5a73df3df2de1fd4596462d97ca8ea35c012a1f5cb1d861908a07ca4a52"
+      "path": "GOALOS_PUBLIC_LAB_V31_START_HERE.md",
+      "bytes": 2019,
+      "sha256": "6cfc6b81b7e5afaddce34f530a71b97a4e80f258473fe119dfe301423ff7d3f6"
     },
     {
       "path": "INSTALL_ONE_GO.sh",
-      "bytes": 297,
-      "sha256": "b23abb20e585b8535a69723299c36b67b333514d70df2622054eae9972e06d5b"
+      "bytes": 346,
+      "sha256": "1895a205b1fdab8c4be4d8ac95a533c45ca4fe7d7a2fc506ca20fd4bd278224c"
     },
     {
-      "path": "V30_COPYPASTE_SUMMARY.txt",
-      "bytes": 838,
-      "sha256": "1f8874a8ad05213c3f00cef5e3a22c04f4ac899179bb7ddfe8ad137aa74dcb87"
+      "path": "scripts/build-executive-ai-proof-console-v31.mjs",
+      "bytes": 34553,
+      "sha256": "5229aea266b06f653c50b8ef8cbaaafca4aa48c7b437d7ee8230432ea293b67b"
     },
     {
-      "path": "config/proof-before-settlement-research-lab.json",
-      "bytes": 6896,
-      "sha256": "4eaf000d039fee7dff65bdea82fa68b94ced1b126271cc9597a5c9f9fe2a87e1"
+      "path": "scripts/verify-executive-ai-proof-console-v31.mjs",
+      "bytes": 2522,
+      "sha256": "da8c0a63fbc110764239e035823020816348d863920a95ab6a769012b5e3320c"
     },
     {
-      "path": "docs/PROOF_BEFORE_SETTLEMENT_RESEARCH_LAB_USER_GUIDE.md",
-      "bytes": 1025,
-      "sha256": "13a4e825e389784473279cfacfdc267d1c5fc8b820984889c334a10fbdb6cd6c"
+      "path": "scripts/build-goalos-signoff-public-labs-v22-v31.mjs",
+      "bytes": 1129,
+      "sha256": "3f2e66a2954a33a445dc6dd750abed98c74c3ec53b14e1ce4399f901892406c7"
     },
     {
-      "path": "docs/PROOF_BEFORE_SETTLEMENT_RESEARCH_LAB_V30_INSTALL_GUIDE.md",
-      "bytes": 639,
-      "sha256": "3d4b3e06f73340b16424158209c214972f0bd2a53dc2f96fea7f69978a2f473c"
+      "path": "scripts/build-goalos-signoff-pro-institutional-v22-v31.mjs",
+      "bytes": 315,
+      "sha256": "c77ad907d3d80c783132c2d40a9df9885cefaf508ffbe2d9603c7a5809fcffb3"
     },
     {
-      "path": "docs/PR_DESCRIPTION_V30.md",
-      "bytes": 832,
-      "sha256": "b6a78162291150ab566dd10045c63c92b1f6cc6b6496ce50b352d42058a2d00b"
+      "path": "config/executive-ai-proof-console-v31.json",
+      "bytes": 538,
+      "sha256": "f807ad4448d0f9fbc2842960d6e53450166dc38f4beffd187af59bda7d18b0da"
     },
     {
-      "path": "public/research/proof-before-settlement/GoalOS_Proof_Before_Settlement_Elite_Edition.pdf",
-      "bytes": 173901,
-      "sha256": "db0d0652e8314f74dfce9086e9588792681444abe1406217bfaae6cf34ba59d2"
+      "path": "docs/EXECUTIVE_AI_PROOF_CONSOLE_V31_USER_GUIDE.md",
+      "bytes": 1697,
+      "sha256": "4115e88547393f7d649dfbca3cda186a1803b5afe439cd9c2b861d76885921ec"
     },
     {
-      "path": "public/research/proof-before-settlement/GoalOS_Proof_Before_Settlement_Elite_Edition.tex",
-      "bytes": 69250,
-      "sha256": "d9ae6ae0b2f60e52f2deef401bba98f36c3b65e8186ab02d9e60bbcc5b63ce10"
+      "path": "docs/GITHUB_WEB_UI_INSTALL_V31.md",
+      "bytes": 972,
+      "sha256": "d6714325e8159b319493ce3ebe9d5d0f9b28352d214cad5e5b2f61a0974347e3"
     },
     {
-      "path": "public/research/proof-before-settlement/GoalOS_Proof_Before_Settlement_Elite_Edition_SINGLE_FILE.tex",
-      "bytes": 75019,
-      "sha256": "2bf9ed12e91959f3cc5f49fbb34bf6b260427990e4c53852b628ae6690b73529"
+      "path": "docs/PR_DESCRIPTION_V31.md",
+      "bytes": 1166,
+      "sha256": "d35329223f85be5763e811beb0a2c9afca38473d0934842b8fc6fa7d62999386"
     },
     {
-      "path": "public/research/proof-before-settlement/GoalOS_Proof_Before_Settlement_Elite_Edition_references.bib",
-      "bytes": 5710,
-      "sha256": "5747ce5137d3a4174596801eaca7279f96b62b8ec771538f8a569a69765c9a79"
+      "path": "verification/EXECUTIVE_AI_PROOF_CONSOLE_V31_VALIDATION.md",
+      "bytes": 640,
+      "sha256": "99242c1f2f86631ccea498573eaeeb7f20ff569db1c2bf30ef2f8337e829cbaf"
     },
     {
-      "path": "public/research/proof-before-settlement/README.md",
-      "bytes": 436,
-      "sha256": "1ebd710e3f592ffd2fe7bb9601729e9c35f7224f13fe221aef98158aed352ca6"
+      "path": ".github/workflows/goalos-signoff-experience-console-v31.yml",
+      "bytes": 2874,
+      "sha256": "42771ee94e1c835f18abb1b766ed6fc7b6fb9ee461be0fe3c55019dcc6fa5387"
     },
     {
-      "path": "public/research/proof-before-settlement/executive-abstract.txt",
-      "bytes": 734,
-      "sha256": "38156a6cd1822c66a3e2d90aa58df51998feb192deb382ec43e351ab020b36e3"
+      "path": ".github/workflows/pages.yml",
+      "bytes": 2010,
+      "sha256": "bbb29a8ee2c6980e534ac23c13984d969da9225c9356ed7a0ce9c23c165819b2"
     },
     {
-      "path": "scripts/build-goalos-signoff-pro-institutional-v22-v30.mjs",
-      "bytes": 512,
-      "sha256": "f79dbabc2ee56c525e512a0c0be6c51d9f1c3104cc1da6809b6951e7efca0596"
+      "path": "site/executive-ai-proof-console.html",
+      "bytes": 8734,
+      "sha256": "3d08287b7930a6a02e5064dbbff86d6769df637271a703da20ccc3f31a97d212"
     },
     {
-      "path": "scripts/build-goalos-signoff-public-labs-v22-v30.mjs",
-      "bytes": 15553,
-      "sha256": "c479c84b7b70fd772c88433b67649a144c654b7d664406f35268aa38a282f516"
+      "path": "site/proof-experience-console.html",
+      "bytes": 8732,
+      "sha256": "eb00e193eccac65828c5331b98022a692c19695fe20031939bea6afa613a4dda"
     },
     {
-      "path": "scripts/build-proof-before-settlement-research-lab-page.mjs",
-      "bytes": 14661,
-      "sha256": "300631b6965f50a3c8bed20c584af41a2753be5f8a0fc2d47162b1e848ac952a"
+      "path": "site/interactive-proof-console.html",
+      "bytes": 8733,
+      "sha256": "f6d1ede6c06c1948b96b565d10cd9b9c7d1488d91a63a4fb7d50a85fa225be97"
     },
     {
-      "path": "scripts/generate-proof-before-settlement-research-lab-bundle.mjs",
-      "bytes": 1546,
-      "sha256": "8e002e44cb573979004f3c795e8265eba6e52008cd2d7a1a1c9c768afeb81288"
+      "path": "site/ai-proof-console.html",
+      "bytes": 8724,
+      "sha256": "e987c96b247df650dbba49a7548eaccef02c27ee55b9d62515358d34a5df3203"
     },
     {
-      "path": "scripts/proof-before-settlement-research-lab-core.mjs",
-      "bytes": 8358,
-      "sha256": "5f8491c936ebd0f8bf5f18eaa168634a014a3160532be5c1044163681bf75efe"
+      "path": "site/guided-experience.html",
+      "bytes": 8725,
+      "sha256": "ab5f0169b51221fa4d98821f8b6d513215005a7062e1f7202ffbabb7a205bd53"
     },
     {
-      "path": "scripts/verify-goalos-signoff-public-labs-v22-v30.mjs",
-      "bytes": 2862,
-      "sha256": "8f9ba12d5638455698678f9763987008a616a69969abdb527b6634796b79a69c"
+      "path": "site/what-is-goalos.html",
+      "bytes": 8722,
+      "sha256": "8a8823005fe4ced37fd041d8b54b34dad35ca3810b6675735756543375ff3154"
     },
     {
-      "path": "scripts/verify-proof-before-settlement-research-lab-page.mjs",
-      "bytes": 2604,
-      "sha256": "6c0cb9d75db0873279fb78e4cd1e31a3f01449b15818fa6ee752f16491f9ca40"
+      "path": "site/console.html",
+      "bytes": 8715,
+      "sha256": "117b25f5adc699f74f8756c036db801bf3189610a442a93f1eebcb332cea0ae6"
     },
     {
-      "path": "verification/PROOF_BEFORE_SETTLEMENT_RESEARCH_LAB_V30_VALIDATION.md",
-      "bytes": 761,
-      "sha256": "572cf4c10bf509500ca725bfd683fcbe1f21e13fb096c6cbad7dfa6aae56242d"
+      "path": "site/executive-ai-proof-console-v31-manifest.json",
+      "bytes": 3228,
+      "sha256": "aa62d1c768216d184e3fbd793b54338a1b2a12a8cd97b09834d97a1c9d2465ca"
+    },
+    {
+      "path": "site/ai-console-demo-bundle.json",
+      "bytes": 4678,
+      "sha256": "feeb65c41aea877193f367094d022af7f22cfed63c28c1fbffca0052bb5832d8"
+    },
+    {
+      "path": "site/public-safe-ai-console-boundary.json",
+      "bytes": 660,
+      "sha256": "c574c7731dc865ea1b769428c2ff39de242127462b48e425f9d68fd864f16804"
+    },
+    {
+      "path": "site/visitor-journey-map-v31.json",
+      "bytes": 1109,
+      "sha256": "775555801115977ec91d6690a282d6d2bfbd7e5eb965b1c71d8ceddaee460c2f"
+    },
+    {
+      "path": "site/website-experience-audit-v31.json",
+      "bytes": 1022,
+      "sha256": "2db1b4f832dee346ad7c63ab09f6a01e2010c0593062520dbd3162adb9d8abb9"
+    },
+    {
+      "path": "site/goalos-public-demo-labs-v22-v31.json",
+      "bytes": 648,
+      "sha256": "11f8404b55eca1d0e6066a15b679655e6d75f9c96575e65a1c8948c3ffb9478b"
+    },
+    {
+      "path": "site/assets/goalos-v31-experience.css",
+      "bytes": 6849,
+      "sha256": "333f036f77b00a8c5c22c8456d84020a9337d178f7e4c2a4df0913ade7d8d418"
+    },
+    {
+      "path": "site/assets/goalos-v31-experience.js",
+      "bytes": 6209,
+      "sha256": "07b2ed00d664061d17d623c3176fc2a596cdd7ec06d4d658321bfd428cb41b4b"
     }
   ]
 }
