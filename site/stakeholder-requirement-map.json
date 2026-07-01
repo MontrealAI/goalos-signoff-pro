@@ -1,0 +1,80 @@
+{
+  "type": "GoalOSStakeholderRequirementMapV29",
+  "version": "v29.0.0",
+  "message": "Every stakeholder can ask the same simple question, then require the same proof package before trust escalates.",
+  "stakeholders": [
+    {
+      "order": 1,
+      "id": "community-user",
+      "name": "Community user",
+      "ask": "Before I trust this claim, where is the proof package?",
+      "requires": "Public proof package URL, readable summary, current decision state.",
+      "defaultGate": "proof package required",
+      "escalation": "No proof package → hold trust, funding, governance, settlement, or public reliance."
+    },
+    {
+      "order": 2,
+      "id": "dao-delegate",
+      "name": "DAO delegate",
+      "ask": "Before I vote yes, what evidence supports the proposal?",
+      "requires": "Mission contract, evidence docket, validation note, risk ledger, receipt boundary.",
+      "defaultGate": "proof package required",
+      "escalation": "No proof package → hold trust, funding, governance, settlement, or public reliance."
+    },
+    {
+      "order": 3,
+      "id": "grant-committee",
+      "name": "Grant committee",
+      "ask": "Before a payout, did the milestone pass acceptance?",
+      "requires": "Acceptance criteria, proof mapping, reviewer signoff, payout readiness receipt.",
+      "defaultGate": "proof package required",
+      "escalation": "No proof package → hold trust, funding, governance, settlement, or public reliance."
+    },
+    {
+      "order": 4,
+      "id": "treasury-council",
+      "name": "Treasury council",
+      "ask": "Before funds move, what proves the vendor earned them?",
+      "requires": "Deliverable evidence, replay notes, authority decision, settlement gate.",
+      "defaultGate": "proof package required",
+      "escalation": "No proof package → hold trust, funding, governance, settlement, or public reliance."
+    },
+    {
+      "order": 5,
+      "id": "security-reviewer",
+      "name": "Security reviewer",
+      "ask": "Before closure, can the fix be independently checked?",
+      "requires": "Finding map, patch evidence, test output, residual risk, challenge window.",
+      "defaultGate": "proof package required",
+      "escalation": "No proof package → hold trust, funding, governance, settlement, or public reliance."
+    },
+    {
+      "order": 6,
+      "id": "investor-partner",
+      "name": "Investor or partner",
+      "ask": "Before diligence passes, what proof supports the project’s material claims?",
+      "requires": "Claims matrix, proof status, unresolved risks, receipts, governance boundary.",
+      "defaultGate": "proof package required",
+      "escalation": "No proof package → hold trust, funding, governance, settlement, or public reliance."
+    },
+    {
+      "order": 7,
+      "id": "enterprise-procurement",
+      "name": "Enterprise procurement",
+      "ask": "Before approval, does the project meet institutional evidence standards?",
+      "requires": "RFP proof checklist, responsible owners, audit trail, redaction boundary.",
+      "defaultGate": "proof package required",
+      "escalation": "No proof package → hold trust, funding, governance, settlement, or public reliance."
+    },
+    {
+      "order": 8,
+      "id": "ai-agent-operator",
+      "name": "AI-agent operator",
+      "ask": "Before the agent is paid or reused, what ProofBundle validates the work?",
+      "requires": "Task trace, tool scope, validator review, signed receipt, reusable capability gate.",
+      "defaultGate": "proof package required",
+      "escalation": "No proof package → hold trust, funding, governance, settlement, or public reliance."
+    }
+  ],
+  "valueMoved": 0
+}

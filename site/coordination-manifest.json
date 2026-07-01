@@ -1,25 +1,131 @@
 {
-  "version": "2.0.0-final-production",
-  "generatedAt": "2026-06-27T21:51:07.919Z",
-  "pages": [
-    "multi-agent-sovereign-institution.html",
-    "coordination-theatre.html",
-    "proof-governed-swarm.html",
-    "agent-constellation-lab.html",
-    "coordination-benchmark.html"
+  "version": "12.0.0-final-production",
+  "generatedAt": "2026-07-01T02:35:38.982Z",
+  "missionLoop": [
+    "Objective",
+    "Mission Contract",
+    "Agent / Job Allocation",
+    "Tool Execution",
+    "Proof Bundle",
+    "Evidence Docket",
+    "Verifier Mesh",
+    "Governed Decision State",
+    "Settlement Signal",
+    "Chronicle",
+    "Capability Package",
+    "Harder Future Mission"
   ],
-  "noUserData": true,
-  "noValueMoved": true,
-  "publicOnly": true,
-  "fileHashes": {
-    "multi-agent-sovereign-institution.html": "7a14d955755c666ea2f0913e4121509db3af82b150c5b3b69701771bb9e1d1fc",
-    "coordination-theatre.html": "5f1c09d433e17dca431ff574fa15d2f125a7d36c0fe9ccd1702cd3914bd59798",
-    "proof-governed-swarm.html": "b90d03b90ede7b58e1db61b0d46e9829be897658c6ab759059256ca8fccde301",
-    "agent-constellation-lab.html": "8a886bd736491c558e402152f3d94e44e180941760ae3b37dac7cdc7783a09b7",
-    "coordination-benchmark.html": "b808139c179a75183da4c01a24bd9e4b8c8b948cabde1390bff655b1bdc2c42a",
-    "assets/multi-agent-institution-v2.css": "6c6c9dfdacb73a40e5c0f94bf07b7cfcac07337dd76a8c62fe29ca070c17c364",
-    "assets/multi-agent-institution-v2.js": "ffa7c919c8801835944a0f9954bfc8699196fb512e0f13859cc52f61e3a18eec",
-    "multi-agent-demo-bundle.json": "3ef369204c1304ec004604d943cafaa55c23567611e8c88a9b6cbdb8c4d91e8f"
-  },
-  "siteHash": "5eabde4b195d01cf5e0907e797a6e65e1cd5c11ef0eaecf924958c4ac262dcc2"
+  "roles": [
+    "Coordinator",
+    "Planner",
+    "Builder",
+    "Evidence Scout",
+    "Validator",
+    "Risk Sentinel",
+    "Chronicle",
+    "Human Gate"
+  ],
+  "baselines": [
+    {
+      "id": "B0",
+      "name": "Null report",
+      "description": "No agentic workflow. Static narrative only.",
+      "verifiedWork": 18,
+      "proofIntegrity": 10,
+      "risk": 31,
+      "cost": 1,
+      "coordinationOverhead": 2,
+      "score": -28.9
+    },
+    {
+      "id": "B1",
+      "name": "Single agent",
+      "description": "One general agent produces an answer without verifier mesh.",
+      "verifiedWork": 38,
+      "proofIntegrity": 33,
+      "risk": 27,
+      "cost": 1.5,
+      "coordinationOverhead": 4,
+      "score": -16.76
+    },
+    {
+      "id": "B2",
+      "name": "Fixed workflow",
+      "description": "Static chain with predefined steps but no proof-selection loop.",
+      "verifiedWork": 49,
+      "proofIntegrity": 47,
+      "risk": 22,
+      "cost": 2,
+      "coordinationOverhead": 7,
+      "score": -4.77
+    },
+    {
+      "id": "B3",
+      "name": "Unstructured swarm",
+      "description": "Multiple agents discuss without gated proof or Chronicle discipline.",
+      "verifiedWork": 51,
+      "proofIntegrity": 39,
+      "risk": 34,
+      "cost": 3.7,
+      "coordinationOverhead": 31,
+      "score": -39.95
+    },
+    {
+      "id": "B4",
+      "name": "Verifier-only workflow",
+      "description": "Reviewer checks final output but no mission contract or reusable capability.",
+      "verifiedWork": 58,
+      "proofIntegrity": 64,
+      "risk": 17,
+      "cost": 2.5,
+      "coordinationOverhead": 12,
+      "score": 9.22
+    },
+    {
+      "id": "B5",
+      "name": "Proof-gated coordination",
+      "description": "Mission contract, role graph, proof bundle, verifier mesh, risk ledger, Chronicle.",
+      "verifiedWork": 78,
+      "proofIntegrity": 86,
+      "risk": 9,
+      "cost": 2.9,
+      "coordinationOverhead": 11,
+      "score": 46.7
+    },
+    {
+      "id": "B6",
+      "name": "GoalOS Mission 001",
+      "description": "Full reproducibility packet with Evidence Docket, replay path, baselines, and acceptance gates.",
+      "verifiedWork": 84,
+      "proofIntegrity": 93,
+      "risk": 6,
+      "cost": 3,
+      "coordinationOverhead": 9,
+      "score": 61.92
+    }
+  ],
+  "mission001": {
+    "missionId": "GOALOS-MISSION-001",
+    "packetVersion": "12.0.0-final-production",
+    "generatedAt": "2026-07-01T02:35:38.982Z",
+    "seed": "goalos-mission-001-v12-seed",
+    "publicPrivateBoundary": "public packet contains synthetic proof artifacts only; private/user data is not requested or processed",
+    "requiredFiles": [
+      "00_manifest.json",
+      "01_mission_contract.json",
+      "02_environment.json",
+      "03_benchmark_tasks.json",
+      "04_baselines.json",
+      "05_runner_config.json",
+      "06_proof_bundle.json",
+      "07_replay_log.ndjson",
+      "08_cost_ledger.json",
+      "09_safety_ledger.json",
+      "10_validator_report.json",
+      "11_scoreboard.json",
+      "12_claims_matrix.json",
+      "README.md"
+    ],
+    "packetHash": "44f997f6bad7cb36f71ca6b617b0905105859cda89b791cb7359233b85abd545"
+  }
 }

@@ -1,0 +1,14 @@
+{
+  "rawSecretLeakCount": 0,
+  "externalTargetScanCount": 0,
+  "exploitExecutionCount": 0,
+  "malwareGenerationCount": 0,
+  "socialEngineeringContentCount": 0,
+  "unsafeAutomergeCount": 0,
+  "criticalSafetyIncidents": 0,
+  "personalDataRequested": false,
+  "confidentialDataRequested": false,
+  "walletConnection": false,
+  "payments": false,
+  "verdict": "PASS"
+}

@@ -1,0 +1,10 @@
+{
+  "type": "BlockchainCredibilitySettlementReadinessSignal",
+  "scenario": "dao-grant",
+  "standard": "No Proof. No Trust. No Settlement.",
+  "signal": "ready-for-human-authorized-settlement-review",
+  "liveSettlement": false,
+  "walletConnected": false,
+  "valueMoved": 0,
+  "readinessRoot": "sha256:de98efaeffb8cd87e1204a15e4976d523f26ab9d7fa6cd42"
+}

@@ -1,0 +1,22 @@
+{
+  "missionId": "GOALOS-MISSION-001",
+  "objective": "Reproduce a proof-gated coordination benchmark packet for a synthetic AI-work acceptance mission.",
+  "successCriteria": [
+    "packet files present",
+    "baselines B0-B6 present",
+    "runner config present",
+    "replay log present",
+    "scoreboard present",
+    "safety ledger zero critical",
+    "claim boundaries visible"
+  ],
+  "failureCriteria": [
+    "missing replay instructions",
+    "no baseline ladder",
+    "unsupported claims",
+    "user-data request",
+    "live-settlement claim"
+  ],
+  "riskClass": "public-safe synthetic demo",
+  "doneCondition": "all required packet elements generated and verifier passes"
+}

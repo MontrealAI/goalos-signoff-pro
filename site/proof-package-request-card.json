@@ -1,0 +1,85 @@
+{
+  "type": "GoalOSProofPackageRequestCardV29",
+  "version": "v29.0.0",
+  "motto": "Where is the proof package?",
+  "oneLiner": "Blockchain projects should not just ask for trust. They should pass proof-based due diligence.",
+  "copyPasteAsk": "Before we trust, fund, list, vote, approve, settle, or promote this blockchain claim: where is the proof package?",
+  "requiredPackage": [
+    {
+      "order": 1,
+      "id": "proof-url",
+      "label": "Public proof package URL",
+      "plainEnglish": "A single public place to inspect the claim and its evidence.",
+      "blockIfMissing": "The claim remains marketing, not diligence-ready.",
+      "weight": 15,
+      "requirementRoot": "sha256:5864da63af243943de714a35b61ab834"
+    },
+    {
+      "order": 2,
+      "id": "mission-contract",
+      "label": "Mission contract",
+      "plainEnglish": "What was promised, by whom, under what acceptance criteria.",
+      "blockIfMissing": "No one can tell whether the work was actually complete.",
+      "weight": 20,
+      "requirementRoot": "sha256:ce0f167d90a7a70816a08a40277c911e"
+    },
+    {
+      "order": 3,
+      "id": "evidence-docket",
+      "label": "Evidence docket",
+      "plainEnglish": "Artifacts, commits, reports, hashes, provenance, and boundaries.",
+      "blockIfMissing": "The project has claims, but no structured proof.",
+      "weight": 15,
+      "requirementRoot": "sha256:fc2bbb33f5616d6ee00678a90996088f"
+    },
+    {
+      "order": 4,
+      "id": "replay-path",
+      "label": "Replay path",
+      "plainEnglish": "How another reviewer can check the result again.",
+      "blockIfMissing": "The work cannot graduate from assertion to reviewable evidence.",
+      "weight": 20,
+      "requirementRoot": "sha256:26e36666c3b1bd7d75019996aad866e3"
+    },
+    {
+      "order": 5,
+      "id": "validator-review",
+      "label": "Validator review",
+      "plainEnglish": "What independent or role-specific review passed, failed, or challenged.",
+      "blockIfMissing": "The claim should not become mature or settlement-ready.",
+      "weight": 10,
+      "requirementRoot": "sha256:05024cf5522c262a2cd16e478da8e153"
+    },
+    {
+      "order": 6,
+      "id": "risk-ledger",
+      "label": "Risk ledger",
+      "plainEnglish": "Known limitations, unresolved risks, rollback path, and challenge window.",
+      "blockIfMissing": "Stakeholders cannot price or govern the remaining risk.",
+      "weight": 10,
+      "requirementRoot": "sha256:f1542262c3a4bdb36eb995d93d753f79"
+    },
+    {
+      "order": 7,
+      "id": "human-authority",
+      "label": "Human authority",
+      "plainEnglish": "Who accepted, rejected, or held the claim.",
+      "blockIfMissing": "No release, payout, upgrade, or public reliance should occur.",
+      "weight": 10,
+      "requirementRoot": "sha256:e2fe558474882ace2bdb76557442046b"
+    },
+    {
+      "order": 8,
+      "id": "signed-receipt",
+      "label": "Signed receipt",
+      "plainEnglish": "A durable decision record with hash commitments and boundary language.",
+      "blockIfMissing": "No serious credibility or settlement readiness.",
+      "weight": 15,
+      "requirementRoot": "sha256:a530d93f790a4c593e3d6552f1dc3b73"
+    }
+  ],
+  "publicSafeUse": "Copy this into DAO proposals, grant reviews, partner diligence, audit closeout, treasury approvals, and community questions.",
+  "valueMoved": 0,
+  "noWallet": true,
+  "noUserData": true
+}

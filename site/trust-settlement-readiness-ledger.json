@@ -1,0 +1,50 @@
+{
+  "type": "TrustSettlementReadinessLedger",
+  "settlementMode": "synthetic-public-demo",
+  "candidates": [
+    {
+      "id": "B0",
+      "name": "Announcement-only credibility",
+      "status": "REJECTED",
+      "proofScore": 4,
+      "trustScore": 8,
+      "settlementReadiness": 0,
+      "reason": "Marketing is not proof.",
+      "action": "block, hold, or challenge"
+    },
+    {
+      "id": "B1",
+      "name": "Dashboard and commit credibility",
+      "status": "HELD",
+      "proofScore": 42,
+      "trustScore": 47,
+      "settlementReadiness": 22,
+      "reason": "Evidence exists, but it is not packaged for decision or settlement.",
+      "action": "block, hold, or challenge"
+    },
+    {
+      "id": "B2",
+      "name": "Audit badge credibility",
+      "status": "CHALLENGE_REQUIRED",
+      "proofScore": 66,
+      "trustScore": 62,
+      "settlementReadiness": 48,
+      "reason": "A badge helps, but unresolved evidence and rollback gaps block full readiness.",
+      "action": "block, hold, or challenge"
+    },
+    {
+      "id": "B3",
+      "name": "GoalOS proof-package credibility",
+      "status": "SETTLEMENT_READY_SYNTHETIC",
+      "proofScore": 96,
+      "trustScore": 94,
+      "settlementReadiness": 92,
+      "reason": "Proof is structured, reviewable, replayable, human-authorized, and settlement-ready.",
+      "action": "emit settlement-readiness signal only"
+    }
+  ],
+  "acceptedCandidate": "B3",
+  "valueMoved": 0,
+  "noWallet": true,
+  "noPayments": true
+}

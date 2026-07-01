@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "lab": "GoalOS Signoff Pro — Blockchain Credibility Standard Lab",
+  "scenario": "dao-grant",
+  "files": 7,
+  "rule": "No proof package, no serious trust, no settlement readiness.",
+  "generatedAt": "2026-07-01T02:35:39Z",
+  "valueMoved": 0
+}

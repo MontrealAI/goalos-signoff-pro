@@ -1,0 +1,51 @@
+{
+  "type": "GoalOSSettlementReadinessDecisionTreeV29",
+  "version": "v29.0.0",
+  "selectedScenario": "dao-grant-payout",
+  "steps": [
+    {
+      "order": 1,
+      "state": "CLAIM_ONLY",
+      "meaning": "The project made an assertion without a full proof package.",
+      "publicAnswer": "Do not rely yet.",
+      "nextAction": "Request missing proof and keep irreversible action paused."
+    },
+    {
+      "order": 2,
+      "state": "PROOF_REQUESTED",
+      "meaning": "Stakeholders have asked for the proof package.",
+      "publicAnswer": "Pause trust until evidence arrives.",
+      "nextAction": "Request missing proof and keep irreversible action paused."
+    },
+    {
+      "order": 3,
+      "state": "EVIDENCE_SUBMITTED",
+      "meaning": "Evidence exists, but replay or validation is incomplete.",
+      "publicAnswer": "Review, but do not settle.",
+      "nextAction": "Request missing proof and keep irreversible action paused."
+    },
+    {
+      "order": 4,
+      "state": "VALIDATION_HOLD",
+      "meaning": "Some proof exists, but risk, challenge, or authority is unresolved.",
+      "publicAnswer": "Hold payout, launch, or vote.",
+      "nextAction": "Request missing proof and keep irreversible action paused."
+    },
+    {
+      "order": 5,
+      "state": "RECEIPT_READY",
+      "meaning": "Mission, evidence, replay, validation, authority, and receipt are aligned.",
+      "publicAnswer": "The claim is credibility-ready and settlement-ready in the demo.",
+      "nextAction": "Consider settlement readiness under applicable governance and law."
+    }
+  ],
+  "hardStops": [
+    "no proof package",
+    "no replay path for high-stakes claims",
+    "no validator review",
+    "unresolved critical risk",
+    "no human authority",
+    "no signed receipt"
+  ],
+  "valueMoved": 0
+}

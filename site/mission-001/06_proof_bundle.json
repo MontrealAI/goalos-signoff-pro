@@ -1,0 +1,20 @@
+{
+  "runId": "mission-001-demo-run",
+  "runCommitmentHash": "329478e1d0d40eda67e32bb5ccb13a65806f1c4e549159ea481dbc256d3000ee",
+  "traceRoot": "1d1762254e4838a54db1cb21c03cd9d61a9a835b527a87ee8972c25659876baa",
+  "outputHash": "95c5ccb552cde38c100c333ea76c605429d7e02c6060e86ef870cb49a4b6da7f",
+  "policyDecisionRoot": "9aae5de1c4462b74b90426e3e0b480ce1cb2892beacb462426bf19399516e511",
+  "toolHistoryRoot": "5b6c0286b7af1409e3ec321c3044537cf7a2eb6b4f8cc015800f7976894f09e6",
+  "evalResultRoot": "c44d059c3ca4cc1f6dfa3b03c6a23af82f3f25df210d58bc6f19c045c4f62e69",
+  "cost": {
+    "syntheticUnits": 3,
+    "wallClockMs": 8760
+  },
+  "latency": {
+    "simulatedMs": 8760
+  },
+  "signatures": {
+    "publicDemo": "sha256-hash-bound-synthetic-signature",
+    "bundleHash": "dde6fcdbd788403bf807eb91e85a427db11d9844e203361ca3e4d37ae088ea32"
+  }
+}

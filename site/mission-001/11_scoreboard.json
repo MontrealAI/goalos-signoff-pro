@@ -1,0 +1,85 @@
+{
+  "missionId": "GOALOS-MISSION-001",
+  "scoringRule": "verifiedWork × proofIntegrity - risk - coordinationOverhead - cost, normalized for public synthetic demonstration",
+  "winner": "B6",
+  "baselines": [
+    {
+      "id": "B0",
+      "name": "Null report",
+      "description": "No agentic workflow. Static narrative only.",
+      "verifiedWork": 18,
+      "proofIntegrity": 10,
+      "risk": 31,
+      "cost": 1,
+      "coordinationOverhead": 2,
+      "score": -28.9
+    },
+    {
+      "id": "B1",
+      "name": "Single agent",
+      "description": "One general agent produces an answer without verifier mesh.",
+      "verifiedWork": 38,
+      "proofIntegrity": 33,
+      "risk": 27,
+      "cost": 1.5,
+      "coordinationOverhead": 4,
+      "score": -16.76
+    },
+    {
+      "id": "B2",
+      "name": "Fixed workflow",
+      "description": "Static chain with predefined steps but no proof-selection loop.",
+      "verifiedWork": 49,
+      "proofIntegrity": 47,
+      "risk": 22,
+      "cost": 2,
+      "coordinationOverhead": 7,
+      "score": -4.77
+    },
+    {
+      "id": "B3",
+      "name": "Unstructured swarm",
+      "description": "Multiple agents discuss without gated proof or Chronicle discipline.",
+      "verifiedWork": 51,
+      "proofIntegrity": 39,
+      "risk": 34,
+      "cost": 3.7,
+      "coordinationOverhead": 31,
+      "score": -39.95
+    },
+    {
+      "id": "B4",
+      "name": "Verifier-only workflow",
+      "description": "Reviewer checks final output but no mission contract or reusable capability.",
+      "verifiedWork": 58,
+      "proofIntegrity": 64,
+      "risk": 17,
+      "cost": 2.5,
+      "coordinationOverhead": 12,
+      "score": 9.22
+    },
+    {
+      "id": "B5",
+      "name": "Proof-gated coordination",
+      "description": "Mission contract, role graph, proof bundle, verifier mesh, risk ledger, Chronicle.",
+      "verifiedWork": 78,
+      "proofIntegrity": 86,
+      "risk": 9,
+      "cost": 2.9,
+      "coordinationOverhead": 11,
+      "score": 46.7
+    },
+    {
+      "id": "B6",
+      "name": "GoalOS Mission 001",
+      "description": "Full reproducibility packet with Evidence Docket, replay path, baselines, and acceptance gates.",
+      "verifiedWork": 84,
+      "proofIntegrity": 93,
+      "risk": 6,
+      "cost": 3,
+      "coordinationOverhead": 9,
+      "score": 61.92
+    }
+  ],
+  "result": "B6 is the synthetic benchmark winner in this browser-local packet because it provides the full reproducibility path, not just a higher narrative score."
+}

@@ -1,0 +1,67 @@
+{
+  "id": "goalos-signoff-pro-institutional-site-map-v28-v29",
+  "generatedAt": "2026-07-01T02:35:39Z",
+  "canonicalMessage": "Blockchain proves the transaction. GoalOS proves the work.",
+  "standard": "No Proof. No Trust. No Settlement.",
+  "startHere": [
+    {
+      "label": "General visitor",
+      "route": "index.html",
+      "reason": "Understand the Signoff Institution."
+    },
+    {
+      "label": "Blockchain project or DAO",
+      "route": "blockchain-proof-mandate-lab.html",
+      "reason": "See what proof package stakeholders should require."
+    },
+    {
+      "label": "Investor, partner, exchange, auditor",
+      "route": "due-diligence.html",
+      "reason": "Use the due-diligence and proof-mandate flow."
+    },
+    {
+      "label": "Developer or reviewer",
+      "route": "mission-001.html",
+      "reason": "Inspect the reproducibility packet."
+    },
+    {
+      "label": "AI work operator",
+      "route": "public-demo-labs.html",
+      "reason": "Walk through the complete v22-v29 proof curriculum."
+    }
+  ],
+  "publicSafePosture": {
+    "forms": false,
+    "inputs": false,
+    "uploads": false,
+    "cookies": false,
+    "analytics": false,
+    "wallets": false,
+    "payments": false,
+    "personalData": false,
+    "confidentialData": false,
+    "valueMoved": 0
+  },
+  "proofPackage": [
+    "Mission Contract",
+    "Evidence Docket",
+    "Replay Path",
+    "Validator Report",
+    "Risk Ledger",
+    "Human Signoff",
+    "Mission Receipt",
+    "Settlement Readiness Boundary"
+  ],
+  "routes": [
+    "index.html",
+    "public-demo-labs.html",
+    "blockchain-credibility-lab.html",
+    "blockchain-proof-mandate-lab.html",
+    "blockchain.html",
+    "proof-package.html",
+    "proof-before-settlement.html",
+    "mission-001.html",
+    "verify.html"
+  ],
+  "hash": "sha256:ee8ad25b4809a5ecb6f01110f68dd394eaecd39be7bc05ec4bd026dd56b4b446"
+}

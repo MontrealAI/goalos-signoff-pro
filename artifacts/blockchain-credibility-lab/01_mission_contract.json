@@ -1,0 +1,58 @@
+{
+  "type": "BlockchainCredibilityMissionContract",
+  "scenario": "dao-grant",
+  "label": "DAO grant payout",
+  "objective": "Require milestone evidence, reviewer validation, and a signed receipt before treasury funds are released.",
+  "settlementRule": "No Evidence Docket, no payout.",
+  "gates": [
+    {
+      "id": "G1",
+      "name": "Mission",
+      "required": true,
+      "artifact": "Mission Contract"
+    },
+    {
+      "id": "G2",
+      "name": "Evidence",
+      "required": true,
+      "artifact": "Evidence Docket"
+    },
+    {
+      "id": "G3",
+      "name": "Replay",
+      "required": true,
+      "artifact": "Replay Path"
+    },
+    {
+      "id": "G4",
+      "name": "Validation",
+      "required": true,
+      "artifact": "Validator Report"
+    },
+    {
+      "id": "G5",
+      "name": "Risk",
+      "required": true,
+      "artifact": "Risk Ledger"
+    },
+    {
+      "id": "G6",
+      "name": "Human Authority",
+      "required": true,
+      "artifact": "Signoff Record"
+    },
+    {
+      "id": "G7",
+      "name": "Receipt",
+      "required": true,
+      "artifact": "Signed Mission Receipt"
+    },
+    {
+      "id": "G8",
+      "name": "Settlement Signal",
+      "required": true,
+      "artifact": "Settlement Readiness Signal"
+    }
+  ],
+  "missionRoot": "sha256:00fbee0d16f7fcdd72ae1a1dabe0b00f618444b310b35a83"
+}

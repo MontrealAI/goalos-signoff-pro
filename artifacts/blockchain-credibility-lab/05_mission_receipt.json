@@ -1,0 +1,10 @@
+{
+  "type": "BlockchainCredibilityReceipt",
+  "receiptId": "goalos-signoff-pro-v28-dao-grant",
+  "decisionState": "SYNTHETIC_SETTLEMENT_REVIEW_READY",
+  "iconicLine": "Blockchain proves the transaction. GoalOS proves the work.",
+  "receiptRoot": "sha256:2cbbc655d3f1abae496e67ed7b5d31b4a5a479d7109780db",
+  "noUserData": true,
+  "noWallet": true,
+  "valueMoved": 0
+}

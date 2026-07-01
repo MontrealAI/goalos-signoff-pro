@@ -1,6 +1,0 @@
-{
-  "canaryId": "CANARY-001-SYNTHETIC",
-  "scope": "public-safe browser simulation",
-  "delayedRiskSignal": "detected in C2",
-  "promotionState": "held for review"
-}

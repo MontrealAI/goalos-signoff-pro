@@ -1,0 +1,9 @@
+{
+  "runtime": "browser-local static site and Node.js artifact workflow",
+  "nodeVersion": ">=20 recommended for repo workflow; browser page requires modern JavaScript",
+  "dependencies": "none for public browser replay",
+  "deterministicSeed": "goalos-mission-001-v12-seed",
+  "randomization": "none beyond deterministic seed hashing",
+  "clockPolicy": "timestamps in generated artifacts are informational; replay ordering uses step indexes",
+  "dataBoundary": "public-safe synthetic task fixtures only; no personal/confidential data"
+}

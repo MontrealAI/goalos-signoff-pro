@@ -1,0 +1,43 @@
+{
+  "claims": [
+    {
+      "claim": "Mission 001 exposes a reproducible benchmark packet.",
+      "requiredEvidence": [
+        "manifest",
+        "environment",
+        "tasks",
+        "baselines",
+        "runner config",
+        "proof bundle",
+        "replay log",
+        "ledgers",
+        "validator report",
+        "scoreboard"
+      ],
+      "status": "supported by generated public packet",
+      "boundary": "synthetic browser-local demonstration"
+    },
+    {
+      "claim": "GoalOS turns output into governed decision state.",
+      "requiredEvidence": [
+        "claims matrix",
+        "Evidence Docket",
+        "risk ledger",
+        "verifier report",
+        "mission receipt"
+      ],
+      "status": "supported in packet structure",
+      "boundary": "does not assert real-world certification"
+    },
+    {
+      "claim": "B6 outperforms baselines in this demo.",
+      "requiredEvidence": [
+        "baseline table",
+        "scoring rule",
+        "deterministic packet"
+      ],
+      "status": "supported for synthetic benchmark only",
+      "boundary": "not empirical SOTA"
+    }
+  ]
+}

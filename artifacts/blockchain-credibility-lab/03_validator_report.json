@@ -1,0 +1,41 @@
+{
+  "type": "BlockchainCredibilityValidatorReport",
+  "acceptedCandidate": "B3",
+  "candidates": [
+    {
+      "id": "B0",
+      "name": "Announcement-only credibility",
+      "status": "REJECTED",
+      "proofScore": 4,
+      "settlementReadiness": 0,
+      "reason": "Marketing is not proof."
+    },
+    {
+      "id": "B1",
+      "name": "Dashboard and commit credibility",
+      "status": "HELD",
+      "proofScore": 42,
+      "settlementReadiness": 22,
+      "reason": "Evidence exists, but it is not packaged for decision or settlement."
+    },
+    {
+      "id": "B2",
+      "name": "Audit badge credibility",
+      "status": "CHALLENGE_REQUIRED",
+      "proofScore": 66,
+      "settlementReadiness": 48,
+      "reason": "A badge helps, but unresolved evidence and rollback gaps block full readiness."
+    },
+    {
+      "id": "B3",
+      "name": "GoalOS proof-package credibility",
+      "status": "SETTLEMENT_READY_SYNTHETIC",
+      "proofScore": 96,
+      "settlementReadiness": 92,
+      "reason": "Proof is structured, reviewable, replayable, human-authorized, and settlement-ready."
+    }
+  ],
+  "verdict": "SETTLEMENT_READY_SYNTHETIC_PUBLIC_DEMO",
+  "reason": "The GoalOS proof-package candidate is complete enough to emit a synthetic settlement-readiness signal. Human authority remains required before any real-world use.",
+  "valueMoved": 0
+}
