@@ -1,0 +1,75 @@
+name: GoalOS Signoff Pro — Loop to RSI to ASI v33
+
+on:
+  workflow_dispatch:
+    inputs:
+      asi_console_scenario:
+        description: "Default console scenario label for release notes"
+        required: false
+        default: "asi-scale-escalation"
+      commit_generated_site:
+        description: "Commit generated site artifacts back to this branch"
+        type: boolean
+        required: true
+        default: true
+      deploy_pages:
+        description: "Deploy the site folder to GitHub Pages"
+        type: boolean
+        required: true
+        default: true
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+env:
+  GOALOS_PUBLIC_SAFE: "true"
+  GOALOS_VALUE_MOVED: "0"
+
+jobs:
+  build-v33-loop-rsi-asi:
+    name: Build and verify v33 Loop → RSI → ASI console
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Build v22-v33 public labs
+        run: node scripts/build-goalos-signoff-public-labs-v22-v33.mjs
+      - name: Verify v33 public-safe console
+        run: node scripts/verify-loop-rsi-asi-superintelligence-console-v33.mjs
+      - name: Commit generated site files
+        if: ${{ inputs.commit_generated_site }}
+        run: |
+          git config user.name "goalos-signoff-pro-bot"
+          git config user.email "goalos-signoff-pro-bot@users.noreply.github.com"
+          git add site docs config scripts verification .github GOALOS_PUBLIC_LAB_V33_LOOP_RSI_ASI_START_HERE.md GITHUB_WEB_UI_INSTALL_V33_LOOP_RSI_ASI.txt PACKAGE_MANIFEST.json PACKAGE_MANIFEST.sha256 || true
+          if git diff --cached --quiet; then
+            echo "No generated changes to commit."
+          else
+            git commit -m "Add GoalOS Loop to RSI to ASI Console Lab v33"
+            git push
+          fi
+      - name: Upload Pages artifact
+        if: ${{ inputs.deploy_pages }}
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+  deploy:
+    name: Deploy GitHub Pages
+    if: ${{ inputs.deploy_pages }}
+    needs: build-v33-loop-rsi-asi
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
