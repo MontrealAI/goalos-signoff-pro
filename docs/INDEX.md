@@ -9,6 +9,11 @@ GoalOS Signoff Pro is the human acceptance and signed-receipt layer for AI work.
 - [Public command center](../site/goalos-v22-v35-command-center.html)
 
 
+## Standards and lifecycle
+
+- [PROOF_LIFECYCLE.md](PROOF_LIFECYCLE.md) — Universal GoalOS proof lifecycle, Signoff acceptance flow, claim maturity ladder, and gate failure modes.
+- [PUBLIC_SAFE_DEMO_STANDARD.md](PUBLIC_SAFE_DEMO_STANDARD.md) — Required public-demo posture, page copy, scanner patterns, and release checklist.
+
 ## v22-v35 institutional upgrade guides
 
 - [Start here](START_HERE.md)
