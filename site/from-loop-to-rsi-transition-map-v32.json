@@ -1,0 +1,52 @@
+{
+  "id": "GOALOS-V32-FROM-LOOP-TO-RSI-TRANSITION-MAP",
+  "generatedAt": "2026-07-01T11:35:34.567Z",
+  "fromLoop": [
+    "Mission",
+    "Evidence Docket",
+    "Replay Log",
+    "Validator Report",
+    "Human Signoff",
+    "Mission Receipt",
+    "Settlement readiness"
+  ],
+  "toRSI": [
+    "Target",
+    "Emit",
+    "Filter",
+    "Atlas",
+    "Test-plan",
+    "Eval",
+    "Insert",
+    "Promote",
+    "Council",
+    "Dossier",
+    "Chronicle"
+  ],
+  "translation": [
+    [
+      "Mission Contract",
+      "Target allocation and exploration brief"
+    ],
+    [
+      "Evidence Docket",
+      "Evidence objects + ECI ledger"
+    ],
+    [
+      "Replay Log",
+      "Deterministic manifests and stage logs"
+    ],
+    [
+      "Validator Report",
+      "Council review + baseline-comparative eval"
+    ],
+    [
+      "Mission Receipt",
+      "Dossier index + promotion decision state"
+    ],
+    [
+      "Chronicle",
+      "Append-only RSI archive and stepping-stone memory"
+    ]
+  ]
+}

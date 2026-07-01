@@ -1,0 +1,44 @@
+{
+  "id": "GOALOS-V32-RSI-OPERATIONAL-DASHBOARD-SCHEMA",
+  "generatedAt": "2026-07-01T11:35:34.567Z",
+  "metrics": [
+    {
+      "metric": "Replayability",
+      "target": "≥95%",
+      "value": 96,
+      "note": "Cycles reproducible from manifests"
+    },
+    {
+      "metric": "Schema integrity",
+      "target": "0 silent failures",
+      "value": 100,
+      "note": "Repair or hard-stop semantics"
+    },
+    {
+      "metric": "Evidence quality",
+      "target": "EXECUTED share rising",
+      "value": 74,
+      "note": "Simulated evidence remains bounded"
+    },
+    {
+      "metric": "Advantage confirmation",
+      "target": "Positive Δ under stress",
+      "value": 82,
+      "note": "Baseline-comparative persistence"
+    },
+    {
+      "metric": "Safety posture",
+      "target": "No public data/funds",
+      "value": 100,
+      "note": "Public demo has no value movement"
+    }
+  ],
+  "leadershipQuestion": "Can this invention loop be trusted to keep exploring without becoming ungoverned?",
+  "minimumDecisionAsks": [
+    "Authorize bounded pilot",
+    "Set replayability KPI",
+    "Define security boundary",
+    "Constitute council",
+    "Adopt dossier standard"
+  ]
+}

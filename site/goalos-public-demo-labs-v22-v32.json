@@ -1,0 +1,16 @@
+{
+  "generatedAt": "2026-07-01T11:35:34.567Z",
+  "labs": [
+    {
+      "version": "v32",
+      "title": "From Loop to RSI: Sovereign Invention Governance Lab",
+      "route": "from-loop-to-rsi-lab.html",
+      "purpose": "Shows how the GoalOS proof loop expands into deterministic invention governance for RSI-scale systems.",
+      "proofLoop": "Proof loop → deterministic invention OS → mechanical gates → Move-37 dossier → council-bounded promotion.",
+      "bestFor": "Executives, AI governance leaders, blockchain founders, DAO councils, auditors, national-scale strategy teams, and frontier AI governance programs.",
+      "valueMoved": 0
+    }
+  ],
+  "version": "v22-v32",
+  "labCount": 1
+}

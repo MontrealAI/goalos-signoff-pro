@@ -1,0 +1,86 @@
+{
+  "id": "GOALOS-V32-DETERMINISTIC-INVENTION-PIPELINE",
+  "generatedAt": "2026-07-01T11:35:34.567Z",
+  "summary": "Target → Emit → Filter → Atlas → Test-plan → Eval → Insert → Promote.",
+  "stages": [
+    {
+      "id": "TARGET",
+      "label": "Target",
+      "purpose": "Allocate exploration pressure across archive cells, bridge regions, and themes.",
+      "artifacts": [
+        "coverage_targets.json",
+        "bridge_targets.json",
+        "omni_explore_plan.json"
+      ]
+    },
+    {
+      "id": "EMIT",
+      "label": "Emit",
+      "purpose": "Generate candidate cards under explicit constraints and targeting.",
+      "artifacts": [
+        "candidates.raw.jsonl",
+        "novelty_distance.jsonl",
+        "stage_log.jsonl"
+      ]
+    },
+    {
+      "id": "FILTER",
+      "label": "Filter",
+      "purpose": "Apply risk gates and interestingness routing without admission authority.",
+      "artifacts": [
+        "candidates.filtered.jsonl",
+        "risk_reports.jsonl",
+        "omni_interest.jsonl"
+      ]
+    },
+    {
+      "id": "ATLAS",
+      "label": "Atlas",
+      "purpose": "Extract mechanisms, causal triples, and neighborhood context for comparatives.",
+      "artifacts": [
+        "causal_atlas_triples.jsonl",
+        "neighborhood_context.jsonl"
+      ]
+    },
+    {
+      "id": "TEST-PLAN",
+      "label": "Test-plan",
+      "purpose": "Build falsification ladders and schedule cheapest useful probes.",
+      "artifacts": [
+        "falsification_ladders.jsonl",
+        "probe_schedule.jsonl"
+      ]
+    },
+    {
+      "id": "EVAL",
+      "label": "Eval",
+      "purpose": "Evaluate against incumbent, neighbor, and null baselines; mint evidence objects.",
+      "artifacts": [
+        "eval_results.jsonl",
+        "baseline_comparison.jsonl",
+        "evidence_objects.jsonl",
+        "eci_ledger.jsonl"
+      ]
+    },
+    {
+      "id": "INSERT",
+      "label": "Insert",
+      "purpose": "Update append-only archive mechanically; record breakthrough events.",
+      "artifacts": [
+        "updated_frontier_cell.csv",
+        "updated_frontier_cell.jsonl",
+        "breakthrough_events.jsonl"
+      ]
+    },
+    {
+      "id": "PROMOTE",
+      "label": "Promote",
+      "purpose": "Rank promotions by mechanical scoring and emit queue artifacts.",
+      "artifacts": [
+        "promotion_queue.csv",
+        "promotion_queue.jsonl"
+      ]
+    }
+  ],
+  "invariant": "Every stage produces schema-bound artifacts; failures repair or hard-stop with explicit error objects; no silent corruption."
+}

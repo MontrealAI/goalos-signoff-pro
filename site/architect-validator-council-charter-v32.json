@@ -1,0 +1,14 @@
+{
+  "id": "GOALOS-V32-ARCHITECT-VALIDATOR-COUNCIL-CHARTER",
+  "generatedAt": "2026-07-01T11:35:34.567Z",
+  "purpose": "Independent design authority and verification council for governed invention loops.",
+  "authorities": [
+    "stop authority",
+    "dossier requirement",
+    "risk boundary escalation",
+    "baseline policy approval",
+    "release/rollback decision",
+    "public claim boundary review"
+  ],
+  "operatingRule": "No promotion, release, settlement signal, or memory propagation for high-novelty results without proof, replay, stress, persistence, and council-bounded decision state."
+}

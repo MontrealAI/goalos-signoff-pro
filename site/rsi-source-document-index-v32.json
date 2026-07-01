@@ -1,0 +1,17 @@
+{
+  "id": "GOALOS-V32-RSI-SOURCE-DOCUMENT-INDEX",
+  "generatedAt": "2026-07-01T11:35:34.567Z",
+  "sourceDocuments": [
+    {
+      "title": "AGI Alpha RSI — Sovereign Invention Governance",
+      "publicUrl": "https://github.com/MontrealAI/AGI-Alpha-Agent-v0/blob/main/docs/presentation/AGI_Alpha_RSI_Sovereign_v0.pdf",
+      "localPath": "research/rsi/AGI_Alpha_RSI_Sovereign_v0.pdf"
+    },
+    {
+      "title": "AGI Alpha RSI — Sovereign Strategy Brief",
+      "publicUrl": "https://github.com/MontrealAI/AGI-Alpha-Agent-v0/blob/main/docs/presentation/AGI_Alpha_RSI_Sovereign_Strategy_Brief_v0.pdf",
+      "localPath": "research/rsi/AGI_Alpha_RSI_Sovereign_Strategy_Brief_v0.pdf"
+    }
+  ],
+  "publicReleaseReviewRecommended": true
+}

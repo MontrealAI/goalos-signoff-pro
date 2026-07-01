@@ -1,149 +1,208 @@
 {
-  "id": "GOALOS-SIGNOFF-PRO-EXPERIENCE-CONSOLE-V31",
-  "version": "31.0.0",
-  "generatedAt": "2026-07-01T03:06:32Z",
-  "description": "Additive v31 guided website experience package for GoalOS Signoff Pro. Adds dynamic public-safe AI proof consoles and homepage/demo hub integration.",
-  "fileCount": 28,
+  "id": "goalos-signoff-pro-from-loop-to-rsi-lab-v32",
+  "title": "GoalOS Signoff Pro — From Loop to RSI: Sovereign Invention Governance Lab v32",
+  "version": "32.0.0",
+  "fileCount": 40,
   "files": [
     {
-      "path": "GOALOS_PUBLIC_LAB_V31_START_HERE.md",
-      "bytes": 2019,
-      "sha256": "6cfc6b81b7e5afaddce34f530a71b97a4e80f258473fe119dfe301423ff7d3f6"
+      "path": ".github/workflows/goalos-signoff-from-loop-to-rsi-v32.yml",
+      "size": 3184,
+      "sha256": "39b53b7e573eb42273ef0f86f6a623d64146a68848252e4b6b045de9d3812899"
+    },
+    {
+      "path": "GOALOS_PUBLIC_LAB_V32_START_HERE.md",
+      "size": 1964,
+      "sha256": "ec6468a66876ed3520fb7f76b95592820ba29c274414c3fa62ac8762ea23c7d9"
     },
     {
       "path": "INSTALL_ONE_GO.sh",
-      "bytes": 346,
-      "sha256": "1895a205b1fdab8c4be4d8ac95a533c45ca4fe7d7a2fc506ca20fd4bd278224c"
+      "size": 203,
+      "sha256": "1d22b0b27c0dac1267cacd9bb4fb0846de47c29352eb9d3623d5369e2bafcc3b"
     },
     {
-      "path": "scripts/build-executive-ai-proof-console-v31.mjs",
-      "bytes": 34553,
-      "sha256": "5229aea266b06f653c50b8ef8cbaaafca4aa48c7b437d7ee8230432ea293b67b"
+      "path": "config/from-loop-to-rsi-v32.json",
+      "size": 1675,
+      "sha256": "bf99157d8387c19a0d5fabfd1b37922ec9387acda9b26c4a612e3ce9064e288c"
     },
     {
-      "path": "scripts/verify-executive-ai-proof-console-v31.mjs",
-      "bytes": 2522,
-      "sha256": "da8c0a63fbc110764239e035823020816348d863920a95ab6a769012b5e3320c"
+      "path": "docs/FROM_LOOP_TO_RSI_V32_USER_GUIDE.md",
+      "size": 1964,
+      "sha256": "ec6468a66876ed3520fb7f76b95592820ba29c274414c3fa62ac8762ea23c7d9"
     },
     {
-      "path": "scripts/build-goalos-signoff-public-labs-v22-v31.mjs",
-      "bytes": 1129,
-      "sha256": "3f2e66a2954a33a445dc6dd750abed98c74c3ec53b14e1ce4399f901892406c7"
+      "path": "docs/GITHUB_WEB_UI_INSTALL_V32.md",
+      "size": 1964,
+      "sha256": "ec6468a66876ed3520fb7f76b95592820ba29c274414c3fa62ac8762ea23c7d9"
     },
     {
-      "path": "scripts/build-goalos-signoff-pro-institutional-v22-v31.mjs",
-      "bytes": 315,
-      "sha256": "c77ad907d3d80c783132c2d40a9df9885cefaf508ffbe2d9603c7a5809fcffb3"
+      "path": "docs/PR_DESCRIPTION_V32.md",
+      "size": 1217,
+      "sha256": "0a65131533c85c74ca8d2afa43372e99780bc3a54e3ce81945e6f8442135aff0"
     },
     {
-      "path": "config/executive-ai-proof-console-v31.json",
-      "bytes": 538,
-      "sha256": "f807ad4448d0f9fbc2842960d6e53450166dc38f4beffd187af59bda7d18b0da"
+      "path": "docs/research/rsi/AGI_Alpha_RSI_Sovereign_Strategy_Brief_v0.pdf",
+      "size": 76451,
+      "sha256": "b7912c63fe57cde538a1b8351ea28f51b2eae8647255017df054d621d338fe69"
     },
     {
-      "path": "docs/EXECUTIVE_AI_PROOF_CONSOLE_V31_USER_GUIDE.md",
-      "bytes": 1697,
-      "sha256": "4115e88547393f7d649dfbca3cda186a1803b5afe439cd9c2b861d76885921ec"
+      "path": "docs/research/rsi/AGI_Alpha_RSI_Sovereign_v0.pdf",
+      "size": 908098,
+      "sha256": "25fbbec0877043b664b0310dd413125560dcb5e6d29f4a54f664a509e04fd6f4"
     },
     {
-      "path": "docs/GITHUB_WEB_UI_INSTALL_V31.md",
-      "bytes": 972,
-      "sha256": "d6714325e8159b319493ce3ebe9d5d0f9b28352d214cad5e5b2f61a0974347e3"
+      "path": "scripts/build-from-loop-to-rsi-lab-v32.mjs",
+      "size": 36141,
+      "sha256": "245e3a0c814e69e9ef0391a34f7e4a5e6e01ae7c469509c92fcf0eb0bb36624a"
     },
     {
-      "path": "docs/PR_DESCRIPTION_V31.md",
-      "bytes": 1166,
-      "sha256": "d35329223f85be5763e811beb0a2c9afca38473d0934842b8fc6fa7d62999386"
+      "path": "scripts/build-goalos-signoff-pro-institutional-v22-v32.mjs",
+      "size": 1146,
+      "sha256": "f42d805c5e1a91dfd7082d933cd33d69c7253e3ceecabbde5e17eab22dd18435"
     },
     {
-      "path": "verification/EXECUTIVE_AI_PROOF_CONSOLE_V31_VALIDATION.md",
-      "bytes": 640,
-      "sha256": "99242c1f2f86631ccea498573eaeeb7f20ff569db1c2bf30ef2f8337e829cbaf"
+      "path": "scripts/build-goalos-signoff-public-labs-v22-v32.mjs",
+      "size": 1146,
+      "sha256": "f42d805c5e1a91dfd7082d933cd33d69c7253e3ceecabbde5e17eab22dd18435"
     },
     {
-      "path": ".github/workflows/goalos-signoff-experience-console-v31.yml",
-      "bytes": 2874,
-      "sha256": "42771ee94e1c835f18abb1b766ed6fc7b6fb9ee461be0fe3c55019dcc6fa5387"
+      "path": "scripts/verify-from-loop-to-rsi-v32.mjs",
+      "size": 3496,
+      "sha256": "12913c168c821044cf06093366867a99132f7b122c5d7d6237f7893292841a9e"
     },
     {
-      "path": ".github/workflows/pages.yml",
-      "bytes": 2010,
-      "sha256": "bbb29a8ee2c6980e534ac23c13984d969da9225c9356ed7a0ce9c23c165819b2"
+      "path": "site/agi-alpha-rsi-lab.html",
+      "size": 8523,
+      "sha256": "d264f2708956d29a6a70f069fa364723e8d5ed1279ec03f225a76858e24eae01"
     },
     {
-      "path": "site/executive-ai-proof-console.html",
-      "bytes": 8734,
-      "sha256": "3d08287b7930a6a02e5064dbbff86d6769df637271a703da20ccc3f31a97d212"
+      "path": "site/architect-validator-council-charter-v32.json",
+      "size": 602,
+      "sha256": "c3f292820daefa0f217bfc4da69a775a85360fa8dfcbfe7b99816af5276d7f45"
     },
     {
-      "path": "site/proof-experience-console.html",
-      "bytes": 8732,
-      "sha256": "eb00e193eccac65828c5331b98022a692c19695fe20031939bea6afa613a4dda"
+      "path": "site/assets/goalos-v32-rsi.css",
+      "size": 7360,
+      "sha256": "b40abd43c235e07c794b197c8016e30fcd75e6aebc12c19e4ede450706336630"
     },
     {
-      "path": "site/interactive-proof-console.html",
-      "bytes": 8733,
-      "sha256": "f6d1ede6c06c1948b96b565d10cd9b9c7d1488d91a63a4fb7d50a85fa225be97"
+      "path": "site/assets/goalos-v32-rsi.js",
+      "size": 7100,
+      "sha256": "8badb9d75d881f70af82637079e81a6042e1eb6bfae81ec62988fbf18ac71af9"
     },
     {
-      "path": "site/ai-proof-console.html",
-      "bytes": 8724,
-      "sha256": "e987c96b247df650dbba49a7548eaccef02c27ee55b9d62515358d34a5df3203"
+      "path": "site/deterministic-invention-os-lab.html",
+      "size": 8536,
+      "sha256": "3753519239feaa5a1febe2d3f92fd8dce5b9a65fd8a7abaa6f3b38054cf0671c"
     },
     {
-      "path": "site/guided-experience.html",
-      "bytes": 8725,
-      "sha256": "ab5f0169b51221fa4d98821f8b6d513215005a7062e1f7202ffbabb7a205bd53"
+      "path": "site/deterministic-invention-pipeline-v32.json",
+      "size": 2547,
+      "sha256": "33460bfcf3dc6bdca4644df8220dfb18cdca08753af046cecaf3b860f834ded8"
     },
     {
-      "path": "site/what-is-goalos.html",
-      "bytes": 8722,
-      "sha256": "8a8823005fe4ced37fd041d8b54b34dad35ca3810b6675735756543375ff3154"
+      "path": "site/from-loop-to-rsi-demo-bundle.json",
+      "size": 1636,
+      "sha256": "9e36854414ae8c330d2ff81d313832dc2ccb78779a3afac930bda88a47da682b"
     },
     {
-      "path": "site/console.html",
-      "bytes": 8715,
-      "sha256": "117b25f5adc699f74f8756c036db801bf3189610a442a93f1eebcb332cea0ae6"
+      "path": "site/from-loop-to-rsi-lab.html",
+      "size": 8526,
+      "sha256": "a81d6e400a5de3b0c781a599181bcacf224c7cb8f0e993acab0ac04d38dfc5fa"
     },
     {
-      "path": "site/executive-ai-proof-console-v31-manifest.json",
-      "bytes": 3228,
-      "sha256": "aa62d1c768216d184e3fbd793b54338a1b2a12a8cd97b09834d97a1c9d2465ca"
+      "path": "site/from-loop-to-rsi-transition-map-v32.json",
+      "size": 982,
+      "sha256": "77ba4026ca88b5b534c29866a18ee59cd2cc518d745a5dd4ed95ccd44ea9cbb4"
     },
     {
-      "path": "site/ai-console-demo-bundle.json",
-      "bytes": 4678,
-      "sha256": "feeb65c41aea877193f367094d022af7f22cfed63c28c1fbffca0052bb5832d8"
+      "path": "site/from-loop-to-rsi-v32-manifest.json",
+      "size": 5817,
+      "sha256": "9440f1646bf1129a7119c61ed2f70164b898d25809c2f082c2b163ce72e0ee1c"
     },
     {
-      "path": "site/public-safe-ai-console-boundary.json",
-      "bytes": 660,
-      "sha256": "c574c7731dc865ea1b769428c2ff39de242127462b48e425f9d68fd864f16804"
+      "path": "site/goalos-public-demo-labs-v22-v32.json",
+      "size": 706,
+      "sha256": "311cb445ca36e1a71ba133e72ff0adbbae7d421e7905e13c4f40ba77c9fbed4a"
     },
     {
-      "path": "site/visitor-journey-map-v31.json",
-      "bytes": 1109,
-      "sha256": "775555801115977ec91d6690a282d6d2bfbd7e5eb965b1c71d8ceddaee460c2f"
+      "path": "site/goalos-signoff-pro-site-map-v22-v32.json",
+      "size": 1106,
+      "sha256": "4f027bc5476c97c455a147a9b5731277e38975d20d058ae5b3d95ea53be6e17a"
     },
     {
-      "path": "site/website-experience-audit-v31.json",
-      "bytes": 1022,
-      "sha256": "2db1b4f832dee346ad7c63ab09f6a01e2010c0593062520dbd3162adb9d8abb9"
+      "path": "site/loop-to-rsi.html",
+      "size": 8517,
+      "sha256": "4970efada7fa0a5938a79acc869fe0172faf5242084727e6a9acee320ccb0f90"
     },
     {
-      "path": "site/goalos-public-demo-labs-v22-v31.json",
-      "bytes": 648,
-      "sha256": "11f8404b55eca1d0e6066a15b679655e6d75f9c96575e65a1c8948c3ffb9478b"
+      "path": "site/move37-breakthrough-dossier-v32.json",
+      "size": 684,
+      "sha256": "a23d97163f2d16c91d0d6d8460fb5f46173736906ab61078458fce56dd1d29cb"
     },
     {
-      "path": "site/assets/goalos-v31-experience.css",
-      "bytes": 6849,
-      "sha256": "333f036f77b00a8c5c22c8456d84020a9337d178f7e4c2a4df0913ade7d8d418"
+      "path": "site/move37-breakthrough-lab.html",
+      "size": 8529,
+      "sha256": "39556a1102ff065644cea6fa47f28f2f4bc2cc95f8a4c7e07717cc0fb36e2aa0"
     },
     {
-      "path": "site/assets/goalos-v31-experience.js",
-      "bytes": 6209,
-      "sha256": "07b2ed00d664061d17d623c3176fc2a596cdd7ec06d4d658321bfd428cb41b4b"
+      "path": "site/omni-search-control-boundary-v32.json",
+      "size": 1185,
+      "sha256": "d15191643c50a7a4f756c041d68a09a435d74e6a863d004f57588e569faf78db"
+    },
+    {
+      "path": "site/omni-search-control-lab.html",
+      "size": 8529,
+      "sha256": "326eace5d194ed7a42af82ac8a5634a765cd7fe9e1f05f7ee18fbae54e1cb25e"
+    },
+    {
+      "path": "site/research/rsi/AGI_Alpha_RSI_Sovereign_Strategy_Brief_v0.pdf",
+      "size": 76451,
+      "sha256": "b7912c63fe57cde538a1b8351ea28f51b2eae8647255017df054d621d338fe69"
+    },
+    {
+      "path": "site/research/rsi/AGI_Alpha_RSI_Sovereign_v0.pdf",
+      "size": 908098,
+      "sha256": "25fbbec0877043b664b0310dd413125560dcb5e6d29f4a54f664a509e04fd6f4"
+    },
+    {
+      "path": "site/research/rsi/README.txt",
+      "size": 299,
+      "sha256": "eeaff0f3f2079eaa57cfc7d1e3b3cdafae4ecb091585efa6a8b420cc2ca6d1f7"
+    },
+    {
+      "path": "site/research/rsi/executive-brief.txt",
+      "size": 289,
+      "sha256": "11c6ed023d47aaf95dbfc24adefb633b78ecaaffbfd9259ae45cfbcfc83883b0"
+    },
+    {
+      "path": "site/rsi-governance-console.html",
+      "size": 8528,
+      "sha256": "0157d9053bff0b929be6d93ccb57d17d88b97078f786fa1f5dcfb958e48ec744"
+    },
+    {
+      "path": "site/rsi-operational-dashboard-schema-v32.json",
+      "size": 1188,
+      "sha256": "2dcdc9c509513fd373c2df6f64bba04d57ce230c83e26d09bfbf3340be4f0b54"
+    },
+    {
+      "path": "site/rsi-source-document-index-v32.json",
+      "size": 739,
+      "sha256": "d3c64434df5d7eb6b64e8326fc91fd6a7748ad881896b6b575f5fa60c2d4cd2a"
+    },
+    {
+      "path": "site/rsi.html",
+      "size": 8509,
+      "sha256": "954d816a2c48b65e345603f3258a3cc43c82f91b75cfd11da90ae0948ce2a17d"
+    },
+    {
+      "path": "site/sovereign-invention-governance-lab.html",
+      "size": 8540,
+      "sha256": "f5b2ca3329cf039855f4ee8c17f595f3da59174bdc382c5ae37c4d2fe17bc9e2"
+    },
+    {
+      "path": "verification/FROM_LOOP_TO_RSI_V32_VALIDATION.md",
+      "size": 573,
+      "sha256": "3d8eebd88b15c8922f64bbe1e1f3c6df5f7e60d4b87e41c245c3fcbbcfa0a40e"
     }
   ]
 }
