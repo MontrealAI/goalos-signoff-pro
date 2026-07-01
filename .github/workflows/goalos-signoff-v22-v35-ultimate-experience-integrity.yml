@@ -1,4 +1,4 @@
-name: GoalOS Signoff Pro — Complete v22-v35 Repair and Publish
+name: GoalOS Signoff Pro — Ultimate v22-v35 Experience Integrity
 
 on:
   workflow_dispatch:
@@ -23,21 +23,20 @@ env:
   GOALOS_PUBLIC_SAFE: "true"
   GOALOS_ZERO_VALUE_MOVED: "true"
   GOALOS_NO_EXTERNAL_AI_CALLS: "true"
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
   NODE_VERSION: "20.20.2"
 
 concurrency:
-  group: goalos-signoff-pro-v22-v35-complete-repair-and-publish
+  group: goalos-signoff-pro-v22-v35-ultimate-experience-integrity
   cancel-in-progress: false
 
 jobs:
   build:
-    name: Build, repair, verify, and publish v22-v35
+    name: Build, repair, verify, and publish ultimate v22-v35 experience
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      - name: Setup Node.js 20
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
@@ -48,42 +47,26 @@ jobs:
           set -euo pipefail
           required=(
             "scripts/build-goalos-signoff-public-labs-v22-v35.mjs"
-            "scripts/verify-goalos-signoff-public-labs-v22-v35.mjs"
-            "scripts/enhance-goalos-v30-v34-premium-experience.mjs"
-            "scripts/enhance-goalos-v22-v35-institutional-command-center.mjs"
-            "scripts/build-loop-rsi-asi-superintelligence-mission-simulator-v35.mjs"
-            "scripts/verify-loop-rsi-asi-superintelligence-mission-simulator-v35.mjs"
             "scripts/enhance-goalos-v22-v35-ultimate-public-experience.mjs"
             "scripts/repair-goalos-v22-v35-html-integrity.mjs"
             "scripts/verify-goalos-v22-v35-ultimate-public-experience.mjs"
-            "docs/generated-source/v35/site/loop-rsi-asi-superintelligence-mission-simulator-lab.html"
-            "docs/generated-source/v33/site/loop-rsi-asi-superintelligence-lab.html"
+            "scripts/verify-goalos-signoff-public-labs-v22-v35.mjs"
           )
-          missing=0
           for f in "${required[@]}"; do
             if [[ ! -f "$f" ]]; then
-              echo "::error::Missing required v35 repair file: $f"
-              missing=1
-            else
-              echo "OK $f"
+              echo "::error::Missing required file: $f"
+              echo "Upload the complete Ultimate v22-v35 Experience package to the repository root."
+              exit 1
             fi
+            echo "OK $f"
           done
-          if [[ "$missing" == "1" ]]; then
-            echo "Upload the complete one-go package contents to the repository root, including scripts/ and docs/generated-source/."
-            exit 1
-          fi
-
       - name: Install dependencies
         shell: bash
         run: |
-          if [[ -f package-lock.json ]]; then
-            npm ci
-          else
-            npm install
-          fi
-      - name: Verify workflow/script integrity
-        run: node scripts/check-workflow-script-integrity.mjs
-      - name: Build complete v22-v35 public site
+          if [[ -f package-lock.json ]]; then npm ci; else npm install; fi
+      - name: Verify workflow/script references before build
+        run: node scripts/verify-workflow-script-references.mjs
+      - name: Build complete v22-v35 public suite
         run: node scripts/build-goalos-signoff-public-labs-v22-v35.mjs
       - name: Apply ultimate public experience layer
         run: node scripts/enhance-goalos-v22-v35-ultimate-public-experience.mjs
@@ -91,11 +74,11 @@ jobs:
         run: node scripts/repair-goalos-v22-v35-html-integrity.mjs
       - name: Verify production site integrity
         run: node scripts/verify-goalos-production-site.mjs
-      - name: Verify route and public-safe integrity
+      - name: Verify route integrity
         run: node scripts/check-site-route-integrity.mjs
-      - name: Verify ultimate v22-v35 public experience
+      - name: Verify ultimate v22-v35 experience
         run: node scripts/verify-goalos-v22-v35-ultimate-public-experience.mjs
-      - name: Verify complete v22-v35 public-safe suite
+      - name: Verify complete public-safe lab suite
         run: node scripts/verify-goalos-signoff-public-labs-v22-v35.mjs
       - name: Commit generated site files
         if: ${{ inputs.commit_generated_site }}
@@ -103,17 +86,17 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add site config docs scripts verification .github/workflows GOALOS_* GITHUB_WEB_UI_INSTALL_* PACKAGE_MANIFEST.json PACKAGE_MANIFEST.sha256 || true
+          git add site docs scripts .github/workflows GOALOS_* GITHUB_WEB_UI_INSTALL_* || true
           if git diff --cached --quiet; then
             echo "No generated changes to commit."
           else
-            git commit -m "Repair and publish GoalOS Signoff Pro v22-v35 complete experience"
+            git commit -m "Polish and verify GoalOS Signoff Pro v22-v35 ultimate public experience"
             git push
           fi
-      - name: Upload v22-v35 site preview artifact
+      - name: Upload ultimate site preview artifact
         uses: actions/upload-artifact@v4
         with:
-          name: goalos-signoff-pro-v22-v35-complete-site-preview
+          name: goalos-signoff-pro-v22-v35-ultimate-site-preview
           path: site
       - name: Upload Pages artifact
         if: ${{ inputs.deploy_pages }}
