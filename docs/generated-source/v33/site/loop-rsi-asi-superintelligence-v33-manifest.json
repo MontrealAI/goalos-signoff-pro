@@ -57,7 +57,7 @@
     "claimsAchievedASI": false
   },
   "notClaims": [
-    "Does not claim achieved AGI, ASI, superintelligence, or recursive self-improvement in production.",
+    "Does not claim realized AGI, ASI, superintelligence, or recursive self-improvement in production.",
     "Does not authorize autonomous deployment, weapons use, surveillance, custody, settlement, or live payment.",
     "Does not connect wallets, call external AI APIs, collect user input, store personal data, or move value.",
     "Demonstrates a governance architecture and public-safe interactive console only."

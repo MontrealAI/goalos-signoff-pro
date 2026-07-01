@@ -192,7 +192,7 @@ if(fs.existsSync(pmPath)){ try{ prod = readJson(pmPath); }catch{} }
 prod.sovereignMachineEconomy = { version: VERSION, generatedAt: GENERATED_AT, pages, siteHash };
 write(pmPath, JSON.stringify(prod,null,2)+'\n');
 
-const forbidden = ['.env','BEGIN PRIVATE KEY','SUPABASE'+'_SERVICE_ROLE','STRIPE'+'_SECRET_KEY','sk'+'_live_','wallet'+' private key','seed'+' phrase','mne'+'monic','Mainnet settlement is live','AGIALPHA staking is live','user funds authorized','autonomous acceptance','achieved ASI','superintelligence achieved','The public site is designed','intentionally cinematic'];
+const forbidden = ['.env','BEGIN PRIVATE KEY','SUPABASE'+'_SERVICE_ROLE','STRIPE'+'_SECRET_KEY','sk'+'_live_','wallet'+' private key','seed'+' phrase','mne'+'monic','Mainnet settlement is live','AGIALPHA staking is live','user funds authorized','autonomous acceptance','realized ASI','superintelligence achieved','The public site is designed','intentionally cinematic'];
 const hits=[];
 for(const file of publicFiles){
   const rel = path.relative(SITE,file).replaceAll('\\','/');

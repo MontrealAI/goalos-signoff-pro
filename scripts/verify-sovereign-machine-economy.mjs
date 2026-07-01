@@ -66,8 +66,8 @@ const unsupportedClaims = [
   'AGIALPHA staking is live',
   'autonomous acceptance',
   'guaranteed return',
-  'achieved AGI',
-  'achieved ASI',
+  'realized AGI',
+  'realized ASI',
   'superintelligence achieved'
 ];
 for (const claim of unsupportedClaims) {

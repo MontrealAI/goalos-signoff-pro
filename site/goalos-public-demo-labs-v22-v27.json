@@ -1,7 +1,7 @@
 {
   "id": "goalos-signoff-pro-public-labs-v22-v27",
   "title": "GoalOS Signoff Pro public demonstration labs v22-v27",
-  "generatedAt": "2026-07-01T16:02:13Z",
+  "generatedAt": "2026-07-01T17:01:38Z",
   "posture": {
     "browserLocal": true,
     "forms": false,
@@ -168,5 +168,5 @@
       ]
     }
   ],
-  "manifestHash": "sha256:48184f9abf81e3890e3379c4415cefcc2e448ec6753a8f16fff62d8dd5b56660"
+  "manifestHash": "sha256:14a5dcf64fe214ce9574203e574392162adcbf55c6c0e906006c0dab56b40304"
 }

@@ -12,7 +12,7 @@
   "constraints": [
     "no production authority from public demo",
     "no wallet or fund movement",
-    "no claim of achieved AGI/ASI",
+    "no claim of realized AGI/ASI",
     "no external AI calls"
   ]
 }

@@ -12,7 +12,7 @@ No. It demonstrates proof-governed acceptance workflows and signed/replayable re
 
 No. Public labs are browser-local demonstrations with sample artifacts and no public upload/intake surface.
 
-## Does the repository claim completed AGI or ASI?
+## Does the repository claim realized AGI or ASI?
 
 No. It describes proof infrastructure for AI work and keeps strong claims bounded by evidence and replay.
 

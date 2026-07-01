@@ -37,7 +37,7 @@ Harder Mission
 
 ## What it does not do
 
-It does not ask for user data. It does not upload files. It does not connect a wallet. It does not move funds. It does not run a live settlement. It does not claim achieved AGI, ASI, or superintelligence.
+It does not ask for user data. It does not upload files. It does not connect a wallet. It does not move funds. It does not run a live settlement. It does not claim realized AGI, ASI, or superintelligence.
 
 ## What it is for
 

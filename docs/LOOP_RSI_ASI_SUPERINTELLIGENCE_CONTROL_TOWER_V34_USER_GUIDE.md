@@ -45,7 +45,7 @@ No payments
 No external AI calls
 No personal data
 Zero value moved
-No claim of achieved AGI, ASI, production RSI, or autonomous deployment authority
+No claim of realized AGI, ASI, production RSI, or autonomous deployment authority
 ```
 
 ## Install with GitHub web UI

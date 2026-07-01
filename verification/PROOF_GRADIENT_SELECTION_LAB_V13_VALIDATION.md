@@ -46,7 +46,7 @@ No cookies/localStorage/sessionStorage
 No mailto gate
 No contact@montreal.ai
 No guaranteed-return/profit/yield language
-No achieved AGI/ASI/superintelligence claim
+No realized AGI/ASI/superintelligence claim
 No live escrow/staking/Mainnet-settlement claim
 SelectionCertificate promotes candidate C3 only
 Evidence Docket contains claims matrix and proof packets
@@ -56,4 +56,4 @@ Autonomous artifact workflow bundle generated
 
 ## Public claim boundary
 
-The Proof Gradient Selection Lab is a public-safe browser-local synthetic demonstration. It does not claim external audit, production certification, live settlement, live staking, Mainnet settlement, empirical SOTA, achieved AGI, achieved ASI, or achieved superintelligence.
+The Proof Gradient Selection Lab is a public-safe browser-local synthetic demonstration. It does not claim external audit, production certification, live settlement, live staking, Mainnet settlement, empirical SOTA, realized AGI, realized ASI, or achieved superintelligence.

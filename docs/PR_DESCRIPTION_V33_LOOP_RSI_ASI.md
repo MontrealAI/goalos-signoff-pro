@@ -34,7 +34,7 @@ Proof-gated work
 - No external AI calls
 - No personal data
 - Zero value moved
-- No claim of achieved AGI, ASI, superintelligence, or production RSI
+- No claim of realized AGI, ASI, superintelligence, or production RSI
 
 ## Verification
 

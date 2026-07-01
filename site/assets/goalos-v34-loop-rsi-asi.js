@@ -520,8 +520,7 @@ function updateMetrics(metrics) { $('#metric-list').innerHTML = Object.entries(m
 function updateGates(gates) { DATA.gates.forEach(g => { const el = document.querySelector(`[data-gate-status="${g.id}"]`); const status = gates[g.id] || 'warn'; el.className = 'gate-status ' + status; el.textContent = status.toUpperCase(); }); }
 function renderArtifacts(list) { $('#artifact-strip').innerHTML = (list.length ? list : ['awaiting cycle']).map(x => `<span class="artifact-pill">${esc(x)}</span>`).join(''); }
 function writeLog(txt) { const el = $('#ai-log'); el.textContent = txt; el.scrollTop = 0; }
-function appendLog(txt) { const el = $('#ai-log'); el.textContent += '
-' + txt; el.scrollTop = el.scrollHeight; }
+function appendLog(txt) { const el = $('#ai-log'); el.textContent += '\n' + txt; el.scrollTop = el.scrollHeight; }
 function brief() {
   const p = DATA.personas[activePersona], s = DATA.scenarios[activeScenario];
   writeLog(`GoalOS v34 AI-style briefing console
@@ -536,7 +535,7 @@ Mode: ${activeMode} — ${DATA.explainModes[activeMode]}
 
 Plain answer: ${s.decision}
 
-Boundary: this is a deterministic browser-local demo. It does not call an AI API, collect user input, connect wallets, move value, or claim achieved AGI/ASI.`);
+Boundary: this is a deterministic browser-local demo. It does not call an AI API, collect user input, connect wallets, move value, or claim realized AGI/ASI.`);
 }
 function runCycle() {
   cycleIndex += 1; const s = DATA.scenarios[activeScenario]; const p = DATA.personas[activePersona]; let i = 0, artifacts = [];
@@ -564,16 +563,14 @@ result: ${s.decision}`); buildReceipt(true); return; }
 function stressTest() {
   const s = DATA.scenarios[activeScenario];
   const base = activeScenario === 'proofLoop' ? 7 : activeScenario === 'rsiPilot' ? 7 : activeScenario === 'move37' ? 6 : activeScenario === 'capital' ? 7 : activeScenario === 'redTeam' ? 3 : activeScenario === 'noveltyTrap' ? 2 : 2;
-  appendLog('
-policy-shock suite:');
+  appendLog('\npolicy-shock suite:');
   DATA.shocks.forEach((shock, i) => appendLog(`  shock_${String(i+1).padStart(2,'0')}: ${shock} → ${i < base ? 'PASS' : 'FAIL/PENDING'}`));
   appendLog(base >= 8 ? 'shock result: strong persistence candidate; still requires council review.' : base >= 6 ? 'shock result: dossier continues; no deployment authority.' : 'shock result: blocked or probe-only; no escalation.');
 }
 function rollbackDrill() {
   const s = DATA.scenarios[activeScenario];
   const pass = ['proofLoop','rsiPilot','capital'].includes(activeScenario);
-  appendLog('
-rollback drill:');
+  appendLog('\nrollback drill:');
   ['monitoring boundary','stop signal','state snapshot','release freeze','reversal path','operator notification','council acknowledgement'].forEach((x,i)=> appendLog(`  ${i+1}. ${x} → ${pass || i < 4 ? 'PASS' : 'REQUIRED'}`));
   appendLog(pass ? 'rollback result: acceptable for bounded pilot.' : 'rollback result: insufficient for ASI-scale escalation.');
 }
@@ -589,8 +586,7 @@ Architect / Validator Council note:
 }
 function buildDossier() {
   const s = DATA.scenarios[activeScenario];
-  appendLog('
-Move‑37 → ASI dossier builder:');
+  appendLog('\nMove‑37 → ASI dossier builder:');
   DATA.dossier.forEach((d,i)=> appendLog(`  ${String(i+1).padStart(2,'0')} ${d.name} — ${d.detail}`));
   appendLog(`dossier status: ${s.state}; proof debt remains until all gates pass.`);
 }
@@ -609,7 +605,7 @@ Recommended action: ${s.decision}
 
 Required before escalation: evidence docket, deterministic replay, baseline comparison, policy-shock persistence, independent council review, rollback drill, signed receipt.
 
-Public boundary: no external AI call, no uploads, no wallet, no payment, no value moved, no claim of achieved AGI/ASI.`;
+Public boundary: no external AI call, no uploads, no wallet, no payment, no value moved, no claim of realized AGI/ASI.`;
   $('#memo').textContent = memo; copyText(memo, 'Board memo copied');
 }
 function buildReceipt(showLog=true) {
@@ -631,18 +627,16 @@ function buildReceipt(showLog=true) {
     advantage_delta_percent: s.advantage,
     gates: s.gates,
     required_dossier: DATA.dossier.map(d => d.name),
-    mandatory_boundary: ['not achieved AGI','not achieved ASI or superintelligence','not live RSI','not autonomous deployment','no wallet','no payment','no external AI call','zero value moved','no self-authorized promotion'],
+    mandatory_boundary: ['not realized AGI','not realized ASI or superintelligence','not live RSI','not autonomous deployment','no wallet','no payment','no external AI call','zero value moved','no self-authorized promotion'],
     decision_note: s.decision,
     generated_at: new Date().toISOString()
   };
   $('#receipt-json').textContent = JSON.stringify(latestReceipt, null, 2);
-  if (showLog) appendLog('
-synthetic Mission Receipt generated → receipt JSON updated.');
+  if (showLog) appendLog('\nsynthetic Mission Receipt generated → receipt JSON updated.');
 }
 function guidedTour() {
   selectPersona('executive'); setMode('executive'); selectScenario('asiThreshold');
-  writeLog('Guided tour loaded: Executive + ASI-scale escalation review.
-Step 1: explain. Step 2: run cycle. Step 3: stress-test. Step 4: rollback drill. Step 5: council review. Step 6: receipt.');
+  writeLog('Guided tour loaded: Executive + ASI-scale escalation review.\nStep 1: explain. Step 2: run cycle. Step 3: stress-test. Step 4: rollback drill. Step 5: council review. Step 6: receipt.');
   setTimeout(runCycle, 800); setTimeout(stressTest, 6100); setTimeout(rollbackDrill, 7600); setTimeout(councilReview, 9100); setTimeout(() => buildReceipt(true), 10300);
 }
 function copyText(txt, label='Copied') { navigator.clipboard?.writeText(txt).then(()=>toast(label)).catch(()=>toast('Copy unavailable')); }

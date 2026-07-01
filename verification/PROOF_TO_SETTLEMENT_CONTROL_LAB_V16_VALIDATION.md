@@ -76,4 +76,4 @@ Homepage rail inserted before footer: PASS
 
 ## Claim boundary
 
-The lab is a public-safe browser demonstration of proof-to-settlement control logic. It does not move value, custody assets, connect wallets, execute escrow, perform a Mainnet transaction, claim external audit, claim production certification, claim empirical SOTA, or claim achieved AGI/ASI/superintelligence.
+The lab is a public-safe browser demonstration of proof-to-settlement control logic. It does not move value, custody assets, connect wallets, execute escrow, perform a Mainnet transaction, claim external audit, claim production certification, claim empirical SOTA, or claim realized AGI/ASI/superintelligence.

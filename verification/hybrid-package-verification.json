@@ -1,7 +1,7 @@
 {
   "status": "PASS",
-  "checkedAt": "2026-06-26T02:03:29.712Z",
-  "files": 351,
+  "checkedAt": "2026-07-01T17:16:33.168Z",
+  "files": 1364,
   "requiredFiles": 16,
-  "packageRoot": "GoalOS-Signoff-Pro-v1.1-MontrealAI-GitHub-Repository-v1.0.2"
+  "packageRoot": "goalos-signoff-pro"
 }
