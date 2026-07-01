@@ -1,6 +1,6 @@
 {
   "id": "GOALOS-V32-DETERMINISTIC-INVENTION-PIPELINE",
-  "generatedAt": "2026-07-01T12:18:28.890Z",
+  "generatedAt": "2026-07-01T13:25:29.280Z",
   "summary": "Target → Emit → Filter → Atlas → Test-plan → Eval → Insert → Promote.",
   "stages": [
     {

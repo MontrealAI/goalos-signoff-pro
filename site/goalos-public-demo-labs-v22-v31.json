@@ -1,7 +1,7 @@
 {
-  "id": "goalos-signoff-pro-public-labs-v22-v30",
-  "title": "GoalOS Signoff Pro public demonstration labs v22-v30",
-  "generatedAt": "2026-07-01T12:18:28.783Z",
+  "id": "goalos-signoff-pro-public-labs-v22-v27",
+  "title": "GoalOS Signoff Pro public demonstration labs v22-v27",
+  "generatedAt": "2026-07-01T13:25:29.217Z",
   "posture": {
     "browserLocal": true,
     "forms": false,
@@ -38,26 +38,7 @@
     "process-evidence-lab.html",
     "process-trace-lab.html",
     "proof-native-workbench-lab.html",
-    "evidence-lineage-lab.html",
-    "blockchain-credibility-lab.html",
-    "proof-to-settlement-standard-lab.html",
-    "trust-before-settlement-lab.html",
-    "no-proof-no-settlement-lab.html",
-    "blockchain-trust-layer-lab.html",
-    "blockchain-proof-mandate-lab.html",
-    "proof-package-requirement-lab.html",
-    "require-proof-before-trust-lab.html",
-    "blockchain-due-diligence-lab.html",
-    "goalos-proof-request-lab.html",
-    "no-proof-no-credibility-lab.html",
-    "proof-before-settlement-research-lab.html",
-    "institutional-research-lab.html",
-    "elite-paper-lab.html",
-    "blockchain-standard-paper-lab.html",
-    "settlement-safety-lab.html",
-    "proof-before-settlement-paper.html",
-    "paper.html",
-    "research.html"
+    "evidence-lineage-lab.html"
   ],
   "labs": [
     {
@@ -187,84 +168,6 @@
       ]
     },
     {
-      "version": "v28",
-      "title": "Blockchain Credibility Standard Lab",
-      "route": "blockchain-credibility-lab.html",
-      "aliases": [
-        "proof-to-settlement-standard-lab.html",
-        "trust-before-settlement-lab.html",
-        "no-proof-no-settlement-lab.html",
-        "blockchain-trust-layer-lab.html"
-      ],
-      "proof": "Mission → Evidence → Replay → Validation → Human Signoff → Receipt → Settlement readiness.",
-      "audience": "Blockchain teams, DAOs, foundations, auditors, validators, investors, users.",
-      "promise": "Shows why credible blockchain projects need proof packages before trust, reputation, governance, or settlement readiness.",
-      "artifacts": [
-        "blockchain-credibility-demo-bundle.json",
-        "blockchain-credibility-manifest.json",
-        "proof-package-requirement-map.json",
-        "no-proof-no-settlement-standard.json",
-        "trust-settlement-readiness-ledger.json",
-        "stakeholder-demand-card.json",
-        "blockchain-settlement-receipt-demo.json"
-      ]
-    },
-    {
-      "version": "v29",
-      "title": "Blockchain Proof Mandate & Due Diligence Lab",
-      "route": "blockchain-proof-mandate-lab.html",
-      "aliases": [
-        "proof-package-requirement-lab.html",
-        "require-proof-before-trust-lab.html",
-        "blockchain-due-diligence-lab.html",
-        "goalos-proof-request-lab.html",
-        "no-proof-no-credibility-lab.html"
-      ],
-      "proof": "Trust request → proof request → due diligence scorecard → policy gate → receipt-ready decision.",
-      "audience": "Users, DAO delegates, grant committees, treasury councils, auditors, investors, partners, enterprises, exchanges.",
-      "promise": "Turns the blockchain credibility standard into a concrete requirement everyone can ask for, score, and enforce.",
-      "artifacts": [
-        "blockchain-proof-mandate-lab-manifest.json",
-        "proof-package-request-card.json",
-        "stakeholder-requirement-map.json",
-        "blockchain-due-diligence-scorecard.json",
-        "dao-proof-requirement-policy.json",
-        "grant-treasury-rfp-proof-template.json",
-        "settlement-readiness-decision-tree.json",
-        "public-proof-dashboard-schema.json",
-        "blockchain-proof-mandate-demo-bundle.json"
-      ]
-    },
-    {
-      "version": "v30",
-      "title": "Proof Before Settlement Institutional Research Lab",
-      "route": "proof-before-settlement-research-lab.html",
-      "aliases": [
-        "institutional-research-lab.html",
-        "elite-paper-lab.html",
-        "blockchain-standard-paper-lab.html",
-        "settlement-safety-lab.html",
-        "proof-before-settlement-paper.html",
-        "paper.html",
-        "research.html"
-      ],
-      "proof": "Research paper → proof model → acceptance predicate → settlement-safety invariant → adoption mandate.",
-      "audience": "Foundations, DAOs, auditors, investors, exchanges, enterprises, partners, and serious blockchain projects.",
-      "promise": "Turns the elite Proof Before Settlement paper into a public standard stakeholders can read, download, cite, and require.",
-      "artifacts": [
-        "proof-before-settlement-research-manifest.json",
-        "proof-before-settlement-executive-tear-sheet.json",
-        "proof-before-settlement-acceptance-predicate.json",
-        "settlement-safety-invariant.json",
-        "claim-maturity-lattice-v30.json",
-        "proof-before-settlement-due-diligence-rubric.json",
-        "proof-before-settlement-adoption-blueprint.json",
-        "proof-before-settlement-mandate-clauses.json",
-        "research-to-product-translation-map.json",
-        "proof-before-settlement-research-demo-bundle.json"
-      ]
-    },
-    {
       "version": "v31",
       "title": "Executive AI Proof Console & Guided Website Experience Lab",
       "route": "executive-ai-proof-console.html",
@@ -274,14 +177,7 @@
       "valueMoved": 0
     }
   ],
-  "flagship": {
-    "v28": "Blockchain Credibility Standard Lab",
-    "v29": "Blockchain Proof Mandate & Due Diligence Lab",
-    "v30": "Proof Before Settlement Institutional Research Lab",
-    "message": "Blockchain proves the transaction. GoalOS proves the work.",
-    "standard": "No Proof. No Trust. No Settlement."
-  },
-  "manifestHash": "sha256:02d111781d55b003f03c5eabb531b4c9b02308d929c7afc74700a745102c55c6",
+  "manifestHash": "sha256:5c2c7bdf107b2d93e087dfe62f861bd59915536d325fc46ec5921809b3d4f437",
   "version": "v22-v31",
-  "labCount": 10
+  "labCount": 7
 }
