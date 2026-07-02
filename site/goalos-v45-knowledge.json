@@ -1,0 +1,293 @@
+{
+  "version": "v45",
+  "generatedAt": "2026-07-02T22:37:35.580Z",
+  "scenarios": [
+    {
+      "id": "start",
+      "label": "Start / explain GoalOS",
+      "keywords": [
+        "start",
+        "new",
+        "understand",
+        "what is",
+        "guide",
+        "first",
+        "where"
+      ],
+      "route": "goalos-universal-command-center.html",
+      "tier": "Orientation",
+      "confidence": 92,
+      "mission": "Fastest GoalOS orientation",
+      "summary": "Explain the product, proof loop, labs, 48 rails, and safest next click.",
+      "criteria": [
+        "Visitor understands what Signoff does.",
+        "Visitor sees the best first page.",
+        "Visitor can open the full page catalog."
+      ],
+      "evidence": [
+        "Command answer",
+        "Recommended route",
+        "Public-safe boundary note"
+      ],
+      "rails": [
+        "No chain dependency"
+      ]
+    },
+    {
+      "id": "signoff",
+      "label": "AI work signoff",
+      "keywords": [
+        "client",
+        "report",
+        "research",
+        "strategy",
+        "accept",
+        "done",
+        "signoff",
+        "approve",
+        "review",
+        "deliverable",
+        "agency"
+      ],
+      "route": "ai-research-strategy-signoff-console.html",
+      "tier": "Signoff Basic",
+      "confidence": 90,
+      "mission": "AI Research & Strategy Signoff",
+      "summary": "Define done, map evidence, check claims, collect review decision, and issue a Mission Receipt.",
+      "criteria": [
+        "Brief and success criteria are explicit.",
+        "Claims are mapped to evidence or marked uncertain.",
+        "Reviewer can accept, request changes, or reject."
+      ],
+      "evidence": [
+        "Deliverable reference",
+        "Claim-to-source matrix",
+        "Reviewer checklist",
+        "Limitations and unresolved risks"
+      ],
+      "rails": [
+        "AEPGoalOSCommitRegistry",
+        "AEPEvidenceDocketRegistry",
+        "ProofCardRegistry",
+        "ProofCredentialRegistry"
+      ]
+    },
+    {
+      "id": "mission001",
+      "label": "Mission 001 benchmark",
+      "keywords": [
+        "mission 001",
+        "benchmark",
+        "replay",
+        "packet",
+        "reproduce",
+        "baseline",
+        "scoreboard",
+        "manifest"
+      ],
+      "route": "mission-001.html",
+      "tier": "Benchmark-ready proof",
+      "confidence": 88,
+      "mission": "Mission 001 reproducibility packet",
+      "summary": "Open the packet with mission contract, environment, B0-B6 baselines, proof bundle, replay log, ledgers, validator report, scoreboard, and claims matrix.",
+      "criteria": [
+        "Packet files exist.",
+        "Replay path is public-safe.",
+        "Claims matrix is inspectable."
+      ],
+      "evidence": [
+        "Manifest",
+        "Replay log",
+        "Validator report",
+        "Scoreboard"
+      ],
+      "rails": [
+        "No chain dependency"
+      ]
+    },
+    {
+      "id": "contracts",
+      "label": "48 contract rails",
+      "keywords": [
+        "48",
+        "contract",
+        "contracts",
+        "ethereum",
+        "mainnet",
+        "agialpha",
+        "token",
+        "rail",
+        "rails",
+        "verified",
+        "etherscan"
+      ],
+      "route": "agialpha-48-contract-atlas.html",
+      "tier": "Protocol atlas",
+      "confidence": 89,
+      "mission": "AGIALPHA 48-contract rail exploration",
+      "summary": "Explain the modular protocol rails underneath Signoff without requiring wallet, payment, or production activation.",
+      "criteria": [
+        "Visitor sees contract families.",
+        "Visitor understands which rails map to which Signoff tier.",
+        "Visitor can open individual contract pages."
+      ],
+      "evidence": [
+        "Contract atlas",
+        "Family map",
+        "Tier map",
+        "Release boundary"
+      ],
+      "rails": [
+        "48 GoalOS-created Mainnet contracts",
+        "Canonical AGIALPHA reference"
+      ]
+    },
+    {
+      "id": "settlement",
+      "label": "Proof-to-payment path",
+      "keywords": [
+        "settle",
+        "settlement",
+        "payment",
+        "pay",
+        "dao",
+        "grant",
+        "treasury",
+        "milestone",
+        "reward",
+        "escrow",
+        "bond",
+        "stake",
+        "reviewer"
+      ],
+      "route": "proof-before-settlement-research-lab.html",
+      "tier": "Signoff & Settle path",
+      "confidence": 84,
+      "mission": "Proof-to-payment readiness",
+      "summary": "Keep the customer in Signoff, then map accepted work to optional protocol rails after activation, audit, and authorization gates.",
+      "criteria": [
+        "Brief defines payment conditions.",
+        "Evidence and review pass.",
+        "Dispute path is defined before payment logic."
+      ],
+      "evidence": [
+        "Acceptance receipt",
+        "Proof bundle",
+        "Reviewer decision",
+        "Challenge boundary"
+      ],
+      "rails": [
+        "JobRegistry",
+        "AEPRewardVault",
+        "TreasuryRouter",
+        "ReviewerBondRegistry",
+        "DisputeRegistry"
+      ]
+    },
+    {
+      "id": "rsi",
+      "label": "RSI / ASI governance",
+      "keywords": [
+        "rsi",
+        "asi",
+        "superintelligence",
+        "move",
+        "breakthrough",
+        "move-37",
+        "governance",
+        "invention",
+        "dossier",
+        "omni",
+        "recursive"
+      ],
+      "route": "loop-rsi-asi-superintelligence-mission-simulator-lab.html",
+      "tier": "Governance console",
+      "confidence": 86,
+      "mission": "Loop → RSI → ASI governance path",
+      "summary": "Route to the deterministic invention governance demos: target, emit, filter, atlas, test-plan, eval, insert, promote.",
+      "criteria": [
+        "Search does not become outcome authority.",
+        "Evidence and baseline gates remain mechanical.",
+        "Breakthrough candidates become dossiers, not narratives."
+      ],
+      "evidence": [
+        "Dossier",
+        "Stress tests",
+        "Persistence gate",
+        "Council note"
+      ],
+      "rails": [
+        "Architect / Validator Council",
+        "Append-only ledger",
+        "Rollback drill"
+      ]
+    },
+    {
+      "id": "labs",
+      "label": "All public labs",
+      "keywords": [
+        "all labs",
+        "labs",
+        "demo",
+        "demos",
+        "public suite",
+        "everything",
+        "pages",
+        "catalog",
+        "site map"
+      ],
+      "route": "public-demo-labs.html",
+      "tier": "Public suite",
+      "confidence": 87,
+      "mission": "Explore every public lab",
+      "summary": "Open the complete public demo suite and page catalog, preserving all existing pages.",
+      "criteria": [
+        "Every lab is findable.",
+        "Every route is navigable.",
+        "Visitor can return to the command center."
+      ],
+      "evidence": [
+        "Route catalog",
+        "All-pages index",
+        "Floating command launcher"
+      ],
+      "rails": [
+        "No chain dependency"
+      ]
+    }
+  ],
+  "routes": {
+    "command": "goalos-universal-command-center.html",
+    "allPages": "all-pages.html",
+    "signoff": "ai-research-strategy-signoff-console.html",
+    "mission001": "mission-001.html",
+    "labs": "public-demo-labs.html",
+    "contracts": "agialpha-48-contract-atlas.html",
+    "rsi": "loop-rsi-asi-superintelligence-mission-simulator-lab.html",
+    "ask": "ask-goalos-live.html",
+    "proofBeforeSettlement": "proof-before-settlement-research-lab.html",
+    "browser": "browser-beta.html"
+  },
+  "releaseFacts": {
+    "title": "GoalOS AGIALPHA Ascension v4.4.0 — Ethereum Mainnet Deployment",
+    "releaseUrl": "https://github.com/MontrealAI/goalos-agialpha-ascension/releases/tag/v4.4.0-mainnet-2026-06-21",
+    "network": "Ethereum Mainnet",
+    "chainId": 1,
+    "goalosCreatedContracts": 48,
+    "manifestEntries": 49,
+    "canonicalAgialpha": "0xA61a3B3a130a9c20768EEBF97E21515A6046a1fA",
+    "deploymentTransactions": 48,
+    "etherscanSourceVerification": "48 / 48 verified",
+    "verificationFailures": 0,
+    "phaseBConfigurationGrants": "14 / 14 active",
+    "finalPostdeploymentCheck": "PASSED",
+    "deploymentStatus": "CONFIGURED",
+    "solidityCompiler": "0.8.28",
+    "hardhatVerifier": "2.28.6",
+    "productionActivated": false,
+    "userFundAuthorization": false,
+    "externalAuditCompletion": false,
+    "claimBoundary": "This public UI is read-only and educational. It does not request wallets, move funds, approve tokens, broadcast transactions, provide legal/investment advice, or authorize production use."
+  },
+  "contractCount": 48
+}

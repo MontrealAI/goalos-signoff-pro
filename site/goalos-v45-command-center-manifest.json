@@ -1,0 +1,49 @@
+{
+  "version": "v45",
+  "generatedAt": "2026-07-02T22:37:35.580Z",
+  "canonical": "goalos-universal-command-center.html",
+  "aliases": [
+    "index.html",
+    "goalos-universal-command-center.html",
+    "goalos-v22-v45-command-center.html",
+    "goalos-command-center.html",
+    "goalos-command.html",
+    "goalos-command-os.html",
+    "goalos-universal-command-os.html",
+    "goalos-front-center-command.html",
+    "goalos-take-care.html",
+    "goalos-take-care-of-everything.html",
+    "tell-goalos.html",
+    "one-box-command.html",
+    "mission-autopilot.html",
+    "mission-compiler.html",
+    "intent-to-mission.html",
+    "intent-to-outcome.html",
+    "ask-goalos.html",
+    "chat.html",
+    "site-navigator.html",
+    "help.html",
+    "start-here.html",
+    "latest.html",
+    "v45.html"
+  ],
+  "indexPages": [
+    "all-pages.html",
+    "site-map.html",
+    "sitemap.html",
+    "routes.html",
+    "labs-index.html"
+  ],
+  "publicSafe": {
+    "localTextBox": true,
+    "uploads": false,
+    "cookies": false,
+    "analytics": false,
+    "wallets": false,
+    "payments": false,
+    "externalAiCallsByDefault": false,
+    "valueMoved": 0
+  },
+  "pagesIndexed": 306,
+  "contractsIndexed": 48
+}

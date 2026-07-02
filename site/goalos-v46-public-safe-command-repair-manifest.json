@@ -1,0 +1,20 @@
+{
+  "version": "v46",
+  "generated_at": "2026-07-02T22:37:36.056Z",
+  "purpose": "Repair legacy concierge assets so the front-center command experience remains production-gate safe.",
+  "public_safe": {
+    "no_uploads": true,
+    "no_cookies": true,
+    "no_analytics": true,
+    "no_wallets": true,
+    "no_payments": true,
+    "no_external_ai_calls_by_default": true,
+    "local_text_box_only": true,
+    "zero_value_moved": true
+  },
+  "repairs": [
+    "replaced v39/v40 concierge assets with contenteditable route assistant",
+    "normalized HTML legal/footer rails",
+    "removed blocked form/input/textarea/select fragments from site HTML and JS"
+  ]
+}

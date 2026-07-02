@@ -1,0 +1,1842 @@
+{
+  "version": "v45",
+  "generatedAt": "2026-07-02T22:37:35.580Z",
+  "pages": [
+    {
+      "path": "contracts/a-e-p-agent-registry.html",
+      "title": "AEPAgentRegistry · GoalOS contract rail",
+      "group": "Contracts",
+      "bytes": 4328
+    },
+    {
+      "path": "contracts/a-e-p-artifact-registry.html",
+      "title": "AEPArtifactRegistry · GoalOS contract rail",
+      "group": "Contracts",
+      "bytes": 4334
+    },
+    {
+      "path": "contracts/a-e-p-attestation-registry.html",
+      "title": "AEPAttestationRegistry · GoalOS contract rail",
+      "group": "Contracts",
+      "bytes": 4342
+    },
+    {
+      "path": "contracts/a-e-p-chronicle-registry.html",
+      "title": "AEPChronicleRegistry · GoalOS contract rail",
+      "group": "Contracts",
+      "bytes": 4337
+    },
+    {
+      "path": "contracts/a-e-p-claim-boundary-registry.html",
+      "title": "AEPClaimBoundaryRegistry · GoalOS contract rail",
+      "group": "Contracts",
+      "bytes": 4371
+    },
+    {
+      "path": "contracts/a-e-p-commit-reveal-validation-registry.html",
+      "title": "AEPCommitRevealValidationRegistry · GoalOS contract rail",
+      "group": "Contracts",
+      "bytes": 4412
+    },
+    {
+      "path": "contracts/a-e-p-conformance-registry.html",
+      "title": "AEPConformanceRegistry · GoalOS contract rail",
+      "group": "Contracts",
+      "bytes": 4341
+    },
+    {
+      "path": "contracts/a-e-p-eval-registry.html",
+      "title": "AEPEvalRegistry · GoalOS contract rail",
+      "group": "Contracts",
+      "bytes": 4329
+    },
+    {
+      "path": "contracts/a-e-p-evaluator-staking-registry.html",
+      "title": "AEPEvaluatorStakingRegistry · GoalOS contract rail",
+      "group": "Contracts",
+      "bytes": 4378
+    },
+    {
+      "path": "contracts/a-e-p-evidence-docket-registry.html",
+      "title": "AEPEvidenceDocketRegistry · GoalOS contract rail",
+      "group": "Contracts",
+      "bytes": 4387
+    },
+    {
+      "path": "contracts/a-e-p-falsification-registry.html",
+      "title": "AEPFalsificationRegistry · GoalOS contract rail",
+      "group": "Contracts",
+      "bytes": 4365
+    },
+    {
+      "path": "contracts/a-e-p-goal-o-s-commit-registry.html",
+      "title": "AEPGoalOSCommitRegistry · GoalOS contract rail",
+      "group": "Contracts",
+      "bytes": 4374
+    },
+    {
+      "path": "contracts/a-e-p-proof-bundle-registry.html",
+      "title": "AEPProofBundleRegistry · GoalOS contract rail",
+      "group": "Contracts",
+      "bytes": 4364
+    },
+    {
+      "path": "contracts/a-e-p-proof-ledger.html",
+      "title": "AEPProofLedger · GoalOS contract rail",
+      "group": "Contracts",
+      "bytes": 4305
+    },
+    {
+      "path": "contracts/a-e-p-replay-registry.html",
+      "title": "AEPReplayRegistry · GoalOS contract rail",
+      "group": "Contracts",
+      "bytes": 4325
+    },
+    {
+      "path": "contracts/a-e-p-reward-vault.html",
+      "title": "AEPRewardVault · GoalOS contract rail",
+      "group": "Contracts",
+      "bytes": 4332
+    },
+    {
+      "path": "contracts/a-e-p-rollback-registry.html",
+      "title": "AEPRollbackRegistry · GoalOS contract rail",
+      "group": "Contracts",
+      "bytes": 4342
+    },
+    {
+      "path": "contracts/a-e-p-rollout-router.html",
+      "title": "AEPRolloutRouter · GoalOS contract rail",
+      "group": "Contracts",
+      "bytes": 4330
+    },
+    {
+      "path": "contracts/a-e-p-run-commitment-registry.html",
+      "title": "AEPRunCommitmentRegistry · GoalOS contract rail",
+      "group": "Contracts",
+      "bytes": 4368
+    },
+    {
+      "path": "contracts/a-e-p-selection-gate.html",
+      "title": "AEPSelectionGate · GoalOS contract rail",
+      "group": "Contracts",
+      "bytes": 4328
+    },
+    {
+      "path": "contracts/a-e-p-slashing-court.html",
+      "title": "AEPSlashingCourt · GoalOS contract rail",
+      "group": "Contracts",
+      "bytes": 4338
+    },
+    {
+      "path": "contracts/a-g-i-eth-namespace-registry.html",
+      "title": "AGIEthNamespaceRegistry · GoalOS contract rail",
+      "group": "Contracts",
+      "bytes": 4357
+    },
+    {
+      "path": "contracts/alpha-work-unit-ledger.html",
+      "title": "AlphaWorkUnitLedger · GoalOS contract rail",
+      "group": "Contracts",
+      "bytes": 4351
+    },
+    {
+      "path": "contracts/appeal-registry.html",
+      "title": "AppealRegistry · GoalOS contract rail",
+      "group": "Contracts",
+      "bytes": 4320
+    },
+    {
+      "path": "contracts/builder-profile-registry.html",
+      "title": "BuilderProfileRegistry · GoalOS contract rail",
+      "group": "Contracts",
+      "bytes": 4354
+    },
+    {
+      "path": "contracts/commercialization-performance-vault.html",
+      "title": "CommercializationPerformanceVault · GoalOS contract rail",
+      "group": "Contracts",
+      "bytes": 4356
+    },
+    {
+      "path": "contracts/community-vault.html",
+      "title": "CommunityVault · GoalOS contract rail",
+      "group": "Contracts",
+      "bytes": 4289
+    },
+    {
+      "path": "contracts/index.html",
+      "title": "Contracts index · GoalOS",
+      "group": "Contracts",
+      "bytes": 10502
+    },
+    {
+      "path": "contracts/credential-revocation-registry.html",
+      "title": "CredentialRevocationRegistry · GoalOS contract rail",
+      "group": "Contracts",
+      "bytes": 4389
+    },
+    {
+      "path": "contracts/dispute-registry.html",
+      "title": "DisputeRegistry · GoalOS contract rail",
+      "group": "Contracts",
+      "bytes": 4336
+    },
+    {
+      "path": "contracts/job-claim-bond-manager.html",
+      "title": "JobClaimBondManager · GoalOS contract rail",
+      "group": "Contracts",
+      "bytes": 4320
+    },
+    {
+      "path": "contracts/job-registry.html",
+      "title": "JobRegistry · GoalOS contract rail",
+      "group": "Contracts",
+      "bytes": 4298
+    },
+    {
+      "path": "contracts/launch-gate-registry.html",
+      "title": "LaunchGateRegistry · GoalOS contract rail",
+      "group": "Contracts",
+      "bytes": 4322
+    },
+    {
+      "path": "contracts/legacy-a-g-i-job-manager-registry.html",
+      "title": "LegacyAGIJobManagerRegistry · GoalOS contract rail",
+      "group": "Contracts",
+      "bytes": 4366
+    },
+    {
+      "path": "contracts/liquidity-vault.html",
+      "title": "LiquidityVault · GoalOS contract rail",
+      "group": "Contracts",
+      "bytes": 4276
+    },
+    {
+      "path": "contracts/mandate-epoch-registry.html",
+      "title": "MandateEpochRegistry · GoalOS contract rail",
+      "group": "Contracts",
+      "bytes": 4349
+    },
+    {
+      "path": "contracts/premium-access-registry.html",
+      "title": "PremiumAccessRegistry · GoalOS contract rail",
+      "group": "Contracts",
+      "bytes": 4342
+    },
+    {
+      "path": "contracts/proof-card-registry.html",
+      "title": "ProofCardRegistry · GoalOS contract rail",
+      "group": "Contracts",
+      "bytes": 4316
+    },
+    {
+      "path": "contracts/proof-credential-registry.html",
+      "title": "ProofCredentialRegistry · GoalOS contract rail",
+      "group": "Contracts",
+      "bytes": 4342
+    },
+    {
+      "path": "contracts/proof-rewards-vault.html",
+      "title": "ProofRewardsVault · GoalOS contract rail",
+      "group": "Contracts",
+      "bytes": 4290
+    },
+    {
+      "path": "contracts/proof-seed-registry.html",
+      "title": "ProofSeedRegistry · GoalOS contract rail",
+      "group": "Contracts",
+      "bytes": 4321
+    },
+    {
+      "path": "contracts/proof-submission-registry.html",
+      "title": "ProofSubmissionRegistry · GoalOS contract rail",
+      "group": "Contracts",
+      "bytes": 4358
+    },
+    {
+      "path": "contracts/protocol-config-registry.html",
+      "title": "ProtocolConfigRegistry · GoalOS contract rail",
+      "group": "Contracts",
+      "bytes": 4330
+    },
+    {
+      "path": "contracts/referral-registry.html",
+      "title": "ReferralRegistry · GoalOS contract rail",
+      "group": "Contracts",
+      "bytes": 4322
+    },
+    {
+      "path": "contracts/reputation-registry.html",
+      "title": "ReputationRegistry · GoalOS contract rail",
+      "group": "Contracts",
+      "bytes": 4331
+    },
+    {
+      "path": "contracts/reviewer-bond-registry.html",
+      "title": "ReviewerBondRegistry · GoalOS contract rail",
+      "group": "Contracts",
+      "bytes": 4331
+    },
+    {
+      "path": "contracts/security-vault.html",
+      "title": "SecurityVault · GoalOS contract rail",
+      "group": "Contracts",
+      "bytes": 4275
+    },
+    {
+      "path": "contracts/sponsor-registry.html",
+      "title": "SponsorRegistry · GoalOS contract rail",
+      "group": "Contracts",
+      "bytes": 4331
+    },
+    {
+      "path": "contracts/treasury-router.html",
+      "title": "TreasuryRouter · GoalOS contract rail",
+      "group": "Contracts",
+      "bytes": 4266
+    },
+    {
+      "path": "mission-001-replay.html",
+      "title": "Mission 001 Browser Replay · GoalOS Signoff Pro",
+      "group": "Mission 001",
+      "bytes": 8951
+    },
+    {
+      "path": "mission-001.html",
+      "title": "Mission 001 Reproducibility Packet · GoalOS Signoff Pro",
+      "group": "Mission 001",
+      "bytes": 11867
+    },
+    {
+      "path": "agent-constellation-lab.html",
+      "title": "Agent Constellation Lab · GoalOS Signoff Pro",
+      "group": "Public labs",
+      "bytes": 5486
+    },
+    {
+      "path": "labs-index.html",
+      "title": "All GoalOS pages · v45 route catalog",
+      "group": "Public labs",
+      "bytes": 52789
+    },
+    {
+      "path": "coordination-lab.html",
+      "title": "Coordination Lab · GoalOS Signoff Pro",
+      "group": "Public labs",
+      "bytes": 6153
+    },
+    {
+      "path": "demo-lab.html",
+      "title": "Demo Lab · GoalOS Signoff Pro",
+      "group": "Public labs",
+      "bytes": 6916
+    },
+    {
+      "path": "claim-promotion-lab.html",
+      "title": "GoalOS — Independent Replay & Claim Promotion Lab",
+      "group": "Public labs",
+      "bytes": 8467
+    },
+    {
+      "path": "independent-replay-lab.html",
+      "title": "GoalOS — Independent Replay & Claim Promotion Lab",
+      "group": "Public labs",
+      "bytes": 8467
+    },
+    {
+      "path": "replay-council-lab.html",
+      "title": "GoalOS — Independent Replay & Claim Promotion Lab",
+      "group": "Public labs",
+      "bytes": 8467
+    },
+    {
+      "path": "public-demo-labs.html",
+      "title": "GoalOS Public Demo Labs v22–v40",
+      "group": "Public labs",
+      "bytes": 8117
+    },
+    {
+      "path": "action-graph-authority-lab.html",
+      "title": "GoalOS Signoff Pro — Action Graph & Human Authority Lab",
+      "group": "Public labs",
+      "bytes": 53916
+    },
+    {
+      "path": "human-authority-action-lab.html",
+      "title": "GoalOS Signoff Pro — Action Graph & Human Authority Lab",
+      "group": "Public labs",
+      "bytes": 53916
+    },
+    {
+      "path": "scoped-action-lab.html",
+      "title": "GoalOS Signoff Pro — Action Graph & Human Authority Lab",
+      "group": "Public labs",
+      "bytes": 53916
+    },
+    {
+      "path": "blockchain-credibility-lab.html",
+      "title": "GoalOS Signoff Pro — Blockchain Credibility Standard Lab",
+      "group": "Public labs",
+      "bytes": 26232
+    },
+    {
+      "path": "blockchain-trust-layer-lab.html",
+      "title": "GoalOS Signoff Pro — Blockchain Credibility Standard Lab",
+      "group": "Public labs",
+      "bytes": 26232
+    },
+    {
+      "path": "no-proof-no-settlement-lab.html",
+      "title": "GoalOS Signoff Pro — Blockchain Credibility Standard Lab",
+      "group": "Public labs",
+      "bytes": 26232
+    },
+    {
+      "path": "proof-to-settlement-standard-lab.html",
+      "title": "GoalOS Signoff Pro — Blockchain Credibility Standard Lab",
+      "group": "Public labs",
+      "bytes": 26232
+    },
+    {
+      "path": "trust-before-settlement-lab.html",
+      "title": "GoalOS Signoff Pro — Blockchain Credibility Standard Lab",
+      "group": "Public labs",
+      "bytes": 26232
+    },
+    {
+      "path": "blockchain-due-diligence-lab.html",
+      "title": "GoalOS Signoff Pro — Blockchain Proof Mandate &amp; Due Diligence Lab v29",
+      "group": "Public labs",
+      "bytes": 22621
+    },
+    {
+      "path": "blockchain-proof-mandate-lab.html",
+      "title": "GoalOS Signoff Pro — Blockchain Proof Mandate &amp; Due Diligence Lab v29",
+      "group": "Public labs",
+      "bytes": 22621
+    },
+    {
+      "path": "goalos-proof-request-lab.html",
+      "title": "GoalOS Signoff Pro — Blockchain Proof Mandate &amp; Due Diligence Lab v29",
+      "group": "Public labs",
+      "bytes": 22621
+    },
+    {
+      "path": "no-proof-no-credibility-lab.html",
+      "title": "GoalOS Signoff Pro — Blockchain Proof Mandate &amp; Due Diligence Lab v29",
+      "group": "Public labs",
+      "bytes": 22621
+    },
+    {
+      "path": "proof-package-requirement-lab.html",
+      "title": "GoalOS Signoff Pro — Blockchain Proof Mandate &amp; Due Diligence Lab v29",
+      "group": "Public labs",
+      "bytes": 22621
+    },
+    {
+      "path": "require-proof-before-trust-lab.html",
+      "title": "GoalOS Signoff Pro — Blockchain Proof Mandate &amp; Due Diligence Lab v29",
+      "group": "Public labs",
+      "bytes": 22621
+    },
+    {
+      "path": "deterministic-invention-os-lab.html",
+      "title": "GoalOS Signoff Pro — From Loop to RSI Lab v32",
+      "group": "Public labs",
+      "bytes": 10701
+    },
+    {
+      "path": "move37-breakthrough-lab.html",
+      "title": "GoalOS Signoff Pro — From Loop to RSI Lab v32",
+      "group": "Public labs",
+      "bytes": 10694
+    },
+    {
+      "path": "omni-search-control-lab.html",
+      "title": "GoalOS Signoff Pro — From Loop to RSI Lab v32",
+      "group": "Public labs",
+      "bytes": 10694
+    },
+    {
+      "path": "sovereign-invention-governance-lab.html",
+      "title": "GoalOS Signoff Pro — From Loop to RSI Lab v32",
+      "group": "Public labs",
+      "bytes": 10705
+    },
+    {
+      "path": "evidence-lineage-lab.html",
+      "title": "GoalOS Signoff Pro — Process-Resolved Evidence Lab",
+      "group": "Public labs",
+      "bytes": 42105
+    },
+    {
+      "path": "process-evidence-lab.html",
+      "title": "GoalOS Signoff Pro — Process-Resolved Evidence Lab",
+      "group": "Public labs",
+      "bytes": 42105
+    },
+    {
+      "path": "process-trace-lab.html",
+      "title": "GoalOS Signoff Pro — Process-Resolved Evidence Lab",
+      "group": "Public labs",
+      "bytes": 42105
+    },
+    {
+      "path": "proof-native-workbench-lab.html",
+      "title": "GoalOS Signoff Pro — Process-Resolved Evidence Lab",
+      "group": "Public labs",
+      "bytes": 42105
+    },
+    {
+      "path": "blockchain-standard-paper-lab.html",
+      "title": "GoalOS Signoff Pro — Proof Before Settlement Institutional Research Lab v30",
+      "group": "Public labs",
+      "bytes": 23279
+    },
+    {
+      "path": "elite-paper-lab.html",
+      "title": "GoalOS Signoff Pro — Proof Before Settlement Institutional Research Lab v30",
+      "group": "Public labs",
+      "bytes": 23279
+    },
+    {
+      "path": "institutional-research-lab.html",
+      "title": "GoalOS Signoff Pro — Proof Before Settlement Institutional Research Lab v30",
+      "group": "Public labs",
+      "bytes": 23279
+    },
+    {
+      "path": "proof-before-settlement-research-lab.html",
+      "title": "GoalOS Signoff Pro — Proof Before Settlement Institutional Research Lab v30",
+      "group": "Public labs",
+      "bytes": 23279
+    },
+    {
+      "path": "settlement-safety-lab.html",
+      "title": "GoalOS Signoff Pro — Proof Before Settlement Institutional Research Lab v30",
+      "group": "Public labs",
+      "bytes": 23279
+    },
+    {
+      "path": "artifact-vault-lab.html",
+      "title": "GoalOS Signoff Pro — Proof-Carrying Artifact & Evolution Ledger Lab",
+      "group": "Public labs",
+      "bytes": 50634
+    },
+    {
+      "path": "evolution-ledger-lab.html",
+      "title": "GoalOS Signoff Pro — Proof-Carrying Artifact & Evolution Ledger Lab",
+      "group": "Public labs",
+      "bytes": 50634
+    },
+    {
+      "path": "proof-carrying-artifact-lab.html",
+      "title": "GoalOS Signoff Pro — Proof-Carrying Artifact & Evolution Ledger Lab",
+      "group": "Public labs",
+      "bytes": 50634
+    },
+    {
+      "path": "upgrade-right-lab.html",
+      "title": "GoalOS Signoff Pro — Proof-Carrying Artifact & Evolution Ledger Lab",
+      "group": "Public labs",
+      "bytes": 50634
+    },
+    {
+      "path": "curriculum-lab.html",
+      "title": "GoalOS Signoff Pro — Proof-Gated Mission Foundry & Curriculum Lab",
+      "group": "Public labs",
+      "bytes": 20354
+    },
+    {
+      "path": "harder-mission-lab.html",
+      "title": "GoalOS Signoff Pro — Proof-Gated Mission Foundry & Curriculum Lab",
+      "group": "Public labs",
+      "bytes": 20354
+    },
+    {
+      "path": "mission-foundry-lab.html",
+      "title": "GoalOS Signoff Pro — Proof-Gated Mission Foundry & Curriculum Lab",
+      "group": "Public labs",
+      "bytes": 20354
+    },
+    {
+      "path": "bounded-search-lab.html",
+      "title": "GoalOS Signoff Pro — ProofZero Planning Lab",
+      "group": "Public labs",
+      "bytes": 19306
+    },
+    {
+      "path": "evidence-reanalyze-lab.html",
+      "title": "GoalOS Signoff Pro — ProofZero Planning Lab",
+      "group": "Public labs",
+      "bytes": 19306
+    },
+    {
+      "path": "latent-work-state-lab.html",
+      "title": "GoalOS Signoff Pro — ProofZero Planning Lab",
+      "group": "Public labs",
+      "bytes": 19306
+    },
+    {
+      "path": "proofzero-planning-lab.html",
+      "title": "GoalOS Signoff Pro — ProofZero Planning Lab",
+      "group": "Public labs",
+      "bytes": 19306
+    },
+    {
+      "path": "all-labs.html",
+      "title": "GoalOS Signoff Pro · All Public Labs",
+      "group": "Public labs",
+      "bytes": 3531
+    },
+    {
+      "path": "goalos-public-demo-labs.html",
+      "title": "GoalOS Signoff Pro · Public Demo Labs v22-v35",
+      "group": "Public labs",
+      "bytes": 10867
+    },
+    {
+      "path": "labs.html",
+      "title": "GoalOS Signoff Pro · Public Labs",
+      "group": "Public labs",
+      "bytes": 3519
+    },
+    {
+      "path": "signoff-product-protocol-ladder-lab.html",
+      "title": "GoalOS Signoff Pro · v36 Product Core &amp; Protocol Ladder",
+      "group": "Public labs",
+      "bytes": 8238
+    },
+    {
+      "path": "agi-alpha-rsi-lab.html",
+      "title": "GoalOS Signoff Pro — From Loop to RSI Lab v32",
+      "group": "RSI / ASI",
+      "bytes": 10688
+    },
+    {
+      "path": "from-loop-to-rsi-lab.html",
+      "title": "GoalOS Signoff Pro — From Loop to RSI Lab v32",
+      "group": "RSI / ASI",
+      "bytes": 10691
+    },
+    {
+      "path": "loop-to-rsi.html",
+      "title": "GoalOS Signoff Pro — From Loop to RSI Lab v32",
+      "group": "RSI / ASI",
+      "bytes": 10682
+    },
+    {
+      "path": "rsi-governance-console.html",
+      "title": "GoalOS Signoff Pro — From Loop to RSI Lab v32",
+      "group": "RSI / ASI",
+      "bytes": 10693
+    },
+    {
+      "path": "rsi.html",
+      "title": "GoalOS Signoff Pro — From Loop to RSI Lab v32",
+      "group": "RSI / ASI",
+      "bytes": 10674
+    },
+    {
+      "path": "asi-mission-simulator.html",
+      "title": "GoalOS Signoff Pro — Loop → RSI → ASI Mission Simulator v35",
+      "group": "RSI / ASI",
+      "bytes": 9043
+    },
+    {
+      "path": "goalos-asi-mission-control.html",
+      "title": "GoalOS Signoff Pro — Loop → RSI → ASI Mission Simulator v35",
+      "group": "RSI / ASI",
+      "bytes": 9043
+    },
+    {
+      "path": "loop-rsi-asi-superintelligence-mission-simulator-lab.html",
+      "title": "GoalOS Signoff Pro — Loop → RSI → ASI Mission Simulator v35",
+      "group": "RSI / ASI",
+      "bytes": 9043
+    },
+    {
+      "path": "loop-rsi-asi-v35.html",
+      "title": "GoalOS Signoff Pro — Loop → RSI → ASI Mission Simulator v35",
+      "group": "RSI / ASI",
+      "bytes": 9043
+    },
+    {
+      "path": "no-ungoverned-asi.html",
+      "title": "GoalOS Signoff Pro — Loop → RSI → ASI Mission Simulator v35",
+      "group": "RSI / ASI",
+      "bytes": 9043
+    },
+    {
+      "path": "proof-gated-asi-simulator.html",
+      "title": "GoalOS Signoff Pro — Loop → RSI → ASI Mission Simulator v35",
+      "group": "RSI / ASI",
+      "bytes": 9043
+    },
+    {
+      "path": "rsi-to-asi-control-simulator.html",
+      "title": "GoalOS Signoff Pro — Loop → RSI → ASI Mission Simulator v35",
+      "group": "RSI / ASI",
+      "bytes": 9043
+    },
+    {
+      "path": "sovereign-asi-flight-simulator.html",
+      "title": "GoalOS Signoff Pro — Loop → RSI → ASI Mission Simulator v35",
+      "group": "RSI / ASI",
+      "bytes": 9043
+    },
+    {
+      "path": "superintelligence-simulation-console.html",
+      "title": "GoalOS Signoff Pro — Loop → RSI → ASI Mission Simulator v35",
+      "group": "RSI / ASI",
+      "bytes": 9043
+    },
+    {
+      "path": "asi-control-tower.html",
+      "title": "GoalOS Signoff Pro — Loop → RSI → ASI Superintelligence Control Tower Lab v34",
+      "group": "RSI / ASI",
+      "bytes": 11595
+    },
+    {
+      "path": "asi-governance-dashboard.html",
+      "title": "GoalOS Signoff Pro — Loop → RSI → ASI Superintelligence Control Tower Lab v34",
+      "group": "RSI / ASI",
+      "bytes": 11595
+    },
+    {
+      "path": "asi-readiness-flight-simulator.html",
+      "title": "GoalOS Signoff Pro — Loop → RSI → ASI Superintelligence Control Tower Lab v34",
+      "group": "RSI / ASI",
+      "bytes": 11595
+    },
+    {
+      "path": "governed-asi-console.html",
+      "title": "GoalOS Signoff Pro — Loop → RSI → ASI Superintelligence Control Tower Lab v34",
+      "group": "RSI / ASI",
+      "bytes": 11595
+    },
+    {
+      "path": "loop-rsi-asi-superintelligence-control-tower-lab.html",
+      "title": "GoalOS Signoff Pro — Loop → RSI → ASI Superintelligence Control Tower Lab v34",
+      "group": "RSI / ASI",
+      "bytes": 11595
+    },
+    {
+      "path": "loop-to-rsi-to-asi-v34.html",
+      "title": "GoalOS Signoff Pro — Loop → RSI → ASI Superintelligence Control Tower Lab v34",
+      "group": "RSI / ASI",
+      "bytes": 11595
+    },
+    {
+      "path": "move37-asi-control-room.html",
+      "title": "GoalOS Signoff Pro — Loop → RSI → ASI Superintelligence Control Tower Lab v34",
+      "group": "RSI / ASI",
+      "bytes": 11595
+    },
+    {
+      "path": "no-ungoverned-superintelligence-v34.html",
+      "title": "GoalOS Signoff Pro — Loop → RSI → ASI Superintelligence Control Tower Lab v34",
+      "group": "RSI / ASI",
+      "bytes": 11595
+    },
+    {
+      "path": "proof-gated-superintelligence.html",
+      "title": "GoalOS Signoff Pro — Loop → RSI → ASI Superintelligence Control Tower Lab v34",
+      "group": "RSI / ASI",
+      "bytes": 11595
+    },
+    {
+      "path": "superintelligence-control-tower.html",
+      "title": "GoalOS Signoff Pro — Loop → RSI → ASI Superintelligence Control Tower Lab v34",
+      "group": "RSI / ASI",
+      "bytes": 11595
+    },
+    {
+      "path": "asi-mission-control.html",
+      "title": "GoalOS Signoff Pro — Loop to RSI to ASI Superintelligence Console v33",
+      "group": "RSI / ASI",
+      "bytes": 11306
+    },
+    {
+      "path": "asi-superintelligence-console.html",
+      "title": "GoalOS Signoff Pro — Loop to RSI to ASI Superintelligence Console v33",
+      "group": "RSI / ASI",
+      "bytes": 11306
+    },
+    {
+      "path": "invention-to-superintelligence-console.html",
+      "title": "GoalOS Signoff Pro — Loop to RSI to ASI Superintelligence Console v33",
+      "group": "RSI / ASI",
+      "bytes": 11306
+    },
+    {
+      "path": "loop-rsi-asi-superintelligence-lab.html",
+      "title": "GoalOS Signoff Pro — Loop to RSI to ASI Superintelligence Console v33",
+      "group": "RSI / ASI",
+      "bytes": 11306
+    },
+    {
+      "path": "loop-to-rsi-to-asi.html",
+      "title": "GoalOS Signoff Pro — Loop to RSI to ASI Superintelligence Console v33",
+      "group": "RSI / ASI",
+      "bytes": 11306
+    },
+    {
+      "path": "no-ungoverned-superintelligence.html",
+      "title": "GoalOS Signoff Pro — Loop to RSI to ASI Superintelligence Console v33",
+      "group": "RSI / ASI",
+      "bytes": 11306
+    },
+    {
+      "path": "recursive-self-improvement-to-asi-lab.html",
+      "title": "GoalOS Signoff Pro — Loop to RSI to ASI Superintelligence Console v33",
+      "group": "RSI / ASI",
+      "bytes": 11306
+    },
+    {
+      "path": "rsi-to-asi-superintelligence.html",
+      "title": "GoalOS Signoff Pro — Loop to RSI to ASI Superintelligence Console v33",
+      "group": "RSI / ASI",
+      "bytes": 11306
+    },
+    {
+      "path": "sovereign-asi-readiness-lab.html",
+      "title": "GoalOS Signoff Pro — Loop to RSI to ASI Superintelligence Console v33",
+      "group": "RSI / ASI",
+      "bytes": 11306
+    },
+    {
+      "path": "superintelligence-governance-console.html",
+      "title": "GoalOS Signoff Pro — Loop to RSI to ASI Superintelligence Console v33",
+      "group": "RSI / ASI",
+      "bytes": 11306
+    },
+    {
+      "path": "superintelligence-experience.html",
+      "title": "GoalOS Signoff Pro — Premium v30–v34 Experience Hub",
+      "group": "RSI / ASI",
+      "bytes": 13798
+    },
+    {
+      "path": "signoff-basic.html",
+      "title": "GoalOS Signoff Pro · v36 Product Core &amp; Protocol Ladder",
+      "group": "RSI / ASI",
+      "bytes": 8238
+    },
+    {
+      "path": "governed-superintelligence.html",
+      "title": "GoalOS v22–v40 Command Center",
+      "group": "RSI / ASI",
+      "bytes": 7436
+    },
+    {
+      "path": "proof-to-superintelligence.html",
+      "title": "GoalOS v22–v40 Command Center",
+      "group": "RSI / ASI",
+      "bytes": 7436
+    },
+    {
+      "path": "signoff-protocol-rails.html",
+      "title": "AGIALPHA 48-Contract Atlas · GoalOS",
+      "group": "Signoff product",
+      "bytes": 32063
+    },
+    {
+      "path": "browser-beta.html",
+      "title": "Browser Beta · GoalOS Signoff Pro",
+      "group": "Signoff product",
+      "bytes": 7904
+    },
+    {
+      "path": "signoff-secured.html",
+      "title": "GoalOS Signoff Pro · v36 Product Core &amp; Protocol Ladder",
+      "group": "Signoff product",
+      "bytes": 8238
+    },
+    {
+      "path": "signoff-settle.html",
+      "title": "GoalOS Signoff Pro · v36 Product Core &amp; Protocol Ladder",
+      "group": "Signoff product",
+      "bytes": 8238
+    },
+    {
+      "path": "signoff-verified.html",
+      "title": "GoalOS Signoff Pro · v36 Product Core &amp; Protocol Ladder",
+      "group": "Signoff product",
+      "bytes": 8238
+    },
+    {
+      "path": "ai-research-strategy-signoff-console.html",
+      "title": "GoalOS Signoff Pro · v37 AI Research &amp; Strategy Signoff Console",
+      "group": "Signoff product",
+      "bytes": 11946
+    },
+    {
+      "path": "create-a-free-signoff.html",
+      "title": "GoalOS Signoff Pro · v37 AI Research &amp; Strategy Signoff Console",
+      "group": "Signoff product",
+      "bytes": 11946
+    },
+    {
+      "path": "product-first-signoff.html",
+      "title": "GoalOS Signoff Pro · v37 AI Research &amp; Strategy Signoff Console",
+      "group": "Signoff product",
+      "bytes": 11946
+    },
+    {
+      "path": "signoff-launch-console.html",
+      "title": "GoalOS Signoff Pro · v37 AI Research &amp; Strategy Signoff Console",
+      "group": "Signoff product",
+      "bytes": 11946
+    },
+    {
+      "path": "signoff-product-core.html",
+      "title": "GoalOS Signoff Pro · v37 AI Research &amp; Strategy Signoff Console",
+      "group": "Signoff product",
+      "bytes": 11946
+    },
+    {
+      "path": "agialpha.html",
+      "title": "$AGIALPHA is external. · GoalOS Signoff Pro",
+      "group": "Website",
+      "bytes": 6774
+    },
+    {
+      "path": "constitution.html",
+      "title": "A model can answer. An agent can act. An institution must prove. · GoalOS Signoff Pro",
+      "group": "Website",
+      "bytes": 6742
+    },
+    {
+      "path": "chronicle.html",
+      "title": "Accepted experience becomes memory. · GoalOS Signoff Pro",
+      "group": "Website",
+      "bytes": 6662
+    },
+    {
+      "path": "capability-library.html",
+      "title": "Accepted proof becomes reusable capability. · GoalOS Signoff Pro",
+      "group": "Website",
+      "bytes": 6692
+    },
+    {
+      "path": "request-access.html",
+      "title": "Access is already open in the browser. · GoalOS Signoff Pro",
+      "group": "Website",
+      "bytes": 6688
+    },
+    {
+      "path": "48-contract-rails.html",
+      "title": "AGIALPHA 48-Contract Atlas · GoalOS",
+      "group": "Website",
+      "bytes": 32063
+    },
+    {
+      "path": "agialpha-48-contract-atlas.html",
+      "title": "AGIALPHA 48-Contract Atlas · GoalOS",
+      "group": "Website",
+      "bytes": 32063
+    },
+    {
+      "path": "agialpha-mainnet-contracts.html",
+      "title": "AGIALPHA 48-Contract Atlas · GoalOS",
+      "group": "Website",
+      "bytes": 32063
+    },
+    {
+      "path": "agialpha-protocol-rails.html",
+      "title": "AGIALPHA 48-Contract Atlas · GoalOS",
+      "group": "Website",
+      "bytes": 32063
+    },
+    {
+      "path": "contract-atlas.html",
+      "title": "AGIALPHA 48-Contract Atlas · GoalOS",
+      "group": "Website",
+      "bytes": 32063
+    },
+    {
+      "path": "contract-matrix.html",
+      "title": "AGIALPHA 48-Contract Atlas · GoalOS",
+      "group": "Website",
+      "bytes": 32063
+    },
+    {
+      "path": "ethereum-mainnet-rails.html",
+      "title": "AGIALPHA 48-Contract Atlas · GoalOS",
+      "group": "Website",
+      "bytes": 32063
+    },
+    {
+      "path": "protocol-topology.html",
+      "title": "AGIALPHA 48-Contract Atlas · GoalOS",
+      "group": "Website",
+      "bytes": 32063
+    },
+    {
+      "path": "executive-architecture.html",
+      "title": "AI output is abundant. Acceptance is scarce. · GoalOS Signoff Pro",
+      "group": "Website",
+      "bytes": 6751
+    },
+    {
+      "path": "all-pages.html",
+      "title": "All GoalOS pages · v45 route catalog",
+      "group": "Website",
+      "bytes": 52789
+    },
+    {
+      "path": "routes.html",
+      "title": "All GoalOS pages · v45 route catalog",
+      "group": "Website",
+      "bytes": 52789
+    },
+    {
+      "path": "site-map.html",
+      "title": "All GoalOS pages · v45 route catalog",
+      "group": "Website",
+      "bytes": 52789
+    },
+    {
+      "path": "sitemap.html",
+      "title": "All GoalOS pages · v45 route catalog",
+      "group": "Website",
+      "bytes": 52789
+    },
+    {
+      "path": "answer-router.html",
+      "title": "Ask GoalOS · Autonomous AI Concierge v40",
+      "group": "Website",
+      "bytes": 5068
+    },
+    {
+      "path": "ask-goalos-live.html",
+      "title": "Ask GoalOS · Autonomous AI Concierge v40",
+      "group": "Website",
+      "bytes": 5068
+    },
+    {
+      "path": "autonomous-redirect-console.html",
+      "title": "Ask GoalOS · Autonomous AI Concierge v40",
+      "group": "Website",
+      "bytes": 5068
+    },
+    {
+      "path": "goalos-concierge.html",
+      "title": "Ask GoalOS · Autonomous AI Concierge v40",
+      "group": "Website",
+      "bytes": 5068
+    },
+    {
+      "path": "v39.html",
+      "title": "Ask GoalOS · Autonomous AI Concierge v40",
+      "group": "Website",
+      "bytes": 5068
+    },
+    {
+      "path": "v40.html",
+      "title": "Ask GoalOS · Autonomous AI Concierge v40",
+      "group": "Website",
+      "bytes": 5068
+    },
+    {
+      "path": "benchmark-packet.html",
+      "title": "Benchmark Packet Specification · GoalOS Signoff Pro",
+      "group": "Website",
+      "bytes": 9797
+    },
+    {
+      "path": "benchmark-reproducibility.html",
+      "title": "Benchmark Reproducibility Packet · GoalOS Signoff Pro",
+      "group": "Website",
+      "bytes": 10354
+    },
+    {
+      "path": "changelog.html",
+      "title": "Canonical production composer v12. · GoalOS Signoff Pro",
+      "group": "Website",
+      "bytes": 6670
+    },
+    {
+      "path": "coordination-benchmark.html",
+      "title": "Coordination Benchmark · GoalOS Signoff Pro",
+      "group": "Website",
+      "bytes": 7328
+    },
+    {
+      "path": "coordination-law.html",
+      "title": "Coordination Law · GoalOS Signoff Pro",
+      "group": "Website",
+      "bytes": 5885
+    },
+    {
+      "path": "coordination-stack.html",
+      "title": "Coordination Stack · GoalOS Signoff Pro",
+      "group": "Website",
+      "bytes": 6895
+    },
+    {
+      "path": "coordination-theatre.html",
+      "title": "Coordination Theatre · GoalOS Signoff Pro",
+      "group": "Website",
+      "bytes": 6898
+    },
+    {
+      "path": "how-it-works.html",
+      "title": "Define, prove, verify, replay. · GoalOS Signoff Pro",
+      "group": "Website",
+      "bytes": 6703
+    },
+    {
+      "path": "architecture.html",
+      "title": "Evidence before acceptance. · GoalOS Signoff Pro",
+      "group": "Website",
+      "bytes": 6657
+    },
+    {
+      "path": "evidence-docket-demo.html",
+      "title": "Evidence Docket Demo · GoalOS Signoff Pro",
+      "group": "Website",
+      "bytes": 8701
+    },
+    {
+      "path": "agialpha-token-boundary.html",
+      "title": "External token reference only. · GoalOS Signoff Pro",
+      "group": "Website",
+      "bytes": 6711
+    },
+    {
+      "path": "customers.html",
+      "title": "For teams accepting AI work. · GoalOS Signoff Pro",
+      "group": "Website",
+      "bytes": 6651
+    },
+    {
+      "path": "sovereign-machine-economy.html",
+      "title": "From mission to capability. · GoalOS Signoff Pro",
+      "group": "Website",
+      "bytes": 6684
+    },
+    {
+      "path": "autopilot.html",
+      "title": "GoalOS Autopilot — Tell GoalOS what you want",
+      "group": "Website",
+      "bytes": 52624
+    },
+    {
+      "path": "goalos-autopilot.html",
+      "title": "GoalOS Autopilot — Tell GoalOS what you want",
+      "group": "Website",
+      "bytes": 52624
+    },
+    {
+      "path": "universal-command-box.html",
+      "title": "GoalOS Autopilot — Tell GoalOS what you want",
+      "group": "Website",
+      "bytes": 52624
+    },
+    {
+      "path": "v41.html",
+      "title": "GoalOS Autopilot — Tell GoalOS what you want",
+      "group": "Website",
+      "bytes": 52624
+    },
+    {
+      "path": "ai-proof-console.html",
+      "title": "GoalOS Signoff Pro — Executive AI Proof Console v31",
+      "group": "Website",
+      "bytes": 10943
+    },
+    {
+      "path": "console.html",
+      "title": "GoalOS Signoff Pro — Executive AI Proof Console v31",
+      "group": "Website",
+      "bytes": 10934
+    },
+    {
+      "path": "executive-ai-proof-console.html",
+      "title": "GoalOS Signoff Pro — Executive AI Proof Console v31",
+      "group": "Website",
+      "bytes": 10953
+    },
+    {
+      "path": "guided-experience.html",
+      "title": "GoalOS Signoff Pro — Executive AI Proof Console v31",
+      "group": "Website",
+      "bytes": 10944
+    },
+    {
+      "path": "interactive-proof-console.html",
+      "title": "GoalOS Signoff Pro — Executive AI Proof Console v31",
+      "group": "Website",
+      "bytes": 10952
+    },
+    {
+      "path": "proof-experience-console.html",
+      "title": "GoalOS Signoff Pro — Executive AI Proof Console v31",
+      "group": "Website",
+      "bytes": 10951
+    },
+    {
+      "path": "what-is-goalos.html",
+      "title": "GoalOS Signoff Pro — Executive AI Proof Console v31",
+      "group": "Website",
+      "bytes": 10941
+    },
+    {
+      "path": "v35.html",
+      "title": "GoalOS Signoff Pro — Loop → RSI → ASI Mission Simulator v35",
+      "group": "Website",
+      "bytes": 9043
+    },
+    {
+      "path": "v34.html",
+      "title": "GoalOS Signoff Pro — Loop → RSI → ASI Superintelligence Control Tower Lab v34",
+      "group": "Website",
+      "bytes": 11595
+    },
+    {
+      "path": "premium-experience.html",
+      "title": "GoalOS Signoff Pro — Premium v30–v34 Experience Hub",
+      "group": "Website",
+      "bytes": 13798
+    },
+    {
+      "path": "v30-v34-premium-experience.html",
+      "title": "GoalOS Signoff Pro — Premium v30–v34 Experience Hub",
+      "group": "Website",
+      "bytes": 15369
+    },
+    {
+      "path": "v30-v34.html",
+      "title": "GoalOS Signoff Pro — Premium v30–v34 Experience Hub",
+      "group": "Website",
+      "bytes": 13798
+    },
+    {
+      "path": "paper.html",
+      "title": "GoalOS Signoff Pro — Proof Before Settlement Institutional Research Lab v30",
+      "group": "Website",
+      "bytes": 23279
+    },
+    {
+      "path": "proof-before-settlement-paper.html",
+      "title": "GoalOS Signoff Pro — Proof Before Settlement Institutional Research Lab v30",
+      "group": "Website",
+      "bytes": 23279
+    },
+    {
+      "path": "research.html",
+      "title": "GoalOS Signoff Pro — Proof Before Settlement Institutional Research Lab v30",
+      "group": "Website",
+      "bytes": 23279
+    },
+    {
+      "path": "classic-home-before-v45.html",
+      "title": "GoalOS Signoff Pro — Tell GoalOS what you want",
+      "group": "Website",
+      "bytes": 6994
+    },
+    {
+      "path": "docs.html",
+      "title": "GoalOS Signoff Pro · Documentation",
+      "group": "Website",
+      "bytes": 3551
+    },
+    {
+      "path": "documentation.html",
+      "title": "GoalOS Signoff Pro · Documentation",
+      "group": "Website",
+      "bytes": 3551
+    },
+    {
+      "path": "route-catalog.html",
+      "title": "GoalOS Signoff Pro · Route Catalog",
+      "group": "Website",
+      "bytes": 3544
+    },
+    {
+      "path": "goalos-v22-v35-command-center.html",
+      "title": "GoalOS Signoff Pro · v22-v35 Command Center",
+      "group": "Website",
+      "bytes": 8623
+    },
+    {
+      "path": "v22-v35.html",
+      "title": "GoalOS Signoff Pro · v22-v35 Command Center",
+      "group": "Website",
+      "bytes": 8790
+    },
+    {
+      "path": "goalos-v22-v37-command-center.html",
+      "title": "GoalOS Signoff Pro · v22-v37 Product Command Center",
+      "group": "Website",
+      "bytes": 11112
+    },
+    {
+      "path": "v22-v37.html",
+      "title": "GoalOS Signoff Pro · v22-v37 Product Command Center",
+      "group": "Website",
+      "bytes": 11112
+    },
+    {
+      "path": "goalos-v22-v38-command-center.html",
+      "title": "GoalOS Signoff Pro · v22-v38 Command Center",
+      "group": "Website",
+      "bytes": 5466
+    },
+    {
+      "path": "v22-v38.html",
+      "title": "GoalOS Signoff Pro · v22-v38 Command Center",
+      "group": "Website",
+      "bytes": 5466
+    },
+    {
+      "path": "product-protocol-ladder.html",
+      "title": "GoalOS Signoff Pro · v36 Product Core &amp; Protocol Ladder",
+      "group": "Website",
+      "bytes": 8238
+    },
+    {
+      "path": "proof-to-payment-ladder.html",
+      "title": "GoalOS Signoff Pro · v36 Product Core &amp; Protocol Ladder",
+      "group": "Website",
+      "bytes": 8238
+    },
+    {
+      "path": "protocol-ladder.html",
+      "title": "GoalOS Signoff Pro · v36 Product Core &amp; Protocol Ladder",
+      "group": "Website",
+      "bytes": 8238
+    },
+    {
+      "path": "v36.html",
+      "title": "GoalOS Signoff Pro · v36 Product Core &amp; Protocol Ladder",
+      "group": "Website",
+      "bytes": 8238
+    },
+    {
+      "path": "ai-work-acceptance-console.html",
+      "title": "GoalOS Signoff Pro · v37 AI Research &amp; Strategy Signoff Console",
+      "group": "Website",
+      "bytes": 11946
+    },
+    {
+      "path": "know-when-ai-work-is-done.html",
+      "title": "GoalOS Signoff Pro · v37 AI Research &amp; Strategy Signoff Console",
+      "group": "Website",
+      "bytes": 11946
+    },
+    {
+      "path": "mission-receipt-console.html",
+      "title": "GoalOS Signoff Pro · v37 AI Research &amp; Strategy Signoff Console",
+      "group": "Website",
+      "bytes": 11946
+    },
+    {
+      "path": "product-launch-console.html",
+      "title": "GoalOS Signoff Pro · v37 AI Research &amp; Strategy Signoff Console",
+      "group": "Website",
+      "bytes": 11946
+    },
+    {
+      "path": "v37.html",
+      "title": "GoalOS Signoff Pro · v37 AI Research &amp; Strategy Signoff Console",
+      "group": "Website",
+      "bytes": 11946
+    },
+    {
+      "path": "autopilot-studio.html",
+      "title": "GoalOS Universal Outcome Autopilot Studio v42",
+      "group": "Website",
+      "bytes": 9619
+    },
+    {
+      "path": "goalos-autopilot-studio.html",
+      "title": "GoalOS Universal Outcome Autopilot Studio v42",
+      "group": "Website",
+      "bytes": 9619
+    },
+    {
+      "path": "universal-outcome-box.html",
+      "title": "GoalOS Universal Outcome Autopilot Studio v42",
+      "group": "Website",
+      "bytes": 9619
+    },
+    {
+      "path": "v42.html",
+      "title": "GoalOS Universal Outcome Autopilot Studio v42",
+      "group": "Website",
+      "bytes": 9619
+    },
+    {
+      "path": "goalos-v22-v39-command-center.html",
+      "title": "GoalOS v22-v40 Command Center",
+      "group": "Website",
+      "bytes": 11143
+    },
+    {
+      "path": "command-center-v42.html",
+      "title": "GoalOS v22-v42 Command Center",
+      "group": "Website",
+      "bytes": 4241
+    },
+    {
+      "path": "goalos-v22-v42-command-center.html",
+      "title": "GoalOS v22-v42 Command Center",
+      "group": "Website",
+      "bytes": 4241
+    },
+    {
+      "path": "start-v42.html",
+      "title": "GoalOS v22-v42 Command Center",
+      "group": "Website",
+      "bytes": 4241
+    },
+    {
+      "path": "command-center.html",
+      "title": "GoalOS v22–v40 Command Center",
+      "group": "Website",
+      "bytes": 7436
+    },
+    {
+      "path": "demo.html",
+      "title": "GoalOS v22–v40 Command Center",
+      "group": "Website",
+      "bytes": 7436
+    },
+    {
+      "path": "experience.html",
+      "title": "GoalOS v22–v40 Command Center",
+      "group": "Website",
+      "bytes": 7436
+    },
+    {
+      "path": "goalos-v22-v40-command-center.html",
+      "title": "GoalOS v22–v40 Command Center",
+      "group": "Website",
+      "bytes": 7436
+    },
+    {
+      "path": "start.html",
+      "title": "GoalOS v22–v40 Command Center",
+      "group": "Website",
+      "bytes": 7436
+    },
+    {
+      "path": "v22-v40.html",
+      "title": "GoalOS v22–v40 Command Center",
+      "group": "Website",
+      "bytes": 7436
+    },
+    {
+      "path": "goalos-v22-v44-command-center.html",
+      "title": "GoalOS v22–v44 Command Center",
+      "group": "Website",
+      "bytes": 11574
+    },
+    {
+      "path": "v38.html",
+      "title": "GoalOS v38 · 48 Mainnet Contract Atlas",
+      "group": "Website",
+      "bytes": 47291
+    },
+    {
+      "path": "website-guide.html",
+      "title": "GoalOS Website Guide v22–v40",
+      "group": "Website",
+      "bytes": 3434
+    },
+    {
+      "path": "resources.html",
+      "title": "Learn the proof stack. · GoalOS Signoff Pro",
+      "group": "Website",
+      "bytes": 6653
+    },
+    {
+      "path": "verify.html",
+      "title": "Mission Receipt Verifier · GoalOS Signoff Pro",
+      "group": "Website",
+      "bytes": 6092
+    },
+    {
+      "path": "cookie-policy.html",
+      "title": "No cookies. · GoalOS Signoff Pro",
+      "group": "Website",
+      "bytes": 6611
+    },
+    {
+      "path": "investment-boundary.html",
+      "title": "No investment offer. · GoalOS Signoff Pro",
+      "group": "Website",
+      "bytes": 6687
+    },
+    {
+      "path": "subprocessors.html",
+      "title": "No public submissions. · GoalOS Signoff Pro",
+      "group": "Website",
+      "bytes": 6665
+    },
+    {
+      "path": "data-policy.html",
+      "title": "No public-site submissions. · GoalOS Signoff Pro",
+      "group": "Website",
+      "bytes": 6645
+    },
+    {
+      "path": "contact.html",
+      "title": "No request required. Open the browser beta. · GoalOS Signoff Pro",
+      "group": "Website",
+      "bytes": 6671
+    },
+    {
+      "path": "no-user-data.html",
+      "title": "No user data by design. · GoalOS Signoff Pro",
+      "group": "Website",
+      "bytes": 6673
+    },
+    {
+      "path": "proof-mission.html",
+      "title": "One objective. One proof path. · GoalOS Signoff Pro",
+      "group": "Website",
+      "bytes": 6657
+    },
+    {
+      "path": "proof-missions.html",
+      "title": "One objective. One proof path. · GoalOS Signoff Pro",
+      "group": "Website",
+      "bytes": 6674
+    },
+    {
+      "path": "pilot.html",
+      "title": "Pilot the flow in your browser. · GoalOS Signoff Pro",
+      "group": "Website",
+      "bytes": 6638
+    },
+    {
+      "path": "faq.html",
+      "title": "Plain answers for normal users. · GoalOS Signoff Pro",
+      "group": "Website",
+      "bytes": 6670
+    },
+    {
+      "path": "glossary.html",
+      "title": "Plain-language proof vocabulary. · GoalOS Signoff Pro",
+      "group": "Website",
+      "bytes": 6711
+    },
+    {
+      "path": "privacy.html",
+      "title": "Privacy by non-collection. · GoalOS Signoff Pro",
+      "group": "Website",
+      "bytes": 6652
+    },
+    {
+      "path": "examples.html",
+      "title": "Proof missions users can understand. · GoalOS Signoff Pro",
+      "group": "Website",
+      "bytes": 6698
+    },
+    {
+      "path": "proof-selection-theatre.html",
+      "title": "Proof Selection Theatre · GoalOS Signoff Pro",
+      "group": "Website",
+      "bytes": 6692
+    },
+    {
+      "path": "proof-gated-coordination.html",
+      "title": "Proof-Gated Coordination · GoalOS Signoff Pro",
+      "group": "Website",
+      "bytes": 7104
+    },
+    {
+      "path": "proof-governed-swarm.html",
+      "title": "Proof-Governed Swarm · GoalOS Signoff Pro",
+      "group": "Website",
+      "bytes": 5815
+    },
+    {
+      "path": "platform.html",
+      "title": "Proof-to-acceptance infrastructure. · GoalOS Signoff Pro",
+      "group": "Website",
+      "bytes": 6707
+    },
+    {
+      "path": "status.html",
+      "title": "Public browser beta live. · GoalOS Signoff Pro",
+      "group": "Website",
+      "bytes": 6646
+    },
+    {
+      "path": "implementation.html",
+      "title": "Public claims map to repo automation. · GoalOS Signoff Pro",
+      "group": "Website",
+      "bytes": 6699
+    },
+    {
+      "path": "dossier.html",
+      "title": "Public proof package. · GoalOS Signoff Pro",
+      "group": "Website",
+      "bytes": 6662
+    },
+    {
+      "path": "evidence-hub.html",
+      "title": "Public-safe proof surfaces. · GoalOS Signoff Pro",
+      "group": "Website",
+      "bytes": 6650
+    },
+    {
+      "path": "legal.html",
+      "title": "Public-site boundary. · GoalOS Signoff Pro",
+      "group": "Website",
+      "bytes": 6628
+    },
+    {
+      "path": "reviewer-network.html",
+      "title": "Reviewer roles are gates. · GoalOS Signoff Pro",
+      "group": "Website",
+      "bytes": 6652
+    },
+    {
+      "path": "proof-os.html",
+      "title": "Set the objective. Earn the decision. · GoalOS Signoff Pro",
+      "group": "Website",
+      "bytes": 6683
+    },
+    {
+      "path": "press.html",
+      "title": "Share the proof-to-acceptance story. · GoalOS Signoff Pro",
+      "group": "Website",
+      "bytes": 6671
+    },
+    {
+      "path": "security-boundary.html",
+      "title": "Small public surface. · GoalOS Signoff Pro",
+      "group": "Website",
+      "bytes": 6643
+    },
+    {
+      "path": "security.html",
+      "title": "Small public surface. · GoalOS Signoff Pro",
+      "group": "Website",
+      "bytes": 6640
+    },
+    {
+      "path": "goalos-universal-command-os-v44.html",
+      "title": "Tell GoalOS what you want — Universal Command OS v44",
+      "group": "Website",
+      "bytes": 6912
+    },
+    {
+      "path": "goalos-v22-v41-command-center.html",
+      "title": "Tell GoalOS what you want — Universal Command OS v44",
+      "group": "Website",
+      "bytes": 6912
+    },
+    {
+      "path": "goalos-v22-v43-command-center.html",
+      "title": "Tell GoalOS what you want — Universal Command OS v44",
+      "group": "Website",
+      "bytes": 6912
+    },
+    {
+      "path": "ask-goalos.html",
+      "title": "Tell GoalOS what you want · Universal Command Center v45",
+      "group": "Website",
+      "bytes": 8601
+    },
+    {
+      "path": "chat.html",
+      "title": "Tell GoalOS what you want · Universal Command Center v45",
+      "group": "Website",
+      "bytes": 8601
+    },
+    {
+      "path": "goalos-command-center.html",
+      "title": "Tell GoalOS what you want · Universal Command Center v45",
+      "group": "Website",
+      "bytes": 8601
+    },
+    {
+      "path": "goalos-command-os.html",
+      "title": "Tell GoalOS what you want · Universal Command Center v45",
+      "group": "Website",
+      "bytes": 8601
+    },
+    {
+      "path": "goalos-command.html",
+      "title": "Tell GoalOS what you want · Universal Command Center v45",
+      "group": "Website",
+      "bytes": 8601
+    },
+    {
+      "path": "goalos-front-center-command.html",
+      "title": "Tell GoalOS what you want · Universal Command Center v45",
+      "group": "Website",
+      "bytes": 8601
+    },
+    {
+      "path": "goalos-take-care-of-everything.html",
+      "title": "Tell GoalOS what you want · Universal Command Center v45",
+      "group": "Website",
+      "bytes": 8601
+    },
+    {
+      "path": "goalos-take-care.html",
+      "title": "Tell GoalOS what you want · Universal Command Center v45",
+      "group": "Website",
+      "bytes": 8601
+    },
+    {
+      "path": "goalos-universal-command-center.html",
+      "title": "Tell GoalOS what you want · Universal Command Center v45",
+      "group": "Website",
+      "bytes": 8601
+    },
+    {
+      "path": "goalos-universal-command-os.html",
+      "title": "Tell GoalOS what you want · Universal Command Center v45",
+      "group": "Website",
+      "bytes": 8601
+    },
+    {
+      "path": "goalos-v22-v45-command-center.html",
+      "title": "Tell GoalOS what you want · Universal Command Center v45",
+      "group": "Website",
+      "bytes": 8601
+    },
+    {
+      "path": "help.html",
+      "title": "Tell GoalOS what you want · Universal Command Center v45",
+      "group": "Website",
+      "bytes": 8601
+    },
+    {
+      "path": "index.html",
+      "title": "Tell GoalOS what you want · Universal Command Center v45",
+      "group": "Website",
+      "bytes": 8601
+    },
+    {
+      "path": "intent-to-mission.html",
+      "title": "Tell GoalOS what you want · Universal Command Center v45",
+      "group": "Website",
+      "bytes": 8601
+    },
+    {
+      "path": "intent-to-outcome.html",
+      "title": "Tell GoalOS what you want · Universal Command Center v45",
+      "group": "Website",
+      "bytes": 8601
+    },
+    {
+      "path": "latest.html",
+      "title": "Tell GoalOS what you want · Universal Command Center v45",
+      "group": "Website",
+      "bytes": 8601
+    },
+    {
+      "path": "mission-autopilot.html",
+      "title": "Tell GoalOS what you want · Universal Command Center v45",
+      "group": "Website",
+      "bytes": 8601
+    },
+    {
+      "path": "mission-compiler.html",
+      "title": "Tell GoalOS what you want · Universal Command Center v45",
+      "group": "Website",
+      "bytes": 8601
+    },
+    {
+      "path": "one-box-command.html",
+      "title": "Tell GoalOS what you want · Universal Command Center v45",
+      "group": "Website",
+      "bytes": 8601
+    },
+    {
+      "path": "site-navigator.html",
+      "title": "Tell GoalOS what you want · Universal Command Center v45",
+      "group": "Website",
+      "bytes": 8601
+    },
+    {
+      "path": "start-here.html",
+      "title": "Tell GoalOS what you want · Universal Command Center v45",
+      "group": "Website",
+      "bytes": 8601
+    },
+    {
+      "path": "tell-goalos.html",
+      "title": "Tell GoalOS what you want · Universal Command Center v45",
+      "group": "Website",
+      "bytes": 8601
+    },
+    {
+      "path": "v45.html",
+      "title": "Tell GoalOS what you want · Universal Command Center v45",
+      "group": "Website",
+      "bytes": 8601
+    },
+    {
+      "path": "pricing.html",
+      "title": "The public beta is open in-browser. · GoalOS Signoff Pro",
+      "group": "Website",
+      "bytes": 6645
+    },
+    {
+      "path": "classic-home-before-v44.html",
+      "title": "The Signoff Institution · GoalOS Signoff Pro",
+      "group": "Website",
+      "bytes": 6014
+    },
+    {
+      "path": "404.html",
+      "title": "This corridor is not part of the receipt map. · GoalOS Signoff Pro",
+      "group": "Website",
+      "bytes": 6682
+    },
+    {
+      "path": "trust-architecture.html",
+      "title": "Trust is a product path. · GoalOS Signoff Pro",
+      "group": "Website",
+      "bytes": 6696
+    },
+    {
+      "path": "trust.html",
+      "title": "Trust is implemented as architecture. · GoalOS Signoff Pro",
+      "group": "Website",
+      "bytes": 6670
+    },
+    {
+      "path": "acceptable-use.html",
+      "title": "Use public-safe material only. · GoalOS Signoff Pro",
+      "group": "Website",
+      "bytes": 6647
+    },
+    {
+      "path": "terms.html",
+      "title": "Use the public demo as a simulation. · GoalOS Signoff Pro",
+      "group": "Website",
+      "bytes": 6673
+    },
+    {
+      "path": "machine-economy.html",
+      "title": "Verified work becomes allocable capability. · GoalOS Signoff Pro",
+      "group": "Website",
+      "bytes": 6704
+    },
+    {
+      "path": "theatre.html",
+      "title": "Watch a proof cycle become a receipt. · GoalOS Signoff Pro",
+      "group": "Website",
+      "bytes": 6655
+    },
+    {
+      "path": "deliverables.html",
+      "title": "What you receive. · GoalOS Signoff Pro",
+      "group": "Website",
+      "bytes": 6710
+    }
+  ]
+}
