@@ -1,0 +1,12 @@
+GitHub Web UI install
+
+1. Unzip the package.
+2. Open the unzipped folder.
+3. Upload the contents to the repository root with Add file -> Upload files.
+4. Make sure .github/ and scripts/ are included.
+5. Commit to a new branch.
+6. Run: Actions -> GoalOS Signoff Pro — Product-First v22-v37 Complete Suite.
+7. Use commit_generated_site=true and deploy_pages=true.
+
+Best public entry point after deployment:
+https://montrealai.github.io/goalos-signoff-pro/ai-research-strategy-signoff-console.html

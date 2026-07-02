@@ -1,0 +1,39 @@
+{
+  "id": "signoff-product-ladder-v37",
+  "tiers": [
+    {
+      "name": "Signoff Basic",
+      "route": "signoff-basic.html",
+      "customer": "No wallet SaaS signoff. Create brief, collect evidence, review, receipt.",
+      "protocol": "Protocol-compatible docket and receipt hashes; no public chain action.",
+      "agialpha": "None required."
+    },
+    {
+      "name": "Signoff Verified",
+      "route": "signoff-verified.html",
+      "customer": "Verified receipt with anchored hashes and public verification page.",
+      "protocol": "Brief/evidence/receipt commitments anchored after customer authorization.",
+      "agialpha": "Sponsored protocol fee only if enabled."
+    },
+    {
+      "name": "Signoff Secured",
+      "route": "signoff-secured.html",
+      "customer": "Independent reviewer, challenge window, reputation and credential history.",
+      "protocol": "Reviewer/evaluator bonds, attestations, challenges, and slashing readiness after audit.",
+      "agialpha": "Reviewer/evaluator stake after activation."
+    },
+    {
+      "name": "Signoff & Settle",
+      "route": "signoff-settle.html",
+      "customer": "Bounded proof-to-payment: accepted work releases reward; disputes pause settlement.",
+      "protocol": "Job escrow, reward vault, dispute/appeal rails, treasury routing after user-fund authorization.",
+      "agialpha": "Settlement, rewards, challenge stake, and protocol revenue when authorized."
+    }
+  ],
+  "safeLaunchSequence": [
+    "Signoff Basic off-chain",
+    "Signoff Verified on testnet or sponsored anchoring",
+    "Signoff Secured after audit and remediation",
+    "Signoff & Settle after explicit user-fund authorization"
+  ]
+}

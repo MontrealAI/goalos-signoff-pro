@@ -1,0 +1,13 @@
+{
+  "receipt": "GOALOS-V37-SYNTHETIC-MISSION-RECEIPT",
+  "mission": "AI Research & Strategy Signoff",
+  "decision": "ACCEPTED",
+  "evidenceHash": "sha256:synthetic-demo-only",
+  "reviewerDecision": "human-authorized-demo",
+  "unresolvedLimitations": [
+    "public-safe sample only",
+    "no external factual certification",
+    "no value moved"
+  ],
+  "publicSafe": true
+}

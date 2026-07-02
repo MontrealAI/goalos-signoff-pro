@@ -1,0 +1,7 @@
+{
+  "manifest": "ai-research-strategy-signoff-v37-manifest.json",
+  "flow": "signoff-acceptance-flow-v37.json",
+  "ladder": "signoff-product-ladder-v37.json",
+  "map": "protocol-contract-map-v37.json",
+  "receipt": "mission-receipt-sample-v37.json"
+}

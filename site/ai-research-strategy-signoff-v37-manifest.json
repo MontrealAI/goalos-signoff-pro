@@ -1,0 +1,105 @@
+{
+  "id": "goalos-signoff-pro-v37",
+  "title": "AI Research & Strategy Signoff Console",
+  "generatedAt": "2026-07-02T13:54:52.516Z",
+  "publicSafe": true,
+  "zeroValueMoved": true,
+  "corePromise": "Know when AI work is actually done.",
+  "routes": [
+    "ai-research-strategy-signoff-console.html",
+    "goalos-v22-v37-command-center.html",
+    "public-demo-labs.html"
+  ],
+  "steps": [
+    {
+      "k": "01",
+      "name": "Create",
+      "title": "Set the brief",
+      "desc": "Define the assignment, success criteria, prohibited claims, reviewer authority, and delivery date.",
+      "checks": [
+        "Acceptance criteria present",
+        "Claim boundaries explicit",
+        "Reviewer authority defined"
+      ],
+      "decision": "MISSION_DEFINED"
+    },
+    {
+      "k": "02",
+      "name": "Submit",
+      "title": "Submit the work",
+      "desc": "Attach the report, files, links, screenshots, tests, citations, traces, and supporting evidence.",
+      "checks": [
+        "Deliverables enumerated",
+        "Evidence packet present",
+        "Source list attached"
+      ],
+      "decision": "EVIDENCE_SUBMITTED"
+    },
+    {
+      "k": "03",
+      "name": "Check",
+      "title": "Check the evidence",
+      "desc": "Surface missing artifacts, weak citations, freshness issues, uncertainty, risk disclosures, and claim-to-evidence gaps.",
+      "checks": [
+        "Claim-source matrix",
+        "Missing-source warnings",
+        "Risk and uncertainty notes"
+      ],
+      "decision": "CHECKS_READY"
+    },
+    {
+      "k": "04",
+      "name": "Review",
+      "title": "Approve or request changes",
+      "desc": "Give the client one simple review link and three possible outcomes: accepted, needs changes, or rejected.",
+      "checks": [
+        "Reviewer checklist complete",
+        "Limitations visible",
+        "Human decision captured"
+      ],
+      "decision": "HUMAN_AUTHORITY_RECORDED"
+    },
+    {
+      "k": "05",
+      "name": "Receipt",
+      "title": "Issue Mission Receipt",
+      "desc": "Generate a tamper-evident record of the brief, deliverables, evidence, checks, reviewer decision, timestamps, and unresolved limitations.",
+      "checks": [
+        "Receipt hash",
+        "Replay path",
+        "Public-safe export"
+      ],
+      "decision": "MISSION_RECEIPT_ISSUED"
+    }
+  ],
+  "tiers": [
+    {
+      "name": "Signoff Basic",
+      "route": "signoff-basic.html",
+      "customer": "No wallet SaaS signoff. Create brief, collect evidence, review, receipt.",
+      "protocol": "Protocol-compatible docket and receipt hashes; no public chain action.",
+      "agialpha": "None required."
+    },
+    {
+      "name": "Signoff Verified",
+      "route": "signoff-verified.html",
+      "customer": "Verified receipt with anchored hashes and public verification page.",
+      "protocol": "Brief/evidence/receipt commitments anchored after customer authorization.",
+      "agialpha": "Sponsored protocol fee only if enabled."
+    },
+    {
+      "name": "Signoff Secured",
+      "route": "signoff-secured.html",
+      "customer": "Independent reviewer, challenge window, reputation and credential history.",
+      "protocol": "Reviewer/evaluator bonds, attestations, challenges, and slashing readiness after audit.",
+      "agialpha": "Reviewer/evaluator stake after activation."
+    },
+    {
+      "name": "Signoff & Settle",
+      "route": "signoff-settle.html",
+      "customer": "Bounded proof-to-payment: accepted work releases reward; disputes pause settlement.",
+      "protocol": "Job escrow, reward vault, dispute/appeal rails, treasury routing after user-fund authorization.",
+      "agialpha": "Settlement, rewards, challenge stake, and protocol revenue when authorized."
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "id": "goalos-signoff-pro-v36",
+  "title": "Signoff Product Core & Protocol Ladder",
+  "generatedAt": "2026-07-02T13:54:52.516Z",
+  "tiers": [
+    {
+      "name": "Signoff Basic",
+      "route": "signoff-basic.html",
+      "customer": "No wallet SaaS signoff. Create brief, collect evidence, review, receipt.",
+      "protocol": "Protocol-compatible docket and receipt hashes; no public chain action.",
+      "agialpha": "None required."
+    },
+    {
+      "name": "Signoff Verified",
+      "route": "signoff-verified.html",
+      "customer": "Verified receipt with anchored hashes and public verification page.",
+      "protocol": "Brief/evidence/receipt commitments anchored after customer authorization.",
+      "agialpha": "Sponsored protocol fee only if enabled."
+    },
+    {
+      "name": "Signoff Secured",
+      "route": "signoff-secured.html",
+      "customer": "Independent reviewer, challenge window, reputation and credential history.",
+      "protocol": "Reviewer/evaluator bonds, attestations, challenges, and slashing readiness after audit.",
+      "agialpha": "Reviewer/evaluator stake after activation."
+    },
+    {
+      "name": "Signoff & Settle",
+      "route": "signoff-settle.html",
+      "customer": "Bounded proof-to-payment: accepted work releases reward; disputes pause settlement.",
+      "protocol": "Job escrow, reward vault, dispute/appeal rails, treasury routing after user-fund authorization.",
+      "agialpha": "Settlement, rewards, challenge stake, and protocol revenue when authorized."
+    }
+  ],
+  "protocolMap": [
+    {
+      "ui": "Define the brief",
+      "contracts": [
+        "AEPGoalOSCommitRegistry",
+        "JobRegistry"
+      ],
+      "role": "optional commitment/posting fee"
+    },
+    {
+      "ui": "Submit work and evidence",
+      "contracts": [
+        "AEPArtifactRegistry",
+        "AEPEvidenceDocketRegistry",
+        "AEPClaimBoundaryRegistry",
+        "AEPProofBundleRegistry"
+      ],
+      "role": "builder/proof bond in secured tiers"
+    },
+    {
+      "ui": "Obtain independent review",
+      "contracts": [
+        "AEPAttestationRegistry",
+        "AEPEvalRegistry",
+        "ReviewerBondRegistry",
+        "AEPEvaluatorStakingRegistry"
+      ],
+      "role": "reviewer/evaluator stake after audit"
+    },
+    {
+      "ui": "Accept or reject work",
+      "contracts": [
+        "AEPSelectionGate",
+        "ProofCardRegistry",
+        "ProofCredentialRegistry"
+      ],
+      "role": "credential/receipt fee if activated"
+    },
+    {
+      "ui": "Build reputation",
+      "contracts": [
+        "ReputationRegistry",
+        "AEPChronicleRegistry",
+        "AEPProofLedger",
+        "AEPReplayRegistry"
+      ],
+      "role": "reward for verified contribution"
+    },
+    {
+      "ui": "Release payment",
+      "contracts": [
+        "JobRegistry",
+        "AEPRewardVault",
+        "TreasuryRouter"
+      ],
+      "role": "settlement/reviewer rewards after authorization"
+    },
+    {
+      "ui": "Challenge a bad decision",
+      "contracts": [
+        "AEPFalsificationRegistry",
+        "AEPSlashingCourt",
+        "DisputeRegistry",
+        "AppealRegistry"
+      ],
+      "role": "challenge stake and slashing after activation"
+    }
+  ]
+}

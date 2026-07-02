@@ -1,0 +1,17 @@
+{
+  "id": "agialpha-utility-boundary-v37",
+  "roles": [
+    "protocol usage fees",
+    "economic security bonds",
+    "work rewards",
+    "settlement after authorization",
+    "dispute accountability",
+    "protocol revenue"
+  ],
+  "notRoles": [
+    "mandatory login token",
+    "speculative decoration",
+    "public Mainnet escrow before authorization"
+  ],
+  "publicSiteBoundary": "No forms · no text inputs · no uploads · no cookies · no analytics · no wallets · no payments · no external AI calls · no personal or confidential data · zero value moved."
+}

@@ -1,0 +1,72 @@
+{
+  "id": "protocol-contract-map-v37",
+  "caution": "Do not force all 48 contracts into every Signoff. Use modular rails by tier.",
+  "map": [
+    {
+      "ui": "Define the brief",
+      "contracts": [
+        "AEPGoalOSCommitRegistry",
+        "JobRegistry"
+      ],
+      "role": "optional commitment/posting fee"
+    },
+    {
+      "ui": "Submit work and evidence",
+      "contracts": [
+        "AEPArtifactRegistry",
+        "AEPEvidenceDocketRegistry",
+        "AEPClaimBoundaryRegistry",
+        "AEPProofBundleRegistry"
+      ],
+      "role": "builder/proof bond in secured tiers"
+    },
+    {
+      "ui": "Obtain independent review",
+      "contracts": [
+        "AEPAttestationRegistry",
+        "AEPEvalRegistry",
+        "ReviewerBondRegistry",
+        "AEPEvaluatorStakingRegistry"
+      ],
+      "role": "reviewer/evaluator stake after audit"
+    },
+    {
+      "ui": "Accept or reject work",
+      "contracts": [
+        "AEPSelectionGate",
+        "ProofCardRegistry",
+        "ProofCredentialRegistry"
+      ],
+      "role": "credential/receipt fee if activated"
+    },
+    {
+      "ui": "Build reputation",
+      "contracts": [
+        "ReputationRegistry",
+        "AEPChronicleRegistry",
+        "AEPProofLedger",
+        "AEPReplayRegistry"
+      ],
+      "role": "reward for verified contribution"
+    },
+    {
+      "ui": "Release payment",
+      "contracts": [
+        "JobRegistry",
+        "AEPRewardVault",
+        "TreasuryRouter"
+      ],
+      "role": "settlement/reviewer rewards after authorization"
+    },
+    {
+      "ui": "Challenge a bad decision",
+      "contracts": [
+        "AEPFalsificationRegistry",
+        "AEPSlashingCourt",
+        "DisputeRegistry",
+        "AppealRegistry"
+      ],
+      "role": "challenge stake and slashing after activation"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "generatedAt": "2026-07-02T13:54:52.516Z",
+  "canonical": [
+    "index.html",
+    "goalos-v22-v37-command-center.html",
+    "ai-research-strategy-signoff-console.html",
+    "signoff-product-protocol-ladder-lab.html",
+    "public-demo-labs.html"
+  ],
+  "aliases": [
+    "start-here.html",
+    "latest.html",
+    "command-center.html",
+    "experience.html",
+    "demo.html",
+    "v36.html",
+    "v37.html"
+  ],
+  "labs": [
+    "action-graph-authority-lab.html",
+    "proof-carrying-artifact-lab.html",
+    "independent-replay-lab.html",
+    "proofzero-planning-lab.html",
+    "mission-foundry-lab.html",
+    "process-evidence-lab.html",
+    "blockchain-credibility-lab.html",
+    "blockchain-proof-mandate-lab.html",
+    "proof-before-settlement-research-lab.html",
+    "executive-ai-proof-console.html",
+    "from-loop-to-rsi-lab.html",
+    "loop-rsi-asi-superintelligence-lab.html",
+    "loop-rsi-asi-superintelligence-control-tower-lab.html",
+    "loop-rsi-asi-superintelligence-mission-simulator-lab.html",
+    "signoff-product-protocol-ladder-lab.html",
+    "ai-research-strategy-signoff-console.html"
+  ]
+}

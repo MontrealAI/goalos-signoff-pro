@@ -1,0 +1,26 @@
+{
+  "id": "go-to-market-wedge-v37",
+  "firstCustomer": "AI consultants and small AI agencies",
+  "workflow": "AI research and strategy deliverables",
+  "headline": "Know when AI work is actually done.",
+  "primaryAction": "Create a free signoff",
+  "trustLine": "No wallet. No blockchain transaction. Works with any AI.",
+  "pricingExperiment": [
+    {
+      "plan": "Free",
+      "offer": "Three signoffs per month"
+    },
+    {
+      "plan": "Professional",
+      "offer": "Consultant plan"
+    },
+    {
+      "plan": "Team",
+      "offer": "Shared templates and reviewers"
+    },
+    {
+      "plan": "Independent review",
+      "offer": "Per-mission review"
+    }
+  ]
+}

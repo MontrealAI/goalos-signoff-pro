@@ -1,0 +1,71 @@
+{
+  "id": "signoff-acceptance-flow-v37",
+  "steps": [
+    {
+      "k": "01",
+      "name": "Create",
+      "title": "Set the brief",
+      "desc": "Define the assignment, success criteria, prohibited claims, reviewer authority, and delivery date.",
+      "checks": [
+        "Acceptance criteria present",
+        "Claim boundaries explicit",
+        "Reviewer authority defined"
+      ],
+      "decision": "MISSION_DEFINED"
+    },
+    {
+      "k": "02",
+      "name": "Submit",
+      "title": "Submit the work",
+      "desc": "Attach the report, files, links, screenshots, tests, citations, traces, and supporting evidence.",
+      "checks": [
+        "Deliverables enumerated",
+        "Evidence packet present",
+        "Source list attached"
+      ],
+      "decision": "EVIDENCE_SUBMITTED"
+    },
+    {
+      "k": "03",
+      "name": "Check",
+      "title": "Check the evidence",
+      "desc": "Surface missing artifacts, weak citations, freshness issues, uncertainty, risk disclosures, and claim-to-evidence gaps.",
+      "checks": [
+        "Claim-source matrix",
+        "Missing-source warnings",
+        "Risk and uncertainty notes"
+      ],
+      "decision": "CHECKS_READY"
+    },
+    {
+      "k": "04",
+      "name": "Review",
+      "title": "Approve or request changes",
+      "desc": "Give the client one simple review link and three possible outcomes: accepted, needs changes, or rejected.",
+      "checks": [
+        "Reviewer checklist complete",
+        "Limitations visible",
+        "Human decision captured"
+      ],
+      "decision": "HUMAN_AUTHORITY_RECORDED"
+    },
+    {
+      "k": "05",
+      "name": "Receipt",
+      "title": "Issue Mission Receipt",
+      "desc": "Generate a tamper-evident record of the brief, deliverables, evidence, checks, reviewer decision, timestamps, and unresolved limitations.",
+      "checks": [
+        "Receipt hash",
+        "Replay path",
+        "Public-safe export"
+      ],
+      "decision": "MISSION_RECEIPT_ISSUED"
+    }
+  ],
+  "decisions": [
+    "ACCEPTED",
+    "NEEDS_CHANGES",
+    "REJECTED"
+  ],
+  "output": "Mission Receipt"
+}
