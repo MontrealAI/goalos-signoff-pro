@@ -1,0 +1,94 @@
+name: GoalOS Signoff Pro — Platinum v22-v35 Command Experience
+
+on:
+  workflow_dispatch:
+    inputs:
+      commit_generated_site:
+        description: Commit generated site files back to the branch
+        type: boolean
+        default: true
+      deploy_pages:
+        description: Deploy GitHub Pages after verification
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+env:
+  GOALOS_PUBLIC_SAFE: "true"
+  GOALOS_ZERO_VALUE_MOVED: "true"
+  GOALOS_NO_EXTERNAL_AI_CALLS: "true"
+
+jobs:
+  build-verify:
+    name: Build, polish, verify v22-v35 site
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Build existing public suite when available
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -f scripts/build-goalos-signoff-public-labs-v22-v35.mjs ]; then
+            node scripts/build-goalos-signoff-public-labs-v22-v35.mjs
+          elif [ -f scripts/build-goalos-production-site.mjs ]; then
+            node scripts/build-goalos-production-site.mjs
+          else
+            echo "No base builder found; using checked-in site/ as the source."
+          fi
+      - name: Apply platinum command experience
+        run: node scripts/enhance-goalos-v22-v35-platinum-command-experience.mjs
+      - name: Repair HTML integrity when helper exists
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -f scripts/repair-goalos-v22-v35-html-integrity.mjs ]; then node scripts/repair-goalos-v22-v35-html-integrity.mjs; fi
+      - name: Verify platinum command experience
+        run: node scripts/verify-goalos-v22-v35-platinum-command-experience.mjs
+      - name: Verify public-safe suite when available
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -f scripts/verify-goalos-production-site.mjs ]; then node scripts/verify-goalos-production-site.mjs; fi
+          if [ -f scripts/check-site-route-integrity.mjs ]; then node scripts/check-site-route-integrity.mjs; fi
+          if [ -f scripts/verify-goalos-signoff-public-labs-v22-v35.mjs ]; then node scripts/verify-goalos-signoff-public-labs-v22-v35.mjs; fi
+          if [ -f scripts/verify-public-artifact-safety.mjs ]; then node scripts/verify-public-artifact-safety.mjs; fi
+      - name: Commit generated site files
+        if: ${{ inputs.commit_generated_site }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add site scripts docs .github GOALOS_V22_V35_PLATINUM_EXPERIENCE_START_HERE.md GITHUB_WEB_UI_INSTALL_V22_V35_PLATINUM_EXPERIENCE.txt README.md || true
+          if git diff --cached --quiet; then
+            echo "No generated changes to commit."
+          else
+            git commit -m "Polish GoalOS Signoff Pro v22-v35 platinum command experience"
+            git push
+          fi
+      - name: Upload Pages artifact
+        if: ${{ inputs.deploy_pages }}
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+  deploy:
+    name: Deploy GitHub Pages
+    if: ${{ inputs.deploy_pages }}
+    needs: build-verify
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
