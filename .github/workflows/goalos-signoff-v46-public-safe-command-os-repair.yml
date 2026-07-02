@@ -1,4 +1,4 @@
-name: GoalOS Signoff Pro — Front-Center Command OS v45
+name: GoalOS Signoff Pro — Public-Safe Command OS Repair v46
 
 on:
   workflow_dispatch:
@@ -70,7 +70,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "No generated changes to commit."
           else
-            git commit -m "Repair GoalOS v45 public-safe command assets [skip ci]"
+            git commit -m "Repair GoalOS public-safe command OS v46 [skip ci]"
             git push
           fi
       - name: Configure GitHub Pages
