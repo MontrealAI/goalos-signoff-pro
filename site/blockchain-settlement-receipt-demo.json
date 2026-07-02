@@ -1,6 +1,6 @@
 {
   "type": "BlockchainSettlementReceiptDemo",
-  "receiptId": "goalos-v28-4811490d9053",
+  "receiptId": "goalos-v28-25a157366c73",
   "decisionState": "SETTLEMENT_READY_SYNTHETIC_PUBLIC_DEMO",
   "acceptedCandidate": "B3",
   "settlementSignal": "proof-package-complete; human-authority-required-before-live-use",

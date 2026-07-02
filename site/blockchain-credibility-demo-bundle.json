@@ -1,11 +1,11 @@
 {
   "type": "BlockchainCredibilityDemoBundle",
-  "generatedAt": "2026-07-02T17:00:28Z",
+  "generatedAt": "2026-07-02T17:14:08Z",
   "manifest": {
     "id": "goalos-signoff-pro-blockchain-credibility-lab-v28",
     "title": "GoalOS Signoff Pro — Blockchain Credibility Standard Lab",
     "version": "28.0.0",
-    "generatedAt": "2026-07-02T17:00:28Z",
+    "generatedAt": "2026-07-02T17:14:08Z",
     "primaryRoute": "blockchain-credibility-lab.html",
     "aliases": [
       "proof-to-settlement-standard-lab.html",
@@ -31,7 +31,7 @@
       "noWallet": true,
       "noPayments": true
     },
-    "canonicalDemoHash": "sha256:091683443d134014ec703b336e14910de81710c3dad32eac"
+    "canonicalDemoHash": "sha256:fd346d5e87708428c7c425986d9108c97b63bf1f3351e46c"
   },
   "scenarios": [
     {
@@ -355,7 +355,7 @@
   },
   "receipt": {
     "type": "BlockchainSettlementReceiptDemo",
-    "receiptId": "goalos-v28-4811490d9053",
+    "receiptId": "goalos-v28-25a157366c73",
     "decisionState": "SETTLEMENT_READY_SYNTHETIC_PUBLIC_DEMO",
     "acceptedCandidate": "B3",
     "settlementSignal": "proof-package-complete; human-authority-required-before-live-use",

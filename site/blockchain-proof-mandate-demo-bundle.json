@@ -1,11 +1,11 @@
 {
   "type": "GoalOSSignoffProBlockchainProofMandateLabV29Bundle",
-  "generatedAt": "2026-07-02T17:00:28Z",
+  "generatedAt": "2026-07-02T17:14:08Z",
   "manifest": {
     "id": "goalos-signoff-pro-blockchain-proof-mandate-due-diligence-lab-v29",
     "title": "GoalOS Signoff Pro — Blockchain Proof Mandate & Due Diligence Lab v29",
     "version": "v29.0.0",
-    "generatedAt": "2026-07-02T17:00:28Z",
+    "generatedAt": "2026-07-02T17:14:08Z",
     "primaryRoute": "blockchain-proof-mandate-lab.html",
     "aliases": [
       "proof-package-requirement-lab.html",
@@ -435,10 +435,10 @@
   },
   "receipt": {
     "type": "SyntheticProofMandateReceiptV29",
-    "receiptId": "receipt-v29-eb3631de9b90b66865",
+    "receiptId": "receipt-v29-93e07c4f055e6af3a0",
     "decisionState": "RECEIPT_READY_SYNTHETIC_PUBLIC_DEMO",
     "statement": "This lab demonstrates how stakeholders can require proof packages before trust, funding, governance, reputation, or settlement readiness.",
-    "receiptRoot": "sha256:5dc89cd0df7011386fde3f4d1318ae86552976842400e7b1",
+    "receiptRoot": "sha256:09b0af9c12fa25c49a34caabf92a61fe5958f69555b2b515",
     "signerBoundary": "Synthetic public demonstration receipt only.",
     "valueMoved": 0,
     "noUserData": true,
