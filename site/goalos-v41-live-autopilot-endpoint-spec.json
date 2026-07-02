@@ -1,0 +1,29 @@
+{
+  "name": "GoalOS v41 optional live-AI endpoint specification",
+  "default": "disabled",
+  "reason": "GitHub Pages must not expose provider API keys in browser JavaScript.",
+  "requiredControls": [
+    "server-side secret management",
+    "rate limits",
+    "origin allowlist",
+    "same-site route allowlist",
+    "prompt-injection defenses",
+    "moderation/policy filtering",
+    "no raw prompt logging by default",
+    "human review before settlement/protocol authority"
+  ],
+  "request": {
+    "method": "POST",
+    "body": {
+      "question": "string <= 2000 chars",
+      "role": "optional string",
+      "mode": "optional string"
+    }
+  },
+  "response": {
+    "answer": "string",
+    "route": "same-site allowlisted route",
+    "confidence": "number",
+    "receiptDraft": "optional object"
+  }
+}

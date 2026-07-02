@@ -1,0 +1,409 @@
+{
+  "version": "v41",
+  "name": "GoalOS Universal Autopilot Command Console",
+  "publicSafeBoundary": [
+    "Local question input is processed in the browser by default.",
+    "No uploads, no cookies, no analytics, no wallets, no payments, no external AI calls by default, no personal or confidential data required, zero value moved.",
+    "Optional live-AI mode must use a server-side endpoint with rate limits, origin allowlist, route allowlist, prompt-injection defenses, and no browser API keys."
+  ],
+  "roles": [
+    {
+      "id": "first_timer",
+      "label": "First-time visitor",
+      "defaultMode": "start",
+      "voice": "Explain simply and route me to the next useful page."
+    },
+    {
+      "id": "ai_consultant",
+      "label": "AI consultant / agency",
+      "defaultMode": "signoff",
+      "voice": "Turn client work into a signoff-ready mission."
+    },
+    {
+      "id": "client_reviewer",
+      "label": "Client reviewer",
+      "defaultMode": "review",
+      "voice": "Tell me whether this work is ready to accept."
+    },
+    {
+      "id": "dao_treasury",
+      "label": "DAO / treasury",
+      "defaultMode": "settlement",
+      "voice": "Require proof before funds, reputation, or governance move."
+    },
+    {
+      "id": "protocol_operator",
+      "label": "Protocol operator",
+      "defaultMode": "protocol",
+      "voice": "Map the request to the 48-contract trust rails."
+    },
+    {
+      "id": "rsi_governance",
+      "label": "RSI / ASI governance",
+      "defaultMode": "rsi",
+      "voice": "Escalate proof loops into governed invention gates."
+    }
+  ],
+  "modes": [
+    {
+      "id": "start",
+      "label": "Start here",
+      "route": "goalos-v22-v41-command-center.html"
+    },
+    {
+      "id": "signoff",
+      "label": "Create a Signoff",
+      "route": "ai-research-strategy-signoff-console.html"
+    },
+    {
+      "id": "proof",
+      "label": "Build proof package",
+      "route": "mission-001.html"
+    },
+    {
+      "id": "review",
+      "label": "Review / accept work",
+      "route": "verify.html"
+    },
+    {
+      "id": "settlement",
+      "label": "Proof before settlement",
+      "route": "proof-before-settlement-research-lab.html"
+    },
+    {
+      "id": "protocol",
+      "label": "48-contract rails",
+      "route": "agialpha-48-contract-atlas.html"
+    },
+    {
+      "id": "rsi",
+      "label": "Loop → RSI → ASI",
+      "route": "loop-rsi-asi-superintelligence-mission-simulator-lab.html"
+    }
+  ],
+  "playbooks": [
+    {
+      "id": "ai_research_strategy_signoff",
+      "title": "AI Research & Strategy Signoff",
+      "keywords": [
+        "research",
+        "strategy",
+        "report",
+        "deck",
+        "analysis",
+        "citations",
+        "sources",
+        "memo",
+        "brief",
+        "market",
+        "due diligence"
+      ],
+      "route": "ai-research-strategy-signoff-console.html",
+      "summary": "Turn an AI-assisted report into a client-ready Signoff: define done, verify sources, map claims, collect reviewer decision, and issue a Mission Receipt.",
+      "tier": "Signoff Basic → Verified",
+      "criteria": [
+        "Brief and success criteria are explicit.",
+        "Claims are mapped to sources or marked uncertain.",
+        "Freshness and broken-link checks are complete.",
+        "Reviewer can accept, request changes, or reject."
+      ],
+      "evidence": [
+        "Final report or deliverable reference",
+        "Claim-to-source matrix",
+        "Source freshness notes",
+        "Uncertainty and limitation notes",
+        "Reviewer checklist"
+      ],
+      "proofObjects": [
+        "Mission Contract",
+        "Evidence Docket",
+        "Claims Matrix",
+        "Reviewer Decision",
+        "Mission Receipt"
+      ],
+      "contracts": [
+        "AEPGoalOSCommitRegistry",
+        "AEPEvidenceDocketRegistry",
+        "AEPClaimBoundaryRegistry",
+        "AEPProofBundleRegistry",
+        "ProofCardRegistry",
+        "ProofCredentialRegistry"
+      ],
+      "receiptDecision": "SIGNOFF_READY"
+    },
+    {
+      "id": "client_acceptance",
+      "title": "Client Acceptance Router",
+      "keywords": [
+        "accept",
+        "approval",
+        "approve",
+        "client",
+        "done",
+        "ready",
+        "sign off",
+        "signoff",
+        "accepted",
+        "needs changes",
+        "reject"
+      ],
+      "route": "verify.html",
+      "summary": "Prepare a simple review path so a client can decide ACCEPTED, NEEDS CHANGES, or REJECTED with evidence attached.",
+      "tier": "Signoff Basic",
+      "criteria": [
+        "Acceptance criteria are visible to the reviewer.",
+        "Evidence is grouped by claim and criterion.",
+        "Known limitations are not hidden.",
+        "The final decision is signed and replayable."
+      ],
+      "evidence": [
+        "Acceptance criteria",
+        "Evidence links or hashes",
+        "Checklist results",
+        "Reviewer notes",
+        "Decision timestamp"
+      ],
+      "proofObjects": [
+        "Review Packet",
+        "Decision State",
+        "Mission Receipt"
+      ],
+      "contracts": [
+        "ProofCardRegistry",
+        "ProofCredentialRegistry"
+      ],
+      "receiptDecision": "REVIEW_READY"
+    },
+    {
+      "id": "dao_grant_milestone",
+      "title": "DAO Grant / Milestone Proof",
+      "keywords": [
+        "dao",
+        "grant",
+        "treasury",
+        "milestone",
+        "funding",
+        "payout",
+        "payment",
+        "release",
+        "retroactive",
+        "public goods"
+      ],
+      "route": "blockchain-proof-mandate-lab.html",
+      "summary": "Convert a grant or milestone into a proof-gated decision: no payout, reputation, or governance credit before the proof package is accepted.",
+      "tier": "Signoff Verified → Secured → Settle",
+      "criteria": [
+        "Milestone scope is frozen before review.",
+        "Evidence docket is public-safe and complete.",
+        "Reviewer or council decision is recorded.",
+        "Challenge window and dispute path are defined before settlement."
+      ],
+      "evidence": [
+        "Grant agreement",
+        "Milestone deliverables",
+        "Public artifact hashes",
+        "Reviewer report",
+        "Treasury decision note"
+      ],
+      "proofObjects": [
+        "AEP Commitment",
+        "Evidence Docket",
+        "Proof Bundle",
+        "Attestation",
+        "Treasury Receipt"
+      ],
+      "contracts": [
+        "JobRegistry",
+        "AEPGoalOSCommitRegistry",
+        "AEPEvidenceDocketRegistry",
+        "AEPAttestationRegistry",
+        "ReviewerBondRegistry",
+        "DisputeRegistry",
+        "TreasuryRouter"
+      ],
+      "receiptDecision": "SETTLEMENT_REVIEW_READY"
+    },
+    {
+      "id": "protocol_upgrade",
+      "title": "Protocol Upgrade / Audit Remediation",
+      "keywords": [
+        "protocol",
+        "upgrade",
+        "audit",
+        "remediation",
+        "vulnerability",
+        "bug",
+        "security",
+        "deploy",
+        "rollout",
+        "rollback",
+        "mainnet"
+      ],
+      "route": "action-graph-authority-lab.html",
+      "summary": "Turn a proposed protocol change into a proof-gated upgrade: action graph, human authority, rollback, tests, review, and release receipt.",
+      "tier": "Signoff Secured",
+      "criteria": [
+        "Upgrade scope and authority are explicit.",
+        "Tests and replay are attached.",
+        "Rollback plan exists.",
+        "Risk ledger and reviewer decision are complete."
+      ],
+      "evidence": [
+        "Upgrade proposal",
+        "Audit finding and fix evidence",
+        "Test report",
+        "Replay log",
+        "Rollback plan"
+      ],
+      "proofObjects": [
+        "Action Graph",
+        "Replay Log",
+        "Risk Ledger",
+        "Validator Report",
+        "Release Receipt"
+      ],
+      "contracts": [
+        "AEPRolloutRegistry",
+        "AEPReplayRegistry",
+        "AEPEvalRegistry",
+        "AEPFalsificationRegistry",
+        "AEPSlashingCourt"
+      ],
+      "receiptDecision": "RELEASE_REVIEW_READY"
+    },
+    {
+      "id": "contract_rails",
+      "title": "48-Contract Trust Rails Explorer",
+      "keywords": [
+        "48",
+        "contract",
+        "contracts",
+        "agialpha",
+        "ethereum",
+        "mainnet",
+        "chainid",
+        "etherscan",
+        "staking",
+        "slashing",
+        "reward",
+        "vault",
+        "registry"
+      ],
+      "route": "agialpha-48-contract-atlas.html",
+      "summary": "Explain which GoalOS-created Mainnet contracts support commitments, evidence, credentials, reputation, bonds, disputes, rewards, and settlement.",
+      "tier": "Verified / Secured / Settle",
+      "criteria": [
+        "Contract role is explained in plain language.",
+        "Production activation and user-fund boundaries are explicit.",
+        "Customer-facing tier stays simple.",
+        "No contract is represented as live public custody or settlement without authorization."
+      ],
+      "evidence": [
+        "Contract address",
+        "Family and role",
+        "Etherscan verification status",
+        "Boundary statement",
+        "Tier mapping"
+      ],
+      "proofObjects": [
+        "Contract Atlas",
+        "Protocol Topology",
+        "Tier Map",
+        "Boundary Ledger"
+      ],
+      "contracts": [
+        "AEPGoalOSCommitRegistry",
+        "AEPArtifactRegistry",
+        "AEPEvidenceDocketRegistry",
+        "ProofSubmissionRegistry",
+        "ReviewerBondRegistry",
+        "JobRegistry",
+        "AEPRewardVault",
+        "TreasuryRouter",
+        "DisputeRegistry",
+        "AEPSlashingCourt"
+      ],
+      "receiptDecision": "PROTOCOL_MAP_READY"
+    },
+    {
+      "id": "rsi_asi_governance",
+      "title": "Loop → RSI → ASI Governance Plan",
+      "keywords": [
+        "rsi",
+        "asi",
+        "superintelligence",
+        "invention",
+        "move-37",
+        "move37",
+        "breakthrough",
+        "omni",
+        "recursive",
+        "governance",
+        "dossier",
+        "council",
+        "frontier"
+      ],
+      "route": "loop-rsi-asi-superintelligence-mission-simulator-lab.html",
+      "summary": "Escalate from a proof loop into deterministic invention governance: target, emit, filter, atlas, test-plan, eval, insert, promote — with hard gates and dossier packaging.",
+      "tier": "Governance / Research",
+      "criteria": [
+        "OMNI/search only controls allocation, not outcome authority.",
+        "Artifacts are schema-bound and replayable.",
+        "High novelty triggers probe-first and stress-test behavior.",
+        "Architect / Validator Council can stop promotion."
+      ],
+      "evidence": [
+        "Target plan",
+        "Candidate card",
+        "Risk report",
+        "Baseline comparison",
+        "Stress-test results",
+        "Move-37 dossier"
+      ],
+      "proofObjects": [
+        "RSI Ledger",
+        "Evidence Objects",
+        "ECI Ledger",
+        "Breakthrough Dossier",
+        "Council Memo"
+      ],
+      "contracts": [
+        "AEPProofLedger",
+        "AEPReplayRegistry",
+        "AEPChronicleRegistry",
+        "AEPEvalRegistry",
+        "AEPFalsificationRegistry"
+      ],
+      "receiptDecision": "GOVERNED_EXPLORATION_READY"
+    }
+  ],
+  "routeAllowlist": [
+    "goalos-autopilot.html",
+    "autopilot.html",
+    "tell-goalos.html",
+    "universal-command-box.html",
+    "goalos-take-care-of-everything.html",
+    "mission-autopilot.html",
+    "intent-to-mission.html",
+    "v41.html",
+    "goalos-v22-v41-command-center.html",
+    "ask-goalos-live.html",
+    "goalos-v22-v40-command-center.html",
+    "ai-research-strategy-signoff-console.html",
+    "signoff-product-protocol-ladder-lab.html",
+    "agialpha-48-contract-atlas.html",
+    "blockchain-proof-mandate-lab.html",
+    "proof-before-settlement-research-lab.html",
+    "loop-rsi-asi-superintelligence-mission-simulator-lab.html",
+    "mission-001.html",
+    "verify.html",
+    "browser-beta.html",
+    "public-demo-labs.html",
+    "action-graph-authority-lab.html",
+    "proof-carrying-artifact-lab.html",
+    "independent-replay-lab.html",
+    "proofzero-planning-lab.html",
+    "mission-foundry-lab.html",
+    "process-evidence-lab.html"
+  ]
+}

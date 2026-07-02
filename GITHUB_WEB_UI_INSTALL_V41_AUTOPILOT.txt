@@ -1,0 +1,14 @@
+GoalOS v41 Autopilot — GitHub Web UI install
+
+1. Download and unzip the v41 ZIP.
+2. Open the unzipped folder.
+3. Go to the root of MontrealAI/goalos-signoff-pro on GitHub.
+4. Click Add file → Upload files.
+5. Drag the CONTENTS INSIDE the unzipped folder into GitHub.
+6. Make sure .github/, scripts/, config/, site/, serverless/, docs/, and verification/ are included.
+7. Commit to a new branch.
+8. Run: Actions → GoalOS Signoff Pro — Universal Autopilot Command Console v41.
+9. Use commit_generated_site=true and deploy_pages=true.
+
+Best route after deploy:
+https://montrealai.github.io/goalos-signoff-pro/goalos-autopilot.html

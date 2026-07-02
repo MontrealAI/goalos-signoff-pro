@@ -1,0 +1,21 @@
+{
+  "defaultMode": "browser-local",
+  "localQuestionInput": true,
+  "externalAiCallsByDefault": false,
+  "uploadAllowed": false,
+  "walletActions": false,
+  "payments": false,
+  "analytics": false,
+  "cookies": false,
+  "routeAllowlistOnly": true,
+  "endpointMode": "optional server-side adapter only; never expose API keys in browser JavaScript",
+  "productionRequirements": [
+    "rate limits",
+    "origin allowlist",
+    "moderation/policy filter",
+    "prompt-injection defenses",
+    "same-site route allowlist",
+    "no raw prompt logging by default",
+    "human review for settlement or production authority"
+  ]
+}
