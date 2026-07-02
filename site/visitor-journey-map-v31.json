@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-02T03:15:27.459Z",
+  "generatedAt": "2026-07-02T04:18:31.709Z",
   "journey": [
     {
       "step": "Start",
@@ -29,7 +29,7 @@
       "step": "Inspect",
       "label": "Show all public labs",
       "route": "public-demo-labs.html",
-      "value": "v22-v30 proof curriculum"
+      "value": "v22-v35 proof curriculum"
     },
     {
       "step": "Replay",
