@@ -1,0 +1,90 @@
+name: GoalOS Signoff Pro — Front-and-Center Universal Command Center v43
+
+on:
+  workflow_dispatch:
+    inputs:
+      commit_generated_site:
+        description: 'Commit generated site files back to the branch'
+        required: true
+        default: 'true'
+        type: choice
+        options: ['true','false']
+      deploy_pages:
+        description: 'Deploy to GitHub Pages'
+        required: true
+        default: 'true'
+        type: choice
+        options: ['true','false']
+      deploy_timeout_ms:
+        description: 'GitHub Pages deploy timeout in ms'
+        required: true
+        default: '3600000'
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+env:
+  GOALOS_PUBLIC_SAFE: 'true'
+  GOALOS_ZERO_VALUE_MOVED: 'true'
+  GOALOS_NO_EXTERNAL_AI_CALLS_BY_DEFAULT: 'true'
+
+concurrency:
+  group: goalos-pages-deploy
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Build and verify v43 Universal Command Center
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '24'
+      - name: Build v43 front-and-center command center
+        run: node scripts/build-goalos-universal-command-center-v43.mjs
+      - name: Verify v43 front-and-center command center
+        run: node scripts/verify-goalos-universal-command-center-v43.mjs
+      - name: Optional production site gate
+        run: |
+          if [ -f scripts/verify-goalos-production-site.mjs ]; then node scripts/verify-goalos-production-site.mjs; fi
+      - name: Optional public-safe artifact gate
+        run: |
+          if [ -f scripts/verify-public-artifact-safety.mjs ]; then node scripts/verify-public-artifact-safety.mjs; fi
+      - name: Commit generated site files
+        if: ${{ github.event.inputs.commit_generated_site == 'true' }}
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add site scripts config docs serverless verification .github/workflows
+          if git diff --cached --quiet; then
+            echo 'No generated changes to commit.'
+          else
+            git commit -m 'Add GoalOS Universal Command Center v43 [skip ci]'
+            git push
+          fi
+      - name: Prepare Pages artifact
+        if: ${{ github.event.inputs.deploy_pages == 'true' }}
+        run: |
+          touch site/.nojekyll
+          test -f site/index.html
+          test -f site/goalos-universal-command-center.html
+      - uses: actions/upload-pages-artifact@v4
+        if: ${{ github.event.inputs.deploy_pages == 'true' }}
+        with:
+          path: site
+  deploy:
+    name: Deploy GitHub Pages
+    if: ${{ github.event.inputs.deploy_pages == 'true' }}
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
+        with:
+          timeout: ${{ github.event.inputs.deploy_timeout_ms }}
