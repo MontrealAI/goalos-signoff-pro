@@ -1,0 +1,74 @@
+name: GoalOS Signoff Pro — Product-First v22-v37 Complete Suite
+
+on:
+  workflow_dispatch:
+    inputs:
+      commit_generated_site:
+        description: Commit generated site files back to this branch
+        type: boolean
+        default: true
+      deploy_pages:
+        description: Deploy generated site to GitHub Pages
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+env:
+  GOALOS_PUBLIC_SAFE: "true"
+  GOALOS_ZERO_VALUE_MOVED: "true"
+  GOALOS_NO_EXTERNAL_AI_CALLS: "true"
+
+jobs:
+  build:
+    name: Build and verify v22-v37 product-first suite
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+      - name: Setup Node.js 24
+        uses: actions/setup-node@v5
+        with:
+          node-version: '24'
+      - name: Build v22-v37 public suite
+        run: node scripts/build-goalos-signoff-public-labs-v22-v37.mjs
+      - name: Repair HTML integrity
+        run: node scripts/repair-goalos-v22-v37-html-integrity.mjs
+      - name: Verify v36 protocol ladder
+        run: node scripts/verify-signoff-product-protocol-ladder-v36.mjs
+      - name: Verify v37 product-first console
+        run: node scripts/verify-signoff-product-first-console-v37.mjs
+      - name: Verify v22-v37 website
+        run: node scripts/verify-goalos-v22-v37-product-first-website.mjs
+      - name: Verify production site gate
+        run: node scripts/verify-goalos-production-site.mjs
+      - name: Verify public-safe artifacts
+        run: node scripts/verify-public-artifact-safety.mjs
+      - name: Commit generated site files
+        if: ${{ inputs.commit_generated_site }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add site scripts docs verification .github/workflows GOALOS_PUBLIC_LAB_V37_START_HERE.md GITHUB_WEB_UI_INSTALL_V37_PRODUCT_FIRST.txt
+          git commit -m "Publish GoalOS Signoff Pro v37 product-first suite" || echo "No changes to commit"
+          git push || echo "Push skipped; branch permissions may prevent push"
+      - name: Upload Pages artifact
+        if: ${{ inputs.deploy_pages }}
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: site
+  deploy:
+    name: Deploy GitHub Pages
+    needs: build
+    if: ${{ inputs.deploy_pages }}
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
