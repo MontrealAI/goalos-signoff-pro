@@ -1,0 +1,9 @@
+1. Download and unzip the v43 package.
+2. Open the unzipped folder.
+3. In GitHub, open MontrealAI/goalos-signoff-pro at the repository root.
+4. Choose Add file -> Upload files.
+5. Drag the contents inside the folder into GitHub.
+6. Make sure .github/, scripts/, config/, docs/, site/, serverless/, and verification/ are included.
+7. Commit to a new branch.
+8. Run Actions -> GoalOS Signoff Pro — Front-and-Center Universal Command Center v43.
+9. Use commit_generated_site=true and deploy_pages=true.
