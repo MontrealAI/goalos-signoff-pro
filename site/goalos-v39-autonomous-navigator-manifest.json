@@ -1,0 +1,53 @@
+{
+  "version": "v39.0.0",
+  "title": "GoalOS Signoff Pro — Autonomous Site Navigator & Redirect Console",
+  "generatedAt": "2026-07-02T15:31:37.714Z",
+  "canonicalRoute": "ask-goalos.html",
+  "aliasRoutes": [
+    "chat.html",
+    "site-navigator.html",
+    "goalos-concierge.html",
+    "autonomous-redirect-console.html",
+    "answer-router.html",
+    "v39.html",
+    "help.html"
+  ],
+  "baseTopics": 19,
+  "contractTopics": 48,
+  "familyTopics": 5,
+  "knownRoutes": 206,
+  "publicSafe": {
+    "mode": "browser-local deterministic routing",
+    "uploads": false,
+    "cookies": false,
+    "analytics": false,
+    "wallets": false,
+    "payments": false,
+    "externalAiCalls": false,
+    "personalDataRequired": false,
+    "typedQuestionsStored": false,
+    "boundary": "The navigator runs in the visitor's browser, loads only static same-origin JSON, does not call an LLM API, and never requires personal or confidential data."
+  },
+  "releaseFacts": {
+    "title": "GoalOS AGIALPHA Ascension v4.4.0 — Ethereum Mainnet Deployment",
+    "releaseUrl": "https://github.com/MontrealAI/goalos-agialpha-ascension/releases/tag/v4.4.0-mainnet-2026-06-21",
+    "network": "Ethereum Mainnet",
+    "chainId": 1,
+    "goalosCreatedContracts": 48,
+    "manifestEntries": 49,
+    "canonicalAgialpha": "0xA61a3B3a130a9c20768EEBF97E21515A6046a1fA",
+    "deploymentTransactions": 48,
+    "etherscanSourceVerification": "48 / 48 verified",
+    "verificationFailures": 0,
+    "phaseBConfigurationGrants": "14 / 14 active",
+    "finalPostdeploymentCheck": "PASSED",
+    "deploymentStatus": "CONFIGURED",
+    "solidityCompiler": "0.8.28",
+    "hardhatVerifier": "2.28.6",
+    "productionActivated": false,
+    "userFundAuthorization": false,
+    "externalAuditCompletion": false,
+    "claimBoundary": "This public UI is read-only and educational. It does not request wallets, move funds, approve tokens, broadcast transactions, provide legal/investment advice, or authorize production use."
+  },
+  "boundary": "Static GitHub Pages implementation. Browser-local deterministic answer routing by default. No external AI calls, no wallet, no uploads, no analytics, no payments, zero value moved."
+}

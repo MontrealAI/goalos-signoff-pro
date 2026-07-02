@@ -1,0 +1,26 @@
+GoalOS Signoff Pro — v39 Autonomous Site Navigator
+
+GitHub Web UI install:
+
+1. Download and unzip the package.
+2. Open the unzipped folder.
+3. In GitHub, open MontrealAI/goalos-signoff-pro at the repository root.
+4. Click Add file -> Upload files.
+5. Drag the CONTENTS INSIDE the unzipped folder into GitHub.
+6. Make sure the hidden .github folder is included.
+7. Commit to a new branch.
+8. Run: Actions -> GoalOS Signoff Pro — Autonomous Site Navigator v39.
+9. Use commit_generated_site=true and deploy_pages=true.
+
+Confirm these paths exist before running the workflow:
+
+.github/workflows/goalos-signoff-v39-autonomous-site-navigator.yml
+scripts/build-goalos-signoff-public-labs-v22-v39.mjs
+scripts/build-autonomous-site-navigator-v39.mjs
+scripts/verify-autonomous-site-navigator-v39.mjs
+site/assets/goalos-v39-navigator.css
+site/assets/goalos-v39-navigator.js
+config/goalos-v39-navigator-scenarios.json
+
+Open after deployment:
+https://montrealai.github.io/goalos-signoff-pro/ask-goalos.html

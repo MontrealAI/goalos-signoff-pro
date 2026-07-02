@@ -1,0 +1,41 @@
+{
+  "version": "v39.0.0",
+  "title": "GoalOS Signoff Pro — Autonomous Site Navigator v39",
+  "canonicalRoute": "ask-goalos.html",
+  "publicSafe": {
+    "mode": "browser-local deterministic routing",
+    "uploads": false,
+    "cookies": false,
+    "analytics": false,
+    "wallets": false,
+    "payments": false,
+    "externalAiCalls": false,
+    "personalDataRequired": false,
+    "typedQuestionsStored": false,
+    "boundary": "The navigator runs in the visitor's browser, loads only static same-origin JSON, does not call an LLM API, and never requires personal or confidential data."
+  },
+  "roles": [
+    {"id":"first_time","label":"First-time visitor","defaultQuestion":"Where should I start?"},
+    {"id":"ai_agency","label":"AI consultant / agency","defaultQuestion":"How do I create a client signoff?"},
+    {"id":"client_reviewer","label":"Client reviewer","defaultQuestion":"How do I know whether AI work is done?"},
+    {"id":"dao_treasury","label":"DAO / treasury council","defaultQuestion":"How do we require a proof package before payment?"},
+    {"id":"protocol_operator","label":"Protocol operator","defaultQuestion":"How do the 48 contracts support Signoff?"},
+    {"id":"auditor","label":"Auditor / reviewer","defaultQuestion":"Where do I inspect evidence, replay, and claim boundaries?"},
+    {"id":"rsi_team","label":"RSI / ASI governance team","defaultQuestion":"How does the proof loop connect to RSI and ASI governance?"}
+  ],
+  "quickQuestions": [
+    "Where should I start?",
+    "What is GoalOS Signoff?",
+    "How do I know when AI work is actually done?",
+    "Show me all public labs",
+    "Explain the 48 Mainnet contracts",
+    "Which contracts support Signoff Verified?",
+    "Which contracts support Signoff & Settle?",
+    "What does $AGIALPHA do?",
+    "Open Mission 001",
+    "Is this live settlement?",
+    "How does RSI governance work?",
+    "Open the v35 simulator"
+  ],
+  "fallbackRoute": "goalos-v22-v38-command-center.html"
+}
