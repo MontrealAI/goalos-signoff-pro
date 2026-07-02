@@ -1,0 +1,67 @@
+name: GoalOS Signoff Pro — Autonomous AI Concierge v40
+
+on:
+  workflow_dispatch:
+    inputs:
+      commit_generated_site:
+        description: Commit generated site files back to the branch
+        type: boolean
+        default: true
+      deploy_pages:
+        description: Deploy GitHub Pages after verification
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+env:
+  GOALOS_PUBLIC_SAFE: "true"
+  GOALOS_ZERO_VALUE_MOVED: "true"
+  GOALOS_NAVIGATOR_MODE: "local-first"
+  GOALOS_NO_EXTERNAL_AI_CALLS_BY_DEFAULT: "true"
+
+jobs:
+  build:
+    name: Build and verify v40 autonomous concierge
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+      - name: Build v22-v40 public suite
+        run: node scripts/build-goalos-signoff-public-labs-v22-v40.mjs
+      - name: Verify v40 concierge and public-safe site
+        run: node scripts/verify-goalos-signoff-public-labs-v22-v40.mjs
+      - name: Commit generated site files
+        if: ${{ inputs.commit_generated_site }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add site scripts config docs serverless verification .github/workflows GOALOS_V40_AUTONOMOUS_AI_CONCIERGE_START_HERE.md GITHUB_WEB_UI_INSTALL_V40_AUTONOMOUS_AI_CONCIERGE.txt
+          git commit -m "Add GoalOS autonomous AI concierge v40" || echo "No changes to commit"
+          git push || true
+      - name: Upload site preview artifact
+        uses: actions/upload-artifact@v6
+        with:
+          name: goalos-signoff-pro-v40-site
+          path: site
+      - name: Upload Pages artifact
+        if: ${{ inputs.deploy_pages }}
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: site
+  deploy:
+    if: ${{ inputs.deploy_pages }}
+    name: Deploy GitHub Pages
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
