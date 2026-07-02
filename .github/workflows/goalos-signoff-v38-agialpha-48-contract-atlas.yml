@@ -1,4 +1,4 @@
-name: GoalOS Signoff Pro — AGIALPHA 48-Contract Atlas v38
+name: GoalOS Signoff Pro — AGIALPHA 48-Contract Atlas v38 Repair
 
 on:
   workflow_dispatch:
@@ -24,13 +24,15 @@ env:
 
 jobs:
   build:
-    name: Build and verify v38 contract atlas
+    name: Build and verify v38 contract atlas repair
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v5
         with:
           node-version: 24
+      - name: Preflight v38 repair files
+        run: node scripts/verify-goalos-v38-repair-preflight.mjs
       - name: Build v22-v38 public suite
         run: node scripts/build-goalos-signoff-public-labs-v22-v38.mjs
       - name: Verify v38 contract atlas and public-safe site
