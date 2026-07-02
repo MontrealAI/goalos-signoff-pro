@@ -1,11 +1,78 @@
 {
-  "status": "FINAL_EXPERIENCE_READY",
-  "checks": [
-    "complete v22-v35 route catalog",
-    "non-intrusive guided console",
-    "homepage stale-copy repaired",
-    "public demo hub v22-v35",
-    "old v30-v34 top spotlight suppressed"
+  "status": "PASS",
+  "labs_expected": 14,
+  "labs_present": [
+    {
+      "v": "v22",
+      "route": "action-graph-authority-lab.html",
+      "exists": true
+    },
+    {
+      "v": "v23",
+      "route": "proof-carrying-artifact-lab.html",
+      "exists": true
+    },
+    {
+      "v": "v24",
+      "route": "independent-replay-lab.html",
+      "exists": true
+    },
+    {
+      "v": "v25",
+      "route": "proofzero-planning-lab.html",
+      "exists": true
+    },
+    {
+      "v": "v26",
+      "route": "mission-foundry-lab.html",
+      "exists": true
+    },
+    {
+      "v": "v27",
+      "route": "process-evidence-lab.html",
+      "exists": true
+    },
+    {
+      "v": "v28",
+      "route": "blockchain-credibility-lab.html",
+      "exists": true
+    },
+    {
+      "v": "v29",
+      "route": "blockchain-proof-mandate-lab.html",
+      "exists": true
+    },
+    {
+      "v": "v30",
+      "route": "proof-before-settlement-research-lab.html",
+      "exists": true
+    },
+    {
+      "v": "v31",
+      "route": "executive-ai-proof-console.html",
+      "exists": true
+    },
+    {
+      "v": "v32",
+      "route": "from-loop-to-rsi-lab.html",
+      "exists": true
+    },
+    {
+      "v": "v33",
+      "route": "loop-rsi-asi-superintelligence-lab.html",
+      "exists": true
+    },
+    {
+      "v": "v34",
+      "route": "loop-rsi-asi-superintelligence-control-tower-lab.html",
+      "exists": true
+    },
+    {
+      "v": "v35",
+      "route": "loop-rsi-asi-superintelligence-mission-simulator-lab.html",
+      "exists": true
+    }
   ],
-  "boundary": "No forms · no text inputs · no uploads · no cookies · no analytics · no wallets · no payments · no external AI calls · no personal or confidential data · zero value moved."
+  "public_safe_rule": "No forms · no text inputs · no uploads · no cookies · no analytics · no wallets · no payments · no external AI calls · no personal or confidential data · zero value moved.",
+  "recommended_entry": "goalos-v22-v35-command-center.html"
 }

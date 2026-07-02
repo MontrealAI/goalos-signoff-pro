@@ -1,0 +1,14 @@
+GitHub Web UI install — GoalOS v22-v35 Platinum Command Experience
+
+1. Download and unzip the ZIP package.
+2. Open the unzipped folder.
+3. Go to the root of https://github.com/MontrealAI/goalos-signoff-pro
+4. Click Add file → Upload files.
+5. Drag the contents INSIDE the unzipped folder into GitHub.
+6. Make sure the hidden .github folder is included.
+7. Commit to a new branch.
+8. Run: Actions → GoalOS Signoff Pro — Platinum v22-v35 Command Experience.
+9. Use commit_generated_site=true and deploy_pages=true.
+
+After deployment, open:
+https://montrealai.github.io/goalos-signoff-pro/goalos-v22-v35-command-center.html
