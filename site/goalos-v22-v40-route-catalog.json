@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-02T15:31:37.714Z",
-  "count": 264,
+  "generatedAt": "2026-07-02T16:54:56.268Z",
+  "count": 268,
   "routes": [
     "404.html",
     "48-contract-rails.html",
@@ -26,6 +26,7 @@
     "asi-mission-simulator.html",
     "asi-readiness-flight-simulator.html",
     "asi-superintelligence-console.html",
+    "ask-goalos-live.html",
     "ask-goalos.html",
     "autonomous-redirect-console.html",
     "benchmark-packet.html",
@@ -136,6 +137,7 @@
     "goalos-v22-v37-command-center.html",
     "goalos-v22-v38-command-center.html",
     "goalos-v22-v39-command-center.html",
+    "goalos-v22-v40-command-center.html",
     "governed-asi-console.html",
     "governed-superintelligence.html",
     "guided-experience.html",
@@ -255,6 +257,7 @@
     "v22-v35.html",
     "v22-v37.html",
     "v22-v38.html",
+    "v22-v40.html",
     "v30-v34-premium-experience.html",
     "v30-v34.html",
     "v34.html",
@@ -263,6 +266,7 @@
     "v37.html",
     "v38.html",
     "v39.html",
+    "v40.html",
     "verify.html",
     "website-guide.html",
     "what-is-goalos.html"

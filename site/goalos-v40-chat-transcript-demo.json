@@ -1,0 +1,19 @@
+{
+  "demo": [
+    {
+      "user": "Where should I start?",
+      "answer": "Start with the command center.",
+      "route": "goalos-v22-v40-command-center.html"
+    },
+    {
+      "user": "How do the 48 contracts fit?",
+      "answer": "They are optional trust rails under Signoff Verified, Secured, and Settle.",
+      "route": "agialpha-48-contract-atlas.html"
+    },
+    {
+      "user": "Can it answer live?",
+      "answer": "Yes. The public site answers locally by default and can be upgraded with a secure server-side endpoint.",
+      "route": "ask-goalos-live.html"
+    }
+  ]
+}

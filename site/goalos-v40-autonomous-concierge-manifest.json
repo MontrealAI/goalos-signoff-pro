@@ -1,0 +1,24 @@
+{
+  "id": "goalos-signoff-pro-v40",
+  "title": "Autonomous AI Concierge & Route Orchestrator",
+  "generatedAt": "2026-07-02T16:54:56.268Z",
+  "publicSafe": true,
+  "localFirst": true,
+  "defaultExternalAiCalls": false,
+  "capabilities": [
+    "question answering",
+    "route ranking",
+    "same-site redirect",
+    "contract lookup",
+    "role-based next step",
+    "local fallback",
+    "optional secure endpoint adapter"
+  ],
+  "routes": [
+    "ask-goalos-live.html",
+    "ask-goalos.html",
+    "chat.html",
+    "site-navigator.html",
+    "goalos-v22-v40-command-center.html"
+  ]
+}

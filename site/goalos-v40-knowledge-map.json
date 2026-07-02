@@ -1,0 +1,1702 @@
+{
+  "generatedAt": "2026-07-02T16:54:56.268Z",
+  "version": "v40",
+  "topics": [
+    {
+      "id": "start",
+      "title": "Start here",
+      "route": "goalos-v22-v40-command-center.html",
+      "kind": "start",
+      "answer": "Start with the command center. It asks who you are, what you need, then routes you to the best product console, proof lab, contract page, or receipt object.",
+      "keywords": [
+        "start",
+        "begin",
+        "new",
+        "first time",
+        "command center",
+        "where should i start",
+        "help me"
+      ]
+    },
+    {
+      "id": "signoff",
+      "title": "Know when AI work is actually done",
+      "route": "ai-research-strategy-signoff-console.html",
+      "kind": "product",
+      "answer": "GoalOS Signoff is the acceptance layer for AI work: define the brief, submit work and evidence, check the proof, capture human review, and issue a Mission Receipt.",
+      "keywords": [
+        "signoff",
+        "ai work",
+        "done",
+        "customer",
+        "consultant",
+        "agency",
+        "client",
+        "approve",
+        "mission receipt",
+        "acceptance"
+      ]
+    },
+    {
+      "id": "mission001",
+      "title": "Mission 001 reproducibility packet",
+      "route": "mission-001.html",
+      "kind": "proof",
+      "answer": "Mission 001 is the benchmark-ready proof packet with mission contract, environment, baselines, proof bundle, replay log, ledgers, validator report, scoreboard, and claims matrix.",
+      "keywords": [
+        "mission 001",
+        "reproducibility",
+        "benchmark",
+        "proof bundle",
+        "replay",
+        "validator",
+        "claims matrix",
+        "packet"
+      ]
+    },
+    {
+      "id": "browser",
+      "title": "Browser beta",
+      "route": "browser-beta.html",
+      "kind": "safe",
+      "answer": "The browser beta is the safest product tour: inspect the proof cycle without uploads, wallets, payments, analytics, or value movement.",
+      "keywords": [
+        "browser beta",
+        "privacy",
+        "no data",
+        "local",
+        "safe",
+        "no wallet",
+        "no upload"
+      ]
+    },
+    {
+      "id": "all-labs",
+      "title": "All public labs v22–v40",
+      "route": "public-demo-labs.html",
+      "kind": "catalog",
+      "answer": "The public demo hub lists the full v22–v40 suite: core proof labs, blockchain credibility, RSI/ASI governance, product-first Signoff, 48-contract atlas, and the live answer router.",
+      "keywords": [
+        "all labs",
+        "public labs",
+        "v22",
+        "v23",
+        "v24",
+        "v25",
+        "v26",
+        "v27",
+        "v28",
+        "v29",
+        "v30",
+        "v31",
+        "v32",
+        "v33",
+        "v34",
+        "v35",
+        "v36",
+        "v37",
+        "v38",
+        "v39",
+        "v40",
+        "suite"
+      ]
+    },
+    {
+      "id": "contracts",
+      "title": "AGIALPHA 48-contract atlas",
+      "route": "agialpha-48-contract-atlas.html",
+      "kind": "protocol",
+      "answer": "The contract atlas explains the GoalOS-created Ethereum Mainnet trust rails. The public release records 48 GoalOS-created contracts and 48 / 48 verified Etherscan source verification, without production activation or user-fund authorization.",
+      "keywords": [
+        "48 contracts",
+        "contract atlas",
+        "ethereum",
+        "mainnet",
+        "chainid",
+        "chain id 1",
+        "agialpha",
+        "etherscan",
+        "protocol rails",
+        "verified contracts"
+      ]
+    },
+    {
+      "id": "basic",
+      "title": "Signoff Basic",
+      "route": "signoff-basic.html",
+      "kind": "tier",
+      "answer": "Signoff Basic is the first product: no wallet, no chain transaction, no token requirement; it produces a protocol-compatible Evidence Docket and Mission Receipt.",
+      "keywords": [
+        "basic",
+        "no chain",
+        "no wallet",
+        "saas",
+        "evidence docket"
+      ]
+    },
+    {
+      "id": "verified",
+      "title": "Signoff Verified",
+      "route": "signoff-verified.html",
+      "kind": "tier",
+      "answer": "Signoff Verified adds anchored hashes, proof cards, credentials, replay references, and a stronger public verification record after authorization.",
+      "keywords": [
+        "verified",
+        "hash",
+        "anchor",
+        "proof card",
+        "credential",
+        "verification"
+      ]
+    },
+    {
+      "id": "secured",
+      "title": "Signoff Secured",
+      "route": "signoff-secured.html",
+      "kind": "tier",
+      "answer": "Signoff Secured adds accountable review: reviewer/evaluator bonds, challenge windows, reputation, claim boundaries, falsification, and appeal rails after audit gates.",
+      "keywords": [
+        "secured",
+        "reviewer bond",
+        "staking",
+        "slashing",
+        "challenge",
+        "appeal",
+        "falsification"
+      ]
+    },
+    {
+      "id": "settle",
+      "title": "Signoff & Settle",
+      "route": "signoff-settle.html",
+      "kind": "tier",
+      "answer": "Signoff & Settle is the advanced tier where accepted work can trigger bounded rewards, dispute handling, treasury routing, and settlement rails only after production authorization.",
+      "keywords": [
+        "settle",
+        "payment",
+        "escrow",
+        "reward",
+        "vault",
+        "treasury",
+        "job registry",
+        "proof to payment"
+      ]
+    },
+    {
+      "id": "rsi",
+      "title": "From Loop to RSI",
+      "route": "from-loop-to-rsi-lab.html",
+      "kind": "governance",
+      "answer": "The RSI arc upgrades proof-gated work into governed invention: deterministic pipeline, schema-bound artifacts, baseline comparison, Move-37 dossiers, and mechanical gates.",
+      "keywords": [
+        "rsi",
+        "loop to rsi",
+        "target emit filter atlas test plan eval insert promote",
+        "omni",
+        "move 37",
+        "deterministic invention"
+      ]
+    },
+    {
+      "id": "asi",
+      "title": "ASI Mission Simulator",
+      "route": "loop-rsi-asi-superintelligence-mission-simulator-lab.html",
+      "kind": "governance",
+      "answer": "The v35 ASI Mission Simulator lets visitors run the Loop → RSI → ASI path through proof gates, dossiers, council review, rollback, and synthetic receipt logic.",
+      "keywords": [
+        "asi",
+        "superintelligence",
+        "v35",
+        "mission simulator",
+        "rollback",
+        "council",
+        "dossier"
+      ]
+    },
+    {
+      "id": "v40",
+      "title": "Autonomous AI Concierge",
+      "route": "ask-goalos-live.html",
+      "kind": "navigator",
+      "answer": "v40 is the concierge layer: ask a question, receive a grounded answer, see the recommended route, and open the right page or contract object with a safe countdown.",
+      "keywords": [
+        "chat",
+        "ask",
+        "question",
+        "live",
+        "autonomous",
+        "router",
+        "redirect",
+        "concierge",
+        "answer"
+      ]
+    },
+    {
+      "id": "start",
+      "title": "Start here",
+      "route": "goalos-v22-v39-command-center.html",
+      "kind": "legacy",
+      "answer": "Start with the command center. It asks who you are, explains the simplest next step, and routes you to the right proof lab or product console.",
+      "keywords": [
+        "start",
+        "begin",
+        "home",
+        "command center",
+        "first time",
+        "new visitor",
+        "where should i start",
+        "what should i click"
+      ]
+    },
+    {
+      "id": "signoff",
+      "title": "GoalOS Signoff",
+      "route": "ai-research-strategy-signoff-console.html",
+      "kind": "legacy",
+      "answer": "GoalOS Signoff is the customer-facing product: define done, submit evidence, check completeness, obtain human approval, and issue a Mission Receipt.",
+      "keywords": [
+        "signoff",
+        "ai work done",
+        "know when ai work is done",
+        "client review",
+        "approve",
+        "needs changes",
+        "reject",
+        "mission receipt",
+        "ai research",
+        "strategy report"
+      ]
+    },
+    {
+      "id": "v37",
+      "title": "AI Research & Strategy Signoff",
+      "route": "ai-research-strategy-signoff-console.html",
+      "kind": "legacy",
+      "answer": "v37 is the product-first console. It shows the five-step experience: Create → Submit → Check → Review → Receipt.",
+      "keywords": [
+        "v37",
+        "ai research",
+        "strategy signoff",
+        "free signoff",
+        "product first",
+        "consultant",
+        "agency",
+        "client"
+      ]
+    },
+    {
+      "id": "mission001",
+      "title": "Mission 001",
+      "route": "mission-001.html",
+      "kind": "legacy",
+      "answer": "Mission 001 is the benchmark-ready reproducibility packet: mission contract, environment, baselines, proof bundle, replay log, ledgers, validator report, scoreboard, and claims matrix.",
+      "keywords": [
+        "mission 001",
+        "benchmark",
+        "reproducibility",
+        "packet",
+        "proof bundle",
+        "replay",
+        "validator",
+        "claims matrix"
+      ]
+    },
+    {
+      "id": "labs",
+      "title": "All public labs",
+      "route": "public-demo-labs.html",
+      "kind": "legacy",
+      "answer": "Open the public lab catalog to see the full GoalOS arc: proof loop, blockchain credibility, Proof Before Settlement, RSI/ASI governance, product-first Signoff, and the 48-contract atlas.",
+      "keywords": [
+        "all labs",
+        "public labs",
+        "v22",
+        "v23",
+        "v24",
+        "v25",
+        "v26",
+        "v27",
+        "v28",
+        "v29",
+        "v30",
+        "v31",
+        "v32",
+        "v33",
+        "v34",
+        "v35",
+        "v36",
+        "v37",
+        "v38",
+        "suite"
+      ]
+    },
+    {
+      "id": "contracts",
+      "title": "48 Mainnet contract atlas",
+      "route": "agialpha-48-contract-atlas.html",
+      "kind": "legacy",
+      "answer": "The 48-contract atlas explains the GoalOS-created Ethereum Mainnet rails. The release records 48 GoalOS-created contracts, 48 / 48 verified Etherscan source verification, and a configured but not production-activated boundary.",
+      "keywords": [
+        "48 contracts",
+        "mainnet",
+        "contract atlas",
+        "ethereum",
+        "chainid",
+        "chain id",
+        "agialpha",
+        "etherscan",
+        "verified contracts",
+        "protocol rails"
+      ]
+    },
+    {
+      "id": "contract-index",
+      "title": "Individual contract pages",
+      "route": "contracts/index.html",
+      "kind": "legacy",
+      "answer": "Open the contract index to inspect every GoalOS-created Mainnet contract, grouped by family, role, Signoff tier, proof stage, address, and Etherscan link.",
+      "keywords": [
+        "contract pages",
+        "contracts index",
+        "individual contract",
+        "etherscan links",
+        "addresses"
+      ]
+    },
+    {
+      "id": "token",
+      "title": "$AGIALPHA role",
+      "route": "agialpha-48-contract-atlas.html#tiers",
+      "kind": "legacy",
+      "answer": "$AGIALPHA is not the Signoff product. It is the optional economic security and settlement asset: fees, bonds, reviewer stakes, challenge stakes, work rewards, and protocol revenue where authorized.",
+      "keywords": [
+        "agialpha",
+        "token",
+        "alpha",
+        "fees",
+        "stake",
+        "bond",
+        "rewards",
+        "settlement asset",
+        "security asset"
+      ]
+    },
+    {
+      "id": "boundary",
+      "title": "Production boundary",
+      "route": "agialpha.html",
+      "kind": "legacy",
+      "answer": "The public site is educational and read-only. It does not authorize user funds, production activation, token approvals, or live settlement. The Mainnet release is configured and verified, not a public-fund activation.",
+      "keywords": [
+        "live settlement",
+        "production activation",
+        "user funds",
+        "external audit",
+        "audit completion",
+        "wallet",
+        "is this live",
+        "risk",
+        "boundary",
+        "not activated"
+      ]
+    },
+    {
+      "id": "proof-before-settlement",
+      "title": "Proof Before Settlement",
+      "route": "proof-before-settlement-research-lab.html",
+      "kind": "legacy",
+      "answer": "Proof Before Settlement formalizes the core standard: blockchain proves the transaction; GoalOS proves the work. Evidence, validation, receipt, and claim boundaries come before settlement readiness.",
+      "keywords": [
+        "v30",
+        "proof before settlement",
+        "blockchain proves transaction",
+        "goalos proves work",
+        "research paper",
+        "settlement safety"
+      ]
+    },
+    {
+      "id": "v39",
+      "title": "Ask GoalOS Navigator",
+      "route": "ask-goalos.html",
+      "kind": "legacy",
+      "answer": "v39 adds the autonomous site navigator: ask a question, receive a browser-local answer, and get routed to the best page or proof object.",
+      "keywords": [
+        "v39",
+        "chat",
+        "ask goalos",
+        "navigator",
+        "questions",
+        "autonomous",
+        "redirect",
+        "route"
+      ]
+    },
+    {
+      "id": "family-capital-vaults-treasury",
+      "title": "Capital, vaults & treasury",
+      "route": "agialpha-48-contract-atlas.html#families",
+      "kind": "legacy",
+      "answer": "Capital, vaults & treasury contains 6 GoalOS-created Mainnet contracts: CommercializationPerformanceVault, ProofRewardsVault, LiquidityVault, SecurityVault, CommunityVault, TreasuryRouter. Open the atlas to filter the full family and inspect individual contract pages.",
+      "keywords": [
+        "Capital, vaults & treasury",
+        "CommercializationPerformanceVault",
+        "ProofRewardsVault",
+        "LiquidityVault",
+        "SecurityVault",
+        "CommunityVault",
+        "TreasuryRouter",
+        "Settle",
+        "Settle",
+        "Settle",
+        "Secured",
+        "Settle",
+        "Settle"
+      ]
+    },
+    {
+      "id": "family-core-proof-work-protocol-registries",
+      "title": "Core proof, work & protocol registries",
+      "route": "agialpha-48-contract-atlas.html#families",
+      "kind": "legacy",
+      "answer": "Core proof, work & protocol registries contains 13 GoalOS-created Mainnet contracts: ProofSeedRegistry, LegacyAGIJobManagerRegistry, ReputationRegistry, ReferralRegistry, ProofCardRegistry, ProofCredentialRegistry, JobRegistry, JobClaimBondManager…. Open the atlas to filter the full family and inspect individual contract pages.",
+      "keywords": [
+        "Core proof, work & protocol registries",
+        "ProofSeedRegistry",
+        "LegacyAGIJobManagerRegistry",
+        "ReputationRegistry",
+        "ReferralRegistry",
+        "ProofCardRegistry",
+        "ProofCredentialRegistry",
+        "JobRegistry",
+        "JobClaimBondManager",
+        "PremiumAccessRegistry",
+        "ProofSubmissionRegistry",
+        "ReviewerBondRegistry",
+        "ProtocolConfigRegistry",
+        "LaunchGateRegistry",
+        "Verified",
+        "Verified",
+        "Settle",
+        "Verified",
+        "Verified",
+        "Verified",
+        "Settle",
+        "Secured",
+        "Verified",
+        "Settle",
+        "Secured",
+        "Verified",
+        "Verified"
+      ]
+    },
+    {
+      "id": "family-dispute-participation-credential-governance",
+      "title": "Dispute, participation & credential governance",
+      "route": "agialpha-48-contract-atlas.html#families",
+      "kind": "legacy",
+      "answer": "Dispute, participation & credential governance contains 5 GoalOS-created Mainnet contracts: DisputeRegistry, AppealRegistry, SponsorRegistry, BuilderProfileRegistry, CredentialRevocationRegistry. Open the atlas to filter the full family and inspect individual contract pages.",
+      "keywords": [
+        "Dispute, participation & credential governance",
+        "DisputeRegistry",
+        "AppealRegistry",
+        "SponsorRegistry",
+        "BuilderProfileRegistry",
+        "CredentialRevocationRegistry",
+        "Challenge",
+        "Challenge",
+        "Verified",
+        "Verified",
+        "Challenge"
+      ]
+    },
+    {
+      "id": "family-aep-execution-evidence-rollout-architecture",
+      "title": "AEP execution, evidence & rollout architecture",
+      "route": "agialpha-48-contract-atlas.html#families",
+      "kind": "legacy",
+      "answer": "AEP execution, evidence & rollout architecture contains 15 GoalOS-created Mainnet contracts: AEPAgentRegistry, AEPArtifactRegistry, AEPGoalOSCommitRegistry, AEPRunCommitmentRegistry, AEPProofLedger, AEPEvalRegistry, AEPAttestationRegistry, AEPSelectionGate…. Open the atlas to filter the full family and inspect individual contract pages.",
+      "keywords": [
+        "AEP execution, evidence & rollout architecture",
+        "AEPAgentRegistry",
+        "AEPArtifactRegistry",
+        "AEPGoalOSCommitRegistry",
+        "AEPRunCommitmentRegistry",
+        "AEPProofLedger",
+        "AEPEvalRegistry",
+        "AEPAttestationRegistry",
+        "AEPSelectionGate",
+        "AEPRolloutRouter",
+        "AEPRollbackRegistry",
+        "AEPEvidenceDocketRegistry",
+        "AEPProofBundleRegistry",
+        "AlphaWorkUnitLedger",
+        "MandateEpochRegistry",
+        "AGIEthNamespaceRegistry",
+        "Verified",
+        "Verified",
+        "Verified",
+        "Verified",
+        "Verified",
+        "Secured",
+        "Secured",
+        "Secured",
+        "Secured",
+        "Challenge",
+        "Verified",
+        "Verified",
+        "Settle",
+        "Secured",
+        "Verified"
+      ]
+    },
+    {
+      "id": "family-institutional-assurance-staking-accountability",
+      "title": "Institutional assurance, staking & accountability",
+      "route": "agialpha-48-contract-atlas.html#families",
+      "kind": "legacy",
+      "answer": "Institutional assurance, staking & accountability contains 9 GoalOS-created Mainnet contracts: AEPConformanceRegistry, AEPClaimBoundaryRegistry, AEPReplayRegistry, AEPCommitRevealValidationRegistry, AEPEvaluatorStakingRegistry, AEPSlashingCourt, AEPRewardVault, AEPChronicleRegistry…. Open the atlas to filter the full family and inspect individual contract pages.",
+      "keywords": [
+        "Institutional assurance, staking & accountability",
+        "AEPConformanceRegistry",
+        "AEPClaimBoundaryRegistry",
+        "AEPReplayRegistry",
+        "AEPCommitRevealValidationRegistry",
+        "AEPEvaluatorStakingRegistry",
+        "AEPSlashingCourt",
+        "AEPRewardVault",
+        "AEPChronicleRegistry",
+        "AEPFalsificationRegistry",
+        "Secured",
+        "Secured",
+        "Verified",
+        "Challenge",
+        "Secured",
+        "Challenge",
+        "Settle",
+        "Verified",
+        "Challenge"
+      ]
+    },
+    {
+      "id": "contract-commercialization-performance-vault",
+      "title": "CommercializationPerformanceVault",
+      "route": "contracts/commercialization-performance-vault.html",
+      "kind": "legacy",
+      "answer": "CommercializationPerformanceVault is a Capital, vaults & treasury rail for Commercialization reserve. In Signoff, it belongs mainly to the Settle layer and supports Settle. Open its page for address, Etherscan link, role, tier, and public-safe boundary.",
+      "keywords": [
+        "CommercializationPerformanceVault",
+        "0xc2816f41a97b1dE9b23AF79C09B0DF217d767b8F",
+        "Capital, vaults & treasury",
+        "Commercialization reserve",
+        "Receives and tracks commercialization-performance capital as a vault rail.",
+        "Settle",
+        "Settle",
+        "Settle"
+      ]
+    },
+    {
+      "id": "contract-proof-rewards-vault",
+      "title": "ProofRewardsVault",
+      "route": "contracts/proof-rewards-vault.html",
+      "kind": "legacy",
+      "answer": "ProofRewardsVault is a Capital, vaults & treasury rail for Proof reward reserve. In Signoff, it belongs mainly to the Settle layer and supports Settle. Open its page for address, Etherscan link, role, tier, and public-safe boundary.",
+      "keywords": [
+        "ProofRewardsVault",
+        "0x172da7eF2702358c3b552a75c360d752Ef900C3c",
+        "Capital, vaults & treasury",
+        "Proof reward reserve",
+        "Holds reward capital for proof work, reviewers, and accepted work flows.",
+        "Settle",
+        "Signoff & Settle",
+        "Settle"
+      ]
+    },
+    {
+      "id": "contract-liquidity-vault",
+      "title": "LiquidityVault",
+      "route": "contracts/liquidity-vault.html",
+      "kind": "legacy",
+      "answer": "LiquidityVault is a Capital, vaults & treasury rail for Liquidity reserve. In Signoff, it belongs mainly to the Settle layer and supports Protocol support. Open its page for address, Etherscan link, role, tier, and public-safe boundary.",
+      "keywords": [
+        "LiquidityVault",
+        "0xf6f46da2CC6B896607CE62883bECaB41D927ed55",
+        "Capital, vaults & treasury",
+        "Liquidity reserve",
+        "Separates liquidity support from proof, security, and community vaults.",
+        "Settle",
+        "Settle",
+        "Protocol support"
+      ]
+    },
+    {
+      "id": "contract-security-vault",
+      "title": "SecurityVault",
+      "route": "contracts/security-vault.html",
+      "kind": "legacy",
+      "answer": "SecurityVault is a Capital, vaults & treasury rail for Security reserve. In Signoff, it belongs mainly to the Secured layer and supports Protocol support. Open its page for address, Etherscan link, role, tier, and public-safe boundary.",
+      "keywords": [
+        "SecurityVault",
+        "0x30698AF1D276A5B5736b5BCd8fB01BE8baCF949d",
+        "Capital, vaults & treasury",
+        "Security reserve",
+        "Sets aside funds for security and resilience-related protocol obligations.",
+        "Secured",
+        "Secured",
+        "Protocol support"
+      ]
+    },
+    {
+      "id": "contract-community-vault",
+      "title": "CommunityVault",
+      "route": "contracts/community-vault.html",
+      "kind": "legacy",
+      "answer": "CommunityVault is a Capital, vaults & treasury rail for Community reserve. In Signoff, it belongs mainly to the Settle layer and supports Protocol support. Open its page for address, Etherscan link, role, tier, and public-safe boundary.",
+      "keywords": [
+        "CommunityVault",
+        "0xc100C44eD7eb33f38953D26a1FC840A59F2A7F09",
+        "Capital, vaults & treasury",
+        "Community reserve",
+        "Supports ecosystem/community allocations without mixing with proof settlement rails.",
+        "Settle",
+        "Settle",
+        "Protocol support"
+      ]
+    },
+    {
+      "id": "contract-proof-seed-registry",
+      "title": "ProofSeedRegistry",
+      "route": "contracts/proof-seed-registry.html",
+      "kind": "legacy",
+      "answer": "ProofSeedRegistry is a Core proof, work & protocol registries rail for Proof seed registry. In Signoff, it belongs mainly to the Verified layer and supports Protocol support. Open its page for address, Etherscan link, role, tier, and public-safe boundary.",
+      "keywords": [
+        "ProofSeedRegistry",
+        "0x7D660ad863aD5aa37405E6568911C1F09E1Bd6f1",
+        "Core proof, work & protocol registries",
+        "Proof seed registry",
+        "Records seed-level proof metadata used to initialize or identify proof objects.",
+        "Verified",
+        "Verified",
+        "Protocol support"
+      ]
+    },
+    {
+      "id": "contract-legacy-a-g-i-job-manager-registry",
+      "title": "LegacyAGIJobManagerRegistry",
+      "route": "contracts/legacy-a-g-i-job-manager-registry.html",
+      "kind": "legacy",
+      "answer": "LegacyAGIJobManagerRegistry is a Core proof, work & protocol registries rail for Legacy job bridge. In Signoff, it belongs mainly to the Verified layer and supports Protocol support. Open its page for address, Etherscan link, role, tier, and public-safe boundary.",
+      "keywords": [
+        "LegacyAGIJobManagerRegistry",
+        "0x38042257CDB67F4b55fF312401ad8dD49EC128B1",
+        "Core proof, work & protocol registries",
+        "Legacy job bridge",
+        "Bridges legacy AGIJobManager lifecycle references into the GoalOS-native regime.",
+        "Verified",
+        "Verified",
+        "Protocol support"
+      ]
+    },
+    {
+      "id": "contract-reputation-registry",
+      "title": "ReputationRegistry",
+      "route": "contracts/reputation-registry.html",
+      "kind": "legacy",
+      "answer": "ReputationRegistry is a Core proof, work & protocol registries rail for Reputation memory. In Signoff, it belongs mainly to the Settle layer and supports Remember. Open its page for address, Etherscan link, role, tier, and public-safe boundary.",
+      "keywords": [
+        "ReputationRegistry",
+        "0x3989E3892aab3FD582E514Bb8e7057978a3c59B1",
+        "Core proof, work & protocol registries",
+        "Reputation memory",
+        "Records reputation updates arising from accepted work, reviewer history, and disputes.",
+        "Settle",
+        "Signoff & Settle",
+        "Remember"
+      ]
+    },
+    {
+      "id": "contract-referral-registry",
+      "title": "ReferralRegistry",
+      "route": "contracts/referral-registry.html",
+      "kind": "legacy",
+      "answer": "ReferralRegistry is a Core proof, work & protocol registries rail for Attribution rail. In Signoff, it belongs mainly to the Verified layer and supports Protocol support. Open its page for address, Etherscan link, role, tier, and public-safe boundary.",
+      "keywords": [
+        "ReferralRegistry",
+        "0xD6Abd123D43429868603dFEc78e38bD6a86726DD",
+        "Core proof, work & protocol registries",
+        "Attribution rail",
+        "Records referral and attribution links for ecosystem growth or contribution tracking.",
+        "Verified",
+        "Verified",
+        "Protocol support"
+      ]
+    },
+    {
+      "id": "contract-proof-card-registry",
+      "title": "ProofCardRegistry",
+      "route": "contracts/proof-card-registry.html",
+      "kind": "legacy",
+      "answer": "ProofCardRegistry is a Core proof, work & protocol registries rail for Proof card issuance. In Signoff, it belongs mainly to the Verified layer and supports Accept. Open its page for address, Etherscan link, role, tier, and public-safe boundary.",
+      "keywords": [
+        "ProofCardRegistry",
+        "0xC3E715b064acCEE475C9775385a42A7B0A6d53e6",
+        "Core proof, work & protocol registries",
+        "Proof card issuance",
+        "Mints or records proof-card style objects after successful review/signoff.",
+        "Verified",
+        "Signoff Verified",
+        "Signoff Secured",
+        "Accept"
+      ]
+    },
+    {
+      "id": "contract-proof-credential-registry",
+      "title": "ProofCredentialRegistry",
+      "route": "contracts/proof-credential-registry.html",
+      "kind": "legacy",
+      "answer": "ProofCredentialRegistry is a Core proof, work & protocol registries rail for Credential issuance. In Signoff, it belongs mainly to the Verified layer and supports Accept. Open its page for address, Etherscan link, role, tier, and public-safe boundary.",
+      "keywords": [
+        "ProofCredentialRegistry",
+        "0x207B1300BdEE4cbAD430672ECA5D368e7264994D",
+        "Core proof, work & protocol registries",
+        "Credential issuance",
+        "Records credentials linked to proof acceptance and reviewer/worker identity.",
+        "Verified",
+        "Signoff Verified",
+        "Signoff Secured",
+        "Accept"
+      ]
+    },
+    {
+      "id": "contract-job-registry",
+      "title": "JobRegistry",
+      "route": "contracts/job-registry.html",
+      "kind": "legacy",
+      "answer": "JobRegistry is a Core proof, work & protocol registries rail for Job + reward escrow logic. In Signoff, it belongs mainly to the Settle layer and supports Create brief, Settle. Open its page for address, Etherscan link, role, tier, and public-safe boundary.",
+      "keywords": [
+        "JobRegistry",
+        "0xe9Dc9c1Affa3542e8b2eAC1F5B465a9b0E536767",
+        "Core proof, work & protocol registries",
+        "Job + reward escrow logic",
+        "Defines bounded jobs, reward terms, liability constraints, and release mechanics.",
+        "Settle",
+        "Signoff & Settle",
+        "Create brief",
+        "Settle"
+      ]
+    },
+    {
+      "id": "contract-job-claim-bond-manager",
+      "title": "JobClaimBondManager",
+      "route": "contracts/job-claim-bond-manager.html",
+      "kind": "legacy",
+      "answer": "JobClaimBondManager is a Core proof, work & protocol registries rail for Job claim bonds. In Signoff, it belongs mainly to the Secured layer and supports Protocol support. Open its page for address, Etherscan link, role, tier, and public-safe boundary.",
+      "keywords": [
+        "JobClaimBondManager",
+        "0x10b5773a65EC53e585bF7dD8692bC14a35B326B9",
+        "Core proof, work & protocol registries",
+        "Job claim bonds",
+        "Handles bonds associated with job claims and claimant accountability.",
+        "Secured",
+        "Secured",
+        "Protocol support"
+      ]
+    },
+    {
+      "id": "contract-premium-access-registry",
+      "title": "PremiumAccessRegistry",
+      "route": "contracts/premium-access-registry.html",
+      "kind": "legacy",
+      "answer": "PremiumAccessRegistry is a Core proof, work & protocol registries rail for Access tier registry. In Signoff, it belongs mainly to the Verified layer and supports Protocol support. Open its page for address, Etherscan link, role, tier, and public-safe boundary.",
+      "keywords": [
+        "PremiumAccessRegistry",
+        "0x38750929B26782EB7097F1E4833C14335EAB1b9E",
+        "Core proof, work & protocol registries",
+        "Access tier registry",
+        "Tracks premium/protocol access state without making public demos require an account.",
+        "Verified",
+        "Verified",
+        "Protocol support"
+      ]
+    },
+    {
+      "id": "contract-proof-submission-registry",
+      "title": "ProofSubmissionRegistry",
+      "route": "contracts/proof-submission-registry.html",
+      "kind": "legacy",
+      "answer": "ProofSubmissionRegistry is a Core proof, work & protocol registries rail for Proof submission router. In Signoff, it belongs mainly to the Settle layer and supports Accept. Open its page for address, Etherscan link, role, tier, and public-safe boundary.",
+      "keywords": [
+        "ProofSubmissionRegistry",
+        "0x595AB684e41ba04C6aEE072b4b313B9B96A3f744",
+        "Core proof, work & protocol registries",
+        "Proof submission router",
+        "Connects submitted proof to review, approval, credential issuance, and reward release paths.",
+        "Settle",
+        "Signoff & Settle",
+        "Accept"
+      ]
+    },
+    {
+      "id": "contract-reviewer-bond-registry",
+      "title": "ReviewerBondRegistry",
+      "route": "contracts/reviewer-bond-registry.html",
+      "kind": "legacy",
+      "answer": "ReviewerBondRegistry is a Core proof, work & protocol registries rail for Reviewer accountability. In Signoff, it belongs mainly to the Secured layer and supports Review. Open its page for address, Etherscan link, role, tier, and public-safe boundary.",
+      "keywords": [
+        "ReviewerBondRegistry",
+        "0x97A31181F82dfaBEdD1d0F360aA01baa28045065",
+        "Core proof, work & protocol registries",
+        "Reviewer accountability",
+        "Models reviewer bonds, approvals, challenge windows, and slashing conditions.",
+        "Secured",
+        "Signoff Secured",
+        "Signoff & Settle",
+        "Review"
+      ]
+    },
+    {
+      "id": "contract-treasury-router",
+      "title": "TreasuryRouter",
+      "route": "contracts/treasury-router.html",
+      "kind": "legacy",
+      "answer": "TreasuryRouter is a Capital, vaults & treasury rail for Treasury routing. In Signoff, it belongs mainly to the Settle layer and supports Settle. Open its page for address, Etherscan link, role, tier, and public-safe boundary.",
+      "keywords": [
+        "TreasuryRouter",
+        "0x1006ed321f1Ed8D2E50D76054CD44Eff22d045f4",
+        "Capital, vaults & treasury",
+        "Treasury routing",
+        "Routes protocol fees and allocations across the vault family.",
+        "Settle",
+        "Signoff & Settle",
+        "Settle"
+      ]
+    },
+    {
+      "id": "contract-protocol-config-registry",
+      "title": "ProtocolConfigRegistry",
+      "route": "contracts/protocol-config-registry.html",
+      "kind": "legacy",
+      "answer": "ProtocolConfigRegistry is a Core proof, work & protocol registries rail for Protocol configuration. In Signoff, it belongs mainly to the Verified layer and supports Create brief. Open its page for address, Etherscan link, role, tier, and public-safe boundary.",
+      "keywords": [
+        "ProtocolConfigRegistry",
+        "0x15d713b8810fBe8D45aA4be433F65B6EaF145Ade",
+        "Core proof, work & protocol registries",
+        "Protocol configuration",
+        "Stores protocol-level configuration parameters and guardrail values.",
+        "Verified",
+        "Verified",
+        "Create brief"
+      ]
+    },
+    {
+      "id": "contract-launch-gate-registry",
+      "title": "LaunchGateRegistry",
+      "route": "contracts/launch-gate-registry.html",
+      "kind": "legacy",
+      "answer": "LaunchGateRegistry is a Core proof, work & protocol registries rail for Launch gating. In Signoff, it belongs mainly to the Verified layer and supports Create brief. Open its page for address, Etherscan link, role, tier, and public-safe boundary.",
+      "keywords": [
+        "LaunchGateRegistry",
+        "0xd6155967e091c5b3Cb7b25b942cDc132592F5562",
+        "Core proof, work & protocol registries",
+        "Launch gating",
+        "Represents stage/launch gates before sensitive activation paths can proceed.",
+        "Verified",
+        "Verified",
+        "Create brief"
+      ]
+    },
+    {
+      "id": "contract-dispute-registry",
+      "title": "DisputeRegistry",
+      "route": "contracts/dispute-registry.html",
+      "kind": "legacy",
+      "answer": "DisputeRegistry is a Dispute, participation & credential governance rail for Dispute rail. In Signoff, it belongs mainly to the Challenge layer and supports Challenge. Open its page for address, Etherscan link, role, tier, and public-safe boundary.",
+      "keywords": [
+        "DisputeRegistry",
+        "0x96346A9a399623B92dE55D502C6dcA43094bdE28",
+        "Dispute, participation & credential governance",
+        "Dispute rail",
+        "Records disputes raised against signoffs, claims, credentials, or settlement decisions.",
+        "Challenge",
+        "Signoff & Settle",
+        "Challenge"
+      ]
+    },
+    {
+      "id": "contract-appeal-registry",
+      "title": "AppealRegistry",
+      "route": "contracts/appeal-registry.html",
+      "kind": "legacy",
+      "answer": "AppealRegistry is a Dispute, participation & credential governance rail for Appeal rail. In Signoff, it belongs mainly to the Challenge layer and supports Challenge. Open its page for address, Etherscan link, role, tier, and public-safe boundary.",
+      "keywords": [
+        "AppealRegistry",
+        "0xBBF2a5C8bA53d74862051B5FC377C19A092e0f33",
+        "Dispute, participation & credential governance",
+        "Appeal rail",
+        "Provides an appeal layer after disputed outcomes or adverse determinations.",
+        "Challenge",
+        "Signoff & Settle",
+        "Challenge"
+      ]
+    },
+    {
+      "id": "contract-sponsor-registry",
+      "title": "SponsorRegistry",
+      "route": "contracts/sponsor-registry.html",
+      "kind": "legacy",
+      "answer": "SponsorRegistry is a Dispute, participation & credential governance rail for Sponsor rail. In Signoff, it belongs mainly to the Verified layer and supports Protocol support. Open its page for address, Etherscan link, role, tier, and public-safe boundary.",
+      "keywords": [
+        "SponsorRegistry",
+        "0xd8da67F26f64319F46aE8170aD7023762C9E2D93",
+        "Dispute, participation & credential governance",
+        "Sponsor rail",
+        "Tracks sponsors that support work, reviewers, missions, or protocol participation.",
+        "Verified",
+        "Verified",
+        "Protocol support"
+      ]
+    },
+    {
+      "id": "contract-builder-profile-registry",
+      "title": "BuilderProfileRegistry",
+      "route": "contracts/builder-profile-registry.html",
+      "kind": "legacy",
+      "answer": "BuilderProfileRegistry is a Dispute, participation & credential governance rail for Builder identity. In Signoff, it belongs mainly to the Verified layer and supports Protocol support. Open its page for address, Etherscan link, role, tier, and public-safe boundary.",
+      "keywords": [
+        "BuilderProfileRegistry",
+        "0x754EDCb4dfE3295eA550ea7F95B4f6dEE35deD25",
+        "Dispute, participation & credential governance",
+        "Builder identity",
+        "Records builder profiles so work histories can become inspectable over time.",
+        "Verified",
+        "Verified",
+        "Protocol support"
+      ]
+    },
+    {
+      "id": "contract-credential-revocation-registry",
+      "title": "CredentialRevocationRegistry",
+      "route": "contracts/credential-revocation-registry.html",
+      "kind": "legacy",
+      "answer": "CredentialRevocationRegistry is a Dispute, participation & credential governance rail for Credential revocation. In Signoff, it belongs mainly to the Challenge layer and supports Challenge. Open its page for address, Etherscan link, role, tier, and public-safe boundary.",
+      "keywords": [
+        "CredentialRevocationRegistry",
+        "0x4BC5246615E54f49a5cE84D9743b9d6e98e3a974",
+        "Dispute, participation & credential governance",
+        "Credential revocation",
+        "Records revocation events so bad or superseded credentials do not remain authoritative.",
+        "Challenge",
+        "Signoff Secured",
+        "Challenge"
+      ]
+    },
+    {
+      "id": "contract-a-e-p-agent-registry",
+      "title": "AEPAgentRegistry",
+      "route": "contracts/a-e-p-agent-registry.html",
+      "kind": "legacy",
+      "answer": "AEPAgentRegistry is a AEP execution, evidence & rollout architecture rail for Agent identity. In Signoff, it belongs mainly to the Verified layer and supports Protocol support. Open its page for address, Etherscan link, role, tier, and public-safe boundary.",
+      "keywords": [
+        "AEPAgentRegistry",
+        "0x1B4804D55b339A5F15F766BB1C0eF295a327b58c",
+        "AEP execution, evidence & rollout architecture",
+        "Agent identity",
+        "Registers agent identities and their permitted participation boundaries.",
+        "Verified",
+        "Verified",
+        "Protocol support"
+      ]
+    },
+    {
+      "id": "contract-a-e-p-artifact-registry",
+      "title": "AEPArtifactRegistry",
+      "route": "contracts/a-e-p-artifact-registry.html",
+      "kind": "legacy",
+      "answer": "AEPArtifactRegistry is a AEP execution, evidence & rollout architecture rail for Artifact hash registry. In Signoff, it belongs mainly to the Verified layer and supports Submit work. Open its page for address, Etherscan link, role, tier, and public-safe boundary.",
+      "keywords": [
+        "AEPArtifactRegistry",
+        "0x301ee7014D021F10640E32221AC3AE54292A091D",
+        "AEP execution, evidence & rollout architecture",
+        "Artifact hash registry",
+        "Records hashes and references for artifacts submitted as evidence.",
+        "Verified",
+        "Signoff Verified",
+        "Signoff Secured",
+        "Submit work"
+      ]
+    },
+    {
+      "id": "contract-a-e-p-goal-o-s-commit-registry",
+      "title": "AEPGoalOSCommitRegistry",
+      "route": "contracts/a-e-p-goal-o-s-commit-registry.html",
+      "kind": "legacy",
+      "answer": "AEPGoalOSCommitRegistry is a AEP execution, evidence & rollout architecture rail for Mission commitment. In Signoff, it belongs mainly to the Verified layer and supports Create brief. Open its page for address, Etherscan link, role, tier, and public-safe boundary.",
+      "keywords": [
+        "AEPGoalOSCommitRegistry",
+        "0x2EE9E77b67a975FB7F412247040A321597F9DcAB",
+        "AEP execution, evidence & rollout architecture",
+        "Mission commitment",
+        "Records commitments to brief, success criteria, constraints, authority, and boundaries.",
+        "Verified",
+        "Signoff Verified",
+        "Signoff Secured",
+        "Create brief"
+      ]
+    },
+    {
+      "id": "contract-a-e-p-run-commitment-registry",
+      "title": "AEPRunCommitmentRegistry",
+      "route": "contracts/a-e-p-run-commitment-registry.html",
+      "kind": "legacy",
+      "answer": "AEPRunCommitmentRegistry is a AEP execution, evidence & rollout architecture rail for Run commitment. In Signoff, it belongs mainly to the Verified layer and supports Submit work. Open its page for address, Etherscan link, role, tier, and public-safe boundary.",
+      "keywords": [
+        "AEPRunCommitmentRegistry",
+        "0x629a0c4C09C801DC796201fCEe336b3DC1FA018a",
+        "AEP execution, evidence & rollout architecture",
+        "Run commitment",
+        "Records commitments for a particular execution run before outputs are accepted.",
+        "Verified",
+        "Verified",
+        "Submit work"
+      ]
+    },
+    {
+      "id": "contract-a-e-p-proof-ledger",
+      "title": "AEPProofLedger",
+      "route": "contracts/a-e-p-proof-ledger.html",
+      "kind": "legacy",
+      "answer": "AEPProofLedger is a AEP execution, evidence & rollout architecture rail for Append-only proof ledger. In Signoff, it belongs mainly to the Verified layer and supports Remember. Open its page for address, Etherscan link, role, tier, and public-safe boundary.",
+      "keywords": [
+        "AEPProofLedger",
+        "0x07b151e8D56a914BDF87662bea1f2cfdA036f273",
+        "AEP execution, evidence & rollout architecture",
+        "Append-only proof ledger",
+        "Maintains a ledger of proof events and state transitions.",
+        "Verified",
+        "Signoff Verified",
+        "Signoff Secured",
+        "Remember"
+      ]
+    },
+    {
+      "id": "contract-a-e-p-eval-registry",
+      "title": "AEPEvalRegistry",
+      "route": "contracts/a-e-p-eval-registry.html",
+      "kind": "legacy",
+      "answer": "AEPEvalRegistry is a AEP execution, evidence & rollout architecture rail for Evaluation records. In Signoff, it belongs mainly to the Secured layer and supports Review. Open its page for address, Etherscan link, role, tier, and public-safe boundary.",
+      "keywords": [
+        "AEPEvalRegistry",
+        "0x66254fb43432f4c4Cb6Aa2001B725002E2941826",
+        "AEP execution, evidence & rollout architecture",
+        "Evaluation records",
+        "Records evaluation outputs, baseline comparisons, and review-relevant checks.",
+        "Secured",
+        "Secured",
+        "Review"
+      ]
+    },
+    {
+      "id": "contract-a-e-p-attestation-registry",
+      "title": "AEPAttestationRegistry",
+      "route": "contracts/a-e-p-attestation-registry.html",
+      "kind": "legacy",
+      "answer": "AEPAttestationRegistry is a AEP execution, evidence & rollout architecture rail for Attestations. In Signoff, it belongs mainly to the Secured layer and supports Review. Open its page for address, Etherscan link, role, tier, and public-safe boundary.",
+      "keywords": [
+        "AEPAttestationRegistry",
+        "0xc1e3bcDf4E5bd119e22A7A042DCC95C96Fb44D71",
+        "AEP execution, evidence & rollout architecture",
+        "Attestations",
+        "Records reviewer, evaluator, or authorized-party attestations.",
+        "Secured",
+        "Signoff Secured",
+        "Review"
+      ]
+    },
+    {
+      "id": "contract-a-e-p-selection-gate",
+      "title": "AEPSelectionGate",
+      "route": "contracts/a-e-p-selection-gate.html",
+      "kind": "legacy",
+      "answer": "AEPSelectionGate is a AEP execution, evidence & rollout architecture rail for Selection gate. In Signoff, it belongs mainly to the Secured layer and supports Accept. Open its page for address, Etherscan link, role, tier, and public-safe boundary.",
+      "keywords": [
+        "AEPSelectionGate",
+        "0x688c1026b07C1a12B713fbA46a75d849DF785d43",
+        "AEP execution, evidence & rollout architecture",
+        "Selection gate",
+        "Controls when a candidate proof/work object can be promoted or selected.",
+        "Secured",
+        "Signoff Secured",
+        "Signoff & Settle",
+        "Accept"
+      ]
+    },
+    {
+      "id": "contract-a-e-p-rollout-router",
+      "title": "AEPRolloutRouter",
+      "route": "contracts/a-e-p-rollout-router.html",
+      "kind": "legacy",
+      "answer": "AEPRolloutRouter is a AEP execution, evidence & rollout architecture rail for Rollout routing. In Signoff, it belongs mainly to the Secured layer and supports Protocol support. Open its page for address, Etherscan link, role, tier, and public-safe boundary.",
+      "keywords": [
+        "AEPRolloutRouter",
+        "0x4144F6460D80B9B2113e5B84e96A0eA9329D1720",
+        "AEP execution, evidence & rollout architecture",
+        "Rollout routing",
+        "Routes accepted work toward bounded rollout lanes after gate satisfaction.",
+        "Secured",
+        "Secured",
+        "Protocol support"
+      ]
+    },
+    {
+      "id": "contract-a-e-p-rollback-registry",
+      "title": "AEPRollbackRegistry",
+      "route": "contracts/a-e-p-rollback-registry.html",
+      "kind": "legacy",
+      "answer": "AEPRollbackRegistry is a AEP execution, evidence & rollout architecture rail for Rollback obligations. In Signoff, it belongs mainly to the Challenge layer and supports Challenge. Open its page for address, Etherscan link, role, tier, and public-safe boundary.",
+      "keywords": [
+        "AEPRollbackRegistry",
+        "0x284c23638456cD885703E0f6be0F460c3548B841",
+        "AEP execution, evidence & rollout architecture",
+        "Rollback obligations",
+        "Records rollback duties and rollback-state evidence for governed releases.",
+        "Challenge",
+        "Challenge",
+        "Challenge"
+      ]
+    },
+    {
+      "id": "contract-a-e-p-evidence-docket-registry",
+      "title": "AEPEvidenceDocketRegistry",
+      "route": "contracts/a-e-p-evidence-docket-registry.html",
+      "kind": "legacy",
+      "answer": "AEPEvidenceDocketRegistry is a AEP execution, evidence & rollout architecture rail for Evidence docket. In Signoff, it belongs mainly to the Verified layer and supports Submit work. Open its page for address, Etherscan link, role, tier, and public-safe boundary.",
+      "keywords": [
+        "AEPEvidenceDocketRegistry",
+        "0x396c5Ba59907F98A0d5666e677d29Ac1b901BB4f",
+        "AEP execution, evidence & rollout architecture",
+        "Evidence docket",
+        "Records docket, claims matrix, public/private boundaries, cost ledger, and risk ledger hashes.",
+        "Verified",
+        "Signoff Verified",
+        "Signoff Secured",
+        "Signoff & Settle",
+        "Submit work"
+      ]
+    },
+    {
+      "id": "contract-a-e-p-proof-bundle-registry",
+      "title": "AEPProofBundleRegistry",
+      "route": "contracts/a-e-p-proof-bundle-registry.html",
+      "kind": "legacy",
+      "answer": "AEPProofBundleRegistry is a AEP execution, evidence & rollout architecture rail for Proof bundle. In Signoff, it belongs mainly to the Verified layer and supports Submit work. Open its page for address, Etherscan link, role, tier, and public-safe boundary.",
+      "keywords": [
+        "AEPProofBundleRegistry",
+        "0xA29C54c0bf7B8AfF097B14034Ca4bDfd41e46E16",
+        "AEP execution, evidence & rollout architecture",
+        "Proof bundle",
+        "Records proof bundle identifiers and hash commitments tying evidence to acceptance.",
+        "Verified",
+        "Signoff Verified",
+        "Signoff Secured",
+        "Signoff & Settle",
+        "Submit work"
+      ]
+    },
+    {
+      "id": "contract-alpha-work-unit-ledger",
+      "title": "AlphaWorkUnitLedger",
+      "route": "contracts/alpha-work-unit-ledger.html",
+      "kind": "legacy",
+      "answer": "AlphaWorkUnitLedger is a AEP execution, evidence & rollout architecture rail for α-Work Unit ledger. In Signoff, it belongs mainly to the Settle layer and supports Remember. Open its page for address, Etherscan link, role, tier, and public-safe boundary.",
+      "keywords": [
+        "AlphaWorkUnitLedger",
+        "0x8F17bAd575347CeA4f1FDC6504D973DA2869a489",
+        "AEP execution, evidence & rollout architecture",
+        "α-Work Unit ledger",
+        "Tracks accepted work units that can inform reputation, reward, or future allocation.",
+        "Settle",
+        "Signoff & Settle",
+        "Remember"
+      ]
+    },
+    {
+      "id": "contract-mandate-epoch-registry",
+      "title": "MandateEpochRegistry",
+      "route": "contracts/mandate-epoch-registry.html",
+      "kind": "legacy",
+      "answer": "MandateEpochRegistry is a AEP execution, evidence & rollout architecture rail for Mandate epochs. In Signoff, it belongs mainly to the Secured layer and supports Protocol support. Open its page for address, Etherscan link, role, tier, and public-safe boundary.",
+      "keywords": [
+        "MandateEpochRegistry",
+        "0x2A30a1AFc000385a6630B234dE85D131D8f0e13B",
+        "AEP execution, evidence & rollout architecture",
+        "Mandate epochs",
+        "Records mandate epochs so governance contexts and permissions are time-bounded.",
+        "Secured",
+        "Secured",
+        "Protocol support"
+      ]
+    },
+    {
+      "id": "contract-a-g-i-eth-namespace-registry",
+      "title": "AGIEthNamespaceRegistry",
+      "route": "contracts/a-g-i-eth-namespace-registry.html",
+      "kind": "legacy",
+      "answer": "AGIEthNamespaceRegistry is a AEP execution, evidence & rollout architecture rail for Namespace registry. In Signoff, it belongs mainly to the Verified layer and supports Protocol support. Open its page for address, Etherscan link, role, tier, and public-safe boundary.",
+      "keywords": [
+        "AGIEthNamespaceRegistry",
+        "0xF48688Ac94d22F6a06E5dF0febC52806821e963f",
+        "AEP execution, evidence & rollout architecture",
+        "Namespace registry",
+        "Maintains Ethereum namespace references for AGI/GoalOS protocol objects.",
+        "Verified",
+        "Verified",
+        "Protocol support"
+      ]
+    },
+    {
+      "id": "contract-a-e-p-conformance-registry",
+      "title": "AEPConformanceRegistry",
+      "route": "contracts/a-e-p-conformance-registry.html",
+      "kind": "legacy",
+      "answer": "AEPConformanceRegistry is a Institutional assurance, staking & accountability rail for Conformance checks. In Signoff, it belongs mainly to the Secured layer and supports Review. Open its page for address, Etherscan link, role, tier, and public-safe boundary.",
+      "keywords": [
+        "AEPConformanceRegistry",
+        "0x2A5E000C27Ba013CCa0b412C36B7C35e789AeAC6",
+        "Institutional assurance, staking & accountability",
+        "Conformance checks",
+        "Records conformance status against AEP or GoalOS rules.",
+        "Secured",
+        "Signoff Secured",
+        "Review"
+      ]
+    },
+    {
+      "id": "contract-a-e-p-claim-boundary-registry",
+      "title": "AEPClaimBoundaryRegistry",
+      "route": "contracts/a-e-p-claim-boundary-registry.html",
+      "kind": "legacy",
+      "answer": "AEPClaimBoundaryRegistry is a Institutional assurance, staking & accountability rail for Claim boundary. In Signoff, it belongs mainly to the Secured layer and supports Submit work. Open its page for address, Etherscan link, role, tier, and public-safe boundary.",
+      "keywords": [
+        "AEPClaimBoundaryRegistry",
+        "0x8711eC9b240A5A6EA97931E38AfB918Ef1123939",
+        "Institutional assurance, staking & accountability",
+        "Claim boundary",
+        "Defines what a proof, credential, or Signoff is and is not allowed to claim.",
+        "Secured",
+        "Signoff Secured",
+        "Submit work"
+      ]
+    },
+    {
+      "id": "contract-a-e-p-replay-registry",
+      "title": "AEPReplayRegistry",
+      "route": "contracts/a-e-p-replay-registry.html",
+      "kind": "legacy",
+      "answer": "AEPReplayRegistry is a Institutional assurance, staking & accountability rail for Replay rail. In Signoff, it belongs mainly to the Verified layer and supports Remember. Open its page for address, Etherscan link, role, tier, and public-safe boundary.",
+      "keywords": [
+        "AEPReplayRegistry",
+        "0xb811f2497a810C18f69c0b3ecdb5aF0E5627D2df",
+        "Institutional assurance, staking & accountability",
+        "Replay rail",
+        "Records replay commitments and independent replay evidence.",
+        "Verified",
+        "Signoff Verified",
+        "Signoff Secured",
+        "Remember"
+      ]
+    },
+    {
+      "id": "contract-a-e-p-commit-reveal-validation-registry",
+      "title": "AEPCommitRevealValidationRegistry",
+      "route": "contracts/a-e-p-commit-reveal-validation-registry.html",
+      "kind": "legacy",
+      "answer": "AEPCommitRevealValidationRegistry is a Institutional assurance, staking & accountability rail for Commit-reveal validation. In Signoff, it belongs mainly to the Challenge layer and supports Challenge. Open its page for address, Etherscan link, role, tier, and public-safe boundary.",
+      "keywords": [
+        "AEPCommitRevealValidationRegistry",
+        "0x2E0B6fd0d6A137575B405574723650852e4698f8",
+        "Institutional assurance, staking & accountability",
+        "Commit-reveal validation",
+        "Supports commit/reveal validation patterns for challenge-resistant proof checks.",
+        "Challenge",
+        "Challenge",
+        "Challenge"
+      ]
+    },
+    {
+      "id": "contract-a-e-p-evaluator-staking-registry",
+      "title": "AEPEvaluatorStakingRegistry",
+      "route": "contracts/a-e-p-evaluator-staking-registry.html",
+      "kind": "legacy",
+      "answer": "AEPEvaluatorStakingRegistry is a Institutional assurance, staking & accountability rail for Evaluator staking. In Signoff, it belongs mainly to the Secured layer and supports Review. Open its page for address, Etherscan link, role, tier, and public-safe boundary.",
+      "keywords": [
+        "AEPEvaluatorStakingRegistry",
+        "0x912b72fB0829111A66d40FFe275Fa372f7804005",
+        "Institutional assurance, staking & accountability",
+        "Evaluator staking",
+        "Models evaluator stakes that can secure review and challenge processes.",
+        "Secured",
+        "Signoff Secured",
+        "Review"
+      ]
+    },
+    {
+      "id": "contract-a-e-p-slashing-court",
+      "title": "AEPSlashingCourt",
+      "route": "contracts/a-e-p-slashing-court.html",
+      "kind": "legacy",
+      "answer": "AEPSlashingCourt is a Institutional assurance, staking & accountability rail for Slashing court. In Signoff, it belongs mainly to the Challenge layer and supports Challenge. Open its page for address, Etherscan link, role, tier, and public-safe boundary.",
+      "keywords": [
+        "AEPSlashingCourt",
+        "0xc47EaA3D80C9821b552c223F1Be481f9409f7959",
+        "Institutional assurance, staking & accountability",
+        "Slashing court",
+        "Handles evidence-backed slashing cases for evaluator or reviewer misconduct.",
+        "Challenge",
+        "Signoff Secured",
+        "Challenge"
+      ]
+    },
+    {
+      "id": "contract-a-e-p-reward-vault",
+      "title": "AEPRewardVault",
+      "route": "contracts/a-e-p-reward-vault.html",
+      "kind": "legacy",
+      "answer": "AEPRewardVault is a Institutional assurance, staking & accountability rail for AEP reward vault. In Signoff, it belongs mainly to the Settle layer and supports Settle. Open its page for address, Etherscan link, role, tier, and public-safe boundary.",
+      "keywords": [
+        "AEPRewardVault",
+        "0x957daac2C45aF4Ec45Fe8B408dcF4a8d5626B67a",
+        "Institutional assurance, staking & accountability",
+        "AEP reward vault",
+        "Pays or records rewards associated with proof bundles and accepted work units.",
+        "Settle",
+        "Signoff & Settle",
+        "Settle"
+      ]
+    },
+    {
+      "id": "contract-a-e-p-chronicle-registry",
+      "title": "AEPChronicleRegistry",
+      "route": "contracts/a-e-p-chronicle-registry.html",
+      "kind": "legacy",
+      "answer": "AEPChronicleRegistry is a Institutional assurance, staking & accountability rail for Chronicle memory. In Signoff, it belongs mainly to the Verified layer and supports Remember. Open its page for address, Etherscan link, role, tier, and public-safe boundary.",
+      "keywords": [
+        "AEPChronicleRegistry",
+        "0x0AC113585d0b5646544BCC730E13221485334A5F",
+        "Institutional assurance, staking & accountability",
+        "Chronicle memory",
+        "Records accepted proof/work events as institutional memory.",
+        "Verified",
+        "Verified",
+        "Remember"
+      ]
+    },
+    {
+      "id": "contract-a-e-p-falsification-registry",
+      "title": "AEPFalsificationRegistry",
+      "route": "contracts/a-e-p-falsification-registry.html",
+      "kind": "legacy",
+      "answer": "AEPFalsificationRegistry is a Institutional assurance, staking & accountability rail for Falsification registry. In Signoff, it belongs mainly to the Challenge layer and supports Challenge. Open its page for address, Etherscan link, role, tier, and public-safe boundary.",
+      "keywords": [
+        "AEPFalsificationRegistry",
+        "0x7735f010BeAE5Ad7b3F97eCa4eb7B3091f53C1f6",
+        "Institutional assurance, staking & accountability",
+        "Falsification registry",
+        "Records falsification attempts, challenge evidence, and counter-claims.",
+        "Challenge",
+        "Signoff Secured",
+        "Challenge"
+      ]
+    },
+    {
+      "id": "v22",
+      "title": "v22 — Action Graph & Human Authority",
+      "route": "action-graph-authority-lab.html",
+      "kind": "lab",
+      "answer": "Open v22: Action Graph & Human Authority. This proof loop demo is part of the complete GoalOS Signoff Pro v22–v40 public suite.",
+      "keywords": [
+        "v22",
+        "Action Graph & Human Authority",
+        "Proof loop",
+        "action-graph-authority-lab.html"
+      ]
+    },
+    {
+      "id": "v23",
+      "title": "v23 — Proof-Carrying Artifact & Evolution Ledger",
+      "route": "proof-carrying-artifact-lab.html",
+      "kind": "lab",
+      "answer": "Open v23: Proof-Carrying Artifact & Evolution Ledger. This reusable capability demo is part of the complete GoalOS Signoff Pro v22–v40 public suite.",
+      "keywords": [
+        "v23",
+        "Proof-Carrying Artifact & Evolution Ledger",
+        "Reusable capability",
+        "proof-carrying-artifact-lab.html"
+      ]
+    },
+    {
+      "id": "v24",
+      "title": "v24 — Independent Replay & Claim Promotion",
+      "route": "independent-replay-lab.html",
+      "kind": "lab",
+      "answer": "Open v24: Independent Replay & Claim Promotion. This replay demo is part of the complete GoalOS Signoff Pro v22–v40 public suite.",
+      "keywords": [
+        "v24",
+        "Independent Replay & Claim Promotion",
+        "Replay",
+        "independent-replay-lab.html"
+      ]
+    },
+    {
+      "id": "v25",
+      "title": "v25 — ProofZero Planning & Evidence Reanalyze",
+      "route": "proofzero-planning-lab.html",
+      "kind": "lab",
+      "answer": "Open v25: ProofZero Planning & Evidence Reanalyze. This planning demo is part of the complete GoalOS Signoff Pro v22–v40 public suite.",
+      "keywords": [
+        "v25",
+        "ProofZero Planning & Evidence Reanalyze",
+        "Planning",
+        "proofzero-planning-lab.html"
+      ]
+    },
+    {
+      "id": "v26",
+      "title": "v26 — Proof-Gated Mission Foundry & Curriculum",
+      "route": "mission-foundry-lab.html",
+      "kind": "lab",
+      "answer": "Open v26: Proof-Gated Mission Foundry & Curriculum. This curriculum demo is part of the complete GoalOS Signoff Pro v22–v40 public suite.",
+      "keywords": [
+        "v26",
+        "Proof-Gated Mission Foundry & Curriculum",
+        "Curriculum",
+        "mission-foundry-lab.html"
+      ]
+    },
+    {
+      "id": "v27",
+      "title": "v27 — Process-Resolved Evidence",
+      "route": "process-evidence-lab.html",
+      "kind": "lab",
+      "answer": "Open v27: Process-Resolved Evidence. This process evidence demo is part of the complete GoalOS Signoff Pro v22–v40 public suite.",
+      "keywords": [
+        "v27",
+        "Process-Resolved Evidence",
+        "Process evidence",
+        "process-evidence-lab.html"
+      ]
+    },
+    {
+      "id": "v28",
+      "title": "v28 — Blockchain Credibility Standard",
+      "route": "blockchain-credibility-lab.html",
+      "kind": "lab",
+      "answer": "Open v28: Blockchain Credibility Standard. This blockchain credibility demo is part of the complete GoalOS Signoff Pro v22–v40 public suite.",
+      "keywords": [
+        "v28",
+        "Blockchain Credibility Standard",
+        "Blockchain credibility",
+        "blockchain-credibility-lab.html"
+      ]
+    },
+    {
+      "id": "v29",
+      "title": "v29 — Blockchain Proof Mandate & Due Diligence",
+      "route": "blockchain-proof-mandate-lab.html",
+      "kind": "lab",
+      "answer": "Open v29: Blockchain Proof Mandate & Due Diligence. This mandate demo is part of the complete GoalOS Signoff Pro v22–v40 public suite.",
+      "keywords": [
+        "v29",
+        "Blockchain Proof Mandate & Due Diligence",
+        "Mandate",
+        "blockchain-proof-mandate-lab.html"
+      ]
+    },
+    {
+      "id": "v30",
+      "title": "v30 — Proof Before Settlement Research Standard",
+      "route": "proof-before-settlement-research-lab.html",
+      "kind": "lab",
+      "answer": "Open v30: Proof Before Settlement Research Standard. This research demo is part of the complete GoalOS Signoff Pro v22–v40 public suite.",
+      "keywords": [
+        "v30",
+        "Proof Before Settlement Research Standard",
+        "Research",
+        "proof-before-settlement-research-lab.html"
+      ]
+    },
+    {
+      "id": "v31",
+      "title": "v31 — Executive AI Proof Console",
+      "route": "executive-ai-proof-console.html",
+      "kind": "lab",
+      "answer": "Open v31: Executive AI Proof Console. This guided console demo is part of the complete GoalOS Signoff Pro v22–v40 public suite.",
+      "keywords": [
+        "v31",
+        "Executive AI Proof Console",
+        "Guided console",
+        "executive-ai-proof-console.html"
+      ]
+    },
+    {
+      "id": "v32",
+      "title": "v32 — From Loop to RSI",
+      "route": "from-loop-to-rsi-lab.html",
+      "kind": "lab",
+      "answer": "Open v32: From Loop to RSI. This rsi demo is part of the complete GoalOS Signoff Pro v22–v40 public suite.",
+      "keywords": [
+        "v32",
+        "From Loop to RSI",
+        "RSI",
+        "from-loop-to-rsi-lab.html"
+      ]
+    },
+    {
+      "id": "v33",
+      "title": "v33 — Loop → RSI → ASI Console",
+      "route": "loop-rsi-asi-superintelligence-lab.html",
+      "kind": "lab",
+      "answer": "Open v33: Loop → RSI → ASI Console. This asi boundary demo is part of the complete GoalOS Signoff Pro v22–v40 public suite.",
+      "keywords": [
+        "v33",
+        "Loop → RSI → ASI Console",
+        "ASI boundary",
+        "loop-rsi-asi-superintelligence-lab.html"
+      ]
+    },
+    {
+      "id": "v34",
+      "title": "v34 — ASI Superintelligence Control Tower",
+      "route": "loop-rsi-asi-superintelligence-control-tower-lab.html",
+      "kind": "lab",
+      "answer": "Open v34: ASI Superintelligence Control Tower. This control tower demo is part of the complete GoalOS Signoff Pro v22–v40 public suite.",
+      "keywords": [
+        "v34",
+        "ASI Superintelligence Control Tower",
+        "Control tower",
+        "loop-rsi-asi-superintelligence-control-tower-lab.html"
+      ]
+    },
+    {
+      "id": "v35",
+      "title": "v35 — ASI Mission Simulator",
+      "route": "loop-rsi-asi-superintelligence-mission-simulator-lab.html",
+      "kind": "lab",
+      "answer": "Open v35: ASI Mission Simulator. This simulator demo is part of the complete GoalOS Signoff Pro v22–v40 public suite.",
+      "keywords": [
+        "v35",
+        "ASI Mission Simulator",
+        "Simulator",
+        "loop-rsi-asi-superintelligence-mission-simulator-lab.html"
+      ]
+    },
+    {
+      "id": "v36",
+      "title": "v36 — Signoff Product Core & Protocol Ladder",
+      "route": "signoff-product-protocol-ladder-lab.html",
+      "kind": "lab",
+      "answer": "Open v36: Signoff Product Core & Protocol Ladder. This product ladder demo is part of the complete GoalOS Signoff Pro v22–v40 public suite.",
+      "keywords": [
+        "v36",
+        "Signoff Product Core & Protocol Ladder",
+        "Product ladder",
+        "signoff-product-protocol-ladder-lab.html"
+      ]
+    },
+    {
+      "id": "v37",
+      "title": "v37 — AI Research & Strategy Signoff Console",
+      "route": "ai-research-strategy-signoff-console.html",
+      "kind": "lab",
+      "answer": "Open v37: AI Research & Strategy Signoff Console. This customer product demo is part of the complete GoalOS Signoff Pro v22–v40 public suite.",
+      "keywords": [
+        "v37",
+        "AI Research & Strategy Signoff Console",
+        "Customer product",
+        "ai-research-strategy-signoff-console.html"
+      ]
+    },
+    {
+      "id": "v38",
+      "title": "v38 — AGIALPHA 48-Contract Atlas",
+      "route": "agialpha-48-contract-atlas.html",
+      "kind": "lab",
+      "answer": "Open v38: AGIALPHA 48-Contract Atlas. This protocol atlas demo is part of the complete GoalOS Signoff Pro v22–v40 public suite.",
+      "keywords": [
+        "v38",
+        "AGIALPHA 48-Contract Atlas",
+        "Protocol atlas",
+        "agialpha-48-contract-atlas.html"
+      ]
+    },
+    {
+      "id": "v39",
+      "title": "v39 — Autonomous Site Navigator",
+      "route": "ask-goalos.html",
+      "kind": "lab",
+      "answer": "Open v39: Autonomous Site Navigator. This answer router demo is part of the complete GoalOS Signoff Pro v22–v40 public suite.",
+      "keywords": [
+        "v39",
+        "Autonomous Site Navigator",
+        "Answer router",
+        "ask-goalos.html"
+      ]
+    },
+    {
+      "id": "v40",
+      "title": "v40 — Autonomous AI Concierge & Route Orchestrator",
+      "route": "ask-goalos-live.html",
+      "kind": "lab",
+      "answer": "Open v40: Autonomous AI Concierge & Route Orchestrator. This live concierge demo is part of the complete GoalOS Signoff Pro v22–v40 public suite.",
+      "keywords": [
+        "v40",
+        "Autonomous AI Concierge & Route Orchestrator",
+        "Live concierge",
+        "ask-goalos-live.html"
+      ]
+    }
+  ],
+  "quickQuestions": [
+    "Where should I start?",
+    "I am an AI consultant. What should I open?",
+    "Explain GoalOS Signoff in one minute.",
+    "Show me the 48 Mainnet contracts.",
+    "Which tier uses reviewer bonds?",
+    "Is live settlement activated?",
+    "Open Mission 001.",
+    "Explain Loop → RSI → ASI.",
+    "What is the safest demo?",
+    "Take me to v35."
+  ],
+  "roles": [
+    {
+      "id": "visitor",
+      "label": "First-time visitor",
+      "question": "Where should I start if I am new?"
+    },
+    {
+      "id": "consultant",
+      "label": "AI consultant / agency",
+      "question": "How do I use GoalOS Signoff for a client deliverable?"
+    },
+    {
+      "id": "client",
+      "label": "Client reviewer",
+      "question": "How do I know if AI work is ready to accept?"
+    },
+    {
+      "id": "dao",
+      "label": "DAO / blockchain team",
+      "question": "How do the 48 Mainnet contracts support proof before settlement?"
+    },
+    {
+      "id": "reviewer",
+      "label": "Auditor / reviewer",
+      "question": "Where do I inspect evidence, replay, reviewer bonds, and challenge windows?"
+    },
+    {
+      "id": "rsi",
+      "label": "RSI / ASI governance",
+      "question": "Show me the Loop to RSI to ASI path."
+    }
+  ]
+}

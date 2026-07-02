@@ -1,0 +1,23 @@
+GitHub Web UI install — v40 Autonomous AI Concierge
+
+1. Download and unzip the package.
+2. Open the unzipped folder.
+3. Go to the root of https://github.com/MontrealAI/goalos-signoff-pro
+4. Click Add file -> Upload files.
+5. Drag the contents INSIDE the unzipped folder into GitHub.
+6. Make sure these folders are included:
+   - .github/
+   - scripts/
+   - config/
+   - docs/
+   - site/
+   - serverless/
+7. Commit to a new branch.
+8. Run: Actions -> GoalOS Signoff Pro — Autonomous AI Concierge v40
+9. Use commit_generated_site=true and deploy_pages=true.
+
+Best public route after deployment:
+https://montrealai.github.io/goalos-signoff-pro/ask-goalos-live.html
+
+Fallback route:
+https://montrealai.github.io/goalos-signoff-pro/goalos-v22-v40-command-center.html

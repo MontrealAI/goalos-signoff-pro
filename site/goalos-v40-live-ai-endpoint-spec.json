@@ -1,0 +1,26 @@
+{
+  "purpose": "Optional server-side live AI endpoint for future deployments.",
+  "important": "Do not expose model-provider keys in GitHub Pages JavaScript.",
+  "request": {
+    "question": "string <= 800 chars",
+    "localCandidate": "topic object",
+    "page": "current path",
+    "allowlist": "route list"
+  },
+  "response": {
+    "answer": "short grounded answer",
+    "route": "one allowlisted route",
+    "confidence": "0..1",
+    "citations": "optional local routes",
+    "safety": "no personal/confidential/payment/wallet data"
+  },
+  "guards": [
+    "rate limit",
+    "origin allowlist",
+    "route allowlist",
+    "no chain transactions",
+    "no wallet actions",
+    "do not accept secrets or personal data",
+    "return only site routes"
+  ]
+}
