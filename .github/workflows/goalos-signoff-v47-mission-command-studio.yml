@@ -1,0 +1,92 @@
+name: GoalOS Signoff Pro — Mission Command Studio v47
+
+on:
+  workflow_dispatch:
+    inputs:
+      commit_generated_site:
+        description: Commit generated site files back to the branch
+        required: true
+        default: 'true'
+        type: choice
+        options: ['true','false']
+      deploy_pages:
+        description: Deploy GitHub Pages after verification
+        required: true
+        default: 'true'
+        type: choice
+        options: ['true','false']
+      deploy_timeout_ms:
+        description: GitHub Pages deployment timeout in milliseconds
+        required: true
+        default: '3600000'
+        type: string
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+env:
+  GOALOS_PUBLIC_SAFE: 'true'
+  GOALOS_ZERO_VALUE_MOVED: 'true'
+  GOALOS_NO_EXTERNAL_AI_CALLS: 'true'
+
+concurrency:
+  group: goalos-pages-deploy
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Build and verify v47 Mission Command Studio
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+      - name: Setup Node.js 24
+        uses: actions/setup-node@v5
+        with:
+          node-version: '24'
+      - name: Build v47 front-and-center mission command studio
+        run: node scripts/build-goalos-v47-mission-command-studio.mjs
+      - name: Repair command safety, legacy assets, and legal rails
+        run: node scripts/repair-goalos-v47-command-safety.mjs
+      - name: Verify v47 mission command studio
+        run: node scripts/verify-goalos-v47-mission-command-studio.mjs
+      - name: Public-safe artifact gate
+        run: |
+          if [ -f scripts/verify-goalos-public-safe.mjs ]; then
+            node scripts/verify-goalos-public-safe.mjs
+          else
+            echo "No public-safe gate present; v47 verifier already checked generated HTML and JS."
+          fi
+      - name: Commit generated site files
+        if: ${{ inputs.commit_generated_site == 'true' }}
+        run: |
+          git config user.name "goalos-actions"
+          git config user.email "actions@users.noreply.github.com"
+          git add site scripts docs .github/workflows verification config serverless || true
+          if git diff --cached --quiet; then
+            echo "No generated changes to commit."
+          else
+            git commit -m "Add GoalOS Mission Command Studio v47 [skip ci]"
+            git push
+          fi
+      - name: Configure GitHub Pages
+        if: ${{ inputs.deploy_pages == 'true' }}
+        uses: actions/configure-pages@v5
+      - name: Prepare Pages artifact
+        if: ${{ inputs.deploy_pages == 'true' }}
+        run: |
+          touch site/.nojekyll
+          test -f site/index.html
+          test -f site/goalos-mission-command-studio.html
+      - name: Upload Pages artifact
+        if: ${{ inputs.deploy_pages == 'true' }}
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - name: Deploy GitHub Pages
+        if: ${{ inputs.deploy_pages == 'true' }}
+        uses: actions/deploy-pages@v4
+        with:
+          timeout: ${{ inputs.deploy_timeout_ms }}

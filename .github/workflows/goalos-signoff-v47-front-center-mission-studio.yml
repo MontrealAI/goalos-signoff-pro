@@ -1,0 +1,78 @@
+name: GoalOS Signoff Pro — Front-Center Mission Studio v47
+
+on:
+  workflow_dispatch:
+    inputs:
+      commit_generated_site:
+        description: Commit generated site files back to the branch
+        required: true
+        default: 'true'
+        type: choice
+        options: ['true','false']
+      deploy_pages:
+        description: Deploy GitHub Pages after verification
+        required: true
+        default: 'true'
+        type: choice
+        options: ['true','false']
+      deploy_timeout_minutes:
+        description: GitHub Pages deploy timeout in minutes
+        required: true
+        default: '60'
+        type: string
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: goalos-signoff-pages-deploy
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Build and verify v47 front-center mission studio
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+      - name: Setup Node.js 24
+        uses: actions/setup-node@v5
+        with:
+          node-version: 24
+      - name: Build v47 front-center mission studio
+        run: node scripts/build-goalos-front-center-mission-studio-v47.mjs
+      - name: Repair HTML and command safety
+        run: node scripts/repair-goalos-v47-site-integrity.mjs
+      - name: Verify v47 studio
+        run: node scripts/verify-goalos-front-center-mission-studio-v47.mjs
+      - name: Optional production site gate
+        run: |
+          if [ -f scripts/verify-goalos-production-site.mjs ]; then node scripts/verify-goalos-production-site.mjs; else echo "No production site gate present"; fi
+      - name: Optional public-safe artifact gate
+        run: |
+          if [ -f scripts/verify-goalos-public-safe.mjs ]; then node scripts/verify-goalos-public-safe.mjs; else echo "No public-safe gate present"; fi
+      - name: Commit generated site files
+        if: ${{ inputs.commit_generated_site == 'true' }}
+        run: |
+          git config user.name "goalos-actions"
+          git config user.email "actions@users.noreply.github.com"
+          git add .github scripts config docs site serverless verification
+          git commit -m "Add GoalOS front-center mission studio v47 [skip ci]" || echo "No changes to commit"
+          git push || true
+      - name: Configure Pages
+        if: ${{ inputs.deploy_pages == 'true' }}
+        uses: actions/configure-pages@v5
+      - name: Prepare Pages artifact marker
+        if: ${{ inputs.deploy_pages == 'true' }}
+        run: touch site/.nojekyll
+      - name: Upload Pages artifact
+        if: ${{ inputs.deploy_pages == 'true' }}
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: site
+      - name: Deploy GitHub Pages
+        if: ${{ inputs.deploy_pages == 'true' }}
+        timeout-minutes: ${{ fromJSON(inputs.deploy_timeout_minutes) }}
+        uses: actions/deploy-pages@v4
