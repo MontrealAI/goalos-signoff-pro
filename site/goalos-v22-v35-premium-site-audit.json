@@ -1,14 +1,10 @@
 {
-  "version": "v35",
-  "generatedAt": "2026-07-02T03:15:27.744Z",
-  "verdict": "strong-substance-now-needs-unified-entrypoint-and-reliable-actions",
-  "implemented": [
-    "site-wide command center",
-    "floating guided navigation",
-    "interactive button-only AI-style console",
-    "all v22-v35 lab map",
-    "v33/v34/v35 action repair coverage"
-  ],
+  "generatedAt": "2026-07-02T03:30:10.760Z",
+  "result": "diamond-experience-applied",
+  "homepage": "index.html",
+  "commandCenter": "goalos-v22-v35-command-center.html",
+  "labCount": 14,
+  "latest": "v35",
   "publicSafety": {
     "noForms": true,
     "noTextInputs": true,
@@ -19,9 +15,6 @@
     "noPayments": true,
     "noExternalAiCalls": true,
     "noPersonalData": true,
-    "valueMoved": 0,
-    "claimedAgi": false,
-    "claimedAsi": false,
-    "productionAuthority": false
+    "valueMoved": 0
   }
 }

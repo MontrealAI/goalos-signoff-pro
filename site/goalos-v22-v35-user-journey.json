@@ -1,6 +1,5 @@
 {
-  "version": "v35",
-  "generatedAt": "2026-07-02T03:15:27.744Z",
+  "generatedAt": "2026-07-02T03:30:10.760Z",
   "journeys": [
     {
       "role": "First-time visitor",
@@ -11,7 +10,7 @@
       ]
     },
     {
-      "role": "Blockchain stakeholder",
+      "role": "Blockchain / DAO",
       "start": "blockchain-proof-mandate-lab.html",
       "next": [
         "proof-before-settlement-research-lab.html",
@@ -19,7 +18,7 @@
       ]
     },
     {
-      "role": "RSI / ASI governance stakeholder",
+      "role": "RSI / ASI governance",
       "start": "from-loop-to-rsi-lab.html",
       "next": [
         "loop-rsi-asi-superintelligence-control-tower-lab.html",
@@ -37,9 +36,6 @@
     "noPayments": true,
     "noExternalAiCalls": true,
     "noPersonalData": true,
-    "valueMoved": 0,
-    "claimedAgi": false,
-    "claimedAsi": false,
-    "productionAuthority": false
+    "valueMoved": 0
   }
 }
