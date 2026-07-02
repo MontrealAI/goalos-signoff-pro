@@ -1,16 +1,16 @@
 {
   "id": "GOALOS-V32-FROM-LOOP-TO-RSI-DEMO-BUNDLE",
-  "generatedAt": "2026-07-02T04:18:31.772Z",
+  "generatedAt": "2026-07-02T13:50:09.481Z",
   "publicSafe": true,
   "zeroValueMoved": true,
   "artifactHashes": {
-    "manifest": "195fd03f25327aa52a323f5b55e3e586697826cce0d8f9ffc7fe4e4e85e703b5",
-    "pipeline": "3efefbc561ff79e930d277530c7ec3d03446ff1b3fac912a7cdd022073bcb1d1",
-    "omniBoundary": "230d72a911a7a0cf36190c833c087fc1979dbe8e4c4040595c5c086919a44bb3",
-    "move37Dossier": "3a8430f28a9d415356706672d7164911491fa83c16e1949bd064b05e387b6d04",
-    "councilCharter": "e26831d4108e345fa81018215c59c62102baf0222f4bf29dbe3bd60691308759",
-    "dashboardSchema": "0c7cb1a37fda82b2311294213835ddd1bbf47aa6159ea5db51edbbc7475ec047",
-    "transitionMap": "a793250d8da2d347fa060e70a0239921ff6c3ca8b585ffe8b84fdc2e0ede472d"
+    "manifest": "4448a43b56ccc6943851069128afa2a0a14d54851b414d3b4a5e3d81a14b2dd5",
+    "pipeline": "908514da9000a5f3c06a6db6a7dc7e1ed924c862f5792bfa8697071f7fc9118f",
+    "omniBoundary": "390d9de967975b8ff50cbb9283a0e0dcbd319ab1ddae2006dbab94553efec3df",
+    "move37Dossier": "0daf81130757e34a426b018461e01badd29468af4b67824df2fd4a8b14208dd3",
+    "councilCharter": "0662451fc8e371ee05b88fc61ae507d9d6563aebded63a1a2e7757747f02c831",
+    "dashboardSchema": "9208c9844d148da6bf9c9368b487f84986bcd6bd71a08293687bbea054e1a38b",
+    "transitionMap": "121e07becbe4a79c3a1fca204cb7b261a579b5f115652adf65db7a96c8e84ecb"
   },
   "scenarios": [
     {

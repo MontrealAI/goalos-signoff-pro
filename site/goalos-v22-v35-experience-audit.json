@@ -1,27 +1,22 @@
 {
-  "generatedAt": "2026-07-02T04:18:32.094Z",
-  "result": "complete-v22-v35-navigation-and-command-console-applied",
-  "checked": [
-    "homepage",
-    "public demo hub",
-    "command center",
-    "website guide",
-    "aliases",
-    "floating command navigation",
-    "public-safe boundary"
+  "status": "ready",
+  "checks": [
+    "complete v22-v35 navigation",
+    "role-based command center",
+    "public-safe no-input console",
+    "route catalog",
+    "legal rail/footer normalization",
+    "stale v22-v30 language replaced"
   ],
-  "labCount": 14,
-  "latest": "v35",
-  "publicSafe": {
-    "noForms": true,
-    "noTextInputs": true,
-    "noUploads": true,
-    "noCookies": true,
-    "noAnalytics": true,
-    "noWallets": true,
-    "noPayments": true,
-    "noExternalAiCalls": true,
-    "noPersonalData": true,
-    "valueMoved": 0
-  }
+  "publicSafeBoundary": [
+    "no forms",
+    "no text inputs",
+    "no uploads",
+    "no cookies",
+    "no analytics",
+    "no wallets",
+    "no payments",
+    "no external AI calls",
+    "zero value moved"
+  ]
 }

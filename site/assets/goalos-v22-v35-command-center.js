@@ -1,56 +1,58 @@
 
-(() => {
-  const data = [{"v":"v22","route":"action-graph-authority-lab.html","short":"Action Graph","title":"Action Graph & Human Authority","phase":"Proof loop","audience":"Executives, reviewers, compliance teams, AI delivery leads","promise":"Shows why GoalOS prepares action, but never treats output as authority."},{"v":"v23","route":"proof-carrying-artifact-lab.html","short":"Proof-Carrying Artifact","title":"Proof-Carrying Artifact & Evolution Ledger","phase":"Reusable capability","audience":"Product teams, AI platform teams, governance stewards","promise":"Lets reusable capability earn upgrade rights through evidence, rollback, and ledgers."},{"v":"v24","route":"independent-replay-lab.html","short":"Independent Replay","title":"Independent Replay & Claim Promotion","phase":"Replay and promotion","audience":"Research reviewers, auditors, grant evaluators, diligence teams","promise":"Shows that one run is not proof; replay makes a claim institutionally usable."},{"v":"v25","route":"proofzero-planning-lab.html","short":"ProofZero Planning","title":"ProofZero Planning & Evidence Reanalyze","phase":"Planning over proof states","audience":"AI operators, mission designers, evaluation teams","promise":"Plans over proof-relevant work states instead of persuasive futures."},{"v":"v26","route":"mission-foundry-lab.html","short":"Mission Foundry","title":"Proof-Gated Mission Foundry & Curriculum","phase":"Curriculum and compounding","audience":"Program owners, frontier evaluation teams, autonomous work architects","promise":"Turns accepted proof into the next harder mission and curriculum."},{"v":"v27","route":"process-evidence-lab.html","short":"Process Evidence","title":"Process-Resolved Evidence","phase":"Process evidence","audience":"Corporate reviewers, analysts, legal/compliance observers, AI assurance teams","promise":"Makes process traces and lineage reviewable, not just final outputs."},{"v":"v28","route":"blockchain-credibility-lab.html","short":"Blockchain Credibility","title":"Blockchain Credibility Standard","phase":"Blockchain credibility","audience":"Blockchain teams, DAOs, foundations, auditors, validators, investors, users","promise":"Shows why credible blockchain projects need proof packages before trust or settlement readiness."},{"v":"v29","route":"blockchain-proof-mandate-lab.html","short":"Proof Mandate","title":"Blockchain Proof Mandate & Due Diligence","phase":"Mandate and diligence","audience":"Users, DAO delegates, grant committees, treasury councils, auditors, investors, partners","promise":"Turns blockchain credibility into a requirement stakeholders can ask for, score, and enforce."},{"v":"v30","route":"proof-before-settlement-research-lab.html","short":"Proof Before Settlement","title":"Proof Before Settlement Research Standard","phase":"Institutional research","audience":"Foundations, DAOs, auditors, investors, exchanges, enterprises, partners","promise":"Turns the proof-to-settlement thesis into a paper, adoption blueprint, and due-diligence standard."},{"v":"v31","route":"executive-ai-proof-console.html","short":"Executive AI Console","title":"Executive AI Proof Console","phase":"Guided console","audience":"Executives, DAO delegates, auditors, investors, enterprises, AI operators","promise":"Makes GoalOS obvious to first-time visitors with a role-based, public-safe proof gate."},{"v":"v32","route":"from-loop-to-rsi-lab.html","short":"From Loop to RSI","title":"From Loop to RSI","phase":"Sovereign invention governance","audience":"Frontier labs, governance teams, sovereign strategy leads","promise":"Connects proof loops to deterministic invention governance and RSI readiness."},{"v":"v33","route":"loop-rsi-asi-superintelligence-lab.html","short":"Loop → RSI → ASI","title":"Loop → RSI → ASI Console","phase":"RSI to ASI boundary","audience":"Safety leads, architecture councils, frontier lab directors","promise":"Shows the superintelligence control boundary: promotion cannot self-authorize."},{"v":"v34","route":"loop-rsi-asi-superintelligence-control-tower-lab.html","short":"Control Tower","title":"ASI Superintelligence Control Tower","phase":"Control tower","audience":"Boards, councils, sovereign programs, assurance teams","promise":"Runs explanation modes, stress tests, rollback drills, council review, and Move‑37 dossier handling."},{"v":"v35","route":"loop-rsi-asi-superintelligence-mission-simulator-lab.html","short":"Mission Simulator","title":"ASI Mission Simulator","phase":"Mission simulator","audience":"First-time visitors, executives, reviewers, blockchain teams, RSI/ASI governance audiences","promise":"Lets visitors experience the complete Loop → RSI → ASI path in one guided, button-only interactive lab."}];
-  const roleCopy = {
-    visitor: ['First-time visitor', 'Start with the guided proof console, then open v35. The site explains GoalOS by letting you run gates, not by forcing a wall of text.'],
-    blockchain: ['Blockchain / DAO', 'Begin with the proof mandate: require a proof package before trust, funding, governance, reputation, or settlement readiness.'],
-    executive: ['Executive / board', 'Use the command center, the v30 research standard, and the v34 control tower to inspect decisions, proof debt, council review, and rollback.'],
-    auditor: ['Auditor / reviewer', 'Inspect replay, process evidence, proof objects, and synthetic receipts before any claim matures.'],
-    frontier: ['Frontier lab / RSI team', 'Follow v32 through v35: deterministic invention stages, Move-37 dossiers, persistence gates, council review, and ASI boundary control.'],
-    public: ['Public reviewer', 'Use the route catalog and public artifacts to inspect the complete suite without giving data or connecting a wallet.']
+(()=>{
+  const labs = [{"version":"v22","route":"action-graph-authority-lab.html","chapter":"Human authority","title":"Action Graph & Human Authority","promise":"Convert accepted proof into bounded action graphs with reason, authority, rollback, and receipt boundaries.","audience":["Executive","Auditor","Builder"],"value":"See why GoalOS never treats output as automatic permission to act."},{"version":"v23","route":"proof-carrying-artifact-lab.html","chapter":"Reusable capability","title":"Proof-Carrying Artifact & Evolution Ledger","promise":"Make reusable artifacts earn upgrade rights through proof, ledgers, rollback, and evidence.","audience":["Builder","Auditor","AI operator"],"value":"Understand how accepted work becomes reusable without becoming ungoverned."},{"version":"v24","route":"independent-replay-lab.html","chapter":"Independent replay","title":"Independent Replay & Claim Promotion","promise":"Promote claims only when independent replay, review, and claim maturity gates pass.","audience":["Reviewer","Auditor","DAO"],"value":"See how one run becomes review-ready evidence."},{"version":"v25","route":"proofzero-planning-lab.html","chapter":"Planning over proof states","title":"ProofZero Planning & Evidence Reanalyze","promise":"Plan over evidence states, latent work, validators, and bounded search instead of persuasive futures.","audience":["Strategist","AI operator","Reviewer"],"value":"Explore how GoalOS reasons about what remains unproven."},{"version":"v26","route":"mission-foundry-lab.html","chapter":"Curriculum","title":"Proof-Gated Mission Foundry","promise":"Turn accepted proof into harder next missions while rejecting unproofable or unsafe mission seeds.","audience":["Program lead","Research lead","Founder"],"value":"Watch proof become a curriculum for compounding work."},{"version":"v27","route":"process-evidence-lab.html","chapter":"Process evidence","title":"Process-Resolved Evidence","promise":"Resolve evidence through process traces, lineage, provenance, and proof-native workbench views.","audience":["Auditor","Reviewer","Enterprise"],"value":"Inspect how work history becomes legible instead of anecdotal."},{"version":"v28","route":"blockchain-credibility-lab.html","chapter":"Blockchain credibility","title":"Blockchain Credibility Standard","promise":"Blockchain proves the transaction. GoalOS proves the work.","audience":["Blockchain team","DAO","Investor"],"value":"Make proof before settlement obvious."},{"version":"v29","route":"blockchain-proof-mandate-lab.html","chapter":"Proof mandate","title":"Blockchain Proof Mandate & Due Diligence","promise":"Require the proof package before trust, funding, governance, reputation, or settlement readiness escalates.","audience":["DAO delegate","Investor","Auditor"],"value":"Turn the slogan into a stakeholder checklist."},{"version":"v30","route":"proof-before-settlement-research-lab.html","chapter":"Research standard","title":"Proof Before Settlement Research Lab","promise":"Publish the institutional research standard, acceptance predicate, due-diligence rubric, and mandate clauses.","audience":["Executive","Partner","Researcher"],"value":"Give serious stakeholders a paper-grade reference."},{"version":"v31","route":"executive-ai-proof-console.html","chapter":"Guided proof console","title":"Executive AI Proof Console","promise":"Choose a role and run a public-safe proof-gate simulation with no inputs, no uploads, no wallets, and no external AI calls.","audience":["First-time visitor","Executive","DAO"],"value":"Let anyone understand GoalOS in one guided experience."},{"version":"v32","route":"from-loop-to-rsi-lab.html","chapter":"Loop to RSI","title":"From Loop to RSI","promise":"Move from proof-gated work to deterministic invention governance and RSI readiness.","audience":["Frontier lab","Policy lead","Researcher"],"value":"Connect proof loops to governed invention."},{"version":"v33","route":"loop-rsi-asi-superintelligence-lab.html","chapter":"RSI to ASI","title":"Loop → RSI → ASI Console","promise":"Escalate from mission proof to RSI governance and ASI-readiness gates without self-authorization.","audience":["Safety lead","Frontier lab","Executive"],"value":"See the superintelligence control boundary."},{"version":"v34","route":"loop-rsi-asi-superintelligence-control-tower-lab.html","chapter":"Control tower","title":"ASI Superintelligence Control Tower","promise":"Run explanation modes, stress tests, rollback drills, council review, and Move‑37 dossier handling.","audience":["Council","Executive","Red-team"],"value":"Operate the full governance cockpit."},{"version":"v35","route":"loop-rsi-asi-superintelligence-mission-simulator-lab.html","chapter":"Mission simulator","title":"ASI Mission Simulator","promise":"Choose role, mission, and explanation mode; run proof, RSI, ASI gates; generate a synthetic Mission Receipt.","audience":["Everyone","Executive","Reviewer"],"value":"Experience the complete journey in one interactive lab."}];
+  const roles = {
+    visitor:'First-time visitor', blockchain:'Blockchain team', executive:'Executive / board', auditor:'Auditor / reviewer', frontier:'Frontier lab / RSI team', public:'Public reviewer'
   };
-  const modeCopy = {
-    start: ['Start here', 'Run the six proof gates, open the public lab hub, then enter the v35 mission simulator.'],
-    settlement: ['Proof before settlement', 'Use v28-v30 to connect blockchain credibility, proof mandate, and institutional research.'],
-    rsi: ['Loop → RSI', 'Use v32 to see how proof loops become deterministic invention governance.'],
-    asi: ['RSI → ASI readiness', 'Use v33-v35 to test the superintelligence boundary: no self-authorization, council, rollback, and receipt.']
+  const modes = {
+    tour:['Mission','Evidence','Replay','Validation','Receipt'],
+    blockchain:['Claim','Proof package','Due diligence','Settlement readiness','Receipt'],
+    rsi:['Target','Emit','Filter','Atlas','Eval'],
+    asi:['Loop','RSI gates','ASI lock','Council','Rollback']
   };
-  let state = {role:'visitor', mode:'start', progress:0};
-  function $(s, r=document){return r.querySelector(s)}
-  function $$ (s, r=document){return Array.from(r.querySelectorAll(s))}
+  const messages = {
+    visitor:'Start with the guided proof console, then follow the v35 mission simulator. You will understand the whole system without reading the entire archive first.',
+    blockchain:'Open v28 and v29 first. The key question becomes: where is the proof package before value, governance, or reputation moves?',
+    executive:'Open v30, v34, and v35. The executive lens is simple: proof before trust, council before promotion, rollback before release.',
+    auditor:'Open v24, v27, and v35. Focus on replay, process-resolved evidence, risk gates, and synthetic receipt integrity.',
+    frontier:'Open v32 through v35. The path is proof loop → deterministic RSI → ASI-readiness gates → council review.',
+    public:'Open v31 and v35. The public version keeps the entire experience browser-local and uses buttons only.'
+  };
+  let state = {role:'visitor', mode:'tour', step:0};
+  const $ = (id)=>document.getElementById(id);
+  const safeJson = (x)=>JSON.stringify(x,null,2);
+  function setPressed(group,value){ document.querySelectorAll('[data-'+group+']').forEach(b=>b.setAttribute('aria-pressed', String(b.dataset[group]===value))); }
+  function routeFor(){
+    if(state.role==='blockchain') return 'blockchain-proof-mandate-lab.html';
+    if(state.role==='executive') return 'loop-rsi-asi-superintelligence-control-tower-lab.html';
+    if(state.role==='auditor') return 'independent-replay-lab.html';
+    if(state.role==='frontier') return 'from-loop-to-rsi-lab.html';
+    if(state.role==='public') return 'executive-ai-proof-console.html';
+    return 'loop-rsi-asi-superintelligence-mission-simulator-lab.html';
+  }
   function render(){
-    const role = roleCopy[state.role] || roleCopy.visitor;
-    const mode = modeCopy[state.mode] || modeCopy.start;
-    const title = $('#g35d-screen-title');
-    const body = $('#g35d-screen-body');
-    const route = $('#g35d-route');
-    if(title) title.textContent = role[0] + ' · ' + mode[0];
-    if(body) body.textContent = role[1] + ' ' + mode[1];
-    const routeByMode = {start:'executive-ai-proof-console.html', settlement:'proof-before-settlement-research-lab.html', rsi:'from-loop-to-rsi-lab.html', asi:'loop-rsi-asi-superintelligence-mission-simulator-lab.html'};
-    if(route) route.href = routeByMode[state.mode] || 'goalos-v22-v35-command-center.html';
-    $$('.g35d-choice[data-role]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.role === state.role)));
-    $$('.g35d-choice[data-mode]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.mode === state.mode)));
-    $$('.g35d-step').forEach((el,i)=>el.classList.toggle('done', i <= state.progress));
-    const prog = $('.g35d-progress i'); if(prog) prog.style.width = Math.min(100, 16 + state.progress * 14) + '%';
-    const receipt = $('#g35d-receipt');
-    if(receipt) receipt.textContent = JSON.stringify({receipt:'GOALOS-SYNTHETIC-V35', role:state.role, mode:state.mode, gates:['mission','evidence','replay','validation','authority','receipt'].slice(0,state.progress+1), valueMoved:0, publicSafe:true, note:'Deterministic browser-local demonstration only.'}, null, 2);
+    setPressed('role',state.role); setPressed('mode',state.mode);
+    const steps = modes[state.mode] || modes.tour;
+    state.step = Math.min(state.step, steps.length-1);
+    const stage = $('g35-stage'); if(stage){ stage.innerHTML = steps.map((s,i)=>'<div class="goalos35-step '+(i===state.step?'active':'')+'"><b>'+String(i+1).padStart(2,'0')+' · '+s+'</b><span>'+['Define the mission boundary.','Bind evidence and provenance.','Replay or stress the claim.','Apply gates and authority.','Issue or withhold promotion.'][i%5]+'</span></div>').join(''); }
+    const activeLabs = labs.filter(l=> state.mode==='tour' ? true : state.mode==='blockchain' ? ['v28','v29','v30'].includes(l.version) : state.mode==='rsi' ? ['v32','v33'].includes(l.version) : ['v33','v34','v35'].includes(l.version));
+    const cards = $('g35-cards'); if(cards){ cards.innerHTML = activeLabs.slice(-6).map(l=>'<a class="goalos35-card" href="'+l.route+'"><small>'+l.version+' · '+l.chapter+'</small><h3>'+l.title+'</h3><p>'+l.value+'</p></a>').join(''); }
+    const receipt = {
+      role: roles[state.role], mode: state.mode, activeStep: steps[state.step], recommendedRoute: routeFor(),
+      gates: ['mission-defined','evidence-bound','replay-ready','human-authority','rollback-available'],
+      publicSafety: {forms:false, inputs:false, uploads:false, wallets:false, payments:false, externalAiCalls:false, valueMoved:0},
+      decision: state.mode==='asi' ? 'ASI_ESCALATION_REQUIRES_COUNCIL_AND_ROLLBACK' : 'REVIEW_READY_DEMO',
+      generated_at_static: 'STATIC_SAMPLE_2026_07_01T00_00_00Z'
+    };
+    const out = $('g35-output'); if(out){ out.textContent = 'GOALOS COMMAND CENTER\n\nRole: '+roles[state.role]+'\nMode: '+state.mode.toUpperCase()+'\nStep: '+steps[state.step]+'\n\n'+messages[state.role]+'\n\nRecommended next route: '+routeFor()+'\n\nSynthetic receipt:\n'+safeJson(receipt); }
+    const open = $('g35-open'); if(open) open.href = routeFor();
+    const next = $('g35-next'); if(next) next.textContent = state.step === steps.length-1 ? 'Restart cycle' : 'Next gate';
   }
-  document.addEventListener('click', e => {
-    const b = e.target.closest('[data-role],[data-mode],[data-run-gate],[data-reset-gates],[data-copy-standard],[data-copy-receipt],[data-page-help]');
-    if(!b) return;
-    if(b.dataset.role){state.role=b.dataset.role; render();}
-    if(b.dataset.mode){state.mode=b.dataset.mode; render();}
-    if(b.dataset.runGate){state.progress=Math.min(5,state.progress+1); render();}
-    if(b.dataset.resetGates){state.progress=0; render();}
-    if(b.dataset.copyStandard){navigator.clipboard?.writeText('Blockchain proves the transaction. GoalOS proves the work. RSI governs invention. ASI must not self-authorize. No Proof. No Trust. No Settlement. No ungoverned superintelligence.'); b.textContent='Copied'; setTimeout(()=>b.textContent='Copy public standard',1200)}
-    if(b.dataset.copyReceipt){const txt=$('#g35d-receipt')?.textContent || ''; navigator.clipboard?.writeText(txt); b.textContent='Receipt copied'; setTimeout(()=>b.textContent='Copy synthetic receipt',1200)}
-    if(b.dataset.pageHelp){const panel=$('#g35d-page-help'); if(panel) panel.classList.toggle('open')}
+  document.addEventListener('click',(e)=>{
+    const role = e.target.closest('[data-role]'); if(role){ state.role=role.dataset.role; render(); }
+    const mode = e.target.closest('[data-mode]'); if(mode){ state.mode=mode.dataset.mode; state.step=0; render(); }
+    if(e.target.closest('#g35-next')){ const len=(modes[state.mode]||modes.tour).length; state.step=(state.step+1)%len; render(); }
+    if(e.target.closest('#g35-copy')){ const text=$('g35-output')?.textContent||''; navigator.clipboard?.writeText(text).catch(()=>{}); const btn=$('g35-copy'); if(btn){ const old=btn.textContent; btn.textContent='Copied'; setTimeout(()=>btn.textContent=old,900);} }
   });
-  if(!document.querySelector('.goalos-diamond-floating') && !document.body.classList.contains('g35d')){
-    const rail=document.createElement('div'); rail.className='goalos-diamond-floating';
-    rail.innerHTML='<a href="goalos-v22-v35-command-center.html">Command Center</a><a href="public-demo-labs.html">All labs</a><a href="loop-rsi-asi-superintelligence-mission-simulator-lab.html">v35</a><button type="button" data-page-help="true">Explain</button>';
-    document.body.appendChild(rail);
-    const panel=document.createElement('aside'); panel.id='g35d-page-help'; panel.className='g35d-page-help'; panel.innerHTML='<h3>What am I looking at?</h3><p>This is one page in the GoalOS Signoff Pro v22-v35 public suite. Start at the Command Center to choose a role, run proof gates, and open the best next lab. The site is static, public-safe, and moves zero value.</p><p><a class="g35d-btn primary" href="goalos-v22-v35-command-center.html">Open Command Center</a></p>'; document.body.appendChild(panel);
-  }
   render();
 })();
