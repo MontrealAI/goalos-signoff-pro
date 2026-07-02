@@ -1,0 +1,19 @@
+GitHub Web UI install for v38 repair
+
+1. Download and unzip the repair ZIP.
+2. Open the unzipped folder.
+3. In GitHub, open MontrealAI/goalos-signoff-pro at the repository root.
+4. Click Add file -> Upload files.
+5. Drag the contents INSIDE the unzipped folder into GitHub.
+6. Confirm these paths are present before committing:
+   - scripts/build-goalos-signoff-public-labs-v22-v38.mjs
+   - scripts/build-agialpha-48-contract-atlas-v38.mjs
+   - scripts/verify-goalos-signoff-public-labs-v22-v38.mjs
+   - config/agialpha-mainnet-contracts-v38.json
+   - .github/workflows/goalos-signoff-v38-agialpha-48-contract-atlas.yml
+7. Commit to a new branch or directly to main.
+8. Run Actions -> GoalOS Signoff Pro — AGIALPHA 48-Contract Atlas v38 Repair.
+9. Use commit_generated_site=true and deploy_pages=true.
+
+Best public entry point after deploy:
+https://montrealai.github.io/goalos-signoff-pro/agialpha-48-contract-atlas.html
