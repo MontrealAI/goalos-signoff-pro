@@ -1,0 +1,22 @@
+{
+  "id": "goalos-v42-live-autopilot-endpoint-spec",
+  "default_mode": "browser-local deterministic autopilot",
+  "live_ai_mode": "optional future server-side endpoint only",
+  "required_controls": [
+    "no provider API key in browser JavaScript",
+    "origin allowlist",
+    "rate limits",
+    "route allowlist",
+    "prompt-injection guardrails",
+    "no uploads by default",
+    "no wallet action",
+    "no payment or value movement",
+    "clear privacy disclosure"
+  ],
+  "allowed_response_shape": {
+    "answer": "string",
+    "route": "same-site relative route from allowlist",
+    "confidence": "0..1",
+    "mission_plan": "structured proof-to-acceptance plan"
+  }
+}

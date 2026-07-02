@@ -1,0 +1,713 @@
+{
+  "version": "v42",
+  "generatedAt": "2026-07-02T18:42:26.077Z",
+  "title": "GoalOS Universal Outcome Autopilot Studio",
+  "missionTypes": [
+    {
+      "id": "ai-research-signoff",
+      "name": "AI Research & Strategy Signoff",
+      "keywords": [
+        "research",
+        "strategy",
+        "report",
+        "consultant",
+        "client",
+        "deliverable",
+        "citations",
+        "source",
+        "brief"
+      ],
+      "route": "ai-research-strategy-signoff-console.html",
+      "tier": "Signoff Basic",
+      "summary": "Define done, check evidence, review claims, and issue a Mission Receipt."
+    },
+    {
+      "id": "software-automation-signoff",
+      "name": "Software / Automation Signoff",
+      "keywords": [
+        "software",
+        "automation",
+        "code",
+        "script",
+        "agent",
+        "workflow",
+        "tests",
+        "github",
+        "deliverable"
+      ],
+      "route": "browser-beta.html",
+      "tier": "Signoff Basic",
+      "summary": "Turn code, traces, tests, screenshots, and constraints into acceptance criteria."
+    },
+    {
+      "id": "dao-grant-milestone",
+      "name": "DAO Grant / Treasury Milestone",
+      "keywords": [
+        "dao",
+        "grant",
+        "treasury",
+        "milestone",
+        "payment",
+        "settlement",
+        "funding",
+        "bounty"
+      ],
+      "route": "blockchain-proof-mandate-lab.html",
+      "tier": "Signoff Verified",
+      "summary": "Require proof package, reviewer decision, and settlement readiness before value moves."
+    },
+    {
+      "id": "contract-rail-education",
+      "name": "48-Contract Rail Explorer",
+      "keywords": [
+        "48",
+        "contract",
+        "contracts",
+        "ethereum",
+        "mainnet",
+        "agialpha",
+        "token",
+        "rail",
+        "rails",
+        "etherscan"
+      ],
+      "route": "agialpha-48-contract-atlas.html",
+      "tier": "Signoff Verified",
+      "summary": "Explain which verified Mainnet contracts support each Signoff stage."
+    },
+    {
+      "id": "proof-before-settlement",
+      "name": "Proof Before Settlement",
+      "keywords": [
+        "proof before settlement",
+        "settlement",
+        "escrow",
+        "reviewer bond",
+        "slashing",
+        "dispute",
+        "appeal",
+        "pay"
+      ],
+      "route": "proof-before-settlement-research-lab.html",
+      "tier": "Signoff Secured",
+      "summary": "Move from proof-to-acceptance to proof-to-payment with reviewer accountability."
+    },
+    {
+      "id": "mission001-replay",
+      "name": "Mission 001 Replay / Reproducibility",
+      "keywords": [
+        "mission 001",
+        "mission001",
+        "reproduce",
+        "replay",
+        "packet",
+        "benchmark",
+        "validator",
+        "claims matrix"
+      ],
+      "route": "mission-001.html",
+      "tier": "Signoff Basic",
+      "summary": "Open the benchmark-ready reproducibility packet and proof bundle."
+    },
+    {
+      "id": "rsi-governance",
+      "name": "RSI Governance / Move-37 Dossier",
+      "keywords": [
+        "rsi",
+        "recursive",
+        "self-improvement",
+        "move-37",
+        "move37",
+        "dossier",
+        "breakthrough",
+        "omni",
+        "invention"
+      ],
+      "route": "from-loop-to-rsi-lab.html",
+      "tier": "Signoff Secured",
+      "summary": "Convert exploratory invention into deterministic gates, replay, stress tests, and dossier packaging."
+    },
+    {
+      "id": "asi-mission-control",
+      "name": "ASI Boundary / Mission Simulator",
+      "keywords": [
+        "asi",
+        "superintelligence",
+        "control tower",
+        "governance",
+        "rollback",
+        "council",
+        "safety",
+        "frontier"
+      ],
+      "route": "loop-rsi-asi-superintelligence-mission-simulator-lab.html",
+      "tier": "Signoff Secured",
+      "summary": "Inspect the Loop → RSI → ASI governance path with rollback, council review, and receipt."
+    },
+    {
+      "id": "general-site-navigation",
+      "name": "GoalOS Site Navigation",
+      "keywords": [
+        "start",
+        "where",
+        "begin",
+        "help",
+        "overview",
+        "guide",
+        "command center",
+        "all labs"
+      ],
+      "route": "goalos-v22-v42-command-center.html",
+      "tier": "Signoff Basic",
+      "summary": "Start with the full command center and let GoalOS route you."
+    }
+  ],
+  "tiers": {
+    "Signoff Basic": {
+      "customer": "No wallet. Define the brief, check evidence, obtain approval, issue a receipt.",
+      "contracts": [
+        "AEPGoalOSCommitRegistry",
+        "AEPEvidenceDocketRegistry",
+        "AEPProofBundleRegistry"
+      ],
+      "boundary": "Protocol-compatible off-chain receipt; no chain transaction required."
+    },
+    "Signoff Verified": {
+      "customer": "Anchor hashes, issue proof cards and credentials, keep customer flow simple.",
+      "contracts": [
+        "AEPGoalOSCommitRegistry",
+        "AEPEvidenceDocketRegistry",
+        "AEPProofBundleRegistry",
+        "ProofCardRegistry",
+        "ProofCredentialRegistry",
+        "AEPReplayRegistry"
+      ],
+      "boundary": "Public verification rails only after activation gates; no public fund custody by default."
+    },
+    "Signoff Secured": {
+      "customer": "Bonded review, challenge window, reputation, falsification and appeal path.",
+      "contracts": [
+        "ReviewerBondRegistry",
+        "AEPEvaluatorStakingRegistry",
+        "AEPSlashingCourt",
+        "AEPFalsificationRegistry",
+        "DisputeRegistry",
+        "AppealRegistry",
+        "ReputationRegistry"
+      ],
+      "boundary": "Requires remediation, audit, authorization, and appropriate operational controls."
+    },
+    "Signoff & Settle": {
+      "customer": "Release reward only after accepted proof and governed review.",
+      "contracts": [
+        "JobRegistry",
+        "AEPRewardVault",
+        "TreasuryRouter",
+        "AlphaWorkUnitLedger",
+        "ProofSubmissionRegistry",
+        "ReputationRegistry"
+      ],
+      "boundary": "No public Mainnet settlement until production activation and user-fund authorization."
+    }
+  },
+  "roles": [
+    {
+      "id": "first-time",
+      "label": "First-time visitor",
+      "promise": "Explain GoalOS and choose the best next page."
+    },
+    {
+      "id": "consultant",
+      "label": "AI consultant / agency",
+      "promise": "Turn client work into a signoff-ready mission."
+    },
+    {
+      "id": "client",
+      "label": "Client reviewer",
+      "promise": "Check whether work is ready to accept."
+    },
+    {
+      "id": "dao",
+      "label": "DAO / treasury",
+      "promise": "Gate grants, milestones, and payment by proof."
+    },
+    {
+      "id": "enterprise",
+      "label": "Enterprise / board",
+      "promise": "Create a defensible acceptance record and review path."
+    },
+    {
+      "id": "protocol",
+      "label": "Protocol operator",
+      "promise": "Map Signoff tiers to the 48 Mainnet rails."
+    },
+    {
+      "id": "rsi",
+      "label": "RSI / ASI governance",
+      "promise": "Convert exploration into gated dossiers and governed promotion."
+    }
+  ],
+  "proofObjects": [
+    "Mission Contract",
+    "Acceptance Criteria",
+    "Evidence Docket",
+    "Claim-to-Evidence Matrix",
+    "ProofBundle",
+    "Replay Log",
+    "Risk Ledger",
+    "Cost Ledger",
+    "Reviewer Checklist",
+    "Mission Receipt"
+  ],
+  "examplePrompts": [
+    "I delivered an AI research report to a client and need to prove it is ready to accept.",
+    "We need to release a DAO grant milestone only if the evidence package passes review.",
+    "Show me which 48 Mainnet contracts support Signoff Verified and Signoff & Settle.",
+    "Govern a Move-37 breakthrough candidate with replay, stress tests, and a dossier.",
+    "I am new. Explain where to start and open the right page."
+  ],
+  "contracts": [
+    {
+      "id": "commercialization-performance-vault",
+      "name": "CommercializationPerformanceVault",
+      "address": "0xc2816f41a97b1dE9b23AF79C09B0DF217d767b8F",
+      "family": "Capital, vaults & treasury",
+      "summary": "Receives and tracks commercialization-performance capital as a vault rail.",
+      "etherscan": "https://etherscan.io/address/0xc2816f41a97b1dE9b23AF79C09B0DF217d767b8F"
+    },
+    {
+      "id": "proof-rewards-vault",
+      "name": "ProofRewardsVault",
+      "address": "0x172da7eF2702358c3b552a75c360d752Ef900C3c",
+      "family": "Capital, vaults & treasury",
+      "summary": "Holds reward capital for proof work, reviewers, and accepted work flows.",
+      "etherscan": "https://etherscan.io/address/0x172da7eF2702358c3b552a75c360d752Ef900C3c"
+    },
+    {
+      "id": "liquidity-vault",
+      "name": "LiquidityVault",
+      "address": "0xf6f46da2CC6B896607CE62883bECaB41D927ed55",
+      "family": "Capital, vaults & treasury",
+      "summary": "Separates liquidity support from proof, security, and community vaults.",
+      "etherscan": "https://etherscan.io/address/0xf6f46da2CC6B896607CE62883bECaB41D927ed55"
+    },
+    {
+      "id": "security-vault",
+      "name": "SecurityVault",
+      "address": "0x30698AF1D276A5B5736b5BCd8fB01BE8baCF949d",
+      "family": "Capital, vaults & treasury",
+      "summary": "Sets aside funds for security and resilience-related protocol obligations.",
+      "etherscan": "https://etherscan.io/address/0x30698AF1D276A5B5736b5BCd8fB01BE8baCF949d"
+    },
+    {
+      "id": "community-vault",
+      "name": "CommunityVault",
+      "address": "0xc100C44eD7eb33f38953D26a1FC840A59F2A7F09",
+      "family": "Capital, vaults & treasury",
+      "summary": "Supports ecosystem/community allocations without mixing with proof settlement rails.",
+      "etherscan": "https://etherscan.io/address/0xc100C44eD7eb33f38953D26a1FC840A59F2A7F09"
+    },
+    {
+      "id": "proof-seed-registry",
+      "name": "ProofSeedRegistry",
+      "address": "0x7D660ad863aD5aa37405E6568911C1F09E1Bd6f1",
+      "family": "Core proof, work & protocol registries",
+      "summary": "Records seed-level proof metadata used to initialize or identify proof objects.",
+      "etherscan": "https://etherscan.io/address/0x7D660ad863aD5aa37405E6568911C1F09E1Bd6f1"
+    },
+    {
+      "id": "legacy-a-g-i-job-manager-registry",
+      "name": "LegacyAGIJobManagerRegistry",
+      "address": "0x38042257CDB67F4b55fF312401ad8dD49EC128B1",
+      "family": "Core proof, work & protocol registries",
+      "summary": "Bridges legacy AGIJobManager lifecycle references into the GoalOS-native regime.",
+      "etherscan": "https://etherscan.io/address/0x38042257CDB67F4b55fF312401ad8dD49EC128B1"
+    },
+    {
+      "id": "reputation-registry",
+      "name": "ReputationRegistry",
+      "address": "0x3989E3892aab3FD582E514Bb8e7057978a3c59B1",
+      "family": "Core proof, work & protocol registries",
+      "summary": "Records reputation updates arising from accepted work, reviewer history, and disputes.",
+      "etherscan": "https://etherscan.io/address/0x3989E3892aab3FD582E514Bb8e7057978a3c59B1"
+    },
+    {
+      "id": "referral-registry",
+      "name": "ReferralRegistry",
+      "address": "0xD6Abd123D43429868603dFEc78e38bD6a86726DD",
+      "family": "Core proof, work & protocol registries",
+      "summary": "Records referral and attribution links for ecosystem growth or contribution tracking.",
+      "etherscan": "https://etherscan.io/address/0xD6Abd123D43429868603dFEc78e38bD6a86726DD"
+    },
+    {
+      "id": "proof-card-registry",
+      "name": "ProofCardRegistry",
+      "address": "0xC3E715b064acCEE475C9775385a42A7B0A6d53e6",
+      "family": "Core proof, work & protocol registries",
+      "summary": "Mints or records proof-card style objects after successful review/signoff.",
+      "etherscan": "https://etherscan.io/address/0xC3E715b064acCEE475C9775385a42A7B0A6d53e6"
+    },
+    {
+      "id": "proof-credential-registry",
+      "name": "ProofCredentialRegistry",
+      "address": "0x207B1300BdEE4cbAD430672ECA5D368e7264994D",
+      "family": "Core proof, work & protocol registries",
+      "summary": "Records credentials linked to proof acceptance and reviewer/worker identity.",
+      "etherscan": "https://etherscan.io/address/0x207B1300BdEE4cbAD430672ECA5D368e7264994D"
+    },
+    {
+      "id": "job-registry",
+      "name": "JobRegistry",
+      "address": "0xe9Dc9c1Affa3542e8b2eAC1F5B465a9b0E536767",
+      "family": "Core proof, work & protocol registries",
+      "summary": "Defines bounded jobs, reward terms, liability constraints, and release mechanics.",
+      "etherscan": "https://etherscan.io/address/0xe9Dc9c1Affa3542e8b2eAC1F5B465a9b0E536767"
+    },
+    {
+      "id": "job-claim-bond-manager",
+      "name": "JobClaimBondManager",
+      "address": "0x10b5773a65EC53e585bF7dD8692bC14a35B326B9",
+      "family": "Core proof, work & protocol registries",
+      "summary": "Handles bonds associated with job claims and claimant accountability.",
+      "etherscan": "https://etherscan.io/address/0x10b5773a65EC53e585bF7dD8692bC14a35B326B9"
+    },
+    {
+      "id": "premium-access-registry",
+      "name": "PremiumAccessRegistry",
+      "address": "0x38750929B26782EB7097F1E4833C14335EAB1b9E",
+      "family": "Core proof, work & protocol registries",
+      "summary": "Tracks premium/protocol access state without making public demos require an account.",
+      "etherscan": "https://etherscan.io/address/0x38750929B26782EB7097F1E4833C14335EAB1b9E"
+    },
+    {
+      "id": "proof-submission-registry",
+      "name": "ProofSubmissionRegistry",
+      "address": "0x595AB684e41ba04C6aEE072b4b313B9B96A3f744",
+      "family": "Core proof, work & protocol registries",
+      "summary": "Connects submitted proof to review, approval, credential issuance, and reward release paths.",
+      "etherscan": "https://etherscan.io/address/0x595AB684e41ba04C6aEE072b4b313B9B96A3f744"
+    },
+    {
+      "id": "reviewer-bond-registry",
+      "name": "ReviewerBondRegistry",
+      "address": "0x97A31181F82dfaBEdD1d0F360aA01baa28045065",
+      "family": "Core proof, work & protocol registries",
+      "summary": "Models reviewer bonds, approvals, challenge windows, and slashing conditions.",
+      "etherscan": "https://etherscan.io/address/0x97A31181F82dfaBEdD1d0F360aA01baa28045065"
+    },
+    {
+      "id": "treasury-router",
+      "name": "TreasuryRouter",
+      "address": "0x1006ed321f1Ed8D2E50D76054CD44Eff22d045f4",
+      "family": "Capital, vaults & treasury",
+      "summary": "Routes protocol fees and allocations across the vault family.",
+      "etherscan": "https://etherscan.io/address/0x1006ed321f1Ed8D2E50D76054CD44Eff22d045f4"
+    },
+    {
+      "id": "protocol-config-registry",
+      "name": "ProtocolConfigRegistry",
+      "address": "0x15d713b8810fBe8D45aA4be433F65B6EaF145Ade",
+      "family": "Core proof, work & protocol registries",
+      "summary": "Stores protocol-level configuration parameters and guardrail values.",
+      "etherscan": "https://etherscan.io/address/0x15d713b8810fBe8D45aA4be433F65B6EaF145Ade"
+    },
+    {
+      "id": "launch-gate-registry",
+      "name": "LaunchGateRegistry",
+      "address": "0xd6155967e091c5b3Cb7b25b942cDc132592F5562",
+      "family": "Core proof, work & protocol registries",
+      "summary": "Represents stage/launch gates before sensitive activation paths can proceed.",
+      "etherscan": "https://etherscan.io/address/0xd6155967e091c5b3Cb7b25b942cDc132592F5562"
+    },
+    {
+      "id": "dispute-registry",
+      "name": "DisputeRegistry",
+      "address": "0x96346A9a399623B92dE55D502C6dcA43094bdE28",
+      "family": "Dispute, participation & credential governance",
+      "summary": "Records disputes raised against signoffs, claims, credentials, or settlement decisions.",
+      "etherscan": "https://etherscan.io/address/0x96346A9a399623B92dE55D502C6dcA43094bdE28"
+    },
+    {
+      "id": "appeal-registry",
+      "name": "AppealRegistry",
+      "address": "0xBBF2a5C8bA53d74862051B5FC377C19A092e0f33",
+      "family": "Dispute, participation & credential governance",
+      "summary": "Provides an appeal layer after disputed outcomes or adverse determinations.",
+      "etherscan": "https://etherscan.io/address/0xBBF2a5C8bA53d74862051B5FC377C19A092e0f33"
+    },
+    {
+      "id": "sponsor-registry",
+      "name": "SponsorRegistry",
+      "address": "0xd8da67F26f64319F46aE8170aD7023762C9E2D93",
+      "family": "Dispute, participation & credential governance",
+      "summary": "Tracks sponsors that support work, reviewers, missions, or protocol participation.",
+      "etherscan": "https://etherscan.io/address/0xd8da67F26f64319F46aE8170aD7023762C9E2D93"
+    },
+    {
+      "id": "builder-profile-registry",
+      "name": "BuilderProfileRegistry",
+      "address": "0x754EDCb4dfE3295eA550ea7F95B4f6dEE35deD25",
+      "family": "Dispute, participation & credential governance",
+      "summary": "Records builder profiles so work histories can become inspectable over time.",
+      "etherscan": "https://etherscan.io/address/0x754EDCb4dfE3295eA550ea7F95B4f6dEE35deD25"
+    },
+    {
+      "id": "credential-revocation-registry",
+      "name": "CredentialRevocationRegistry",
+      "address": "0x4BC5246615E54f49a5cE84D9743b9d6e98e3a974",
+      "family": "Dispute, participation & credential governance",
+      "summary": "Records revocation events so bad or superseded credentials do not remain authoritative.",
+      "etherscan": "https://etherscan.io/address/0x4BC5246615E54f49a5cE84D9743b9d6e98e3a974"
+    },
+    {
+      "id": "a-e-p-agent-registry",
+      "name": "AEPAgentRegistry",
+      "address": "0x1B4804D55b339A5F15F766BB1C0eF295a327b58c",
+      "family": "AEP execution, evidence & rollout architecture",
+      "summary": "Registers agent identities and their permitted participation boundaries.",
+      "etherscan": "https://etherscan.io/address/0x1B4804D55b339A5F15F766BB1C0eF295a327b58c"
+    },
+    {
+      "id": "a-e-p-artifact-registry",
+      "name": "AEPArtifactRegistry",
+      "address": "0x301ee7014D021F10640E32221AC3AE54292A091D",
+      "family": "AEP execution, evidence & rollout architecture",
+      "summary": "Records hashes and references for artifacts submitted as evidence.",
+      "etherscan": "https://etherscan.io/address/0x301ee7014D021F10640E32221AC3AE54292A091D"
+    },
+    {
+      "id": "a-e-p-goal-o-s-commit-registry",
+      "name": "AEPGoalOSCommitRegistry",
+      "address": "0x2EE9E77b67a975FB7F412247040A321597F9DcAB",
+      "family": "AEP execution, evidence & rollout architecture",
+      "summary": "Records commitments to brief, success criteria, constraints, authority, and boundaries.",
+      "etherscan": "https://etherscan.io/address/0x2EE9E77b67a975FB7F412247040A321597F9DcAB"
+    },
+    {
+      "id": "a-e-p-run-commitment-registry",
+      "name": "AEPRunCommitmentRegistry",
+      "address": "0x629a0c4C09C801DC796201fCEe336b3DC1FA018a",
+      "family": "AEP execution, evidence & rollout architecture",
+      "summary": "Records commitments for a particular execution run before outputs are accepted.",
+      "etherscan": "https://etherscan.io/address/0x629a0c4C09C801DC796201fCEe336b3DC1FA018a"
+    },
+    {
+      "id": "a-e-p-proof-ledger",
+      "name": "AEPProofLedger",
+      "address": "0x07b151e8D56a914BDF87662bea1f2cfdA036f273",
+      "family": "AEP execution, evidence & rollout architecture",
+      "summary": "Maintains a ledger of proof events and state transitions.",
+      "etherscan": "https://etherscan.io/address/0x07b151e8D56a914BDF87662bea1f2cfdA036f273"
+    },
+    {
+      "id": "a-e-p-eval-registry",
+      "name": "AEPEvalRegistry",
+      "address": "0x66254fb43432f4c4Cb6Aa2001B725002E2941826",
+      "family": "AEP execution, evidence & rollout architecture",
+      "summary": "Records evaluation outputs, baseline comparisons, and review-relevant checks.",
+      "etherscan": "https://etherscan.io/address/0x66254fb43432f4c4Cb6Aa2001B725002E2941826"
+    },
+    {
+      "id": "a-e-p-attestation-registry",
+      "name": "AEPAttestationRegistry",
+      "address": "0xc1e3bcDf4E5bd119e22A7A042DCC95C96Fb44D71",
+      "family": "AEP execution, evidence & rollout architecture",
+      "summary": "Records reviewer, evaluator, or authorized-party attestations.",
+      "etherscan": "https://etherscan.io/address/0xc1e3bcDf4E5bd119e22A7A042DCC95C96Fb44D71"
+    },
+    {
+      "id": "a-e-p-selection-gate",
+      "name": "AEPSelectionGate",
+      "address": "0x688c1026b07C1a12B713fbA46a75d849DF785d43",
+      "family": "AEP execution, evidence & rollout architecture",
+      "summary": "Controls when a candidate proof/work object can be promoted or selected.",
+      "etherscan": "https://etherscan.io/address/0x688c1026b07C1a12B713fbA46a75d849DF785d43"
+    },
+    {
+      "id": "a-e-p-rollout-router",
+      "name": "AEPRolloutRouter",
+      "address": "0x4144F6460D80B9B2113e5B84e96A0eA9329D1720",
+      "family": "AEP execution, evidence & rollout architecture",
+      "summary": "Routes accepted work toward bounded rollout lanes after gate satisfaction.",
+      "etherscan": "https://etherscan.io/address/0x4144F6460D80B9B2113e5B84e96A0eA9329D1720"
+    },
+    {
+      "id": "a-e-p-rollback-registry",
+      "name": "AEPRollbackRegistry",
+      "address": "0x284c23638456cD885703E0f6be0F460c3548B841",
+      "family": "AEP execution, evidence & rollout architecture",
+      "summary": "Records rollback duties and rollback-state evidence for governed releases.",
+      "etherscan": "https://etherscan.io/address/0x284c23638456cD885703E0f6be0F460c3548B841"
+    },
+    {
+      "id": "a-e-p-evidence-docket-registry",
+      "name": "AEPEvidenceDocketRegistry",
+      "address": "0x396c5Ba59907F98A0d5666e677d29Ac1b901BB4f",
+      "family": "AEP execution, evidence & rollout architecture",
+      "summary": "Records docket, claims matrix, public/private boundaries, cost ledger, and risk ledger hashes.",
+      "etherscan": "https://etherscan.io/address/0x396c5Ba59907F98A0d5666e677d29Ac1b901BB4f"
+    },
+    {
+      "id": "a-e-p-proof-bundle-registry",
+      "name": "AEPProofBundleRegistry",
+      "address": "0xA29C54c0bf7B8AfF097B14034Ca4bDfd41e46E16",
+      "family": "AEP execution, evidence & rollout architecture",
+      "summary": "Records proof bundle identifiers and hash commitments tying evidence to acceptance.",
+      "etherscan": "https://etherscan.io/address/0xA29C54c0bf7B8AfF097B14034Ca4bDfd41e46E16"
+    },
+    {
+      "id": "alpha-work-unit-ledger",
+      "name": "AlphaWorkUnitLedger",
+      "address": "0x8F17bAd575347CeA4f1FDC6504D973DA2869a489",
+      "family": "AEP execution, evidence & rollout architecture",
+      "summary": "Tracks accepted work units that can inform reputation, reward, or future allocation.",
+      "etherscan": "https://etherscan.io/address/0x8F17bAd575347CeA4f1FDC6504D973DA2869a489"
+    },
+    {
+      "id": "mandate-epoch-registry",
+      "name": "MandateEpochRegistry",
+      "address": "0x2A30a1AFc000385a6630B234dE85D131D8f0e13B",
+      "family": "AEP execution, evidence & rollout architecture",
+      "summary": "Records mandate epochs so governance contexts and permissions are time-bounded.",
+      "etherscan": "https://etherscan.io/address/0x2A30a1AFc000385a6630B234dE85D131D8f0e13B"
+    },
+    {
+      "id": "a-g-i-eth-namespace-registry",
+      "name": "AGIEthNamespaceRegistry",
+      "address": "0xF48688Ac94d22F6a06E5dF0febC52806821e963f",
+      "family": "AEP execution, evidence & rollout architecture",
+      "summary": "Maintains Ethereum namespace references for AGI/GoalOS protocol objects.",
+      "etherscan": "https://etherscan.io/address/0xF48688Ac94d22F6a06E5dF0febC52806821e963f"
+    },
+    {
+      "id": "a-e-p-conformance-registry",
+      "name": "AEPConformanceRegistry",
+      "address": "0x2A5E000C27Ba013CCa0b412C36B7C35e789AeAC6",
+      "family": "Institutional assurance, staking & accountability",
+      "summary": "Records conformance status against AEP or GoalOS rules.",
+      "etherscan": "https://etherscan.io/address/0x2A5E000C27Ba013CCa0b412C36B7C35e789AeAC6"
+    },
+    {
+      "id": "a-e-p-claim-boundary-registry",
+      "name": "AEPClaimBoundaryRegistry",
+      "address": "0x8711eC9b240A5A6EA97931E38AfB918Ef1123939",
+      "family": "Institutional assurance, staking & accountability",
+      "summary": "Defines what a proof, credential, or Signoff is and is not allowed to claim.",
+      "etherscan": "https://etherscan.io/address/0x8711eC9b240A5A6EA97931E38AfB918Ef1123939"
+    },
+    {
+      "id": "a-e-p-replay-registry",
+      "name": "AEPReplayRegistry",
+      "address": "0xb811f2497a810C18f69c0b3ecdb5aF0E5627D2df",
+      "family": "Institutional assurance, staking & accountability",
+      "summary": "Records replay commitments and independent replay evidence.",
+      "etherscan": "https://etherscan.io/address/0xb811f2497a810C18f69c0b3ecdb5aF0E5627D2df"
+    },
+    {
+      "id": "a-e-p-commit-reveal-validation-registry",
+      "name": "AEPCommitRevealValidationRegistry",
+      "address": "0x2E0B6fd0d6A137575B405574723650852e4698f8",
+      "family": "Institutional assurance, staking & accountability",
+      "summary": "Supports commit/reveal validation patterns for challenge-resistant proof checks.",
+      "etherscan": "https://etherscan.io/address/0x2E0B6fd0d6A137575B405574723650852e4698f8"
+    },
+    {
+      "id": "a-e-p-evaluator-staking-registry",
+      "name": "AEPEvaluatorStakingRegistry",
+      "address": "0x912b72fB0829111A66d40FFe275Fa372f7804005",
+      "family": "Institutional assurance, staking & accountability",
+      "summary": "Models evaluator stakes that can secure review and challenge processes.",
+      "etherscan": "https://etherscan.io/address/0x912b72fB0829111A66d40FFe275Fa372f7804005"
+    },
+    {
+      "id": "a-e-p-slashing-court",
+      "name": "AEPSlashingCourt",
+      "address": "0xc47EaA3D80C9821b552c223F1Be481f9409f7959",
+      "family": "Institutional assurance, staking & accountability",
+      "summary": "Handles evidence-backed slashing cases for evaluator or reviewer misconduct.",
+      "etherscan": "https://etherscan.io/address/0xc47EaA3D80C9821b552c223F1Be481f9409f7959"
+    },
+    {
+      "id": "a-e-p-reward-vault",
+      "name": "AEPRewardVault",
+      "address": "0x957daac2C45aF4Ec45Fe8B408dcF4a8d5626B67a",
+      "family": "Institutional assurance, staking & accountability",
+      "summary": "Pays or records rewards associated with proof bundles and accepted work units.",
+      "etherscan": "https://etherscan.io/address/0x957daac2C45aF4Ec45Fe8B408dcF4a8d5626B67a"
+    },
+    {
+      "id": "a-e-p-chronicle-registry",
+      "name": "AEPChronicleRegistry",
+      "address": "0x0AC113585d0b5646544BCC730E13221485334A5F",
+      "family": "Institutional assurance, staking & accountability",
+      "summary": "Records accepted proof/work events as institutional memory.",
+      "etherscan": "https://etherscan.io/address/0x0AC113585d0b5646544BCC730E13221485334A5F"
+    },
+    {
+      "id": "a-e-p-falsification-registry",
+      "name": "AEPFalsificationRegistry",
+      "address": "0x7735f010BeAE5Ad7b3F97eCa4eb7B3091f53C1f6",
+      "family": "Institutional assurance, staking & accountability",
+      "summary": "Records falsification attempts, challenge evidence, and counter-claims.",
+      "etherscan": "https://etherscan.io/address/0x7735f010BeAE5Ad7b3F97eCa4eb7B3091f53C1f6"
+    }
+  ],
+  "routes": [
+    {
+      "label": "Autopilot Studio",
+      "href": "goalos-autopilot-studio.html",
+      "type": "autopilot"
+    },
+    {
+      "label": "GoalOS Signoff Product Console",
+      "href": "ai-research-strategy-signoff-console.html",
+      "type": "product"
+    },
+    {
+      "label": "Ask GoalOS Live",
+      "href": "ask-goalos-live.html",
+      "type": "concierge"
+    },
+    {
+      "label": "48-Contract Atlas",
+      "href": "agialpha-48-contract-atlas.html",
+      "type": "protocol"
+    },
+    {
+      "label": "Mission 001",
+      "href": "mission-001.html",
+      "type": "proof"
+    },
+    {
+      "label": "v35 ASI Mission Simulator",
+      "href": "loop-rsi-asi-superintelligence-mission-simulator-lab.html",
+      "type": "governance"
+    },
+    {
+      "label": "All Public Labs",
+      "href": "public-demo-labs.html",
+      "type": "catalog"
+    },
+    {
+      "label": "Command Center",
+      "href": "goalos-v22-v42-command-center.html",
+      "type": "start"
+    }
+  ],
+  "boundary": {
+    "default": "browser-local deterministic planning, no external AI call",
+    "allows": "a local text box for intent-to-mission planning",
+    "disallows": [
+      "uploads",
+      "cookies",
+      "analytics",
+      "wallet connection",
+      "payments",
+      "external AI call by default",
+      "personal or confidential data requirement",
+      "value movement",
+      "production activation claim",
+      "legal/investment/live-settlement advice"
+    ]
+  }
+}

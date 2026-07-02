@@ -1,6 +1,6 @@
 {
   "releaseFacts": {
-    "title": "GoalOS AGIALPHA Ascension v4.4.0 \u2014 Ethereum Mainnet Deployment",
+    "title": "GoalOS AGIALPHA Ascension v4.4.0 — Ethereum Mainnet Deployment",
     "releaseUrl": "https://github.com/MontrealAI/goalos-agialpha-ascension/releases/tag/v4.4.0-mainnet-2026-06-21",
     "network": "Ethereum Mainnet",
     "chainId": 1,
@@ -768,7 +768,7 @@
       "chainId": 1,
       "etherscanUrl": "https://etherscan.io/address/0x8F17bAd575347CeA4f1FDC6504D973DA2869a489",
       "family": "AEP execution, evidence & rollout architecture",
-      "role": "\u03b1-Work Unit ledger",
+      "role": "α-Work Unit ledger",
       "description": "Tracks accepted work units that can inform reputation, reward, or future allocation.",
       "primaryTier": "Settle",
       "flowStages": [

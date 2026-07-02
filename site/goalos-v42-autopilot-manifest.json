@@ -1,0 +1,34 @@
+{
+  "id": "goalos-signoff-pro-v42-universal-outcome-autopilot-studio",
+  "title": "GoalOS Signoff Pro — Universal Outcome Autopilot Studio v42",
+  "generatedAt": "2026-07-02T18:42:26.077Z",
+  "routes": [
+    "goalos-autopilot-studio.html",
+    "autopilot-studio.html",
+    "tell-goalos.html",
+    "universal-outcome-box.html",
+    "mission-compiler.html",
+    "goalos-take-care.html",
+    "intent-to-outcome.html",
+    "goalos-v22-v42-command-center.html",
+    "v42.html"
+  ],
+  "contractsIndexed": 48,
+  "publicSafe": {
+    "default": "browser-local deterministic planning, no external AI call",
+    "allows": "a local text box for intent-to-mission planning",
+    "disallows": [
+      "uploads",
+      "cookies",
+      "analytics",
+      "wallet connection",
+      "payments",
+      "external AI call by default",
+      "personal or confidential data requirement",
+      "value movement",
+      "production activation claim",
+      "legal/investment/live-settlement advice"
+    ]
+  },
+  "contentHash": "edee14ae275629598954902b45ecd91f269ccd28b41c1783a1f0acb28a30abb8"
+}
