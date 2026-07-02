@@ -3,7 +3,7 @@
     "id": "goalos-signoff-pro-proof-before-settlement-research-lab-v30",
     "version": "v30",
     "title": "GoalOS Signoff Pro — Proof Before Settlement Institutional Research Lab v30",
-    "generatedAt": "2026-07-02T17:39:52Z",
+    "generatedAt": "2026-07-02T17:58:27Z",
     "primaryRoute": "proof-before-settlement-research-lab.html",
     "aliases": [
       "institutional-research-lab.html",
@@ -69,7 +69,7 @@
       "productionAuthority": false
     },
     "standard": "No Proof. No Trust. No Settlement.",
-    "manifestHash": "sha256:9bb2c534929970e6e291dff21f10192803ee99a9efee68df6b79faa727fa38ea"
+    "manifestHash": "sha256:5fddd31916e35986231d603cfcc84da0b6b029976ec061e1fda3670738fe0837"
   },
   "executiveTearSheet": {
     "id": "proof-before-settlement-executive-tear-sheet-v30",
@@ -419,5 +419,5 @@
       "ask": "Why should we trust this claim before value or governance power moves?"
     }
   ],
-  "bundleHash": "sha256:075bab30a4ed381b21f02d1cad36ac3838fe62b3a718e886dbf9f491149332f1"
+  "bundleHash": "sha256:dd2a92a766f824dcaf276ec666d1e1666f33d6bfaf23953d0a870bb70848d2e8"
 }
