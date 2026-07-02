@@ -1,184 +1,224 @@
 {
   "version": "v47",
-  "generatedAt": "2026-07-02T22:52:17.287Z",
   "useCases": [
     {
-      "id": "ai-research-signoff",
-      "title": "AI Research & Strategy Signoff",
-      "audience": "AI consultants, agencies, client reviewers, executives",
-      "prompt": "I delivered an AI research report to a client and need proof that it is ready to accept.",
-      "outcome": "Turn an AI-assisted report into an acceptance-ready package with claim checks, source freshness, uncertainty notes, reviewer decision, and Mission Receipt.",
-      "tier": "Signoff Basic",
+      "id": "ai-report-signoff",
+      "title": "AI research report signoff",
+      "audience": "AI consultant, agency, client reviewer",
+      "type": "I delivered an AI research report to a client and need proof it is ready to accept.",
+      "goal": "Turn a report into an acceptance-ready Mission Receipt.",
+      "tier": "Signoff Basic or Verified",
       "route": "ai-research-strategy-signoff-console.html",
-      "rails": [
-        "Brief hash",
-        "Evidence Docket",
-        "Claims Matrix",
-        "Mission Receipt"
+      "produces": [
+        "brief and success criteria",
+        "claim-to-source matrix",
+        "freshness and missing-source checks",
+        "reviewer decision path",
+        "signed Mission Receipt"
       ],
       "steps": [
-        "Define the assignment and success criteria.",
-        "Map every important claim to evidence or mark it uncertain.",
-        "Check missing citations, stale sources, broken links, and required sections.",
-        "Send a simple ACCEPTED / NEEDS CHANGES / REJECTED review path.",
-        "Issue a Mission Receipt with limitations and timestamps."
+        "Paste the outcome you need accepted.",
+        "GoalOS defines done and lists the evidence required.",
+        "Reviewer accepts, requests changes, or rejects.",
+        "Receipt preserves what was delivered and what remains limited."
       ]
     },
     {
-      "id": "client-delivery",
-      "title": "Client Delivery Acceptance",
-      "audience": "Small AI agencies, software contractors, automation teams",
-      "prompt": "I finished a client automation project and need the client to accept it with evidence, tests, risks, and a receipt.",
-      "outcome": "Convert a project handoff into a clear acceptance decision tied to deliverables, tests, screenshots, run logs, risk disclosures, and limitations.",
+      "id": "client-deliverable",
+      "title": "Client deliverable acceptance",
+      "audience": "Freelancer, consultant, enterprise buyer",
+      "type": "A client needs to approve an AI-assisted automation project before final payment.",
+      "goal": "Make acceptance explicit before reputation or payment changes.",
       "tier": "Signoff Basic",
-      "route": "browser-beta.html",
-      "rails": [
-        "Mission Contract",
-        "Artifact references",
-        "Reviewer checklist",
-        "Receipt"
+      "route": "signoff-product-core.html",
+      "produces": [
+        "acceptance criteria",
+        "artifact checklist",
+        "change-request path",
+        "acceptance receipt",
+        "unresolved-risk ledger"
       ],
       "steps": [
-        "Freeze what done means.",
-        "Attach deliverables and evidence references.",
-        "Check acceptance criteria, tests, risk notes, and open issues.",
-        "Route to the client decision.",
-        "Preserve the accepted record as a receipt."
+        "Describe the deliverable and what counts as done.",
+        "GoalOS maps work to acceptance gates.",
+        "Client reviews with a simple status.",
+        "Receipt becomes the shared record."
       ]
     },
     {
       "id": "dao-grant",
-      "title": "DAO Grant Milestone Proof",
-      "audience": "DAOs, grant committees, treasury councils, protocol foundations",
-      "prompt": "We need to release a DAO grant milestone only if the evidence package passes review.",
-      "outcome": "Require a proof package before a milestone is treated as settlement-ready: mission, evidence, replay, reviewer notes, challenge window, and public receipt.",
-      "tier": "Signoff Verified",
+      "title": "DAO grant milestone release",
+      "audience": "DAO delegate, treasury council, grantee",
+      "type": "Release a DAO grant milestone only if the proof package passes review.",
+      "goal": "Move from status update to proof-gated milestone readiness.",
+      "tier": "Signoff Verified or Secured",
       "route": "blockchain-proof-mandate-lab.html",
-      "rails": [
-        "AEPGoalOSCommitRegistry",
-        "AEPEvidenceDocketRegistry",
-        "AEPProofBundleRegistry",
-        "ProofCardRegistry"
+      "produces": [
+        "milestone proof package",
+        "review checklist",
+        "challenge window concept",
+        "contract rail map",
+        "settlement readiness memo"
       ],
       "steps": [
-        "Define the grant milestone and prohibited claims.",
-        "Collect evidence and map it to criteria.",
-        "Run proof and replay checks.",
-        "Route to independent reviewers or delegates.",
-        "Mark the milestone ready only after the receipt is accepted."
+        "State the grant milestone.",
+        "GoalOS identifies proof objects and reviewer authority.",
+        "DAO sees what passed, failed, or remains uncertain.",
+        "Funding decision is tied to evidence, not announcements."
       ]
     },
     {
       "id": "audit-remediation",
-      "title": "Audit Remediation & Protocol Upgrade",
-      "audience": "Protocol teams, security leads, auditors, governance delegates",
-      "prompt": "We fixed audit findings and need a proof package before a protocol upgrade is approved.",
-      "outcome": "Turn fixes into a reviewable remediation packet: finding, fix, tests, replay, rollback plan, residual risk, and approval receipt.",
+      "title": "Audit remediation proof",
+      "audience": "Protocol team, auditor, security reviewer",
+      "type": "We fixed audit findings and need a replayable signoff package before release.",
+      "goal": "Prove each fix is mapped to evidence and residual risk.",
       "tier": "Signoff Secured",
       "route": "proof-before-settlement-research-lab.html",
-      "rails": [
-        "AEPArtifactRegistry",
-        "AEPEvalRegistry",
-        "AEPReplayRegistry",
-        "ReviewerBondRegistry",
-        "AEPFalsificationRegistry"
+      "produces": [
+        "finding-to-fix matrix",
+        "test and replay checklist",
+        "risk ledger",
+        "review signoff",
+        "release gate recommendation"
       ],
       "steps": [
-        "List findings and claimed fixes.",
-        "Attach test evidence and replay instructions.",
-        "Record risk boundaries and rollback obligations.",
-        "Route reviewer signoff and challenge window.",
-        "Issue a proof-to-action receipt."
+        "Describe the findings and target release.",
+        "GoalOS maps every claim to proof.",
+        "Reviewer checks tests, replay, and rollback.",
+        "Release is marked ready only when gates pass."
       ]
     },
     {
-      "id": "contract-atlas",
-      "title": "Understand the 48 Mainnet Trust Rails",
-      "audience": "Founders, protocol operators, investors, auditors, partners",
-      "prompt": "Show me which 48 Mainnet contracts support Signoff Verified, Secured, and Signoff & Settle.",
-      "outcome": "Explain the 48 GoalOS-created Ethereum Mainnet contracts by family, product tier, proof stage, safety boundary, and Etherscan route.",
-      "tier": "Protocol Atlas",
+      "id": "protocol-upgrade",
+      "title": "Protocol upgrade readiness",
+      "audience": "Protocol founder, governance council, validator",
+      "type": "Prepare a protocol upgrade for governance with proof, rollback, and reviewer authority.",
+      "goal": "Turn an upgrade proposal into a governed decision package.",
+      "tier": "Signoff Secured",
+      "route": "action-graph-authority-lab.html",
+      "produces": [
+        "scoped action graph",
+        "rollback plan",
+        "risk boundary",
+        "authority map",
+        "decision receipt"
+      ],
+      "steps": [
+        "Explain the proposed upgrade.",
+        "GoalOS identifies required evidence and stop conditions.",
+        "Reviewers inspect action, authority, and rollback.",
+        "Governance receives a clean decision object."
+      ]
+    },
+    {
+      "id": "enterprise-ai",
+      "title": "Enterprise AI workflow acceptance",
+      "audience": "Enterprise buyer, AI delivery lead, compliance team",
+      "type": "An internal AI automation is ready for business acceptance, but compliance needs evidence.",
+      "goal": "Make AI work safe to accept inside an organization.",
+      "tier": "Signoff Basic or Verified",
+      "route": "executive-ai-proof-console.html",
+      "produces": [
+        "business criteria",
+        "evidence checklist",
+        "risk disclosure",
+        "human authority path",
+        "audit-friendly receipt"
+      ],
+      "steps": [
+        "Describe the workflow and prohibited claims.",
+        "GoalOS builds a review checklist.",
+        "Business owner decides accept or changes needed.",
+        "Receipt records scope and limits."
+      ]
+    },
+    {
+      "id": "mainnet-rails",
+      "title": "Understand the 48 Mainnet contracts",
+      "audience": "Investor, auditor, protocol operator, technical reviewer",
+      "type": "Show me which 48 Ethereum Mainnet contracts support Signoff Verified and Signoff & Settle.",
+      "goal": "Make the protocol rails legible without forcing users into wallet operations.",
+      "tier": "Verified / Secured / Settle",
       "route": "agialpha-48-contract-atlas.html",
-      "rails": [
-        "48 GoalOS-created contracts",
-        "Canonical AGIALPHA dependency",
-        "Etherscan verification",
-        "No production activation claim"
+      "produces": [
+        "contract family map",
+        "tier-to-contract map",
+        "Etherscan links",
+        "public-safe boundary",
+        "next Signoff tier explanation"
       ],
       "steps": [
-        "Choose a Signoff tier.",
-        "Inspect the relevant contract families.",
-        "Read contract pages in plain English.",
-        "Open Etherscan when needed.",
-        "Keep Basic off-chain and activate rails only when authorized."
+        "Ask for a contract family, tier, or stage.",
+        "GoalOS filters the rail map.",
+        "User opens the atlas or individual contract page.",
+        "Boundary stays read-only and educational."
       ]
     },
     {
-      "id": "proof-to-payment",
-      "title": "Proof-to-Payment Simulation",
-      "audience": "Clients, agents, reviewers, protocol operators, treasury teams",
-      "prompt": "I want payment to release only after accepted proof, reviewer signoff, and a challenge window.",
-      "outcome": "Model the transition from simple acceptance to optional proof-to-payment: evidence, review, bond, dispute, reward, and treasury routing.",
-      "tier": "Signoff & Settle",
-      "route": "signoff-product-protocol-ladder-lab.html",
-      "rails": [
-        "JobRegistry",
-        "ProofSubmissionRegistry",
-        "AEPRewardVault",
-        "TreasuryRouter",
-        "DisputeRegistry",
-        "AEPSlashingCourt"
-      ],
-      "steps": [
-        "Define the job and reward boundary.",
-        "Require a proof bundle before acceptance.",
-        "Route accountable review.",
-        "Hold a challenge window.",
-        "Release only when authorized and audited."
-      ]
-    },
-    {
-      "id": "rsi-dossier",
-      "title": "RSI / Move-37 Breakthrough Dossier",
-      "audience": "Frontier labs, governance teams, safety leads, councils",
-      "prompt": "Govern a Move-37 breakthrough candidate with replay, stress tests, persistence gates, and a dossier.",
-      "outcome": "Route a high-novelty candidate through deterministic RSI governance: target, emit, filter, atlas, test-plan, eval, insert, promote.",
-      "tier": "RSI Governance",
+      "id": "move37",
+      "title": "Move-37 / RSI breakthrough governance",
+      "audience": "Frontier lab, safety lead, Architect / Validator Council",
+      "type": "Govern a Move-37 breakthrough candidate with replay, stress tests, and a dossier.",
+      "goal": "Treat a breakthrough as an audited state transition, not a narrative.",
+      "tier": "RSI governance",
       "route": "loop-rsi-asi-superintelligence-mission-simulator-lab.html",
-      "rails": [
-        "Risk gate",
-        "Evidence gate",
-        "Baseline comparison",
-        "Persistence under shocks",
-        "Architect / Validator Council"
+      "produces": [
+        "target-emission-eval path",
+        "reproduction package",
+        "policy-shock tests",
+        "persistence gate",
+        "dossier and council route"
       ],
       "steps": [
-        "Recognize novelty and baseline advantage.",
-        "Reproduce with fixed seeds and verified hashes.",
-        "Stress-test under policy shocks.",
-        "Require persistence before promotion.",
-        "Package the dossier for council review."
+        "Describe the candidate and risk boundary.",
+        "GoalOS routes through deterministic RSI gates.",
+        "Candidate is reproduced, stress tested, and packaged.",
+        "Council receives a dossier rather than hype."
       ]
     },
     {
-      "id": "public-proof-request",
-      "title": "Stakeholder Proof Request",
-      "audience": "Users, investors, public reviewers, partners, boards",
-      "prompt": "I am reviewing a project and need to ask: where is the proof package?",
-      "outcome": "Give a nontechnical reviewer a simple checklist: mission, evidence, replay, validation, risk ledger, decision, receipt.",
-      "tier": "Due Diligence",
-      "route": "blockchain-due-diligence-lab.html",
-      "rails": [
-        "Proof Package Request Card",
-        "Due Diligence Scorecard",
-        "Settlement Readiness Decision Tree"
+      "id": "reviewer-market",
+      "title": "Independent reviewer package",
+      "audience": "Reviewer, grant evaluator, audit council",
+      "type": "I need an independent reviewer to decide whether the work deserves acceptance.",
+      "goal": "Separate output from acceptance authority.",
+      "tier": "Signoff Verified or Secured",
+      "route": "independent-replay-lab.html",
+      "produces": [
+        "reviewer checklist",
+        "evidence map",
+        "replay requirement",
+        "decision options",
+        "credential-ready receipt"
       ],
       "steps": [
-        "Ask for the proof package.",
-        "Check the mission and criteria.",
-        "Inspect evidence and replay readiness.",
-        "Review risk and uncertainty.",
-        "Decide whether trust should escalate."
+        "Explain the work and reviewer role.",
+        "GoalOS lists what the reviewer must inspect.",
+        "Reviewer outcome is recorded.",
+        "Receipt states accepted, changes needed, or rejected."
+      ]
+    },
+    {
+      "id": "treasury-payment",
+      "title": "Treasury payment readiness",
+      "audience": "Treasury council, foundation, payer, grantee",
+      "type": "Prepare payment release only after accepted proof and review.",
+      "goal": "Keep payment separate from acceptance until evidence passes.",
+      "tier": "Signoff & Settle later",
+      "route": "proof-to-settlement-standard-lab.html",
+      "produces": [
+        "payment-readiness checklist",
+        "proof-to-payment rail map",
+        "dispute path",
+        "challenge boundary",
+        "settlement memo"
+      ],
+      "steps": [
+        "State what value should move and why.",
+        "GoalOS first produces proof-to-acceptance.",
+        "Protocol rails are shown as optional later activation.",
+        "Payment readiness depends on proof, not persuasion."
       ]
     }
   ]

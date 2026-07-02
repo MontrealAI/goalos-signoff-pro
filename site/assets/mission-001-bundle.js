@@ -254,7 +254,7 @@ window.GOALOS_MISSION_001_BUNDLE={
     "criticalSafetyIncidents": 0,
     "personalDataRequested": false,
     "confidentialDataRequested": false,
-    "walletConnection": false,
+    "GoalOSWalletBoundaryion": false,
     "payments": false,
     "verdict": "PASS"
   },

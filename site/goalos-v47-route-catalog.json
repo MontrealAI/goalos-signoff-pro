@@ -1,1027 +1,1582 @@
 {
   "version": "v47",
-  "generatedAt": "2026-07-02T22:52:17.287Z",
-  "routeCount": 204,
+  "generatedAt": "2026-07-02T23:37:39.442Z",
+  "htmlPages": 315,
   "routes": [
     {
       "route": "404.html",
-      "title": "This corridor is not part of the receipt map. · GoalOS Signoff Pro",
-      "category": "site"
+      "title": "404",
+      "description": "GoalOS public website page."
+    },
+    {
+      "route": "48-contract-rails.html",
+      "title": "48-contract-rails",
+      "description": "Contract or protocol rail page."
+    },
+    {
+      "route": "48-contracts.html",
+      "title": "48-contracts",
+      "description": "Contract or protocol rail page."
     },
     {
       "route": "acceptable-use.html",
-      "title": "Use public-safe material only. · GoalOS Signoff Pro",
-      "category": "site"
+      "title": "acceptable-use",
+      "description": "GoalOS public website page."
     },
     {
       "route": "action-graph-authority-lab.html",
-      "title": "GoalOS Signoff Pro — Action Graph & Human Authority Lab",
-      "category": "labs"
+      "title": "action-graph-authority-lab",
+      "description": "Public proof lab or evidence demo."
     },
     {
       "route": "agent-constellation-lab.html",
-      "title": "Agent Constellation Lab · GoalOS Signoff Pro",
-      "category": "labs"
+      "title": "agent-constellation-lab",
+      "description": "Public proof lab or evidence demo."
     },
     {
       "route": "agi-alpha-rsi-lab.html",
-      "title": "GoalOS Signoff Pro — From Loop to RSI Lab v32",
-      "category": "labs"
+      "title": "agi-alpha-rsi-lab",
+      "description": "RSI / ASI governance or simulator page."
+    },
+    {
+      "route": "agialpha-48-contract-atlas.html",
+      "title": "agialpha-48-contract-atlas",
+      "description": "Contract or protocol rail page."
+    },
+    {
+      "route": "agialpha-mainnet-contracts.html",
+      "title": "agialpha-mainnet-contracts",
+      "description": "Contract or protocol rail page."
+    },
+    {
+      "route": "agialpha-protocol-rails.html",
+      "title": "agialpha-protocol-rails",
+      "description": "GoalOS public website page."
     },
     {
       "route": "agialpha-token-boundary.html",
-      "title": "External token reference only. · GoalOS Signoff Pro",
-      "category": "site"
+      "title": "agialpha-token-boundary",
+      "description": "GoalOS public website page."
     },
     {
       "route": "agialpha.html",
-      "title": "$AGIALPHA is external. · GoalOS Signoff Pro",
-      "category": "site"
+      "title": "agialpha",
+      "description": "GoalOS public website page."
     },
     {
       "route": "ai-proof-console.html",
-      "title": "GoalOS Signoff Pro — Executive AI Proof Console v31",
-      "category": "site"
+      "title": "ai-proof-console",
+      "description": "Public proof lab or evidence demo."
+    },
+    {
+      "route": "ai-research-strategy-signoff-console.html",
+      "title": "ai-research-strategy-signoff-console",
+      "description": "GoalOS Signoff product or acceptance page."
+    },
+    {
+      "route": "ai-work-acceptance-console.html",
+      "title": "ai-work-acceptance-console",
+      "description": "GoalOS public website page."
     },
     {
       "route": "all-labs.html",
-      "title": "GoalOS Signoff Pro · All Public Labs",
-      "category": "labs"
+      "title": "all-labs",
+      "description": "Public proof lab or evidence demo."
     },
     {
       "route": "all-pages.html",
-      "title": "All GoalOS pages",
-      "category": "site"
+      "title": "all-pages",
+      "description": "GoalOS public website page."
+    },
+    {
+      "route": "answer-router.html",
+      "title": "answer-router",
+      "description": "GoalOS public website page."
     },
     {
       "route": "architecture.html",
-      "title": "Evidence before acceptance. · GoalOS Signoff Pro",
-      "category": "site"
+      "title": "architecture",
+      "description": "GoalOS public website page."
     },
     {
       "route": "archive-before-v47/index.html",
-      "title": "The Signoff Institution · GoalOS Signoff Pro",
-      "category": "site"
-    },
-    {
-      "route": "archive-before-v47/latest.html",
-      "title": "GoalOS Signoff Pro · v22-v35 Command Center",
-      "category": "site"
-    },
-    {
-      "route": "archive-before-v47/start-here.html",
-      "title": "GoalOS Signoff Pro · v22-v35 Command Center",
-      "category": "site"
+      "title": "archive-before-v47/index",
+      "description": "GoalOS public website page."
     },
     {
       "route": "artifact-vault-lab.html",
-      "title": "GoalOS Signoff Pro — Proof-Carrying Artifact & Evolution Ledger Lab",
-      "category": "labs"
+      "title": "artifact-vault-lab",
+      "description": "Public proof lab or evidence demo."
     },
     {
       "route": "asi-control-tower.html",
-      "title": "GoalOS Signoff Pro — Loop → RSI → ASI Superintelligence Control Tower Lab v34",
-      "category": "site"
+      "title": "asi-control-tower",
+      "description": "RSI / ASI governance or simulator page."
     },
     {
       "route": "asi-governance-dashboard.html",
-      "title": "GoalOS Signoff Pro — Loop → RSI → ASI Superintelligence Control Tower Lab v34",
-      "category": "site"
+      "title": "asi-governance-dashboard",
+      "description": "RSI / ASI governance or simulator page."
     },
     {
       "route": "asi-mission-control.html",
-      "title": "GoalOS Signoff Pro — Loop to RSI to ASI Superintelligence Console v33",
-      "category": "mission"
+      "title": "asi-mission-control",
+      "description": "RSI / ASI governance or simulator page."
     },
     {
       "route": "asi-mission-simulator.html",
-      "title": "GoalOS Signoff Pro — Loop → RSI → ASI Mission Simulator v35",
-      "category": "mission"
+      "title": "asi-mission-simulator",
+      "description": "RSI / ASI governance or simulator page."
     },
     {
       "route": "asi-readiness-flight-simulator.html",
-      "title": "GoalOS Signoff Pro — Loop → RSI → ASI Superintelligence Control Tower Lab v34",
-      "category": "site"
+      "title": "asi-readiness-flight-simulator",
+      "description": "RSI / ASI governance or simulator page."
     },
     {
       "route": "asi-superintelligence-console.html",
-      "title": "GoalOS Signoff Pro — Loop to RSI to ASI Superintelligence Console v33",
-      "category": "site"
+      "title": "asi-superintelligence-console",
+      "description": "RSI / ASI governance or simulator page."
+    },
+    {
+      "route": "ask-goalos-live.html",
+      "title": "ask-goalos-live",
+      "description": "GoalOS public website page."
     },
     {
       "route": "ask-goalos.html",
-      "title": "Tell GoalOS what you want",
-      "category": "site"
+      "title": "ask-goalos",
+      "description": "GoalOS public website page."
+    },
+    {
+      "route": "autonomous-redirect-console.html",
+      "title": "autonomous-redirect-console",
+      "description": "GoalOS public website page."
+    },
+    {
+      "route": "autopilot-studio.html",
+      "title": "autopilot-studio",
+      "description": "GoalOS public website page."
+    },
+    {
+      "route": "autopilot.html",
+      "title": "autopilot",
+      "description": "GoalOS public website page."
     },
     {
       "route": "benchmark-packet.html",
-      "title": "Benchmark Packet Specification · GoalOS Signoff Pro",
-      "category": "site"
+      "title": "benchmark-packet",
+      "description": "GoalOS public website page."
     },
     {
       "route": "benchmark-reproducibility.html",
-      "title": "Benchmark Reproducibility Packet · GoalOS Signoff Pro",
-      "category": "site"
+      "title": "benchmark-reproducibility",
+      "description": "GoalOS public website page."
     },
     {
       "route": "blockchain-credibility-lab.html",
-      "title": "GoalOS Signoff Pro — Blockchain Credibility Standard Lab",
-      "category": "labs"
+      "title": "blockchain-credibility-lab",
+      "description": "Public proof lab or evidence demo."
     },
     {
       "route": "blockchain-due-diligence-lab.html",
-      "title": "GoalOS Signoff Pro — Blockchain Proof Mandate &amp; Due Diligence Lab v29",
-      "category": "labs"
+      "title": "blockchain-due-diligence-lab",
+      "description": "Public proof lab or evidence demo."
     },
     {
       "route": "blockchain-proof-mandate-lab.html",
-      "title": "GoalOS Signoff Pro — Blockchain Proof Mandate &amp; Due Diligence Lab v29",
-      "category": "labs"
+      "title": "blockchain-proof-mandate-lab",
+      "description": "Public proof lab or evidence demo."
     },
     {
       "route": "blockchain-standard-paper-lab.html",
-      "title": "GoalOS Signoff Pro — Proof Before Settlement Institutional Research Lab v30",
-      "category": "labs"
+      "title": "blockchain-standard-paper-lab",
+      "description": "Public proof lab or evidence demo."
     },
     {
       "route": "blockchain-trust-layer-lab.html",
-      "title": "GoalOS Signoff Pro — Blockchain Credibility Standard Lab",
-      "category": "labs"
+      "title": "blockchain-trust-layer-lab",
+      "description": "Public proof lab or evidence demo."
     },
     {
       "route": "bounded-search-lab.html",
-      "title": "GoalOS Signoff Pro — ProofZero Planning Lab",
-      "category": "labs"
+      "title": "bounded-search-lab",
+      "description": "Public proof lab or evidence demo."
     },
     {
       "route": "browser-beta.html",
-      "title": "Browser Beta · GoalOS Signoff Pro",
-      "category": "site"
+      "title": "browser-beta",
+      "description": "GoalOS public website page."
     },
     {
       "route": "capability-library.html",
-      "title": "Accepted proof becomes reusable capability. · GoalOS Signoff Pro",
-      "category": "site"
+      "title": "capability-library",
+      "description": "GoalOS public website page."
     },
     {
       "route": "changelog.html",
-      "title": "Canonical production composer v12. · GoalOS Signoff Pro",
-      "category": "site"
+      "title": "changelog",
+      "description": "GoalOS public website page."
     },
     {
       "route": "chat.html",
-      "title": "Tell GoalOS what you want",
-      "category": "site"
+      "title": "chat",
+      "description": "GoalOS public website page."
     },
     {
       "route": "chronicle.html",
-      "title": "Accepted experience becomes memory. · GoalOS Signoff Pro",
-      "category": "site"
+      "title": "chronicle",
+      "description": "GoalOS public website page."
     },
     {
       "route": "claim-promotion-lab.html",
-      "title": "GoalOS — Independent Replay & Claim Promotion Lab",
-      "category": "labs"
+      "title": "claim-promotion-lab",
+      "description": "Public proof lab or evidence demo."
+    },
+    {
+      "route": "classic-home-before-v44.html",
+      "title": "classic-home-before-v44",
+      "description": "GoalOS public website page."
+    },
+    {
+      "route": "classic-home-before-v45.html",
+      "title": "classic-home-before-v45",
+      "description": "GoalOS public website page."
+    },
+    {
+      "route": "classic-home-before-v47.html",
+      "title": "classic-home-before-v47",
+      "description": "GoalOS public website page."
+    },
+    {
+      "route": "command-center-v42.html",
+      "title": "command-center-v42",
+      "description": "GoalOS public website page."
     },
     {
       "route": "command-center.html",
-      "title": "GoalOS Signoff Pro · v22-v35 Command Center",
-      "category": "site"
+      "title": "command-center",
+      "description": "GoalOS public website page."
     },
     {
       "route": "console.html",
-      "title": "GoalOS Signoff Pro — Executive AI Proof Console v31",
-      "category": "site"
+      "title": "console",
+      "description": "GoalOS public website page."
     },
     {
       "route": "constitution.html",
-      "title": "A model can answer. An agent can act. An institution must prove. · GoalOS Signoff Pro",
-      "category": "site"
+      "title": "constitution",
+      "description": "GoalOS public website page."
     },
     {
       "route": "contact.html",
-      "title": "No request required. Open the browser beta. · GoalOS Signoff Pro",
-      "category": "site"
+      "title": "contact",
+      "description": "GoalOS public website page."
+    },
+    {
+      "route": "contract-atlas.html",
+      "title": "contract-atlas",
+      "description": "Contract or protocol rail page."
+    },
+    {
+      "route": "contract-matrix.html",
+      "title": "contract-matrix",
+      "description": "Contract or protocol rail page."
+    },
+    {
+      "route": "contracts/a-e-p-agent-registry.html",
+      "title": "contracts/a-e-p-agent-registry",
+      "description": "Contract or protocol rail page."
+    },
+    {
+      "route": "contracts/a-e-p-artifact-registry.html",
+      "title": "contracts/a-e-p-artifact-registry",
+      "description": "Contract or protocol rail page."
+    },
+    {
+      "route": "contracts/a-e-p-attestation-registry.html",
+      "title": "contracts/a-e-p-attestation-registry",
+      "description": "Contract or protocol rail page."
+    },
+    {
+      "route": "contracts/a-e-p-chronicle-registry.html",
+      "title": "contracts/a-e-p-chronicle-registry",
+      "description": "Contract or protocol rail page."
+    },
+    {
+      "route": "contracts/a-e-p-claim-boundary-registry.html",
+      "title": "contracts/a-e-p-claim-boundary-registry",
+      "description": "Contract or protocol rail page."
+    },
+    {
+      "route": "contracts/a-e-p-commit-reveal-validation-registry.html",
+      "title": "contracts/a-e-p-commit-reveal-validation-registry",
+      "description": "Contract or protocol rail page."
+    },
+    {
+      "route": "contracts/a-e-p-conformance-registry.html",
+      "title": "contracts/a-e-p-conformance-registry",
+      "description": "Contract or protocol rail page."
+    },
+    {
+      "route": "contracts/a-e-p-eval-registry.html",
+      "title": "contracts/a-e-p-eval-registry",
+      "description": "Contract or protocol rail page."
+    },
+    {
+      "route": "contracts/a-e-p-evaluator-staking-registry.html",
+      "title": "contracts/a-e-p-evaluator-staking-registry",
+      "description": "Contract or protocol rail page."
+    },
+    {
+      "route": "contracts/a-e-p-evidence-docket-registry.html",
+      "title": "contracts/a-e-p-evidence-docket-registry",
+      "description": "Contract or protocol rail page."
+    },
+    {
+      "route": "contracts/a-e-p-falsification-registry.html",
+      "title": "contracts/a-e-p-falsification-registry",
+      "description": "Contract or protocol rail page."
+    },
+    {
+      "route": "contracts/a-e-p-goal-o-s-commit-registry.html",
+      "title": "contracts/a-e-p-goal-o-s-commit-registry",
+      "description": "Contract or protocol rail page."
+    },
+    {
+      "route": "contracts/a-e-p-proof-bundle-registry.html",
+      "title": "contracts/a-e-p-proof-bundle-registry",
+      "description": "Contract or protocol rail page."
+    },
+    {
+      "route": "contracts/a-e-p-proof-ledger.html",
+      "title": "contracts/a-e-p-proof-ledger",
+      "description": "Contract or protocol rail page."
+    },
+    {
+      "route": "contracts/a-e-p-replay-registry.html",
+      "title": "contracts/a-e-p-replay-registry",
+      "description": "Contract or protocol rail page."
+    },
+    {
+      "route": "contracts/a-e-p-reward-vault.html",
+      "title": "contracts/a-e-p-reward-vault",
+      "description": "Contract or protocol rail page."
+    },
+    {
+      "route": "contracts/a-e-p-rollback-registry.html",
+      "title": "contracts/a-e-p-rollback-registry",
+      "description": "Contract or protocol rail page."
+    },
+    {
+      "route": "contracts/a-e-p-rollout-router.html",
+      "title": "contracts/a-e-p-rollout-router",
+      "description": "Contract or protocol rail page."
+    },
+    {
+      "route": "contracts/a-e-p-run-commitment-registry.html",
+      "title": "contracts/a-e-p-run-commitment-registry",
+      "description": "Contract or protocol rail page."
+    },
+    {
+      "route": "contracts/a-e-p-selection-gate.html",
+      "title": "contracts/a-e-p-selection-gate",
+      "description": "Contract or protocol rail page."
+    },
+    {
+      "route": "contracts/a-e-p-slashing-court.html",
+      "title": "contracts/a-e-p-slashing-court",
+      "description": "Contract or protocol rail page."
+    },
+    {
+      "route": "contracts/a-g-i-eth-namespace-registry.html",
+      "title": "contracts/a-g-i-eth-namespace-registry",
+      "description": "Contract or protocol rail page."
+    },
+    {
+      "route": "contracts/alpha-work-unit-ledger.html",
+      "title": "contracts/alpha-work-unit-ledger",
+      "description": "Contract or protocol rail page."
+    },
+    {
+      "route": "contracts/appeal-registry.html",
+      "title": "contracts/appeal-registry",
+      "description": "Contract or protocol rail page."
+    },
+    {
+      "route": "contracts/builder-profile-registry.html",
+      "title": "contracts/builder-profile-registry",
+      "description": "Contract or protocol rail page."
+    },
+    {
+      "route": "contracts/commercialization-performance-vault.html",
+      "title": "contracts/commercialization-performance-vault",
+      "description": "Contract or protocol rail page."
+    },
+    {
+      "route": "contracts/community-vault.html",
+      "title": "contracts/community-vault",
+      "description": "Contract or protocol rail page."
+    },
+    {
+      "route": "contracts/credential-revocation-registry.html",
+      "title": "contracts/credential-revocation-registry",
+      "description": "Contract or protocol rail page."
+    },
+    {
+      "route": "contracts/dispute-registry.html",
+      "title": "contracts/dispute-registry",
+      "description": "Contract or protocol rail page."
+    },
+    {
+      "route": "contracts/index.html",
+      "title": "contracts/index",
+      "description": "Contract or protocol rail page."
+    },
+    {
+      "route": "contracts/job-claim-bond-manager.html",
+      "title": "contracts/job-claim-bond-manager",
+      "description": "Contract or protocol rail page."
+    },
+    {
+      "route": "contracts/job-registry.html",
+      "title": "contracts/job-registry",
+      "description": "Contract or protocol rail page."
+    },
+    {
+      "route": "contracts/launch-gate-registry.html",
+      "title": "contracts/launch-gate-registry",
+      "description": "Contract or protocol rail page."
+    },
+    {
+      "route": "contracts/legacy-a-g-i-job-manager-registry.html",
+      "title": "contracts/legacy-a-g-i-job-manager-registry",
+      "description": "Contract or protocol rail page."
+    },
+    {
+      "route": "contracts/liquidity-vault.html",
+      "title": "contracts/liquidity-vault",
+      "description": "Contract or protocol rail page."
+    },
+    {
+      "route": "contracts/mandate-epoch-registry.html",
+      "title": "contracts/mandate-epoch-registry",
+      "description": "Contract or protocol rail page."
+    },
+    {
+      "route": "contracts/premium-access-registry.html",
+      "title": "contracts/premium-access-registry",
+      "description": "Contract or protocol rail page."
+    },
+    {
+      "route": "contracts/proof-card-registry.html",
+      "title": "contracts/proof-card-registry",
+      "description": "Contract or protocol rail page."
+    },
+    {
+      "route": "contracts/proof-credential-registry.html",
+      "title": "contracts/proof-credential-registry",
+      "description": "Contract or protocol rail page."
+    },
+    {
+      "route": "contracts/proof-rewards-vault.html",
+      "title": "contracts/proof-rewards-vault",
+      "description": "Contract or protocol rail page."
+    },
+    {
+      "route": "contracts/proof-seed-registry.html",
+      "title": "contracts/proof-seed-registry",
+      "description": "Contract or protocol rail page."
+    },
+    {
+      "route": "contracts/proof-submission-registry.html",
+      "title": "contracts/proof-submission-registry",
+      "description": "Contract or protocol rail page."
+    },
+    {
+      "route": "contracts/protocol-config-registry.html",
+      "title": "contracts/protocol-config-registry",
+      "description": "Contract or protocol rail page."
+    },
+    {
+      "route": "contracts/referral-registry.html",
+      "title": "contracts/referral-registry",
+      "description": "Contract or protocol rail page."
+    },
+    {
+      "route": "contracts/reputation-registry.html",
+      "title": "contracts/reputation-registry",
+      "description": "Contract or protocol rail page."
+    },
+    {
+      "route": "contracts/reviewer-bond-registry.html",
+      "title": "contracts/reviewer-bond-registry",
+      "description": "Contract or protocol rail page."
+    },
+    {
+      "route": "contracts/security-vault.html",
+      "title": "contracts/security-vault",
+      "description": "Contract or protocol rail page."
+    },
+    {
+      "route": "contracts/sponsor-registry.html",
+      "title": "contracts/sponsor-registry",
+      "description": "Contract or protocol rail page."
+    },
+    {
+      "route": "contracts/treasury-router.html",
+      "title": "contracts/treasury-router",
+      "description": "Contract or protocol rail page."
     },
     {
       "route": "cookie-policy.html",
-      "title": "No cookies. · GoalOS Signoff Pro",
-      "category": "site"
+      "title": "cookie-policy",
+      "description": "GoalOS public website page."
     },
     {
       "route": "coordination-benchmark.html",
-      "title": "Coordination Benchmark · GoalOS Signoff Pro",
-      "category": "site"
+      "title": "coordination-benchmark",
+      "description": "GoalOS public website page."
     },
     {
       "route": "coordination-lab.html",
-      "title": "Coordination Lab · GoalOS Signoff Pro",
-      "category": "labs"
+      "title": "coordination-lab",
+      "description": "Public proof lab or evidence demo."
     },
     {
       "route": "coordination-law.html",
-      "title": "Coordination Law · GoalOS Signoff Pro",
-      "category": "site"
+      "title": "coordination-law",
+      "description": "GoalOS public website page."
     },
     {
       "route": "coordination-stack.html",
-      "title": "Coordination Stack · GoalOS Signoff Pro",
-      "category": "site"
+      "title": "coordination-stack",
+      "description": "GoalOS public website page."
     },
     {
       "route": "coordination-theatre.html",
-      "title": "Coordination Theatre · GoalOS Signoff Pro",
-      "category": "site"
+      "title": "coordination-theatre",
+      "description": "GoalOS public website page."
+    },
+    {
+      "route": "create-a-free-signoff.html",
+      "title": "create-a-free-signoff",
+      "description": "GoalOS Signoff product or acceptance page."
     },
     {
       "route": "curriculum-lab.html",
-      "title": "GoalOS Signoff Pro — Proof-Gated Mission Foundry & Curriculum Lab",
-      "category": "labs"
+      "title": "curriculum-lab",
+      "description": "Public proof lab or evidence demo."
     },
     {
       "route": "customers.html",
-      "title": "For teams accepting AI work. · GoalOS Signoff Pro",
-      "category": "site"
+      "title": "customers",
+      "description": "GoalOS public website page."
     },
     {
       "route": "data-policy.html",
-      "title": "No public-site submissions. · GoalOS Signoff Pro",
-      "category": "site"
+      "title": "data-policy",
+      "description": "GoalOS public website page."
     },
     {
       "route": "deliverables.html",
-      "title": "What you receive. · GoalOS Signoff Pro",
-      "category": "site"
+      "title": "deliverables",
+      "description": "GoalOS public website page."
     },
     {
       "route": "demo-lab.html",
-      "title": "Demo Lab · GoalOS Signoff Pro",
-      "category": "labs"
+      "title": "demo-lab",
+      "description": "Public proof lab or evidence demo."
     },
     {
       "route": "demo.html",
-      "title": "GoalOS Signoff Pro · v22-v35 Command Center",
-      "category": "site"
+      "title": "demo",
+      "description": "GoalOS public website page."
     },
     {
       "route": "deterministic-invention-os-lab.html",
-      "title": "GoalOS Signoff Pro — From Loop to RSI Lab v32",
-      "category": "labs"
+      "title": "deterministic-invention-os-lab",
+      "description": "Public proof lab or evidence demo."
     },
     {
       "route": "docs.html",
-      "title": "GoalOS Signoff Pro · Documentation",
-      "category": "site"
+      "title": "docs",
+      "description": "GoalOS public website page."
     },
     {
       "route": "documentation.html",
-      "title": "GoalOS Signoff Pro · Documentation",
-      "category": "site"
+      "title": "documentation",
+      "description": "GoalOS public website page."
     },
     {
       "route": "dossier.html",
-      "title": "Public proof package. · GoalOS Signoff Pro",
-      "category": "site"
+      "title": "dossier",
+      "description": "GoalOS public website page."
     },
     {
       "route": "elite-paper-lab.html",
-      "title": "GoalOS Signoff Pro — Proof Before Settlement Institutional Research Lab v30",
-      "category": "labs"
+      "title": "elite-paper-lab",
+      "description": "Public proof lab or evidence demo."
+    },
+    {
+      "route": "ethereum-mainnet-rails.html",
+      "title": "ethereum-mainnet-rails",
+      "description": "GoalOS public website page."
     },
     {
       "route": "evidence-docket-demo.html",
-      "title": "Evidence Docket Demo · GoalOS Signoff Pro",
-      "category": "site"
+      "title": "evidence-docket-demo",
+      "description": "GoalOS public website page."
     },
     {
       "route": "evidence-hub.html",
-      "title": "Public-safe proof surfaces. · GoalOS Signoff Pro",
-      "category": "site"
+      "title": "evidence-hub",
+      "description": "GoalOS public website page."
     },
     {
       "route": "evidence-lineage-lab.html",
-      "title": "GoalOS Signoff Pro — Process-Resolved Evidence Lab",
-      "category": "labs"
+      "title": "evidence-lineage-lab",
+      "description": "Public proof lab or evidence demo."
     },
     {
       "route": "evidence-reanalyze-lab.html",
-      "title": "GoalOS Signoff Pro — ProofZero Planning Lab",
-      "category": "labs"
+      "title": "evidence-reanalyze-lab",
+      "description": "Public proof lab or evidence demo."
     },
     {
       "route": "evolution-ledger-lab.html",
-      "title": "GoalOS Signoff Pro — Proof-Carrying Artifact & Evolution Ledger Lab",
-      "category": "labs"
+      "title": "evolution-ledger-lab",
+      "description": "Public proof lab or evidence demo."
     },
     {
       "route": "examples.html",
-      "title": "Proof missions users can understand. · GoalOS Signoff Pro",
-      "category": "site"
+      "title": "examples",
+      "description": "GoalOS public website page."
     },
     {
       "route": "executive-ai-proof-console.html",
-      "title": "GoalOS Signoff Pro — Executive AI Proof Console v31",
-      "category": "site"
+      "title": "executive-ai-proof-console",
+      "description": "Public proof lab or evidence demo."
     },
     {
       "route": "executive-architecture.html",
-      "title": "AI output is abundant. Acceptance is scarce. · GoalOS Signoff Pro",
-      "category": "site"
+      "title": "executive-architecture",
+      "description": "GoalOS public website page."
     },
     {
       "route": "experience.html",
-      "title": "GoalOS Signoff Pro · v22-v35 Command Center",
-      "category": "site"
+      "title": "experience",
+      "description": "GoalOS public website page."
     },
     {
       "route": "faq.html",
-      "title": "Plain answers for normal users. · GoalOS Signoff Pro",
-      "category": "site"
+      "title": "faq",
+      "description": "GoalOS public website page."
     },
     {
       "route": "from-loop-to-rsi-lab.html",
-      "title": "GoalOS Signoff Pro — From Loop to RSI Lab v32",
-      "category": "labs"
+      "title": "from-loop-to-rsi-lab",
+      "description": "RSI / ASI governance or simulator page."
     },
     {
       "route": "glossary.html",
-      "title": "Plain-language proof vocabulary. · GoalOS Signoff Pro",
-      "category": "site"
+      "title": "glossary",
+      "description": "GoalOS public website page."
     },
     {
       "route": "goalos-asi-mission-control.html",
-      "title": "GoalOS Signoff Pro — Loop → RSI → ASI Mission Simulator v35",
-      "category": "mission"
+      "title": "goalos-asi-mission-control",
+      "description": "RSI / ASI governance or simulator page."
+    },
+    {
+      "route": "goalos-autopilot-studio.html",
+      "title": "goalos-autopilot-studio",
+      "description": "GoalOS public website page."
+    },
+    {
+      "route": "goalos-autopilot.html",
+      "title": "goalos-autopilot",
+      "description": "GoalOS public website page."
     },
     {
       "route": "goalos-command-center.html",
-      "title": "Tell GoalOS what you want",
-      "category": "site"
+      "title": "goalos-command-center",
+      "description": "GoalOS public website page."
     },
     {
       "route": "goalos-command-os.html",
-      "title": "Tell GoalOS what you want",
-      "category": "site"
+      "title": "goalos-command-os",
+      "description": "GoalOS public website page."
     },
     {
       "route": "goalos-command.html",
-      "title": "Tell GoalOS what you want",
-      "category": "site"
+      "title": "goalos-command",
+      "description": "GoalOS public website page."
+    },
+    {
+      "route": "goalos-concierge.html",
+      "title": "goalos-concierge",
+      "description": "GoalOS public website page."
     },
     {
       "route": "goalos-front-center-command.html",
-      "title": "Tell GoalOS what you want",
-      "category": "site"
+      "title": "goalos-front-center-command",
+      "description": "GoalOS public website page."
     },
     {
       "route": "goalos-mission-command-studio.html",
-      "title": "Tell GoalOS what you want",
-      "category": "mission"
+      "title": "goalos-mission-command-studio",
+      "description": "GoalOS public website page."
     },
     {
       "route": "goalos-proof-request-lab.html",
-      "title": "GoalOS Signoff Pro — Blockchain Proof Mandate &amp; Due Diligence Lab v29",
-      "category": "labs"
+      "title": "goalos-proof-request-lab",
+      "description": "Public proof lab or evidence demo."
     },
     {
       "route": "goalos-public-demo-labs.html",
-      "title": "GoalOS Signoff Pro · Public Demo Labs v22-v35",
-      "category": "labs"
+      "title": "goalos-public-demo-labs",
+      "description": "Public proof lab or evidence demo."
     },
     {
       "route": "goalos-take-care-of-everything.html",
-      "title": "Tell GoalOS what you want",
-      "category": "site"
+      "title": "goalos-take-care-of-everything",
+      "description": "GoalOS public website page."
     },
     {
       "route": "goalos-take-care.html",
-      "title": "Tell GoalOS what you want",
-      "category": "site"
+      "title": "goalos-take-care",
+      "description": "GoalOS public website page."
     },
     {
       "route": "goalos-universal-command-center.html",
-      "title": "Tell GoalOS what you want",
-      "category": "site"
+      "title": "goalos-universal-command-center",
+      "description": "GoalOS public website page."
+    },
+    {
+      "route": "goalos-universal-command-os-v44.html",
+      "title": "goalos-universal-command-os-v44",
+      "description": "GoalOS public website page."
     },
     {
       "route": "goalos-universal-command-os.html",
-      "title": "Tell GoalOS what you want",
-      "category": "site"
+      "title": "goalos-universal-command-os",
+      "description": "GoalOS public website page."
     },
     {
       "route": "goalos-use-cases.html",
-      "title": "Tell GoalOS what you want",
-      "category": "site"
+      "title": "goalos-use-cases",
+      "description": "GoalOS public website page."
     },
     {
       "route": "goalos-v22-v35-command-center.html",
-      "title": "GoalOS Signoff Pro · v22-v35 Command Center",
-      "category": "site"
+      "title": "goalos-v22-v35-command-center",
+      "description": "GoalOS public website page."
+    },
+    {
+      "route": "goalos-v22-v37-command-center.html",
+      "title": "goalos-v22-v37-command-center",
+      "description": "GoalOS public website page."
+    },
+    {
+      "route": "goalos-v22-v38-command-center.html",
+      "title": "goalos-v22-v38-command-center",
+      "description": "GoalOS public website page."
+    },
+    {
+      "route": "goalos-v22-v39-command-center.html",
+      "title": "goalos-v22-v39-command-center",
+      "description": "GoalOS public website page."
+    },
+    {
+      "route": "goalos-v22-v40-command-center.html",
+      "title": "goalos-v22-v40-command-center",
+      "description": "GoalOS public website page."
+    },
+    {
+      "route": "goalos-v22-v41-command-center.html",
+      "title": "goalos-v22-v41-command-center",
+      "description": "GoalOS public website page."
+    },
+    {
+      "route": "goalos-v22-v42-command-center.html",
+      "title": "goalos-v22-v42-command-center",
+      "description": "GoalOS public website page."
+    },
+    {
+      "route": "goalos-v22-v43-command-center.html",
+      "title": "goalos-v22-v43-command-center",
+      "description": "GoalOS public website page."
+    },
+    {
+      "route": "goalos-v22-v44-command-center.html",
+      "title": "goalos-v22-v44-command-center",
+      "description": "GoalOS public website page."
+    },
+    {
+      "route": "goalos-v22-v45-command-center.html",
+      "title": "goalos-v22-v45-command-center",
+      "description": "GoalOS public website page."
     },
     {
       "route": "goalos-v22-v47-command-center.html",
-      "title": "Tell GoalOS what you want",
-      "category": "site"
+      "title": "goalos-v22-v47-command-center",
+      "description": "GoalOS public website page."
     },
     {
       "route": "governed-asi-console.html",
-      "title": "GoalOS Signoff Pro — Loop → RSI → ASI Superintelligence Control Tower Lab v34",
-      "category": "site"
+      "title": "governed-asi-console",
+      "description": "RSI / ASI governance or simulator page."
     },
     {
       "route": "governed-superintelligence.html",
-      "title": "GoalOS Signoff Pro · v22-v35 Command Center",
-      "category": "site"
+      "title": "governed-superintelligence",
+      "description": "GoalOS public website page."
     },
     {
       "route": "guided-experience.html",
-      "title": "GoalOS Signoff Pro — Executive AI Proof Console v31",
-      "category": "site"
+      "title": "guided-experience",
+      "description": "GoalOS public website page."
     },
     {
       "route": "harder-mission-lab.html",
-      "title": "GoalOS Signoff Pro — Proof-Gated Mission Foundry & Curriculum Lab",
-      "category": "mission"
+      "title": "harder-mission-lab",
+      "description": "Public proof lab or evidence demo."
     },
     {
       "route": "help.html",
-      "title": "Tell GoalOS what you want",
-      "category": "site"
+      "title": "help",
+      "description": "GoalOS public website page."
     },
     {
       "route": "how-it-works.html",
-      "title": "Define, prove, verify, replay. · GoalOS Signoff Pro",
-      "category": "site"
+      "title": "how-it-works",
+      "description": "GoalOS public website page."
     },
     {
       "route": "human-authority-action-lab.html",
-      "title": "GoalOS Signoff Pro — Action Graph & Human Authority Lab",
-      "category": "labs"
+      "title": "human-authority-action-lab",
+      "description": "Public proof lab or evidence demo."
     },
     {
       "route": "implementation.html",
-      "title": "Public claims map to repo automation. · GoalOS Signoff Pro",
-      "category": "site"
+      "title": "implementation",
+      "description": "GoalOS public website page."
     },
     {
       "route": "independent-replay-lab.html",
-      "title": "GoalOS — Independent Replay & Claim Promotion Lab",
-      "category": "labs"
+      "title": "independent-replay-lab",
+      "description": "Public proof lab or evidence demo."
     },
     {
       "route": "index.html",
-      "title": "Tell GoalOS what you want",
-      "category": "site"
+      "title": "index",
+      "description": "GoalOS public website page."
     },
     {
       "route": "institutional-research-lab.html",
-      "title": "GoalOS Signoff Pro — Proof Before Settlement Institutional Research Lab v30",
-      "category": "labs"
+      "title": "institutional-research-lab",
+      "description": "Public proof lab or evidence demo."
     },
     {
       "route": "intent-to-mission.html",
-      "title": "Tell GoalOS what you want",
-      "category": "mission"
+      "title": "intent-to-mission",
+      "description": "GoalOS public website page."
     },
     {
       "route": "intent-to-outcome.html",
-      "title": "Tell GoalOS what you want",
-      "category": "site"
+      "title": "intent-to-outcome",
+      "description": "GoalOS public website page."
     },
     {
       "route": "interactive-proof-console.html",
-      "title": "GoalOS Signoff Pro — Executive AI Proof Console v31",
-      "category": "site"
+      "title": "interactive-proof-console",
+      "description": "Public proof lab or evidence demo."
     },
     {
       "route": "invention-to-superintelligence-console.html",
-      "title": "GoalOS Signoff Pro — Loop to RSI to ASI Superintelligence Console v33",
-      "category": "site"
+      "title": "invention-to-superintelligence-console",
+      "description": "GoalOS public website page."
     },
     {
       "route": "investment-boundary.html",
-      "title": "No investment offer. · GoalOS Signoff Pro",
-      "category": "site"
+      "title": "investment-boundary",
+      "description": "GoalOS public website page."
+    },
+    {
+      "route": "know-when-ai-work-is-done.html",
+      "title": "know-when-ai-work-is-done",
+      "description": "GoalOS public website page."
     },
     {
       "route": "labs-index.html",
-      "title": "All GoalOS pages",
-      "category": "labs"
+      "title": "labs-index",
+      "description": "Public proof lab or evidence demo."
     },
     {
       "route": "labs.html",
-      "title": "GoalOS Signoff Pro · Public Labs",
-      "category": "labs"
+      "title": "labs",
+      "description": "Public proof lab or evidence demo."
     },
     {
       "route": "latent-work-state-lab.html",
-      "title": "GoalOS Signoff Pro — ProofZero Planning Lab",
-      "category": "labs"
+      "title": "latent-work-state-lab",
+      "description": "Public proof lab or evidence demo."
     },
     {
       "route": "latest.html",
-      "title": "Tell GoalOS what you want",
-      "category": "site"
+      "title": "latest",
+      "description": "GoalOS public website page."
     },
     {
       "route": "legal.html",
-      "title": "Public-site boundary. · GoalOS Signoff Pro",
-      "category": "site"
+      "title": "legal",
+      "description": "GoalOS public website page."
     },
     {
       "route": "loop-rsi-asi-superintelligence-control-tower-lab.html",
-      "title": "GoalOS Signoff Pro — Loop → RSI → ASI Superintelligence Control Tower Lab v34",
-      "category": "labs"
+      "title": "loop-rsi-asi-superintelligence-control-tower-lab",
+      "description": "RSI / ASI governance or simulator page."
     },
     {
       "route": "loop-rsi-asi-superintelligence-lab.html",
-      "title": "GoalOS Signoff Pro — Loop to RSI to ASI Superintelligence Console v33",
-      "category": "labs"
+      "title": "loop-rsi-asi-superintelligence-lab",
+      "description": "RSI / ASI governance or simulator page."
     },
     {
       "route": "loop-rsi-asi-superintelligence-mission-simulator-lab.html",
-      "title": "GoalOS Signoff Pro — Loop → RSI → ASI Mission Simulator v35",
-      "category": "mission"
+      "title": "loop-rsi-asi-superintelligence-mission-simulator-lab",
+      "description": "RSI / ASI governance or simulator page."
     },
     {
       "route": "loop-rsi-asi-v35.html",
-      "title": "GoalOS Signoff Pro — Loop → RSI → ASI Mission Simulator v35",
-      "category": "site"
+      "title": "loop-rsi-asi-v35",
+      "description": "RSI / ASI governance or simulator page."
     },
     {
       "route": "loop-to-rsi-to-asi-v34.html",
-      "title": "GoalOS Signoff Pro — Loop → RSI → ASI Superintelligence Control Tower Lab v34",
-      "category": "site"
+      "title": "loop-to-rsi-to-asi-v34",
+      "description": "RSI / ASI governance or simulator page."
     },
     {
       "route": "loop-to-rsi-to-asi.html",
-      "title": "GoalOS Signoff Pro — Loop to RSI to ASI Superintelligence Console v33",
-      "category": "site"
+      "title": "loop-to-rsi-to-asi",
+      "description": "RSI / ASI governance or simulator page."
     },
     {
       "route": "loop-to-rsi.html",
-      "title": "GoalOS Signoff Pro — From Loop to RSI Lab v32",
-      "category": "site"
+      "title": "loop-to-rsi",
+      "description": "RSI / ASI governance or simulator page."
     },
     {
       "route": "machine-economy.html",
-      "title": "Verified work becomes allocable capability. · GoalOS Signoff Pro",
-      "category": "site"
+      "title": "machine-economy",
+      "description": "GoalOS public website page."
     },
     {
       "route": "mission-001-replay.html",
-      "title": "Mission 001 Browser Replay · GoalOS Signoff Pro",
-      "category": "mission"
+      "title": "mission-001-replay",
+      "description": "Mission 001 reproducibility artifact."
     },
     {
       "route": "mission-001.html",
-      "title": "Mission 001 Reproducibility Packet · GoalOS Signoff Pro",
-      "category": "mission"
+      "title": "mission-001",
+      "description": "Mission 001 reproducibility artifact."
     },
     {
       "route": "mission-autopilot.html",
-      "title": "Tell GoalOS what you want",
-      "category": "mission"
+      "title": "mission-autopilot",
+      "description": "GoalOS public website page."
     },
     {
       "route": "mission-compiler.html",
-      "title": "Tell GoalOS what you want",
-      "category": "mission"
+      "title": "mission-compiler",
+      "description": "GoalOS public website page."
     },
     {
       "route": "mission-foundry-lab.html",
-      "title": "GoalOS Signoff Pro — Proof-Gated Mission Foundry & Curriculum Lab",
-      "category": "mission"
+      "title": "mission-foundry-lab",
+      "description": "Public proof lab or evidence demo."
+    },
+    {
+      "route": "mission-receipt-console.html",
+      "title": "mission-receipt-console",
+      "description": "GoalOS public website page."
     },
     {
       "route": "move37-asi-control-room.html",
-      "title": "GoalOS Signoff Pro — Loop → RSI → ASI Superintelligence Control Tower Lab v34",
-      "category": "site"
+      "title": "move37-asi-control-room",
+      "description": "RSI / ASI governance or simulator page."
     },
     {
       "route": "move37-breakthrough-lab.html",
-      "title": "GoalOS Signoff Pro — From Loop to RSI Lab v32",
-      "category": "labs"
+      "title": "move37-breakthrough-lab",
+      "description": "Public proof lab or evidence demo."
     },
     {
       "route": "no-proof-no-credibility-lab.html",
-      "title": "GoalOS Signoff Pro — Blockchain Proof Mandate &amp; Due Diligence Lab v29",
-      "category": "labs"
+      "title": "no-proof-no-credibility-lab",
+      "description": "Public proof lab or evidence demo."
     },
     {
       "route": "no-proof-no-settlement-lab.html",
-      "title": "GoalOS Signoff Pro — Blockchain Credibility Standard Lab",
-      "category": "labs"
+      "title": "no-proof-no-settlement-lab",
+      "description": "Public proof lab or evidence demo."
     },
     {
       "route": "no-ungoverned-asi.html",
-      "title": "GoalOS Signoff Pro — Loop → RSI → ASI Mission Simulator v35",
-      "category": "site"
+      "title": "no-ungoverned-asi",
+      "description": "RSI / ASI governance or simulator page."
     },
     {
       "route": "no-ungoverned-superintelligence-v34.html",
-      "title": "GoalOS Signoff Pro — Loop → RSI → ASI Superintelligence Control Tower Lab v34",
-      "category": "site"
+      "title": "no-ungoverned-superintelligence-v34",
+      "description": "GoalOS public website page."
     },
     {
       "route": "no-ungoverned-superintelligence.html",
-      "title": "GoalOS Signoff Pro — Loop to RSI to ASI Superintelligence Console v33",
-      "category": "site"
+      "title": "no-ungoverned-superintelligence",
+      "description": "GoalOS public website page."
     },
     {
       "route": "no-user-data.html",
-      "title": "No user data by design. · GoalOS Signoff Pro",
-      "category": "site"
+      "title": "no-user-data",
+      "description": "GoalOS public website page."
     },
     {
       "route": "omni-search-control-lab.html",
-      "title": "GoalOS Signoff Pro — From Loop to RSI Lab v32",
-      "category": "labs"
+      "title": "omni-search-control-lab",
+      "description": "Public proof lab or evidence demo."
     },
     {
       "route": "one-box-command.html",
-      "title": "Tell GoalOS what you want",
-      "category": "site"
+      "title": "one-box-command",
+      "description": "GoalOS public website page."
     },
     {
       "route": "paper.html",
-      "title": "GoalOS Signoff Pro — Proof Before Settlement Institutional Research Lab v30",
-      "category": "site"
+      "title": "paper",
+      "description": "GoalOS public website page."
     },
     {
       "route": "pilot.html",
-      "title": "Pilot the flow in your browser. · GoalOS Signoff Pro",
-      "category": "site"
+      "title": "pilot",
+      "description": "GoalOS public website page."
     },
     {
       "route": "platform.html",
-      "title": "Proof-to-acceptance infrastructure. · GoalOS Signoff Pro",
-      "category": "site"
+      "title": "platform",
+      "description": "GoalOS public website page."
     },
     {
       "route": "premium-experience.html",
-      "title": "GoalOS Signoff Pro — Premium v30–v34 Experience Hub",
-      "category": "site"
+      "title": "premium-experience",
+      "description": "GoalOS public website page."
     },
     {
       "route": "press.html",
-      "title": "Share the proof-to-acceptance story. · GoalOS Signoff Pro",
-      "category": "site"
+      "title": "press",
+      "description": "GoalOS public website page."
     },
     {
       "route": "pricing.html",
-      "title": "The public beta is open in-browser. · GoalOS Signoff Pro",
-      "category": "site"
+      "title": "pricing",
+      "description": "GoalOS public website page."
     },
     {
       "route": "privacy.html",
-      "title": "Privacy by non-collection. · GoalOS Signoff Pro",
-      "category": "site"
+      "title": "privacy",
+      "description": "GoalOS public website page."
     },
     {
       "route": "process-evidence-lab.html",
-      "title": "GoalOS Signoff Pro — Process-Resolved Evidence Lab",
-      "category": "labs"
+      "title": "process-evidence-lab",
+      "description": "Public proof lab or evidence demo."
     },
     {
       "route": "process-trace-lab.html",
-      "title": "GoalOS Signoff Pro — Process-Resolved Evidence Lab",
-      "category": "labs"
+      "title": "process-trace-lab",
+      "description": "Public proof lab or evidence demo."
+    },
+    {
+      "route": "product-first-signoff.html",
+      "title": "product-first-signoff",
+      "description": "GoalOS Signoff product or acceptance page."
+    },
+    {
+      "route": "product-launch-console.html",
+      "title": "product-launch-console",
+      "description": "GoalOS public website page."
+    },
+    {
+      "route": "product-protocol-ladder.html",
+      "title": "product-protocol-ladder",
+      "description": "GoalOS public website page."
     },
     {
       "route": "proof-before-settlement-paper.html",
-      "title": "GoalOS Signoff Pro — Proof Before Settlement Institutional Research Lab v30",
-      "category": "site"
+      "title": "proof-before-settlement-paper",
+      "description": "Public proof lab or evidence demo."
     },
     {
       "route": "proof-before-settlement-research-lab.html",
-      "title": "GoalOS Signoff Pro — Proof Before Settlement Institutional Research Lab v30",
-      "category": "labs"
+      "title": "proof-before-settlement-research-lab",
+      "description": "Public proof lab or evidence demo."
     },
     {
       "route": "proof-carrying-artifact-lab.html",
-      "title": "GoalOS Signoff Pro — Proof-Carrying Artifact & Evolution Ledger Lab",
-      "category": "labs"
+      "title": "proof-carrying-artifact-lab",
+      "description": "Public proof lab or evidence demo."
     },
     {
       "route": "proof-experience-console.html",
-      "title": "GoalOS Signoff Pro — Executive AI Proof Console v31",
-      "category": "site"
+      "title": "proof-experience-console",
+      "description": "Public proof lab or evidence demo."
     },
     {
       "route": "proof-gated-asi-simulator.html",
-      "title": "GoalOS Signoff Pro — Loop → RSI → ASI Mission Simulator v35",
-      "category": "site"
+      "title": "proof-gated-asi-simulator",
+      "description": "RSI / ASI governance or simulator page."
     },
     {
       "route": "proof-gated-coordination.html",
-      "title": "Proof-Gated Coordination · GoalOS Signoff Pro",
-      "category": "site"
+      "title": "proof-gated-coordination",
+      "description": "Public proof lab or evidence demo."
     },
     {
       "route": "proof-gated-superintelligence.html",
-      "title": "GoalOS Signoff Pro — Loop → RSI → ASI Superintelligence Control Tower Lab v34",
-      "category": "site"
+      "title": "proof-gated-superintelligence",
+      "description": "Public proof lab or evidence demo."
     },
     {
       "route": "proof-governed-swarm.html",
-      "title": "Proof-Governed Swarm · GoalOS Signoff Pro",
-      "category": "site"
+      "title": "proof-governed-swarm",
+      "description": "Public proof lab or evidence demo."
     },
     {
       "route": "proof-mission.html",
-      "title": "One objective. One proof path. · GoalOS Signoff Pro",
-      "category": "mission"
+      "title": "proof-mission",
+      "description": "Public proof lab or evidence demo."
     },
     {
       "route": "proof-missions.html",
-      "title": "One objective. One proof path. · GoalOS Signoff Pro",
-      "category": "mission"
+      "title": "proof-missions",
+      "description": "Public proof lab or evidence demo."
     },
     {
       "route": "proof-native-workbench-lab.html",
-      "title": "GoalOS Signoff Pro — Process-Resolved Evidence Lab",
-      "category": "labs"
+      "title": "proof-native-workbench-lab",
+      "description": "Public proof lab or evidence demo."
     },
     {
       "route": "proof-os.html",
-      "title": "Set the objective. Earn the decision. · GoalOS Signoff Pro",
-      "category": "site"
+      "title": "proof-os",
+      "description": "Public proof lab or evidence demo."
     },
     {
       "route": "proof-package-requirement-lab.html",
-      "title": "GoalOS Signoff Pro — Blockchain Proof Mandate &amp; Due Diligence Lab v29",
-      "category": "labs"
+      "title": "proof-package-requirement-lab",
+      "description": "Public proof lab or evidence demo."
     },
     {
       "route": "proof-selection-theatre.html",
-      "title": "Proof Selection Theatre · GoalOS Signoff Pro",
-      "category": "site"
+      "title": "proof-selection-theatre",
+      "description": "Public proof lab or evidence demo."
+    },
+    {
+      "route": "proof-to-payment-ladder.html",
+      "title": "proof-to-payment-ladder",
+      "description": "Public proof lab or evidence demo."
     },
     {
       "route": "proof-to-settlement-standard-lab.html",
-      "title": "GoalOS Signoff Pro — Blockchain Credibility Standard Lab",
-      "category": "labs"
+      "title": "proof-to-settlement-standard-lab",
+      "description": "Public proof lab or evidence demo."
     },
     {
       "route": "proof-to-superintelligence.html",
-      "title": "GoalOS Signoff Pro · v22-v35 Command Center",
-      "category": "site"
+      "title": "proof-to-superintelligence",
+      "description": "Public proof lab or evidence demo."
     },
     {
       "route": "proofzero-planning-lab.html",
-      "title": "GoalOS Signoff Pro — ProofZero Planning Lab",
-      "category": "labs"
+      "title": "proofzero-planning-lab",
+      "description": "Public proof lab or evidence demo."
+    },
+    {
+      "route": "protocol-ladder.html",
+      "title": "protocol-ladder",
+      "description": "GoalOS public website page."
+    },
+    {
+      "route": "protocol-topology.html",
+      "title": "protocol-topology",
+      "description": "GoalOS public website page."
     },
     {
       "route": "public-demo-labs.html",
-      "title": "GoalOS Signoff Pro · Public Demo Labs v22-v35",
-      "category": "labs"
+      "title": "public-demo-labs",
+      "description": "Public proof lab or evidence demo."
     },
     {
       "route": "recursive-self-improvement-to-asi-lab.html",
-      "title": "GoalOS Signoff Pro — Loop to RSI to ASI Superintelligence Console v33",
-      "category": "labs"
+      "title": "recursive-self-improvement-to-asi-lab",
+      "description": "RSI / ASI governance or simulator page."
     },
     {
       "route": "replay-council-lab.html",
-      "title": "GoalOS — Independent Replay & Claim Promotion Lab",
-      "category": "labs"
+      "title": "replay-council-lab",
+      "description": "Public proof lab or evidence demo."
     },
     {
       "route": "request-access.html",
-      "title": "Access is already open in the browser. · GoalOS Signoff Pro",
-      "category": "site"
+      "title": "request-access",
+      "description": "GoalOS public website page."
     },
     {
       "route": "require-proof-before-trust-lab.html",
-      "title": "GoalOS Signoff Pro — Blockchain Proof Mandate &amp; Due Diligence Lab v29",
-      "category": "labs"
+      "title": "require-proof-before-trust-lab",
+      "description": "Public proof lab or evidence demo."
     },
     {
       "route": "research.html",
-      "title": "GoalOS Signoff Pro — Proof Before Settlement Institutional Research Lab v30",
-      "category": "site"
+      "title": "research",
+      "description": "GoalOS public website page."
     },
     {
       "route": "resources.html",
-      "title": "Learn the proof stack. · GoalOS Signoff Pro",
-      "category": "site"
+      "title": "resources",
+      "description": "GoalOS public website page."
     },
     {
       "route": "reviewer-network.html",
-      "title": "Reviewer roles are gates. · GoalOS Signoff Pro",
-      "category": "site"
+      "title": "reviewer-network",
+      "description": "GoalOS public website page."
     },
     {
       "route": "route-catalog.html",
-      "title": "GoalOS Signoff Pro · Route Catalog",
-      "category": "site"
+      "title": "route-catalog",
+      "description": "GoalOS public website page."
     },
     {
       "route": "routes.html",
-      "title": "All GoalOS pages",
-      "category": "site"
+      "title": "routes",
+      "description": "GoalOS public website page."
     },
     {
       "route": "rsi-governance-console.html",
-      "title": "GoalOS Signoff Pro — From Loop to RSI Lab v32",
-      "category": "site"
+      "title": "rsi-governance-console",
+      "description": "RSI / ASI governance or simulator page."
     },
     {
       "route": "rsi-to-asi-control-simulator.html",
-      "title": "GoalOS Signoff Pro — Loop → RSI → ASI Mission Simulator v35",
-      "category": "site"
+      "title": "rsi-to-asi-control-simulator",
+      "description": "RSI / ASI governance or simulator page."
     },
     {
       "route": "rsi-to-asi-superintelligence.html",
-      "title": "GoalOS Signoff Pro — Loop to RSI to ASI Superintelligence Console v33",
-      "category": "site"
+      "title": "rsi-to-asi-superintelligence",
+      "description": "RSI / ASI governance or simulator page."
     },
     {
       "route": "rsi.html",
-      "title": "GoalOS Signoff Pro — From Loop to RSI Lab v32",
-      "category": "site"
+      "title": "rsi",
+      "description": "RSI / ASI governance or simulator page."
     },
     {
       "route": "scoped-action-lab.html",
-      "title": "GoalOS Signoff Pro — Action Graph & Human Authority Lab",
-      "category": "labs"
+      "title": "scoped-action-lab",
+      "description": "Public proof lab or evidence demo."
     },
     {
       "route": "security-boundary.html",
-      "title": "Small public surface. · GoalOS Signoff Pro",
-      "category": "site"
+      "title": "security-boundary",
+      "description": "GoalOS public website page."
     },
     {
       "route": "security.html",
-      "title": "Small public surface. · GoalOS Signoff Pro",
-      "category": "site"
+      "title": "security",
+      "description": "GoalOS public website page."
     },
     {
       "route": "settlement-safety-lab.html",
-      "title": "GoalOS Signoff Pro — Proof Before Settlement Institutional Research Lab v30",
-      "category": "labs"
+      "title": "settlement-safety-lab",
+      "description": "Public proof lab or evidence demo."
+    },
+    {
+      "route": "signoff-basic.html",
+      "title": "signoff-basic",
+      "description": "RSI / ASI governance or simulator page."
+    },
+    {
+      "route": "signoff-launch-console.html",
+      "title": "signoff-launch-console",
+      "description": "GoalOS Signoff product or acceptance page."
+    },
+    {
+      "route": "signoff-product-core.html",
+      "title": "signoff-product-core",
+      "description": "GoalOS Signoff product or acceptance page."
+    },
+    {
+      "route": "signoff-product-protocol-ladder-lab.html",
+      "title": "signoff-product-protocol-ladder-lab",
+      "description": "Public proof lab or evidence demo."
+    },
+    {
+      "route": "signoff-protocol-rails.html",
+      "title": "signoff-protocol-rails",
+      "description": "GoalOS Signoff product or acceptance page."
+    },
+    {
+      "route": "signoff-secured.html",
+      "title": "signoff-secured",
+      "description": "GoalOS Signoff product or acceptance page."
+    },
+    {
+      "route": "signoff-settle.html",
+      "title": "signoff-settle",
+      "description": "GoalOS Signoff product or acceptance page."
+    },
+    {
+      "route": "signoff-verified.html",
+      "title": "signoff-verified",
+      "description": "GoalOS Signoff product or acceptance page."
     },
     {
       "route": "site-map.html",
-      "title": "All GoalOS pages",
-      "category": "site"
+      "title": "site-map",
+      "description": "GoalOS public website page."
     },
     {
       "route": "site-navigator.html",
-      "title": "Tell GoalOS what you want",
-      "category": "site"
+      "title": "site-navigator",
+      "description": "GoalOS public website page."
     },
     {
       "route": "sitemap.html",
-      "title": "All GoalOS pages",
-      "category": "site"
+      "title": "sitemap",
+      "description": "GoalOS public website page."
+    },
+    {
+      "route": "solved-use-cases.html",
+      "title": "solved-use-cases",
+      "description": "GoalOS public website page."
     },
     {
       "route": "sovereign-asi-flight-simulator.html",
-      "title": "GoalOS Signoff Pro — Loop → RSI → ASI Mission Simulator v35",
-      "category": "site"
+      "title": "sovereign-asi-flight-simulator",
+      "description": "RSI / ASI governance or simulator page."
     },
     {
       "route": "sovereign-asi-readiness-lab.html",
-      "title": "GoalOS Signoff Pro — Loop to RSI to ASI Superintelligence Console v33",
-      "category": "labs"
+      "title": "sovereign-asi-readiness-lab",
+      "description": "RSI / ASI governance or simulator page."
     },
     {
       "route": "sovereign-invention-governance-lab.html",
-      "title": "GoalOS Signoff Pro — From Loop to RSI Lab v32",
-      "category": "labs"
+      "title": "sovereign-invention-governance-lab",
+      "description": "Public proof lab or evidence demo."
     },
     {
       "route": "sovereign-machine-economy.html",
-      "title": "From mission to capability. · GoalOS Signoff Pro",
-      "category": "site"
+      "title": "sovereign-machine-economy",
+      "description": "GoalOS public website page."
     },
     {
       "route": "start-here.html",
-      "title": "Tell GoalOS what you want",
-      "category": "site"
+      "title": "start-here",
+      "description": "GoalOS public website page."
+    },
+    {
+      "route": "start-v42.html",
+      "title": "start-v42",
+      "description": "GoalOS public website page."
     },
     {
       "route": "start.html",
-      "title": "Start by running Mission 001. · GoalOS Signoff Pro",
-      "category": "site"
+      "title": "start",
+      "description": "GoalOS public website page."
     },
     {
       "route": "status.html",
-      "title": "Public browser beta live. · GoalOS Signoff Pro",
-      "category": "site"
+      "title": "status",
+      "description": "GoalOS public website page."
     },
     {
       "route": "subprocessors.html",
-      "title": "No public submissions. · GoalOS Signoff Pro",
-      "category": "site"
+      "title": "subprocessors",
+      "description": "GoalOS public website page."
     },
     {
       "route": "superintelligence-control-tower.html",
-      "title": "GoalOS Signoff Pro — Loop → RSI → ASI Superintelligence Control Tower Lab v34",
-      "category": "site"
+      "title": "superintelligence-control-tower",
+      "description": "GoalOS public website page."
     },
     {
       "route": "superintelligence-experience.html",
-      "title": "GoalOS Signoff Pro — Premium v30–v34 Experience Hub",
-      "category": "site"
+      "title": "superintelligence-experience",
+      "description": "GoalOS public website page."
     },
     {
       "route": "superintelligence-governance-console.html",
-      "title": "GoalOS Signoff Pro — Loop to RSI to ASI Superintelligence Console v33",
-      "category": "site"
+      "title": "superintelligence-governance-console",
+      "description": "GoalOS public website page."
     },
     {
       "route": "superintelligence-simulation-console.html",
-      "title": "GoalOS Signoff Pro — Loop → RSI → ASI Mission Simulator v35",
-      "category": "site"
+      "title": "superintelligence-simulation-console",
+      "description": "GoalOS public website page."
     },
     {
       "route": "tell-goalos.html",
-      "title": "Tell GoalOS what you want",
-      "category": "site"
+      "title": "tell-goalos",
+      "description": "GoalOS public website page."
     },
     {
       "route": "terms.html",
-      "title": "Use the public demo as a simulation. · GoalOS Signoff Pro",
-      "category": "site"
+      "title": "terms",
+      "description": "GoalOS public website page."
     },
     {
       "route": "theatre.html",
-      "title": "Watch a proof cycle become a receipt. · GoalOS Signoff Pro",
-      "category": "site"
+      "title": "theatre",
+      "description": "GoalOS public website page."
     },
     {
       "route": "trust-architecture.html",
-      "title": "Trust is a product path. · GoalOS Signoff Pro",
-      "category": "site"
+      "title": "trust-architecture",
+      "description": "GoalOS public website page."
     },
     {
       "route": "trust-before-settlement-lab.html",
-      "title": "GoalOS Signoff Pro — Blockchain Credibility Standard Lab",
-      "category": "labs"
+      "title": "trust-before-settlement-lab",
+      "description": "Public proof lab or evidence demo."
     },
     {
       "route": "trust.html",
-      "title": "Trust is implemented as architecture. · GoalOS Signoff Pro",
-      "category": "site"
+      "title": "trust",
+      "description": "GoalOS public website page."
+    },
+    {
+      "route": "universal-command-box.html",
+      "title": "universal-command-box",
+      "description": "GoalOS public website page."
+    },
+    {
+      "route": "universal-outcome-box.html",
+      "title": "universal-outcome-box",
+      "description": "GoalOS public website page."
     },
     {
       "route": "upgrade-right-lab.html",
-      "title": "GoalOS Signoff Pro — Proof-Carrying Artifact & Evolution Ledger Lab",
-      "category": "labs"
+      "title": "upgrade-right-lab",
+      "description": "Public proof lab or evidence demo."
     },
     {
       "route": "use-cases.html",
-      "title": "Tell GoalOS what you want",
-      "category": "site"
+      "title": "use-cases",
+      "description": "GoalOS public website page."
     },
     {
       "route": "v22-v35.html",
-      "title": "GoalOS Signoff Pro · v22-v35 Command Center",
-      "category": "site"
+      "title": "v22-v35",
+      "description": "GoalOS public website page."
+    },
+    {
+      "route": "v22-v37.html",
+      "title": "v22-v37",
+      "description": "GoalOS public website page."
+    },
+    {
+      "route": "v22-v38.html",
+      "title": "v22-v38",
+      "description": "GoalOS public website page."
+    },
+    {
+      "route": "v22-v40.html",
+      "title": "v22-v40",
+      "description": "GoalOS public website page."
     },
     {
       "route": "v30-v34-premium-experience.html",
-      "title": "GoalOS Signoff Pro — Premium v30–v34 Experience Hub",
-      "category": "site"
+      "title": "v30-v34-premium-experience",
+      "description": "GoalOS public website page."
     },
     {
       "route": "v30-v34.html",
-      "title": "GoalOS Signoff Pro — Premium v30–v34 Experience Hub",
-      "category": "site"
+      "title": "v30-v34",
+      "description": "GoalOS public website page."
     },
     {
       "route": "v34.html",
-      "title": "GoalOS Signoff Pro — Loop → RSI → ASI Superintelligence Control Tower Lab v34",
-      "category": "site"
+      "title": "v34",
+      "description": "GoalOS public website page."
     },
     {
       "route": "v35.html",
-      "title": "GoalOS Signoff Pro — Loop → RSI → ASI Mission Simulator v35",
-      "category": "site"
+      "title": "v35",
+      "description": "GoalOS public website page."
+    },
+    {
+      "route": "v36.html",
+      "title": "v36",
+      "description": "GoalOS public website page."
+    },
+    {
+      "route": "v37.html",
+      "title": "v37",
+      "description": "GoalOS public website page."
+    },
+    {
+      "route": "v38.html",
+      "title": "v38",
+      "description": "GoalOS public website page."
+    },
+    {
+      "route": "v39.html",
+      "title": "v39",
+      "description": "GoalOS public website page."
+    },
+    {
+      "route": "v40.html",
+      "title": "v40",
+      "description": "GoalOS public website page."
+    },
+    {
+      "route": "v41.html",
+      "title": "v41",
+      "description": "GoalOS public website page."
+    },
+    {
+      "route": "v42.html",
+      "title": "v42",
+      "description": "GoalOS public website page."
+    },
+    {
+      "route": "v45.html",
+      "title": "v45",
+      "description": "GoalOS public website page."
     },
     {
       "route": "v47.html",
-      "title": "Tell GoalOS what you want",
-      "category": "site"
+      "title": "v47",
+      "description": "GoalOS public website page."
     },
     {
       "route": "verify.html",
-      "title": "Mission Receipt Verifier · GoalOS Signoff Pro",
-      "category": "site"
+      "title": "verify",
+      "description": "GoalOS public website page."
     },
     {
       "route": "website-guide.html",
-      "title": "GoalOS Signoff Pro · v22-v35 Command Center",
-      "category": "site"
+      "title": "website-guide",
+      "description": "GoalOS public website page."
     },
     {
       "route": "what-is-goalos.html",
-      "title": "GoalOS Signoff Pro — Executive AI Proof Console v31",
-      "category": "site"
+      "title": "what-is-goalos",
+      "description": "GoalOS public website page."
     }
   ]
 }
