@@ -1,0 +1,160 @@
+{
+  "version": "v47",
+  "title": "GoalOS Front-Center Mission Studio use-case library",
+  "publicSafe": {
+    "localQuestionBox": true,
+    "uploads": false,
+    "cookies": false,
+    "analytics": false,
+    "wallets": false,
+    "payments": false,
+    "externalAiCallsByDefault": false,
+    "valueMoved": false
+  },
+  "useCases": [
+    {
+      "id": "ai-research-strategy-signoff",
+      "title": "AI Research & Strategy Signoff",
+      "audience": "AI consultants, agencies, clients, strategy teams",
+      "plainRequest": "I delivered an AI research report to a client and need proof it is ready to accept.",
+      "goalosOutcome": "GoalOS turns the report handoff into a reviewable Signoff: brief, claims, sources, freshness checks, limitations, reviewer decision, and Mission Receipt.",
+      "acceptanceCriteria": ["The assignment brief and prohibited claims are explicit.", "Every material claim is mapped to a source or marked uncertain.", "Freshness, broken-link, and required-section checks are complete.", "The reviewer can accept, request changes, or reject."],
+      "evidenceChecklist": ["Final report or deliverable reference", "Claim-to-source matrix", "Source freshness notes", "Uncertainty and disagreement notes", "Reviewer checklist", "Mission Receipt"],
+      "recommendedRoute": "ai-research-strategy-signoff-console.html",
+      "tier": "Signoff Basic",
+      "protocolRails": ["AEPGoalOSCommitRegistry", "AEPEvidenceDocketRegistry", "AEPClaimBoundaryRegistry", "ProofCardRegistry"]
+    },
+    {
+      "id": "client-project-acceptance",
+      "title": "Client Project Acceptance",
+      "audience": "Consultants, agencies, software studios, enterprise buyers",
+      "plainRequest": "My client needs a clean accept or changes decision for an AI-assisted project delivery.",
+      "goalosOutcome": "GoalOS creates a delivery acceptance path: define done, map artifacts to requirements, expose gaps, route human review, and issue a receipt.",
+      "acceptanceCriteria": ["Deliverables match the original brief.", "Out-of-scope work is identified.", "Risks and limitations are visible.", "Client decision is recorded."],
+      "evidenceChecklist": ["Statement of work", "Delivered files or links", "Acceptance criteria mapping", "Risk disclosure", "Reviewer decision", "Mission Receipt"],
+      "recommendedRoute": "signoff-product-core.html",
+      "tier": "Signoff Basic",
+      "protocolRails": ["AEPGoalOSCommitRegistry", "JobRegistry", "ProofCredentialRegistry"]
+    },
+    {
+      "id": "dao-grant-milestone",
+      "title": "DAO Grant Milestone Release",
+      "audience": "DAOs, grant committees, treasury councils, ecosystems",
+      "plainRequest": "We need to release a grant milestone only if the proof package passes review.",
+      "goalosOutcome": "GoalOS compiles a milestone proof package: promised scope, evidence, reviewer checklist, challenge boundary, and settlement-readiness decision.",
+      "acceptanceCriteria": ["Grant milestone is tied to objective evidence.", "Reviewer authority is explicit.", "Challenge window and unresolved risks are visible.", "Payment readiness is separated from public-site demo claims."],
+      "evidenceChecklist": ["Grant agreement", "Milestone deliverables", "Evidence Docket", "Validator report", "Risk ledger", "Settlement-readiness receipt"],
+      "recommendedRoute": "blockchain-proof-mandate-lab.html",
+      "tier": "Signoff Verified",
+      "protocolRails": ["JobRegistry", "AEPEvidenceDocketRegistry", "AEPProofBundleRegistry", "ReviewerBondRegistry", "TreasuryRouter"]
+    },
+    {
+      "id": "audit-remediation",
+      "title": "Audit Remediation Signoff",
+      "audience": "Protocol teams, auditors, security reviewers, enterprises",
+      "plainRequest": "We fixed an audit issue and need evidence that the remediation is ready to accept.",
+      "goalosOutcome": "GoalOS turns remediation into proof: finding, patch, tests, replay, reviewer check, remaining risk, and acceptance receipt.",
+      "acceptanceCriteria": ["The original finding is referenced.", "The fix is linked to tests or reproduction steps.", "Residual risk is stated.", "Independent review is recorded."],
+      "evidenceChecklist": ["Audit finding", "Patch or mitigation reference", "Test evidence", "Replay notes", "Reviewer decision", "Remediation receipt"],
+      "recommendedRoute": "independent-replay-lab.html",
+      "tier": "Signoff Secured",
+      "protocolRails": ["AEPReplayRegistry", "AEPEvalRegistry", "AEPFalsificationRegistry", "AEPSlashingCourt"]
+    },
+    {
+      "id": "protocol-upgrade-readiness",
+      "title": "Protocol Upgrade Readiness",
+      "audience": "Protocol foundations, governance delegates, validators, engineering leads",
+      "plainRequest": "Before a protocol upgrade, we need the evidence, risks, rollback plan, and human authority in one place.",
+      "goalosOutcome": "GoalOS creates an upgrade docket: scope, proof objects, readiness gates, rollback plan, review authority, and release recommendation.",
+      "acceptanceCriteria": ["Upgrade scope is bounded.", "Evidence and tests are linked.", "Rollback conditions are stated.", "Human approval path is explicit."],
+      "evidenceChecklist": ["Upgrade proposal", "Test and simulation results", "Risk ledger", "Rollback plan", "Council memo", "Release receipt"],
+      "recommendedRoute": "loop-rsi-asi-superintelligence-control-tower-lab.html",
+      "tier": "Signoff Secured",
+      "protocolRails": ["AEPSelectionGate", "AEPRolloutRegistry", "AEPClaimBoundaryRegistry", "AEPChronicleRegistry"]
+    },
+    {
+      "id": "ai-agent-work-settlement",
+      "title": "AI Agent Work Settlement",
+      "audience": "Agent operators, marketplaces, AI agencies, protocol teams",
+      "plainRequest": "An AI agent completed work and should only be paid if the evidence passes review.",
+      "goalosOutcome": "GoalOS separates agent output from accepted work: it builds proof, routes review, records limitations, and prepares settlement only after acceptance.",
+      "acceptanceCriteria": ["Agent work is tied to the mission brief.", "Artifacts and traces are referenced.", "Reviewer decision is explicit.", "Settlement remains optional and gated."],
+      "evidenceChecklist": ["Mission brief", "Agent output", "Trace or process evidence", "ProofBundle", "Reviewer decision", "Settlement-readiness receipt"],
+      "recommendedRoute": "proof-to-settlement-standard-lab.html",
+      "tier": "Signoff & Settle",
+      "protocolRails": ["JobRegistry", "AEPProofBundleRegistry", "AEPRewardVault", "ProofSubmissionRegistry", "TreasuryRouter"]
+    },
+    {
+      "id": "forty-eight-contracts",
+      "title": "Understand the 48 Mainnet Contract Rails",
+      "audience": "Founders, protocol operators, auditors, analysts, nontechnical stakeholders",
+      "plainRequest": "Explain the 48 GoalOS-created Mainnet contracts and which ones matter for my Signoff tier.",
+      "goalosOutcome": "GoalOS maps each contract family to an understandable product function: commitment, evidence, review, reputation, payment, dispute, and governance rails.",
+      "acceptanceCriteria": ["Contracts are grouped by family.", "Each contract has a plain-English role.", "Each tier shows which rails are relevant.", "Public boundaries are explicit."],
+      "evidenceChecklist": ["Contract family map", "Tier-to-rail map", "Individual contract pages", "Etherscan links", "Boundary notes"],
+      "recommendedRoute": "agialpha-48-contract-atlas.html",
+      "tier": "Protocol Atlas",
+      "protocolRails": ["AEPGoalOSCommitRegistry", "AEPEvidenceDocketRegistry", "ReviewerBondRegistry", "AEPRewardVault", "AEPSlashingCourt", "TreasuryRouter"]
+    },
+    {
+      "id": "enterprise-ai-pilot",
+      "title": "Enterprise AI Pilot Acceptance",
+      "audience": "Executives, procurement, compliance, AI platform teams",
+      "plainRequest": "We ran an AI pilot and need to decide if it is ready for internal acceptance.",
+      "goalosOutcome": "GoalOS turns a pilot into a governed decision: success criteria, evidence, risks, user impact, review path, and acceptance receipt.",
+      "acceptanceCriteria": ["Success criteria are measurable.", "Risks and prohibited uses are listed.", "Evidence is mapped to the pilot brief.", "Acceptance is human-authorized."],
+      "evidenceChecklist": ["Pilot brief", "Evaluation results", "Risk and safety ledger", "User impact notes", "Reviewer checklist", "Pilot receipt"],
+      "recommendedRoute": "executive-ai-proof-console.html",
+      "tier": "Signoff Basic",
+      "protocolRails": ["AEPGoalOSCommitRegistry", "AEPEvalRegistry", "ProofCredentialRegistry"]
+    },
+    {
+      "id": "rwa-oracle-claim",
+      "title": "RWA or External Claim Docket",
+      "audience": "RWA teams, oracle designers, compliance reviewers, tokenization projects",
+      "plainRequest": "We need a proof package for an external claim before it affects governance or settlement.",
+      "goalosOutcome": "GoalOS packages the claim, provenance, evidence boundaries, reviewer authority, challenge path, and receipt before any downstream action.",
+      "acceptanceCriteria": ["The external claim is clearly bounded.", "Provenance is visible.", "Unavailable or private evidence is marked.", "Reviewer decision and challenge path are recorded."],
+      "evidenceChecklist": ["Claim statement", "Provenance references", "Evidence Docket", "Risk and uncertainty notes", "Reviewer decision", "Claim receipt"],
+      "recommendedRoute": "blockchain-credibility-lab.html",
+      "tier": "Signoff Verified",
+      "protocolRails": ["AEPEvidenceDocketRegistry", "AEPClaimBoundaryRegistry", "AEPAttestationRegistry", "DisputeRegistry"]
+    },
+    {
+      "id": "move37-governance",
+      "title": "Move-37 / RSI Breakthrough Governance",
+      "audience": "Frontier labs, governance councils, research leaders, assurance teams",
+      "plainRequest": "Govern a Move-37 breakthrough candidate with replay, stress tests, persistence gates, and a dossier.",
+      "goalosOutcome": "GoalOS routes high-novelty work through deterministic invention governance: target, emit, filter, atlas, test-plan, eval, insert, promote, then dossier.",
+      "acceptanceCriteria": ["Novelty does not bypass evidence.", "Baseline comparison is explicit.", "Stress tests and persistence gates are required.", "Council authority is recorded."],
+      "evidenceChecklist": ["Candidate card", "Baseline comparison", "Policy-shock results", "Persistence gate", "Move-37 dossier", "Council receipt"],
+      "recommendedRoute": "loop-rsi-asi-superintelligence-mission-simulator-lab.html",
+      "tier": "RSI Governance Demo",
+      "protocolRails": ["AEPReplayRegistry", "AEPEvalRegistry", "AEPChronicleRegistry", "AEPFalsificationRegistry"]
+    },
+    {
+      "id": "mission-001-reproducibility",
+      "title": "Mission 001 Reproducibility Packet",
+      "audience": "New visitors, auditors, technical reviewers, benchmark evaluators",
+      "plainRequest": "Show me the benchmark-ready proof packet and how to inspect it.",
+      "goalosOutcome": "GoalOS routes the visitor to Mission 001: contract, environment, tasks, baselines, proof bundle, replay log, ledgers, validator report, scoreboard, and claims matrix.",
+      "acceptanceCriteria": ["Packet files are visible.", "Replay path is visible.", "Claims matrix is visible.", "Validator report is visible."],
+      "evidenceChecklist": ["Mission contract", "Environment", "B0-B6 baselines", "Proof bundle", "Replay log", "Validator report"],
+      "recommendedRoute": "mission-001.html",
+      "tier": "Benchmark-ready proof",
+      "protocolRails": ["AEPGoalOSCommitRegistry", "AEPReplayRegistry", "AEPProofLedger"]
+    },
+    {
+      "id": "public-stakeholder-questions",
+      "title": "Public Stakeholder Questions",
+      "audience": "Users, investors, partners, reviewers, press, community members",
+      "plainRequest": "I am new. Show me what GoalOS is, where to start, and which page answers my question.",
+      "goalosOutcome": "GoalOS provides a short answer, recommends a page, and opens the correct route: Signoff, labs, contract atlas, Mission 001, or RSI/ASI governance.",
+      "acceptanceCriteria": ["Answer is short and grounded.", "Route is same-site and allowed.", "Visitor can cancel navigation.", "Boundary is visible."],
+      "evidenceChecklist": ["Question intent", "Matched route", "Alternative pages", "Public boundary", "Next action"],
+      "recommendedRoute": "ask-goalos.html",
+      "tier": "Site Concierge",
+      "protocolRails": ["Route catalog", "Knowledge map", "Public-safe boundary"]
+    }
+  ]
+}
