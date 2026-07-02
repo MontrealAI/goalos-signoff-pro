@@ -1,0 +1,16 @@
+{
+  "publicSafe": true,
+  "rules": [
+    "No forms on public site",
+    "No text inputs on public site",
+    "No uploads",
+    "No cookies",
+    "No analytics",
+    "No wallets",
+    "No payments",
+    "No external AI calls",
+    "No personal or confidential data",
+    "Zero value moved",
+    "No production settlement claim"
+  ]
+}

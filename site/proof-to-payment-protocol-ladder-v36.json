@@ -1,0 +1,51 @@
+{
+  "tiers": [
+    {
+      "name": "Signoff Basic",
+      "customer_view": "No wallet; define done, submit evidence, review, and issue a signed receipt.",
+      "protocol_view": "Protocol-compatible Evidence Docket and receipt; no public chain transaction required.",
+      "agialpha": "None required for launch; can be sponsored later.",
+      "status": "Ready as SaaS/product demo"
+    },
+    {
+      "name": "Signoff Verified",
+      "customer_view": "Receipt hashes can be anchored; the customer sees a verified receipt, not token plumbing.",
+      "protocol_view": "Commitment, artifact, evidence docket, proof bundle, proof card, and credential rails become relevant.",
+      "agialpha": "Small protocol usage or credential fee can be sponsored.",
+      "status": "Sepolia/testnet then gated Mainnet hash anchoring"
+    },
+    {
+      "name": "Signoff Secured",
+      "customer_view": "Accountable reviewer, challenge window, reputation, and slashing-ready discipline.",
+      "protocol_view": "Reviewer/evaluator staking, attestation, selection gate, replay, claim-boundary, falsification, and slashing rails.",
+      "agialpha": "Reviewer/evaluator/challenge bonds and rewards.",
+      "status": "Requires audits, remediation, and explicit authorization"
+    },
+    {
+      "name": "Signoff & Settle",
+      "customer_view": "Payment releases only after accepted proof and challenge rules.",
+      "protocol_view": "Job, vault, reward, treasury, dispute, appeal, and chronicle rails orchestrate proof-to-payment.",
+      "agialpha": "Settlement, work rewards, proof rewards, reviewer rewards, stake, challenge, and treasury routing.",
+      "status": "Future gated production tier; no user funds until authorized"
+    }
+  ],
+  "sequence": [
+    "Signoff Basic",
+    "Signoff Verified",
+    "Signoff Secured",
+    "Signoff & Settle"
+  ],
+  "publicBoundary": [
+    "No forms on public site",
+    "No text inputs on public site",
+    "No uploads",
+    "No cookies",
+    "No analytics",
+    "No wallets",
+    "No payments",
+    "No external AI calls",
+    "No personal or confidential data",
+    "Zero value moved",
+    "No production settlement claim"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "screens": [
+    "Create",
+    "Submit",
+    "Check",
+    "Review",
+    "Receipt"
+  ],
+  "launchWedge": "AI Research & Strategy Signoff",
+  "promise": "Know when AI work is actually done."
+}
