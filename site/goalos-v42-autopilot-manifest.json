@@ -1,7 +1,7 @@
 {
   "id": "goalos-signoff-pro-v42-universal-outcome-autopilot-studio",
   "title": "GoalOS Signoff Pro — Universal Outcome Autopilot Studio v42",
-  "generatedAt": "2026-07-02T18:42:26.077Z",
+  "generatedAt": "2026-07-02T18:59:29.844Z",
   "routes": [
     "goalos-autopilot-studio.html",
     "autopilot-studio.html",
@@ -30,5 +30,5 @@
       "legal/investment/live-settlement advice"
     ]
   },
-  "contentHash": "edee14ae275629598954902b45ecd91f269ccd28b41c1783a1f0acb28a30abb8"
+  "contentHash": "1543aa1737ed4868ca9f03a2a5a2294a9f999ed41a94288383271f51959fa446"
 }
