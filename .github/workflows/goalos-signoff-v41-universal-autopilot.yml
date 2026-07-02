@@ -1,0 +1,99 @@
+name: GoalOS Signoff Pro — Universal Autopilot Command Console v41
+
+on:
+  workflow_dispatch:
+    inputs:
+      commit_generated_site:
+        description: "Commit generated site files back to the branch"
+        required: true
+        default: "true"
+        type: choice
+        options: ["true", "false"]
+      deploy_pages:
+        description: "Deploy GitHub Pages after build"
+        required: true
+        default: "true"
+        type: choice
+        options: ["true", "false"]
+      deploy_timeout_ms:
+        description: "GitHub Pages deployment timeout in milliseconds"
+        required: true
+        default: "3600000"
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+  actions: read
+
+concurrency:
+  group: goalos-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Build and verify v41 Autopilot
+    runs-on: ubuntu-latest
+    env:
+      GOALOS_PUBLIC_SAFE: "true"
+      GOALOS_ZERO_VALUE_MOVED: "true"
+      GOALOS_NO_EXTERNAL_AI_CALLS_BY_DEFAULT: "true"
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Build v41 Universal Autopilot
+        run: node scripts/build-goalos-universal-autopilot-v41.mjs
+      - name: Verify v41 Universal Autopilot
+        run: node scripts/verify-goalos-universal-autopilot-v41.mjs
+      - name: Ensure Pages artifact shape
+        run: |
+          test -d site
+          touch site/.nojekyll
+          test -f site/goalos-autopilot.html
+          test -f site/assets/goalos-v41-autopilot.js
+          du -sh site
+      - name: Commit generated site files
+        if: ${{ github.event.inputs.commit_generated_site == 'true' }}
+        run: |
+          git config user.name "goalos-autopilot-bot"
+          git config user.email "goalos-autopilot-bot@users.noreply.github.com"
+          git add site docs verification config scripts .github/workflows serverless GOALOS_V41_AUTOPILOT_START_HERE.md GITHUB_WEB_UI_INSTALL_V41_AUTOPILOT.txt || true
+          git diff --cached --quiet && echo "No changes to commit" || git commit -m "Add GoalOS Universal Autopilot v41 [skip ci]"
+          git push || true
+      - name: Upload site preview artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: goalos-v41-autopilot-site-preview
+          path: site
+          if-no-files-found: error
+      - name: Configure GitHub Pages
+        if: ${{ github.event.inputs.deploy_pages == 'true' }}
+        uses: actions/configure-pages@v5
+      - name: Upload GitHub Pages artifact
+        if: ${{ github.event.inputs.deploy_pages == 'true' }}
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+  deploy:
+    name: Deploy GitHub Pages
+    needs: build
+    if: ${{ github.event.inputs.deploy_pages == 'true' }}
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      pages: write
+      id-token: write
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+        with:
+          timeout: ${{ github.event.inputs.deploy_timeout_ms }}
+          error_count: 120
+          reporting_interval: 15000
