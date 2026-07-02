@@ -1,0 +1,87 @@
+name: GoalOS Signoff Pro — Universal Outcome Autopilot Studio v42
+
+on:
+  workflow_dispatch:
+    inputs:
+      commit_generated_site:
+        description: Commit generated site files back to the branch
+        type: boolean
+        default: true
+      deploy_pages:
+        description: Deploy GitHub Pages after verification
+        type: boolean
+        default: true
+      deploy_timeout_ms:
+        description: Pages deployment timeout in milliseconds
+        required: false
+        default: '3600000'
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+env:
+  GOALOS_PUBLIC_SAFE: 'true'
+  GOALOS_ZERO_VALUE_MOVED: 'true'
+  GOALOS_NO_EXTERNAL_AI_CALLS_BY_DEFAULT: 'true'
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
+
+concurrency:
+  group: goalos-pages-deploy
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Build and verify v42 Autopilot Studio
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+      - name: Setup Node.js 24
+        uses: actions/setup-node@v5
+        with:
+          node-version: '24'
+      - name: Build v42 Autopilot Studio
+        run: node scripts/build-goalos-signoff-public-labs-v22-v42.mjs
+      - name: Verify v42 Autopilot Studio
+        run: node scripts/verify-goalos-signoff-public-labs-v22-v42.mjs
+      - name: Preflight Pages artifact
+        run: |
+          test -f site/index.html
+          test -f site/goalos-autopilot-studio.html
+          test -f site/goalos-v22-v42-command-center.html
+          test -f site/goalos-v42-autopilot-knowledge.json
+          test -f site/.nojekyll
+          du -sh site
+      - name: Commit generated site files
+        if: ${{ inputs.commit_generated_site }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add site scripts config docs serverless verification .github/workflows/goalos-signoff-v42-autopilot-studio.yml || true
+          if git diff --cached --quiet; then
+            echo "No generated changes to commit."
+          else
+            git commit -m "Add GoalOS Universal Outcome Autopilot Studio v42 [skip ci]"
+            git push
+          fi
+      - name: Upload Pages artifact
+        if: ${{ inputs.deploy_pages }}
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+  deploy:
+    name: Deploy GitHub Pages
+    if: ${{ inputs.deploy_pages }}
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy Pages with extended timeout
+        id: deployment
+        uses: actions/deploy-pages@v4
+        with:
+          timeout: ${{ inputs.deploy_timeout_ms }}
