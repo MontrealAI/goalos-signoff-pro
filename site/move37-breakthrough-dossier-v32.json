@@ -1,6 +1,6 @@
 {
   "id": "GOALOS-V32-MOVE37-BREAKTHROUGH-DOSSIER",
-  "generatedAt": "2026-07-01T22:39:06.976Z",
+  "generatedAt": "2026-07-02T03:15:27.520Z",
   "definition": "A breakthrough candidate becomes an audited state transition, not a narrative claim.",
   "trigger": {
     "noveltyDistance": ">= 0.80 synthetic threshold",

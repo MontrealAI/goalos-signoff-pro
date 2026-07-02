@@ -1,7 +1,7 @@
 {
   "manifestId": "GOALOS-SIGNOFF-PRO-V31-EXECUTIVE-AI-PROOF-CONSOLE",
-  "artifactHash": "67ed12d610584b06ca705a1fc4240664f95a1f7575587281a8b0f4cc9c9e5241",
-  "generatedAt": "2026-07-01T22:39:06.909Z",
+  "artifactHash": "d5226c0a6cac01c4813ed2665e2cfd17a8eb93ec6d9a0cb98be91b14209ff5ef",
+  "generatedAt": "2026-07-02T03:15:27.459Z",
   "publicSafe": true,
   "zeroValueMoved": true,
   "scenarios": [
