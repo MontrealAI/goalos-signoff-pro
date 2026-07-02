@@ -1,0 +1,101 @@
+{
+  "flows": {
+    "Create brief": [
+      "AEPGoalOSCommitRegistry",
+      "JobRegistry",
+      "ProtocolConfigRegistry",
+      "LaunchGateRegistry"
+    ],
+    "Submit work": [
+      "AEPArtifactRegistry",
+      "AEPEvidenceDocketRegistry",
+      "AEPProofBundleRegistry",
+      "AEPClaimBoundaryRegistry",
+      "AEPRunCommitmentRegistry"
+    ],
+    "Review": [
+      "AEPAttestationRegistry",
+      "AEPEvalRegistry",
+      "ReviewerBondRegistry",
+      "AEPEvaluatorStakingRegistry",
+      "AEPConformanceRegistry"
+    ],
+    "Accept": [
+      "AEPSelectionGate",
+      "ProofCardRegistry",
+      "ProofCredentialRegistry",
+      "ProofSubmissionRegistry"
+    ],
+    "Remember": [
+      "ReputationRegistry",
+      "AEPChronicleRegistry",
+      "AEPProofLedger",
+      "AEPReplayRegistry",
+      "AlphaWorkUnitLedger"
+    ],
+    "Settle": [
+      "JobRegistry",
+      "ProofRewardsVault",
+      "AEPRewardVault",
+      "TreasuryRouter",
+      "CommercializationPerformanceVault"
+    ],
+    "Challenge": [
+      "AEPFalsificationRegistry",
+      "AEPSlashingCourt",
+      "DisputeRegistry",
+      "AppealRegistry",
+      "CredentialRevocationRegistry",
+      "AEPRollbackRegistry",
+      "AEPCommitRevealValidationRegistry"
+    ]
+  },
+  "tiers": {
+    "Signoff Basic": [],
+    "Signoff Verified": [
+      "AEPGoalOSCommitRegistry",
+      "AEPArtifactRegistry",
+      "AEPEvidenceDocketRegistry",
+      "AEPProofBundleRegistry",
+      "AEPProofLedger",
+      "ProofCardRegistry",
+      "ProofCredentialRegistry",
+      "AEPReplayRegistry"
+    ],
+    "Signoff Secured": [
+      "AEPGoalOSCommitRegistry",
+      "AEPArtifactRegistry",
+      "AEPEvidenceDocketRegistry",
+      "AEPProofBundleRegistry",
+      "AEPProofLedger",
+      "ProofCardRegistry",
+      "ProofCredentialRegistry",
+      "AEPReplayRegistry",
+      "ReviewerBondRegistry",
+      "AEPEvaluatorStakingRegistry",
+      "AEPAttestationRegistry",
+      "AEPSelectionGate",
+      "AEPClaimBoundaryRegistry",
+      "AEPSlashingCourt",
+      "AEPFalsificationRegistry",
+      "CredentialRevocationRegistry",
+      "AEPConformanceRegistry"
+    ],
+    "Signoff & Settle": [
+      "JobRegistry",
+      "ProofSubmissionRegistry",
+      "AEPRewardVault",
+      "ProofRewardsVault",
+      "TreasuryRouter",
+      "AlphaWorkUnitLedger",
+      "ReputationRegistry",
+      "DisputeRegistry",
+      "AppealRegistry",
+      "ReviewerBondRegistry",
+      "AEPSelectionGate",
+      "AEPProofBundleRegistry",
+      "AEPEvidenceDocketRegistry"
+    ]
+  },
+  "boundary": "This public UI is read-only and educational. It does not request wallets, move funds, approve tokens, broadcast transactions, provide legal/investment advice, or authorize production use."
+}

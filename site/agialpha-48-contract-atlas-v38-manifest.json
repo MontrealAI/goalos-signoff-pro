@@ -1,0 +1,33 @@
+{
+  "version": "v38",
+  "releaseFacts": {
+    "title": "GoalOS AGIALPHA Ascension v4.4.0 — Ethereum Mainnet Deployment",
+    "releaseUrl": "https://github.com/MontrealAI/goalos-agialpha-ascension/releases/tag/v4.4.0-mainnet-2026-06-21",
+    "network": "Ethereum Mainnet",
+    "chainId": 1,
+    "goalosCreatedContracts": 48,
+    "manifestEntries": 49,
+    "canonicalAgialpha": "0xA61a3B3a130a9c20768EEBF97E21515A6046a1fA",
+    "deploymentTransactions": 48,
+    "etherscanSourceVerification": "48 / 48 verified",
+    "verificationFailures": 0,
+    "phaseBConfigurationGrants": "14 / 14 active",
+    "finalPostdeploymentCheck": "PASSED",
+    "deploymentStatus": "CONFIGURED",
+    "solidityCompiler": "0.8.28",
+    "hardhatVerifier": "2.28.6",
+    "productionActivated": false,
+    "userFundAuthorization": false,
+    "externalAuditCompletion": false,
+    "claimBoundary": "This public UI is read-only and educational. It does not request wallets, move funds, approve tokens, broadcast transactions, provide legal/investment advice, or authorize production use."
+  },
+  "contracts": 48,
+  "externalAgialpha": {
+    "address": "0xA61a3B3a130a9c20768EEBF97E21515A6046a1fA",
+    "chainId": 1,
+    "classification": "external",
+    "etherscanUrl": "https://etherscan.io/address/0xA61a3B3a130a9c20768EEBF97E21515A6046a1fA",
+    "name": "AGIALPHA",
+    "verified": null
+  }
+}
