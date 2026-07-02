@@ -1,0 +1,23 @@
+GoalOS Signoff Pro v45 — GitHub Web UI install
+
+1. Download and unzip the v45 package.
+2. Open the unzipped folder.
+3. Go to the root of MontrealAI/goalos-signoff-pro on GitHub.
+4. Click Add file → Upload files.
+5. Drag the CONTENTS inside the unzipped folder into the repo root.
+6. Make sure these folders are included:
+   .github/
+   scripts/
+   config/
+   docs/
+   serverless/
+   verification/
+7. Commit to a new branch.
+8. Run: Actions → GoalOS Signoff Pro — Front-Center Command OS v45
+9. Recommended inputs:
+   commit_generated_site: true
+   deploy_pages: true
+   deploy_timeout_ms: 3600000
+
+Open after deployment:
+https://montrealai.github.io/goalos-signoff-pro/goalos-universal-command-center.html
