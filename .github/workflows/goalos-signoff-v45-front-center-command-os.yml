@@ -1,0 +1,100 @@
+name: GoalOS Signoff Pro — Front-Center Command OS v45
+
+on:
+  workflow_dispatch:
+    inputs:
+      commit_generated_site:
+        description: Commit generated site/ files back to the branch
+        type: boolean
+        required: true
+        default: true
+      deploy_pages:
+        description: Deploy to GitHub Pages after verification
+        type: boolean
+        required: true
+        default: true
+      deploy_timeout_ms:
+        description: GitHub Pages deploy polling timeout in milliseconds
+        type: string
+        required: true
+        default: '3600000'
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+env:
+  GOALOS_PUBLIC_SAFE: 'true'
+  GOALOS_ZERO_VALUE_MOVED: 'true'
+  GOALOS_NO_EXTERNAL_AI_CALLS: 'true'
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
+
+concurrency:
+  group: goalos-pages-deploy
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Build and verify v45 front-center command OS
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+      - name: Setup Node.js 24
+        uses: actions/setup-node@v5
+        with:
+          node-version: '24'
+      - name: Build v45 command OS
+        run: node scripts/build-goalos-front-center-command-os-v45.mjs
+      - name: Repair HTML boundary and command safety
+        run: node scripts/repair-goalos-v45-command-site-integrity.mjs
+      - name: Verify v45 command OS
+        run: node scripts/verify-goalos-front-center-command-os-v45.mjs
+      - name: Optional production site gate
+        run: |
+          if [ -f scripts/verify-goalos-production-site.mjs ]; then node scripts/verify-goalos-production-site.mjs; else echo "No production gate present"; fi
+      - name: Optional public-safe artifact gate
+        run: |
+          if [ -f scripts/verify-goalos-public-safe.mjs ]; then node scripts/verify-goalos-public-safe.mjs; else echo "No public-safe gate present"; fi
+      - name: Commit generated site files
+        if: ${{ inputs.commit_generated_site }}
+        run: |
+          git config user.name "goalos-autopilot"
+          git config user.email "goalos-autopilot@users.noreply.github.com"
+          git add site scripts config docs serverless verification .github/workflows
+          if git diff --cached --quiet; then
+            echo "No generated changes to commit."
+          else
+            git commit -m "Add GoalOS front-center universal command OS v45 [skip ci]"
+            git push
+          fi
+      - name: Configure GitHub Pages
+        if: ${{ inputs.deploy_pages }}
+        uses: actions/configure-pages@v5
+      - name: Prepare Pages artifact
+        if: ${{ inputs.deploy_pages }}
+        run: |
+          touch site/.nojekyll
+          test -f site/index.html
+          test -f site/goalos-universal-command-center.html
+          test -f site/all-pages.html
+      - name: Upload Pages artifact
+        if: ${{ inputs.deploy_pages }}
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: site
+  deploy:
+    name: Deploy GitHub Pages
+    needs: build
+    if: ${{ inputs.deploy_pages }}
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+        with:
+          timeout: ${{ inputs.deploy_timeout_ms }}
